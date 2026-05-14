@@ -1,0 +1,828 @@
+# 웹개발자 실전 Learnings — Next.js + Supabase
+> 기준일: 2026-05-12 | 스택: Next.js (App Router) + Supabase (@supabase/ssr)
+> 출처: GitHub 직접 수집 — vercel/next.js canary 브랜치 with-supabase 예제 (실전 검증 코드)
+
+---
+
+## 목차
+1. [프로젝트 구조](#1-프로젝트-구조)
+2. [Supabase 클라이언트 설정](#2-supabase-클라이언트-설정)
+3. [인증 처리 패턴](#3-인증-처리-패턴)
+4. [라우트 보호 — Middleware 패턴](#4-라우트-보호--middleware-패턴)
+5. [서버 컴포넌트에서 데이터 페칭](#5-서버-컴포넌트에서-데이터-페칭)
+6. [환경변수 안전 처리](#6-환경변수-안전-처리)
+7. [DSC FMS 적용 패턴](#7-dsc-fms-적용-패턴)
+8. [인라인 스타일 폼 컴포넌트 (인증 UI)](#8-인라인-스타일-폼-컴포넌트-인증-ui)
+9. [자주 실수하는 패턴 (주의사항)](#9-자주-실수하는-패턴-주의사항)
+
+---
+
+## 1. 프로젝트 구조
+
+```
+/app
+  /auth
+    /login/page.tsx       ← 로그인 페이지 (공개)
+    /sign-up/page.tsx     ← 회원가입 (공개)
+    /confirm/route.ts     ← 이메일 확인 콜백
+    /update-password/     ← 비밀번호 변경 (보호)
+  /protected/page.tsx     ← 인증 필요 페이지 예시
+  layout.tsx
+  page.tsx                ← 홈 (hasEnvVars로 분기)
+  globals.css
+
+/lib
+  /supabase
+    client.ts             ← 브라우저 클라이언트
+    server.ts             ← 서버 클라이언트 (쿠키 기반)
+    proxy.ts              ← middleware 세션 갱신 로직
+  utils.ts                ← hasEnvVars 등 유틸
+
+/components
+  login-form.tsx
+  auth-button.tsx         ← 로그인/로그아웃 버튼 (서버 컴포넌트)
+  env-var-warning.tsx     ← 환경변수 미설정 경고
+```
+
+---
+
+## 2. Supabase 클라이언트 설정
+
+### 브라우저 클라이언트 (`lib/supabase/client.ts`)
+> 출처: vercel/next.js canary — 실제 파일 내용 그대로
+
+```typescript
+// lib/supabase/client.ts
+// 클라이언트 컴포넌트('use client')에서만 사용
+import { createBrowserClient } from "@supabase/ssr";
+
+export function createClient() {
+  return createBrowserClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!,
+  );
+}
+```
+
+**중요 포인트:**
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY` 대신 `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` 사용 (최신 명칭)
+- 함수로 감싸서 매 호출마다 새 인스턴스 생성 — Fluid compute 대응
+- 전역 변수에 저장하지 말 것
+
+### 서버 클라이언트 (`lib/supabase/server.ts`)
+> 출처: vercel/next.js canary — 실제 파일 내용 그대로
+
+```typescript
+// lib/supabase/server.ts
+// Server Components, Route Handlers, Server Actions에서 사용
+import { createServerClient } from "@supabase/ssr";
+import { cookies } from "next/headers";
+
+/**
+ * Fluid compute 사용 시: 전역 변수에 저장하지 말 것.
+ * 함수 호출마다 새 클라이언트 생성.
+ */
+export async function createClient() {
+  const cookieStore = await cookies();
+
+  return createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!,
+    {
+      cookies: {
+        getAll() {
+          return cookieStore.getAll();
+        },
+        setAll(cookiesToSet) {
+          try {
+            cookiesToSet.forEach(({ name, value, options }) =>
+              cookieStore.set(name, value, options),
+            );
+          } catch {
+            // Server Component에서 setAll 호출 시 에러 무시 가능
+            // (proxy에서 세션 갱신하기 때문)
+          }
+        },
+      },
+    },
+  );
+}
+```
+
+**중요 포인트:**
+- `async function`임에 주의 — `await createClient()` 필수
+- `cookies()`도 await 필요 (Next.js 15+)
+- try-catch로 Server Component에서의 쿠키 쓰기 오류 무시
+
+---
+
+## 3. 인증 처리 패턴
+
+### 로그인 페이지 구조
+> 출처: vercel/next.js canary with-supabase 예제
+
+```typescript
+// app/auth/login/page.tsx — 실제 파일
+import { LoginForm } from "@/components/login-form";
+
+export default function Page() {
+  return (
+    <div style={{
+      display: 'flex',
+      minHeight: '100svh',   // svh: small viewport height (모바일 주소창 대응)
+      width: '100%',
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: '24px',
+    }}>
+      <div style={{ width: '100%', maxWidth: '384px' }}>  {/* max-w-sm = 384px */}
+        <LoginForm />
+      </div>
+    </div>
+  );
+}
+```
+
+**핵심 패턴:**
+- `min-h-svh` (small viewport height) 사용 — iOS Safari 하단 바 대응
+- 로그인 폼 자체는 별도 컴포넌트 분리 (`LoginForm`)
+- 중앙 정렬 래퍼만 페이지 담당
+
+### 보호된 페이지 — 서버에서 인증 확인
+> 출처: vercel/next.js canary `app/protected/page.tsx` 실제 코드
+
+```typescript
+// app/protected/page.tsx — Server Component 인증 체크 패턴
+import { redirect } from "next/navigation";
+import { createClient } from "@/lib/supabase/server";
+import { Suspense } from "react";
+
+// 비동기 서버 컴포넌트로 분리 — Suspense로 감싸기 위해
+async function UserDetails() {
+  const supabase = await createClient();
+  const { data, error } = await supabase.auth.getClaims();
+
+  if (error || !data?.claims) {
+    redirect("/auth/login");   // 미인증 → 로그인으로 리다이렉트
+  }
+
+  return JSON.stringify(data.claims, null, 2);
+}
+
+export default function ProtectedPage() {
+  return (
+    <div>
+      {/* Suspense로 비동기 인증 체크 감싸기 */}
+      <Suspense fallback={<span>확인 중...</span>}>
+        <UserDetails />
+      </Suspense>
+    </div>
+  );
+}
+```
+
+**핵심 패턴:**
+- `supabase.auth.getClaims()` 사용 (기존 `getUser()` 대신 최신 방식)
+- 비동기 서버 컴포넌트는 `<Suspense>`로 감쌀 것
+- 인증 실패 시 `redirect()` — 서버에서 처리하므로 클라이언트 노출 없음
+
+### 홈 페이지 — 환경변수 기반 조건부 렌더링
+> 출처: vercel/next.js canary `app/page.tsx` 실제 코드
+
+```typescript
+// app/page.tsx — 실제 파일 구조 (인라인 스타일 변환)
+import { AuthButton } from "@/components/auth-button";
+import { hasEnvVars } from "@/lib/utils";
+import Link from "next/link";
+import { Suspense } from "react";
+
+export default function Home() {
+  return (
+    <main style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <div style={{ flex: 1, width: '100%', display: 'flex', flexDirection: 'column', gap: '80px', alignItems: 'center' }}>
+
+        {/* 네비게이션 */}
+        <nav style={{ width: '100%', display: 'flex', justifyContent: 'center', borderBottom: '1px solid rgba(255,255,255,0.08)', height: '64px' }}>
+          <div style={{ width: '100%', maxWidth: '1024px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0 20px' }}>
+            <Link href="/" style={{ fontWeight: 600, color: '#f1f5f9', textDecoration: 'none' }}>
+              DSC FMS Portal
+            </Link>
+
+            {/* 환경변수 미설정 → 경고, 설정됨 → 인증 버튼 */}
+            {!hasEnvVars ? (
+              <span style={{ fontSize: '12px', color: '#f59e0b' }}>환경변수 미설정</span>
+            ) : (
+              <Suspense fallback={null}>
+                <AuthButton />
+              </Suspense>
+            )}
+          </div>
+        </nav>
+
+        {/* 메인 컨텐츠 */}
+        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '80px', maxWidth: '1024px', padding: '0 20px' }}>
+          {/* 히어로 / 대시보드 컨텐츠 */}
+        </div>
+
+        {/* 푸터 */}
+        <footer style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', borderTop: '1px solid rgba(255,255,255,0.08)', padding: '64px 0', fontSize: '12px', color: '#64748b' }}>
+          DSC FMS Portal — {new Date().getFullYear()}
+        </footer>
+      </div>
+    </main>
+  );
+}
+```
+
+---
+
+## 4. 라우트 보호 — Middleware 패턴
+
+> 출처: vercel/next.js canary `lib/supabase/proxy.ts` 실제 코드
+
+```typescript
+// middleware.ts (루트)
+import { updateSession } from "@/lib/supabase/proxy";
+import { NextRequest } from "next/server";
+
+export async function middleware(request: NextRequest) {
+  return await updateSession(request);
+}
+
+export const config = {
+  matcher: [
+    // 정적 파일, _next 제외하고 모든 경로
+    "/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)",
+  ],
+};
+```
+
+```typescript
+// lib/supabase/proxy.ts — 실제 파일 내용 (세션 갱신 + 라우트 보호)
+import { createServerClient } from "@supabase/ssr";
+import { NextResponse, type NextRequest } from "next/server";
+import { hasEnvVars } from "../utils";
+
+export async function updateSession(request: NextRequest) {
+  let supabaseResponse = NextResponse.next({ request });
+
+  // 환경변수 미설정 시 스킵
+  if (!hasEnvVars) {
+    return supabaseResponse;
+  }
+
+  const supabase = createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!,
+    {
+      cookies: {
+        getAll() { return request.cookies.getAll(); },
+        setAll(cookiesToSet) {
+          cookiesToSet.forEach(({ name, value }) =>
+            request.cookies.set(name, value),
+          );
+          supabaseResponse = NextResponse.next({ request });
+          cookiesToSet.forEach(({ name, value, options }) =>
+            supabaseResponse.cookies.set(name, value, options),
+          );
+        },
+      },
+    },
+  );
+
+  // ⚠️ 중요: createServerClient와 getClaims() 사이에 코드 추가 금지
+  // 사용자가 무작위로 로그아웃되는 버그 원인이 됨
+  const { data } = await supabase.auth.getClaims();
+  const user = data?.claims;
+
+  // 미인증 사용자를 로그인 페이지로 리다이렉트
+  if (
+    request.nextUrl.pathname !== "/" &&
+    !user &&
+    !request.nextUrl.pathname.startsWith("/login") &&
+    !request.nextUrl.pathname.startsWith("/auth")
+  ) {
+    const url = request.nextUrl.clone();
+    url.pathname = "/auth/login";
+    return NextResponse.redirect(url);
+  }
+
+  // ⚠️ 중요: 반드시 supabaseResponse를 그대로 반환
+  // NextResponse.next()를 새로 만들면 쿠키가 유실되어 세션 종료됨
+  return supabaseResponse;
+}
+```
+
+**Middleware 핵심 주의사항 3가지:**
+1. `createServerClient` 후 `getClaims()` 사이에 어떤 코드도 넣지 말 것
+2. 새 `NextResponse.next()`를 만들면 쿠키 유실 → 세션 강제 종료
+3. 새 Response 필요 시 반드시 `supabaseResponse.cookies.getAll()` 복사
+
+---
+
+## 5. 서버 컴포넌트에서 데이터 페칭
+
+### Supabase 데이터 페칭 기본 패턴
+
+```typescript
+// Server Component — Supabase 테이블 조회
+import { createClient } from "@/lib/supabase/server";
+
+export default async function ProductionPage() {
+  const supabase = await createClient();
+
+  // 인증 확인
+  const { data: authData, error: authError } = await supabase.auth.getClaims();
+  if (authError || !authData?.claims) {
+    redirect("/auth/login");
+  }
+
+  // 데이터 조회
+  const { data: productions, error } = await supabase
+    .from("productions")
+    .select("*")
+    .order("created_at", { ascending: false })
+    .limit(50);
+
+  if (error) {
+    console.error("데이터 조회 실패:", error.message);
+    return <div>데이터 로드 오류</div>;
+  }
+
+  return (
+    <div>
+      {productions?.map((item) => (
+        <div key={item.id} style={{ /* 카드 스타일 */ }}>
+          {item.product_name}
+        </div>
+      ))}
+    </div>
+  );
+}
+```
+
+### 실시간 구독 (클라이언트 컴포넌트)
+
+```typescript
+"use client";
+import { createClient } from "@/lib/supabase/client";
+import { useEffect, useState } from "react";
+
+export function LiveProductionTable() {
+  const [rows, setRows] = useState<any[]>([]);
+  const supabase = createClient();
+
+  useEffect(() => {
+    // 초기 데이터 로드
+    supabase
+      .from("productions")
+      .select("*")
+      .order("created_at", { ascending: false })
+      .limit(20)
+      .then(({ data }) => {
+        if (data) setRows(data);
+      });
+
+    // 실시간 구독
+    const channel = supabase
+      .channel("productions-live")
+      .on(
+        "postgres_changes",
+        { event: "*", schema: "public", table: "productions" },
+        (payload) => {
+          if (payload.eventType === "INSERT") {
+            setRows((prev) => [payload.new as any, ...prev.slice(0, 19)]);
+          } else if (payload.eventType === "UPDATE") {
+            setRows((prev) =>
+              prev.map((r) => (r.id === (payload.new as any).id ? payload.new : r))
+            );
+          } else if (payload.eventType === "DELETE") {
+            setRows((prev) => prev.filter((r) => r.id !== (payload.old as any).id));
+          }
+        }
+      )
+      .subscribe();
+
+    return () => { supabase.removeChannel(channel); };
+  }, []);
+
+  return (
+    <div>
+      {rows.map((row) => (
+        <div key={row.id}>{row.product_name} — {row.quantity}</div>
+      ))}
+    </div>
+  );
+}
+```
+
+### Server Actions (폼 제출)
+
+```typescript
+// app/actions.ts — Server Action으로 Supabase 쓰기
+"use server";
+import { createClient } from "@/lib/supabase/server";
+import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
+
+export async function submitDefectReport(formData: FormData) {
+  const supabase = await createClient();
+
+  // 인증 확인
+  const { data } = await supabase.auth.getClaims();
+  if (!data?.claims) {
+    redirect("/auth/login");
+  }
+
+  const { error } = await supabase.from("defect_reports").insert({
+    line_id: formData.get("line_id"),
+    defect_type: formData.get("defect_type"),
+    quantity: Number(formData.get("quantity")),
+    reported_by: data.claims.sub,  // user id
+    reported_at: new Date().toISOString(),
+  });
+
+  if (error) {
+    return { error: error.message };
+  }
+
+  revalidatePath("/defects");  // 해당 페이지 캐시 무효화
+  return { success: true };
+}
+```
+
+---
+
+## 6. 환경변수 안전 처리
+
+```typescript
+// lib/utils.ts — 환경변수 존재 여부 확인 (실전 패턴)
+export const hasEnvVars =
+  process.env.NEXT_PUBLIC_SUPABASE_URL &&
+  process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
+
+// .env.local 설정 (절대 git에 커밋 금지)
+// NEXT_PUBLIC_SUPABASE_URL=https://xxxx.supabase.co
+// NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=eyJhbGciO...  (구 ANON_KEY)
+```
+
+**환경변수 명칭 변경 주의:**
+- 구: `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+- 신: `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`
+- 2025년 이후 공식 예제는 `PUBLISHABLE_KEY` 사용
+
+---
+
+## 7. DSC FMS 적용 패턴
+
+### DSC 전용 Supabase 파일 구조
+
+```
+/lib
+  /supabase
+    client.ts          ← 브라우저용 (클라이언트 컴포넌트)
+    server.ts          ← 서버용 (Server Components, Actions)
+    proxy.ts           ← middleware 세션 갱신
+
+/app
+  /auth
+    /login/page.tsx    ← 로그인 (공개)
+    /logout/route.ts   ← 로그아웃 Route Handler
+  /(dashboard)         ← 보호된 레이아웃 그룹
+    layout.tsx         ← 인증 확인 레이아웃
+    /production/       ← 생산 현황
+    /defects/          ← 불량 관리
+    /maintenance/      ← 보전 관리
+    /inventory/        ← 재고 관리
+```
+
+### 보호된 레이아웃 그룹 패턴
+
+```typescript
+// app/(dashboard)/layout.tsx — 대시보드 공통 인증 확인
+import { redirect } from "next/navigation";
+import { createClient } from "@/lib/supabase/server";
+
+export default async function DashboardLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const supabase = await createClient();
+  const { data, error } = await supabase.auth.getClaims();
+
+  if (error || !data?.claims) {
+    redirect("/auth/login");
+  }
+
+  return (
+    <div style={{ display: 'flex', minHeight: '100vh', backgroundColor: '#0f172a' }}>
+      {/* 사이드바 */}
+      <aside style={{
+        width: '240px',
+        height: '100vh',
+        position: 'fixed',
+        backgroundColor: '#0f172a',
+        borderRight: '1px solid rgba(255,255,255,0.06)',
+      }}>
+        {/* 네비게이션 — design-system.md 섹션 9 참조 */}
+      </aside>
+
+      {/* 메인 컨텐츠 */}
+      <main style={{ marginLeft: '240px', flex: 1, padding: '24px' }}>
+        {children}
+      </main>
+    </div>
+  );
+}
+```
+
+### 로그아웃 Route Handler
+
+```typescript
+// app/auth/logout/route.ts
+import { createClient } from "@/lib/supabase/server";
+import { redirect } from "next/navigation";
+
+export async function POST() {
+  const supabase = await createClient();
+  await supabase.auth.signOut();
+  redirect("/auth/login");
+}
+
+// 사용: <form action="/auth/logout" method="POST"><button>로그아웃</button></form>
+```
+
+---
+
+## 8. 인라인 스타일 폼 컴포넌트 (인증 UI)
+
+### 로그인 폼 (DSC 다크 테마)
+
+```tsx
+"use client";
+import { createClient } from "@/lib/supabase/client";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+
+export function LoginForm() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const router = useRouter();
+
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setError(null);
+
+    const supabase = createClient();
+    const { error } = await supabase.auth.signInWithPassword({ email, password });
+
+    if (error) {
+      setError(error.message);
+      setLoading(false);
+      return;
+    }
+
+    router.push("/production");   // 로그인 후 대시보드로
+    router.refresh();             // 서버 컴포넌트 재렌더링 트리거
+  };
+
+  return (
+    <div style={{
+      backgroundColor: '#1e293b',
+      border: '1px solid rgba(255,255,255,0.08)',
+      borderRadius: '16px',
+      padding: '32px',
+      boxShadow: '0 24px 64px rgba(0,0,0,0.4)',
+    }}>
+      {/* 타이틀 */}
+      <div style={{ textAlign: 'center', marginBottom: '28px' }}>
+        <h1 style={{ fontSize: '24px', fontWeight: 700, color: '#f1f5f9', margin: 0 }}>
+          DSC FMS
+        </h1>
+        <p style={{ fontSize: '14px', color: '#64748b', marginTop: '6px' }}>
+          생산관리 포털 로그인
+        </p>
+      </div>
+
+      <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+        {/* 이메일 */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+          <label style={{ fontSize: '12px', fontWeight: 500, color: '#94a3b8', letterSpacing: '0.02em' }}>
+            이메일
+          </label>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="user@dsc.co.kr"
+            required
+            style={{
+              width: '100%',
+              backgroundColor: '#0f172a',
+              border: '1px solid rgba(255,255,255,0.10)',
+              borderRadius: '8px',
+              padding: '10px 14px',
+              fontSize: '14px',
+              color: '#f1f5f9',
+              outline: 'none',
+              boxSizing: 'border-box',
+            }}
+          />
+        </div>
+
+        {/* 비밀번호 */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+          <label style={{ fontSize: '12px', fontWeight: 500, color: '#94a3b8', letterSpacing: '0.02em' }}>
+            비밀번호
+          </label>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            style={{
+              width: '100%',
+              backgroundColor: '#0f172a',
+              border: '1px solid rgba(255,255,255,0.10)',
+              borderRadius: '8px',
+              padding: '10px 14px',
+              fontSize: '14px',
+              color: '#f1f5f9',
+              outline: 'none',
+              boxSizing: 'border-box',
+            }}
+          />
+        </div>
+
+        {/* 에러 메시지 */}
+        {error && (
+          <div style={{
+            backgroundColor: 'rgba(239,68,68,0.10)',
+            border: '1px solid rgba(239,68,68,0.25)',
+            borderRadius: '8px',
+            padding: '10px 12px',
+            fontSize: '13px',
+            color: '#ef4444',
+          }}>
+            {error}
+          </div>
+        )}
+
+        {/* 로그인 버튼 */}
+        <button
+          type="submit"
+          disabled={loading}
+          style={{
+            width: '100%',
+            background: loading ? 'rgba(239,68,68,0.5)' : 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)',
+            color: '#ffffff',
+            border: 'none',
+            borderRadius: '8px',
+            padding: '11px 0',
+            fontSize: '14px',
+            fontWeight: 600,
+            cursor: loading ? 'not-allowed' : 'pointer',
+            transition: 'opacity 200ms ease',
+            marginTop: '4px',
+          }}
+        >
+          {loading ? '로그인 중...' : '로그인'}
+        </button>
+      </form>
+    </div>
+  );
+}
+```
+
+---
+
+## 9. 자주 실수하는 패턴 (주의사항)
+
+### ❌ 잘못된 패턴 vs ✅ 올바른 패턴
+
+#### 1. 서버 클라이언트 await 누락
+
+```typescript
+// ❌ 잘못됨
+const supabase = createClient();           // Promise 반환 — 실제 클라이언트 아님
+
+// ✅ 올바름
+const supabase = await createClient();    // 서버 클라이언트는 반드시 await
+```
+
+#### 2. middleware에서 새 Response 반환
+
+```typescript
+// ❌ 잘못됨 — 쿠키 유실 → 사용자 로그아웃
+return NextResponse.redirect(url);  // 새 Response: 쿠키 없음
+
+// ✅ 올바름 — 기존 supabaseResponse 기반 리다이렉트
+const url = request.nextUrl.clone();
+url.pathname = "/auth/login";
+return NextResponse.redirect(url);
+// 단, 이 경우도 쿠키를 명시적으로 복사해야 함:
+// const redirectResponse = NextResponse.redirect(url);
+// supabaseResponse.cookies.getAll().forEach(c => redirectResponse.cookies.set(c));
+// return redirectResponse;
+```
+
+#### 3. 클라이언트에서 서버 함수 호출
+
+```typescript
+// ❌ 잘못됨 — 서버 전용 cookies() 를 클라이언트에서 호출
+"use client";
+import { createClient } from "@/lib/supabase/server";  // 클라이언트에서 서버 모듈 import ❌
+
+// ✅ 올바름 — 클라이언트 컴포넌트는 반드시 클라이언트 모듈
+"use client";
+import { createClient } from "@/lib/supabase/client";  // ✅
+```
+
+#### 4. router.push 후 서버 컴포넌트 미갱신
+
+```typescript
+// ❌ 잘못됨 — 로그인 후 서버 컴포넌트의 인증 상태가 갱신되지 않음
+router.push("/dashboard");
+
+// ✅ 올바름 — router.refresh()로 서버 컴포넌트 재렌더링 트리거
+router.push("/dashboard");
+router.refresh();
+```
+
+#### 5. getClaims vs getUser
+
+```typescript
+// ❌ 구식 (네트워크 요청 발생)
+const { data: { user } } = await supabase.auth.getUser();
+
+// ✅ 최신 (로컬 캐시 사용, 빠름)
+const { data } = await supabase.auth.getClaims();
+const user = data?.claims;
+// claims.sub = user id
+// claims.email = 이메일
+// claims.role = 역할
+```
+
+---
+
+## 참고 소스
+
+- [vercel/next.js canary — with-supabase 예제](https://github.com/vercel/next.js/tree/canary/examples/with-supabase) — 2026-05-12 직접 수집
+  - `lib/supabase/client.ts` — 브라우저 클라이언트
+  - `lib/supabase/server.ts` — 서버 클라이언트
+  - `lib/supabase/proxy.ts` — middleware 세션 갱신
+  - `app/protected/page.tsx` — 보호된 페이지 패턴
+  - `app/page.tsx` — hasEnvVars 조건부 렌더링
+- [@supabase/ssr 공식 문서](https://supabase.com/docs/guides/auth/server-side/nextjs)
+
+## 2026-05-12 — [YouTube] Next.js in 100 Seconds // Plus Full Beginner's Tut
+- Next.js 공식 문서: https://nextjs.org/ — 서버 사이드 렌더링 패턴 및 라우팅 구조 참고용
+- 입문용 소스코드: https://github.com/fireship-io/nextjs-basics — 기본 프로젝트 구조 레퍼런스로 활용 가능
+
+## 2026-05-12 21:38 — [인사이트] Supabase latest updates features
+**Supabase = Postgres + Auth + API + Realtime, 한 번에**
+
+우리 FMS 포털이 쓰는 Supabase는 Firebase 대안으로, PostgreSQL 기반 풀스택 BaaS다. BM 이벤트 실시간 구독, 설비 마스터 API, 로그인 인증까지 별도 서버 없이 운영 중. Supabase의 Edge Functions와 Vector 임베딩 기능은 향후 고장 예측 AI 연동에도 활용 가능하다. 🔧
+
+→ 적용 포인트: Realtime 구독으로 BM 발생 즉시 담당자 알림 자동화 가능
+
+## 2026-05-12 — [YouTube] 클로드 코드, 코덱스 스킬 관리 전략 왕초보 가이드
+- 여러 AI 에이전트(Claude Code, Codex, Cursor)에서 동일한 스킬/프롬프트 파일을 공유할 때, 각 에이전트별 설정 디렉토리에 복사본을 두지 말고 원본 하나를 두고 심볼릭 링크(symlink)로 연결하면 단일 소스를 유지할 수 있다.
+- 스킬 파일을 전역(`~/.claude/skills/` 등)과 지역(프로젝트 `.claude/skills/`) 두 레벨로 구분해 관리하면, 프로젝트별 오버라이드와 공통 재사용을 동시에 달성할 수 있다.
+
+## 2026-05-12 — [YouTube] 왕초보용 0부터 시작하는 하네스 엔지니어링 with 코덱스(코덱스 세팅까지)
+- `AGENTS.md`에 프로젝트 컨텍스트·규칙을 명문화하면 AI 에이전트가 자연어 지시를 일관되게 해석할 수 있어 Next.js/Supabase 프로젝트에서 반복 작업 자동화에 유용하다.
+- 스킬(Skill) + 훅(Hooks) 레이어를 분리해 설계하면 코드 생성 → 린트 → 테스트 → 배포 각 단계에 맞는 검증 로직을 주입할 수 있다 (Vercel 배포 파이프라인에 적용 가능).
+
+## 2026-05-12 — [YouTube] 바이브코딩계 GD가 공유한 CLAUDE.md 나눕니다
+- Andrej Karpathy가 정리한 CLAUDE.md(65줄)가 GitHub 스타 10만을 달성했으며, 원본과 한국어 환경 커스텀 버전 두 가지가 공개되어 있음 — Next.js/Supabase 프로젝트의 CLAUDE.md 작성 시 참고할 수 있는 실전 템플릿으로 활용 가치가 높음.
+- "AI는 코드를 너무 잘 짜는 게 문제"라는 핵심 전제 — FMS 포털처럼 기존 패턴과 일관성이 중요한 프로젝트일수록 CLAUDE.md에 금지 패턴(불필요한 추상화, 임의 리팩터링 등)을 명시해 AI의 과잉 구현을 제어하는 전략이 유효함.
+
+## 2026-05-13 — 오늘 업무 돌아보면서 개선하고 싶은 점 하나씩 얘기해볼까?
+- DB 스키마 설계 시 `asset_id` 등 마스터 데이터 컬럼에 check constraint나 enum 타입을 걸어 소스별 표기 불일치를 DB 레벨에서 원천 차단할 수 있다.
+- 글로사리 → DB 스키마 → UI 라벨을 단일 흐름으로 연결하면 번역·분석·UI 세 레이어가 동일한 참조원을 공유하게 되어 유지보수 비용이 줄어든다.
+
+## 2026-05-13 — [YouTube] 클로드코드 대박 신기능 Agent View | 멀티 에이전트 관리가 너무 쉽습니다
+- `claude agents` 명령어로 멀티 에이전트 세션을 단일 화면에서 관리 가능 — 병렬 작업(예: Supabase 마이그레이션 + UI 개발 동시 진행) 시 터미널 탭 전환 없이 운영 가능
+- `/bg` 명령어로 현재 세션을 백그라운드로 전환, Space로 요약 확인 후 즉시 응답 — 장시간 빌드/배포 작업을 백그라운드에 두고 다른 기능 개발 병행 가능
+- 디렉토리 기준 세션 분리 — 모노레포나 Next.js 프론트엔드 + 별도 서비스 디렉토리를 각각 독립 에이전트로 운영할 때 유용
+
+## 2026-05-13 — 인도 현장 엔지니어들이 공문서에서 자주 오해하는 표현이나 용어가 있어?
+- 보고서 폼의 드롭다운 옵션 레이블에 한국어 정의를 병기("Breakdown (가동 중단 동반)")하면 UI 한 줄로 글로사리 교육 효과를 동시에 달성할 수 있음
+- `event_type` 같은 필드는 `glossary` 테이블(`field_key: 'bm_event_type'`)에서 옵션 목록을 fetch하는 구조로 설계하면, 라벨 수정 시 DB 마이그레이션 없이 glossary 업데이트만으로 UI까지 반영 가능 (번역·분석·개발이 단일 참조원 공유)
+
+## 2026-05-13 — 우리 팀이 지금보다 더 잘 협업하려면 뭐가 바뀌어야 할까?
+- FMS 포털의 `event_type` 드롭다운 옵션이 현재 하드코딩되어 있으며, `glossary` 테이블을 Supabase에 생성하고 UI 라벨을 DB에서 fetch하는 구조로 전환하면 코드 수정 없이 용어 변경을 반영할 수 있음
+- `bm_event_type` 필드를 시작점으로 `field_key`, `label_ko`, `label_en`, `source_system` 컬럼 구조의 glossary 테이블을 설계하면 포털 UI, 분석 쿼리 카테고리, 번역 기준을 DB 업데이트 한 번으로 동기화 가능
+
+## 2026-05-13 — [YouTube] 코딩 몰라도 가능! 클로드(Claude)로 구축한 1인 기업 6배속 자동화 시스템 (비용 
+- Claude AI를 활용해 유료 플러그인(수백 달러) 대신 맞춤형 자동화 도구를 직접 제작하면 비용 절감과 워크플로 최적화를 동시에 달성할 수 있음 (Shopify, WordPress 등 플랫폼 연동 자동화 적용 가능)
+- 9개 국어 자동 번역 시스템 구축 사례는 i18n 파이프라인 설계 시 Claude API를 번역 엔진으로 활용하는 패턴으로 응용 가능 (Next.js `next-intl` + Claude API 조합)
+
+## 2026-05-14 — 웹 UI에서 현장 작업자들이 가장 헷갈려할 것 같은 부분이 어디야? 개선
+- `glossary` 테이블로 드롭다운 옵션을 DB에서 관리하면 UI 라벨·분석 카테고리·번역 기준이 한 번에 동기화되어 하드코딩 유지보수 부담을 없앨 수 있다.
+- BM 등록 폼에 **Progressive Disclosure** 패턴 적용 — 필수 필드만 먼저 노출하고 나머지는 "추가 정보" 섹션으로 접어두면 모바일 현장 작업자의 체감 복잡도가 줄어든다.

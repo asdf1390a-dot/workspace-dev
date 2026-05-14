@@ -1,0 +1,33 @@
+{
+  "discord_integration": {
+    "enabled": false,
+    "webhook_url": "YOUR_WEBHOOK_URL_HERE",
+    "channel_name": "#team-evaluation",
+    "message_format": "embed",
+    "reporting_schedule": {
+      "frequency": "weekly",
+      "day": "Monday",
+      "time": "09:30 KST",
+      "content": ["average_scores", "top_performers", "improvement_areas", "action_items"]
+    },
+    "setup_instructions": {
+      "step_1": "Discord 서버에서 #team-evaluation 채널 생성 (또는 기존 채널 선택)",
+      "step_2": "채널 설정 → 통합 → 웹훅 → 새 웹훅 생성",
+      "step_3": "웹훅 URL 복사",
+      "step_4": "이 파일의 webhook_url 필드에 URL 붙여넣기",
+      "step_5": "enabled를 true로 변경"
+    },
+    "webhook_payload_example": {
+      "content": "📊 **2026-05-21 팀 평가 결과**",
+      "embeds": [
+        {
+          "title": "주간 평균 점수",
+          "fields": [
+            {"name": "팀원명", "value": "품질/속도/소통/혁신/신뢰성 (평균)", "inline": false}
+          ]
+        }
+      ]
+    },
+    "status": "⏳ Webhook URL 대기 중"
+  }
+}
