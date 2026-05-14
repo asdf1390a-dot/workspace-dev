@@ -13,23 +13,21 @@
 #### 1. Team Status Dashboard 설계 검토 & 승인
 - **기한:** 2026-05-15 (내일, 개발 착수 전)
 - **상세:** 팀 현황판 대시보드 설계가 완료됨. 웹개발자가 개발을 시작하기 전에 설계 방향(기능, UI, API) 검토 후 승인 필요.
-- 📍**접속:** https://github.com/asdf1390a-dot/dsc-fms-portal/tree/main/docs
-- 📄**파일:** https://raw.githubusercontent.com/asdf1390a-dot/dsc-fms-portal/main/docs/TEAM_STATUS_SUMMARY.md
+- 📄**파일:** `/dsc-fms-portal/docs/TEAM_STATUS_DASHBOARD_DESIGN.md`
 - ⚙️**방법:** 
-  1) GitHub 링크 열기 → docs 폴더 내 위 파일들 확인
-  2) TEAM_STATUS_SUMMARY.md 읽고 주요 기능·기한 확인
-  3) 필요시 TEAM_STATUS_DASHBOARD_DESIGN.md의 와이어프레임·API 검토
+  1) 위 파일경로를 Claude Code에서 열기
+  2) 주요 기능·API 명세 확인
+  3) 와이어프레임 및 데이터모델 검토
   4) 승인 시 Telegram 리플라이로 "팀 현황판 설계 OK, 개발 시작" 이라고 말하기
 
 #### 2. Travel Management 설계 검토 & 승인
 - **기한:** 2026-05-15 (내일)
 - **상세:** 베트남 여행 관리 모듈 설계 완료. 호치민 출발(2026-05-15)을 앞두고 설계 검토 후 개발 스타트 필요.
-- 📍**접속:** https://github.com/asdf1390a-dot/dsc-fms-portal/blob/main/TRAVEL_MANAGEMENT_SUMMARY.md
-- 📄**파일:** https://raw.githubusercontent.com/asdf1390a-dot/dsc-fms-portal/main/TRAVEL_MANAGEMENT_SUMMARY.md
+- 📄**파일:** `/dsc-fms-portal/TRAVEL_MANAGEMENT_DESIGN.md`
 - ⚙️**방법:**
-  1) GitHub 링크 열기
-  2) TRAVEL_MANAGEMENT_SUMMARY.md 읽고 기능 확인
-  3) 여행 일정(2026-05-15 ~ 05-24), 기능 범위 검토
+  1) 위 파일경로를 Claude Code에서 열기
+  2) 주요 기능(일정, 비용, 체크리스트, 문서) 확인
+  3) API 명세 및 데이터모델 검토
   4) 승인 시 Telegram 리플라이로 "여행앱 설계 OK, 개발 시작" 이라고 말하기
 
 ### 🟡 이번 주 (High)
@@ -61,12 +59,14 @@
 #### 5. Backup App Phase 2 설계 검토 & 승인
 - **기한:** 2026-05-18 (금요일, 개발 착수 전)
 - **상세:** 백업 앱 Phase 2 설계 완료. 자동 백업, 저장소 할당량, 모니터링 기능 포함. 웹개발자가 개발(예상 완료 2026-06-03)을 시작하기 전에 설계 승인 필요.
-- 📍**접속:** https://github.com/asdf1390a-dot/dsc-fms-portal/blob/main/BACKUP_APP_PHASE2_SUMMARY.md
-- 📄**파일:** https://raw.githubusercontent.com/asdf1390a-dot/dsc-fms-portal/main/BACKUP_APP_PHASE2_SUMMARY.md
+- 📄**주파일:** `/dsc-fms-portal/BACKUP_APP_PHASE2_DESIGN.md`
+- 📄**참고파일:** 
+  - `/dsc-fms-portal/BACKUP_APP_PHASE2_API_GUIDE.md` (16개 API 엔드포인트)
+  - `/dsc-fms-portal/BACKUP_APP_PHASE2_SUMMARY.md` (요약 & 체크리스트)
 - ⚙️**방법:**
-  1) GitHub 링크 열기 (SUMMARY 문서)
+  1) 주파일(DESIGN.md)을 Claude Code에서 열기
   2) 핵심 설계 결정(자동화 일정·보관기간·저장소·알림) 확인
-  3) 필요시 DESIGN.md의 상세 내용, API_GUIDE.md의 16개 엔드포인트 검토
+  3) 필요시 API_GUIDE.md의 16개 엔드포인트, SUMMARY.md의 체크리스트 검토
   4) 승인 시 Telegram 리플라이로 "백업앱 Phase 2 설계 OK, 개발 시작" 이라고 말하기
 
 ### 🔵 다음 주 이후 (Medium/Low)
