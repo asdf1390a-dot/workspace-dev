@@ -4,7 +4,12 @@ description: 실시간 팀 작업 현황 추적 — 담당자, 진행률, 의존
 type: project
 ---
 
-# 중앙 작업 추적판 (CTB) — 2026-05-16 06:00 KST (Phase 1 초기화)
+# 중앙 작업 추적판 (CTB) — 2026-05-16 06:00 KST → Phase 7 추가 (2026-09-30 확장)
+
+**📌 중요 업데이트 (2026-05-16):**
+- **마스터 복원 플랜 확장:** Phase 1-6 (DSC FMS v1.0, 2026-05-16 ~ 06-27) + **Phase 7 (생태계 확장 Phase 2, 2026-07-01 ~ 09-30)**
+- Phase 7 상세 내용: MASTER_RECOVERY_PLAN_2026-05-16.md 참고
+- 생태계 비전: memory/project_ecosystem_vision.md 참고
 
 ## 🎯 Phase 1 (2026-05-16) 일일 체크포인트
 
