@@ -17,7 +17,7 @@ type: feedback
 
 ## 5대 진단 항목
 
-### 1️⃣ CTB 자동 갱신 미작동
+### 1️⃣ CTB (Central Task Board) 자동 갱신 미작동
 - ✅ 정의: 매일 09:00, 18:00 KST 자동 갱신
 - ❌ 실제: 수동으로만 갱신됨
 - **개선:** Cron job 연계 (기존 HEARTBEAT.md 활용)
