@@ -107,22 +107,69 @@ type: project
 
 ---
 
-### Phase 4: 2026-05-20~23 (월~목) — 신규 팀원 + Audit 개발
+### Phase 4: 2026-05-20~23 (월~목) — 신규 팀원 + Audit 개발 + 자동 정보 수집 시스템 (병렬)
 
 **병렬 진행:**
 1. **신규 팀원:** Day 3~7 (코드 리뷰 + failure_code 완성)
 2. **웹개발자:** Audit System 개발 (3일 집중)
 3. **평가자:** Backup Phase 2 UI 최종 검증 (05-21 완료 예정)
+4. **데이터분석가 + 비서:** 자동 정보 수집 에이전트 개발 (병렬, 05-20~23)
 
 **규칙:**
 - 신규 팀원: 매일 15:00 진도 리포트 (웹개발자에게)
 - 웹개발자: Audit 개발 중, 신규 팀원 코드 리뷰 병렬 (30분/일)
 - 평가자: 05-21 Backup 완료 후 Travel Phase 2 사전 검증 시작
+- 데이터분석가: 정보 수집 에이전트 개발 (GitHub API, Product Hunt, Dev.to, npm Trends)
 
 **산출물:**
 - failure_code 드롭다운 UI 완성 (2026-05-20)
 - Audit System API + Cron 완성 (2026-05-22)
 - Backup Phase 2 최종 배포 가능 (2026-05-21)
+- 정보 수집 에이전트 (Step 1 완성) (2026-05-23)
+
+---
+
+### Phase 4.5: 2026-05-23~06-03 (목~일) — 자동 정보 수집 시스템 완성 + 평가 기준 동적화
+
+**목표:** CEO 마인드 강화 시스템 완전 자동화  
+**담당:** 데이터분석가 (에이전트) + 평가자 (필터링) + 비서 (운영)
+
+**3단계 실행:**
+
+**Step 1: 정보 수집 에이전트 (완성 예정: 2026-05-23)**
+- [ ] 사전 구현: GitHub Trending API (최근 1주일 상승)
+- [ ] Product Hunt API (주간 Top 10)
+- [ ] Dev.to API (주간 인기글)
+- [ ] npm Trends (상승세 라이브러리)
+
+**Step 2: AI 필터링 & 역할별 배포 (2026-05-27~06-03)**
+- [ ] 역할별 필터링 로직 (웹개발자/평가자/데이터분석가/번역가/플레너)
+- [ ] Telegram 자동 배포 API 연결
+- [ ] CEO 마인드 강화 요약 추가 ("왜 중요한가" + "우리가 어떻게 쓸까")
+
+**Step 3: 평가 기준 동적화 (매월 15일, 첫 실행 2026-05-15)**
+- [x] 평가 기준 동적 시스템 설계 (ASSESSMENT_CRITERIA_DYNAMIC_SYSTEM.md)
+- [ ] 2026-05-15 외부 기준 수집 (비서)
+- [ ] 2026-05-15 기술 속도 분석 (데이터분석가)
+- [ ] 2026-05-15 팀 상의 (Discord)
+- [ ] 2026-05-15 신규 기준 확정 (비서)
+- [ ] 2026-05-22: 1주일 적응 기간 완료 → 전면 적용
+
+**규칙:**
+- 매주 일요일 18:00: 자동 정보 수집 (Step 1)
+- 매주 월요일 07:00: AI 필터링 (Step 2)
+- 매주 월요일 09:00: 역할별 배포 (Step 2)
+- 매월 15일: 평가 기준 동적 업데이트 (Step 3)
+
+**산출물:**
+- 정보 수집 에이전트 (Python/Node.js 스크립트)
+- Telegram 배포 봇 (실제 정보 전송, 리마인더 아님)
+- ASSESSMENT_CRITERIA_202605.md (첫 기준)
+- ASSESSMENT_CRITERIA_202606.md (2차, 2026-06-15)
+
+---
+
+### Phase 5: 2026-05-23~06-12 (금~수) — 포트폴리오 Career 개발 (+ 자동 정보 시스템 운영)
 
 ---
 
@@ -163,9 +210,160 @@ type: project
 
 ---
 
-## 📅 종합 일정표 (2026-05-16 ~ 2026-06-27)
+### Phase 7: 2026-07-01 ~ 2026-09-30 — 생태계 확장 Phase 2 (병렬 개발)
+
+**목표:** DSC FMS v1.0 완성 후 다중 팀/프로젝트/지역 확장 기초 구축  
+**전략:** Data Platform + Mobile Field App 병렬 개발  
+**참고:** 생태계 비전 문서 — [project_ecosystem_vision.md](memory/project_ecosystem_vision.md)
+
+---
+
+#### Phase 7-1: 2026-07-01~31 (월~수) — Data Platform 준비 + Mobile App 아키텍처
+
+**담당:** 
+- 데이터분석가 (Data Platform 설계 + 프로토타입)
+- 웹개발자 (Mobile App 아키텍처)
+- 평가자 (User 체험 설계)
+
+**Data Platform (타겟: Mannur 공장 분석 + 경영진 리포팅)**
+
+**기술 스택:**
+- Supabase: 분석용 View + 실시간 데이터 파이프라인
+- Python: 데이터 분석 + 예측 모델 (오류율 예측, 생산량 최적화)
+- Metabase/Superset: 드래그앤드롭 BI 대시보드
+
+**일정:**
+- 2026-07-01~10: Data Pipeline 설계 (GitHub Issues/API 통합)
+- 2026-07-11~17: Metabase 대시보드 템플릿 설계 (KPI 대시보드, 실시간 모니터링)
+- 2026-07-18~24: Python 예측 모델 스캐폴딩 (Linear Regression, Anomaly Detection)
+- 2026-07-25~31: 플레너 리뷰 + 팀 의견 수렴
+
+**산출물:**
+- DATA_PLATFORM_DESIGN.md (아키텍처 + 기술 결정)
+- Metabase 템플릿 3개 (일일 리포트, 주간 요약, 이상 탐지)
+- Python 모듈 (forecasting.py, anomaly_detection.py)
+
+**Mobile Field App (타겟: 현장 작업자, 오프라인-우선 설계)**
+
+**기술 스택:**
+- React Native or Flutter (선택은 팀 의견 수렴)
+- Offline-first: WatermelonDB 또는 SQLite
+- Sync: Supabase Realtime + queue 기반 배치
+
+**일정:**
+- 2026-07-01~07: React Native vs Flutter 기술 검토 + 선택
+- 2026-07-08~14: 앱 아키텍처 설계 (Offline sync, 사진/영상 저장, 위치 추적)
+- 2026-07-15~21: 컴포넌트 구조 설계 (작업 목록, 작업 상세, 입력 폼, 카메라 UI)
+- 2026-07-22~31: 평가자 리뷰 + 개발 착수 준비
+
+**산출물:**
+- MOBILE_APP_ARCHITECTURE.md (오프라인 동기화 전략)
+- UI/UX 피그마 목업 (5개 핵심 화면)
+- 기술 스택 검토서 (React Native vs Flutter 비교표)
+
+---
+
+#### Phase 7-2: 2026-08-01~31 (목~금) — Data Platform 개발 (Week 1~4)
+
+**담당:** 데이터분석가 + 평가자 (QA)  
+**기간:** 4주
+
+**Sprint 1 (2026-08-01~07): Data Pipeline + Metabase 기본**
+- Supabase View 구현 (공장 KPI 데이터 정규화)
+- Metabase 초기 대시보드 5개 (생산 현황, 불량률, 설비 점검, 에너지 소비, 원가 분석)
+- 실시간 데이터 Refresh 설정
+
+**Sprint 2 (2026-08-08~14): 예측 모델 + 이상 탐지**
+- Python 모듈 배포 (AWS Lambda 또는 Supabase Functions)
+- 생산 오류율 예측 모델 (정확도 목표 85%)
+- 설비 이상 탐지 (알림 임계값 설정)
+
+**Sprint 3 (2026-08-15~21): 경영진 리포팅 + 조직화**
+- 주간/월간 자동 리포트 (PDF + Telegram)
+- 성과 대시보드 (KPI 추적, 월 대비 분석)
+- 역할별 액세스 제어 (CEO/공장장/팀장별 필터링)
+
+**Sprint 4 (2026-08-22~31): QA + 배포 준비**
+- 평가자: 3회 검증 (데이터 정확성, UI/UX, 성능)
+- Metabase → Vercel 배포 (또는 별도 서버)
+- 문서화 + 운영 매뉴얼
+
+**규칙:**
+- 매일 15:00 데이터분석가 진도 리포트
+- 매주 월요일: 팀 데이터 리뷰 (정확성 검증)
+
+---
+
+#### Phase 7-3: 2026-08-01~31 (동시 진행) — Mobile Field App 개발 (Week 1~4)
+
+**담당:** 웹개발자 + 신규 팀원  
+**기간:** 4주 (Data Platform과 병렬)
+
+**Sprint 1 (2026-08-01~07): Offline Sync + Core UI**
+- React Native/Flutter 프로젝트 초기화
+- WatermelonDB/SQLite 스키마 (작업, 입력, 미디어)
+- 작업 목록 화면 (CRUD)
+
+**Sprint 2 (2026-08-08~14): 폼 입력 + 미디어 캡처**
+- 작업 상세 입력 폼 (필드 제목, 체크박스, 사진 업로드)
+- 카메라 + 갤러리 통합
+- 위치 정보 자동 캡처
+
+**Sprint 3 (2026-08-15~21): Sync + 알림**
+- Supabase Realtime 동기화 구현
+- 오프라인 큐 관리 (온라인 복구 시 자동 전송)
+- Push 알림 (새 작업, 피드백, 완료 확인)
+
+**Sprint 4 (2026-08-22~31): 테스트 + 배포**
+- 평가자: iOS + Android 단말 검증 (오프라인, 사진, 동기화)
+- App Store + Google Play 배포 준비
+- 초기 사용자 피드백 수집
+
+**규칙:**
+- 매일 15:00 웹개발자 진도 리포트
+- 신규 팀원: 매일 14:00 리포트
+
+---
+
+#### Phase 7-4: 2026-09-01~15 (월~월) — 생태계 통합 설계 + 팀 확대
+
+**목표:** Data Platform + Mobile App 통합 + 다중 팀 구조 설계
+
+**담당:** 플레너 + 비서
+
+**일정:**
+- 2026-09-01~05: Auto Info Collection 시스템 → 다중 팀/프로젝트 확장 설계
+- 2026-09-05~10: Dynamic Assessment Criteria → 생태계 통합 평가 프레임워크 설계
+- 2026-09-10~15: 다중 공장 온보딩 프로세스 + 팀 구조 설계
+
+**산출물:**
+- ECOSYSTEM_MULTI_TENANT_DESIGN.md (전체 아키텍처 통합)
+- AUTO_INFO_MULTI_PROJECT_DESIGN.md (자동 정보 수집 → 다중 팀 배포)
+- ASSESSMENT_CRITERIA_ECOSYSTEM_FRAMEWORK.md (통합 평가 기준 프레임워크)
+- TEAM_EXPANSION_ROADMAP.md (향후 12개월 팀 확대 계획)
+
+---
+
+#### Phase 7-5: 2026-09-16~30 (화~목) — Mobile App 한국어화 + 인도 현지화
+
+**담당:** 번역가 + 평가자
+
+**일정:**
+- 2026-09-16~20: 앱 UI 전체 한국어 번역 + 인도 영어/힌디어 검토
+- 2026-09-21~25: 문화적 맥락 적용 (UI 이모지, 색상, 레이아웃)
+- 2026-09-26~30: 최종 검증 + 배포
+
+**산출물:**
+- Mobile App 다국어 지원 (KO, EN, HI)
+- 현지화 가이드 문서
+
+---
+
+## 📅 종합 일정표 (2026-05-16 ~ 2026-09-30)
 
 ```
+=== Phase 1-6: DSC FMS v1.0 완성 (2026-05-16 ~ 2026-06-27) ===
+
 05-16 (금)  ├─ CTB 갱신 시작 (일일 4회)
             ├─ Asset Master P2 Day 1 (웹개발자 09:00)
             └─ Backup P2 UI 검증 계속
@@ -211,6 +409,54 @@ type: project
 06-12 (수)  └─ 포트폴리오 Career 배포 완료 ✅
 
 06-27 (목)  └─ Travel Phase 2 개발 완료 ✅
+            └─ DSC FMS v1.0 최종 완성 🎯
+
+=== Phase 7: 생태계 확장 Phase 2 (2026-07-01 ~ 2026-09-30) ===
+
+07-01 (화)  ├─ Data Platform 설계 Phase 시작 (데이터분석가)
+            ├─ Mobile App 아키텍처 설계 시작 (웹개발자)
+            └─ Ecosystem vision review (플레너)
+
+07-10 (목)  ├─ Data Pipeline 설계 완료
+            └─ Mobile App 기술 선택 (React Native vs Flutter)
+
+07-17 (목)  ├─ Metabase 대시보드 템플릿 설계 완료
+            └─ Mobile App 아키텍처 설계 완료
+
+07-24 (목)  ├─ Python 예측 모델 스캐폴딩 완료
+            └─ 플레너: 팀 의견 수렴 시작
+
+07-31 (목)  ├─ Phase 7-1 설계 Phase 완료 ✅
+            └─ Phase 7-2 & 7-3 개발 Phase 시작
+
+08-01 (금)  ├─ Data Platform 개발 Week 1 시작 (데이터분석가)
+            ├─ Mobile Field App 개발 Week 1 시작 (웹개발자 + 신규 팀원)
+            └─ 병렬 개발: 4주 집중
+
+08-08 (금)  ├─ Data Platform Sprint 2: 예측 모델 개발 진행
+            └─ Mobile App Sprint 2: 폼 입력 + 미디어 캡처
+
+08-15 (금)  ├─ Data Platform Sprint 3: 경영진 리포팅
+            └─ Mobile App Sprint 3: Sync + 알림
+
+08-22 (금)  ├─ Data Platform Sprint 4: QA + 배포 준비
+            └─ Mobile App Sprint 4: 테스트 + 배포 준비
+
+08-31 (일)  ├─ Data Platform 베타 배포 완료 ✅
+            └─ Mobile Field App v1.0 배포 완료 ✅
+            
+09-01 (월)  ├─ Phase 7-4 시작: 생태계 통합 설계 (플레너)
+            ├─ Auto Info Collection 다중 팀 확장 설계
+            └─ Dynamic Assessment Criteria 통합 프레임워크 설계
+
+09-15 (월)  ├─ Phase 7-4 완료 ✅
+            └─ 생태계 통합 아키텍처 확정
+
+09-16 (화)  ├─ Phase 7-5 시작: Mobile App 다국어화 (번역가)
+            └─ 한국어 + 인도 현지화
+
+09-30 (화)  ├─ Phase 7 전체 완료 ✅
+            └─ 생태계 확장 Phase 2 최종 배포 🎯
 ```
 
 ---

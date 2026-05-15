@@ -1,5 +1,10 @@
 # 메모리 인덱스 (MEMORY.md)
-**Last Updated:** 2026-05-15 14:22 KST
+**Last Updated:** 2026-05-16 03:41 KST
+
+## 🚀 생태계 비전 (Critical)
+- [Ecosystem Vision](project_ecosystem_vision.md) — DSC FMS v1.0 → 다중공장/프로젝트/지역 확장 (2026-05-16 03:41)
+
+---
 
 ## 프로젝트 문서 (Project Context)
 
@@ -72,8 +77,8 @@
 
 ---
 
-## ⭐ 마스터 복원 플랜 (2026-05-16)
-- [MASTER_RECOVERY_PLAN_2026-05-16.md](../MASTER_RECOVERY_PLAN_2026-05-16.md) — 6개 Phase, 전체 일정 통합 (2026-05-16 ~ 2026-06-27)
+## ⭐ 마스터 복원 플랜 (2026-05-16 ~ 2026-09-30)
+- [MASTER_RECOVERY_PLAN_2026-05-16.md](../MASTER_RECOVERY_PLAN_2026-05-16.md) — Phase 1-6: DSC FMS v1.0 (2026-05-16 ~ 06-27) + Phase 7: 생태계 확장 Data Platform + Mobile App (2026-07-01 ~ 09-30)
 
 ---
 
