@@ -230,3 +230,5 @@ type: reference
   - https://www.infoq.com (아키텍처)
   - https://www.smashingmagazine.com (설계)
 ```
+| 2026-05-16 | [아직도 챗GPT가 클로드 못따라오는 이유 | 클로드 쓴다면 무조건 써보세요](https://youtu.be/ftSuL1KPMCc?si=TnJyhpAYlG0fI2ll) | 소소한 AI 입문노트 | 소에노 | 9분 | `웹개발` |
+| 2026-05-16 | [클로드 쓴다면 당장 이거 써보세요 | 클로드 코워크 15분만에 마스터하기 (비 개발자도 클릭 한 번으로 가능합니다)](https://youtu.be/HFcVTALckhw?si=ZVsH0oOkr5G9MkWT) | 소소한 AI 입문노트 | 소에노 | 14분 | `웹개발` |
