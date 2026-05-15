@@ -39,8 +39,48 @@ type: project
 - 웹개발자/평가자: learnings 파일 ✅ 활성
 - 데이터분석가/번역가/플레너: learnings 파일 📝 생성 필요
 - 팀 자산: design-system.md, manufacturing-glossary.md ✅ 존재
+- 외부 학습 자료: youtube-library.md ✅ 확장 완료 (GitHub+Product Hunt+Dev.to+npm+기술블로그)
 - Discord #역량개발 채널: 📝 생성 필요
+- 주간 큐레이션 Cron: ✅ 등록 (매주 월요일 09:00)
+- 월간 신기술 선별 Cron: ✅ 등록 (매월 1일 09:00)
+
+## 외부 학습 자료 통합 (2026-05-15 확장)
+- **GitHub Trending Repositories** (역할별 12개 추천)
+  - 웹개발자: Next.js, Supabase, shadcn/ui, React Query, Auth0
+  - 평가자: Testing Library, Cypress, Playwright
+  - 데이터분석가: Pandas, Plotly, Apache Superset
+  - 자동화전문가: Celery, APScheduler, Prefect
+  
+- **Product Hunt 신규 도구** (매주 갱신)
+  - 개발자 도구: Cursor, v0, Replit
+  - 자동화: Make, Zapier
+  - 데이터: Metabase, Retool
+
+- **Dev.to & Medium 기술 블로그** (주제별)
+  - 웹개발: Next.js App Router, Supabase RLS, React 성능 최적화
+  - 테스트: 자동화 전략, E2E 테스트
+  - 데이터: Python 분석, SQL 최적화
+
+- **npm Trending Packages** (npmtrends.com)
+  - 라이브러리 선택 및 비교
+  - 의존성 업데이트 참고
+
+- **기술 블로그 정기 방문**
+  - CSS-Tricks (웹개발)
+  - LogRocket (성능/디버깅)
+  - Smashing Magazine (설계/UX)
+  - Towards Data Science (ML/AI)
+  - HackerNews (기술뉴스)
+
+## 주간 학습 루틴 (Module 3 보강)
+- **웹개발자**: GitHub Trending 3개 + npm trends 1개 검토 (주 30분)
+- **평가자**: Product Hunt 테스트 도구 2개 확인 (주 20분)
+- **데이터분석가**: Dev.to 데이터 분석 글 1개 읽기 (주 30분)
+- **번역가**: Medium 기술 글 1개 한영 번역 (주 40분)
+- **플레너**: CSS-Tricks/Smashing Magazine 아키텍처 글 (주 30분)
 
 ## 문서
-- [설계 전문:** `TEAM_COMPETENCY_DEVELOPMENT_FRAMEWORK.md` (완성)
-- **팀 피드백:** 대기 중 (2026-05-16~20)
+- **설계:** `TEAM_COMPETENCY_DEVELOPMENT_FRAMEWORK.md` (완성)
+- **팀 피드백:** 수렴 중 (2026-05-16~20)
+- **학습 자료:** `skills/youtube-library.md` (확장 완료 2026-05-15)
+- **CTB 추적:** Task 8 "외부 정보 통합 & 주간 큐레이션" (진행 중)

@@ -1,10 +1,17 @@
 ---
-name: YouTube 학습 라이브러리
-description: 유저가 저장한 YouTube 영상 목록 및 분석 결과
+name: 팀 학습 자료 라이브러리
+description: YouTube, GitHub, Product Hunt, Dev.to, npm trends 등 역할별 외부 학습 자료 통합 관리
 type: reference
 ---
 
-# YouTube 학습 라이브러리
+# 팀 학습 자료 라이브러리
+
+**마지막 업데이트:** 2026-05-15 | **관리자:** 비서  
+**목적:** 각 팀원이 역할에 맞는 외부 학습 자료를 체계적으로 접근할 수 있도록 구성
+
+---
+
+## 📖 YouTube 학습 라이브러리
 
 | 날짜 | 제목 | 채널 | 길이 | 태그 |
 |------|------|------|------|------|
@@ -23,3 +30,168 @@ type: reference
 | 2026-05-15 | [400시간 만에 알게 된 Claude Code의 진짜 핵심 도구 6개](https://youtu.be/BZPaZzjLIOY?si=b4x3BsJX1qh3EFY4) | 메이커 에반 | Maker Evan | 9분 | `웹개발` `설계` |
 | 2026-05-15 | [Codex의 이 기능은 반드시 쓰셔야 합니다 (/goal 마스터코스)](https://youtu.be/vq37BMhoesQ?si=X_pyhWdNWvnf2Vu7) | castlestudio | 26분 | `웹개발` |
 | 2026-05-15 | [PPT·캔바, 이제 '클로드'가 다 합니다! | 실무에 바로 쓰는 실전 예제 7가지 (최신 가이드)](https://youtu.be/VnMAgSd0BUg?si=4ejB6D783T8U6D3D) | 오빠두엑셀 l 엑셀 강의 대표채널 | 56분 | `웹개발` `설계` |
+
+---
+
+## 💻 GitHub Trending Repositories
+
+역할별 추천 저장소 (매주 갱신 권장):
+
+### 웹개발자 (Web Developer)
+- **Vercel/Next.js** | https://github.com/vercel/next.js | React 프레임워크, App Router 최신 기능
+- **supabase/supabase** | https://github.com/supabase/supabase | Postgres 백엔드, RLS 정책 예제
+- **shadcn/ui** | https://github.com/shadcn-ui/ui | Next.js 컴포넌트 라이브러리
+- **TanStack/react-query** | https://github.com/TanStack/query | 데이터 페칭 및 캐싱
+- **Auth0/nextjs-auth0** | https://github.com/auth0/nextjs-auth0 | Next.js 인증 시스템
+
+### 평가자 (QA Evaluator)
+- **testing-library/react-testing-library** | https://github.com/testing-library/react-testing-library | UI 테스트 프레임워크
+- **cypress-io/cypress** | https://github.com/cypress-io/cypress | E2E 테스트 자동화
+- **microsoft/playwright** | https://github.com/microsoft/playwright | 크로스브라우저 테스트
+
+### 데이터분석가 (Data Analyst)
+- **pandas-dev/pandas** | https://github.com/pandas-dev/pandas | 데이터 분석 라이브러리
+- **plotly/plotly.py** | https://github.com/plotly/plotly.py | 대시보드 및 차트
+- **apache/superset** | https://github.com/apache/superset | 데이터 시각화 플랫폼
+
+### 자동화 전문가 (Automation Engineer) - 2026-05-20 입사
+- **celery/celery** | https://github.com/celery/celery | 태스크 스케줄링 및 자동화
+- **apscheduler/apscheduler** | https://github.com/apscheduler/apscheduler | 고급 스케줄러
+- **prefect-io/prefect** | https://github.com/prefect-io/prefect | 데이터 파이프라인 오케스트레이션
+
+---
+
+## 🚀 Product Hunt - 최신 도구 & 서비스
+
+새로운 개발 도구, 자동화 솔루션, 분석 플랫폼 발견:
+
+### 개발자 도구
+- **[Cursor](https://www.producthunt.com/posts/cursor)** | AI 코드 에디터
+- **[v0](https://www.producthunt.com/posts/v0-by-vercel)** | AI 컴포넌트 생성 도구
+- **[Replit](https://www.producthunt.com/posts/replit)** | 클라우드 IDE
+
+### 자동화 & 워크플로우
+- **[Make](https://www.producthunt.com/posts/make)** | No-code 자동화 플랫폼
+- **[Zapier](https://www.producthunt.com/posts/zapier-2)** | 앱 연동 자동화
+
+### 데이터 & 분석
+- **[Metabase](https://www.producthunt.com/posts/metabase)** | BI 대시보드
+- **[Retool](https://www.producthunt.com/posts/retool)** | 내부 도구 빌더
+
+**방문처:** https://www.producthunt.com/ (매일 새로운 도구 발견)
+
+---
+
+## 📚 Dev.to & Medium 기술 블로그
+
+심화 학습 및 실무 팁:
+
+### 웹 개발
+- **Next.js App Router 마이그레이션** | Dev.to 검색: `next.js app router`
+- **Supabase RLS 베스트 프랙티스** | https://supabase.com/blog
+- **React 성능 최적화** | Medium 검색: `React performance optimization`
+- **TypeScript 고급 기법** | Dev.to 검색: `typescript advanced patterns`
+
+### 테스트 & QA
+- **테스트 자동화 전략** | Dev.to 검색: `testing automation strategy`
+- **E2E 테스트 베스트 프랙티스** | https://www.cypress.io/blog
+
+### 데이터 분석
+- **Python 데이터 분석** | Medium 검색: `Python data analysis`
+- **SQL 최적화** | Dev.to 검색: `SQL performance optimization`
+
+**구독 권장 태그:**
+- `#webdevelopment` `#nextjs` `#react` `#testing` `#dataanalysis` `#automation`
+
+---
+
+## 📦 npm Trending Packages
+
+라이브러리 선택 및 의존성 업데이트 참고:
+
+### Next.js 에코시스템
+- **https://www.npmtrends.com/** → `next` + `react` + `typescript` 비교
+- **https://www.npmtrends.com/supabase-js** → Supabase 클라이언트
+- **https://www.npmtrends.com/next-auth** → 인증 라이브러리 비교
+
+### 데이터 & 분석
+- **https://www.npmtrends.com/axios-vs-fetch** → HTTP 클라이언트 비교
+- **https://www.npmtrends.com/date-fns-vs-moment** → 날짜 라이브러리
+
+### 테스트 도구
+- **https://www.npmtrends.com/jest-vs-vitest** → 테스트 프레임워크 비교
+
+---
+
+## 🎨 기술 블로그 & 커뮤니티
+
+정기 방문 권장 (주 1~2회):
+
+### 웹 개발
+| 사이트 | URL | 특징 |
+|--------|-----|------|
+| **CSS-Tricks** | https://css-tricks.com | CSS, React 고급 기법 |
+| **LogRocket** | https://blog.logrocket.com | 웹 성능, 디버깅 |
+| **Smashing Magazine** | https://www.smashingmagazine.com | 설계, UX 심화 |
+| **Dev.to** | https://dev.to | 커뮤니티 기사 모음 |
+| **Hacker News** | https://news.ycombinator.com | 기술 뉴스 |
+
+### 데이터 & 분석
+| 사이트 | URL | 특징 |
+|--------|-----|------|
+| **Towards Data Science** | https://towardsdatascience.com | ML/AI 심화 |
+| **Analytics Vidhya** | https://www.analyticsvidhya.com | 데이터 과학 튜토리얼 |
+
+### 자동화 & DevOps
+| 사이트 | URL | 특징 |
+|--------|-----|------|
+| **DZone** | https://dzone.com | DevOps, CI/CD |
+| **InfoQ** | https://www.infoq.com | 아키텍처 트렌드 |
+
+---
+
+## 📅 주간 학습 큐레이션 시스템
+
+**매주 월요일 09:00** → Telegram 리마인더로 최신 자료 공유 (자동화 예정)
+
+### 역할별 주간 과제
+- **웹개발자**: GitHub Trending 3개 + npm trends 1개 검토 (30분)
+- **평가자**: Product Hunt 신규 테스트 도구 2개 확인 (20분)
+- **데이터분석가**: Dev.to 데이터 분석 글 1개 읽기 (30분)
+- **번역가**: Medium 기술 글 1개 한영 번역 연습 (40분)
+- **플레너**: CSS-Tricks/Smashing Magazine 아키텍처 글 1개 읽기 (30분)
+
+### 월간 정리 (매월 1일)
+- 월간 새로운 도구 3~5개 선별 → CTB에 "신기술 검토" 태스크 추가
+- 팀 공통 학습 주제 1개 선정 → 월간 회의 기술 토론 안건 (Module 2)
+- youtube-library.md 갱신
+
+---
+
+## 🔗 빠른 접근 (즐겨찾기 권장)
+
+```
+웹개발자:
+  - https://github.com/trending?since=weekly&spoken_language_code=en (GitHub Trending)
+  - https://www.npmtrends.com/ (npm Trends)
+  - https://css-tricks.com (CSS-Tricks)
+
+평가자:
+  - https://github.com/topics/testing (Testing 저장소)
+  - https://www.producthunt.com/ (신규 도구)
+  - https://dev.to/search?q=testing (테스트 기사)
+
+데이터분석가:
+  - https://towardsdatascience.com (ML/AI)
+  - https://www.analyticsvidhya.com (데이터 과학)
+  - https://github.com/trending?since=weekly&spoken_language_code=en&l=python (Python)
+
+번역가:
+  - https://dev.to (기술 기사)
+  - https://www.smashingmagazine.com (설계 및 문서)
+
+플레너:
+  - https://news.ycombinator.com (기술 뉴스)
+  - https://www.infoq.com (아키텍처)
+  - https://www.smashingmagazine.com (설계)
+```
