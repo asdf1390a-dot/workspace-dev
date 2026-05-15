@@ -29,12 +29,24 @@ type: project
 - Q1(2026-06-15), Q2(2026-09-15), Q3(2026-12-15)
 - 5단계 평가(1:학습필요~5:전문가)
 - 강점 확대 + 약점 보강 + 경력경로 설계
+- **동적 기준 적용:** 매월 업데이트된 기준 (Module 4.5)으로 평가
+
+### Module 4.5: 동적 평가 기준 시스템
+- 매월(1일) 외부 벤치마크 기반 기준 업데이트
+- 기술 발전 속도 지표 계산 (1.0~5.0)
+- 버전 관리: criteria_v{YYYYMM}.md
+- 역할별 벤치마크: GitHub, Product Hunt, Dev.to, npm, Claude/Codex
+- 자동화: Cron (월별 기준 수립 + 공지)
 
 ## 자동화
-- 매월 1일 09:00: Telegram 리마인더 (학습 기록 부탁)
-- 매주 목요일 09:00: Claude/Codex 업데이트 확인 리마인더 (신규 2026-05-15)
-- 매월 첫 주 월요일 13:00: Discord 공지 (회의 시작 1시간 전)
-- 분기별 15일 10:00: 진단 알림
+- **매월 1일 09:00:** 기준 수립 (Module 4.5 - 신규 2026-05-15)
+  → 외부 정보원 수집 + criteria_v{YYYYMM}.md 생성
+- **매월 1일 11:00:** 팀 공지 (기준 변동 - 신규 2026-05-15)
+  → Telegram + Discord 자동 배포
+- **매월 1일 12:00:** Telegram 리마인더 (학습 기록 부탁)
+- **매주 목요일 09:00:** Claude/Codex 업데이트 확인 리마인더
+- **매월 첫 주 월요일 13:00:** Discord 공지 (회의 시작 1시간 전)
+- **분기별 15일 10:00:** 진단 알림
 
 ## 현황
 - 웹개발자/평가자: learnings 파일 ✅ 활성
@@ -42,9 +54,14 @@ type: project
 - 팀 자산: design-system.md, manufacturing-glossary.md ✅ 존재
 - 외부 학습 자료: youtube-library.md ✅ 확장 완료 (GitHub+Product Hunt+Dev.to+npm+기술블로그+Claude/Codex)
 - Discord #역량개발 채널: 📝 생성 필요
-- 주간 큐레이션 Cron: ✅ 등록 (매주 월요일 09:00)
-- 월간 신기술 선별 Cron: ✅ 등록 (매월 1일 09:00)
-- Claude/Codex 주간 확인 Cron: ✅ 등록 (매주 목요일 09:00, Job ID: f11e2583)
+- 동적 평가 기준 시스템: DYNAMIC_EVALUATION_CRITERIA_SYSTEM.md ✅ 완성 (2026-05-16)
+  - 역할별 외부 벤치마크 정의 ✅
+  - 기술 발전 속도 지표 정의 ✅
+  - 기준 버전 관리 시스템 ✅
+  - 월간 업데이트 프로세스 ✅
+- Cron 자동화: ✅ 월별 기준 수립+공지 Cron 등록 완료
+  - Job ID: 46a445c7 (매월 1일 09:00 기준 수립)
+  - Job ID: 6b8d7801 (매월 1일 11:00 팀 공지)
 
 ## 외부 학습 자료 통합 (2026-05-15 확장)
 - **GitHub Trending Repositories** (역할별 12개 추천)

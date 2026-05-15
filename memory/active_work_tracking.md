@@ -10,19 +10,29 @@ type: project
 
 ### 1. Asset Master v2 Phase 2 API 개발
 - **담당자:** 웹개발자
-- **시작:** 2026-05-16 (설계 P0 수정 완료)
-- **진행률:** 15% (설계 완료 + 블로커 4개 해결, API Day 1 시작)
-- **현재 단계:** 🔌 API Day 1 (5개 GET 엔드포인트 App Router 재포팅)
+- **시작:** 2026-05-16 09:00 KST (설계 P0 수정 완료)
+- **진행률:** 0% (Day 1 시작 준비, 설계 문서 리뷰)
+- **현재 단계:** 🔌 **Day 1 시작** (2026-05-16 09:00~18:00 KST)
 - **예정 완료:** 2026-05-19 18:00 KST (MVP 16개 엔드포인트)
-- **마지막 단계:** 플레너 설계 완료 (2026-05-16 09:00) → 웹개발자 Day 1 시작 (05-16~17)
-- **의존성:** 설계 문서 3개 + DB 마이그레이션 (29번) 확인 필요
-- **규칙:** 매일 15:00 KST 진도 리포트 (Day 1: 2026-05-17 15:00)
+- **Day 1 작업 (5개 GET API):**
+  1. ASSET_MASTER_PHASE2_DESIGN.md 리뷰 (30분)
+  2. ASSET_MASTER_PHASE2_API_GUIDE.md 리뷰 (30분)
+  3. db/29_asset_master_v2_phase2.sql 확인 (15분)
+  4. App Router 구현 시작 (app/api/assets/route.ts)
+     - GET /api/assets (목록+필터)
+     - GET /api/assets/:id (상세)
+     - GET /api/asset-categories (카테고리)
+     - GET /api/assets/:id/audit-log (이력)
+     - GET /api/assets/locations (자동완성)
+- **의존성:** DB 마이그레이션 (29번) ✅ 확인됨
+- **규칙:** 매일 15:00 KST 진도 리포트 (Day 1: 2026-05-16 15:00 KST)
 - **P0 완료 항목:**
-  - B1: App Router 통일 (Pages Router → App Router 아키텍처 변경)
-  - B2: 감시 로직 개선 (custom trigger 제거, asset_audit_log() 재사용)
-  - B3: 경로 충돌 해결 (/history → /audit-log 변경)
-  - B4: POST 중복 제거 (기존 POST /api/assets 재사용)
-- **다음:** Day 1 완료 후 평가자 코드 검증 → Day 2~4 진행
+  - ✅ B1: App Router 통일 (Pages Router → App Router)
+  - ✅ B2: 감시 로직 (asset_audit_log() 재사용)
+  - ✅ B3: 경로 충돌 (/history → /audit-log 변경)
+  - ✅ B4: POST 중복 제거 (기존 코드 재사용)
+- **파일:** dsc-fms-portal/ASSET_MASTER_PHASE2_*
+- **다음:** 2026-05-16 15:00 진도 리포트 → Day 2 (CRUD) → Day 3 (Import) → Day 4 (테스트)
 
 ### 2. Backup App Phase 2 UI 평가
 - **담당자:** 평가자
@@ -91,13 +101,35 @@ type: project
 
 ### 5. 스케줄 관리 역량 개선 (Phase A)
 - **담당자:** 비서 (지시) + 팀원들 (실행)
-- **시작:** 2026-05-15 17:00 KST (지금)
+- **시작:** 2026-05-15 17:00 KST
 - **진행률:** 10% (팀원 규칙 공유 완료)
 - **현재 단계:** 📋 Phase A 실행 (정기 체크 자동화 + 의존성 준비 + 리스크 감지)
 - **예정 완료:** 2026-05-22 (1주일)
 - **규칙 (절대):**
   1️⃣ 팀원 정기 체크: 웹개발자 15:00 / 평가자 12:00 / 플레너 14:00 KST
   2️⃣ 의존성 준비: Asset Master 50% → Travel 사전 준비 자동 시작
+
+### 6. 동적 평가 기준 시스템 구축 (🆕 2026-05-16)
+- **담당자:** 비서 (설계+자동화) + 플레너 (검증) + 팀원들 (월간 논의)
+- **시작:** 2026-05-16 05:00 KST
+- **진행률:** 50% (설계 완료, Cron job 등록 완료, 팀 피드백 수렴 대기)
+- **현재 단계:** 📋 팀 피드백 수렴 (2026-05-16~20)
+- **예정 완료:** 2026-05-21 (프레임워크 최종 확정)
+- **산출물:**
+  - ✅ DYNAMIC_EVALUATION_CRITERIA_SYSTEM.md (완성)
+    - 역할별 외부 벤치마크 정의
+    - 기술 발전 속도 지표 (1.0~5.0)
+    - 기준 버전 관리 (criteria_v{YYYYMM}.md)
+    - 월간 프로세스 설명
+  - ✅ TEAM_COMPETENCY_DEVELOPMENT_FRAMEWORK.md 업데이트
+    - Module 4.5 추가
+    - Module 6 (자동화) 업데이트
+  - ✅ Cron job 2개 등록
+    - Job ID: 46a445c7 (매월 1일 09:00 기준 수립)
+    - Job ID: 6b8d7801 (매월 1일 11:00 팀 공지)
+- **의존성:** 팀 피드백 수렴 (2026-05-20)
+- **블로킹:** 없음
+- **다음:** 팀 피드백 반영 (05-20~21) → 첫 기준 v202606 수립 (2026-06-01)
 
 ### 6. 번역가 역할 재정의 및 업무 재분장
 - **담당자:** 번역가 (4개 Task 실행)

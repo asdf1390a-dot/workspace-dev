@@ -188,9 +188,9 @@ skills/
 ## 🔍 Module 4: 분기별 역량 진단 (Quarterly Diagnosis)
 
 ### 진단 주기
-- **Q1 진단:** 2026-06-15 (현황 파악)
-- **Q2 진단:** 2026-09-15 (중간 점검)
-- **Q3 진단:** 2026-12-15 (연말 평가)
+- **Q1 진단:** 2026-06-15 (현황 파악, v202606 기준 적용)
+- **Q2 진단:** 2026-09-15 (중간 점검, v202609 기준 적용)
+- **Q3 진단:** 2026-12-15 (연말 평가, v202612 기준 적용)
 
 ### 진단 항목 (5단계 평가)
 
@@ -204,10 +204,11 @@ skills/
 ```
 
 **평가 소스:**
-- 개인 learnings.md 기록
+- 개인 learnings.md 기록 (매월 업데이트)
 - 팀 feedback (월간 회의)
 - 실무 성과 (완료된 작업의 품질/속도)
 - 자기평가 + 팀 평가
+- **외부 벤치마크** (Module 4.5 동적 기준 적용)
 
 ### 진단 결과 활용
 1. **강점 확대:** 상위 역량 팀 공유 확대
@@ -217,19 +218,69 @@ skills/
 
 ---
 
-## 🔄 Module 5: 자동화된 리마인더
+## 🔄 Module 4.5: 동적 평가 기준 시스템 (Dynamic Evaluation Criteria System)
+
+### 개념
+기술 발전 속도를 반영하여 **매월** 평가 기준을 업데이트하고 변동을 기록하는 시스템.
+
+### 핵심 특징
+1. **외부 벤치마크:** GitHub Trending, Product Hunt, Dev.to, npm Trends, Claude/Codex 업데이트
+2. **기술 발전 속도 지표:** 매월 지수 계산 (1.0~5.0 범위)
+3. **버전 관리:** 매월 criteria_v{YYYYMM}.md 생성 + 변동 히스토리 기록
+4. **팀 공지:** Telegram + Discord 자동 공지 + 월간 회의 논의
+
+### 매월 프로세스
+```
+매월 1일 09:00~11:00: 기준 수립
+  → 외부 정보원 수집 + 기술 발전 속도 지수 계산
+  → criteria_v{YYYYMM}.md 작성
+  → 변동 항목 정리
+
+매월 1일 11:00: 팀 공지 (Telegram + Discord)
+  → 기준 변동 요약 배포
+
+매월 첫 주 월요일 14:00: 월간 회의
+  → 기준 변동 논의 (10분)
+  → 팀 최종 확정
+```
+
+### 역할별 외부 벤치마크
+- **웹개발자:** GitHub Trending (Next.js) + npm Trends + Vercel Blog + Claude API
+- **평가자:** ISTQB + Testing Library + Product Hunt (테스트 도구) + Dev.to
+- **데이터분석가:** Kaggle + Towards Data Science + Apache 프로젝트 + npm/PyPI Trends
+- **번역가:** ISO 21500 + Google Style Guide + Microsoft Language Portal
+- **플레너:** C4 Model + DDD + ThoughtWorks Tech Radar + Hacker News
+
+### 자동화
+- 매월 1일 09:00: Cron (기준 수립 + 히스토리 기록)
+- 매월 1일 11:00: Cron (팀 공지 자동 배포)
+
+### 상세 설명
+📄 **DYNAMIC_EVALUATION_CRITERIA_SYSTEM.md** 참조
+
+---
+
+## 🔄 Module 6: 자동화된 리마인더
 
 ### Cron 작업 (매월 자동 실행)
 
 ```
-매월 1일 09:00 → 팀원들에게 Telegram 리마인더
+매월 1일 09:00 → 기준 수립 (Module 4.5)
+  → criteria_v{YYYYMM}.md 생성 + 히스토리 기록
+
+매월 1일 11:00 → 팀 공지 (기준 변동)
+  → Telegram + Discord 자동 배포
+
+매월 1일 12:00 → 팀원들에게 Telegram 리마인더
 "이번 달 학습 내용을 skills 파일에 기록해 주세요"
+"새 평가 기준 (v{YYYYMM})이 적용되었습니다"
 
 매월 첫 주 월요일 13:00 → Discord #역량개발 공지
-"오늘 14:00 월간 역량 개발 회의 시작합니다"
+"오늘 14:00 월간 역량 개발 회의 시작합니다 (기준 논의 포함)"
 
 분기별 15일 10:00 → 진단 알림
 "분기별 역량 진단이 시작됩니다. 자기평가 제출 부탁합니다"
+"최신 평가 기준 (v{YYYYMM})을 적용하여 평가합니다"
 ```
 
 ---
