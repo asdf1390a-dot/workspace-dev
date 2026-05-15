@@ -14,6 +14,10 @@
 - [project_backup_phase2_scope_decision.md](project_backup_phase2_scope_decision.md) — FullScope 확정
 - [project_backup_settings.md](project_backup_settings.md) — 자동 백업 설정 (일일, 30일 보관)
 
+### Portfolio Career (2026-05-15 설계 완료)
+- [project_portfolio_career.md](project_portfolio_career.md) — 경력 포트폴리오 설계 완료 (520줄 설계 + 240줄 DB + 450줄 체크리스트)
+- 구현 일정: 2026-05-17 ~ 2026-05-30 (14일, 웹개발자 담당)
+
 ### Tracking Process Improvement (2026-05-15 신규)
 - [TRACKING_PROCESS_IMPROVEMENT_DESIGN.md](../TRACKING_PROCESS_IMPROVEMENT_DESIGN.md) — 5가지 개선 프로세스 설계
 - [CTB_RESTRUCTURE_PROPOSAL.md](../CTB_RESTRUCTURE_PROPOSAL.md) — commit 표기 통일안
