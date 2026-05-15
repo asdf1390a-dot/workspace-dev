@@ -46,6 +46,8 @@
 - [Agent team](project_agent_team.md) — 비서 + 웹개발자 + 평가자 + 데이터분석가 + 번역가
 - [Design document workflow](design_document_workflow.md) — 설계 완료 = 진행 신호
 - [workflow_context_loss_protocol.md](workflow_context_loss_protocol.md) — Context Loss Prevention v2
+- [workflow_rules_comprehensive.md](workflow_rules_comprehensive.md) — 일정 변동, 오류, 코드 검증 순서 (플레너→웹개발자→평가자→데이터분석가)
+- [feedback_dataanalyst_completion_report.md](feedback_dataanalyst_completion_report.md) — 데이터분석가: 프로젝트 완료시 완료 보고서 작성 (2026-05-15)
 
 ### 커뮤니케이션 규칙
 - [feedback_telegram_communication_rule.md](feedback_telegram_communication_rule.md) — Telegram: 최종 결과만, Discord: 기술 상세
