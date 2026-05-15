@@ -20,7 +20,6 @@
 
 ### Tracking Process Improvement (2026-05-15 신규)
 - [TRACKING_PROCESS_IMPROVEMENT_DESIGN.md](../TRACKING_PROCESS_IMPROVEMENT_DESIGN.md) — 5가지 개선 프로세스 설계
-- [CTB_RESTRUCTURE_PROPOSAL.md](../CTB_RESTRUCTURE_PROPOSAL.md) — commit 표기 통일안
 - [TEAM_ALLOCATION_PLAN_2026_05.md](../TEAM_ALLOCATION_PLAN_2026_05.md) — 팀원 할당 + 일정표
 
 ---
@@ -35,10 +34,9 @@
 ## 규칙 & 피드백 (Feedback & Procedures)
 
 ### 작업 추적 & 우선순위
-- [active_work_tracking.md](active_work_tracking.md) — 중앙 작업 추적판 (CTB, 실시간)
-- [team_task_tracking.md](team_task_tracking.md) — 팀원별 작업 추적 (월간) — **신규 구성 대기**
+- [Active Work Tracking](active_work_tracking.md) — 실시간 팀 작업 추적판 (CTB)
+- [team_task_tracking.md](team_task_tracking.md) — 팀원별 작업 추적 (월간)
 - [feedback_priority_autonomy.md](feedback_priority_autonomy.md) — 우선순위 자율 결정
-- [Active Work Tracking](active_work_tracking.md) — Central Task Board
 
 ### 사용자 액션 & 커뮤니케이션
 - [feedback_user_action_explicit_rules.md](feedback_user_action_explicit_rules.md) — 【사용자 액션 필요】3가지 필수 (📍+📄+⚙️)

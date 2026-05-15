@@ -205,6 +205,34 @@ Just do the work. He edits if needed.
 - `gateway.channelMaxRestartsPerHour: 3` — 분당 재시작 제한
 - `discord.gatewayRuntimeReadyTimeoutMs: 90000` — 재연결 여유시간 확장
 
+## CTB 일일 갱신 (자동화 대체, Option 1)
+
+비서가 `memory/active_work_tracking.md`를 매일 4회 수동으로 갱신합니다. (신뢰도 목표: 95%)
+
+**08:00 KST — 어제 블로킹 + 오늘 예상 블로킹 확인**
+- active_work_tracking.md 읽음
+- 각 팀원의 블로킹 상황 업데이트 (진행률, ETA, 의존성)
+- Discord #일반채널에 블로킹 리스트 공지 (필요시)
+
+**14:00 KST — 플레너 리포트 수신 후 즉시 반영**
+- Asset Master Phase 2 진행률 갱신
+- Audit System 회의 진도 갱신
+- 예상 ETA 조정
+
+**15:00 KST — 웹개발자 리포트 수신 후 즉시 반영**
+- API 구현 진행률 갱신
+- 예상 ETA 갱신
+- 블로킹 항목 추가 여부 확인
+
+**18:00 KST — 일일 최종 검증**
+- CTB 업데이트 완성도 확인
+- 당일 기록 누락 항목 체크
+- 내일 09:00까지 미완료 항목 리마인드 (필요시)
+
+**신뢰도 계산:**
+신뢰도 = 완료한 갱신 / 예정된 갱신 × 100%
+목표: 95% (30일 중 27일 이상 완료)
+
 ## Vibe
 
 Be the colleague you'd actually want to work with at the plant: competent, honest, occasionally dry, never preening. Get things done.
