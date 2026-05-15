@@ -144,10 +144,10 @@ type: project
 
 ### 8. 외부 정보 통합 & 주간 학습 큐레이션 (🆕)
 - **담당자:** 비서 (큐레이션 시스템) + 팀원들 (주간 학습)
-- **시작:** 2026-05-15 23:45 KST (시스템 확장 완료)
-- **진행률:** 30% (외부 정보 자료 통합 완료, 자동화 등록 예정)
-- **현재 단계:** 📚 학습 자료 통합 (YouTube + GitHub Trending + Product Hunt + Dev.to + npm trends + 기술 블로그)
-- **예정 완료:** 2026-05-20 18:00 KST (주간 큐레이션 Cron 등록 + 팀원 숙지)
+- **시작:** 2026-05-15 23:45 KST (시스템 확장 시작)
+- **진행률:** 45% (외부 정보 자료 통합 완료, Claude/Codex 모니터링 추가, 자동화 등록 완료)
+- **현재 단계:** ✅ 학습 자료 통합 완료 + 🤖 Claude/Codex 모니터링 추가
+- **예정 완료:** 2026-05-20 18:00 KST (팀원 학습 시작 + 첫 주간 큐레이션)
 - **확장 범위:**
   - YouTube 영상 (기존 15개)
   - GitHub Trending 저장소 (역할별 추천 12개)
@@ -155,20 +155,23 @@ type: project
   - Dev.to & Medium 기술 블로그
   - npm Trending Packages
   - CSS-Tricks, LogRocket, Smashing Magazine, HackerNews
-- **산출물:** `/skills/youtube-library.md` (확장, 역할별 큐레이션 섹션 추가)
+  - **🤖 Claude/Codex 공개 업데이트 (신규 2026-05-15)**
+- **산출물:** `/skills/youtube-library.md` (확장 + Claude/Codex 섹션 추가)
 - **자동화:**
   - 📅 매주 월요일 09:00 → Telegram 리마인더 (최신 자료 3개 추천)
+  - 📅 매주 목요일 09:00 → Claude/Codex 주간 업데이트 확인 리마인더 (신규, Job ID: f11e2583)
   - 📅 매월 1일 → 월간 새로운 도구 3~5개 선별 (CTB에 "신기술 검토" 태스크 추가)
-  - 📅 매월 첫 주 월요일 14:00 → 월간 회의에서 팀 공통 학습 주제 1개 결정
-- **규칙:** 각 팀원이 주간 학습 담당 자료 검토 (30분, 매주 월요일)
-  - 웹개발자: GitHub Trending 3개 + npm trends 1개 (30분)
-  - 평가자: Product Hunt 테스트 도구 2개 (20분)
-  - 데이터분석가: Dev.to 데이터 분석 글 1개 (30분)
-  - 번역가: Medium 기술 글 1개 한영 번역 (40분)
-  - 플레너: CSS-Tricks/Smashing Magazine 아키텍처 글 (30분)
+  - 📅 매월 첫 주 월요일 14:00 → 월간 회의에서 팀 공통 학습 주제 + Claude/Codex 신기능 적용 논의
+- **규칙:** 각 팀원이 주간 학습 담당 자료 검토 (30분, 매주 월요일) + Claude/Codex 업데이트 검수 (담당 분야별)
+  - 웹개발자: GitHub Trending 3개 + npm trends 1개 + Claude API/코드 생성 (30분)
+  - 평가자: Product Hunt 테스트 도구 2개 + 신기능 테스트 (20분)
+  - 데이터분석가: Dev.to 데이터 분석 글 1개 + Claude 분석 기능 (30분)
+  - 번역가: Medium 기술 글 1개 한영 번역 + 다국어 지원 개선 (40분)
+  - 플레너: CSS-Tricks/Smashing Magazine 아키텍처 글 + Claude 아키텍처 영향도 (30분)
+- **월간 회의 Module 2 갱신:** "Claude/Codex 신기능 검토" 15분 안건 추가 (개인학습→팀피드백→Claude검토→기술토론)
 - **블로킹:** 없음 (Module 2 월간 회의와 통합)
 - **의존성:** 없음 (자료 수집만 필요)
-- **다음:** Cron 등록 (매주/매월) → 팀원 공지 → 첫 주간 큐레이션 (2026-05-19 월요일)
+- **다음:** 팀원 학습 시작 (2026-05-19) → 첫 주간 큐레이션 (2026-05-19 월요일) → 첫 월간 회의 (2026-06-02 에 Claude/Codex 신기능 검토 포함)
 
 ### 5. Asset Master v2 Phase 2 설계
 - **담당자:** 플레너

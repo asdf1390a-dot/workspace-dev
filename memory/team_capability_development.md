@@ -32,6 +32,7 @@ type: project
 
 ## 자동화
 - 매월 1일 09:00: Telegram 리마인더 (학습 기록 부탁)
+- 매주 목요일 09:00: Claude/Codex 업데이트 확인 리마인더 (신규 2026-05-15)
 - 매월 첫 주 월요일 13:00: Discord 공지 (회의 시작 1시간 전)
 - 분기별 15일 10:00: 진단 알림
 
@@ -39,10 +40,11 @@ type: project
 - 웹개발자/평가자: learnings 파일 ✅ 활성
 - 데이터분석가/번역가/플레너: learnings 파일 📝 생성 필요
 - 팀 자산: design-system.md, manufacturing-glossary.md ✅ 존재
-- 외부 학습 자료: youtube-library.md ✅ 확장 완료 (GitHub+Product Hunt+Dev.to+npm+기술블로그)
+- 외부 학습 자료: youtube-library.md ✅ 확장 완료 (GitHub+Product Hunt+Dev.to+npm+기술블로그+Claude/Codex)
 - Discord #역량개발 채널: 📝 생성 필요
 - 주간 큐레이션 Cron: ✅ 등록 (매주 월요일 09:00)
 - 월간 신기술 선별 Cron: ✅ 등록 (매월 1일 09:00)
+- Claude/Codex 주간 확인 Cron: ✅ 등록 (매주 목요일 09:00, Job ID: f11e2583)
 
 ## 외부 학습 자료 통합 (2026-05-15 확장)
 - **GitHub Trending Repositories** (역할별 12개 추천)

@@ -150,6 +150,41 @@ type: reference
 
 ---
 
+## 🤖 Claude & Codex 공개 업데이트 수집
+
+**목적:** Anthropic의 Claude/Codex 신기능을 정기적으로 추적하고 DSC FMS 포탈 개발에 적용 방법 논의
+
+### 공식 채널 (주 2~3회 확인)
+| 채널 | URL | 특징 |
+|------|-----|------|
+| **Anthropic 공식 블로그** | https://www.anthropic.com/news | 주요 업데이트 & 연구 발표 |
+| **Claude.ai Code Updates** | https://claude.ai/code | 제품 기능 추가/개선 로그 |
+| **GitHub Releases** | https://github.com/anthropics | 공개 라이브러리 업데이트 |
+
+### 커뮤니티 채널 (주 1회 확인)
+| 채널 | URL | 특징 |
+|------|-----|------|
+| **Product Hunt** | https://www.producthunt.com/ | Claude/Codex 신제품 론칭 |
+| **Dev.to Claude Tag** | https://dev.to/search?q=claude | 개발자 실무 활용 팁 |
+| **Reddit r/ClaudeAI** | https://www.reddit.com/r/ClaudeAI/ | 커뮤니티 피드백 & 활용 사례 |
+| **Twitter @ClaudeAI** | https://twitter.com/ClaudeAI | 실시간 소식 & 공지 |
+
+### 주요 추적 항목
+- ✅ 신기능 (new features)
+- ✅ API 변경사항 (breaking changes)
+- ✅ 성능 개선 (performance improvements)
+- ✅ 가격 조정 (pricing changes)
+- ✅ 통합 기능 (integrations)
+
+### 팀별 담당 분야
+- **웹개발자:** Claude API, 코드 생성, Next.js 통합
+- **데이터분석가:** 분석 기능, 데이터 처리 능력
+- **번역가:** 다국어 지원, 번역 품질 개선
+- **평가자:** 신기능 테스트, 성능 검증
+- **플레너:** 아키텍처 영향 평가, 적용 일정 수립
+
+---
+
 ## 📅 주간 학습 큐레이션 시스템
 
 **매주 월요일 09:00** → Telegram 리마인더로 최신 자료 공유 (자동화 예정)
