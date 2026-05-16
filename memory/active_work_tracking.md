@@ -195,13 +195,18 @@ Stage: <DESIGN|DB|API|UI|DEPLOY|VERIFY>
 
 ## 진행중 (🟡)
 
-### 1. Asset Master v2 Phase 2 API 개발
+### 1. Asset Master v2 Phase 2 API 개발 ⚠️
 - **담당자:** 웹개발자
-- **시작:** 2026-05-16 09:00 KST (설계 P0 수정 완료)
-- **진행률:** 0% (Day 1 시작 준비, 설계 문서 리뷰)
-- **현재 단계:** 🔌 **Day 1 시작** (2026-05-16 09:00~18:00 KST)
-- **예정 완료:** 2026-05-19 18:00 KST (MVP 16개 엔드포인트)
-- **Day 1 작업 (5개 GET API):**
+- **시작:** ❌ 2026-05-16 09:00 KST 미시작 (CRITICAL BLOCKER)
+- **진행률:** 0% (Day 1 미실행)
+- **현재 단계:** 🚨 **BLOCKED** — 웹개발자 미참여 (14:57 현재 작업 없음)
+- **예정 완료:** 2026-05-19 18:00 KST (MVP 16개 엔드포인트) — **위험**
+- **블로킹 분석:**
+  - [ ] 웹개발자 가용성? (다른 우선순위 작업 중?)
+  - [ ] 설계 문서 이해 부족? (문서 복잡도?)
+  - [ ] 환경 구성 미완료? (DB 마이그레이션 미실행?)
+  - [ ] 커뮤니케이션 누락? (스케줄 확인 안됨?)
+- **Day 1 예정 작업 (5개 GET API, 10시간 필요):**
   1. ASSET_MASTER_PHASE2_DESIGN.md 리뷰 (30분)
   2. ASSET_MASTER_PHASE2_API_GUIDE.md 리뷰 (30분)
   3. db/29_asset_master_v2_phase2.sql 확인 (15분)
@@ -211,15 +216,19 @@ Stage: <DESIGN|DB|API|UI|DEPLOY|VERIFY>
      - GET /api/asset-categories (카테고리)
      - GET /api/assets/:id/audit-log (이력)
      - GET /api/assets/locations (자동완성)
-- **의존성:** DB 마이그레이션 (29번) ✅ 확인됨
-- **규칙:** 매일 15:00 KST 진도 리포트 (Day 1: 2026-05-16 15:00 KST)
+- **의존성:** DB 마이그레이션 (29번) ✅ 확인됨 (2026-05-15 18:58)
+- **규칙:** 매일 15:00 KST 진도 리포트 (Day 1: 2026-05-16 15:00 KST) — **지금 보고 필요**
 - **P0 완료 항목:**
   - ✅ B1: App Router 통일 (Pages Router → App Router)
   - ✅ B2: 감시 로직 (asset_audit_log() 재사용)
   - ✅ B3: 경로 충돌 (/history → /audit-log 변경)
   - ✅ B4: POST 중복 제거 (기존 코드 재사용)
 - **파일:** dsc-fms-portal/ASSET_MASTER_PHASE2_*
-- **다음:** 2026-05-16 15:00 진도 리포트 → Day 2 (CRUD) → Day 3 (Import) → Day 4 (테스트)
+- **권고 조치:** 
+  - 1️⃣ 웹개발자 상태 확인 (즉시)
+  - 2️⃣ 블로커 파악 및 제거
+  - 3️⃣ 긴급 재스케줄 (today 20:00~midnight 또는 2026-05-17 09:00)
+  - 4️⃣ 최악의 경우 우선순위 재조정 필요
 
 ### 2. Backup App Phase 2 UI 평가
 - **담당자:** 평가자
