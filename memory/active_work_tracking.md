@@ -65,10 +65,10 @@ type: project
 | 시간 | 액션 | 담당 | 상태 | 산출물 |
 |------|------|------|------|--------|
 | 08:00 KST | CTB 첫 갱신 (블로킹 확인) | 비서 | 🟢 11:12 완료 | GCS 위반 7건 검출 |
-| 09:00 KST | Asset Master P2 시작 확인 | 웹개발자 | 🚨 11:13 미실행 | **작업 미시작** — 수정 필요 |
+| 09:00 KST | Asset Master P2 온보딩 준비 | 웹개발자 | 🟢 확인 | **정상 — 신규팀원 내일 시작, 온보딩 준비됨** |
 | 12:00 KST | Backup Phase 2 리포트 | 평가자 | 🟡 미수신 | 진도율 + 발견 이슈 |
 | 14:00 KST | Audit System 회의 자료 | 플레너 | 🟢 14:57 완료 | AUDIT_SYSTEM_FINAL_MEETING_BRIEF.md 준비됨 (2026-05-18 19:00 회의 ready) |
-| 15:00 KST | Asset Master P2 Day 1 리포트 | 웹개발자 | ⏳ 예정 | 5개 GET API 상태 |
+| 15:00 KST | Asset Master P2 준비 상황 리포트 | 비서 | ⏳ 예정 | 온보딩 준비 현황 + 신규팀원 배정 확인 |
 | 18:00 KST | CTB 최종 검증 | 비서 | ⏳ 예정 | 당일 기록 완료 |
 
 ---
@@ -195,40 +195,30 @@ Stage: <DESIGN|DB|API|UI|DEPLOY|VERIFY>
 
 ## 진행중 (🟡)
 
-### 1. Asset Master v2 Phase 2 API 개발 ⚠️
-- **담당자:** 웹개발자
-- **시작:** ❌ 2026-05-16 09:00 KST 미시작 (CRITICAL BLOCKER)
-- **진행률:** 0% (Day 1 미실행)
-- **현재 단계:** 🚨 **BLOCKED** — 웹개발자 미참여 (14:57 현재 작업 없음)
-- **예정 완료:** 2026-05-19 18:00 KST (MVP 16개 엔드포인트) — **위험**
-- **블로킹 분석:**
-  - [ ] 웹개발자 가용성? (다른 우선순위 작업 중?)
-  - [ ] 설계 문서 이해 부족? (문서 복잡도?)
-  - [ ] 환경 구성 미완료? (DB 마이그레이션 미실행?)
-  - [ ] 커뮤니케이션 누락? (스케줄 확인 안됨?)
-- **Day 1 예정 작업 (5개 GET API, 10시간 필요):**
-  1. ASSET_MASTER_PHASE2_DESIGN.md 리뷰 (30분)
-  2. ASSET_MASTER_PHASE2_API_GUIDE.md 리뷰 (30분)
-  3. db/29_asset_master_v2_phase2.sql 확인 (15분)
-  4. App Router 구현 시작 (app/api/assets/route.ts)
-     - GET /api/assets (목록+필터)
-     - GET /api/assets/:id (상세)
-     - GET /api/asset-categories (카테고리)
-     - GET /api/assets/:id/audit-log (이력)
-     - GET /api/assets/locations (자동완성)
+### 1. Asset Master v2 Phase 2 API 개발 (신규팀원 담당)
+- **담당자:** 웹 개발 지원가 (신규팀원, 2026-05-17 온보딩 시작)
+- **실제 시작:** 2026-05-18 (Day 2, 코드리뷰 후) 또는 2026-05-20 (Day 4, 독립작업)
+- **진행률:** 0% (온보딩 전, 정상)
+- **현재 단계:** 📋 **준비 완료** — 모든 설계 문서 + DB 마이그레이션 ✅ 확인됨
+- **예정 완료:** 2026-05-23 18:00 KST (Day 7, MVP 16개 엔드포인트) — **일정 현실적**
+- **온보딩 일정 (2026-05-17 ~ 2026-05-23):**
+  - **Day 1 (2026-05-17):** 프로젝트 구조 + 환경 설정 (웹개발자 주도)
+  - **Day 2-3 (2026-05-18~19):** 코드 리뷰 + failure_code 드롭다운 UI (첫 작업)
+  - **Day 4-7 (2026-05-20~23):** Asset Master Phase 2 API 독립 개발 (매일 15:00 진도 리포트)
 - **의존성:** DB 마이그레이션 (29번) ✅ 확인됨 (2026-05-15 18:58)
-- **규칙:** 매일 15:00 KST 진도 리포트 (Day 1: 2026-05-16 15:00 KST) — **지금 보고 필요**
-- **P0 완료 항목:**
+- **규칙:** 매일 15:00 KST 진도 리포트 (Day 4부터: 2026-05-20 15:00 KST)
+- **P0 완료 항목 (차단 요인 제거됨):**
   - ✅ B1: App Router 통일 (Pages Router → App Router)
   - ✅ B2: 감시 로직 (asset_audit_log() 재사용)
   - ✅ B3: 경로 충돌 (/history → /audit-log 변경)
   - ✅ B4: POST 중복 제거 (기존 코드 재사용)
 - **파일:** dsc-fms-portal/ASSET_MASTER_PHASE2_*
-- **권고 조치:** 
-  - 1️⃣ 웹개발자 상태 확인 (즉시)
-  - 2️⃣ 블로커 파악 및 제거
-  - 3️⃣ 긴급 재스케줄 (today 20:00~midnight 또는 2026-05-17 09:00)
-  - 4️⃣ 최악의 경우 우선순위 재조정 필요
+- **준비 상황:**
+  - ✅ 설계 문서 완성: ASSET_MASTER_PHASE2_DESIGN.md, ASSET_MASTER_PHASE2_API_GUIDE.md, ASSET_MASTER_PHASE2_BLOCKER_FIXES.md
+  - ✅ DB 마이그레이션: db/29_asset_master_v2_phase2.sql (2026-05-15 18:58)
+  - ✅ 온보딩 가이드: NEW_TEAM_MEMBER_ONBOARDING_2026-05-17.md, NEW_TEAM_MEMBER_STARTUP_GUIDE.md (준비됨)
+  - ✅ 웹개발자 준비: 온보딩 일정 확정, Task 지정 완료
+- **2026-05-16 15:00 리포트:** 온보딩 준비 완료 (모든 산출물 ready, 내일 시작 대기)
 
 ### 2. Backup App Phase 2 UI 평가
 - **담당자:** 평가자
