@@ -14,18 +14,47 @@
 - [project_exchange_rate.md](project_exchange_rate.md) — INR↔KRW 환율 (15.5)
 - [project_weekly_report_form.md](project_weekly_report_form.md) — 주간 보고 양식
 
+### Asset Master Phase 2 (2026-05 설계 완료)
+- [project_asset_master_phase2_full_design.md](project_asset_master_phase2_full_design.md) — Excel import + search/filter + batch edit 기능, 16 API + 3 UI, 2026-05-19 마감
+
 ### Backup App Phase 2 (2026-05 진행중)
 - [project_backup_phase2_status.md](project_backup_phase2_status.md) — DB 마이그레이션 완료, API 개발 중
 - [project_backup_phase2_scope_decision.md](project_backup_phase2_scope_decision.md) — FullScope 확정
 - [project_backup_settings.md](project_backup_settings.md) — 자동 백업 설정 (일일, 30일 보관)
+- [project_backup_phase2_scheduled_automation.md](project_backup_phase2_scheduled_automation.md) — Vercel Cron 기반 02:00 KST 자동화, 동시성 제어, 30분 timeout
 
 ### Portfolio Career (2026-05-15 설계 완료)
 - [project_portfolio_career.md](project_portfolio_career.md) — 경력 포트폴리오 설계 완료 (520줄 설계 + 240줄 DB + 450줄 체크리스트)
 - 구현 일정: 2026-05-17 ~ 2026-05-30 (14일, 웹개발자 담당)
 
+### Travel Management (2026-05 설계 완료)
+- [project_travel_management_module_design.md](project_travel_management_module_design.md) — 여행/출장 기록 + 일정/비용/체크리스트 관리, 4탭 상세, 비용분담, 6 API
+
+### Team Expansion (2026-05-15 결정, 2026-05-17 시작)
+- [project_team_expansion_plan_2026.md](project_team_expansion_plan_2026.md) — 팀 확대 3명 추가 (평가자 QA + 자동화 전문가 + 웹개발 지원가, 온보딩 2026-05-17)
+- 신규 역할: QA 평가자, 자동화 전문가, 웹개발 지원가
+- 온보딩 단계: Day 1 (2026-05-17 09:00) → Day 2-3 (05-18~19) → Day 4-7 (05-20~23)
+
+### Design System (2026-05 완료)
+- [project_design_system_colors_spacing.md](project_design_system_colors_spacing.md) — Dark theme 색상 32개, 간격 8단계, 타이포그래피, 컴포넌트 규칙
+
+### Audit System (2026-05 설계 완료)
+- [project_audit_system_backup_reliability.md](project_audit_system_backup_reliability.md) — Backup Phase 2 신뢰도 95% 목표, 4-메트릭 모델, 일일/주간 피드백 루프
+
+### Phase 7 Ecosystem Expansion (2026-07-01 ~ 09-30)
+- [project_phase7_ecosystem_expansion.md](project_phase7_ecosystem_expansion.md) — Data Platform + Mobile Field App 병렬 개발, 멀티 테넌트 확장
+- 자세히: PHASE7_ECOSYSTEM_EXPANSION_OVERVIEW.md 참고
+
+### 핵심 시스템 설계 (2026-05-16 설계 완료)
+- [project_assessment_criteria_dynamic_system.md](project_assessment_criteria_dynamic_system.md) — 월간 평가 기준 동적화 (외부 벤치마크 + 팀 피드백)
+- [project_auto_info_collection_system.md](project_auto_info_collection_system.md) — GitHub/Product Hunt 자동 수집 + 역할별 배포 (팀 상의)
+- [project_ctb_automation_alternatives.md](project_ctb_automation_alternatives.md) — CTB 자동화 3가지 개선 (Telegram 설정, 파일 중복 제거, 갱신 로직)
+- [project_dynamic_evaluation_criteria.md](project_dynamic_evaluation_criteria.md) — 외부 벤치마크 기반 동적 평가 기준 시스템
+
 ### Tracking Process Improvement (2026-05-15 신규)
 - [TRACKING_PROCESS_IMPROVEMENT_DESIGN.md](../TRACKING_PROCESS_IMPROVEMENT_DESIGN.md) — 5가지 개선 프로세스 설계
 - [TEAM_ALLOCATION_PLAN_2026_05.md](../TEAM_ALLOCATION_PLAN_2026_05.md) — 팀원 할당 + 일정표
+- [DESIGN_DOCUMENT_TRACKING_IMPROVEMENT_PLAN.md](../DESIGN_DOCUMENT_TRACKING_IMPROVEMENT_PLAN.md) — 설계 문서 누락 방지 3단계 개선대책 (메모리 인덱싱 자동화)
 
 ---
 
