@@ -34,23 +34,24 @@ type: project
 
 **3가지 진행 항목:**
 1. ✅ **정보 수집 에이전트 개발** (GitHub API, Product Hunt, Dev.to, npm Trends)
-   - 구현: Node.js API 라우트 (api/cron/auto-info-collection.ts)
-   - 보조: Python 스크립트 (scripts/auto_info_collection_system.py)
-   - 담당: 비서 (자율 구현 완료 2026-05-16 12:30)
+   - 구현: Node.js API 라우트 (api/cron/auto-info-collection.ts) ✅ 완료
+   - 보조: Python 스크립트 (scripts/auto_info_collection_system.py) ✅ 완료
+   - 담당: 비서 (자율 구현 완료 2026-05-16 12:45)
    - 수집 대상: GitHub Trending, Product Hunt, Dev.to, Supabase, Vercel
-   - 자동화: Vercel Cron (매일 08:00 KST)
-   - ETA 완료: 2026-05-20 18:00
+   - 자동화: Vercel Cron (매일 08:00 KST, cron="0 23 * * *")
+   - 배포 커밋: e240ed8 (2026-05-16 12:45)
 
 2. ✅ **Telegram 자동 배포 설정**
-   - 상태: Telegram Bot API 호출 완료
-   - 형식: Markdown 메시지 (소스별 Top 3 아이템)
-   - 담당: 비서 (배포 API 연결 완료)
-   - 일정: 2026-05-17 배포 테스트
+   - 상태: ✅ 완료 (Bot API 호출 + Markdown 형식 + 팀 컨텍스트)
+   - 형식: Markdown 메시지 (소스별 Top 3 아이템 + 생태계 맥락)
+   - 담당: 비서
+   - 메시지 포함: GitHub Trending, Product Hunt, Dev.to, Supabase, Vercel + Phase 7 팀별 정보
 
-3. ✅ **Cron Job 최종화**
-   - 상태: Vercel Cron 설정 준비 완료 (환경변수 필요)
-   - 목표: 자동 정보 수집 → Telegram 배포 (사람 개입 없음)
-   - 스케줄: 매일 08:00 KST + Phase 7 특화 정보(Data Platform, Mobile App) 자동 필터
+3. 🟡 **Vercel Deployment 최종화**
+   - 상태: 🔴 배포 준비 완료 → 환경변수 설정 필요 (User Action)
+   - 필수 변수: TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID, CRON_SECRET, (선택) GITHUB_TOKEN, DEVTO_API_KEY
+   - 체크리스트: VERCEL_DEPLOYMENT_CHECKLIST.md 참고
+   - 예정: 2026-05-17 10:00까지 Vercel 설정 → 08:00 첫 자동 실행
 
 **CEO 마인드 강화:**
 - 각 팀원이 받은 정보로부터 3가지 판단:
@@ -427,6 +428,18 @@ Stage: <DESIGN|DB|API|UI|DEPLOY|VERIFY>
 - **다음:** 웹개발자 API 구현 (05-16~19) + 매일 14:00 진도 추적
 
 ## 대기중 (🔴)
+
+### Auto Info Collection System — 【사용자 액션 필요】Vercel 배포
+- **담당자:** User (Vercel Dashboard 설정)
+- **시작:** 2026-05-16 12:45 (실행 준비 완료)
+- **진행률:** 95% (구현 완료 → 배포 신청 대기)
+- **현재 단계:** 🟡 **User Action Required**
+  - 【사용자 액션 필요】Vercel Dashboard → DSC FMS Project Settings → Environment Variables
+  - 【사용자 액션 필요】5개 환경변수 입력 (TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID, CRON_SECRET, GITHUB_TOKEN?, DEVTO_API_KEY?)
+  - 【사용자 액션 필요】Redeploy to apply environment variables
+- **예정 완료:** 2026-05-17 10:00 KST (배포 완료)
+- **관련 문서:** VERCEL_DEPLOYMENT_CHECKLIST.md
+- **블로킹:** User must provide Telegram credentials
 
 ### 5. 투자 포트폴리오 자동 관리
 - **담당자:** —
