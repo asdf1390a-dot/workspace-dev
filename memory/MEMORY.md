@@ -1,5 +1,5 @@
 # 메모리 인덱스 (MEMORY.md)
-**Last Updated:** 2026-05-18 18:10 KST (최신 Audit System 회의 준비 자료 추가)
+**Last Updated:** 2026-05-19 00:17 KST (Pre-Implementation validation deadline TODAY 17:00)
 
 ## 🚀 생태계 비전 (Critical)
 - [Ecosystem Vision](project_ecosystem_vision.md) — DSC FMS v1.0 → 다중공장/프로젝트/지역 확장 (2026-05-16 03:41)
@@ -38,11 +38,17 @@
 ### Design System (2026-05 완료)
 - [project_design_system_colors_spacing.md](project_design_system_colors_spacing.md) — Dark theme 색상 32개, 간격 8단계, 타이포그래피, 컴포넌트 규칙
 
-### Audit System (2026-05 설계 완료 → 2026-05-20~23 구현 대기)
+### Audit System (2026-05 설계 완료 → Pre-Impl 검증 중 (05-19 17:00) → 2026-05-20~23 구현)
 - [project_audit_system_backup_reliability.md](project_audit_system_backup_reliability.md) — Backup Phase 2 신뢰도 95% 목표, 4-메트릭 모델, 일일/주간 피드백 루프
 - [../TOP3_PROJECTS_EXECUTION_READINESS.md](../TOP3_PROJECTS_EXECUTION_READINESS.md) — 3개 프로젝트 준비도 종합 평가 (Audit 93%, Travel 87%, Discord 80%, 2026-05-18)
 - [../AUDIT_SYSTEM_IMPLEMENTATION_CHECKLIST_2026-05-20.md](../AUDIT_SYSTEM_IMPLEMENTATION_CHECKLIST_2026-05-20.md) — 3일 상세 구현 계획 (Day 1: API, Day 2: 알림, Day 3: QA)
 - [../AUDIT_SYSTEM_MEETING_DECISION_TEMPLATE.md](../AUDIT_SYSTEM_MEETING_DECISION_TEMPLATE.md) — 2026-05-18 19:00 회의 결정사항 자동 기록 템플릿
+- [../AUDIT_SYSTEM_API_SPECIFICATION.md](../AUDIT_SYSTEM_API_SPECIFICATION.md) — 4개 엔드포인트 명세 (웹개발자 검증용, 기한 05-19 17:00)
+- [../AUDIT_SYSTEM_DB_MIGRATION.md](../AUDIT_SYSTEM_DB_MIGRATION.md) — 5개 테이블 스키마 (웹개발자 검증용, 기한 05-19 17:00)
+- [../AUDIT_SYSTEM_METRIC_FORMULA.md](../AUDIT_SYSTEM_METRIC_FORMULA.md) — 4개 메트릭 계산식 (데이터분석가 확정용, 기한 05-19 17:00)
+- [../AUDIT_SYSTEM_ALERT_CHANNEL_SETUP.md](../AUDIT_SYSTEM_ALERT_CHANNEL_SETUP.md) — Telegram/Discord 설정 가이드 (플레너용, CRITICAL PATH, 기한 05-19 17:00)
+- [../AUDIT_SYSTEM_DAY1_KICKOFF_AGENDA.md](../AUDIT_SYSTEM_DAY1_KICKOFF_AGENDA.md) — 30분 회의 안건 + 3일 일정표 (05-20 09:00, 2026-05-18 생성)
+- [../AUDIT_SYSTEM_PREIMPL_CHECKPOINT_TRACKER.md](../AUDIT_SYSTEM_PREIMPL_CHECKPOINT_TRACKER.md) — 실시간 모니터링 + 에스컬레이션 (05-19 08:00~17:00, 2026-05-18 생성)
 
 ### Phase 7 Ecosystem Expansion (2026-07-01 ~ 09-30)
 - [project_phase7_ecosystem_expansion.md](project_phase7_ecosystem_expansion.md) — Data Platform + Mobile Field App 병렬 개발, 멀티 테넌트 확장
