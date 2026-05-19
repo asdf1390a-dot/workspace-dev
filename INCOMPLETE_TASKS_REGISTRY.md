@@ -1147,3 +1147,65 @@ IN_PROGRESS
 **Eager Task Pulling 적용:** ✅ 활성화 (2026-05-16 20:20부터)  
 **CTB Auto-Register Workflow:** ✅ Deployed 2026-05-17 14:10 (GitHub Action: auto-detect design complete → CTB creation)
 **현황 요약:** 🟢 Crisis recovery on track (50% → target 75-100% by 18:00) | ✅ 6 major state transitions executed | 🟡 15:00 & 18:00 checkpoints pending | 🎯 Task #1 execution 5h 40m elapsed, 43h 20m remaining
+
+---
+
+## 🔄 **2026-05-19 22:29 TASK STATE MACHINE EXECUTION (Cron Job #a79d4227-5386-4e9f-85d6-7673a3326c52)**
+
+**타이밍:** 2026-05-19 22:29 KST (Task State Machine - auto-transition monitor)  
+**트리거:** Autonomous Cron Job (5개 자동 감시 시스템 중 1번) — Cycle 2  
+**이전 사이클:** 20:29 (2시간 경과)  
+**상태 머신 규칙:**
+1. ✅ PENDING → IN_PROGRESS: if담當者 started work
+2. ✅ IN_PROGRESS → BLOCKED_ON_[USER|TEAM|EXTERNAL]: if dependency detected
+3. ✅ BLOCKED_ON_USER → IN_PROGRESS: if user completes action (auto-detect from Telegram)
+4. ✅ IN_PROGRESS → COMPLETED: if work finished + verified
+
+### 📋 **자동 상태 전환 감지 (4개 CONFIRMED)**
+
+| Task ID | 이전 상태 (20:29) | 신 상태 (22:29) | 전환 사유 | 증거 | 규칙 |
+|---------|---------|--------|---------|------|------|
+| **Team Expansion 공지** | BLOCKED_ON_USER | ✅ **COMPLETED** | Broadcast 완료 (21:11) → Telegram + Discord 배포 확인 | 751399a: "Team Announcement Broadcast" | Rule 3 |
+| **Web-Dev-Support Day 1** | BLOCKED_ON_EXTERNAL | 🟢 **READY_FOR_EXECUTION** | 팀 공지 완료 후 다음 단계 확인 → Day 1 시작 대기 (2026-05-20 09:00) | ba638d1: "WEB-DEV-SUPPORT verified READY_FOR_EXECUTION for 2026-05-20 start" | Rule 1 |
+| **Automation-Specialist Day 1** | BLOCKED_ON_EXTERNAL | 🟢 **READY_FOR_EXECUTION** | 팀 공지 완료 후 다음 단계 확인 → Day 1 시작 대기 (2026-05-20 09:00) | ba638d1: "AUTOMATION-SPECIALIST verified READY_FOR_EXECUTION for 2026-05-20 start" | Rule 1 |
+| **BM-P1** | VERIFY | 🔴 **BLOCKED_ON_EXTERNAL** | 평가자 완료 신호 미수신 (15:00 deadline 7h 29m 초과) → 완료 블로킹 상태 확정 | ba638d1: "BM-P1 confirmed BLOCKED_ON_EXTERNAL (evaluator review overdue)" | Rule 2 |
+
+### 🎯 **상태 전환 요약**
+
+**✅ 완료된 전환 (3개):**
+1. Team Expansion 공지: BLOCKED_ON_USER → COMPLETED (21:11, 118분 지연 후 완료)
+2. Web-Dev-Support Day 1: BLOCKED_ON_EXTERNAL → READY_FOR_EXECUTION (자동 진행)
+3. Automation-Specialist Day 1: BLOCKED_ON_EXTERNAL → READY_FOR_EXECUTION (자동 진행)
+
+**🔴 확정된 블로킹 (1개):**
+- BM-P1: VERIFY → BLOCKED_ON_EXTERNAL (평가자 review overdue, 7h 29m 초과)
+
+### 📊 **다음 조치**
+
+**【비서 자동 진행】✅**
+- ✅ Team Expansion 공지 배포 (완료 21:11)
+- ✅ Web-Dev-Support + Automation-Specialist 준비 완료
+
+**【자동 모니터링】🟢**
+- 2026-05-20 09:00: 신규팀원 Day 1 자동 실행 (사전 준비 100% 완료)
+- 2026-05-20 15:00: 첫 일일 진도 리포트 수신 대기
+
+**【평가자 액션 필수】🔴**
+- BM-P1 평가 완료 보고 (오버라인: 7h 29m)
+- 상태 제약: BLOCKED_ON_EXTERNAL 해제 조건 = 평가자 완료 신호 수신
+
+### 👥 **팀 상태 스냅샷 (22:29)**
+
+| 팀원/Task | 상태 | 시작 | 기한 | 남은 시간 | 블로킹 원인 |
+|---------|------|------|------|---------|----------|
+| 신규팀원 (Web-Dev-Support) | 🟢 READY_FOR_EXECUTION | 2026-05-20 09:00 | 2026-05-22 17:00 | 34h 31m | 없음 |
+| 신규팀원 (Automation-Specialist) | 🟢 READY_FOR_EXECUTION | 2026-05-20 09:00 | 2026-05-22 17:00 | 34h 31m | 없음 |
+| 평가자 (BM-P1 review) | 🔴 BLOCKED_ON_EXTERNAL | Started | 2026-05-19 15:00 | **-7h 29m 오버라인** | 평가 완료 신호 미수신 |
+| DEVOPS | 🟢 READY_FOR_KICKOFF | 대기 | 2026-05-23 | 24h 31m | 없음 |
+
+---
+
+**기록 시간:** 2026-05-19 22:29 KST (Autonomous Execution — Cycle 2)  
+**상태 전환 통계:** 4개 (3 COMPLETED + 1 BLOCKED_ON_EXTERNAL)  
+**다음 체크:** 2026-05-20 08:00 (Day 4 실행 전 최종 상태 확인)
+
