@@ -12,6 +12,7 @@
 
 ## 🔧 Protocol v2 Automation Recovery (2026-05-20)
 - [Vacation Video Compression](vacation_autonomous_video_compression.md) — 휴가 중 초저용량 비디오 변환 (0.62MB 극저용량 + 9.86MB 표준, 96.3% 압축률 달성) + Protocol v2 자동화 실패 분석
+- [Protocol v2 Recovery Status](protocol_v2_recovery_status_2026_05_20.md) — 복구 완료 현황 + 시스템 개선안 + 향후 Cron 조치 (2026-05-20 02:00)
 
 ---
 
