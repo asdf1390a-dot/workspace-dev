@@ -1,811 +1,656 @@
-# Discord Bot API 명세서
+---
+name: Discord Bot Phase 1 API 명세서
+description: Telegram ↔ Discord 양방향 동기화 + CTB 실시간 업데이트 — 14개 엔드포인트 완전 명세
+type: api-spec
+date: 2026-05-19
+version: 2.0
+status: 설계 완료 → 웹개발자 구현 대기
+supersedes: v1.0 (2026-05-15)
+---
 
-**작성일:** 2026-05-15 23:00 KST  
-**버전:** 1.0 Final  
-**상태:** 구현 준비 완료
+# Discord Bot Phase 1 — API 명세서
+
+**버전:** 2.0 (Phase 1 Option B 기준으로 전면 재작성)
+**기준일:** 2026-05-19
+**Base URL:** `https://[project].vercel.app/api/discord`
+**인증:** 모든 Discord 수신 엔드포인트는 Ed25519 서명 검증 필수
+**콘텐츠 타입:** `application/json`
 
 ---
 
-## 1. API 엔드포인트 목록
+## 엔드포인트 목록
 
-### 1.1 Gateway Endpoint (Discord Integration)
+| # | Method | Path | 역할 |
+|---|--------|------|------|
+| 1 | POST | `/api/discord/webhook` | Discord 메시지 수신 + 동기화 큐 등록 |
+| 2 | POST | `/api/discord/task` | 작업 지시 처리 (`/task @assign`) |
+| 3 | POST | `/api/discord/ctb-update` | CTB 상태 변화 → Discord 포스팅 |
+| 4 | GET | `/api/discord/status` | 동기화 현황 조회 |
+| 5 | POST | `/api/discord/sync/telegram-to-discord` | Telegram → Discord 단방향 동기화 |
+| 6 | POST | `/api/discord/sync/discord-to-telegram` | Discord → Telegram 단방향 동기화 |
+| 7 | GET | `/api/discord/sync/log` | 동기화 이력 조회 |
+| 8 | DELETE | `/api/discord/sync/log` | 동기화 로그 정리 (30일 초과 삭제) |
+| 9 | GET | `/api/discord/tasks` | 작업 목록 조회 |
+| 10 | PATCH | `/api/discord/tasks/:id` | 작업 상태 업데이트 |
+| 11 | GET | `/api/discord/channels` | 연결된 채널 목록 조회 |
+| 12 | GET | `/api/discord/notifications` | 알림 이력 조회 |
+| 13 | PATCH | `/api/discord/notifications/:id/read` | 알림 읽음 처리 |
+| 14 | POST | `/api/discord/test-connection` | 연결 상태 점검 (헬스체크) |
 
-#### POST /api/discord-gateway
-**목적:** Discord Bot 상호작용 처리 (Interactions Endpoint)
+---
 
-**요청:**
-```http
-POST /api/discord-gateway HTTP/1.1
-Host: fms-portal.vercel.app
-Content-Type: application/json
-X-Signature-Ed25519: <ed25519-signature>
+## 상세 명세
+
+---
+
+### 1. POST `/api/discord/webhook`
+
+**목적:** Discord Bot이 수신한 메시지를 검증 후 동기화 큐에 등록한다.
+**호출자:** Discord (Bot message_create event → Next.js)
+**인증:** Ed25519 서명 검증 (X-Signature-Ed25519, X-Signature-Timestamp)
+
+**요청 헤더:**
+```
+X-Signature-Ed25519: <hex-signature>
 X-Signature-Timestamp: <unix-timestamp>
+Content-Type: application/json
+```
 
+**요청 바디:**
+```json
 {
   "type": 1,
   "data": {
-    "id": "message-id",
-    "channel_id": "channel-id",
+    "id": "1234567890123456789",
+    "channel_id": "9876543210987654321",
     "author": {
-      "id": "user-id",
-      "username": "user-name",
-      "avatar": "avatar-hash"
+      "id": "1111111111111111111",
+      "username": "web-developer",
+      "bot": false
     },
-    "content": "user message content",
-    "timestamp": "2026-05-15T22:45:30.123Z",
-    "edited_timestamp": null,
-    "mention_everyone": false,
-    "mentions": [],
-    "embeds": []
-  },
-  "member": {
-    "nick": "nickname",
-    "roles": ["role-id-1", "role-id-2"],
-    "user": {
-      "id": "user-id",
-      "username": "user-name",
-      "avatar": "avatar-hash"
-    }
+    "content": "구현 완료, PR 올림",
+    "timestamp": "2026-05-24T09:30:00.000Z"
   }
 }
 ```
 
-**응답 (Pong):**
-```http
-HTTP/1.1 200 OK
-Content-Type: application/json
+**응답 — 성공 (200):**
+```json
+{
+  "success": true,
+  "queued": true,
+  "sync_log_id": 4821,
+  "direction": "discord-to-telegram"
+}
+```
 
+**응답 — PING 요청 (200):**
+```json
 {
   "type": 1
 }
 ```
 
-**응답 (Deferred Message Update):**
-```http
-HTTP/1.1 200 OK
-Content-Type: application/json
-
-{
-  "type": 5
-}
-```
-
-**에러 응답:**
-```http
-HTTP/1.1 401 Unauthorized
-Content-Type: application/json
-
-{
-  "error": "Invalid signature"
-}
-```
-
-**레이트 제한:** 50 requests/second (Global Discord API limit)
-
----
-
-### 1.2 Secretary Processor Endpoint
-
-#### POST /api/discord/processors/secretary
-**목적:** 비서 에이전트 처리 (메시지 라우팅)
-
-**요청:**
-```typescript
-{
-  "messageId": "msg-123",
-  "channelId": "secretary-channel-id",
-  "userId": "user-id",
-  "username": "user-name",
-  "content": "팀 일정 알려줘",
-  "timestamp": "2026-05-15T22:45:30.123Z"
-}
-```
-
-**응답 (성공):**
-```typescript
-{
-  "success": true,
-  "embed": {
-    "title": "📋 팀 일정",
-    "description": "다음은 이번주 팀 일정입니다:",
-    "fields": [
-      {
-        "name": "월요일",
-        "value": "09:00 - 생산 회의",
-        "inline": false
-      },
-      {
-        "name": "화요일",
-        "value": "14:00 - 기술 검토",
-        "inline": false
-      }
-    ],
-    "color": 0x4A90E2,
-    "timestamp": "2026-05-15T22:45:30.123Z"
-  },
-  "telegramSync": {
-    "threadId": "msg#XXXX",
-    "synced": true
-  },
-  "processingTime": 1250
-}
-```
-
-**응답 (에러):**
-```typescript
+**응답 — 서명 검증 실패 (401):**
+```json
 {
   "success": false,
-  "error": "Failed to fetch schedule data",
-  "errorCode": "FETCH_ERROR",
+  "error": "Invalid signature",
+  "code": "INVALID_SIGNATURE"
+}
+```
+
+**응답 — 중복 메시지 (200):**
+```json
+{
+  "success": true,
+  "queued": false,
+  "reason": "duplicate",
+  "sync_log_id": 4820
+}
+```
+
+**에러 코드:**
+| 코드 | HTTP | 설명 |
+|-----|------|------|
+| `INVALID_SIGNATURE` | 401 | Ed25519 서명 불일치 |
+| `RATE_LIMITED` | 429 | 초당 요청 한도 초과 |
+| `INVALID_PAYLOAD` | 400 | 필수 필드 누락 |
+| `INTERNAL_ERROR` | 500 | 서버 처리 오류 |
+
+---
+
+### 2. POST `/api/discord/task`
+
+**목적:** Discord에서 `/task @assign [member] [task]` 명령어 실행 시 DB에 작업 생성 + CTB 갱신 + Telegram 알림 발송.
+**호출자:** Discord Bot (slash command handler)
+**인증:** Bearer token (internal)
+
+**요청 바디:**
+```json
+{
+  "assigned_to": "웹개발자",
+  "task_description": "Asset Master API #9 구현",
+  "priority": "P1",
+  "deadline": "2026-05-24T18:00:00.000Z",
+  "platform_origin": "discord",
+  "requested_by": "CEO",
+  "channel_id": "1503332702085189673"
+}
+```
+
+**필드 규칙:**
+| 필드 | 타입 | 필수 | 제약 |
+|-----|------|------|------|
+| `assigned_to` | string | Y | 유효 팀원 목록 내 이름 |
+| `task_description` | string | Y | 5~500자 |
+| `priority` | string | N | `P0`/`P1`/`P2` (기본: P1) |
+| `deadline` | ISO8601 | N | 미입력 시 당일 23:59 |
+| `platform_origin` | string | Y | `discord` / `telegram` |
+
+**유효 팀원 목록:** `["웹개발자", "플레너", "번역가", "데이터분석가", "평가자", "비서"]`
+
+**응답 — 성공 (201):**
+```json
+{
+  "success": true,
+  "task_id": "f3e2a1b0-...",
+  "queue_id": 127,
+  "assigned_to": "웹개발자",
+  "ctb_updated": true,
+  "telegram_notified": true,
   "embed": {
-    "title": "⚠️ 오류 발생",
-    "description": "일정 정보를 가져올 수 없습니다. 잠시 후 다시 시도해주세요.",
-    "color": 0xFF0000
+    "title": "【새작업】Task Assigned",
+    "description": "Asset Master API #9 구현",
+    "fields": [
+      { "name": "담당자", "value": "웹개발자", "inline": true },
+      { "name": "우선순위", "value": "P1", "inline": true },
+      { "name": "마감", "value": "2026-05-24 18:00", "inline": true }
+    ],
+    "color": 5763719
   }
 }
 ```
 
-**타임아웃:** 5초 (이후 폴백 응답)  
-**재시도:** 최대 3회 (지수 백오프)
-
----
-
-### 1.3 Translator Processor Endpoint
-
-#### POST /api/discord/processors/translator
-**목적:** 번역 요청 처리
-
-**요청:**
-```typescript
+**응답 — 잘못된 멤버명 (400):**
+```json
 {
-  "messageId": "msg-456",
-  "channelId": "translator-channel-id",
-  "userId": "user-id",
-  "username": "user-name",
-  "content": "Please translate this Korean text",
-  "languageDirection": "EN→KO",
-  "timestamp": "2026-05-15T22:45:30.123Z"
+  "success": false,
+  "error": "존재하지 않는 팀원입니다: '프론트개발자'",
+  "code": "INVALID_MEMBER",
+  "valid_members": ["웹개발자", "플레너", "번역가", "데이터분석가", "평가자", "비서"]
 }
 ```
 
-**응답 (성공):**
-```typescript
+---
+
+### 3. POST `/api/discord/ctb-update`
+
+**목적:** Vercel Cron이 5분마다 호출하여 CTB 상태 변화를 감지하고 Discord 채널에 포스팅한다.
+**호출자:** Vercel Cron (`*/5 * * * *`)
+**인증:** `Authorization: Bearer CRON_SECRET`
+
+**요청 바디:**
+```json
+{
+  "source": "vercel-cron",
+  "triggered_at": "2026-05-24T09:35:00.000Z"
+}
+```
+
+**응답 — 변화 있음 (200):**
+```json
 {
   "success": true,
-  "embed": {
-    "title": "🌐 번역 결과",
-    "description": "이 한국어 텍스트를 번역해주세요",
-    "fields": [
-      {
-        "name": "원본",
-        "value": "Please translate this Korean text",
-        "inline": false
-      },
-      {
-        "name": "방향",
-        "value": "EN→KO",
-        "inline": true
-      },
-      {
-        "name": "신뢰도",
-        "value": "95%",
-        "inline": true
-      }
-    ],
-    "color": 0x7ED321
-  },
-  "processingTime": 2340
-}
-```
-
-**지원 방향:** KO→EN, EN→KO, KO↔EN  
-**타임아웃:** 8초 (번역이 더 오래 걸릴 수 있음)
-
----
-
-### 1.4 Data Analyst Processor Endpoint
-
-#### POST /api/discord/processors/analyst
-**목적:** 데이터 분석 요청 처리
-
-**요청:**
-```typescript
-{
-  "messageId": "msg-789",
-  "channelId": "analyst-channel-id",
-  "userId": "user-id",
-  "username": "user-name",
-  "intent": "analyze",
-  "fileReference": "uploaded-file-id",
-  "analysisType": "kpi | trend | anomaly",
-  "parameters": {
-    "dateRange": "2026-05-01 to 2026-05-15",
-    "metrics": ["production_rate", "downtime"]
-  },
-  "timestamp": "2026-05-15T22:45:30.123Z"
-}
-```
-
-**응답 (성공):**
-```typescript
-{
-  "success": true,
-  "embed": {
-    "title": "📊 데이터 분석 결과",
-    "description": "2026-05-01 ~ 2026-05-15 기간 분석",
-    "fields": [
-      {
-        "name": "생산 효율률",
-        "value": "✅ 92.5% (전월대비 +2.1%)",
-        "inline": true
-      },
-      {
-        "name": "다운타임",
-        "value": "⚠️ 8.2시간 (전월 평균 6.5시간)",
-        "inline": true
-      },
-      {
-        "name": "주요 이슈",
-        "value": "금요일 오전 설비 고장으로 1.5시간 손실",
-        "inline": false
-      }
-    ],
-    "color": 0x4A90E2
-  },
-  "chartData": {
-    "type": "line",
-    "dataUrl": "https://..."  // Chart.js embedded image
-  },
-  "processingTime": 3450
-}
-```
-
-**지원 분석 유형:**
-- `kpi` — KPI 요약
-- `trend` — 추세 분석
-- `anomaly` — 이상 탐지
-- `comparison` — 전월/전년 비교
-
-**타임아웃:** 10초 (복잡한 분석 가능)
-
----
-
-### 1.5 Developer Processor Endpoint
-
-#### POST /api/discord/processors/developer
-**목적:** 개발 이슈 및 코드 리뷰 처리
-
-**요청:**
-```typescript
-{
-  "messageId": "msg-012",
-  "channelId": "developer-channel-id",
-  "userId": "user-id",
-  "username": "user-name",
-  "intent": "bug_report | feature_request | code_review",
-  "content": "Login page not responding on mobile",
-  "issueDetails": {
-    "severity": "high | medium | low",
-    "affectedComponent": "pages/auth/login",
-    "reproductionSteps": ["1. Open on mobile", "2. Enter credentials"]
-  },
-  "timestamp": "2026-05-15T22:45:30.123Z"
-}
-```
-
-**응답 (성공):**
-```typescript
-{
-  "success": true,
-  "embed": {
-    "title": "🐛 이슈 등록 완료",
-    "description": "Login 페이지 모바일 응답 오류",
-    "fields": [
-      {
-        "name": "심각도",
-        "value": "🔴 높음",
-        "inline": true
-      },
-      {
-        "name": "상태",
-        "value": "🟡 In Progress",
-        "inline": true
-      },
-      {
-        "name": "담당자",
-        "value": "web-builder",
-        "inline": true
-      },
-      {
-        "name": "예상 완료",
-        "value": "2026-05-17 09:00 KST",
-        "inline": true
-      }
-    ],
-    "color": 0xFF6B6B
-  },
-  "taskId": "TASK-2026-051-001",
-  "processingTime": 1800
-}
-```
-
----
-
-### 1.6 Planner Processor Endpoint
-
-#### POST /api/discord/processors/planner
-**목적:** 설계 및 아키텍처 검토
-
-**요청:**
-```typescript
-{
-  "messageId": "msg-345",
-  "channelId": "planner-channel-id",
-  "userId": "user-id",
-  "username": "user-name",
-  "intent": "design_review | architecture_analysis | scope_definition",
-  "content": "Need to design new backup feature",
-  "scope": "Full backup system with incremental support",
-  "timeline": "2026-05-16 to 2026-06-03",
-  "timestamp": "2026-05-15T22:45:30.123Z"
-}
-```
-
-**응답 (성공):**
-```typescript
-{
-  "success": true,
-  "embed": {
-    "title": "📐 설계 분석 완료",
-    "description": "백업 시스템 상세 설계 문서",
-    "fields": [
-      {
-        "name": "범위",
-        "value": "Full Backup + Incremental Support",
-        "inline": false
-      },
-      {
-        "name": "예상 기간",
-        "value": "3주 (2026-05-16 ~ 2026-06-03)",
-        "inline": false
-      },
-      {
-        "name": "주요 산출물",
-        "value": "• DESIGN.md\n• API_SPEC.md\n• DB_MIGRATION.sql",
-        "inline": false
-      }
-    ],
-    "color": 0x7ED321
-  },
-  "documentUrl": "https://github.com/.../BACKUP_APP_PHASE2_DESIGN.md",
-  "processingTime": 5000
-}
-```
-
----
-
-## 2. Telegram Sync API
-
-### 2.1 Telegram Webhook Endpoint
-
-#### POST /api/telegram/webhook
-**목적:** Telegram 메시지 수신 및 Discord 동기화
-
-**요청:**
-```typescript
-{
-  "update_id": 123456789,
-  "message": {
-    "message_id": 987,
-    "date": 1715800530,
-    "chat": {
-      "id": -1001234567890,
-      "title": "DSC Mannur Team"
-    },
-    "text": "Team schedule updated",
-    "from": {
-      "id": 123,
-      "is_bot": false,
-      "first_name": "Kyeongtae"
-    },
-    "reply_to_message": {
-      "message_id": 950
-    }
-  }
-}
-```
-
-**응답:**
-```typescript
-{
-  "success": true,
-  "discordMessageId": "discord-msg-id",
-  "synced": true,
-  "timestamp": "2026-05-15T23:00:00.000Z"
-}
-```
-
----
-
-## 3. 메시지 큐 및 비동기 처리
-
-### 3.1 Message Queue API
-
-#### GET /api/discord/queue/status
-**목적:** 메시지 큐 상태 조회
-
-**응답:**
-```typescript
-{
-  "queueSize": 5,
-  "processing": {
-    "messageId": "msg-123",
-    "processor": "secretary",
-    "startedAt": "2026-05-15T23:05:15.000Z",
-    "estimatedCompletionMs": 2500
-  },
-  "pending": [
+  "changes_detected": 2,
+  "posted": [
     {
-      "messageId": "msg-124",
-      "processor": "translator",
-      "enqueuedAt": "2026-05-15T23:05:20.000Z"
+      "task_name": "Asset Master API #8",
+      "old_status": "PENDING",
+      "new_status": "IN_PROGRESS",
+      "discord_channel": "진행중",
+      "discord_msg_id": "1234567890"
+    },
+    {
+      "task_name": "Backup Phase 2 UI 평가",
+      "old_status": "IN_PROGRESS",
+      "new_status": "COMPLETED",
+      "discord_channel": "완료",
+      "discord_msg_id": "1234567891"
     }
   ],
-  "rateLimitStatus": {
-    "requestsThisSecond": 2,
-    "maxRequestsPerSecond": 5,
-    "headroomPercent": 60
-  }
+  "telegram_notified": true
 }
 ```
 
----
-
-## 4. 에러 코드 및 대응
-
-### 4.1 HTTP 상태 코드
-
-| 코드 | 의미 | 대응 |
-|------|------|------|
-| **200** | 성공 | 응답 처리 |
-| **400** | 잘못된 요청 | 요청 형식 검증 |
-| **401** | 인증 실패 | 서명 검증 실패 |
-| **403** | 권한 거부 | 봇 권한 부족 |
-| **429** | 레이트 제한 | 지수 백오프 재시도 |
-| **500** | 서버 오류 | 로그 기록, 폴백 응답 |
-| **502** | 게이트웨이 오류 | 자동 재시도 |
-| **503** | 서비스 불가 | 재시도 예약 |
-
-### 4.2 비즈니스 에러 코드
-
-```typescript
-export enum DiscordBotErrorCode {
-  // Auth Errors
-  INVALID_SIGNATURE = 'INVALID_SIGNATURE',
-  INVALID_TOKEN = 'INVALID_TOKEN',
-  EXPIRED_TOKEN = 'EXPIRED_TOKEN',
-  
-  // Processing Errors
-  AGENT_TIMEOUT = 'AGENT_TIMEOUT',
-  AGENT_ERROR = 'AGENT_ERROR',
-  PARSE_ERROR = 'PARSE_ERROR',
-  
-  // API Errors
-  DISCORD_API_ERROR = 'DISCORD_API_ERROR',
-  RATE_LIMIT = 'RATE_LIMIT',
-  UNKNOWN_CHANNEL = 'UNKNOWN_CHANNEL',
-  
-  // Sync Errors
-  TELEGRAM_SYNC_ERROR = 'TELEGRAM_SYNC_ERROR',
-  MESSAGE_SYNC_TIMEOUT = 'MESSAGE_SYNC_TIMEOUT',
-  
-  // Queue Errors
-  QUEUE_FULL = 'QUEUE_FULL',
-  QUEUE_TIMEOUT = 'QUEUE_TIMEOUT'
-}
-```
-
----
-
-## 5. 데이터 모델
-
-### 5.1 Discord 메시지 모델
-
-```typescript
-export interface DiscordMessageModel {
-  id: string                    // Discord message ID
-  channelId: string            // Channel ID
-  guildId: string              // Guild/Server ID
-  userId: string               // Author user ID
-  username: string             // Author username
-  content: string              // Message content
-  timestamp: Date              // Message timestamp
-  editedTimestamp: Date | null // Last edited timestamp
-  
-  // Processing metadata
-  processorType: 'secretary' | 'translator' | 'analyst' | 'developer' | 'planner'
-  intent: string               // Detected intent
-  processingStatus: 'pending' | 'processing' | 'completed' | 'failed'
-  processingTime: number       // milliseconds
-  
-  // Response
-  responseMessageId: string | null
-  responseEmbedData: DiscordEmbed | null
-  
-  // Telegram sync
-  telegramThreadId: string | null
-  telegramMessageId: number | null
-  syncStatus: 'pending' | 'synced' | 'failed' | 'none'
-  syncTimestamp: Date | null
-}
-```
-
-### 5.2 Processor 응답 모델
-
-```typescript
-export interface ProcessorResponse {
-  success: boolean
-  embed: DiscordEmbed
-  
-  // Optional fields per processor
-  telegramSync?: {
-    threadId: string
-    synced: boolean
-    syncError?: string
-  }
-  
-  chartData?: {
-    type: 'line' | 'bar' | 'pie'
-    dataUrl: string
-  }
-  
-  taskId?: string  // For developer processor
-  documentUrl?: string  // For planner processor
-  
-  // Metadata
-  processingTime: number  // milliseconds
-  agentVersion: string
-  timestamp: Date
-  
-  // Error info
-  error?: string
-  errorCode?: DiscordBotErrorCode
-  retryable?: boolean
-}
-```
-
----
-
-## 6. 인증 및 보안
-
-### 6.1 Discord 서명 검증
-
-**Header 구성:**
-```
-X-Signature-Ed25519: <64-byte hex-encoded ed25519 signature>
-X-Signature-Timestamp: <unix timestamp in seconds>
-```
-
-**검증 로직:**
-```typescript
-// 1. Timestamp 검증 (5분 이내)
-const messageTimestamp = parseInt(timestamp)
-const now = Math.floor(Date.now() / 1000)
-if (Math.abs(now - messageTimestamp) > 300) {
-  reject('Invalid timestamp')
-}
-
-// 2. Signature 검증 (tweetnacl.js)
-const message = timestamp + body
-const isValid = nacl.sign.detached.verify(
-  Buffer.from(message),
-  Buffer.from(signature, 'hex'),
-  Buffer.from(PUBLIC_KEY, 'hex')
-)
-
-if (!isValid) {
-  reject('Invalid signature')
-}
-```
-
-### 6.2 토큰 검증
-
-```typescript
-export async function validateBotToken(token: string): Promise<boolean> {
-  try {
-    const response = await fetch('https://discord.com/api/v10/users/@me', {
-      headers: { 'Authorization': `Bot ${token}` }
-    })
-    return response.status === 200
-  } catch {
-    return false
-  }
-}
-```
-
----
-
-## 7. Rate Limiting
-
-### 7.1 적용되는 제한
-
-| 대상 | 제한 | 대응 |
-|------|------|------|
-| Discord API Global | 50 req/sec | 큐잉 |
-| Per-Channel | 5 req/5sec | 큐잉 |
-| Message Queue | 100 pending | 거부 (QUEUE_FULL) |
-| Agent Timeout | 5-10 sec | 폴백 응답 |
-
-### 7.2 Rate Limit Response
-
-```typescript
-export interface RateLimitResponse {
-  error: string
-  code: 'RATE_LIMIT'
-  retryAfter: number  // seconds
-  
-  // For user info
-  currentUsage: {
-    requestsThisSecond: number
-    maxRequestsPerSecond: number
-    percentUsed: number
-  }
-}
-```
-
----
-
-## 8. 모니터링 및 메트릭
-
-### 8.1 메트릭 엔드포인트
-
-#### GET /api/discord/metrics
-**목적:** 실시간 메트릭 조회
-
-**응답:**
-```typescript
+**응답 — 변화 없음 (200):**
+```json
 {
-  "timestamp": "2026-05-15T23:10:00.000Z",
-  "uptime": 3600,  // seconds
-  
-  "messageMetrics": {
-    "totalProcessed": 256,
-    "successCount": 248,
-    "errorCount": 8,
-    "successRate": 96.875,
-    "avgProcessingTimeMs": 1850
-  },
-  
-  "processorMetrics": {
-    "secretary": {
-      "processed": 78,
-      "avgTimeMs": 1200,
-      "errorRate": 1.28
-    },
-    "translator": {
-      "processed": 42,
-      "avgTimeMs": 2450,
-      "errorRate": 2.38
-    },
-    "analyst": {
-      "processed": 56,
-      "avgTimeMs": 3100,
-      "errorRate": 3.57
-    },
-    "developer": {
-      "processed": 48,
-      "avgTimeMs": 1650,
-      "errorRate": 0
-    },
-    "planner": {
-      "processed": 32,
-      "avgTimeMs": 5200,
-      "errorRate": 0
+  "success": true,
+  "changes_detected": 0,
+  "posted": []
+}
+```
+
+**Cron 설정 (`vercel.json`):**
+```json
+{
+  "crons": [
+    {
+      "path": "/api/discord/ctb-update",
+      "schedule": "*/5 * * * *"
     }
-  },
-  
-  "telegramMetrics": {
-    "syncAttempts": 78,
-    "syncSuccessful": 76,
-    "syncFailure": 2,
-    "successRate": 97.44
-  },
-  
-  "queueMetrics": {
-    "avgQueueSize": 2.5,
-    "maxQueueSize": 12,
-    "currentQueueSize": 3,
-    "totalDropped": 0
-  },
-  
-  "errorDistribution": {
-    "AGENT_TIMEOUT": 4,
-    "PARSE_ERROR": 2,
-    "TELEGRAM_SYNC_ERROR": 2
-  }
+  ]
 }
 ```
 
 ---
 
-## 9. 통합 테스트 시나리오
+### 4. GET `/api/discord/status`
 
-### 9.1 종단 간 테스트 (Happy Path)
+**목적:** 동기화 시스템 전반 상태 조회 (모니터링 대시보드용).
+**호출자:** 내부 모니터링 / 수동 확인
+**인증:** Bearer token (internal)
 
-```typescript
-describe('Discord Bot E2E Test', () => {
-  test('User sends message → Bot processes → Response sent', async () => {
-    // 1. User sends message to #비서-secretary
-    const userMessage = {
-      type: InteractionType.MESSAGE_CREATE,
-      data: {
-        content: '팀 일정 알려줘',
-        channel_id: CHANNEL_ID_SECRETARY,
-        author: { username: 'test-user' }
-      }
-    }
-    
-    // 2. Send to gateway
-    const response = await fetch('/api/discord-gateway', {
-      method: 'POST',
-      body: JSON.stringify(userMessage),
-      headers: {
-        'X-Signature-Ed25519': signature,
-        'X-Signature-Timestamp': timestamp
-      }
-    })
-    
-    // 3. Verify gateway accepts
-    expect(response.status).toBe(200)
-    
-    // 4. Wait for message processing
-    await sleep(2000)
-    
-    // 5. Verify response posted to Discord
-    const messages = await fetchChannelMessages(CHANNEL_ID_SECRETARY)
-    const lastMessage = messages[0]
-    
-    expect(lastMessage.embeds).toBeDefined()
-    expect(lastMessage.embeds[0].title).toContain('팀')
-  })
-})
+**쿼리 파라미터:**
+| 파라미터 | 타입 | 기본값 | 설명 |
+|---------|------|------|------|
+| `window` | string | `24h` | 집계 기간 (`1h`/`24h`/`7d`) |
+
+**응답 (200):**
+```json
+{
+  "status": "healthy",
+  "last_sync_at": "2026-05-24T09:33:52.000Z",
+  "metrics": {
+    "window": "24h",
+    "total_synced": 142,
+    "success": 139,
+    "fallback": 2,
+    "error": 1,
+    "duplicate": 8,
+    "error_rate_pct": 0.7
+  },
+  "queue": {
+    "depth": 0,
+    "oldest_pending_sec": null
+  },
+  "platforms": {
+    "discord": "online",
+    "telegram": "online"
+  },
+  "ctb_last_polled": "2026-05-24T09:30:00.000Z"
+}
 ```
 
 ---
 
-## 10. 문제 해결 가이드
+### 5. POST `/api/discord/sync/telegram-to-discord`
 
-### 10.1 일반적인 문제
+**목적:** Telegram 수신 메시지를 Discord 지정 채널로 동기화한다.
+**호출자:** `telegram_bridge.py` (Python 서비스 내부)
 
-| 문제 | 원인 | 해결책 |
-|------|------|--------|
-| Bot이 메시지를 수신하지 못함 | Message Content Intent 미설정 | Discord Developer Portal에서 Intent 활성화 |
-| "Invalid signature" 에러 | 서명 검증 실패 | 공개키, 타임스탬프, 바디 순서 확인 |
-| Telegram 동기화 실패 | 토큰 만료, 스레드 ID 오류 | 환경 변수 갱신, 스레드 ID 확인 |
-| 응답이 매우 느림 | 메시지 큐 적체 | 큐 상태 모니터링, 에이전트 응답 시간 최적화 |
-| Discord API 오류 (429) | 레이트 제한 초과 | 큐 크기 축소, 재시도 대기 시간 증가 |
+**요청 바디:**
+```json
+{
+  "telegram_msg_id": 1994,
+  "from_user": "나경태",
+  "content": "Asset Master API #8 오늘 완료 목표",
+  "timestamp": "2026-05-24T09:00:00.000Z",
+  "target_discord_channel": "announcements"
+}
+```
+
+**응답 — 성공 (200):**
+```json
+{
+  "success": true,
+  "discord_msg_id": "1234567890123456789",
+  "channel": "공지사항",
+  "sync_log_id": 5001
+}
+```
 
 ---
 
-## 11. 배포 체크리스트
+### 6. POST `/api/discord/sync/discord-to-telegram`
 
-- [ ] 모든 환경 변수 설정
-- [ ] Discord 서명 검증 코드 테스트
-- [ ] 각 processor별 단위 테스트 통과
-- [ ] 통합 테스트 (종단 간) 통과
-- [ ] Rate limiting 테스트 통과
-- [ ] Telegram sync 양방향 테스트
-- [ ] Error handling 및 fallback 검증
-- [ ] 모니터링 대시보드 설정
-- [ ] 로깅 시스템 준비
-- [ ] Discord 권한 설정 (메시지 읽기, 작성, 임베드)
+**목적:** Discord 채널 메시지를 Telegram CEO DM으로 동기화한다.
+**호출자:** Discord Bot `message_handler.py`
+
+**요청 바디:**
+```json
+{
+  "discord_msg_id": "1234567890123456789",
+  "channel_name": "팀논의",
+  "from_user": "웹개발자",
+  "content": "PR #42 올렸습니다. 검토 부탁드립니다.",
+  "timestamp": "2026-05-24T09:45:00.000Z"
+}
+```
+
+**응답 — 성공 (200):**
+```json
+{
+  "success": true,
+  "telegram_msg_id": 1995,
+  "sync_log_id": 5002
+}
+```
+
+**응답 — 폴백 발동 (200):**
+```json
+{
+  "success": true,
+  "fallback": true,
+  "reason": "Discord API timeout",
+  "telegram_notified": true,
+  "sync_log_id": 5003
+}
+```
 
 ---
 
-## 12. 참고 자료
+### 7. GET `/api/discord/sync/log`
 
-- Discord API Docs: https://discord.com/developers/docs/interactions/receiving-and-responding
-- Discord.py: https://discordpy.readthedocs.io
-- tweetnacl.js: https://tweetnacl.js.org
-- System Architecture: DISCORD_BOT_ARCHITECTURE_DESIGN.md
-- Implementation Checklist: DISCORD_BOT_IMPL_CHECKLIST.md
+**목적:** 동기화 이력 조회 (디버깅, 감사).
+**호출자:** 내부 모니터링
+
+**쿼리 파라미터:**
+| 파라미터 | 타입 | 기본값 | 설명 |
+|---------|------|------|------|
+| `status` | string | — | `success`/`fallback`/`error`/`duplicate` 필터 |
+| `platform` | string | — | `telegram`/`discord` 필터 |
+| `from` | ISO8601 | 24h 전 | 시작 시간 |
+| `to` | ISO8601 | 현재 | 종료 시간 |
+| `limit` | int | 50 | 최대 반환 건수 (max: 200) |
+| `offset` | int | 0 | 페이지네이션 |
+
+**응답 (200):**
+```json
+{
+  "total": 142,
+  "limit": 50,
+  "offset": 0,
+  "items": [
+    {
+      "id": 5003,
+      "source_platform": "discord",
+      "source_msg_id": 1234567890123456789,
+      "target_platform": "telegram",
+      "target_msg_id": 1995,
+      "sync_status": "success",
+      "created_at": "2026-05-24T09:45:01.000Z",
+      "synced_at": "2026-05-24T09:45:03.000Z"
+    }
+  ]
+}
+```
+
+---
+
+### 8. DELETE `/api/discord/sync/log`
+
+**목적:** 30일 초과 동기화 로그 자동 정리.
+**호출자:** Vercel Cron (매일 02:00 KST)
+**인증:** `Authorization: Bearer CRON_SECRET`
+
+**요청 바디:**
+```json
+{
+  "older_than_days": 30
+}
+```
+
+**응답 (200):**
+```json
+{
+  "success": true,
+  "deleted_count": 2841,
+  "cutoff_date": "2026-04-24T00:00:00.000Z"
+}
+```
+
+---
+
+### 9. GET `/api/discord/tasks`
+
+**목적:** `discord_task_queue` 작업 목록 조회.
+
+**쿼리 파라미터:**
+| 파라미터 | 타입 | 기본값 | 설명 |
+|---------|------|------|------|
+| `status` | string | — | `pending`/`in_progress`/`completed` |
+| `assigned_to` | string | — | 팀원명 필터 |
+| `limit` | int | 20 | 최대 반환 건수 |
+
+**응답 (200):**
+```json
+{
+  "total": 5,
+  "items": [
+    {
+      "id": 127,
+      "task_id": "f3e2a1b0-...",
+      "assigned_to": "웹개발자",
+      "task_description": "Asset Master API #9 구현",
+      "priority": "P1",
+      "deadline": "2026-05-24T18:00:00.000Z",
+      "status": "in_progress",
+      "platform_origin": "discord",
+      "created_at": "2026-05-24T09:00:00.000Z"
+    }
+  ]
+}
+```
+
+---
+
+### 10. PATCH `/api/discord/tasks/:id`
+
+**목적:** 작업 상태 업데이트 (완료 처리 등).
+
+**URL 파라미터:** `:id` — `discord_task_queue.id`
+
+**요청 바디:**
+```json
+{
+  "status": "completed",
+  "completed_at": "2026-05-24T16:45:00.000Z"
+}
+```
+
+**응답 (200):**
+```json
+{
+  "success": true,
+  "task": {
+    "id": 127,
+    "status": "completed",
+    "completed_at": "2026-05-24T16:45:00.000Z"
+  },
+  "discord_notified": true,
+  "telegram_notified": true
+}
+```
+
+---
+
+### 11. GET `/api/discord/channels`
+
+**목적:** 연결된 Discord 채널 목록 및 동기화 설정 조회.
+
+**응답 (200):**
+```json
+{
+  "guild_id": "...",
+  "channels": [
+    {
+      "name": "공지사항",
+      "channel_id": "...",
+      "purpose": "announcements",
+      "sync_from_telegram": true,
+      "sync_to_telegram": false
+    },
+    {
+      "name": "진행중",
+      "channel_id": "...",
+      "purpose": "ctb-inprogress",
+      "sync_from_telegram": false,
+      "sync_to_telegram": false
+    },
+    {
+      "name": "완료",
+      "channel_id": "...",
+      "purpose": "ctb-completed",
+      "sync_from_telegram": false,
+      "sync_to_telegram": false
+    },
+    {
+      "name": "문제해결",
+      "channel_id": "...",
+      "purpose": "blockers",
+      "sync_from_telegram": false,
+      "sync_to_telegram": true
+    },
+    {
+      "name": "팀논의",
+      "channel_id": "...",
+      "purpose": "team-discussion",
+      "sync_from_telegram": false,
+      "sync_to_telegram": true
+    }
+  ]
+}
+```
+
+---
+
+### 12. GET `/api/discord/notifications`
+
+**목적:** 알림 이력 조회 (읽지 않은 항목 포함).
+
+**쿼리 파라미터:**
+| 파라미터 | 타입 | 기본값 |
+|---------|------|------|
+| `unread_only` | boolean | `false` |
+| `limit` | int | 20 |
+
+**응답 (200):**
+```json
+{
+  "unread_count": 3,
+  "items": [
+    {
+      "id": 88,
+      "notify_type": "ctb_update",
+      "content": "【완료】Backup Phase 2 UI 평가 — 평가자 완료",
+      "platform": "both",
+      "is_read": false,
+      "created_at": "2026-05-24T14:10:00.000Z"
+    }
+  ]
+}
+```
+
+---
+
+### 13. PATCH `/api/discord/notifications/:id/read`
+
+**목적:** 특정 알림을 읽음 처리한다.
+
+**URL 파라미터:** `:id` — `discord_notifications.id`
+
+**요청 바디:** 없음
+
+**응답 (200):**
+```json
+{
+  "success": true,
+  "id": 88,
+  "read_at": "2026-05-24T14:15:00.000Z"
+}
+```
+
+---
+
+### 14. POST `/api/discord/test-connection`
+
+**목적:** Discord Bot + Telegram Bot 연결 상태를 점검한다. 배포 직후 또는 장애 의심 시 수동 실행.
+**인증:** Bearer token (internal)
+
+**요청 바디:**
+```json
+{
+  "target": "both"
+}
+```
+
+**응답 — 모두 정상 (200):**
+```json
+{
+  "success": true,
+  "discord": {
+    "status": "online",
+    "bot_name": "DSC-MANNUR-BOT",
+    "latency_ms": 42
+  },
+  "telegram": {
+    "status": "online",
+    "bot_username": "@dsc_mannur_bot",
+    "latency_ms": 88
+  },
+  "tested_at": "2026-05-24T09:00:00.000Z"
+}
+```
+
+**응답 — Discord 오프라인 (200):**
+```json
+{
+  "success": false,
+  "discord": {
+    "status": "offline",
+    "error": "Connection refused"
+  },
+  "telegram": {
+    "status": "online",
+    "latency_ms": 91
+  },
+  "recommendation": "Discord API 장애 또는 토큰 만료 확인 필요"
+}
+```
+
+---
+
+## 공통 에러 응답 스키마
+
+```json
+{
+  "success": false,
+  "error": "에러 설명 (한국어)",
+  "code": "ERROR_CODE",
+  "timestamp": "2026-05-24T09:00:00.000Z"
+}
+```
+
+| 에러 코드 | HTTP | 설명 |
+|---------|------|------|
+| `INVALID_SIGNATURE` | 401 | Discord Ed25519 서명 불일치 |
+| `RATE_LIMITED` | 429 | 요청 한도 초과 (50 req/s) |
+| `INVALID_PAYLOAD` | 400 | 필수 필드 누락 또는 형식 오류 |
+| `INVALID_MEMBER` | 400 | 존재하지 않는 팀원명 |
+| `NOT_FOUND` | 404 | 리소스 없음 |
+| `DUPLICATE_MESSAGE` | 200 | 중복 메시지 (Skip 처리, 오류 아님) |
+| `DISCORD_UNAVAILABLE` | 503 | Discord API 응답 없음 |
+| `TELEGRAM_UNAVAILABLE` | 503 | Telegram API 응답 없음 |
+| `INTERNAL_ERROR` | 500 | 서버 처리 오류 |
+
+---
+
+## 구현 주의사항
+
+1. **Ed25519 검증:** `tweetnacl` (Node.js) 또는 `PyNaCl` (Python) 라이브러리 사용. Discord가 보낸 요청인지 반드시 확인.
+2. **3초 제한:** Discord는 3초 이내 응답 요구. 처리 시간 초과 예상 시 `type: 5` (Deferred) 즉시 반환 후 Follow-up Message 사용.
+3. **Deduplication 순서:** `conflict_resolver` 확인 → DB 기록 → 동기화 실행 순서 반드시 준수.
+4. **Cron Secret:** `/api/discord/ctb-update`, `/api/discord/sync/log` (DELETE) 엔드포인트는 `CRON_SECRET` 환경 변수로 인증.
+5. **Airtel 차단 우회:** Telegram Bot API는 Cloudflare WARP 상시 활성 상태에서만 정상 동작 (기존 설정 유지).

@@ -84,6 +84,7 @@
 - [project_dynamic_evaluation_criteria.md](project_dynamic_evaluation_criteria.md) — 외부 벤치마크 기반 동적 평가 기준 시스템
 
 ### Tracking Process Improvement (2026-05-15 신규)
+- [INCOMPLETE_TASKS_REGISTRY.md](INCOMPLETE_TASKS_REGISTRY.md) — ⭐ 실시간 미완료 항목 추적 (2026-05-19, 신뢰도 95%, 4개 진행중, 0개 블로킹)
 - [TRACKING_PROCESS_IMPROVEMENT_DESIGN.md](../TRACKING_PROCESS_IMPROVEMENT_DESIGN.md) — 5가지 개선 프로세스 설계
 - [TEAM_ALLOCATION_PLAN_2026_05.md](../TEAM_ALLOCATION_PLAN_2026_05.md) — 팀원 할당 + 일정표
 - [DESIGN_DOCUMENT_TRACKING_IMPROVEMENT_PLAN.md](../DESIGN_DOCUMENT_TRACKING_IMPROVEMENT_PLAN.md) — 설계 문서 누락 방지 3단계 개선대책 (메모리 인덱싱 자동화)

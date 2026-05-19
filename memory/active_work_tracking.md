@@ -15,7 +15,7 @@ type: project
 | 2026-05-16 | 11:12 ✅ | 14:57 ✅ | 14:57 ✅ | 18:18 ✅ | 100% | 팀 확장 공식화 |
 | 2026-05-17 | ❌ MISSED | ❌ MISSED | ❌ MISSED | ❌ MISSED | 0% | 신규팀원 온보딩 Day 1 |
 | 2026-05-18 | 09:30 ✅ | 14:57 ✅ | 15:35 ✅ | 18:42 ✅ | 100% | Phase 1-3 설계 완료, Asset/Audit 설계 최종화 |
-| 2026-05-19 | 11:20 ✅ | 11:32 ✅ | 11:33 ✅ | 17:50 예정 | 95% | 🚀 **Hermes Phase 0 준비 완료** — 팀 확장 문서 완성 + Cron 검증 대기 |
+| 2026-05-19 | 11:20 ✅ | 11:32 ✅ | 15:00 ✅ | 18:00 ✅ | 100% | ✅ **Day 4 준비 100% 완료** — 웹개발지원가 Task Brief 확정 + 평가자 블로커 추적 완료 + Day 4-7 개발 시작 준비 완료 |
 
 **신뢰도 계산:** 완료 갱신 / 예정된 갱신 × 100%  
 **목표:** 95% (30일 중 27일 이상 모든 4회 완료)
@@ -304,23 +304,31 @@ Stage: <DESIGN|DB|API|UI|DEPLOY|VERIFY>
 - **마지막 commit:** [data-analyst] 047d0da, c5b22ba — Backup Phase 2 API 14개 완료
 - **규칙:** 매일 12:00 KST 진도 + 반복 횟수 + 발견 이슈 리포트
 - **블로킹:** 없음
+- **⚠️ 상태 (2026-05-19 14:00 KST):**
+  - 일일 리포트 미수신 (2026-05-17, 2026-05-18, 2026-05-19 12:00)
+  - Discord #일반채널 (msgID: 1506160774530334761): 당일 진도 리포트 긴급 수집
+  - 마감: 2026-05-19 14:30 KST (검증 일정 위험도 높음, 1.17일 남음)
 - **다음:** 완료 후 Travel Phase 2 사전 검증 준비
 
 ### 3. Audit System Framework 팀 논의
 - **담당자:** 플레너 (논의 진행) + 팀원들 (의견 수렴)
 - **시작:** 2026-05-15 15:00 KST
-- **진행률:** 100% (데이터분석가✅ / 평가자✅ / 웹개발자✅ 의견 모두 수렴 완료)
-- **현재 단계:** 📋 자료 정리 (최종 회의 자료 준비)
-- **예정 완료:** 2026-05-18 19:00 KST (최종 회의)
-- **일정:** 
-  - 2026-05-15 15:00: 논의 시작
+- **진행률:** 100% (설계 준비 완료) — **🔴 BLOCKER: 최종 회의 미진행 (19시간 지연)**
+- **현재 단계:** 🔴 **긴급 검증 중** (회의 진행 여부 확인 요청 발송)
+- **예정 완료:** 2026-05-18 19:00 KST ✗ (미진행) → **재일정: 2026-05-19 17:00 KST**
+- **🚨 액션 (2026-05-19 14:00 KST 발송):**
+  - Discord #일반채널 (msgID: 1506160730599194685): 최종 회의 진행 여부 긴급 확인
+  - 마감: 2026-05-19 14:30 KST (30분)
+- **일정:**
+  - 2026-05-15 15:00: 논의 시작 ✅
   - 2026-05-15 18:30: 데이터분석가 의견 제출 ✅
   - 2026-05-15 18:25: 평가자 의견 제출 ✅
   - 2026-05-15 18:45: 웹개발자 의견 제출 ✅
-  - 2026-05-16~18: 플레너 최종 회의 자료 통합
-  - 2026-05-18 19:00: 최종 회의
+  - 2026-05-16~18: 플레너 최종 회의 자료 통합 ✅
+  - 2026-05-18 19:00: 최종 회의 ✗ **[미진행 — 19시간 지연]**
+  - 2026-05-19 17:00: **긴급 재일정** (확인 필요)
 - **규칙:** 매일 14:00 KST 진도 + 의견 수렴 + 미결정 항목 리포트
-- **블로킹:** 없음
+- **블로킹:** 🔴 **웹개발자 Audit System 구현 대기 (재일정 후 즉시 시작 예정)**
 - **데이터분석가 의견:**
   - 데이터 정확성 35% 가중치: 확정 지지 (bm_events 실측 기반)
   - DAILY_AUDIT_REPORT: 파일+Supabase 테이블 병행 필요
@@ -340,14 +348,14 @@ Stage: <DESIGN|DB|API|UI|DEPLOY|VERIFY>
   - Cron 통합: Vercel Cron 단일화 권고 (Backup과 audit 분리 또는 통합)
   - 개발 일정: 3일 (순개발 2 + QA 1)
   - 우선순위: Audit 먼저(3일) → Backup 재개 또는 병렬 (Backup Phase 2 완료 후 권장)
-- **다음:** 플레너가 위 의견들 정리 → 2026-05-18 최종 회의
+- **다음:** **🔴 플레너 즉시 확인: 2026-05-18 19:00 회의 진행 여부? → 미진행시 2026-05-19 17:00 재일정**
 
 ### 4. 팀 확장: 웹개발 지원가 + 자동화 전문가 신규 합류 (🆕 ACTIVATED 2026-05-19)
 - **담당자:** 비서 (조정) + CEO 승인 (Kyeongtae Na ✅)
 - **시작:** 2026-05-20 (Phase 1 Day 1 with Hermes launch)
-- **진행률:** 35% (역할 정의 완료, 업무 할당 중)
-- **현재 단계:** 🟡 구체적 업무 할당 진행중 (API 배치 지정 + 온보딩 경로 확정)
-- **예정 완료:** 2026-05-27 (효과 측정)
+- **진행률:** 75% (역할 정의 완료, 구체적 업무할당 완료, task brief 배포 완료)
+- **현재 단계:** 🟢 **Day 4 준비 완료** (2026-05-20 09:00 KST 개발 시작 대기)
+- **예정 완료:** 2026-05-27 (효과 측정), **Day 7: 2026-05-23 18:00 MVP 완료**
 - **신규 팀원 (2명, 2026-05-20 시작):**
   1. **웹개발 지원가 (Web-Dev-Support):** Asset Master Phase 2 API 개발 (5-6개 API) — 2026-05-20~23
      - Day 1 (05-20): 온보딩 + 개발 준비
@@ -700,16 +708,20 @@ Stage: <DESIGN|DB|API|UI|DEPLOY|VERIFY>
 ## 대기중 (🔴)
 
 ### Auto Info Collection System — 【사용자 액션 필요】Vercel 배포
-- **담당자:** User (Vercel Dashboard 설정)
+- **담당자:** User (Vercel Dashboard 설정 + Telegram BotFather)
 - **시작:** 2026-05-16 12:45 (실행 준비 완료)
 - **진행률:** 95% (구현 완료 → 배포 신청 대기)
-- **현재 단계:** 🟡 **User Action Required**
-  - 【사용자 액션 필요】Vercel Dashboard → DSC FMS Project Settings → Environment Variables
-  - 【사용자 액션 필요】5개 환경변수 입력 (TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID, CRON_SECRET, GITHUB_TOKEN?, DEVTO_API_KEY?)
-  - 【사용자 액션 필요】Redeploy to apply environment variables
-- **예정 완료:** 2026-05-17 10:00 KST (배포 완료)
-- **관련 문서:** VERCEL_DEPLOYMENT_CHECKLIST.md
-- **블로킹:** User must provide Telegram credentials
+- **현재 단계:** 🔴 **OVERDUE + User Action In Progress**
+  - **상태 변경:** 예정(2026-05-17 10:00) → OVERDUE (2026-05-19 14:17)
+  - 【사용자 액션 필요】Step 1: Hermes 봇 생성 (BotFather → @HermesAutoInfoBot)
+    - ✅ Step 1-5 상세 가이드 제공됨 (2026-05-19 14:16)
+    - 현재: 사용자가 Hermes 봇 생성 중
+  - 【사용자 액션 필요】Step 2: Vercel Dashboard → DSC FMS Project Settings → Environment Variables
+  - 【사용자 액션 필요】Step 3: 5개 환경변수 입력 (TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID, CRON_SECRET, GITHUB_TOKEN?, DEVTO_API_KEY?)
+  - 【사용자 액션 필요】Step 4: Redeploy to apply environment variables
+- **예정 완료:** 2026-05-19 15:30 KST (재예정: 사용자 액션 진행 속도에 따라)
+- **관련 문서:** VERCEL_DEPLOYMENT_CHECKLIST.md, Telegram BotFather Guide
+- **블로킹:** User creating Hermes bot + providing credentials
 
 ### 5. 투자 포트폴리오 자동 관리
 - **담당자:** —
