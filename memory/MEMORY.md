@@ -10,6 +10,9 @@
 - [⭐ Hermes Accelerated Stabilization Plan](hermes_accelerated_stabilization_plan.md) — 1주 검증 → 3일 집중 모니터링, Category B 2026-05-23 즉시 시작 (2026-05-19 결정)
 - [Hermes + Claude 구독 연결 (비공식)](hermes_claude_subscription_setup.md) — OAuth 자격증명 + 호환 레이어, 약관 위반 위험 주의
 
+## 🔧 Protocol v2 Automation Recovery (2026-05-20)
+- [Vacation Video Compression](vacation_autonomous_video_compression.md) — 휴가 중 초저용량 비디오 변환 (0.62MB 극저용량 + 9.86MB 표준, 96.3% 압축률 달성) + Protocol v2 자동화 실패 분석
+
 ---
 
 ## 팀 온보딩 & 즉시 투입 킷 (Team Onboarding Kit) — 복사-붙여넣기 (2026-05-19)
