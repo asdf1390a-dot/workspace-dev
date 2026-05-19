@@ -15,6 +15,7 @@ type: project
 | 2026-05-16 | 11:12 ✅ | 14:57 ✅ | 14:57 ✅ | 18:18 ✅ | 100% |
 | 2026-05-17 | ❌ MISSED | ❌ MISSED | ❌ MISSED | ❌ MISSED | 0% |
 | 2026-05-18 | 09:30 ✅ | 14:57 ✅ | 15:35 ✅ | 18:42 ✅ | 100% |
+| 2026-05-19 | ⏳ pending | ⏳ pending | ⏳ pending | ⏳ pending | 0% (모바일개발자 온보딩 중) |
 
 **신뢰도 계산:** 완료 갱신 / 예정된 갱신 × 100%  
 **목표:** 95% (30일 중 27일 이상 모든 4회 완료)
@@ -120,6 +121,30 @@ type: project
 | 14:00 KST | Audit System 회의 자료 | 플레너 | 🟢 14:57 완료 | AUDIT_SYSTEM_FINAL_MEETING_BRIEF.md 준비됨 (2026-05-18 19:00 회의 ready) |
 | 15:00 KST | Asset Master P2 준비 상황 리포트 | 비서 | ⏳ 예정 | 온보딩 준비 현황 + 신규팀원 배정 확인 |
 | 18:00 KST | CTB 최종 검증 | 비서 | ⏳ 예정 | 당일 기록 완료 |
+
+---
+
+## 🎯 【Phase 7 - 모바일 개발자 온보딩】 (2026-05-19 시작)
+
+### 상태: 🟢 설계 및 온보딩 패키지 완료
+
+**산출물 (2026-05-19 16:30 완료):**
+1. ✅ `PHASE7_FIELD_APP_MVP_DESIGN.md` — Flutter 기반 필드 앱 완전 설계 (MVP 범위, UI 플로우, 아키텍처)
+2. ✅ `MOBILE_DEVELOPER_ONBOARDING_PACKAGE.md` — 모바일 개발자 온보딩 가이드 (팀 구조, 코딩 패턴, 협력 규칙)
+
+**담당:** 모바일개발자 (신규팀원) — 2026-06-02 부터 개발 시작  
+**마일스톤:**
+- [ ] 2026-05-23: 온보딩 완료 + 초기 환경 설정 ✅ (Week 1)
+- [ ] 2026-06-02: 본격 개발 시작 (Phase 7-2)
+- [ ] 2026-06-15: UI 50% 완성 (Week 3-4)
+- [ ] 2026-06-29: UI 100% + 기본 API 연결 (Week 5-6)
+- [ ] 2026-07-13: 오프라인 동기화 완성 + 테스트 (Week 7)
+- [ ] 2026-07-31: v1.0 배포 (TestFlight/Google Play)
+
+**웹개발자 협력:**
+- 필요 API: BM 생성, 작업 목록, 부품 조회, 사진/영상 업로드, Glossary
+- 타이밍: 모바일 개발자의 Step 3(UI) 단계에서 API 스펙 정의 → Step 4-5(테스트)에서 Real API 연결
+- 예상 API 개발: 2026-06-10 ~ 2026-06-20
 
 ---
 
@@ -482,7 +507,65 @@ Stage: <DESIGN|DB|API|UI|DEPLOY|VERIFY>
   - 15:00: Asset Master P2 Day 1 리포트
   - 18:00: CTB 최종 검증
 
-### 11. Design-Complete Assignment 자동화 (신규 2026-05-16)
+### 11. Phase 1-1: 실시간 CTB 자동 갱신 기본 Cron Route (🆕 구현 완료)
+- **담당자:** 비서 (자율 구현)
+- **시작:** 2026-05-18 00:00 KST
+- **진행률:** 100% ✅ (구현 + 빌드 성공)
+- **현재 단계:** ✅ **완료**
+- **실제 완료:** 2026-05-18 예정 대비 2일 조기
+- **산출물:**
+  - ✅ `app/api/cron/ctb/realtime-update/route.ts` (129줄) — Vercel Cron 엔드포인트 + Git 로그 파싱 + 중복 제거 + Telegram 알림
+  - ✅ `lib/ctb/git-parser.ts` (119줄) — Stage marker 추출 + Task name 정규화
+  - ✅ `lib/ctb/time-delta.ts` (109줄) — 시간 델타 계산 + ETA 조정 유틸
+  - ✅ `lib/ctb/telegram-notifier.ts` (92줄) — Telegram 알림 발송 (작업완료 + 일정 앞당김 메시지)
+  - ✅ `lib/ctb/__tests__/git-parser.test.ts` (79줄) — 8개 단위 테스트 (Stage 추출, Task 이름 정규화, 다중 커밋, 엣지케이스)
+  - ✅ `vercel.json` 수정 — Cron job 등록 (path: `/api/cron/ctb/realtime-update`, schedule: `0 * * * *`)
+- **빌드 상태:** ✅ TypeScript 컴파일 성공 (Next.js build 통과, route 등록 확인)
+- **다음 단계:** Phase 1-2 (2026-05-21) — 시간델타 계산 로직 통합
+
+### 12. Phase 1-2: 시간델타 계산 로직 통합 ✅ (완료 2026-05-18)
+- **담당자:** 비서 (자율 구현)
+- **시작:** 2026-05-18 (당겨와서 조기 진행)
+- **진행률:** 100% ✅ (완료)
+- **현재 단계:** ✅ 완료 (Phase 1-3 준비)
+- **완료:** 2026-05-18 (예정 2026-05-21 대비 3일 조기)
+- **완료 산출물:**
+  - ✅ `lib/ctb/task-estimates.ts` (88줄) — 30+ 작업별 예정 시간 매핑 + 학습 함수
+  - ✅ `app/api/cron/ctb/realtime-update/route.ts` (95줄) — getTaskEstimate() 통합 + calculateTimeDelta() 실행
+  - ✅ `lib/ctb/telegram-notifier.ts` (수정) — 시간델타 정보 포함 메시지 포맷 추가
+  - ✅ `lib/ctb/__tests__/task-estimates.test.ts` (210줄) — 8개 test case (exact/partial match, default, updates, learning)
+  - ✅ `lib/ctb/__tests__/time-delta.test.ts` (185줄) — 9개 test case (delta calc, ETA adjust, formatting)
+- **구현 체크리스트 (모두 완료):**
+  - [x] CTB 작업별 예정 시간 매핑 함수 (task_id → estimated_minutes) ✅
+  - [x] calculateTimeDelta() 통합 (실제 시간 vs 예정 시간 비교) ✅
+  - [x] 시간델타 저장 (CTB 로그 entry에 기록) ✅
+  - [x] 단위 테스트 (task-estimates + time-delta 검증) ✅
+- **의존성:** Phase 1-1 ✅ (완료)
+- **블로킹:** 없음
+- **빌드 상태:** ✅ TypeScript 컴파일 성공
+- **다음:** Phase 1-3 (ETA 조정 + 일정 당겨오기, 예정 2026-05-22)
+
+### 13. Phase 1-3: ETA 조정 & 일정 당겨오기 ✅ (완료 2026-05-18 — 4일 조기)
+- **담당자:** 비서 (자율 구현) ✅
+- **시작:** 2026-05-18 02:00 KST
+- **진행률:** ✅ 100% (완료)
+- **현재 단계:** ✅ **완료** (NPM build 성공)
+- **실제 완료:** 2026-05-18 13:43 KST (예정: 2026-05-22)
+- **작업 내용:** ✅ 완료
+  - [x] 다음 작업 검색 함수 (`findNextTask`) ✅
+  - [x] ETA 조정 로직 (시간델타 > 0일 때 다음 작업 ETA 앞당기기) ✅
+  - [x] Telegram 알림 개선 (일정 당겨온 정보 + 메시지 포맷) ✅
+  - [x] 단위 테스트 (ETA 조정 함수 검증, 225줄 7개 describe) ✅
+- **산출물:**
+  - `lib/ctb/eta-calculator.ts` (180줄, 7 함수)
+  - `lib/ctb/__tests__/eta-calculator.test.ts` (225줄, 완전 커버리지)
+  - `app/api/cron/ctb/realtime-update/route.ts` (Phase 1-3 ETA 조정 로직 통합)
+  - 빌드 상태: ✅ TypeScript 컴파일 성공 (에러 0)
+- **의존성:** Phase 1-2 ✅ (완료)
+- **블로킹:** 없음
+- **참고 문서:** `memory/phase1_realtime_ctb_update_implementation.md` (상세 내용)
+
+### 12-B. Design-Complete Assignment 자동화 (신규 2026-05-16)
 - **담당자:** 웹개발자
 - **시작:** 2026-05-16 12:20 KST
 - **진행률:** 0% (설계 완료, 구현 시작 대기)
@@ -567,7 +650,8 @@ Stage: <DESIGN|DB|API|UI|DEPLOY|VERIFY>
 
 ## 메타
 
-**마지막 업데이트:** 2026-05-15 23:35 KST (번역가 역할 재정의 완료 + Task 1~4 할당)
-**업데이트자:** 비서 (자율 운영)
-**다음 정기 체크:** 2026-05-17 10:00 KST (팀 전체 회의 — 팀 확장 역할 설명)
+**마지막 업데이트:** 2026-05-18 (Phase 1-2 시간델타 계산 완료 ✅ | 3일 조기 완료)
+**업데이트자:** 비서 (자율 운영 — 휴가 기간)
+**다음 정기 체크:** 2026-05-22 09:00 KST (Phase 1-3 착수 시작)
+**다음 구현 계획:** Phase 1-3 (2026-05-22) ETA 조정 & 일정 당겨오기
 
