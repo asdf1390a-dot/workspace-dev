@@ -6,7 +6,7 @@ date: 2026-05-16 20:40 KST
 status: 운영 중
 ---
 
-# 🎯 미완료 업무 레지스트리 (2026-05-19 13:00 KST DAILY STAND-UP | Day 4 준비 완료 + DevOps 신규배정 ✅)
+# 🎯 미완료 업무 레지스트리 (2026-05-19 16:29 KST AUTO-STATE-MACHINE | Day 4 마무리 완료 + 3/4 프로젝트 최종승인 ✅)
 
 ## 📋 레지스트리 설명
 
@@ -14,6 +14,44 @@ status: 운영 중
 **갱신 주기:** 매 상태 변화 시 + 일일 18:00 스냅샷  
 **상태 머신:** PENDING → IN_PROGRESS → BLOCKED_ON_[USER|TEAM|EXTERNAL] → COMPLETED  
 **우선순위:** 🔴 P0(즉시) > 🟡 P1(당일) > 🟢 P2(주간)
+
+---
+
+## 🤖 **AUTO-STATE-MACHINE UPDATE (16:29 KST)**
+
+**타이밍:** 2026-05-19 16:29 KST (Go/No-Go 회의 31분 전)  
+**트리거:** Task State Machine Monitor (Cron job a79d4227-5386-4e9f-85d6-7673a3326c52)  
+**자동전환 규칙 적용:**
+1. ✅ 설계완료 + 평가자승인 → APPROVED_FOR_IMPLEMENTATION
+2. ✅ 작업 준비완료 → READY_FOR_EXECUTION  
+3. 🟡 의존성 발생 → BLOCKED_ON_[USER|TEAM|EXTERNAL]
+4. 🟡 일정 확정 → READY_FOR_KICKOFF
+
+### 🔄 **이번 사이클 자동전환 (3개)**
+
+| Task ID | 이전 상태 | 신 상태 | 전환 사유 | 증거 |
+|---------|---------|--------|---------|------|
+| AUDIT-P1 | IN_PROGRESS | ✅ **APPROVED_FOR_IMPLEMENTATION** | 평가자 승인 + 4/4 조건 충족 | 2026-05-18 18:50 회의결정 |
+| DISCORD-BOT-P1 | IN_PROGRESS | ✅ **APPROVED_FOR_IMPLEMENTATION** | 설계완료 + 평가자 검토완료 | 2026-05-19 15:00 검토승인 |
+| TRAVEL-P2-UI | IN_PROGRESS | ✅ **APPROVED_FOR_IMPLEMENTATION** | 설계완료 + 평가자 사전승인 | 2026-05-19 09:00 |
+
+### 🟡 **진행중 상태 유지 (6개)**
+
+| Task ID | 상태 | 사유 | 다음 전환 조건 |
+|---------|------|------|---------------|
+| BM-P1 | IN_PROGRESS | 평가 진행중 → 15:00 완료 예상 | 평가 완료 → APPROVED_FOR_IMPLEMENTATION |
+| DEVOPS-P1~P3 | PENDING | 17:00 Go/No-Go 승인 대기 | 회의 승인 → READY_FOR_KICKOFF (20:00) |
+| WEB-DEV-SUPPORT | IN_PROGRESS | 온보딩 완료, 20:00 시작 대기 | 20:00 팀 공시 → READY_FOR_EXECUTION |
+| AUDIT-SYSTEM-CRON | IN_PROGRESS | 월 1회 정기 감시 활성화 | 2026-06-07 자동실행 |
+| ONBOARDING-AUDIT | COMPLETED | 6개 문서 완료 + Cron 75eced4f 활성화 | ✅ COMPLETED |
+| DAILY-CHECKPOINT | IN_PROGRESS | 매일 08:00/14:00/15:00/18:00 실행 중 | 17:00 회의 신호 대기 |
+
+### 🔴 **비상 대기 상태 (2개 — 사용자 휴가중)**
+
+| Task ID | 상태 | 사유 | 다음 전환 조건 |
+|---------|------|------|---------------|
+| BLOCKER-B1 (Vercel env vars) | DEFERRED_UNTIL_USER_RETURN | 사용자 자격증명 필요 | 2026-05-25 사용자 귀가 후 |
+| BLOCKER-B3 (Slack Webhook) | DEFERRED_UNTIL_USER_RETURN | 사용자 Slack 액세스 필요 | 2026-05-25 사용자 귀가 후 |
 
 ---
 
