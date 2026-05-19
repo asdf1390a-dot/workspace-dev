@@ -1,5 +1,5 @@
 # 메모리 인덱스 (MEMORY.md)
-**Last Updated:** 2026-05-19 11:50 KST (Hermes AI Agent installed)
+**Last Updated:** 2026-05-19 16:23 KST (Day 4 prep finalization: Onboarding audit system + Daily checkpoint)
 
 ## 🚀 생태계 비전 (Critical)
 - [Ecosystem Vision](project_ecosystem_vision.md) — DSC FMS v1.0 → 다중공장/프로젝트/지역 확장 (2026-05-16 03:41)
@@ -9,6 +9,17 @@
 - [Hermes Autonomous Jobs Schedule](hermes_autonomous_jobs.md) — 6개 정기 작업 (Daily CTB snapshots A1-A3, Background info gathering B1-B2, Weekly audit C1), Phase 1 실행 계획
 - [⭐ Hermes Accelerated Stabilization Plan](hermes_accelerated_stabilization_plan.md) — 1주 검증 → 3일 집중 모니터링, Category B 2026-05-23 즉시 시작 (2026-05-19 결정)
 - [Hermes + Claude 구독 연결 (비공식)](hermes_claude_subscription_setup.md) — OAuth 자격증명 + 호환 레이어, 약관 위반 위험 주의
+
+---
+
+## 팀 온보딩 & 즉시 투입 킷 (Team Onboarding Kit) — 복사-붙여넣기 (2026-05-19)
+- [Standard Onboarding Template](../onboarding/STANDARD_ONBOARDING_TEMPLATE.md) — 모든 팀원 공통 온보딩 구조 (Day 0-3, 2시간 + 첫 과제)
+- [Onboarding: Web Builder](../onboarding/ONBOARDING_WEB_BUILDER.md) — Next.js/Supabase 풀스택 개발자 (Day 1: 환경세팅→첫 과제 선택)
+- [Onboarding: Planner](../onboarding/ONBOARDING_PLANNER.md) — UI/UX 설계자 (Day 1: 팀 구조→설계 문서 작성법)
+- [Onboarding: Evaluator](../onboarding/ONBOARDING_EVALUATOR.md) — QA 품질보증 (Day 1: 설계검증→기능테스트→코드리뷰)
+- [Onboarding: Data Analyst](../onboarding/ONBOARDING_DATA_ANALYST.md) — 데이터 분석 & 자동화 (Day 1: Excel/Supabase 학습→첫 분석)
+- [Onboarding: Translator](../onboarding/ONBOARDING_TRANSLATOR.md) — 한↔영 번역 (Day 1: 용어학습→이메일/Excel 번역)
+- [⭐ Onboarding Audit System](onboarding_audit_system.md) — 신규 에이전트/스킬 추가 시 자동 반영, 월 1회 정기 감시, 온보딩 문서 항상 최신 상태 유지
 
 ---
 
@@ -144,21 +155,25 @@
 
 ---
 
+## 📊 Daily Checkpoints (일일 현황 감시)
+- [Checkpoint 2026-05-19](checkpoint_2026-05-19_summary.md) — Full day audit (08:00~18:00) — 3/3 critical projects ready (Audit 95% + Discord 95% + Travel 95%), team 100% capacity confirmed, zero blockers, 97.5% reliability, 17:00 Go/No-Go decision ready, 18:00 team announcement prepared
+
+---
+
 ## 현재 진행 상황
 
-### 🟡 진행중 (2026-05-16)
-1. **Asset Master Phase 2 API** (웹개발자) — 0% (Day 1 시작, 2026-05-16 09:00)
-2. **Backup App Phase 2 UI** (평가자) — 40% (검증 진행중, 완료 2026-05-21)
-3. **Audit System 팀 논의** (플레너) — 100% (자료 정리, 최종 회의 2026-05-18)
-4. **팀 확대 온보딩** (신규 팀원) — 5% (준비 중, 시작 2026-05-17)
-
-### 🔴 대기중
-- Asset Master 설계 (사용자 우선순위 확정 대기)
+### 🟡 진행중 (2026-05-19 16:23, Pre-Implementation)
+1. **Audit System** (Web Dev) — 95% (설계 완료, 2026-05-20~23 구현)
+2. **Discord Bot Phase 1** (Web Dev) — 95% (설계 완료, 2026-05-20~29 구현)
+3. **Travel Management Phase 2 UI** (Web Dev) — 95% (설계 완료, 2026-05-22~31 구현)
+4. **Web-Dev-Support (신규)** (Asset Master API) — 0% (Day 1 온보딩, 2026-05-20 시작)
+5. **DevOps Engineer (신규)** (3개 병렬 프로젝트) — 0% (Day 1 온보딩, 2026-05-20 시작)
 
 ### 🟢 완료 (최근)
-- Tracking Process Improvement Design (2026-05-15)
-- Asset Registration Phase 1 (2026-05-15)
-- Weekly Reports Week 2 API (2026-05-14)
+- All 3 critical projects design-complete + evaluator-approved (2026-05-19)
+- Team expansion 1인 (Web-Dev-Support) 온보딩 패키지 완성 (2026-05-19)
+- Team expansion 2인 (DevOps) 온보딩 패키지 완성 (2026-05-19)
+- Onboarding audit system activated (Cron Job 75eced4f, 2026-05-19)
 
 ---
 
