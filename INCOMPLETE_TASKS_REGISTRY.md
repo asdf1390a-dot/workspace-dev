@@ -1384,3 +1384,120 @@ IN_PROGRESS
 **상태:** 🟢 **DAY 4 EXECUTION READY** | 🔴 BM-P1 monitoring continue | 🔴 Auto Info continue deferred  
 **다음 체크:** 2026-05-20 14:00 (오후 진도 리포트)
 
+---
+
+## 🎯 **2026-05-20 14:00 TASK ASSIGNMENT CHECKPOINT**
+
+**타이밍:** 2026-05-20 14:00 KST (Day 4 오후 정식 작업 할당)  
+**트리거:** Scheduled Task Assignment Distribution  
+**목표:** 신규팀원 2명에게 명확한 Day 4 작업 할당 및 목표 설정
+
+### 📋 **Task Assignment Summary**
+
+#### **Team Member 1: Web-Dev-Support (신규팀원)**
+- **Assigned Task:** Asset Master Phase 2 API Implementation (Group 1 — GET endpoints)
+- **Task Brief:** `DAY4_TASK_ASSIGNMENT_2026-05-20.md`
+- **APIs Assigned:** 
+  - API #3: GET /api/assets/categories (1h)
+  - API #4: GET /api/assets/:id/audit-log (1-1.5h)
+  - API #5: GET /api/assets/locations (1h)
+- **Total Est. Time:** 3.5 hours
+- **Work Window:** 14:00 → 17:30 KST
+- **Success Criteria:** 3 APIs fully implemented, tested, and committed
+- **Next Checkpoint:** 15:00 (mid-day progress report) + 17:30 (end-of-day completion report)
+- **Support:** Web Developer mentoring + code review
+
+#### **Team Member 2: Automation-Specialist (신규팀원)**
+- **Assigned Task:** Hermes Job C Design & CTB Automation Framework
+- **Task Brief:** `AUTOMATION_SPECIALIST_BRIEF_2026-05-20.md`
+- **Phase 1 (Days 1-3, 2026-05-20~22):** Design & Initial Implementation
+  - Day 1 (Today): Onboarding + Job C initial design
+    - Morning: Documentation review (2 hours)
+    - Afternoon: Task C1 & C2 design (4 hours)
+- **Specific Tasks:**
+  - **Task C1:** CTB Auto-sync Logic Design (git log parsing → CTB auto-update)
+  - **Task C2:** Daily Blocker Detection Algorithm Design (severity analysis + priority ranking)
+- **Work Window:** 09:00~18:00 (with breaks)
+- **Success Criteria:** Day 1 design drafts complete for team review
+- **Next Checkpoint:** 18:00 (Day 1 progress report)
+- **Support:** Team feedback on design approach
+
+### 📊 **Daily Capacity Allocation**
+
+| 역할 | 일일 용량 | Day 4 할당 | Backup UI 지원 | 기타 |
+|------|:-------:|:--------:|:----------:|------|
+| **Web-Dev-Support** | 8h | Asset Master API (75%) | 1-2h (25%) | 포함 |
+| **Automation-Specialist** | 8h | Hermes Job C Design | N/A | 포함 |
+| **웹개발자** | 8h | Mentoring (20%) | Backup review support (10%) | 70% 기타 |
+| **평가자** | 8h | Asset QA review (30%) | Backup UI evaluation (40%) | 30% 기타 |
+
+### 🎯 **Day 4-7 마일스톤**
+
+**Asset Master Phase 2 MVP Goal:** 8-10 APIs by 2026-05-22 17:00
+
+| 날짜 | Day | Web-Dev-Support Focus | Est. APIs Complete |
+|------|-----|---|---|
+| 2026-05-20 | Day 4 | Group 1 GET (APIs #3,4,5) | 3 |
+| 2026-05-21 | Day 5 | Group 2 CRUD + Import start (APIs #6,7,8,13,14) | 5 |
+| 2026-05-22 | Day 6 | Group 3/4 completion (APIs #11,12,15,16) | 9-10 |
+
+**Cumulative Goal Achievement:** 
+- End of Day 4: 3/10 APIs (30%)
+- End of Day 5: 8/10 APIs (80%)
+- End of Day 6: 10/10 APIs (100%) ✅
+
+### 🔴 **Unresolved Blockers (continued monitoring)**
+
+| Task | Status | Overdue | Action |
+|------|--------|---------|--------|
+| **BM-P1 Evaluator Review** | 🔴 BLOCKED_ON_EXTERNAL | 17h 00m | Evaluator signal awaited |
+| **Auto Info Vercel Deployment** | 🔴 BLOCKED_ON_USER | 81h+ | User vacation (return 2026-05-25) |
+
+### ✅ **Task Distribution Status**
+
+| Component | Status | Ready | Notes |
+|-----------|--------|-------|-------|
+| **Documentation** | ✅ Complete | Yes | Both task briefs created + committed |
+| **Web-Dev-Support Brief** | ✅ Complete | Yes | DAY4_TASK_ASSIGNMENT_2026-05-20.md |
+| **Automation-Specialist Brief** | ✅ Complete | Yes | AUTOMATION_SPECIALIST_BRIEF_2026-05-20.md |
+| **Environment** | ✅ Ready | Yes | Both verified during 08:00 checkpoint |
+| **Team Communication** | 🟡 Scheduled | Pending | Telegram + Discord announcement queued for 14:05 |
+
+### 📢 **Communication Plan**
+
+**To Web-Dev-Support (신규팀원):**
+- [ ] Telegram: Link to DAY4_TASK_ASSIGNMENT_2026-05-20.md
+- [ ] Message: "Your Day 4 tasks ready. Target: 3 APIs by 17:30. Checkpoint at 15:00."
+- [ ] Expected Response: Confirmation + status at 15:00
+
+**To Automation-Specialist (신규팀원):**
+- [ ] Telegram: Link to AUTOMATION_SPECIALIST_BRIEF_2026-05-20.md
+- [ ] Message: "Day 1 roadmap confirmed. Design phase starts at 14:00. Report at 18:00."
+- [ ] Expected Response: Confirmation + status at 18:00
+
+**To Team (웹개발자 + 평가자):**
+- [ ] Discord #engineering: Announce both assignments with progress checkpoints
+- [ ] Message: Day 4 execution officially underway | First reports at 15:00 & 18:00
+
+### 📈 **Success Metrics for Day 4**
+
+**For Web-Dev-Support:**
+- ✅ Understand task scope (3 APIs, ~3.5 hours)
+- ✅ Development environment confirmed (branch created)
+- ✅ First API started by 14:30
+- ✅ 1-2 APIs completed by 15:00 (mid-day report)
+- ✅ All 3 APIs done by 17:30 (end-of-day report)
+
+**For Automation-Specialist:**
+- ✅ Understand Hermes Phase 1 goals and context
+- ✅ Task C1 design draft completed (CTB auto-sync logic)
+- ✅ Task C2 design draft completed (blocker detection)
+- ✅ Design documentation prepared for team review
+- ✅ 18:00 report with next steps identified
+
+---
+
+**기록 시간:** 2026-05-20 14:00 KST (Task Assignment Checkpoint)  
+**상태:** 🟢 **BOTH TEAM MEMBERS ASSIGNED** | 🟡 Awaiting 15:00 & 18:00 progress reports  
+**다음 체크:** 2026-05-20 15:00 (Web-Dev-Support 첫 진도 리포트)
+
