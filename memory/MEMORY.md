@@ -29,6 +29,7 @@
 
 ### Travel Management (2026-05 설계 완료)
 - [project_travel_management_module_design.md](project_travel_management_module_design.md) — 여행/출장 기록 + 일정/비용/체크리스트 관리, 4탭 상세, 비용분담, 6 API
+- **✅ Phase 2 UI 설계 완료 (2026-05-19)**: [TRAVEL_PHASE2_UI_DESIGN.md](../TRAVEL_PHASE2_UI_DESIGN.md) — 1,195줄, 13개 컴포넌트 + 파일구조 + 3단계 구현계획 + 엣지케이스 매트릭스, 웹개발자 2026-05-22부터 즉시 구현 가능
 
 ### Team Expansion (2026-05-15 결정, 2026-05-17 시작)
 - [project_team_expansion_plan_2026.md](project_team_expansion_plan_2026.md) — 팀 확대 3명 추가 (평가자 QA + 자동화 전문가 + 웹개발 지원가, 온보딩 2026-05-17)

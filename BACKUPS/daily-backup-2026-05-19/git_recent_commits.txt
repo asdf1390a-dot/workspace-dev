@@ -1,0 +1,20 @@
+53bcb3a feat(ctb): 실시간 일정 당겨오기 CTB 템플릿 구현 + 메모리 추가
+12968c7 chore(ctb): 22:10 checkpoint complete — NO CHANGES detected, all task states stable | Vacation autonomous monitoring continues | Refs:session_checkpoint Stage:MONITOR
+d5b94a1 업무 레지스트리 갱신: Evaluator 평가 완료 ✅ + Planner 블로킹 해제 🟡 | 평가 결과 기반 TOP 3 선정 권유 | Refs:registry_update Stage:CURRENT
+bc1912d 플레너 수행 가이드: TOP 3 Ghost 선정 + 웹개발 스케줄 실행 지침 | Refs:평가자_handoff Stage:READY_FOR_PLANNER
+3e39da6 평가자 검증 리뷰 완료: 신규팀원 3명 스킬(6.5-7/10) + 병렬화 판정(B시나리오) + TOP 3 Ghost 선정(Audit/Travel/Discord) | Refs:평가자_2026-05-17_복구 Stage:COMPLETED
+f2978b9 chore(ctb): GitHub Action workflow for CTB auto-register on design complete
+74cb380 chore(ctb): 18:00 checkpoint complete — 4/4 daily updates (100% reliability) | Asset Master P2 onboarding ready, Audit System materials prepared | Refs:ctb_daily_cycle Stage:VERIFY
+4ed680b chore(ctb): Correct Asset Master P2 status — not blocker, normal plan (신규팀원 2026-05-17 온보딩 시작 | Day 4-7 독립 개발) | 15:00 checkpoint preparing onboarding status
+f9f6804 🚨 chore(ctb): CRITICAL BLOCKER — Asset Master Phase 2 API not started (14:57, Day 1 missed) | Blocker analysis added, recovery plan required
+0509da5 chore(ctb): Update 14:00 checkpoint — Audit System meeting materials progress (ready for 2026-05-18)
+499a583 chore(design): 3개 평가 대기 문서 검토 완료 | ASSESSMENT/CTB/Phase7 로직 검증
+c1c922d chore(automation): Vercel deployment checklist + CTB update for auto-info-collection system
+e240ed8 feat(automation): Auto info collection system — daily GitHub/Product Hunt/Dev.to aggregation
+f30a74b chore(design): 자동화 시스템 설계 완료 | Refs:AUTOMATION Stage:DESIGN
+41c8d1a chore(ctb): Update active work tracking with Phase 7 addition note
+4422273 chore(plan): Add Phase 7 — Ecosystem Expansion (Data Platform + Mobile App, 2026-07-01 ~ 09-30)
+7ae6f86 chore(recovery): Master Recovery Plan Phase 1 initialization (2026-05-16)
+7385244 chore(ctb): implement alternative plan Option 1 — Telegram delivery + manual daily updates
+7e8c3b6 docs(travel): Ho Chi Minh couple travel guide 2026 — accommodations, attractions, restaurants, budget, itinerary
+fcbb2fc chore(checkins): Add Phase A daily check-in template system
