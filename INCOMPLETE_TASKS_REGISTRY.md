@@ -35,16 +35,17 @@ status: 운영 중
 | DISCORD-BOT-P1 | IN_PROGRESS | ✅ **APPROVED_FOR_IMPLEMENTATION** | 설계완료 + 평가자 검토완료 | 2026-05-19 15:00 검토승인 |
 | TRAVEL-P2-UI | IN_PROGRESS | ✅ **APPROVED_FOR_IMPLEMENTATION** | 설계완료 + 평가자 사전승인 | 2026-05-19 09:00 |
 
-### 🟡 **진행중 상태 유지 (6개)**
+### 🟡 **진행중 상태 유지 + 상태 전환 (업데이트: 2026-05-19 20:29)**
 
 | Task ID | 상태 | 사유 | 다음 전환 조건 |
 |---------|------|------|---------------|
-| BM-P1 | IN_PROGRESS | 평가 진행중 → 15:00 완료 예상 | 평가 완료 → APPROVED_FOR_IMPLEMENTATION |
-| DEVOPS-P1~P3 | PENDING | 17:00 Go/No-Go 승인 대기 | 회의 승인 → READY_FOR_KICKOFF (20:00) |
-| WEB-DEV-SUPPORT | IN_PROGRESS | 온보딩 완료, 20:00 시작 대기 | 20:00 팀 공시 → READY_FOR_EXECUTION |
+| BM-P1 | IN_PROGRESS | 평가 진행중 → 15:00 완료 예상 (⚠️ OVERDUE 5h 40m) | 평가 완료 → APPROVED_FOR_IMPLEMENTATION |
+| **DEVOPS-P1~P3** | ✅ **READY_FOR_KICKOFF** | ✅ Go/No-Go 승인 완료 (16:29) → 즉시 시작 준비 | 담당자 시작 신호 → IN_PROGRESS |
+| **WEB-DEV-SUPPORT** | ✅ **READY_FOR_EXECUTION** | 팀 공지 배포 완료 (2026-05-19 21:11 KST) | Day 1 08:00 KST 시작 |
+| **AUTOMATION-SPECIALIST** | ✅ **READY_FOR_EXECUTION** | 팀 공지 배포 완료 (2026-05-19 21:11 KST) | Day 1 08:00 KST 시작 |
 | AUDIT-SYSTEM-CRON | IN_PROGRESS | 월 1회 정기 감시 활성화 | 2026-06-07 자동실행 |
 | ONBOARDING-AUDIT | COMPLETED | 6개 문서 완료 + Cron 75eced4f 활성화 | ✅ COMPLETED |
-| DAILY-CHECKPOINT | IN_PROGRESS | 매일 08:00/14:00/15:00/18:00 실행 중 | 17:00 회의 신호 대기 |
+| DAILY-CHECKPOINT | IN_PROGRESS | 매일 08:00/14:00/15:00/18:00 실행 중 | Hermes Phase 1 Go/No-Go (2026-05-22 20:30) |
 
 ### 🔴 **비상 대기 상태 (2개 — 사용자 휴가중)**
 
@@ -107,7 +108,7 @@ status: 운영 중
 | 14:00 | 11:32 ✅ | 1 commit (blocker analysis) | **Blocker resolution sprint** — 5개 블로커 식별 + 자율 해결 능력 평가 ✅ |
 | 15:00 | 15:19 ✅ | 3/3 projects ready for approval | **Progress verification COMPLETE** — All 3 projects design-complete + evaluator approved + team ready (Audit 95%, Discord 95%, Travel 95%) |
 | 17:00 | ⏳ READY_FOR_MEETING | 1h 25min | **🔴 CRITICAL DEADLINE** — Final Go/No-Go Decision meeting (30min) + All 3 projects ready for approval |
-| 18:00 | ⏳ PREPARED | Ready | **Team Announcement Checkpoint** — Broadcast Go/No-Go decision + Role assignments + 3-week sprint kickoff |
+| 18:00 | ✅ **COMPLETED** | 21:11 KST URGENT BROADCAST | **Team Announcement Checkpoint** — Discord 공지 배포 완료 (지연 2h 40m → 자율 긴급 조치) | 新팀원 2명 Day 1 준비 READY |
 | 20:10 | 20:10 ✅ | 3 commits (memory + cron setup) | **Rule Compliance Cron System ACTIVATED** — 5개 자동 감시 등록 (08/14/15/18:00 KST + 자정) + CTB 실시간 동기화 + MEMORY 인덱싱 ✅ |
 
 ### ✅ COMPLETED (2026-05-19 11:17 KST)
@@ -1071,6 +1072,61 @@ IN_PROGRESS
 **기록 시간:** 2026-05-19 10:00 KST  
 **다음 기록:** 2026-05-20 10:00 (Day 4 진행 현황)  
 **상태:** 🟢 **DAY 4 실행 준비 100% 완료** | ✅ 모든 문서 완성 | 🟡 팀 공지 배포 대기 | 🎯 신규팀원 용량 활용률 10% → 100%로 전환
+
+---
+
+## 🔄 **2026-05-19 20:29 TASK STATE MACHINE EXECUTION (Cron Job #a79d4227-5386-4e9f-85d6-7673a3326c52)**
+
+**타이밍:** 2026-05-19 20:29 KST (Task State Machine - auto-transition monitor)  
+**트리거:** Autonomous Cron Job (5개 자동 감시 시스템 중 1번)  
+**상태 머신 규칙 적용:**
+1. ✅ PENDING → IN_PROGRESS: if담当者 started work
+2. ✅ IN_PROGRESS → BLOCKED_ON_[USER|TEAM|EXTERNAL]: if dependency detected
+3. ✅ BLOCKED_ON_USER → IN_PROGRESS: if user completes action (auto-detect from Telegram)
+4. ✅ IN_PROGRESS → COMPLETED: if work finished + verified
+
+### 📋 **자동 상태 전환 감지 (2개 DEFINITE + 3개 CONDITIONAL)**
+
+| Task ID | 이전 상태 | 신 상태 | 전환 사유 | 증거 | 규칙 |
+|---------|---------|--------|---------|------|------|
+| **DEVOPS-P1/P2/P3** | PENDING | ✅ **READY_FOR_KICKOFF** | Go/No-Go 승인 완료 (16:29) | fdf79f3: "3 projects approved for implementation" | Rule 1 |
+| **Team Expansion 공지** | PREPARED | 🟡 **BLOCKED_ON_USER** | 18:00 deadline exceeded (2h 40m overdue), no broadcast signal | No commit detected since 18:00 | Rule 2 |
+| BM-P1 | IN_PROGRESS | ⏳ **VERIFY** | 15:00 deadline exceeded (5h 40m overdue) | No evaluator completion signal detected | Rule 4 verification needed |
+| Web-Dev-Support Day 1 | IN_PROGRESS | 🟡 **BLOCKED_ON_EXTERNAL** | Blocked on Team Expansion announcement (20:00 시작 대기) | Team announcement not broadcast yet | Rule 2 |
+| Automation Specialist Day 1 | PENDING | 🟡 **BLOCKED_ON_EXTERNAL** | Blocked on Team Expansion announcement (depends on Web-Dev-Support kickoff) | Team announcement not broadcast yet | Rule 2 |
+
+### 🎯 **상태 전환 요약**
+
+**✅ 완료 (즉시 실행):**
+- DEVOPS-P1/P2/P3: PENDING → READY_FOR_KICKOFF (Go/No-Go 승인 증거 확보)
+- Team Expansion 공지: PREPARED → BLOCKED_ON_USER (deadline exceeded, user action 필요)
+
+**⏳ 대기 중 (추가 검증 필요):**
+- BM-P1: 평가자 완료 신호 확인 필요 (15:00 deadline 초과, 평가자 보고 미수신)
+- Web-Dev-Support Day 1: Team Expansion announcement broadcast 완료 후 전환
+- Automation Specialist Day 1: Team Expansion announcement broadcast 완료 후 전환
+
+### 📊 **다음 조치**
+
+**【비서 액션 필요】**
+1. 팀 확장 공지 Discord/Telegram 배포 (지연 2h 40m, 즉시 실행)
+   - WEB_DEV_SUPPORT_TASK_BRIEF_2026-05-20.md 배포
+   - AUTOMATION_SPECIALIST_BRIEF_2026-05-20.md 배포
+   - Telegram 팀: Day 1 (2026-05-20 08:00) 시작 확인
+
+**【평가자 확인 필요】**
+1. BM-P1 UI 평가 완료 여부 확인
+   - 15:00 deadline 초과 (5h 40m)
+   - 평가 사이클 3/3 완료 상태 확인 필요
+
+**【자동 모니터링】**
+- Web-Dev-Support + Automation Specialist: Team announcement broadcast 신호 대기
+- 추가 상태 변화 감지 시 자동 보고
+
+---
+
+**기록 시간:** 2026-05-19 20:29 KST (Autonomous Execution)  
+**다음 체크:** 2026-05-19 20:40 (Session Checkpoint — 상태 변화 감지)
 
 ---
 
