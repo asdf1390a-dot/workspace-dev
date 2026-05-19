@@ -1,8 +1,14 @@
 # 메모리 인덱스 (MEMORY.md)
-**Last Updated:** 2026-05-19 00:17 KST (Pre-Implementation validation deadline TODAY 17:00)
+**Last Updated:** 2026-05-19 11:50 KST (Hermes AI Agent installed)
 
 ## 🚀 생태계 비전 (Critical)
 - [Ecosystem Vision](project_ecosystem_vision.md) — DSC FMS v1.0 → 다중공장/프로젝트/지역 확장 (2026-05-16 03:41)
+
+## 🤖 Hermes AI Agent Integration (NEW 2026-05-19)
+- [Hermes Integration Architecture](hermes_integration_architecture.md) — Parallel autonomous framework on WSL2 (read-only Supabase access, file-based output, scheduled background tasks)
+- [Hermes Autonomous Jobs Schedule](hermes_autonomous_jobs.md) — 6개 정기 작업 (Daily CTB snapshots A1-A3, Background info gathering B1-B2, Weekly audit C1), Phase 1 실행 계획
+- [⭐ Hermes Accelerated Stabilization Plan](hermes_accelerated_stabilization_plan.md) — 1주 검증 → 3일 집중 모니터링, Category B 2026-05-23 즉시 시작 (2026-05-19 결정)
+- [Hermes + Claude 구독 연결 (비공식)](hermes_claude_subscription_setup.md) — OAuth 자격증명 + 호환 레이어, 약관 위반 위험 주의
 
 ---
 
@@ -31,10 +37,16 @@
 - [project_travel_management_module_design.md](project_travel_management_module_design.md) — 여행/출장 기록 + 일정/비용/체크리스트 관리, 4탭 상세, 비용분담, 6 API
 - **✅ Phase 2 UI 설계 완료 (2026-05-19)**: [TRAVEL_PHASE2_UI_DESIGN.md](../TRAVEL_PHASE2_UI_DESIGN.md) — 1,195줄, 13개 컴포넌트 + 파일구조 + 3단계 구현계획 + 엣지케이스 매트릭스, 웹개발자 2026-05-22부터 즉시 구현 가능
 
-### Team Expansion (2026-05-15 결정, 2026-05-17 시작)
-- [project_team_expansion_plan_2026.md](project_team_expansion_plan_2026.md) — 팀 확대 3명 추가 (평가자 QA + 자동화 전문가 + 웹개발 지원가, 온보딩 2026-05-17)
-- 신규 역할: QA 평가자, 자동화 전문가, 웹개발 지원가
-- 온보딩 단계: Day 1 (2026-05-17 09:00) → Day 2-3 (05-18~19) → Day 4-7 (05-20~23)
+### Team Expansion (2026-05-15 결정 → 2026-05-19 즉시 실행)
+- [project_team_expansion_plan_2026.md](project_team_expansion_plan_2026.md) — 팀 확대 2명 신규 배정 (2026-05-20 시작)
+- **신규 역할 1: 웹개발 지원가 (Web-Dev-Support)** — Asset Master Phase 2 API 5-6개 담당 (2026-05-20~23)
+  * 문서: [WEB_DEV_SUPPORT_TASK_BRIEF_2026-05-20.md](../WEB_DEV_SUPPORT_TASK_BRIEF_2026-05-20.md) ✅ (2026-05-19 생성)
+  * 목표: Group 1 (5개 API) + Group 2 (#6-9, 4개 API) 중 첫 배치 = 5-6개 API 개발
+  * 일정: Day 1 온보딩 (05-20) → Day 2-4 (05-21~23) API 개발 → 18:00 완료 보고
+- **신규 역할 2: 자동화 전문가 (Automation Specialist)** — Hermes Job C + CTB 자동화 담당 (2026-05-20~30)
+  * 문서: [AUTOMATION_SPECIALIST_BRIEF_2026-05-20.md](../AUTOMATION_SPECIALIST_BRIEF_2026-05-20.md) ✅ (2026-05-19 생성)
+  * 목표: Job C 설계 (CTB 자동 갱신 + 블로커 탐지) → 프로토타입 → 프로덕션 배포 (일시간 자동화 75분→0)
+  * 일정: Phase 1 (05-20~22, 설계) → Phase 2 (05-23~30, 배포 및 Category B 준비)
 
 ### DevOps Engineer Phase 1 (2026-05-19 신규 배정)
 - [devops_engineer_assignment_summary.md](devops_engineer_assignment_summary.md) — 신규팀원 #2 (DevOps) 배정 (80h/2주, 2026-05-19~30)

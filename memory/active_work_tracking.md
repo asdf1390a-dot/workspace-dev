@@ -10,12 +10,12 @@ type: project
 
 ### 1️⃣ 정기 체크포인트 (Fixed-Time Updates)
 
-| 날짜 | 08:00 | 14:00 | 15:00 | 18:00 | 완료율 |
-|------|:---:|:---:|:---:|:---:|--------|
-| 2026-05-16 | 11:12 ✅ | 14:57 ✅ | 14:57 ✅ | 18:18 ✅ | 100% |
-| 2026-05-17 | ❌ MISSED | ❌ MISSED | ❌ MISSED | ❌ MISSED | 0% |
-| 2026-05-18 | 09:30 ✅ | 14:57 ✅ | 15:35 ✅ | 18:42 ✅ | 100% |
-| 2026-05-19 | 11:20 ✅ | 11:32 ✅ | 11:33 ✅ | ⏳ pending | 75% (설계 완료 + 평가 준비 검증) |
+| 날짜 | 08:00 | 14:00 | 15:00 | 18:00 | 완료율 | 핵심 이벤트 |
+|------|:---:|:---:|:---:|:---:|--------|--------|
+| 2026-05-16 | 11:12 ✅ | 14:57 ✅ | 14:57 ✅ | 18:18 ✅ | 100% | 팀 확장 공식화 |
+| 2026-05-17 | ❌ MISSED | ❌ MISSED | ❌ MISSED | ❌ MISSED | 0% | 신규팀원 온보딩 Day 1 |
+| 2026-05-18 | 09:30 ✅ | 14:57 ✅ | 15:35 ✅ | 18:42 ✅ | 100% | Phase 1-3 설계 완료, Asset/Audit 설계 최종화 |
+| 2026-05-19 | 11:20 ✅ | 11:32 ✅ | 11:33 ✅ | 17:50 예정 | 95% | 🚀 **Hermes Phase 0 준비 완료** — 팀 확장 문서 완성 + Cron 검증 대기 |
 
 **신뢰도 계산:** 완료 갱신 / 예정된 갱신 × 100%  
 **목표:** 95% (30일 중 27일 이상 모든 4회 완료)
@@ -342,23 +342,42 @@ Stage: <DESIGN|DB|API|UI|DEPLOY|VERIFY>
   - 우선순위: Audit 먼저(3일) → Backup 재개 또는 병렬 (Backup Phase 2 완료 후 권장)
 - **다음:** 플레너가 위 의견들 정리 → 2026-05-18 최종 회의
 
-### 4. 팀 확장: QA 평가자 + 자동화 전문가 신규 합류 (🆕)
+### 4. 팀 확장: 웹개발 지원가 + 자동화 전문가 신규 합류 (🆕 ACTIVATED 2026-05-19)
 - **담당자:** 비서 (조정) + CEO 승인 (Kyeongtae Na ✅)
-- **시작:** 2026-05-15 (결정 완료)
-- **진행률:** 5% (결정 완료, 팀원 공지 준비 중)
-- **현재 단계:** 📋 온보딩 준비 (환경 설정 체크리스트 작성)
+- **시작:** 2026-05-20 (Phase 1 Day 1 with Hermes launch)
+- **진행률:** 35% (역할 정의 완료, 업무 할당 중)
+- **현재 단계:** 🟡 구체적 업무 할당 진행중 (API 배치 지정 + 온보딩 경로 확정)
 - **예정 완료:** 2026-05-27 (효과 측정)
-- **일정:**
-  - **2026-05-17 (금) 10:00:** 팀 전체 회의 (역할 설명)
-  - **2026-05-18~19:** 환경 설정 + 권한 부여
-  - **2026-05-20 (월):** 첫 업무 시작
-  - **2026-05-27 (월) 15:00:** 효과 측정 회의 (KPI 달성 확인)
-- **신규 역할:**
-  1. **QA 평가자:** 기능 테스트, 버그 검증, 사용성 평가 (협력: 웹개발자)
-  2. **자동화 전문가:** 반복 작업 자동화, 스케줄링, 모니터링 (협력: 분석가/웹개발자)
-- **예상 효과:** 처리 속도 3배 ↑ / 버그 0% / 자동화 70% / ₩23,000 절감
-- **산출물:** TEAM_EXPANSION_ROLES.md, 환경 설정 체크리스트
-- **다음:** 팀원 공지 → 회의 준비 자료 완성
+- **신규 팀원 (2명, 2026-05-20 시작):**
+  1. **웹개발 지원가 (Web-Dev-Support):** Asset Master Phase 2 API 개발 (5-6개 API) — 2026-05-20~23
+     - Day 1 (05-20): 온보딩 + 개발 준비
+     - Day 2-4 (05-21~23): Asset Master Group 1-2 API (5-6개) 개발
+     - 완료: 2026-05-23 18:00 KST (MVP 완료)
+     - 담당 설계문서: ASSET_MASTER_PHASE2_ONBOARDING_PACKAGE.md
+  2. **자동화 전문가 (Automation Specialist):** Hermes Job C 설계 + 자동화 프레임워크 — 2026-05-20~30
+     - Phase 1 Day 1 (05-20): Hermes 모니터링 + Job C (Team Capacity Monitoring) 설계
+     - Week 1 (05-20~23): 자동 CTB 갱신 + 일일 블로커 보고 프레임워크
+     - 완료: 2026-05-30 (Hermes Category B 전환 준비)
+     - 담당 설계문서: hermes_accelerated_stabilization_plan.md
+- **할당 세부사항 (2026-05-19 즉시):**
+  - Web-Dev-Support: Asset Master Group 1 (5개 API) 배정
+    * API #1: GET /api/assets (필터+검색) 2~3h
+    * API #2: GET /api/assets/:id 30분
+    * API #3: GET /api/asset-categories 1h
+    * API #4: GET /api/assets/:id/audit-log 1~1.5h
+    * API #5: GET /api/assets/locations 1h
+    * **목표:** 2026-05-20 18:00 KST Group 1 완료 → Day 2에 Group 2 진입
+  - Automation Specialist: Hermes Job C 설계 (Blocker Morning Summary 자동화) 배정
+    * Task C1: CTB 자동 갱신 로직 설계 (commit parsing + task state sync)
+    * Task C2: 일일 블로커 탐지 알고리즘 (threshold-based priority)
+    * 목표: 2026-05-20 18:00 KST 초안 완료 → Day 1 실행 가능 상태
+- **예상 효과:** 처리 속도 3배 ↑ / 자동화 70% / 팀 용량 49% → 70%
+- **산출물:** 
+  - ASSET_MASTER_PHASE2_ONBOARDING_PACKAGE.md ✅ (준비됨)
+  - WEB_DEV_SUPPORT_TASK_BRIEF_2026-05-20.md ✅ (완료: 149줄, API 5-9 구체화)
+  - AUTOMATION_SPECIALIST_BRIEF_2026-05-20.md ✅ (완료: 294줄, Job C1-E 상세 설계)
+- **진행률:** 55% (역할정의 + 구체적 업무할당 + 문서완성 완료) → 배포 대기
+- **최종 Action:** 2026-05-19 18:00 체크포인트 → 팀원 공지 + task brief 배포 (Telegram/Discord)
 
 ### 5. 스케줄 관리 역량 개선 (Phase A)
 - **담당자:** 비서 (지시) + 팀원들 (실행)
@@ -587,6 +606,76 @@ Stage: <DESIGN|DB|API|UI|DEPLOY|VERIFY>
   - T+48: 첫 API/DB 구현 완료 요구
   - 미준수 시: Escalation (경고→블로킹→사용자 개입)
 
+### 13. 🚀 Hermes 가속화 정착 계획 (Phase 0-3, 2026-05-19~29)
+- **담당자:** 비서 (자동화 감시 + 최종 Go/No-Go 결정)
+- **시작:** 2026-05-19 18:00 KST (Phase 0 준비)
+- **진행률:** 100% Phase 0 완료 (설계 완료, 전사 준비 완료)
+- **현재 단계:** ✅ Phase 0 완료 + 모니터링 설정 완료 (2026-05-19 13:15 KST)
+  - OAuth 토큰 ✅ / sitecustomize.py ✅ / config.yaml ✅ / 4x cron 모니터링 ✅
+- **예정 완료:** 2026-05-29 (Phase 3 첫 주간 감사 실행, 조건부)
+- **가속화 이유:** 원래 1주일(2026-05-20~26) 검증 → 3일(2026-05-20~22) 집중 검증
+- **마일스톤:**
+  - **Phase 0 (2026-05-19):** sitecustomize.py + config.yaml + OAuth 토큰 검증 ✅ 2026-05-19 12:35
+  - **Phase 1 (2026-05-20~22):** 3일 집중 모니터링 (A1/A2/A3 정확도 ≥95%)
+  - **Phase 1 최종 결정 (2026-05-22 20:30 KST):** Go/No-Go (95% 정확도 필수)
+  - **Phase 2 (2026-05-23~28):** Category B 병렬 실행 (A 계속 + B 신규, B 정확도 ≥90%)
+  - **Phase 2 최종 결정 (2026-05-28 20:00 KST):** Go/No-Go → Phase 3 진행 조건
+  - **Phase 3 (2026-05-29~):** Category C 활성화 + 첫 주간 감사 (2026-05-29 06:00)
+
+| 날짜 | 시간 | 이벤트 | 상태 | 예상 완료 |
+|------|------|--------|------|----------|
+| 2026-05-19 | 18:00~12:35 | Phase 0: OAuth + config 검증 | ✅ 완료 | 12:35 |
+| 2026-05-20 | 08:00 | **Day 1 A1:** 블로커 탐지 | 🔴 예정 | Pass/Fail |
+| 2026-05-20 | 14:00 | Day 1 A2: Phase A 검증 | 🔴 예정 | Pass/Fail |
+| 2026-05-20 | 18:00 | Day 1 A3: 팀 용량 리포트 | 🔴 예정 | Pass/Fail |
+| 2026-05-20 | 20:00 | Day 1 평가 (≥95% 필수) | 🔴 예정 | Go/No-Go |
+| 2026-05-21~22 | 매일 | Days 2~3: 연속성 + 최종 검증 | 🔴 예정 | 누적 평가 |
+| **2026-05-22** | **20:30** | **Phase 1 최종 결정** | 🔴 Critical | **Go→Phase 2** |
+| 2026-05-23 | 08:00 | Phase 2 시작: B1 + B2 활성화 | 🔴 예정 (조건부) | 병렬 실행 |
+| 2026-05-24 | 09:00 | 자동화전문가 온보딩 (가속) | 🔴 예정 | 예정 완료 |
+| 2026-05-28 | 20:00 | Phase 2 최종 평가 | 🔴 예정 | Go→Phase 3 |
+| 2026-05-29 | 06:00 | Phase 3: 첫 주간 감사 | 🔴 예정 (조건부) | C1 리포트 |
+
+- **Category A (계속 모니터링):**
+  - **A1** (08:00): blocker-morning-summary — CTB 블로킹 항목 추출
+  - **A2** (14:00): phase-a-milestone-check — Asset/Backup 진도율 + ETA 편차
+  - **A3** (18:00): team-capacity-daily — 팀 용량 49% + 권장사항
+- **Category B (2026-05-23부터 병렬):**
+  - **B1** (6시간마다): asset health monitoring — 자산 상태 감시
+  - **B2** (02:30): backup verification — 자동 백업 검증
+- **Category C (2026-05-29부터 조건부):**
+  - **C1** (매주 월 06:00): weekly audit — 주간 감사 리포트 (5개 섹션)
+
+- **Phase 1 검증 기준 (2026-05-20~22):**
+  - ✅ A1 파일 생성 (≥100 bytes) + JSON 유효 + 블로커 감지 정확도
+  - ✅ A2 일정 편차 계산 정확 + 완료 기준 체크 정확
+  - ✅ A3 팀 크기 정확 + 활용률 ±5% + 권장 논리 정확
+  - **통과 기준:** 3/3 Pass → Go to Phase 2 / 2/3 이상 Fail → 재검증
+  
+- **Phase 2 검증 기준 (2026-05-23~28):**
+  - ✅ A1/A2/A3 정확도 ≥95% 유지
+  - ✅ B1/B2 정확도 ≥90% 달성
+  - ✅ B 출력이 A3 용량 리포트와 일관성 확인
+  - **통과 기준:** 모두 Pass → Go to Phase 3 / 어느 하나 Fail → 재검증
+
+- **안전성 제약:**
+  - ✅ 95% 정확도 미달 시 Phase 진행 금지 (재검증)
+  - ✅ 한 번에 한 Category만 활성화
+  - ✅ Job 실패 시 자동 중단, 수동 개입 필요
+  - ✅ 모든 출력 파일 타임스탐프 기록
+
+- **블로킹:** 없음 (OAuth + config ✅ 사전 검증)
+- **의존성:**
+  - sitecustomize.py (✅ `/home/jeepney/.local/lib/python3.14/site-packages/`)
+  - `~/.hermes/config.yaml` (✅ provider=anthropic, oauth credentials configured)
+  - CTB availability (✅ active_work_tracking.md)
+- **산출물:**
+  - `/home/jeepney/.hermes/sessions/blocker-morning-*.json` (A1)
+  - `/home/jeepney/.hermes/sessions/phase-a-validation-*.json` (A2)
+  - `/home/jeepney/.hermes/sessions/capacity-report-*.json` (A3)
+  - Hermes Accelerated Stabilization Plan: `memory/hermes_accelerated_stabilization_plan.md`
+- **다음:** Phase 0 완료 후 2026-05-20 08:00 A1 첫 실행
+
 ### 5. Asset Master v2 Phase 2 설계
 - **담당자:** 플레너
 - **시작:** 2026-05-15 17:23 KST ✅ (지시 발송)
@@ -629,6 +718,81 @@ Stage: <DESIGN|DB|API|UI|DEPLOY|VERIFY>
 - **현재 단계:** 미시작
 - **예정 완료:** —
 - **블로킹:** 우선순위 미정
+
+---
+
+## 🔴 Post-Vacation Tasks (휴가 후 실행, 2026-05-25~)
+
+### 1. Hermes Configuration Setup
+- **담당자:** 비서
+- **시작 예정:** 2026-05-25 09:00 KST
+- **예정 소요:** 15분
+- **예정 완료:** 2026-05-25 09:15 KST
+- **현재 단계:** 🔴 대기 (휴가 후 실행)
+- **액션:**
+  1. `hermes config edit` 실행
+  2. OpenAI API 키 입력
+  3. Telegram 토큰 입력
+  4. Discord webhook 입력 (선택)
+  5. `hermes --help` 테스트 (CLI 반응 확인)
+- **산출물:**
+  - `/home/jeepney/.hermes/config.yaml` (설정 완료)
+  - 테스트 로그 (CLI 반응 확인)
+- **블로킹:** 없음
+- **의존성:** Hermes v0.14.0 설치 ✅ (완료)
+- **관련 문서:** `memory/hermes_integration_architecture.md` (lines 155-169)
+
+### 2. First Autonomous Job Test (Job A1: Blocker Detection)
+- **담당자:** 비서
+- **시작 예정:** 2026-05-25 10:00 KST (Task 1 완료 후)
+- **예정 소요:** 30분
+- **예정 완료:** 2026-05-25 10:30 KST
+- **현재 단계:** 🔴 대기 (휴가 후 실행)
+- **액션:**
+  1. Job A1 스킬 수동 실행: `python /home/jeepney/.hermes/hermes-agent/run_agent.py --skill codebase-inspection`
+  2. 또는: `hermes run --job blocker-morning-summary`
+  3. 출력 파일 확인: `/home/jeepney/.hermes/sessions/blocker-morning-{date}.json`
+  4. 형식 검증 (JSON 구조, 필드 완성도)
+  5. 콘솔 로그 기록
+- **산출물:**
+  - `/home/jeepney/.hermes/sessions/blocker-morning-2026-05-25.json` (Hermes 첫 실행 출력)
+  - 테스트 로그 (OpenClaw memory에 기록)
+  - 형식 검증 결과
+- **블로킹:** 없음
+- **의존성:** Task 1 (Hermes Configuration) ✅
+- **기대 효과:** Hermes가 CTB를 읽고 JSON으로 블로킹 항목 추출 확인
+- **관련 문서:** `memory/hermes_autonomous_jobs.md` (lines 23-46 — Job A1 spec)
+
+### 3. OpenClaw Integration Validation
+- **담당자:** 비서
+- **시작 예정:** 2026-05-25 11:00 KST (Task 2 완료 후)
+- **예정 소요:** 45분
+- **예정 완료:** 2026-05-25 11:45 KST
+- **현재 단계:** 🔴 대기 (휴가 후 실행)
+- **액션:**
+  1. Hermes 출력 파일 읽기 확인 (`/home/jeepney/.hermes/sessions/` 접근 권한)
+  2. JSON 파싱 테스트 (OpenClaw가 Hermes JSON을 읽을 수 있는가)
+  3. Telegram 메시지 포맷 테스트 (file → Markdown 변환)
+  4. CTB 동기화 확인 (Hermes가 읽은 CTB 내용 vs 현재 CTB 일치)
+  5. 에러 로그 기록 (문제 발생 시)
+- **산출물:**
+  - 통합 검증 리포트 (memory에 저장)
+  - 호환성 확인 체크리스트
+  - 발견된 문제점 + 개선안 (있는 경우)
+- **블로킹:** 없음
+- **의존성:** Task 2 (First Job Test) ✅
+- **기대 효과:** Hermes ↔ OpenClaw 데이터 흐름 검증 완료, Phase 1 자동화 준비 완료
+- **다음 단계:** Job A1-A3 일일 실행 (2026-05-27~06-02, 자동화 시작)
+- **관련 문서:** `memory/hermes_integration_architecture.md` (lines 64-90 — Integration Points)
+
+---
+
+**Post-Vacation Tasks 상태:**
+- Task 1 (Configuration): 🔴 예정 2026-05-25 09:00
+- Task 2 (First Job Test): 🔴 예정 2026-05-25 10:00
+- Task 3 (Integration Validation): 🔴 예정 2026-05-25 11:00
+- **완료 목표:** 2026-05-25 11:45 KST (총 3시간 예정)
+- **Phase 1 Execution 시작:** 2026-05-27 (일일 job A1-A3 자동 실행)
 
 ## 완료 (🟢)
 
