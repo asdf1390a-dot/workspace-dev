@@ -2053,3 +2053,67 @@ All systems verified ready. Team members will be notified at 14:00 KST per sched
 **간격:** 07:10 → 07:40 (정상 30분)
 
 ✅ **NO CHANGES** — 0 commits, all states stable
+
+---
+
+## ⏰ **2026-05-20 08:01 DEADLINE MONITOR (Daily Check 08:00)**
+
+**타이밍:** 2026-05-20 08:01 KST (Cron: 5cde93a5-fc3c-4d59-9132-77d354571951)  
+**기능:** Scan all deadlines + flag OVERDUE/URGENT + apply scheduled transitions
+
+### 📅 **Deadline Status Summary**
+
+| Task | 기한 | 상태 | 남은시간 | 플래그 |
+|------|------|------|---------|--------|
+| WEB-DEV-SUPPORT APIs #3,4,5 | 2026-05-22 17:00 | IN_PROGRESS ✅ | 57h 59m | 🟡 |
+| AUTOMATION-SPECIALIST Job C | 2026-05-22 17:00 | IN_PROGRESS ✅ | 57h 59m | 🟡 |
+| DEVOPS-P1 | 2026-05-23 14:00 | PENDING | 30h | 🟡 |
+| DEVOPS-P2 | 2026-05-27 18:00 | PENDING | 110h | 🟡 |
+| DEVOPS-P3 | 2026-05-30 18:00 | PENDING | 158h | 🟡 |
+| **BM-P1** | **2026-05-19 15:00** | **BLOCKED** | **-16h 59m** | **🔴 OVERDUE** |
+| BLOCKER-B1, B3 | 2026-05-25 09:00 | DEFERRED | 97h | 🟡 |
+
+### 🚨 **OVERDUE Detection**
+
+**🔴 1 OVERDUE ITEM:**
+
+- **BM-P1 (평가자 검토 초과):** 
+  - 초과 시간: **16h 59m**
+  - 기한: 2026-05-19 15:00 (어제 3시)
+  - 현재 상태: BLOCKED_ON_EXTERNAL
+  - 블로킹 원인: 평가자 완료 신호 미수신
+  - 영향도: Asset Master Phase 2 API 개발 시작 블로킹
+  - 권장조치: **즉시 평가자에게 완료 요청 송신**
+
+### ⚠️ **URGENT Detection (6h window: 08:01-14:01)**
+
+**URGENT 항목: 0개**
+- 모든 활성 태스크가 기한까지 충분한 버퍼 보유
+- DEVOPS 태스크: 30h+ 남음
+- 사용자 의존 블로커: 97h 남음
+
+### ✅ **Automatic 08:00 State Transitions**
+
+**실행된 전환:**
+1. ✅ **WEB-DEV-SUPPORT:** READY_FOR_EXECUTION → IN_PROGRESS
+   - 시작: 2026-05-20 08:00
+   - Day 1 deliverables: Asset Master Phase 2 APIs #3, #4, #5
+   - 기한: 2026-05-22 17:00 (57h 59m)
+
+2. ✅ **AUTOMATION-SPECIALIST:** READY_FOR_EXECUTION → IN_PROGRESS
+   - 시작: 2026-05-20 08:00
+   - Day 1 deliverables: Job C assignment (협력팀원 모집 + 온보딩)
+   - 기한: 2026-05-22 17:00 (57h 59m)
+
+**결과:** 신규팀원 2명 동시 Day 1 실행 시작 ✅
+
+### 📊 **Summary**
+
+- **모니터링 태스크:** 11개
+- **초과 항목:** 1개 (🔴 BM-P1)
+- **긴급 항목 (6h):** 0개
+- **정상 진행:** 10개
+- **즉시 조치:** YES (평가자 완료 신호 요청)
+
+**기록 시간:** 2026-05-20 08:01 KST (Daily Deadline Monitor)  
+**결과:** ✅ 2개 자동 전환 적용 + 1개 OVERDUE 감지
