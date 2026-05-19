@@ -398,8 +398,8 @@ Phase 3 Audit (40 project files 스캔)
 | 항목 | 상태 | 담당 | 기한 | 의존성 |
 |------|------|------|------|--------|
 | Evaluator 리뷰 결과 대기 | ✅ **INPUT RECEIVED** | Planner | 2026-05-17 18:00 | ✅ evaluation_review_20260517.md 완성 |
-| TOP 3 Ghost 선정 (Audit/Travel/Discord) | 🟡 **IN_PROGRESS** | Planner | 2026-05-18 19:00 | ✅ Evaluator 평가 완료, 실행 가이드 제공 |
-| Web-Dev-Support 배정 및 일정 수립 | 🟡 **IN_PROGRESS** | Planner | 2026-05-18 19:00 | 🟡 PLANNER_WEB_DEV_SCHEDULE_2026-05-18.md 작성 필요 |
+| TOP 3 Ghost 선정 (Audit/Travel/Discord) | ✅ **COMPLETED** | Planner | 2026-05-19 11:29 | ✅ All 3 projects finalized (Audit approved, Travel UI complete, Discord Phase 1 complete) |
+| Web-Dev-Support 배정 및 일정 수립 | ✅ **COMPLETED** | Planner | 2026-05-19 11:29 | ✅ PLANNER_WEB_DEV_SCHEDULE_2026-05-18.md created + distributed (Day 2-18) |
 
 **상태 히스토리:**
 - 2026-05-16 17:30: Task 정의 (ACTIVE_WORK_TRACKING.md)
