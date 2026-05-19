@@ -3,6 +3,26 @@
     {
       "path": "/api/cron/auto-info-collection",
       "schedule": "0 23 * * *"
+    },
+    {
+      "path": "/api/cron/checkpoints/08-00",
+      "schedule": "0 23 * * *",
+      "description": "Daily checkpoint 08:00 KST (CTB first update)"
+    },
+    {
+      "path": "/api/cron/checkpoints/14-00",
+      "schedule": "0 5 * * *",
+      "description": "Daily checkpoint 14:00 KST (team progress check)"
+    },
+    {
+      "path": "/api/cron/checkpoints/15-00",
+      "schedule": "0 6 * * *",
+      "description": "Daily checkpoint 15:00 KST (Asset Master P2 report)"
+    },
+    {
+      "path": "/api/cron/checkpoints/18-00",
+      "schedule": "0 9 * * *",
+      "description": "Daily checkpoint 18:00 KST (CTB final verification)"
     }
   ]
 }

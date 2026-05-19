@@ -23,6 +23,14 @@
 
 ---
 
+## ⚠️ 감시 & 규칙 준수 (Compliance & Audits)
+- [⭐ Rule Compliance Execution System](rule_compliance_execution_system.md) — 메모리↔실행 갭 해소 + 5개 Cron 자동 감시 (08/14/15/18:00 KST + 자정) + 실시간 CTB 동기화 (2026-05-19 실행)
+- [⭐ Rule Compliance Audit System](rule_compliance_audit_active.md) — 일일 규칙 준수 감시 (자율 모드 + 자동화 규칙), 매일 08:00 체크 (2026-05-19 활성화)
+- [⭐ Media Editing Follow-up Measures](media_editing_followup_measures.md) — 사진/영상 편집 규칙 위반 후 개선대책 (경로 묻기 금지, SOUL.md 강화, 2026-05-19)
+- [⭐ Missed Audit Violations Remediation](missed_audit_violations_remediation.md) — 2026-05-17 CTB 4회 MISSED 분석 + Cron 자동화 활성화 (2026-05-19 발견 & 개선)
+
+---
+
 ## 프로젝트 문서 (Project Context)
 
 ### DSC FMS Portal (메인 프로젝트)

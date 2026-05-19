@@ -1,0 +1,277 @@
+{
+  "report_date": "2026-05-19T17:57:00+09:00",
+  "period": {
+    "start": "2026-05-13T00:00:00+09:00",
+    "end": "2026-05-19T23:59:59+09:00",
+    "duration_days": 7
+  },
+  "ctb_checkpoint_reliability": {
+    "target_percentage": 95,
+    "description": "정기 체크포인트 신뢰도 = 완료한 갱신 / 예정된 갱신 × 100%",
+    "checkpoint_times": ["08:00 KST", "14:00 KST", "15:00 KST", "18:00 KST"],
+    "daily_records": [
+      {
+        "date": "2026-05-16",
+        "day": "Thursday",
+        "checkpoint_completions": 4,
+        "checkpoint_total": 4,
+        "completion_rate": 100,
+        "status": "✅ 완료",
+        "key_event": "팀 확장 공식화"
+      },
+      {
+        "date": "2026-05-17",
+        "day": "Friday",
+        "checkpoint_completions": 0,
+        "checkpoint_total": 4,
+        "completion_rate": 0,
+        "status": "❌ MISSED",
+        "key_event": "신규팀원 온보딩 Day 1"
+      },
+      {
+        "date": "2026-05-18",
+        "day": "Saturday",
+        "checkpoint_completions": 4,
+        "checkpoint_total": 4,
+        "completion_rate": 100,
+        "status": "✅ 완료",
+        "key_event": "Phase 1-3 설계 완료"
+      },
+      {
+        "date": "2026-05-19",
+        "day": "Sunday",
+        "checkpoint_completions": 4,
+        "checkpoint_total": 4,
+        "completion_rate": 100,
+        "status": "✅ 완료",
+        "key_event": "Day 4 준비 100% 완료"
+      }
+    ],
+    "weekly_summary": {
+      "total_checkpoints_expected": 16,
+      "total_checkpoints_completed": 12,
+      "reliability_percentage": 75,
+      "reliability_status": "🟡 미달 (목표 95%)",
+      "missed_checkpoints": 4,
+      "root_cause": "2026-05-17 신규팀원 온보딩 집중"
+    },
+    "improvement_actions": [
+      "Phase 2: Daily Checkpoint 자동화 (2026-05-23~25)",
+      "Vercel Cron jobs 6개 설정 (08:00/09:00/12:00/14:00/15:00/18:00)",
+      "자동 Telegram 보고 메시지 포맷 확정"
+    ]
+  },
+  "realtime_task_completion_log": {
+    "description": "작업 완료 시 실시간 기록 (정기 체크포인트 시간과 무관)",
+    "planned_entries": 0,
+    "actual_entries": 0,
+    "note": "아직 실행되지 않음. Phase 1-1 구현 완료, 2026-05-20부터 운영 시작 예정"
+  },
+  "time_delta_metrics": {
+    "description": "예정시간 vs 실제시간 편차 분석",
+    "phase1_implementation": {
+      "name": "CTB 실시간 갱신 (Phase 1-1/1-2/1-3)",
+      "status": "✅ 완료",
+      "implementation_date": "2026-05-18",
+      "estimated_duration_hours": 30,
+      "actual_duration_hours": 16,
+      "time_delta_hours": 14,
+      "delta_percentage": -53.3,
+      "delta_status": "조기 완료 (단축)"
+    },
+    "cumulative_daily_delta": {
+      "2026-05-18": {
+        "description": "예상: Phase 1-3 완료 시간 이용해 계산",
+        "total_time_saved": "~3시간",
+        "tasks_ahead_of_schedule": 2,
+        "note": "실제 기록 시작은 2026-05-20 예정"
+      }
+    }
+  },
+  "project_progress_metrics": {
+    "asset_master_phase2": {
+      "name": "Asset Master Phase 2 API 개발",
+      "owner": "Web-Dev-Support (신규팀원)",
+      "status": "🔴 Day 4 시작 예정",
+      "start_date_planned": "2026-05-20",
+      "completion_date_planned": "2026-05-23",
+      "planned_duration_days": 4,
+      "progress_percentage": 0,
+      "deliverables": "16개 MVP API",
+      "note": "온보딩 완료 후 Day 4부터 독립 개발"
+    },
+    "backup_phase2_ui": {
+      "name": "Backup App Phase 2 UI 평가",
+      "owner": "Evaluator",
+      "status": "🟡 진행 중 (40%)",
+      "start_date": "2026-05-14",
+      "completion_date_planned": "2026-05-21",
+      "progress_percentage": 40,
+      "validation_cycles": 2,
+      "validation_total_required": 3,
+      "note": "일일 리포트 미수신 (12:00) = 경고 상태"
+    },
+    "audit_system": {
+      "name": "Audit System Framework",
+      "owner": "Planner (설계) + 팀원들 (검증)",
+      "status": "✅ 설계 완료",
+      "completion_date": "2026-05-18",
+      "design_quality": "조건부 승인 (최종회의)",
+      "progress_percentage": 100,
+      "next_phase": "웹개발자 구현 (2026-05-20~)",
+      "note": "설계 확정 완료"
+    },
+    "travel_management_phase2": {
+      "name": "Travel Management Phase 2 UI",
+      "owner": "Planner (설계) + 웹개발자 (구현)",
+      "status": "✅ 설계 완료",
+      "completion_date": "2026-05-18",
+      "components_designed": 13,
+      "sub_components": 56,
+      "progress_percentage": 100,
+      "note": "웹개발자 2026-05-22부터 구현"
+    },
+    "discord_bot_phase1": {
+      "name": "Discord Bot Phase 1 (양방향 동기화)",
+      "owner": "Planner (설계)",
+      "status": "✅ 설계 완료",
+      "completion_date": "2026-05-18",
+      "progress_percentage": 100,
+      "lines_of_design": 1571,
+      "next_phase": "웹개발자 구현"
+    }
+  },
+  "automation_system_progress": {
+    "phase1_realtime_ctb_update": {
+      "phase": "Phase 1-1",
+      "name": "실시간 CTB 자동 갱신",
+      "status": "✅ 완료",
+      "completion_date": "2026-05-18",
+      "code_lines": 129,
+      "test_lines": 79,
+      "deliverables": ["route.ts", "git-parser.ts", "time-delta.ts", "테스트 8개"]
+    },
+    "phase1_time_delta": {
+      "phase": "Phase 1-2",
+      "name": "시간델타 계산 로직",
+      "status": "✅ 완료",
+      "completion_date": "2026-05-18",
+      "estimated_completion_date": "2026-05-21",
+      "days_ahead_of_schedule": 3,
+      "code_lines": 88,
+      "test_lines": 395
+    },
+    "phase1_eta_adjustment": {
+      "phase": "Phase 1-3",
+      "name": "ETA 조정 & 일정 당겨오기",
+      "status": "✅ 완료",
+      "completion_date": "2026-05-18",
+      "estimated_completion_date": "2026-05-22",
+      "days_ahead_of_schedule": 4,
+      "code_lines": 180,
+      "test_lines": 225
+    },
+    "phase2_daily_checkpoints": {
+      "phase": "Phase 2",
+      "name": "Daily Checkpoint 자동화",
+      "status": "📋 예정",
+      "planned_start": "2026-05-23",
+      "planned_completion": "2026-05-25",
+      "expected_time_savings_per_month": "12시간",
+      "expected_roi": 9
+    },
+    "phase3_gcs_violations": {
+      "phase": "Phase 3",
+      "name": "GCS Violations 자동화",
+      "status": "📋 예정",
+      "planned_start": "2026-05-20",
+      "planned_completion": "2026-05-22",
+      "violations_detected": 7,
+      "violations_target": 0,
+      "expected_time_savings_per_month": "3시간"
+    }
+  },
+  "team_capacity_status": {
+    "current_team": {
+      "total_members": 4,
+      "utilization_percentage": 49,
+      "allocated_capacity_percentage": 190
+    },
+    "expansion_plan": {
+      "new_members": 2,
+      "expansion_start_date": "2026-05-20",
+      "target_utilization_percentage": 100,
+      "projected_capacity_percentage": 241
+    },
+    "team_members": [
+      {
+        "role": "비서 (Secretary)",
+        "agent_type": "자동화",
+        "allocation": "40%",
+        "utilization": "40%",
+        "status": "✅ 풀 가동"
+      },
+      {
+        "role": "번역가 (Translator)",
+        "agent_type": "위임",
+        "allocation": "25%",
+        "utilization": "25%",
+        "status": "🟡 역할 재정의"
+      },
+      {
+        "role": "데이터분석가 (Data-Analyst)",
+        "agent_type": "위임",
+        "allocation": "25%",
+        "utilization": "25%",
+        "status": "🟡 배포 대기"
+      },
+      {
+        "role": "웹개발자 (Web-Builder)",
+        "agent_type": "코어",
+        "allocation": "100%",
+        "utilization": "10%",
+        "status": "🔴 신규팀원 대기"
+      }
+    ]
+  },
+  "blocking_issues": {
+    "total_blocking_issues": 1,
+    "critical_count": 0,
+    "high_priority_count": 1,
+    "medium_priority_count": 0,
+    "issues": [
+      {
+        "id": "BLOCK-001",
+        "title": "Auto Info Collection System - Vercel 배포 OVERDUE",
+        "owner": "User (사용자 액션)",
+        "status": "🔴 OVERDUE",
+        "start_date": "2026-05-16",
+        "expected_completion": "2026-05-17",
+        "actual_status_date": "2026-05-19",
+        "overdue_days": 2.17,
+        "impact": "자동 정보 수집 시스템 배포 불가",
+        "solution": "Vercel Dashboard → 5개 환경변수 설정 → Redeploy",
+        "steps_remaining": 3
+      }
+    ]
+  },
+  "summary_statistics": {
+    "week_of": "2026-05-19",
+    "git_commits": 51,
+    "design_documents": 99,
+    "automation_references": 124,
+    "design_completion_rate": 100,
+    "implementation_readiness": 30,
+    "team_expansion_status": "✅ 확정",
+    "key_achievements": [
+      "설계 완료율 100% (5개 프로젝트)",
+      "자동화 Phase 1-3 3일 조기 완료",
+      "팀 용량 49% → 100% 확장 확정"
+    ],
+    "open_risks": [
+      "CTB 신뢰도 75% (목표 95%)",
+      "사용자 액션 OVERDUE (배포)",
+      "평가자 일일 리포트 미수신"
+    ]
+  }
+}

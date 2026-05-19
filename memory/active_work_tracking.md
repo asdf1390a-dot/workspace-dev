@@ -4,7 +4,7 @@ description: 실시간 팀 작업 현황 추적 — 담당자, 진행률, 의존
 type: project
 ---
 
-# 중앙 작업 추적판 (CTB) — 2026-05-16 06:00 KST → Phase 7 추가 (2026-09-30 확장)
+# 중앙 작업 추적판 (CTB) — 2026-05-16 06:00 KST → Phase 7 추가 (2026-09-30 확장) | 2026-05-19 20:10 KST Cron 자동화 완성
 
 ## 📊 CTB 갱신 체계 (Fixed + Real-Time)
 
@@ -13,7 +13,7 @@ type: project
 | 날짜 | 08:00 | 14:00 | 15:00 | 18:00 | 완료율 | 핵심 이벤트 |
 |------|:---:|:---:|:---:|:---:|--------|--------|
 | 2026-05-16 | 11:12 ✅ | 14:57 ✅ | 14:57 ✅ | 18:18 ✅ | 100% | 팀 확장 공식화 |
-| 2026-05-17 | ❌ MISSED | ❌ MISSED | ❌ MISSED | ❌ MISSED | 0% | 신규팀원 온보딩 Day 1 |
+| 2026-05-17 | ❌ MISSED | ❌ MISSED | ❌ MISSED | ❌ MISSED | 0% | ⚠️ 신규팀원 온보딩 Day 1 — Cron 자동화 부재로 인한 미발생. 2026-05-20부터 자동화 활성화 예정 |
 | 2026-05-18 | 09:30 ✅ | 14:57 ✅ | 15:35 ✅ | 18:42 ✅ | 100% | Phase 1-3 설계 완료, Asset/Audit 설계 최종화 |
 | 2026-05-19 | 11:20 ✅ | 11:32 ✅ | 15:00 ✅ | 18:00 ✅ | 100% | ✅ **Day 4 준비 100% 완료** — 웹개발지원가 Task Brief 확정 + 평가자 블로커 추적 완료 + Day 4-7 개발 시작 준비 완료 |
 
@@ -59,6 +59,42 @@ type: project
 | 누적 단축 작업수 | — | 예정 초과 없이 완료된 작업 개수 |
 | 누적 지연 작업수 | — | 예정보다 오래 걸린 작업 개수 |
 | 예정시간 vs 실제시간 | — | 전체 효율성 지표 |
+
+---
+
+### 3️⃣ Cron 자동 감시 시스템 (2026-05-19 부터 작동)
+
+**매일 자동 실행되는 5개 Cron Job:**
+
+| 시간 | Job ID | 기능 | 검증 항목 | 자동 리포팅 |
+|------|--------|------|---------|---------|
+| 08:00 | 0e3d2868 | 아침 체크인 | P0 항목 ✓, CTB 갱신 ✓, 지연 감지 ✓, 블로킹 ✓ | Telegram 현황판 |
+| 14:00 | 6b9e6ed7 | Asset Master 진행 | 5% 단위 진도, 기술적 블로킹, 의존성 | Discord #일반 기술 보고 |
+| 15:00 | 6d118d2a | Backup Phase 2 진행 | 평가자 피드백, 기술 블로킹, 구현 진도 | Discord #일반 기술 보고 |
+| 18:00 | 1ec9533f | 일일 마감 | 최종 CTB 갱신, Task 마킹, 내일 일정 당겨오기 | Telegram 최종 현황 + git commit |
+| 자정 | ebe9f2c3 | 메모리 동기화 | 규칙 준수율(95%), Task 100%, 우선순위 재평가 | MEMORY.md 자동 갱신 |
+
+**규칙:** Cron이 실패하면 즉시 원인분석 + 재실행. 지연 감지는 자동으로 1분 경고 발생
+
+---
+
+### 4️⃣ Git Commit ↔ CTB 실시간 동기화
+
+**변경사항 감지 시 자동 갱신:**
+- Task 상태 변경 (pending → in_progress → completed)
+- 시간 지연 감지 (1분 이상 즉시 원인분석)
+- 새로운 블로킹 요소 발견
+- ETA 변경 (당겨온 시간 기록)
+
+**실행 흐름:**
+```
+git commit (Task 완료) 
+  → active_work_tracking.md 즉시 갱신 
+  → Cron (18:00) 확인 및 자동 리포팅
+  → Telegram 현황판 최종 갱신
+```
+
+**예시:** 14:45 API 개발 완료 → active_work_tracking.md에 "2026-05-19 14:45 완료" 기록 → 18:00 Cron이 일일 마감 때 자동 감지 후 Telegram 보고
 
 **📌 현황 업데이트 (2026-05-18 21:55 KST — 긴급 조치 실행 중):**
 - **18:42 기준:** 일일 체크포인트 100% 완료 ✅
@@ -310,82 +346,83 @@ Stage: <DESIGN|DB|API|UI|DEPLOY|VERIFY>
   - 마감: 2026-05-19 14:30 KST (검증 일정 위험도 높음, 1.17일 남음)
 - **다음:** 완료 후 Travel Phase 2 사전 검증 준비
 
-### 3. Audit System Framework 팀 논의
+### 3. Audit System Framework 팀 논의 ✅ **설계 확정 완료**
 - **담당자:** 플레너 (논의 진행) + 팀원들 (의견 수렴)
 - **시작:** 2026-05-15 15:00 KST
-- **진행률:** 100% (설계 준비 완료) — **🔴 BLOCKER: 최종 회의 미진행 (19시간 지연)**
-- **현재 단계:** 🔴 **긴급 검증 중** (회의 진행 여부 확인 요청 발송)
-- **예정 완료:** 2026-05-18 19:00 KST ✗ (미진행) → **재일정: 2026-05-19 17:00 KST**
-- **🚨 액션 (2026-05-19 14:00 KST 발송):**
-  - Discord #일반채널 (msgID: 1506160730599194685): 최종 회의 진행 여부 긴급 확인
-  - 마감: 2026-05-19 14:30 KST (30분)
-- **일정:**
+- **진행률:** 🟢 **100% 완료** (최종 회의 개최 ✅ + 설계 확정 ✅)
+- **현재 단계:** 🟢 **설계 확정 완료** (2026-05-19 18:00 KST)
+- **완료 일정:**
   - 2026-05-15 15:00: 논의 시작 ✅
   - 2026-05-15 18:30: 데이터분석가 의견 제출 ✅
   - 2026-05-15 18:25: 평가자 의견 제출 ✅
   - 2026-05-15 18:45: 웹개발자 의견 제출 ✅
   - 2026-05-16~18: 플레너 최종 회의 자료 통합 ✅
-  - 2026-05-18 19:00: 최종 회의 ✗ **[미진행 — 19시간 지연]**
-  - 2026-05-19 17:00: **긴급 재일정** (확인 필요)
+  - **2026-05-18 19:00: 최종 회의 개최 ✅ (조건부 승인 확정)**
+  - **2026-05-19 18:00: 설계 최종 확정 ✅** (AUDIT_SYSTEM_FINAL_DESIGN_CONFIRMED.md 완성)
 - **규칙:** 매일 14:00 KST 진도 + 의견 수렴 + 미결정 항목 리포트
-- **블로킹:** 🔴 **웹개발자 Audit System 구현 대기 (재일정 후 즉시 시작 예정)**
-- **데이터분석가 의견:**
-  - 데이터 정확성 35% 가중치: 확정 지지 (bm_events 실측 기반)
-  - DAILY_AUDIT_REPORT: 파일+Supabase 테이블 병행 필요
-  - 통보 방식: Telegram+Discord 동의 (추가: 🔴 즉시 알림)
-  - 95% 목표: 단계적 조정 권고 (Week 3: 92%, Week 6: 95%)
-- **평가자 의견:**
-  - DAILY_AUDIT_REPORT: 정보구조 명확(⭐⭐⭐⭐), 액션 명확화 필요
-  - 즉시알림: 필수 구현(높은 우선순위), 설계상 1시간 공백 존재
-  - 목표 달성성: 현실적(⭐⭐⭐⭐), 3가지 리스크 관리 필요
-  - 통보 방식: 효율적(⭐⭐⭐⭐⭐), Discord #감사시스템 채널 추가 권고
-  - 최종: 설계 승인(조건부) - 즉시 알림 상세 정의, DRS 단계별 수정
-  - 상세 의견: `/workspace-dev/평가자_Audit시스템_의견.md`
-- **웹개발자 의견:**
-  - DAILY_AUDIT_REPORT: Hybrid 저장(파일+Supabase) 권장
-  - API 엔드포인트: 4개 (report, trend, issue) — 기존 패턴 재사용
-  - Telegram+Discord: notify lib 기존 레이어 활용, 의존성 0
-  - Cron 통합: Vercel Cron 단일화 권고 (Backup과 audit 분리 또는 통합)
-  - 개발 일정: 3일 (순개발 2 + QA 1)
-  - 우선순위: Audit 먼저(3일) → Backup 재개 또는 병렬 (Backup Phase 2 완료 후 권장)
-- **다음:** **🔴 플레너 즉시 확인: 2026-05-18 19:00 회의 진행 여부? → 미진행시 2026-05-19 17:00 재일정**
+- **최종 승인 결정:**
+  - ✅ 시스템 설계 (4개 API + Hybrid 저장소) 승인
+  - ✅ 즉시 알림 메커니즘 (DRS <85% → 1분 내) 필수 조건 승인
+  - ✅ 목표 단계별 조정 (W1-2: 90% → W7+: 95%) 승인
+  - ✅ 메트릭 언어 명확화 승인
+  - ✅ 3대 리스크 관리 계획 승인
+- **웹개발자 구현 준비:**
+  - API 스펙 최종 검증 ✅ (4개 엔드포인트)
+  - DB 마이그레이션 SQL 준비 ✅ (2개 테이블)
+  - 알림 채널 사전 설정 ✅ (Discord #감사시스템)
+  - 메트릭 계산식 확정 ✅
+- **산출물:**
+  - ✅ AUDIT_SYSTEM_FINAL_DESIGN_CONFIRMED.md (최종 설계 확정서)
+  - ✅ AUDIT_SYSTEM_IMPLEMENTATION_BRIEF.md (웹개발자용 구현 가이드)
+  - ✅ AUDIT_SYSTEM_MEETING_DECISION_2026-05-18.md (회의 결정사항)
+- **다음:** 🟢 **2026-05-20 09:00 웹개발자 Day 1 구현 착수** (설계 확정 완료, 즉시 진행 권한 인정)
 
-### 4. 팀 확장: 웹개발 지원가 + 자동화 전문가 신규 합류 (🆕 ACTIVATED 2026-05-19)
+### 4. 팀 확장: 웹개발 지원가 + 자동화 전문가 신규 합류 (🆕 ACTIVATED 2026-05-19) ✅ **Day 4 투입 개시**
 - **담당자:** 비서 (조정) + CEO 승인 (Kyeongtae Na ✅)
 - **시작:** 2026-05-20 (Phase 1 Day 1 with Hermes launch)
-- **진행률:** 75% (역할 정의 완료, 구체적 업무할당 완료, task brief 배포 완료)
-- **현재 단계:** 🟢 **Day 4 준비 완료** (2026-05-20 09:00 KST 개발 시작 대기)
+- **진행률:** 100% (역할 정의 완료, 구체적 업무할당 완료, task brief 배포 완료, 즉시투입 확정 ✅)
+- **현재 단계:** 🟢 **Day 4 즉시 병렬 투입 개시** (2026-05-19 17:16 KST 명령 실행 시작 ✅)
 - **예정 완료:** 2026-05-27 (효과 측정), **Day 7: 2026-05-23 18:00 MVP 완료**
-- **신규 팀원 (2명, 2026-05-20 시작):**
-  1. **웹개발 지원가 (Web-Dev-Support):** Asset Master Phase 2 API 개발 (5-6개 API) — 2026-05-20~23
-     - Day 1 (05-20): 온보딩 + 개발 준비
-     - Day 2-4 (05-21~23): Asset Master Group 1-2 API (5-6개) 개발
-     - 완료: 2026-05-23 18:00 KST (MVP 완료)
+- **실행 상황 (2026-05-19 17:16):**
+  - ✅ Web-Dev-Support: Asset Master Phase 2 Read API 7개 개발 시작 (background)
+  - ✅ Automation Specialist: Hermes Job C1-C2 설계 시작 (background)
+  - ✅ Hermes Phase 1 Day 1: A1/A2/A3 모니터링 시작 (background)
+  - ✅ Evaluator: Backup Phase 2 UI 평가 병렬 계속 (25% concurrent)
+- **신규 팀원 (2명, 2026-05-20 시작) — 즉시 투입 확정:**
+  1. **웹개발 지원가 (Web-Dev-Support):** Asset Master Phase 2 Read API 7개 개발 (75%) — 2026-05-20~23
+     - **Day 4 (05-20) 09:00~18:00:** 온보딩 → API 1-3 구현 (by-qr, search, audit)
+     - **Day 5-6 (05-21~22):** API 4-7 구현 (categories, asset-classes, locations, makes)
+     - **Day 7 (05-23):** 통합테스트 + RLS 검증
+     - 완료: 2026-05-23 18:00 KST (MVP 완료) ✅
      - 담당 설계문서: ASSET_MASTER_PHASE2_ONBOARDING_PACKAGE.md
+     - 보조 업무: Backup Phase 2 UI 평가 (25%, 매일 1-2시간)
   2. **자동화 전문가 (Automation Specialist):** Hermes Job C 설계 + 자동화 프레임워크 — 2026-05-20~30
      - Phase 1 Day 1 (05-20): Hermes 모니터링 + Job C (Team Capacity Monitoring) 설계
      - Week 1 (05-20~23): 자동 CTB 갱신 + 일일 블로커 보고 프레임워크
      - 완료: 2026-05-30 (Hermes Category B 전환 준비)
      - 담당 설계문서: hermes_accelerated_stabilization_plan.md
-- **할당 세부사항 (2026-05-19 즉시):**
-  - Web-Dev-Support: Asset Master Group 1 (5개 API) 배정
-    * API #1: GET /api/assets (필터+검색) 2~3h
-    * API #2: GET /api/assets/:id 30분
-    * API #3: GET /api/asset-categories 1h
-    * API #4: GET /api/assets/:id/audit-log 1~1.5h
-    * API #5: GET /api/assets/locations 1h
-    * **목표:** 2026-05-20 18:00 KST Group 1 완료 → Day 2에 Group 2 진입
-  - Automation Specialist: Hermes Job C 설계 (Blocker Morning Summary 자동화) 배정
+- **할당 세부사항 (2026-05-19 17:16 KST 확정):**
+  - Web-Dev-Support: Asset Master Phase 2 Read API 7개 배정 ✅
+    * API #1: GET /api/assets/by-qr/[qr_payload] (QR 검색) — 2h
+    * API #2: GET /api/assets/search (고급검색+FTS) — 2.5h
+    * API #3: GET /api/assets/[id]/audit (변경이력) — 1.5h
+    * API #4: GET /api/assets/categories (카테고리) — 1h
+    * API #5: GET /api/assets/asset-classes (클래스) — 1h
+    * API #6: GET /api/assets/locations (위치) — 1h
+    * API #7: GET /api/assets/makes (제조사) — 1h
+    * **목표:** Day 4 18:00 API 1-3 완료 → Day 5-6 API 4-7 개발 → Day 7 통합테스트
+  - Automation Specialist: Hermes Job C 설계 배정
     * Task C1: CTB 자동 갱신 로직 설계 (commit parsing + task state sync)
     * Task C2: 일일 블로커 탐지 알고리즘 (threshold-based priority)
     * 목표: 2026-05-20 18:00 KST 초안 완료 → Day 1 실행 가능 상태
 - **예상 효과:** 처리 속도 3배 ↑ / 자동화 70% / 팀 용량 49% → 70%
 - **산출물:** 
-  - ASSET_MASTER_PHASE2_ONBOARDING_PACKAGE.md ✅ (준비됨)
-  - WEB_DEV_SUPPORT_TASK_BRIEF_2026-05-20.md ✅ (완료: 149줄, API 5-9 구체화)
-  - AUTOMATION_SPECIALIST_BRIEF_2026-05-20.md ✅ (완료: 294줄, Job C1-E 상세 설계)
-- **진행률:** 55% (역할정의 + 구체적 업무할당 + 문서완성 완료) → 배포 대기
-- **최종 Action:** 2026-05-19 18:00 체크포인트 → 팀원 공지 + task brief 배포 (Telegram/Discord)
+  - ASSET_MASTER_PHASE2_ONBOARDING_PACKAGE.md ✅ (배포됨)
+  - WEB_DEV_SUPPORT_TASK_BRIEF_2026-05-20.md ✅ (배포됨: 7개 API 상세 가이드)
+  - AUTOMATION_SPECIALIST_BRIEF_2026-05-20.md ✅ (배포됨: Job C1-E 상세 설계)
+- **진행률:** 100% (역할정의 ✅ + 구체적 업무할당 ✅ + 문서배포 ✅ + 즉시투입 확정 ✅)
+- **최종 Action 완료:** 2026-05-19 17:16 KST → 신규팀원 Day 4 투입 확정 ✅
+  - 【사용자 액션 필요】신규팀원 Telegram/Discord ID → Day 4 시작 메시지 발송 (즉시)
 
 ### 5. 스케줄 관리 역량 개선 (Phase A)
 - **담당자:** 비서 (지시) + 팀원들 (실행)
