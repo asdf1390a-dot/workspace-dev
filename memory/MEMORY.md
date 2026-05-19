@@ -35,6 +35,16 @@
 - 신규 역할: QA 평가자, 자동화 전문가, 웹개발 지원가
 - 온보딩 단계: Day 1 (2026-05-17 09:00) → Day 2-3 (05-18~19) → Day 4-7 (05-20~23)
 
+### DevOps Engineer Phase 1 (2026-05-19 신규 배정)
+- [devops_engineer_assignment_summary.md](devops_engineer_assignment_summary.md) — 신규팀원 #2 (DevOps) 배정 (80h/2주, 2026-05-19~30)
+- [../project_devops_engineer_phase1_assignment.md](../project_devops_engineer_phase1_assignment.md) — 3개 병렬 프로젝트 상세 로드맵 + 산출물 정의 (550줄)
+- [../DEVOPS_ONBOARDING_CHECKLIST.md](../DEVOPS_ONBOARDING_CHECKLIST.md) — Day 1 온보딩 체크리스트 (450줄)
+- [../DEVOPS_DAILY_REPORTING_TEMPLATE.md](../DEVOPS_DAILY_REPORTING_TEMPLATE.md) — 일일 리포팅 형식 + 예시 (400줄)
+- **3개 프로젝트:**
+  1. P0: Vercel 배포 최적화 (2026-05-23, 40h) — 빌드 5분→2-3분, Edge Functions, ISR 캐싱
+  2. P1: Supabase 자동화 (2026-05-27, 25h) — DB 인덱스 최적화, 자동 백업, Read Replica, RLS
+  3. P1: 실시간 모니터링 (2026-05-30, 15h) — 대시보드, 자동 알림 (Telegram/Discord)
+
 ### Design System (2026-05 완료)
 - [project_design_system_colors_spacing.md](project_design_system_colors_spacing.md) — Dark theme 색상 32개, 간격 8단계, 타이포그래피, 컴포넌트 규칙
 
