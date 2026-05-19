@@ -35,11 +35,11 @@ status: 운영 중
 | DISCORD-BOT-P1 | IN_PROGRESS | ✅ **APPROVED_FOR_IMPLEMENTATION** | 설계완료 + 평가자 검토완료 | 2026-05-19 15:00 검토승인 |
 | TRAVEL-P2-UI | IN_PROGRESS | ✅ **APPROVED_FOR_IMPLEMENTATION** | 설계완료 + 평가자 사전승인 | 2026-05-19 09:00 |
 
-### 🟡 **진행중 상태 유지 + 상태 전환 (업데이트: 2026-05-19 20:29)**
+### 🟡 **진행중 상태 유지 + 상태 전환 (업데이트: 2026-05-19 21:29)**
 
 | Task ID | 상태 | 사유 | 다음 전환 조건 |
 |---------|------|------|---------------|
-| BM-P1 | IN_PROGRESS | 평가 진행중 → 15:00 완료 예상 (⚠️ OVERDUE 5h 40m) | 평가 완료 → APPROVED_FOR_IMPLEMENTATION |
+| **BM-P1** | 🔴 **BLOCKED_ON_EXTERNAL** | ⚠️ 평가 지연: 예상 15:00 → 실제 미완료 (OVERDUE 6h 29m @21:29 KST) | 평가자 검토 완료 신호 필요 |
 | **DEVOPS-P1~P3** | ✅ **READY_FOR_KICKOFF** | ✅ Go/No-Go 승인 완료 (16:29) → 즉시 시작 준비 | 담당자 시작 신호 → IN_PROGRESS |
 | **WEB-DEV-SUPPORT** | ✅ **READY_FOR_EXECUTION** | 팀 공지 배포 완료 (2026-05-19 21:11 KST) | Day 1 08:00 KST 시작 |
 | **AUTOMATION-SPECIALIST** | ✅ **READY_FOR_EXECUTION** | 팀 공지 배포 완료 (2026-05-19 21:11 KST) | Day 1 08:00 KST 시작 |
@@ -110,6 +110,7 @@ status: 운영 중
 | 17:00 | ⏳ READY_FOR_MEETING | 1h 25min | **🔴 CRITICAL DEADLINE** — Final Go/No-Go Decision meeting (30min) + All 3 projects ready for approval |
 | 18:00 | ✅ **COMPLETED** | 21:11 KST URGENT BROADCAST | **Team Announcement Checkpoint** — Discord 공지 배포 완료 (지연 2h 40m → 자율 긴급 조치) | 新팀원 2명 Day 1 준비 READY |
 | 20:10 | 20:10 ✅ | 3 commits (memory + cron setup) | **Rule Compliance Cron System ACTIVATED** — 5개 자동 감시 등록 (08/14/15/18:00 KST + 자정) + CTB 실시간 동기화 + MEMORY 인덱싱 ✅ |
+| 21:29 | 21:29 ✅ | Task State Machine Monitoring Cycle | **STATE TRANSITIONS DETECTED:** BM-P1 BLOCKED_ON_EXTERNAL (6h 29m overdue, no evaluator approval signal @21:29) | DEVOPS-P1~P3 remain READY_FOR_KICKOFF (awaiting DevOps engineer start signal) | WEB-DEV-SUPPORT & AUTOMATION-SPECIALIST confirmed READY_FOR_EXECUTION (Day 1 08:00 start) ✅ |
 
 ### ✅ COMPLETED (2026-05-19 11:17 KST)
 
