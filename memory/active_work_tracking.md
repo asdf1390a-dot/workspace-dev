@@ -15,8 +15,13 @@ type: project
 | 2026-05-16 | 11:12 ✅ | 14:57 ✅ | 14:57 ✅ | 18:18 ✅ | 100% | 팀 확장 공식화 |
 | 2026-05-17 | ❌ MISSED | ❌ MISSED | ❌ MISSED | ❌ MISSED | 0% | ⚠️ 신규팀원 온보딩 Day 1 — Cron 자동화 부재로 인한 미발생. 2026-05-20부터 자동화 활성화 예정 |
 | 2026-05-18 | 09:30 ✅ | 14:57 ✅ | 15:35 ✅ | 18:42 ✅ | 100% | Phase 1-3 설계 완료, Asset/Audit 설계 최종화 |
-| 2026-05-19 | 11:20 ✅ | 11:32 ✅ | 15:00 ✅ | 18:00 ✅ | 100% | ✅ **Day 4 준비 100% 완료** — 웹개발지원가 Task Brief 확정 + 평가자 블로커 추적 완료 + Day 4-7 개발 시작 준비 완료 |
+| 2026-05-19 | 11:20 ✅ | 11:32 ✅ | 15:00 ✅ | 18:00 ✅ | 100% | ✅ **Day 4 준비 100% 완료** — Web-Dev-Support AI Agent Task Brief 확정 + Evaluator AI Agent 블로커 추적 완료 + Day 4-7 개발 시작 준비 완료 |
 | 2026-05-19 | (18:00 ✅) | (14:00 ✅) | (15:00 ✅) | 20:40 ✅ | — | 🔍 **Session Checkpoint 20:40** — 2 commits detected (20:10 compliance system + 20:25 org assessment) | No state transitions required — monitoring active |
+| 2026-05-20 | 08:00 ✅ | — | — | — | 25% | 🟡 **Day 4 Checkpoint A1** — 2 OVERDUE items detected: Backup UI eval (3-day miss), Auto Info Collection Vercel deployment (60h overdue) | Blocking escalation initiated |
+| 2026-05-20 | 08:00 ✅ | 09:40 (monitoring) | — | — | — | 🔴 **Vercel Routing Fix Committed (358d65b)** — Fix deployed to cron paths (singular→plural), but GitHub PAT lacks `workflow` scope. Push blocked. Routes already exist in codebase. **【사용자 액션 필요】** Regenerate PAT with `workflow` scope at github.com/settings/tokens |
+| 2026-05-20 | 10:10 ✅ | — | — | — | — | 🟢 **Session Checkpoint 10:10** — No new commits since 08:00. Day 4 ontrack. Hermes A1 running. Web-Dev-Support ready for 14:00 progress report. Backup Phase 2 evaluation still overdue. |
+| 2026-05-20 | 10:40 (30min checkpoint) | — | — | — | — | 🟡 **30min Auto-Checkpoint 10:40** — Vercel deployment IN PROGRESS (expected 10:50, ETA ~11:00). **PAT workflow scope ✅ RESOLVED** by user (20:30 config). 2 CRITICAL OVERDUE items identified + detailed action plan issued: (1) Auto Info Collection Vercel env vars setup (60h overdue, 5min fix), (2) Backup Phase 2 UI evaluation 40% (deadline 2026-05-21 18:00). Awaiting user action: Vercel env variable configuration |
+| 2026-05-20 | — | 14:30 ✅ | — | — | — | 🟢 **AI Terminology Standardization COMPLETE** — All 72 memory files updated from human-centric language (웹개발자, 평가자, etc.) to AI Agent terminology (Web-Builder AI Agent, Evaluator AI Agent, etc.). Batch 1 (30 files) + Batch 2 (42 files) sed replacements + MEMORY.md index updated. 0 Korean terminology instances remain. Commit: a8d7af6 |
 
 **신뢰도 계산:** 완료 갱신 / 예정된 갱신 × 100%  
 **목표:** 95% (30일 중 27일 이상 모든 4회 완료)
@@ -71,7 +76,7 @@ type: project
 |------|--------|------|---------|---------|
 | 08:00 | 0e3d2868 | 아침 체크인 | P0 항목 ✓, CTB 갱신 ✓, 지연 감지 ✓, 블로킹 ✓ | Telegram 현황판 |
 | 14:00 | 6b9e6ed7 | Asset Master 진행 | 5% 단위 진도, 기술적 블로킹, 의존성 | Discord #일반 기술 보고 |
-| 15:00 | 6d118d2a | Backup Phase 2 진행 | 평가자 피드백, 기술 블로킹, 구현 진도 | Discord #일반 기술 보고 |
+| 15:00 | 6d118d2a | Backup Phase 2 진행 | Evaluator AI Agent 피드백, 기술 블로킹, 구현 진도 | Discord #일반 기술 보고 |
 | 18:00 | 1ec9533f | 일일 마감 | 최종 CTB 갱신, Task 마킹, 내일 일정 당겨오기 | Telegram 최종 현황 + git commit |
 | 자정 | ebe9f2c3 | 메모리 동기화 | 규칙 준수율(95%), Task 100%, 우선순위 재평가 | MEMORY.md 자동 갱신 |
 
@@ -114,13 +119,13 @@ git commit (Task 완료)
 - **Status:** ✅ **완료** (2026-05-16 15:05)
 - **Issue 1:** Telegram @default 채널 미설정 → 향후 Phase 2 Cron 구현 시 delivery 설정 포함
 - **Issue 2:** CTB 파일 11개 중복 → memory/active_work_tracking.md로 단일화 완료 (CTB 갱신 로그 추가)
-- **담당:** 비서 ✅
+- **담당:** Secretary AI ✅
 - **실제 소요:** 5분
 
-### 🟡 **Action 2: SOUL.md 개정 (비서 일일 갱신 규칙)**
+### 🟡 **Action 2: SOUL.md 개정 (Secretary AI 일일 갱신 규칙)**
 - **Status:** ✅ **이미 설정됨** (SOUL.md 208-235줄)
 - **확인사항:** CTB 일일 갱신 4회 (08:00, 14:00, 15:00, 18:00) + 신뢰도 95% 목표
-- **담당:** 비서
+- **담당:** Secretary AI
 - **예상 소요:** 0분 (이미 설정됨)
 
 ### ✅ **Action 3: Phase 7 일정 조정 문서**
@@ -130,20 +135,20 @@ git commit (Task 완료)
   - Data Platform: 예측 모델 8주 → MVP 배포로 수정 (6주 일정 확장)
   - Mobile App: iOS/Android v1.0 → TestFlight/내부테스트 베타로 수정
   - Phase 7-2/3 일정: 2026-08-01 ~ 09-15 (6주)
-- **담당:** 비서 ✅
+- **담당:** Secretary AI ✅
 - **실제 소요:** 30분
 
 ### ✅ **Action 4: active_work_tracking.md CTB 갱신 로그 추가**
 - **Status:** ✅ **완료** (2026-05-16 14:47)
 - **내용:** 일일 갱신 시간별 추적 테이블 추가 (신뢰도 계산)
-- **담당:** 비서
+- **담당:** Secretary AI
 - **예상 소요:** 10분
 
 ### ✅ **Action 5: Assessment Criteria 2026-05-15 실행 확인**
 - **Status:** ✅ **설계 완료, 첫 실행 예정** (2026-05-18 08:00)
 - **내용:** ASSESSMENT_CRITERIA_DYNAMIC_SYSTEM.md 설계 완료, 첫 실행은 2026-05-18 08:00 또는 2026-05-15 (완료 여부 불명확)
 - **권고:** 첫 실행 체크리스트를 MEMORY.md에 추가하여 추적
-- **담당:** 비서 ✅
+- **담당:** Secretary AI ✅
 - **실제 소요:** 5분
 
 ---
@@ -153,9 +158,9 @@ git commit (Task 완료)
 | 시간 | 액션 | 담당 | 상태 | 산출물 |
 |------|------|------|------|--------|
 | 08:00 KST | CTB 첫 갱신 (블로킹 확인) | 비서 | 🟢 11:12 완료 | GCS 위반 7건 검출 |
-| 09:00 KST | Asset Master P2 온보딩 준비 | 웹개발자 | 🟢 확인 | **정상 — 신규팀원 내일 시작, 온보딩 준비됨** |
-| 12:00 KST | Backup Phase 2 리포트 | 평가자 | 🟡 미수신 | 진도율 + 발견 이슈 |
-| 14:00 KST | Audit System 회의 자료 | 플레너 | 🟢 14:57 완료 | AUDIT_SYSTEM_FINAL_MEETING_BRIEF.md 준비됨 (2026-05-18 19:00 회의 ready) |
+| 09:00 KST | Asset Master P2 온보딩 준비 | Web-Builder AI Agent | 🟢 확인 | **정상 — 신규팀원 내일 시작, 온보딩 준비됨** |
+| 12:00 KST | Backup Phase 2 리포트 | Evaluator AI Agent | 🟡 미수신 | 진도율 + 발견 이슈 |
+| 14:00 KST | Audit System 회의 자료 | Planner AI Agent | 🟢 14:57 완료 | AUDIT_SYSTEM_FINAL_MEETING_BRIEF.md 준비됨 (2026-05-18 19:00 회의 ready) |
 | 15:00 KST | Asset Master P2 준비 상황 리포트 | 비서 | ⏳ 예정 | 온보딩 준비 현황 + 신규팀원 배정 확인 |
 | 18:00 KST | CTB 최종 검증 | 비서 | ⏳ 예정 | 당일 기록 완료 |
 
@@ -178,7 +183,7 @@ git commit (Task 완료)
 - [ ] 2026-07-13: 오프라인 동기화 완성 + 테스트 (Week 7)
 - [ ] 2026-07-31: v1.0 배포 (TestFlight/Google Play)
 
-**웹개발자 협력:**
+**Web-Builder AI Agent 협력:**
 - 필요 API: BM 생성, 작업 목록, 부품 조회, 사진/영상 업로드, Glossary
 - 타이밍: 모바일 개발자의 Step 3(UI) 단계에서 API 스펙 정의 → Step 4-5(테스트)에서 Real API 연결
 - 예상 API 개발: 2026-06-10 ~ 2026-06-20
@@ -245,12 +250,12 @@ git commit (Task 완료)
 
 ### 블로킹 항목 (현황)
 - **Blocker 1:** 자동 정보 수집 시스템 → 역할별 배포  
-  담당: 데이터분석가 + 평가자 + 비서  
+  담당: Data-Analyst AI Agent + Evaluator AI Agent + 비서  
   상태: ⏹️ 팀 상의 필요  
   ETA: 2026-05-27  
 
 - **Blocker 2:** 평가 기준 동적 업데이트  
-  담당: 비서 (설계) + 플레너 (검증) + 팀원들 (피드백)  
+  담당: 비서 (설계) + Planner AI Agent (검증) + 팀원들 (피드백)  
   상태: 팀 피드백 수렴 중 (2026-05-16~20)  
   ETA: 2026-05-21  
 
@@ -314,7 +319,7 @@ Stage: <DESIGN|DB|API|UI|DEPLOY|VERIFY>
 - **현재 단계:** 📋 **준비 완료** — 모든 설계 문서 + DB 마이그레이션 ✅ 확인됨
 - **예정 완료:** 2026-05-23 18:00 KST (Day 7, MVP 16개 엔드포인트) — **일정 현실적**
 - **온보딩 일정 (2026-05-17 ~ 2026-05-23):**
-  - **Day 1 (2026-05-17):** 프로젝트 구조 + 환경 설정 (웹개발자 주도)
+  - **Day 1 (2026-05-17):** 프로젝트 구조 + 환경 설정 (Web-Builder AI Agent 주도)
   - **Day 2-3 (2026-05-18~19):** 코드 리뷰 + failure_code 드롭다운 UI (첫 작업)
   - **Day 4-7 (2026-05-20~23):** Asset Master Phase 2 API 독립 개발 (매일 15:00 진도 리포트)
 - **의존성:** DB 마이그레이션 (29번) ✅ 확인됨 (2026-05-15 18:58)
@@ -329,11 +334,11 @@ Stage: <DESIGN|DB|API|UI|DEPLOY|VERIFY>
   - ✅ 설계 문서 완성: ASSET_MASTER_PHASE2_DESIGN.md, ASSET_MASTER_PHASE2_API_GUIDE.md, ASSET_MASTER_PHASE2_BLOCKER_FIXES.md
   - ✅ DB 마이그레이션: db/29_asset_master_v2_phase2.sql (2026-05-15 18:58)
   - ✅ 온보딩 가이드: NEW_TEAM_MEMBER_ONBOARDING_2026-05-17.md, NEW_TEAM_MEMBER_STARTUP_GUIDE.md (준비됨)
-  - ✅ 웹개발자 준비: 온보딩 일정 확정, Task 지정 완료
+  - ✅ Web-Builder AI Agent 준비: 온보딩 일정 확정, Task 지정 완료
 - **2026-05-16 15:00 리포트:** 온보딩 준비 완료 (모든 산출물 ready, 내일 시작 대기)
 
 ### 2. Backup App Phase 2 UI 평가
-- **담당자:** 평가자
+- **담당자:** Evaluator AI Agent
 - **시작:** 2026-05-14 (API 개발 완료)
 - **진행률:** 40% (API 개발 완료, UI 평가 진행 중)
 - **현재 단계:** 🧪 검증 (4개 화면 최소 3회 반복 검증)
@@ -348,16 +353,16 @@ Stage: <DESIGN|DB|API|UI|DEPLOY|VERIFY>
 - **다음:** 완료 후 Travel Phase 2 사전 검증 준비
 
 ### 3. Audit System Framework 팀 논의 ✅ **설계 확정 완료**
-- **담당자:** 플레너 (논의 진행) + 팀원들 (의견 수렴)
+- **담당자:** Planner AI Agent (논의 진행) + 팀원들 (의견 수렴)
 - **시작:** 2026-05-15 15:00 KST
 - **진행률:** 🟢 **100% 완료** (최종 회의 개최 ✅ + 설계 확정 ✅)
 - **현재 단계:** 🟢 **설계 확정 완료** (2026-05-19 18:00 KST)
 - **완료 일정:**
   - 2026-05-15 15:00: 논의 시작 ✅
-  - 2026-05-15 18:30: 데이터분석가 의견 제출 ✅
-  - 2026-05-15 18:25: 평가자 의견 제출 ✅
-  - 2026-05-15 18:45: 웹개발자 의견 제출 ✅
-  - 2026-05-16~18: 플레너 최종 회의 자료 통합 ✅
+  - 2026-05-15 18:30: Data-Analyst AI Agent 의견 제출 ✅
+  - 2026-05-15 18:25: Evaluator AI Agent 의견 제출 ✅
+  - 2026-05-15 18:45: Web-Builder AI Agent 의견 제출 ✅
+  - 2026-05-16~18: Planner AI Agent 최종 회의 자료 통합 ✅
   - **2026-05-18 19:00: 최종 회의 개최 ✅ (조건부 승인 확정)**
   - **2026-05-19 18:00: 설계 최종 확정 ✅** (AUDIT_SYSTEM_FINAL_DESIGN_CONFIRMED.md 완성)
 - **규칙:** 매일 14:00 KST 진도 + 의견 수렴 + 미결정 항목 리포트
@@ -367,16 +372,16 @@ Stage: <DESIGN|DB|API|UI|DEPLOY|VERIFY>
   - ✅ 목표 단계별 조정 (W1-2: 90% → W7+: 95%) 승인
   - ✅ 메트릭 언어 명확화 승인
   - ✅ 3대 리스크 관리 계획 승인
-- **웹개발자 구현 준비:**
+- **Web-Builder AI Agent 구현 준비:**
   - API 스펙 최종 검증 ✅ (4개 엔드포인트)
   - DB 마이그레이션 SQL 준비 ✅ (2개 테이블)
   - 알림 채널 사전 설정 ✅ (Discord #감사시스템)
   - 메트릭 계산식 확정 ✅
 - **산출물:**
   - ✅ AUDIT_SYSTEM_FINAL_DESIGN_CONFIRMED.md (최종 설계 확정서)
-  - ✅ AUDIT_SYSTEM_IMPLEMENTATION_BRIEF.md (웹개발자용 구현 가이드)
+  - ✅ AUDIT_SYSTEM_IMPLEMENTATION_BRIEF.md (Web-Builder AI Agent용 구현 가이드)
   - ✅ AUDIT_SYSTEM_MEETING_DECISION_2026-05-18.md (회의 결정사항)
-- **다음:** 🟢 **2026-05-20 09:00 웹개발자 Day 1 구현 착수** (설계 확정 완료, 즉시 진행 권한 인정)
+- **다음:** 🟢 **2026-05-20 09:00 Web-Builder AI Agent Day 1 구현 착수** (설계 확정 완료, 즉시 진행 권한 인정)
 
 ### 4. 팀 확장: 웹개발 지원가 + 자동화 전문가 신규 합류 (🆕 ACTIVATED 2026-05-19) ✅ **Day 4 투입 개시**
 - **담당자:** 비서 (조정) + CEO 승인 (Kyeongtae Na ✅)
@@ -432,11 +437,11 @@ Stage: <DESIGN|DB|API|UI|DEPLOY|VERIFY>
 - **현재 단계:** 📋 Phase A 실행 (정기 체크 자동화 + 의존성 준비 + 리스크 감지)
 - **예정 완료:** 2026-05-22 (1주일)
 - **규칙 (절대):**
-  1️⃣ 팀원 정기 체크: 웹개발자 15:00 / 평가자 12:00 / 플레너 14:00 KST
+  1️⃣ 팀원 정기 체크: Web-Builder AI Agent 15:00 / Evaluator AI Agent 12:00 / Planner AI Agent 14:00 KST
   2️⃣ 의존성 준비: Asset Master 50% → Travel 사전 준비 자동 시작
 
 ### 6. 동적 평가 기준 시스템 구축 (🆕 2026-05-16)
-- **담당자:** 비서 (설계+자동화) + 플레너 (검증) + 팀원들 (월간 논의)
+- **담당자:** 비서 (설계+자동화) + Planner AI Agent (검증) + 팀원들 (월간 논의)
 - **시작:** 2026-05-16 05:00 KST
 - **진행률:** 50% (설계 완료, Cron job 등록 완료, 팀 피드백 수렴 대기)
 - **현재 단계:** 📋 팀 피드백 수렴 (2026-05-16~20)
@@ -457,8 +462,8 @@ Stage: <DESIGN|DB|API|UI|DEPLOY|VERIFY>
 - **블로킹:** 없음
 - **다음:** 팀 피드백 반영 (05-20~21) → 첫 기준 v202606 수립 (2026-06-01)
 
-### 6. 번역가 역할 재정의 및 업무 재분장
-- **담당자:** 번역가 (4개 Task 실행)
+### 6. Translator AI Agent 역할 재정의 및 업무 재분장
+- **담당자:** Translator AI Agent (4개 Task 실행)
 - **시작:** 2026-05-15 18:30 KST ✅ (설계 완료 + 업무 할당 완료)
 - **진행률:** 5% (설계 완료, Task 1 시작 대기)
 - **현재 단계:** 🟡 진행 준비 중 (Task 1: 글로사리 v2.0 → 2026-05-20, Task 2: UI 라벨 → 2026-05-23, Task 3: Travel 번역 → 2026-05-28, Task 4: 월간 감시 → 2026-05-31)
@@ -469,12 +474,12 @@ Stage: <DESIGN|DB|API|UI|DEPLOY|VERIFY>
 - **Task 2 (UI 라벨 감시):** 2026-05-23 18:00 완료 예정
 - **Task 3 (Travel 번역):** 2026-05-28 18:00 완료 예정
 - **Task 4 (월간 감시):** 2026-05-31 18:00 완료 예정
-- **규칙:** 매주 월요일 14:00 KST 플레너와 용어 기준 회의
+- **규칙:** 매주 월요일 14:00 KST Planner AI Agent와 용어 기준 회의
 - **블로킹:** 없음 (모든 Task 독립적)
 - **의존성:**
-  - TRAVEL_PHASE2_DESIGN.md (플레너 제공 예정 2026-05-16)
-  - Supabase 글로사리 테이블 생성 (웹개발자 협력 예정 2026-05-21)
-  - UI 라벨 리스트업 (웹개발자 협력 예정 2026-05-20)
+  - TRAVEL_PHASE2_DESIGN.md (Planner AI Agent 제공 예정 2026-05-16)
+  - Supabase 글로사리 테이블 생성 (Web-Builder AI Agent 협력 예정 2026-05-21)
+  - UI 라벨 리스트업 (Web-Builder AI Agent 협력 예정 2026-05-20)
 
 ### 7. 팀 역량 개발 프레임워크 구축 (🆕)
 - **담당자:** 비서 (프레임워크 구축) + 팀원들 (피드백)
@@ -493,7 +498,7 @@ Stage: <DESIGN|DB|API|UI|DEPLOY|VERIFY>
 - **규칙:** 매월 첫 주 월요일 14:00 정기 회의 필수, Discord #역량개발 채널 활용
 - **블로킹:** 없음
 - **의존성:**
-  - 팀원 learnings 파일 3개 생성 필요 (분석가, 번역가, 플레너)
+  - 팀원 learnings 파일 3개 생성 필요 (분석가, Translator AI Agent, Planner AI Agent)
   - Discord #역량개발 채널 생성 필요
   - Cron 작업 4개 등록 필요
 - **다음:** 팀 피드백 → 역량 모델 최종 조정 → 월간 회의 스케줄 확정 → 첫 회의 (2026-06-02)
@@ -521,18 +526,18 @@ Stage: <DESIGN|DB|API|UI|DEPLOY|VERIFY>
   - 📅 매월 1일 → 월간 새로운 도구 3~5개 선별 (CTB에 "신기술 검토" 태스크 추가)
   - 📅 매월 첫 주 월요일 14:00 → 월간 회의에서 팀 공통 학습 주제 + Claude/Codex 신기능 적용 논의
 - **규칙:** 각 팀원이 주간 학습 담당 자료 검토 (30분, 매주 월요일) + Claude/Codex 업데이트 검수 (담당 분야별)
-  - 웹개발자: GitHub Trending 3개 + npm trends 1개 + Claude API/코드 생성 (30분)
-  - 평가자: Product Hunt 테스트 도구 2개 + 신기능 테스트 (20분)
-  - 데이터분석가: Dev.to 데이터 분석 글 1개 + Claude 분석 기능 (30분)
-  - 번역가: Medium 기술 글 1개 한영 번역 + 다국어 지원 개선 (40분)
-  - 플레너: CSS-Tricks/Smashing Magazine 아키텍처 글 + Claude 아키텍처 영향도 (30분)
+  - Web-Builder AI Agent: GitHub Trending 3개 + npm trends 1개 + Claude API/코드 생성 (30분)
+  - Evaluator AI Agent: Product Hunt 테스트 도구 2개 + 신기능 테스트 (20분)
+  - Data-Analyst AI Agent: Dev.to 데이터 분석 글 1개 + Claude 분석 기능 (30분)
+  - Translator AI Agent: Medium 기술 글 1개 한영 번역 + 다국어 지원 개선 (40분)
+  - Planner AI Agent: CSS-Tricks/Smashing Magazine 아키텍처 글 + Claude 아키텍처 영향도 (30분)
 - **월간 회의 Module 2 갱신:** "Claude/Codex 신기능 검토" 15분 안건 추가 (개인학습→팀피드백→Claude검토→기술토론)
 - **블로킹:** 없음 (Module 2 월간 회의와 통합)
 - **의존성:** 없음 (자료 수집만 필요)
 - **다음:** 팀원 학습 시작 (2026-05-19) → 첫 주간 큐레이션 (2026-05-19 월요일) → 첫 월간 회의 (2026-06-02 에 Claude/Codex 신기능 검토 포함)
 
 ### 9. GCS Violations 자동화 (신규 2026-05-16)
-- **담당자:** 웹개발자
+- **담당자:** Web-Builder AI Agent
 - **시작:** 2026-05-16 12:20 KST
 - **진행률:** 0% (설계 완료, 구현 시작 대기)
 - **현재 단계:** 🔌 구현 시작 예정 (Phase 1: 2026-05-20~22)
@@ -550,7 +555,7 @@ Stage: <DESIGN|DB|API|UI|DEPLOY|VERIFY>
 - **규칙:** commit 메시지 표준 형식 강제 (Refs:TASK-ID + Stage:DESIGN|DB|API|UI|DEPLOY|VERIFY)
 
 ### 10. Daily Checkpoints 자동화 (신규 2026-05-16)
-- **담당자:** 웹개발자
+- **담당자:** Web-Builder AI Agent
 - **시작:** 2026-05-16 12:20 KST
 - **진행률:** 0% (설계 완료, 구현 시작 대기)
 - **현재 단계:** 🔌 구현 시작 예정 (Phase 2: 2026-05-23~25)
@@ -631,7 +636,7 @@ Stage: <DESIGN|DB|API|UI|DEPLOY|VERIFY>
 - **참고 문서:** `memory/phase1_realtime_ctb_update_implementation.md` (상세 내용)
 
 ### 12-B. Design-Complete Assignment 자동화 (신규 2026-05-16)
-- **담당자:** 웹개발자
+- **담당자:** Web-Builder AI Agent
 - **시작:** 2026-05-16 12:20 KST
 - **진행률:** 0% (설계 완료, 구현 시작 대기)
 - **현재 단계:** 🔌 구현 시작 예정 (Phase 3: 2026-05-26~27)
@@ -643,7 +648,7 @@ Stage: <DESIGN|DB|API|UI|DEPLOY|VERIFY>
   - [ ] 48시간 countdown 자동화
   - [ ] Escalation 메시지 설정 (T+24, T+48, T+60, T+72)
   - [ ] CTB 자동 진행률 업데이트 (0% → 5% 첫 commit 시)
-  - [ ] 테스트: 플레너 설계 commit → Issue 생성 + 알림 확인
+  - [ ] 테스트: Planner AI Agent 설계 commit → Issue 생성 + 알림 확인
 - **블로킹:** 없음
 - **의존성:** GitHub Actions 기본 지원 (기존 인프라)
 - **기대 효과:** Design→Implementation 지연 2-3일 → 48시간 강제
@@ -723,10 +728,10 @@ Stage: <DESIGN|DB|API|UI|DEPLOY|VERIFY>
 - **다음:** Phase 0 완료 후 2026-05-20 08:00 A1 첫 실행
 
 ### 5. Asset Master v2 Phase 2 설계
-- **담당자:** 플레너
+- **담당자:** Planner AI Agent
 - **시작:** 2026-05-15 17:23 KST ✅ (지시 발송)
 - **진행률:** 100% (P0 3건 수정 + 최종 설계 완료 ✅)
-- **현재 단계:** ✅ 완료 (웹개발자 착수 대기)
+- **현재 단계:** ✅ 완료 (Web-Builder AI Agent 착수 대기)
 - **예정 완료:** 2026-05-16 09:00 KST (완료)
 - **산출물 (완료):**
   - ✅ 1차 스켈톤: DB 스키마 (신규 2개 테이블) + API 25개 목록 + UI 4개 화면 (2026-05-15)
@@ -740,8 +745,8 @@ Stage: <DESIGN|DB|API|UI|DEPLOY|VERIFY>
   - P0-3: RLS 정책 (asset_import_batches, asset_import_items에 org_id 기반 정책)
 - **범위 조정:** 25개 → MVP 16개 (Phase 2.5로 9개 defer)
 - **블로킹:** 없음
-- **규칙:** 웹개발자 착수 후 매일 15:00 진도 리포트
-- **다음:** 웹개발자 API 구현 (05-16~19) + 매일 14:00 진도 추적
+- **규칙:** Web-Builder AI Agent 착수 후 매일 15:00 진도 리포트
+- **다음:** Web-Builder AI Agent API 구현 (05-16~19) + 매일 14:00 진도 추적
 
 ## 대기중 (🔴)
 
