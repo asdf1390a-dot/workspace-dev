@@ -946,3 +946,7 @@ Next.js 관련 올바른 검색 결과를 다시 가져오거나, 제가 직접 
 `backdrop-filter: blur()` + 반투명 배경으로 카드형 UI를 쉽게 구현할 수 있다. Bento Grid와 결합하면 KPI, 설비 상태, BM 이벤트를 한 화면에 밀도 있게 배치할 수 있다. CSS Generator 도구로 코드 생성이 빠르다.
 
 → 적용 포인트: FMS 메인 대시보드 카드 컴포넌트에 glass 효과 적용 검토 🏭
+
+## 2026-05-21 — 오늘 업무 돌아보면서 개선하고 싶은 점 하나씩 얘기해볼까?
+- `started_at` / `resolved_at` 필드는 DB 스키마에서 `NOT NULL` 제약을 걸고, 폼에서도 required validation을 적용해 저장 버튼 자체를 비활성화하는 구조로 구현해야 한다.
+- `started_at` 기본값을 현재 시각(`now()`)으로 자동 채우되 수정 가능하게 하고, `resolved_at`은 완료 처리 버튼 클릭 시 자동 기록하는 플로우로 분리하면 UX 마찰을 최소화하면서 `NOT NULL` 제약을 유지할 수 있다.
