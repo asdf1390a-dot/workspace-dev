@@ -50,6 +50,11 @@ type: project
 | 2026-05-20 | — | 20:18 (cron) | — | — | — | 🟡 **Cron Monitor Check #10 — db/29 NOT APPLIED** — ❌ PGRST205. Monitoring continues. |
 | 2026-05-20 | — | 22:50 (cron) | — | — | — | 🟢 **Cron Check #2 — 조직도 개선 추적 (Organization Structure Improvement) ✅** — 5-metric evaluation complete: (1) Web-Builder role clarity ✅ 100%, (2) New team member onboarding 🔄 50% (Web-Dev-Support ✅, Automation Specialist 🔄), (3) Evaluator bottleneck ✅ 100% RESOLVED (26h ahead), (4) Idle agent utilization 🟡 30% (pending Phase B reallocation), (5) Team meeting regularization 📅 0% (awaiting vacation end 2026-05-25). **Overall org improvement: 62% (3/5 complete, 2/5 in-progress).** Auto-recorded to INCOMPLETE_TASKS_REGISTRY.md. Commit: f2038c4. |
 | 2026-05-20 | — | 23:25 (cron) | — | — | — | 🟡 **Cron Monitor Check #11 — db/29 NOT APPLIED** — ❌ PGRST205: asset_import_batches table not found. User still awaiting migration execution in Supabase SQL Editor. Monitoring continues every 5 minutes. |
+| 2026-05-21 | — | 08:00 (cron) | — | — | — | 🟡 **Cron Monitor Check #12 — db/29 STILL NOT APPLIED** — ❌ PGRST205: asset_import_batches table not found. Morning checkpoint confirms migration pending. Web-Dev-Support (Day 2) blocked. Automation Specialist (Day 2) proceeding with design work. Monitoring continues every 5 minutes. |
+| 2026-05-20 | — | 20:32 (cron) | — | — | — | 🟡 **Cron Monitor Check #13 — db/29 NOT APPLIED** — ❌ PGRST205: asset_import_batches table not found. User still awaiting migration execution in Supabase SQL Editor. Vacation mode autonomous monitoring continues. Next check in 5 minutes. |
+| 2026-05-20 | — | 20:37 (cron) | — | — | — | 🟡 **Cron Monitor Check #14 — db/29 NOT APPLIED** — ❌ PGRST205: asset_import_batches table not found. Monitoring continues every 5 minutes. |
+| 2026-05-20 | — | 20:42-20:47 (cron) | — | — | — | 🟡 **Cron Monitor Checks #15-#16 — db/29 NOT APPLIED** — ❌ PGRST205 (recurring). Monitoring continues every 5 minutes. No status change. |
+| 2026-05-20 | — | 20:52+ (cron) | — | — | — | 🟡 **Cron Monitor Check #17 — db/29 NOT APPLIED** — ❌ PGRST205: asset_import_batches table not found. Monitoring continues. |
 
 **신뢰도 계산:** 완료 갱신 / 예정된 갱신 × 100%  
 **목표:** 95% (30일 중 27일 이상 모든 4회 완료)
