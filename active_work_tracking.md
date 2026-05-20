@@ -146,3 +146,10 @@
 **HTTP Status:** 404  
 **Action:** Continue 5-minute interval monitoring
 
+
+## 🤖 **Cron Check #120** — 2026-05-21 03:09 KST
+**Status:** ❌ db/29 migration NOT APPLIED  
+**Error:** PGRST205  
+**HTTP Status:** 404  
+**Action:** Continue 5-minute interval monitoring
+
