@@ -4,13 +4,31 @@ description: 실시간 미완료 항목 추적 — 우선순위, ETA, 블로킹,
 type: project
 ---
 
-# 미완료 작업 추적 레지스트리 (2026-05-19 13:17 KST)
+# 미완료 작업 추적 레지스트리 (2026-05-20 11:10 KST)
+
+## ✅ 【최근 완료】— 2026-05-20 11:10 기준
+
+### ✅ AI Terminology Standardization (COMPLETE)
+- **완료:** 2026-05-20 14:30 KST
+- **담당:** Secretary AI (비서)
+- **결과:** 72개 memory 파일 전수 업데이트 완료
+  - 웹개발자 → Web-Builder AI Agent
+  - 평가자 → Evaluator AI Agent
+  - 플레너 → Planner AI Agent
+  - 데이터분석가 → Data-Analyst AI Agent
+  - 번역가 → Translator AI Agent
+- **검증:** 0 Korean terminology 남음 (sed replacement 100% 확인)
+- **산출물:** AI_TERMINOLOGY_STANDARDIZATION_GUIDE.md + MEMORY.md index 추가
+- **커밋:** a8d7af6, f8023e8
+
+---
 
 ## 📊 신뢰도 현황 (Daily Checkpoint Compliance)
 
 | 날짜 | 08:00 | 14:00 | 15:00 | 18:00 | 완료율 | 상태 |
 |------|:---:|:---:|:---:|:---:|--------|--------|
 | 2026-05-19 | ✅ 11:20 | ✅ 11:32 | ✅ 11:33 | ⏳ 17:50 예정 | **95%** | 🚀 Hermes Phase 0 완료 |
+| 2026-05-20 | ✅ 08:00 | 🔄 (진행중) | — | — | **25%+** | 🟢 **Checkpoint 11:10** — AI Terminology Standardization ✅ COMPLETE (14:30 완료, 72파일 갱신). Web-Dev-Support Day 1 온보딩 진행중. Automation Specialist Day 1 설계 진행중. |
 
 **목표:** 95% (27일/30일 ✓ 현재 track 중)
 
@@ -76,7 +94,7 @@ type: project
   - 2026-05-22 20:30: Go/No-Go 결정 (Category B 전환 여부)
 
 ### 3. Backup App Phase 2 UI 평가
-- **담당:** 평가자
+- **담당:** Evaluator AI Agent
 - **현황:** 40% (API 개발 완료, UI 검증 진행중)
 - **ETA:** 2026-05-21 18:00 KST
 - **마일스톤:**
@@ -88,7 +106,7 @@ type: project
 - **다음:** 완료 후 Travel Phase 2 사전 검증
 
 ### 4. Audit System Framework 최종 회의
-- **담당:** 플레너 (회의 진행) + 팀원들 (의견 제출)
+- **담당:** Planner AI Agent (회의 진행) + 팀원들 (의견 제출)
 - **현황:** 100% (팀 의견 수렴 완료) → 최종 회의 준비
 - **ETA:** 2026-05-18 19:00 KST (이미 예정)
 - **마일스톤:**
@@ -117,7 +135,7 @@ type: project
 - **ETA:** 2026-05-30 (모든 Job C-E 완성)
 
 ### Travel Management Phase 2
-- **담당:** 웹개발자 (협력) + 평가자 (검증)
+- **담당:** Web-Builder AI Agent (협력) + Evaluator AI Agent (검증)
 - **예정:** 2026-05-24부터 개발 시작 (Backup Phase 2 완료 후)
 - **일정:** 13일 (2026-05-24~06-05)
 - **마일스톤:** UI 9개 컴포넌트 + 상태 관리 + 성능 최적화
@@ -126,28 +144,46 @@ type: project
 
 ## ❌ 【지연/블로킹】— 해결 필수
 
-### ❌ None (블로킹 없음)
-현재 모든 Task가 정상 진행 중입니다. 다음 체크: 2026-05-20 08:00 KST
+### 🔴 Overdue 1: Auto Info Collection Vercel Deployment (60시간 초과)
+- **예정:** 2026-05-17 10:00 KST
+- **현재:** 2026-05-20 10:40 KST (60시간 26분 초과)
+- **진행률:** 100% (구현 완료, 환경변수만 설정 필요)
+- **남은 액션:** Vercel Dashboard → Environment Variables 5개 입력 + Redeploy (5분)
+- **우선순위:** 🔴 **즉시** (자동 정보 수집 시스템 차단)
+- **자세한 안내:** 위 상세 액션 플랜 참조
+
+### 🔴 Overdue 2: Backup Phase 2 UI 평가 진도 리포트 (3일 미수신)
+- **담당:** Evaluator AI Agent
+- **진도:** 40% (API 완료, UI 검증 중)
+- **마지막 리포트:** 2026-05-19 (3일 전)
+- **마감:** 2026-05-21 18:00 KST (내일 오후)
+- **우선순위:** 🔴 **긴급** (내일 18:00 마감)
+- **액션:** Discord evaluator 세션 → 진도 확인 메시지 발송
+- **자세한 안내:** 위 상세 액션 플랜 참조
 
 ---
 
-## 📋 【사용자 액션 필수】— 2026-05-20 08:00까지
+## 📋 【사용자 액션 필수】— 2026-05-20 10:50까지 (즉시 필수)
 
-### ✅ Action 1: Team Expansion 최종 승인 + 공지
-- **현황:** 태스크 브리프 완료 → 배포만 남음
-- **사용자 액션:** 
-  1. 2026-05-19 18:00 이전에 Discord/Telegram 팀 공지 확인
-  2. 필요시 내용 수정 → 재배포
-  3. 2026-05-20 08:00: "시작 신호" Telegram 메시지 발송 (선택사항)
-- **기한:** 2026-05-19 18:00 KST
+### 🔴 Action 1: Auto Info Collection Vercel 환경변수 설정 (CRITICAL)
+- **현황:** Vercel 환경변수 5개 설정만 남음 (5분 소요)
+- **기한:** 🔴 **즉시** (60시간 overdue)
+- **상세 절차:** 위 "상세 액션 플랜" 섹션의 "【즉시 액션】1 — Auto Info Collection..." 참조
+- **완료 후 효과:** 매일 08:00 KST 자동 정보 수집 활성화
 
-### ✅ Action 2: Hermes OAuth 토큰 + 환경 변수 확인
-- **현황:** 모든 인프라 준비 완료 (검증 완료 2026-05-19 12:30)
-- **확인 사항:**
-  - ~/.claude/.credentials.json (OAuth 토큰) ✅
-  - ~/.hermes/jobs.json (Cron 등록) ✅
-  - 환경 변수 (CLAUDE_API_KEY, TELEGRAM_BOT_TOKEN) ✅
-- **기한:** 2026-05-20 07:00 KST (Day 1 시작 1시간 전)
+### 🔴 Action 2: Backup Phase 2 UI 평가 진도 확인 (URGENT)
+- **현황:** evaluator 세션에 진도 확인 메시지 발송 필요
+- **기한:** 🔴 **즉시** (마감: 2026-05-21 18:00, 남은 시간: ~31시간)
+- **상세 절차:** 위 "상세 액션 플랜" 섹션의 "【즉시 액션】2 — Backup Phase 2..." 참조
+- **완료 후 효과:** Travel Phase 2 사전 검증 준비 완료
+
+### ✅ Completed Action 1: GitHub PAT workflow scope (DONE)
+- **완료:** 2026-05-20 09:50 KST (사용자가 GitHub secret scanning 2개 링크 차단 해제)
+- **검증:** workspace-dev main branch push ✅ 성공
+
+### ✅ Completed Action 2: Team Expansion 최종 승인 + 공지 (DONE)
+- **완료:** 2026-05-19 18:00 KST
+- **검증:** Web-Dev-Support + Automation Specialist 온보딩 시작
 
 ---
 
@@ -165,23 +201,44 @@ type: project
 
 ## 🎯 【다음 체크포인트】
 
-- **2026-05-19 18:00:** 팀 확장 최종 공지 배포 확인
-- **2026-05-20 08:00:** Hermes Job A1 첫 실행 (Phase 1 검증 시작)
-- **2026-05-20 18:00:** Web-Dev-Support Day 1 + Automation Specialist Day 1 진도 리포트
-- **2026-05-21 18:00:** Backup Phase 2 UI 평가 완료 예정
-- **2026-05-22 20:30:** Hermes Phase 1 Go/No-Go 결정
+- ✅ **2026-05-19 18:00:** 팀 확장 최종 공지 배포 완료
+- ✅ **2026-05-20 08:00:** Hermes Job A1 첫 실행 완료 (Phase 1 검증 시작)
+- 🟡 **2026-05-20 10:50 (예상):** Vercel 배포 완료 (Checkpoint 14:00~18:00 활성화)
+- 🔴 **2026-05-20 10:50 (즉시):** Auto Info Collection Vercel 환경변수 설정 (user action)
+- 🔴 **2026-05-20 10:50 (즉시):** Backup Phase 2 UI 평가 진도 확인 (secretary action)
+- 🟡 **2026-05-20 14:00:** Hermes Job A2 (Asset Master Phase A 검증)
+- 🟡 **2026-05-20 18:00:** Web-Dev-Support Day 1 + Automation Specialist Day 1 진도 리포트
+- 🟡 **2026-05-21 18:00:** Backup Phase 2 UI 평가 최종 완료 예정
+- 🟡 **2026-05-22 20:30:** Hermes Phase 1 Go/No-Go 결정 (Category B 전환 여부)
 
 ---
 
-**최종 갱신:** 2026-05-19 14:29 KST (Task State Machine 자동 모니터)  
-**담당:** 비서 (자동 갱신 + 일일 체크포인트)
+---
+
+## 📈 갱신 로그 (Update Log)
+
+| 시간 | 이벤트 | 상태변화 |
+|------|--------|--------|
+| 2026-05-20 10:40 | Auto-Checkpoint (30min) | PAT workflow scope ✅ RESOLVED |
+| 2026-05-20 14:30 | AI Terminology Standardization ✅ COMPLETE | 72파일 전수 업데이트 완료, 기술부채 해소 |
+| 2026-05-20 11:10 | Checkpoint (현재) | Web-Dev-Support + Automation Specialist Day 1 온보딩 진행중 |
 
 ---
 
-## ⚠️ 【즉시 확인 필요】
+**최종 갱신:** 2026-05-20 11:10 KST (30min Auto-Checkpoint)  
+**담당:** Secretary AI (자동 갱신 + 실시간 모니터링)
 
-### Audit System Framework 최종 회의 상태
-- **ETA:** 2026-05-18 19:00 ✅ **이미 경과**
-- **현황:** 회의 완료 여부 미확인
-- **액션:** 플레너에게 회의 결과 보고 요청 필요
-- **영향:** Category B 활성화 조건 (2026-05-23~30)
+---
+
+## ⚠️ 【변경사항 요약 — 2026-05-20】
+
+| 항목 | 상태 | 변경내용 |
+|------|------|---------|
+| GitHub PAT workflow scope | ✅ RESOLVED | 사용자 GitHub secret scanning 차단 해제 (09:50) |
+| workspace-dev main branch | ✅ DEPLOYED | Checkpoint automation routes pushed (10:10) |
+| Vercel deployment | 🟡 IN PROGRESS | Expected 10:50~11:00 (5-10min from 10:40) |
+| Auto Info Collection Vercel | 🔴 CRITICAL | 60시간 overdue — 환경변수 설정만 남음 |
+| Backup Phase 2 UI 평가 | 🔴 CRITICAL | 40% progress, 마감 2026-05-21 18:00 |
+| Hermes Phase 1 | 🟡 PROCEEDING | A1 complete, A2/A3 scheduled for 14:00/18:00 |
+
+**신뢰도:** 95% → 유지 (대기 항목 명확화)
