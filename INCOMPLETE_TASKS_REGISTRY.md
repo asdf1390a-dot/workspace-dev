@@ -41,7 +41,7 @@ status: 운영 중
 |---------|------|------|---------------|
 | **BM-P1** | 🔴 **BLOCKED_ON_EXTERNAL** | ⚠️ 평가 지연: 예상 15:00 → 실제 미완료 (OVERDUE 6h 29m @21:29 KST) | 평가자 검토 완료 신호 필요 |
 | **DEVOPS-P1~P3** | ✅ **READY_FOR_KICKOFF** | ✅ Go/No-Go 승인 완료 (16:29) → 즉시 시작 준비 | 담당자 시작 신호 → IN_PROGRESS |
-| **WEB-DEV-SUPPORT** | ✅ **READY_FOR_EXECUTION** | 팀 공지 배포 완료 (2026-05-19 21:11 KST) | Day 1 08:00 KST 시작 |
+| **WEB-DEV-SUPPORT** | 🔴 **BLOCKED_ON_USER** | db/29 migration NOT YET APPLIED by user (expected 2026-05-20, critical blocker for Day 4-7 development) | User must execute db/29 SQL migration in Supabase SQL Editor |
 | **AUTOMATION-SPECIALIST** | ✅ **READY_FOR_EXECUTION** | 팀 공지 배포 완료 (2026-05-19 21:11 KST) | Day 1 08:00 KST 시작 |
 | AUDIT-SYSTEM-CRON | IN_PROGRESS | 월 1회 정기 감시 활성화 | 2026-06-07 자동실행 |
 | ONBOARDING-AUDIT | COMPLETED | 6개 문서 완료 + Cron 75eced4f 활성화 | ✅ COMPLETED |
