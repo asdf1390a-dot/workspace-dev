@@ -2320,3 +2320,70 @@ All systems verified ready. Team members will be notified at 14:00 KST per sched
 **결과:** ✅ Backup Phase 2 UI 완료 감지 + 상태 업데이트 + 메모리 준비  
 **다음 사이클:** 2026-05-20 18:00 KST (일일 마감 + 최종 커밋)
 
+
+---
+
+## ✅ **2026-05-21 00:25 SESSION CHECKPOINT (30-min Auto-save)**
+
+**타이밍:** 2026-05-21 00:25 KST (Cron: 5abd5247-840e-49a8-9907-9ea00ac239d9)  
+**간격:** 17:43 → 00:25 (6h 42min, 야간 체크포인트)
+
+### 📊 **Status Changes Since 17:43**
+
+**🟡 NEW BLOCKER DETECTED** — Asset Master Phase 2 db/29 migration not applied
+
+| 항목 | 상태 | 상세 | 시간 |
+|------|------|------|------|
+| **Asset Master Phase 2 DB Migration** | 🔴 **NEW BLOCKER** | db/29_asset_master_v2_phase2.sql NOT APPLIED to Supabase (asset_import_batches table missing, PGRST205 error). Cron monitoring active (5-min interval, checks #91-94 running). **Impact:** Web-Dev-Support blocked on db/29 execution. **Awaiting:** User to execute db/29 in Supabase SQL Editor. **Docs ready:** USER_ACTION_ASSET_MASTER_DB_MIGRATION.md with clickable SQL Editor link. | 2026-05-20 ~19:00 detected; Cron monitoring since 23:45 |
+| Web-Dev-Support Day 2 | 🟢 IN_PROGRESS | Blocked on db/29 migration (waiting for table creation). Cron will auto-resume upon detection. | 2026-05-21 |
+| Automation-Specialist Day 2 | 🟢 IN_PROGRESS | No blockers, progressing normally (Hermes Job C-level work) | 2026-05-21 |
+| BM-P1 Evaluation | 🔴 BLOCKED_ON_EXTERNAL | Still waiting for evaluator completion signal (22h+ overdue from original 2026-05-20 15:00 target) | Ongoing |
+
+### 📝 **State Machine Update**
+
+**🟡 Asset Master Phase 2:** PENDING → 🔴 **BLOCKED_ON_[USER|EXTERNAL]**  
+- **Type:** User action required (db/29 execution)
+- **Dependency:** Supabase migration execution
+- **Monitoring:** Cron Job 0d2d40be-6dd9-4340-af37-9a9df29c2f56 (active, 5-min checks)
+- **Auto-Resume Condition:** When asset_import_batches table is created → Phase 1-3 verification → Web-Builder resumption
+- **User Documentation:** Ready (USER_ACTION_ASSET_MASTER_DB_MIGRATION.md)
+
+### 📋 **Current Task States (00:25 KST)**
+
+| Task ID | 상태 | 기한 | 블로커 | 다음 전환 |
+|---------|------|------|--------|----------|
+| WEB-DEV-SUPPORT | 🔴 BLOCKED_ON_EXTERNAL | 2026-05-22 17:00 (DELAYED) | db/29 migration | Auto-resume when table created |
+| AUTOMATION-SPECIALIST | 🟢 IN_PROGRESS | 2026-05-22 17:00 | 없음 ✅ | 진행 중 (Day 2/3) |
+| ASSET-MASTER-PHASE2-DB | 🔴 BLOCKED_ON_USER | — (vacation) | User db/29 execution | Auto-detect when complete |
+| BM-P1 | 🔴 BLOCKED_ON_EXTERNAL | 초과 | 평가자 신호 | Evaluator completion |
+| BACKUP-PHASE2-UI | ✅ COMPLETED | 2026-05-20 16:29 | 없음 | ✅ COMPLETED |
+
+### ⚠️ **Impact Analysis**
+
+**Cascading Blockers:**
+1. **db/29 migration (USER)** → Web-Dev-Support blocked → Asset Master Phase 2 delayed
+2. **BM-P1 evaluator signal (EXTERNAL)** → No implementation progress
+
+**Schedule Impact:**
+- Asset Master Phase 2 MVP Target: 2026-05-22 23:59 (🔴 DELAYED due to db/29)
+- Day 4-7 parallel work (2026-05-20~23): 🔴 DEGRADED (Web-Dev-Support waiting)
+
+**Mitigation:**
+- ✅ Cron monitoring active (auto-resume on db/29 detection)
+- ✅ User Action documentation ready
+- ✅ Automation-Specialist continues unblocked
+
+### ✅ **Uncommitted Changes**
+
+**Modified Files:** 8 total
+- HEARTBEAT.md (status → BLOCKED_ON_DB)
+- active_work_tracking.md (cron checks #91-94 + db/29 blocker tracking)
+- INCOMPLETE_TASKS_REGISTRY.md (this update)
+
+**Status:** Session checkpoint recorded, monitoring continues
+
+---
+
+**기록 시간:** 2026-05-21 00:25 KST (30-min Session Checkpoint)  
+**결과:** ✅ New blocker detected (Asset Master Phase 2 db/29) + monitoring active + user docs ready  
+**다음 사이클:** 2026-05-21 00:55 KST (30min 후)
