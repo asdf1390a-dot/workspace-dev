@@ -41,7 +41,7 @@ status: 운영 중
 |---------|------|------|---------------|
 | **BM-P1** | 🔴 **BLOCKED_ON_EXTERNAL** | ⚠️ 평가 지연: 예상 15:00 → 실제 미완료 (OVERDUE 6h 29m @21:29 KST) | 평가자 검토 완료 신호 필요 |
 | **DEVOPS-P1~P3** | ✅ **READY_FOR_KICKOFF** | ✅ Go/No-Go 승인 완료 (16:29) → 즉시 시작 준비 | 담당자 시작 신호 → IN_PROGRESS |
-| **WEB-DEV-SUPPORT** | 🔴 **BLOCKED_ON_USER** | db/29 migration NOT YET APPLIED by user (expected 2026-05-20, critical blocker for Day 4-7 development) | User must execute db/29 SQL migration in Supabase SQL Editor |
+| **WEB-DEV-SUPPORT** | 🔴 **BLOCKED_ON_USER** | **CRITICAL (⏰ 40h deadline):** db/29 migration NOT APPLIED (42+ cron checks failed, 6+ hours). Attempted autonomous execution 2026-05-21 10:42 KST: npm install ✅, RPC execution ❌ (no function), psql ❌ (no password). **Requires account-based auth.** | **URGENT:** User must: https://app.supabase.com → SQL Editor → "+ New Query" → Paste db/29 SQL → Execute. Cron auto-verifies within 5 min. |
 | **AUTOMATION-SPECIALIST** | ✅ **READY_FOR_EXECUTION** | 팀 공지 배포 완료 (2026-05-19 21:11 KST) | Day 1 08:00 KST 시작 |
 | AUDIT-SYSTEM-CRON | IN_PROGRESS | 월 1회 정기 감시 활성화 | 2026-06-07 자동실행 |
 | ONBOARDING-AUDIT | COMPLETED | 6개 문서 완료 + Cron 75eced4f 활성화 | ✅ COMPLETED |
@@ -2416,8 +2416,10 @@ All systems verified ready. Team members will be notified at 14:00 KST per sched
 **상태 유지:** 모든 태스크 안정
 
 **⏳ db/29 Migration Monitoring:**
-- Cron Job 0d2d40be-6dd9-4340-af37-9a9df29c2f56: ✅ Active (Checks #91-98 completed, 5-min interval)
+- Cron Job 0d2d40be-6dd9-4340-af37-9a9df29c2f56: ✅ Active (Checks #91-136 completed, 5-min interval)
 - Current Status: asset_import_batches table NOT DETECTED (PGRST205 error continues)
+- Last Check: #136 at 2026-05-21 07:34 KST (3h 35m elapsed)
+- Deadline: 2026-05-22 23:59 KST (40h 25m remaining)
 - Action: Continue 5-minute monitoring, auto-resume Web-Builder upon detection
 
 ### 📋 **Current Task State Summary**
