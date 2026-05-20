@@ -54,9 +54,7 @@ type: project
 | 2026-05-20 | — | 20:32 (cron) | — | — | — | 🟡 **Cron Monitor Check #13 — db/29 NOT APPLIED** — ❌ PGRST205: asset_import_batches table not found. User still awaiting migration execution in Supabase SQL Editor. Vacation mode autonomous monitoring continues. Next check in 5 minutes. |
 | 2026-05-20 | — | 20:37 (cron) | — | — | — | 🟡 **Cron Monitor Check #14 — db/29 NOT APPLIED** — ❌ PGRST205: asset_import_batches table not found. Monitoring continues every 5 minutes. |
 | 2026-05-20 | — | 20:42-20:47 (cron) | — | — | — | 🟡 **Cron Monitor Checks #15-#16 — db/29 NOT APPLIED** — ❌ PGRST205 (recurring). Monitoring continues every 5 minutes. No status change. |
-| 2026-05-20 | — | 20:52+ (cron) | — | — | — | 🟡 **Cron Monitor Check #17 — db/29 NOT APPLIED** — ❌ PGRST205: asset_import_batches table not found. Monitoring continues. |
-| 2026-05-20 | — | 20:57 (cron) | — | — | — | 🟡 **Cron Monitor Check #18 — db/29 NOT APPLIED** — ❌ PGRST205: asset_import_batches table not found. Monitoring continues. |
-| 2026-05-20 | — | 21:02 (cron) | — | — | — | 🟡 **Cron Monitor Check #19 — db/29 NOT APPLIED** — ❌ PGRST205: asset_import_batches table not found. Monitoring continues. |
+| 2026-05-20 | — | 20:52-21:07 (cron) | — | — | — | 🟡 **Cron Monitor Checks #17-#20 — db/29 NOT APPLIED** — ❌ PGRST205 (recurring). Monitoring continues every 5 minutes. No status change. |
 
 **신뢰도 계산:** 완료 갱신 / 예정된 갱신 × 100%  
 **목표:** 95% (30일 중 27일 이상 모든 4회 완료)
