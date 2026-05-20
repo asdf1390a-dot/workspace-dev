@@ -1067,3 +1067,8 @@ Stage: <DESIGN|DB|API|UI|DEPLOY|VERIFY>
 | 2026-05-21 | — | 00:27 (cron) | — | — | — | 🟡 **Cron Monitor Check #95** — ❌ db/29 NOT APPLIED (PGRST205). Monitoring continues. |
 | 2026-05-21 | — | 00:43 (cron) | — | — | — | 🟡 **Cron Monitor Check #96** — ❌ db/29 STILL NOT APPLIED (PGRST205). User action document provided (Telegram). Monitoring continues every 5 minutes. |
 | 2026-05-21 | — | 00:48 (cron) | — | — | — | 🟡 **Cron Monitor Check #97** — ❌ db/29 STILL NOT APPLIED (PGRST205). Monitoring continues. |
+| 2026-05-21 | — | 00:53 (cron) | — | — | — | 🟡 **Cron Monitor Check #98** — ❌ db/29 STILL NOT APPLIED (PGRST205). Monitoring continues. |
+| 2026-05-21 | — | 00:58 (cron) | — | — | — | 🟡 **Cron Monitor Check #99** — ❌ db/29 STILL NOT APPLIED (PGRST205). Monitoring continues. |
+| 2026-05-21 | — | 01:03 (cron) | — | — | — | 🟡 **Cron Monitor Check #100** — ❌ db/29 STILL NOT APPLIED (PGRST205). Monitoring continues. |
+| 2026-05-21 | — | 01:08 (cron) | — | — | — | 🟡 **Cron Monitor Check #101** — ❌ db/29 STILL NOT APPLIED (PGRST205). Monitoring continues. |
+| 2026-05-21 | — | 01:13 (cron) | — | — | — | 🟡 **Cron Monitor Check #102** — ❌ db/29 STILL NOT APPLIED (PGRST205: "Could not find the table 'public.asset_import_batches'"). HTTP 404. Monitoring continues. |
