@@ -4,7 +4,7 @@ description: 실시간 미완료 항목 추적 — 우선순위, ETA, 블로킹,
 type: project
 ---
 
-# 미완료 작업 추적 레지스트리 (2026-05-20 20:55 KST)
+# 미완료 작업 추적 레지스트리 (2026-05-20 22:25 KST)
 
 ## ✅ 【최근 완료】— 2026-05-20 16:14 기준
 
@@ -59,7 +59,7 @@ type: project
 | 날짜 | 08:00 | 14:00 | 15:00 | 18:00 | 완료율 | 상태 |
 |------|:---:|:---:|:---:|:---:|--------|--------|
 | 2026-05-19 | ✅ 11:20 | ✅ 11:32 | ✅ 11:33 | ⏳ 17:50 예정 | **95%** | 🚀 Hermes Phase 0 완료 |
-| 2026-05-20 | ✅ 08:00 | 🔄 (진행중) | 🟢 **15:43** | — | **50%+** | **Checkpoint 15:43** — Phase 2 Cron Automation 인프라 완성 (route.ts + phase2_cron_automation_setup.md + MEMORY.md). BM Phase 1 배포 준비 완료. Web-Dev-Support + Automation Specialist Day 1 진행중. |
+| 2026-05-20 | ✅ 08:00 | 🔄 (진행중) | 🟢 **15:43** | 🟡 **22:25** | **75%** | **Checkpoint 22:25** — Asset Master Phase 2 db/29 migration monitoring active (Cron Checks #25-#52, 9개 추가 사이클). db/29 status: NOT_APPLIED (PGRST205 지속). User vacation mode autonomous ops continue. Phase 1-3 auto-trigger pipelines ready. |
 
 **목표:** 95% (27일/30일 ✓ 현재 track 중)
 
