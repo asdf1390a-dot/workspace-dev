@@ -29,9 +29,13 @@
 ---
 
 ## ⚠️ 감시 & 규칙 준수 (Compliance & Audits)
+- [⭐ Telegram 한국어만 사용 (2026-05-20)](feedback_telegram_korean_only_enforcement.md) — Telegram 모든 답변 한국어만, 영어 절대금지, 상태보고·기술설명 포함 (2026-05-20 강화)
 - [⭐ AI Terminology Standardization Guide](AI_TERMINOLOGY_STANDARDIZATION_GUIDE.md) — AI 에이전트 역할 표준화 (CEO+Secretary 시스템, 74개 파일 정보 갱신 완료, 2026-05-20) 
 - [⭐ Rule Compliance Execution System](rule_compliance_execution_system.md) — 메모리↔실행 갭 해소 + 5개 Cron 자동 감시 (08/14/15/18:00 KST + 자정) + 실시간 CTB 동기화 (2026-05-19 실행)
 - [⭐ Rule Compliance Audit System](rule_compliance_audit_active.md) — 일일 규칙 준수 감시 (자율 모드 + 자동화 규칙), 매일 08:00 체크 (2026-05-19 활성화)
+- [⭐ 모델 선택 기준 표준화](model_selection_standard.md) — Haiku/Sonnet/Opus 절대 규칙 + 감시 체크리스트 + 비용 목표 < 15% (2026-05-20 확정, 매주 월 09:00 Evaluator 검증)
+- [⭐ Opus 사용 절대 규칙](feedback_opus_rule_reinforcement.md) — 서브에이전트 호출(web-builder/data-analyst/evaluator)시만 사용, 직접 작업·대화·검토 절대금지 (2026-05-20)
+- [⭐ 위임 후 즉시 대화 종료](feedback_delegation_immediate_exit.md) — 팀원 위임 시 한 줄 알림 후 즉시 종료, 입력중 상태 금지 (2026-05-20)
 - [⭐ Session Error Analysis 2026-05-20](session_error_analysis_2026_05_20.md) — Hermes Bot 배포 오류 분석 + 60시간 지연 원인 (capability verification 누락, 액션 레이블 혼동, 완료기준 미정의) + 3가지 개선조치 (2026-05-20 09:37)
 - [⭐ Media Editing Follow-up Measures](media_editing_followup_measures.md) — 사진/영상 편집 규칙 위반 후 개선대책 (경로 묻기 금지, SOUL.md 강화, 2026-05-19)
 - [⭐ Missed Audit Violations Remediation](missed_audit_violations_remediation.md) — 2026-05-17 CTB 4회 MISSED 분석 + Cron 자동화 활성화 (2026-05-19 발견 & 개선)
