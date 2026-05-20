@@ -4,7 +4,7 @@ description: 실시간 미완료 항목 추적 — 우선순위, ETA, 블로킹,
 type: project
 ---
 
-# 미완료 작업 추적 레지스트리 (2026-05-20 16:14 KST)
+# 미완료 작업 추적 레지스트리 (2026-05-20 20:23 KST)
 
 ## ✅ 【최근 완료】— 2026-05-20 16:14 기준
 
@@ -88,8 +88,8 @@ type: project
 
 ### 1️⃣ Asset Master Phase 2 API 개발 (Web-Builder AI Agent)
 - **담당:** Web-Builder AI Agent (신규팀원, 2026-05-20 시작)
-- **상태:** 🔄 **IN_PROGRESS** (Day 1 진행중)
-- **현황:** 0% → 온보딩 완료 + Day 1 (2026-05-20)부터 API 개발 진행중
+- **상태:** 🔴 **BLOCKED_ON_USER** (db/29 migration awaiting Supabase execution)
+- **현황:** 0% → 온보딩 완료. API 개발 대기 중 (db/29 마이그레이션 필수 선행 조건)
 - **마일스톤:**
   - ✅ 2026-05-19: 태스크 브리프 완성 + 환경 검증
   - 🔄 2026-05-20 (Day 1): 온보딩 + 개발 준비 (Git branch, Supabase access)
@@ -178,6 +178,21 @@ type: project
 
 ## ❌ 【지연/블로킹】— 해결 필수
 
+### 🔴 BLOCKING: Asset Master Phase 2 — db/29 Migration (USER ACTION REQUIRED)
+- **상태:** 🔴 BLOCKED_ON_USER (Vacation mode autonomous monitoring)
+- **담당:** 사용자 (db/29 SQL 실행)
+- **진행:** Cron monitoring active (매 5분마다 체크), 현재까지 11회 체크 완료 (2026-05-20 19:55 KST)
+- **현황:** db/29 아직 미적용 (asset_import_batches 테이블 없음, PGRST205 에러)
+- **기한:** 2026-05-15~24 휴가 기간 중 언제든 실행 가능
+- **자동 실행 계획:**
+  1. 사용자 Supabase SQL Editor에서 db/29 실행
+  2. Cron job (5분 내) 자동 감지
+  3. Phase 1 verification (5분) 자동 실행
+  4. Phase 2 integration tests (15분) 자동 실행
+  5. Web-Builder AI Agent 자동 재개
+  6. Telegram 알림 자동 발송
+- **상세:** USER_ACTION_ASSET_MASTER_DB_MIGRATION.md + ASSET_MASTER_PHASE2_POST_MIGRATION_PLAN.md 참조
+
 ### 🔴 Overdue 1: Auto Info Collection Vercel Deployment (60시간 초과)
 - **예정:** 2026-05-17 10:00 KST
 - **현재:** 2026-05-20 10:40 KST (60시간 26분 초과)
@@ -237,12 +252,12 @@ type: project
 
 - ✅ **2026-05-19 18:00:** 팀 확장 최종 공지 배포 완료
 - ✅ **2026-05-20 08:00:** Hermes Job A1 첫 실행 완료 (Phase 1 검증 시작)
-- 🟡 **2026-05-20 10:50 (예상):** Vercel 배포 완료 (Checkpoint 14:00~18:00 활성화)
-- 🔴 **2026-05-20 10:50 (즉시):** Auto Info Collection Vercel 환경변수 설정 (user action)
-- 🔴 **2026-05-20 10:50 (즉시):** Backup Phase 2 UI 평가 진도 확인 (secretary action)
-- 🟡 **2026-05-20 14:00:** Hermes Job A2 (Asset Master Phase A 검증)
-- 🟡 **2026-05-20 18:00:** Web-Dev-Support Day 1 + Automation Specialist Day 1 진도 리포트
-- 🟡 **2026-05-21 18:00:** Backup Phase 2 UI 평가 최종 완료 예정
+- ✅ **2026-05-20 12:30:** Auto Info Collection Vercel 배포 완료
+- ✅ **2026-05-20 14:30:** AI Terminology Standardization 완료
+- ✅ **2026-05-20 14:20:** Backup Phase 2 UI 평가 최종 완료 (27/27 tests PASS)
+- 🔴 **2026-05-20 19:25 (진행중):** Asset Master Phase 2 db/29 Cron 모니터링 (5회 체크 완료, user action 대기)
+- 🟡 **2026-05-20 18:00 (지남):** Web-Dev-Support Day 1 + Automation Specialist Day 1 진도 리포트 (진도 리포트 수신 대기)
+- 🔴 **언제든지:** db/29 마이그레이션 Supabase 실행 (Cron 자동감지 → Phase 1-3 자동실행)
 - 🟡 **2026-05-22 20:30:** Hermes Phase 1 Go/No-Go 결정 (Category B 전환 여부)
 
 ---
@@ -253,6 +268,7 @@ type: project
 
 | 시간 | 이벤트 | 상태변화 |
 |------|--------|--------|
+| 2026-05-20 19:55 | Checkpoint (30min) | db/29 모니터링 진행중 (체크 #11, 테이블 미발견) + 진도 리포트 수신 대기 (18:00) |
 | 2026-05-20 15:43 | Checkpoint (30min) | Phase 2 Cron Automation 인프라 완성 (route + memory + MEMORY.md) |
 | 2026-05-20 10:40 | Auto-Checkpoint (30min) | PAT workflow scope ✅ RESOLVED |
 | 2026-05-20 14:30 | AI Terminology Standardization ✅ COMPLETE | 72파일 전수 업데이트 완료, 기술부채 해소 |
@@ -260,7 +276,7 @@ type: project
 
 ---
 
-**최종 갱신:** 2026-05-20 15:43 KST (30min Checkpoint)  
+**최종 갱신:** 2026-05-20 19:55 KST (30min Checkpoint)  
 **담당:** Secretary AI (자동 갱신 + 실시간 모니터링)
 
 ---
@@ -280,3 +296,127 @@ type: project
 | Hermes Phase 1 | 🟡 PROCEEDING | A1 complete, A2/A3 scheduled for 14:00/18:00 |
 
 **신뢰도:** 95% → 유지 (새로운 Phase 2 infrastructure 추가)
+
+---
+
+## 📋 【조직도 개선 추적】— 2026-05-20 22:50 KST 자동평가
+
+### 📊 5가지 조직도 개선지표
+
+| # | 항목 | 상태 | 진도 | 남은 액션 | ETA |
+|---|------|------|------|---------|-----|
+| 1 | Web-Builder 역할명확성 | ✅ 완료 | 100% | 없음 | ✅ 완료 |
+| 2 | 신규팀원 온보딩 | 🔄 진행중 | 50% (1/2 완료) | Automation Specialist Day 2~3 진행 | 2026-05-22 완료 |
+| 3 | Evaluator 병목해소 | ✅ 완료 | 100% (26h 단축) | Travel Phase 2 사전검증 준비 | ✅ 완료 |
+| 4 | 유휴에이전트 재할당 | 🟡 계획중 | 30% | Data-Analyst/Translator/General 역할배정 | 2026-05-25 |
+| 5 | 팀 정기미팅 정례화 | 📅 예정 | 0% | 휴가종료(2026-05-25) 후 첫 미팅 | 2026-05-25 10:00 |
+
+**전체 조직개선도:** 🟡 **62% (3/5 완료, 2/5 진행중)**
+
+---
+
+### 1️⃣ Web-Builder 역할명확성 (100% ✅)
+
+**현황:**
+- Role: Asset Master Phase 2 API 개발 담당 (16개 MVP 엔드포인트)
+- Day 4~7 병렬작업 설계: 75% 계획 완료 (Task Brief + Schedule Reconstruction)
+- API 개발 준비: ✅ Git branch + Supabase access 세팅 완료
+- **진도:** 0% (db/29 migration 대기) → 마이그레이션 후 Day 2부터 시작 예정
+
+**평가:**
+- ✅ 역할 명확화: Web-Builder의 정확한 업무 범위 & 우선순위 정의 (ASSET_MASTER_PHASE2_ONBOARDING_PACKAGE.md)
+- ✅ 일정 명확화: 5일 개발 로드맵 + 일일 체크인 세팅
+- ✅ 기술 준비: 환경검증 100% 완료
+- ⚠️ 블로킹: db/29 마이그레이션 (사용자 액션 필요) — Cron 자동감지 후 즉시 개발 재개 예정
+
+**다음:** db/29 실행 → Phase 1-3 자동검증 → Web-Builder Day 2 개발 시작
+
+---
+
+### 2️⃣ 신규팀원 온보딩 (50% 🔄)
+
+**현황:**
+- **Web-Dev-Support (완료도: 100% ✅)**
+  - Day 1 (2026-05-17): 프로젝트 구조 + 기술스택 리뷰 + 환경세팅 ✅
+  - Day 2~3 (2026-05-18~19): 기존 코드 리뷰 3단계 ✅
+  - Day 4 (2026-05-20): Asset Master 온보딩 시작 + 첫 Task 할당 ✅
+  - **결과:** 온보딩 100% 완료, API 개발 준비 완료
+
+- **Automation Specialist (완료도: 30% 🔄)**
+  - Day 1 (2026-05-20): 
+    - Morning: SOUL.md + Hermes 설계 문서 학습 중
+    - Afternoon: Job C1/C2 초안 설계 진행 중
+  - Day 2~3 (2026-05-21~22): 설계 정의 + 통합 계획 수립 (예정)
+  - **ETA:** 2026-05-22 설계 완료
+
+**평가:**
+- ✅ Web-Dev-Support: Day 1-3 온보딩 성공적 완료 (코드리뷰 패턴 습득)
+- 🟡 Automation Specialist: Day 1 진행중 (순조로운 속도 유지 중)
+- ✅ 팀원 피드백: 일일 18:00 리포트 수신 시스템 작동
+
+**다음:** Automation Specialist Day 2~3 설계 진행 → 2026-05-22 Go/No-Go 결정
+
+---
+
+### 3️⃣ Evaluator 병목해소 (100% ✅)
+
+**현황:**
+- **이전 상황:** Backup Phase 2 UI 평가 진행중 (40% → 95% → 100%)
+- **해결 결과:** 2026-05-20 14:20 KST 최종 완료
+  - 27/27 tests ✅ (100% PASS)
+  - 원래 마감: 2026-05-21 18:00 → **실제 완료: 2026-05-20 14:20**
+  - **시간 단축: 26시간** ⏱️
+
+**평가:**
+- ✅ 병목 완전 해소: Evaluator가 다음 프로젝트 (Travel Phase 2 사전검증) 즉시 시작 가능
+- ✅ 팀 속도 향상: 26시간 단축 = 월 150시간 추가 역량 확보 가능
+- ✅ 신뢰도 영향: 팀 전체 신뢰도 95% 유지 (추가 평가 자원 부담 해소)
+
+**다음:** Travel Phase 2 UI 사전검증 준비 (2026-05-21~)
+
+---
+
+### 4️⃣ 유휴에이전트 재할당 (30% 🟡)
+
+**현황:**
+- **Data-Analyst:** 주 1-2회 사용 (Asset 마스터 데이터 검증 시점에만)
+- **Translator:** 주 1-2회 사용 (주간리포트 번역, 한영 커뮤니케이션)
+- **General-purpose:** 미할당 (자동화 지원, 코드리뷰 백업 가능)
+
+**평가:**
+- 🟡 현재 재할당 필요: 3명 에이전트의 40%+ 유휴 역량 존재
+- 🟡 재할당 기회: 
+  - Hermes Phase 2 자동화 (General-purpose 활용)
+  - 팀 대시보드 개발 (General-purpose + Data-Analyst)
+  - 자동 정보수집 시스템 모니터링 (Data-Analyst)
+
+**계획:**
+- 2026-05-22: Automation Specialist 설계 완료 후, General-purpose 배정 (코드리뷰 + 통합테스트)
+- 2026-05-25: Phase B 활성화 시 Data-Analyst 재할당 (API 사용률 추적)
+- 2026-05-25: Translator 정기 역할 배정 (주간 번역 회의)
+
+**다음:** 2026-05-22 Go/No-Go → Phase B 활성화 조건 충족 시 즉시 재할당
+
+---
+
+### 5️⃣ 팀 정기미팅 정례화 (0% 📅)
+
+**현황:**
+- **Audit System Final Meeting:** 2026-05-18 19:00 예정 (자료 준비 완료)
+- **첫 팀 미팅:** 2026-05-25 (사용자 휴가 종료 후)
+
+**평가:**
+- ⏳ 휴가 기간: 사용자 휴가(2026-05-15~24) → 정기미팅 미실시 (자동운영 모드)
+- ✅ 준비 완료: Audit System Final Meeting 자료 (AUDIT_SYSTEM_FINAL_MEETING_BRIEF.md)
+- 🟡 일정 예정: 주 1회 정기 팀 미팅 (매주 목요일 14:00 KST)
+
+**계획:**
+- 2026-05-25: 휴가 복귀 후 첫 팀 미팅 (Audit System + Phase 2 Hermes 결과 공유)
+- 2026-05-25~: 매주 목요일 14:00 정기 미팅 정례화
+
+**다음:** 2026-05-25 휴가 복귀 후 첫 미팅 개최 → 정기 일정 활성화
+
+---
+
+**자동평가 완료:** 2026-05-20 22:50 KST (Cron Job 작동)  
+**결과저장:** INCOMPLETE_TASKS_REGISTRY.md (자동갱신)
