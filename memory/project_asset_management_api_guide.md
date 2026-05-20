@@ -8,7 +8,7 @@ relatedFiles: ASSET_MANAGEMENT_API_GUIDE.md
 # Asset Management API & DB 스키마 가이드
 
 **작성일:** 2026-05-14  
-**상태:** 설계 완료 → 웹개발자 개발 대기  
+**상태:** 설계 완료 → Web-Builder AI Agent 개발 대기  
 **대상:** Web-Builder (API 구현)
 
 ## DB 스키마 확장
@@ -89,4 +89,4 @@ relatedFiles: ASSET_MANAGEMENT_API_GUIDE.md
 - 오류 처리: 400, 401, 403, 404, 500
 
 ## 상태
-🟡 **설계 완료** → 웹개발자 개발 대기
+🟡 **설계 완료** → Web-Builder AI Agent 개발 대기

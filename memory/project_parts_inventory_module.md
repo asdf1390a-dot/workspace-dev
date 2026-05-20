@@ -8,7 +8,7 @@ relatedFiles: DESIGN_PARTS.md
 # Parts & Inventory 모듈 설계
 
 **작성일:** 2026-05-12  
-**상태:** 설계 완료 → 웹개발자 개발 대기  
+**상태:** 설계 완료 → Web-Builder AI Agent 개발 대기  
 **담당:** Web-Builder  
 **포털:** https://dsc-fms-portal.vercel.app
 
@@ -112,4 +112,4 @@ relatedFiles: DESIGN_PARTS.md
 - **인라인 스타일:** Tailwind 미사용
 
 ## 상태
-🟡 **설계 완료** → 웹개발자 개발 대기
+🟡 **설계 완료** → Web-Builder AI Agent 개발 대기

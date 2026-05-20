@@ -9,7 +9,7 @@ relatedFiles: dsc-fms-portal/ASSET_MASTER_PHASE2_DESIGN.md
 
 **완료일:** 2026-05-16 09:00 KST  
 **마감:** 2026-05-19 18:00 KST  
-**상태:** ✅ 설계 완료 → 웹개발자 개발 착수
+**상태:** ✅ 설계 완료 → Web-Builder AI Agent 개발 착수
 
 ## Phase 2 MVP 스코프
 
@@ -128,4 +128,4 @@ created_at (timestamp)
 4. 테스트 및 배포
 
 ## 상태
-🟡 **설계 완료** → 웹개발자 구현 개시 대기 (2026-05-19 18:00 마감)
+🟡 **설계 완료** → Web-Builder AI Agent 구현 개시 대기 (2026-05-19 18:00 마감)

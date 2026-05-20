@@ -1,12 +1,12 @@
 ---
-name: 데이터분석가 프로젝트 완료 보고서
-description: 각 프로젝트 완료시 데이터분석가가 완료 보고서 작성 (필수 규칙)
+name: Data-Analyst AI Agent 프로젝트 완료 보고서
+description: 각 프로젝트 완료시 Data-Analyst AI Agent가 완료 보고서 작성 (필수 규칙)
 type: feedback
 ---
 
-# 데이터분석가 프로젝트 완료 보고서 규칙
+# Data-Analyst AI Agent 프로젝트 완료 보고서 규칙
 
-**규칙:** 프로젝트/기능 개발 완료할 때마다 데이터분석가가 **완료 보고서**를 작성
+**규칙:** 프로젝트/기능 개발 완료할 때마다 Data-Analyst AI Agent가 **완료 보고서**를 작성
 
 **보고서 범위:**
 - 개발 요구사항 검토

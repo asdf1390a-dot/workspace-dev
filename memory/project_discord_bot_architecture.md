@@ -8,7 +8,7 @@ relatedFiles: DISCORD_BOT_ARCHITECTURE_DESIGN.md
 # Discord Bot 아키텍처 설계 (고급)
 
 **작성일:** 2026-05-15 22:45 KST  
-**상태:** 플레너 설계 완료 → 웹개발자 구현 대기  
+**상태:** Planner AI Agent 설계 완료 → Web-Builder AI Agent 구현 대기  
 **완료 예상:** 2026-05-16 10:00~18:00 KST
 
 ## 메시지 흐름
@@ -75,8 +75,8 @@ relatedFiles: DISCORD_BOT_ARCHITECTURE_DESIGN.md
 |---------|-----------|----------|-----------|
 | #비서-secretary | ... | secretary | SecretaryProcessor |
 | #번역기-translator | ... | translator | TranslatorProcessor |
-| #데이터분석가-analyst | ... | analyst | AnalystProcessor |
-| #웹개발자-dev | ... | developer | DeveloperProcessor |
+| #Data-Analyst AI Agent-analyst | ... | analyst | AnalystProcessor |
+| #Web-Builder AI Agent-dev | ... | developer | DeveloperProcessor |
 
 ### Layer 3: AI Agent Processors (4개)
 **디렉토리:** `lib/discord/processors/`
@@ -156,4 +156,4 @@ relatedFiles: DISCORD_BOT_ARCHITECTURE_DESIGN.md
 - 메시지 손실률 0%
 
 ## 상태
-🟡 **설계 완료** → 웹개발자 구현 대기
+🟡 **설계 완료** → Web-Builder AI Agent 구현 대기

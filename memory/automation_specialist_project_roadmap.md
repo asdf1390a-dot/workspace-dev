@@ -275,8 +275,8 @@ git push origin feature/kpi-analytics
 
 **블로킹 아이템:**
 - Supabase 스키마 불명확 → 즉시 비서에게 문의
-- Telegram API 오류 → 평가자에게 협력 요청
-- 배포 거절 → 웹개발자에게 협력 요청
+- Telegram API 오류 → Evaluator AI Agent에게 협력 요청
+- 배포 거절 → Web-Builder AI Agent에게 협력 요청
 
 **최종 핸드오프 (2026-05-31):**
 - 3개 크론 운영 가이드 전달
@@ -301,8 +301,8 @@ git push origin feature/kpi-analytics
 
 ### 팀 연락처
 - **비서 (Secretary):** Project 관리, 온보딩 지원
-- **웹개발자 (Web-Builder):** 배포, 인프라 지원
-- **평가자 (Evaluator):** QA, 테스트 지원
+- **Web-Builder AI Agent (Web-Builder):** 배포, 인프라 지원
+- **Evaluator AI Agent (Evaluator):** QA, 테스트 지원
 
 ---
 

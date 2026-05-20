@@ -9,7 +9,7 @@ relatedFiles: GITHUB_DESIGN_TEMPLATE.md
 
 **목적:** 새로운 기능, 프로젝트, 또는 주요 변경사항을 GitHub 저장소에 문서화하기 위한 표준 템플릿
 
-**사용 대상:** 설계자, 플레너, 기술 리더  
+**사용 대상:** 설계자, Planner AI Agent, 기술 리더  
 **문서 위치:** `/docs/design/` 또는 Wiki 폴더  
 **대상 읽자:** 개발자, QA, PM, 이해관계자
 

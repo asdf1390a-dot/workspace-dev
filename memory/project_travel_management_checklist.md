@@ -7,9 +7,9 @@ relatedFiles: dsc-fms-portal/TRAVEL_MANAGEMENT_IMPLEMENTATION_CHECKLIST.md
 
 # Travel Management Module — 구현 체크리스트
 
-**상태:** 웹개발자 구현 시작  
+**상태:** Web-Builder AI Agent 구현 시작  
 **작성일:** 2026-05-14  
-**담당:** 웹개발자  
+**담당:** Web-Builder AI Agent  
 **설계 기반:** TRAVEL_MANAGEMENT_DESIGN.md
 
 ## 전체 구현 계획 (4주)
@@ -72,4 +72,4 @@ dsc-fms-portal/
 **목표:** 알림 엔진 + Staging 테스트 + 프로덕션 배포
 
 ## 상태
-🟡 설계 완료 → 웹개발자 Week 1 시작
+🟡 설계 완료 → Web-Builder AI Agent Week 1 시작

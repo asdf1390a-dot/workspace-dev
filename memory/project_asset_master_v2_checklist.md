@@ -7,7 +7,7 @@ relatedFiles: dsc-fms-portal/ASSET_MASTER_V2_IMPLEMENTATION_CHECKLIST.md
 
 # Asset Master v2 구현 체크리스트
 
-**대상:** Web-Builder (웹개발자)  
+**대상:** Web-Builder (Web-Builder AI Agent)  
 **설계 문서:** ASSET_MASTER_V2_DESIGN.md + ASSET_MASTER_V2_API_GUIDE.md  
 **예상 기간:** 7일 (2026-05-16 ~ 2026-05-23)  
 **DB 마이그레이션 파일:** db/24_asset_master_v2.sql

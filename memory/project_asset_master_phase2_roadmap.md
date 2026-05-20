@@ -7,7 +7,7 @@ relatedFiles: dsc-fms-portal/ASSET_MASTER_PHASE2_API_ROADMAP.md
 
 # Asset Master v2 Phase 2 — API 개발 로드맵
 
-**대상:** 웹개발자 (5% 진행) + 신규팀원 (2026-05-17~23)  
+**대상:** Web-Builder AI Agent (5% 진행) + 신규팀원 (2026-05-17~23)  
 **마감:** 2026-05-23 18:00 KST (7일)  
 **목표:** MVP 16개 API + 3개 UI + 배포
 
@@ -16,9 +16,9 @@ relatedFiles: dsc-fms-portal/ASSET_MASTER_PHASE2_API_ROADMAP.md
 | 항목 | 내용 |
 |------|------|
 | 총 API 개수 | 16개 (MVP) + 9개 (Defer Phase 2.5) |
-| 웹개발자 진행률 | 5% (failure_code 드롭다운 명세 완료) |
+| Web-Builder AI Agent 진행률 | 5% (failure_code 드롭다운 명세 완료) |
 | 신규팀원 합류 | 2026-05-17 (Day 2) |
-| 가용 개발자 일수 | 웹개발자 5.5일 + 신규팀원 4일 |
+| 가용 개발자 일수 | Web-Builder AI Agent 5.5일 + 신규팀원 4일 |
 | DB 마이그레이션 | 필수 완료 (선행 작업) |
 
 ## API 16개 우선순위 (정렬)
@@ -84,7 +84,7 @@ relatedFiles: dsc-fms-portal/ASSET_MASTER_PHASE2_API_ROADMAP.md
 **병렬 스트림 3:** Import (5개) → 스트림 1 완료 후
 
 **총 리소스 배분:**
-- 웹개발자: 스트림 1-2 담당 (예상 6일)
+- Web-Builder AI Agent: 스트림 1-2 담당 (예상 6일)
 - 신규팀원: 스트림 3 + UI 컴포넌트 (예상 4일)
 
 ## 위험 요소 & 완화책

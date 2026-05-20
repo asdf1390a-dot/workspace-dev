@@ -1,11 +1,11 @@
 ---
-name: Backup Phase 2 UI — 평가자 검증 체크리스트
+name: Backup Phase 2 UI — Evaluator AI Agent 검증 체크리스트
 description: 4개 UI 화면(자동백업설정, 저장소관리, 메트릭, 알림) 평가 기준 + 3회 반복 검증
 type: project
 relatedFiles: BACKUP_PHASE2_UI_EVALUATION_CHECKLIST.md
 ---
 
-# Backup Phase 2 UI — 평가자 검증 체크리스트
+# Backup Phase 2 UI — Evaluator AI Agent 검증 체크리스트
 
 **담당:** evaluator  
 **우선순위:** 🟠 MEDIUM  

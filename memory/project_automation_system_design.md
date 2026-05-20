@@ -6,9 +6,9 @@ type: project
 
 # 자동화 시스템 설계 (Automation System Design)
 
-**상태:** 플레너 설계 완료 (2026-05-16 12:15 KST)  
-**프로세스:** 플레너(설계) → 웹개발자(구현) → 평가자(검증)  
-**담당자:** 웹개발자  
+**상태:** Planner AI Agent 설계 완료 (2026-05-16 12:15 KST)  
+**프로세스:** Planner AI Agent(설계) → Web-Builder AI Agent(구현) → Evaluator AI Agent(검증)  
+**담당자:** Web-Builder AI Agent  
 **ETA:** 2026-05-27  
 
 ---
@@ -70,7 +70,7 @@ action:
   - 출력: 09:00 checkpoint 기록 + escalation (미시작시)
 
 12:00 KST → Backup Phase 2 UI 리포트 수집
-  - 입력: Telegram msg 또는 JSON API 호출 (평가자)
+  - 입력: Telegram msg 또는 JSON API 호출 (Evaluator AI Agent)
   - 액션: 진도율 + 발견 이슈 자동 수집
   - 출력: 12:00 checkpoint 기록
 
@@ -80,7 +80,7 @@ action:
   - 출력: 14:00 checkpoint 기록
 
 15:00 KST → Asset Master P2 Day 1 리포트
-  - 입력: git log (웹개발자 commit) + memory/project_asset_master.md
+  - 입력: git log (Web-Builder AI Agent commit) + memory/project_asset_master.md
   - 액션: 5개 GET API 구현 상태 확인
   - 출력: 15:00 checkpoint 기록
 
@@ -113,12 +113,12 @@ action:
 
 #### 3.1 Design Complete 자동 감지
 ```
-trigger: 플레너가 설계 문서 완료 후 commit
+trigger: Planner AI Agent가 설계 문서 완료 후 commit
   메시지 형식: "chore(design): {PROJECT} 설계 완료 | Stage:DESIGN"
 
 action:
   1. Git hook이 "Stage:DESIGN" 감지
-  2. 담당 웹개발자 식별 (active_work_tracking.md)
+  2. 담당 Web-Builder AI Agent 식별 (active_work_tracking.md)
   3. 새 task 생성 + 48시간 deadline 설정
 ```
 
@@ -130,23 +130,23 @@ deadline: T + 48시간
   - T+48: 첫 API/DB 구현 완료 요구
 
 미준수 시 escalation:
-  - T+48: 웹개발자에게 경고 메시지 (Telegram)
-  - T+60: 사용자 및 플레너에게 블로킹 보고
+  - T+48: Web-Builder AI Agent에게 경고 메시지 (Telegram)
+  - T+60: 사용자 및 Planner AI Agent에게 블로킹 보고
   - T+72: 사용자 개입 (우선순위 재조정 or 담당자 변경)
 ```
 
 #### 3.3 자동 assignment workflow
 ```
-Step 1: 플레너가 설계 commit
+Step 1: Planner AI Agent가 설계 commit
   - 예: commit msg "chore(design): Asset Master Phase 2 설계 완료 | Stage:DESIGN"
 
 Step 2: GitHub Action 트리거
   - Refs 필드에서 "ASSET-P2" 추출
-  - active_work_tracking.md에서 담당자 찾기 (웹개발자)
+  - active_work_tracking.md에서 담당자 찾기 (Web-Builder AI Agent)
   - 새 GitHub Issue 생성 (담당자 assign)
   - Issue 설명: 설계 문서 링크 + 48시간 deadline + checklist
 
-Step 3: 웹개발자 자동 알림
+Step 3: Web-Builder AI Agent 자동 알림
   - GitHub notification (Issue assigned)
   - Telegram: "【ASSET-P2】설계 완료 → 구현 시작 | Deadline: 2026-05-18 12:15"
 
@@ -157,7 +157,7 @@ Step 4: 진행 추적
 
 #### 3.4 CTB 자동 업데이트
 ```
-웹개발자가 첫 commit 후:
+Web-Builder AI Agent가 첫 commit 후:
   - Git hook이 "Refs:ASSET-P2" 감지
   - CTB에서 "Asset Master Phase 2" 진행률을 "0%" → "5%" 자동 증가
   - 피드백: Telegram "【ASSET-P2】구현 시작 ✅ (Day 0/5)"
@@ -165,7 +165,7 @@ Step 4: 진행 추적
 
 ---
 
-## 구현 체크리스트 (웹개발자)
+## 구현 체크리스트 (Web-Builder AI Agent)
 
 ### Phase 1: GCS Violations 자동화 (2026-05-20~22)
 - [ ] Git hook 스크립트 작성 (bash/python)
@@ -192,11 +192,11 @@ Step 4: 진행 추적
 - [ ] 48시간 countdown 자동화
 - [ ] Escalation 메시지 설정
 - [ ] CTB 자동 진행률 업데이트
-- [ ] 테스트: 플레너가 설계 commit → Issue 생성 + 알림 확인
+- [ ] 테스트: Planner AI Agent가 설계 commit → Issue 생성 + 알림 확인
 
 ---
 
-## 평가자 검증 (3회 반복)
+## Evaluator AI Agent 검증 (3회 반복)
 
 ### Iteration 1: GCS Violations (2026-05-28)
 - 실제 commit 시 hook 작동 확인
@@ -209,7 +209,7 @@ Step 4: 진행 추적
 - 대시보드 갱신 확인
 
 ### Iteration 3: Design-Complete Assignment (2026-05-30)
-- 플레너 설계 commit → Issue 생성 확인
+- Planner AI Agent 설계 commit → Issue 생성 확인
 - 48시간 countdown 작동 확인
 - Escalation 메시지 발송 확인
 - 진행률 자동 업데이트 확인

@@ -1,6 +1,6 @@
 ---
 name: Work History Package for New Team Member Onboarding
-description: Complete design documents, code patterns, documentation structure, and team communication protocols for new 웹개발자 onboarding
+description: Complete design documents, code patterns, documentation structure, and team communication protocols for new Web-Builder AI Agent onboarding
 type: reference
 date: 2026-05-18
 ---
@@ -62,9 +62,9 @@ date: 2026-05-18
 ### Reference Documents (Architecture & Standards)
 
 1. **Code Pattern Library** (from team learnings)
-   - `웹개발자-learnings.md` (910 lines): Next.js + Supabase patterns
-   - `평가자-learnings.md` (119 lines): QA methodology
-   - `플레너-learnings.md` (152 lines): Architecture decisions
+   - `Web-Builder AI Agent-learnings.md` (910 lines): Next.js + Supabase patterns
+   - `Evaluator AI Agent-learnings.md` (119 lines): QA methodology
+   - `Planner AI Agent-learnings.md` (152 lines): Architecture decisions
    - `비서-learnings.md` (100 lines): Team coordination patterns
 
 2. **Glossary-Driven Architecture**
@@ -169,7 +169,7 @@ Procedure (10-record sample, monthly):
 
 Why: Prevents garbage-in-garbage-out (users can select wrong codes)
 When: First of each month (2026-06-01, 07-01, etc.)
-Ownership: 평가자 (QA team)
+Ownership: Evaluator AI Agent (QA team)
 ```
 
 **When to use:** Any user-selectable dropdown (BM failure codes, asset categories, travel expenses)
@@ -253,12 +253,12 @@ Examples from 2026-05-18:
 **Day 1-2 (Environment):**
 - Clone DSC FMS repo, set up .env (NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY, etc.)
 - Read CLAUDE.md + settings.json + current SOUL.md
-- Review 웹개발자-learnings.md (910 lines)
+- Review Web-Builder AI Agent-learnings.md (910 lines)
 
 **Day 3-4 (Code Review):**
 - Study project_backup_phase2_api_guide.md (32K, API design patterns)
 - Study project_asset_master_v2_api_guide_extended.md (25 endpoints, CRUD patterns)
-- Review 평가자-learnings.md + 플레너-learnings.md for QA/architecture perspective
+- Review Evaluator AI Agent-learnings.md + Planner AI Agent-learnings.md for QA/architecture perspective
 
 **Day 5-7 (Independent Work):**
 - Implement Task #1: Assign feature from current sprint

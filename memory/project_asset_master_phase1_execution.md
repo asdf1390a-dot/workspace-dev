@@ -54,4 +54,4 @@ create table asset_qr_scans (
 - asset_qr_scans_scanned_at_idx (scanned_at desc)
 
 ## 상태
-🔴 **준비 완료** — SQL 파일 준비됨, 실행 대기 (웹개발자)
+🔴 **준비 완료** — SQL 파일 준비됨, 실행 대기 (Web-Builder AI Agent)

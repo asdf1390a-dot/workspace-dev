@@ -8,7 +8,7 @@ relatedFiles: dsc-fms-portal/ASSET_MASTER_V2_DESIGN.md
 # Asset Master v2 설계 — 기존 자산 기반 증분 업그레이드
 
 **작성일:** 2026-05-15  
-**상태:** 설계 완료 (웹개발자 구현 대기)  
+**상태:** 설계 완료 (Web-Builder AI Agent 구현 대기)  
 **전략:** Option A — 기존 506개 자산 유지 + 증분 개선
 
 ## 핵심 선택: Option A (Greenfield 거부)
@@ -69,4 +69,4 @@ relatedFiles: dsc-fms-portal/ASSET_MASTER_V2_DESIGN.md
 | 7 | 오프라인 모드 | 모바일 앱에서 오프라인 검색 | API |
 
 ## 상태
-✅ 설계 완료 → 웹개발자 구현 대기
+✅ 설계 완료 → Web-Builder AI Agent 구현 대기

@@ -9,7 +9,7 @@ relatedFiles: AUDIT_SYSTEM_FINAL_MEETING_BRIEF.md
 
 **작성일:** 2026-05-16 09:00 KST  
 **회의 일정:** 2026-05-18 19:00 KST  
-**작성자:** 플레너 (팀 의견 통합)
+**작성자:** Planner AI Agent (팀 의견 통합)
 
 ## 설계 상태
 
@@ -19,20 +19,20 @@ relatedFiles: AUDIT_SYSTEM_FINAL_MEETING_BRIEF.md
 
 | 팀원 | 의견 | 조건 |
 |------|------|------|
-| 데이터분석가 | ✅ 찬성 | 파일+Supabase 하이브리드, 즉시 알림 추가 |
-| 평가자 | ✅ 승인 | 3가지 리스크 관리 필요 |
-| 웹개발자 | ✅ 구현 가능 | 3일, Vercel Cron 단일화 |
+| Data-Analyst AI Agent | ✅ 찬성 | 파일+Supabase 하이브리드, 즉시 알림 추가 |
+| Evaluator AI Agent | ✅ 승인 | 3가지 리스크 관리 필요 |
+| Web-Builder AI Agent | ✅ 구현 가능 | 3일, Vercel Cron 단일화 |
 
 ## 핵심 합의사항
 
 | 항목 | 결정사항 | 담당 |
 |------|--------|------|
-| **저장소** | Hybrid (파일 + Supabase) | 웹개발자 |
-| **API 엔드포인트** | 4개 (report, trend, issue + cron) | 웹개발자 |
-| **알림 채널** | Telegram (최종) + Discord (상세) | 웹개발자 |
-| **즉시 알림** | DRS <85% 감지 시 1분 내 | 웹개발자 |
-| **목표 DRS** | 단계적 (W1~W2: 90% → W7+: 95%) | 평가자 + 웹개발자 |
-| **구현 기간** | 3일 (순개발 2 + QA 1) | 웹개발자 |
+| **저장소** | Hybrid (파일 + Supabase) | Web-Builder AI Agent |
+| **API 엔드포인트** | 4개 (report, trend, issue + cron) | Web-Builder AI Agent |
+| **알림 채널** | Telegram (최종) + Discord (상세) | Web-Builder AI Agent |
+| **즉시 알림** | DRS <85% 감지 시 1분 내 | Web-Builder AI Agent |
+| **목표 DRS** | 단계적 (W1~W2: 90% → W7+: 95%) | Evaluator AI Agent + Web-Builder AI Agent |
+| **구현 기간** | 3일 (순개발 2 + QA 1) | Web-Builder AI Agent |
 
 ## DAILY_AUDIT_REPORT (일일 신뢰도 리포트)
 

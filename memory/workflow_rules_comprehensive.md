@@ -50,22 +50,22 @@ type: feedback
 **규칙:** 코드 변경 시 반드시 이 순서대로 검증
 
 ```
-플레너 (설계 검토)
+Planner AI Agent (설계 검토)
   ↓
-웹개발자 (구현 검토)
+Web-Builder AI Agent (구현 검토)
   ↓
-평가자 (기능 검증)
+Evaluator AI Agent (기능 검증)
   ↓
-(필요시) 데이터분석가 (데이터 영향 검증)
+(필요시) Data-Analyst AI Agent (데이터 영향 검증)
 ```
 
 **각 단계:**
-1. **플레너**: 설계와 코드가 일치하는가?
-2. **웹개발자**: 코드 품질과 구조가 맞는가?
-3. **평가자**: 실제 기능이 정상인가?
-4. **데이터분석가**: (필요시) 데이터 정합성, 쿼리 성능은 정상인가?
+1. **Planner AI Agent**: 설계와 코드가 일치하는가?
+2. **Web-Builder AI Agent**: 코드 품질과 구조가 맞는가?
+3. **Evaluator AI Agent**: 실제 기능이 정상인가?
+4. **Data-Analyst AI Agent**: (필요시) 데이터 정합성, 쿼리 성능은 정상인가?
 
-**데이터분석가 포함 기준 (비서 판단):**
+**Data-Analyst AI Agent 포함 기준 (비서 판단):**
 - DB 쿼리 변경
 - 데이터 구조 변경
 - 집계/리포트 로직 변경
@@ -78,10 +78,10 @@ type: feedback
 [코드 수정] 항목명
 변경 내용: [뭘 수정했는가]
 
-✅ 플레너 검토 결과: [O/X, 사유]
-✅ 웹개발자 검토 결과: [O/X, 사유]
-✅ 평가자 검증 결과: [O/X, 사유]
-(✅ 데이터분석가 검증 결과: [O/X, 사유])
+✅ Planner AI Agent 검토 결과: [O/X, 사유]
+✅ Web-Builder AI Agent 검토 결과: [O/X, 사유]
+✅ Evaluator AI Agent 검증 결과: [O/X, 사유]
+(✅ Data-Analyst AI Agent 검증 결과: [O/X, 사유])
 ```
 
 ---
@@ -90,12 +90,12 @@ type: feedback
 
 **원칙:**
 - 설계가 정확해야 구현 오류 줄어듦
-- 검증 순서 건너뛰면 X (예: 평가자 검증 없이 배포 금지)
+- 검증 순서 건너뛰면 X (예: Evaluator AI Agent 검증 없이 배포 금지)
 - 오류 발견 → 즉시 개선 → 재검증 (전체 사이클 필요)
 - 코드 안 꼬이려면 설계 단계에서 정확히
 
 **적용:**
-- 모든 설계는 플레너가 최종 승인 전에 완성
-- 코드는 최소 플레너→웹개발자 검증 필수
-- 기능은 평가자 최종 검증 필수
-- DB/데이터 변경은 필요시 데이터분석가 검증 필수
+- 모든 설계는 Planner AI Agent가 최종 승인 전에 완성
+- 코드는 최소 Planner AI Agent→Web-Builder AI Agent 검증 필수
+- 기능은 Evaluator AI Agent 최종 검증 필수
+- DB/데이터 변경은 필요시 Data-Analyst AI Agent 검증 필수

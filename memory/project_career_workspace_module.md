@@ -8,7 +8,7 @@ relatedFiles: DESIGN_CAREER.md
 # Career Workspace 모듈 설계
 
 **작성일:** 2026-05-12  
-**상태:** 설계 완료 → 웹개발자 개발 대기  
+**상태:** 설계 완료 → Web-Builder AI Agent 개발 대기  
 **대상:** DSC FMS Portal (Next.js 14 + Supabase)
 
 ## 설계 배경
@@ -132,4 +132,4 @@ attachments (jsonb) — 파일/이미지 URL 배열
 - 향후 Transfer 시 이력서 자동 생성 가능
 
 ## 상태
-🟡 **설계 완료** → 웹개발자 개발 대기
+🟡 **설계 완료** → Web-Builder AI Agent 개발 대기

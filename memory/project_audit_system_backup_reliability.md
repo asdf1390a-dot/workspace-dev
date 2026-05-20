@@ -289,12 +289,12 @@ Storage Usage:
 - Alert Delivery 모니터링
 - 매일 03:00 자동 수집
 
-### Evaluator (평가자)
+### Evaluator (Evaluator AI Agent)
 - API 응답시간 감시
 - 주간 월요일 10:00 상세 분석
 - 최적화 제안 및 실행 계획
 
-### Data-Analyst (데이터분석가)
+### Data-Analyst (Data-Analyst AI Agent)
 - Storage 상태 검증
 - 주간 수요일 14:00 상세 분석
 - 손상 파일 복구 계획

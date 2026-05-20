@@ -1,21 +1,21 @@
 ---
-name: 번역가 Task 할당 메모 (2026-05-15)
-description: 비서가 번역가에게 전달하는 4개 Task 상세 설명 + 일정 + 이슈 처리 방식
+name: Translator AI Agent Task 할당 메모 (2026-05-15)
+description: 비서가 Translator AI Agent에게 전달하는 4개 Task 상세 설명 + 일정 + 이슈 처리 방식
 type: assignment
 date: 2026-05-15 18:00 KST
 ---
 
-# 번역가 Task 할당 메모 — 2026-05-15 18:00
+# Translator AI Agent Task 할당 메모 — 2026-05-15 18:00
 
 ## 상황 & 배경
 
 ### 현황
-- 번역가: 현재 유휴 상태 (Travel Phase 2 번역만 2026-05-20 이후 예정)
-- 팀 확장 예정 (2026-05-17 금): QA 평가자 + 자동화 전문가 추가
+- Translator AI Agent: 현재 유휴 상태 (Travel Phase 2 번역만 2026-05-20 이후 예정)
+- 팀 확장 예정 (2026-05-17 금): QA Evaluator AI Agent + 자동화 전문가 추가
 - 팀 설계 프로젝트: Asset Master Phase 2, Travel Phase 2, Backup Phase 2, Audit System 동시 진행
-- **기회:** 번역가를 "문서 표준화 담당자"로 위치, 장기 가치 창출
+- **기회:** Translator AI Agent를 "문서 표준화 담당자"로 위치, 장기 가치 창출
 
-### 문제 분석 (번역가 Learnings에서 도출)
+### 문제 분석 (Translator AI Agent Learnings에서 도출)
 ```
 5가지 핵심 문제:
 1️⃣ 용어 불일치 (본사 ↔ 현장) — 번역 품질과 무관하게 혼선 유발
@@ -24,7 +24,7 @@ date: 2026-05-15 18:00 KST
 4️⃣ 월간 일관성 spot check 루틴 없음 — 장기 누적 오류 방지 불가
 5️⃣ 현장 신조어 필터링 부재 — AI 자동화 불가, 사람만 가능
 
-→ 이 5가지를 해결하는 업무가 번역가 Task 1~4
+→ 이 5가지를 해결하는 업무가 Translator AI Agent Task 1~4
 ```
 
 ---
@@ -43,7 +43,7 @@ date: 2026-05-15 18:00 KST
   - ✅ 글로사리 350줄 이상 (신규 용어 40~50개 추가)
   - ✅ 7개 섹션 정리 완료 (기존) + 8번 섹션 추가 (Travel/근태)
   - ✅ 운영 프로세스 문서 30줄 이상 (신규 용어 제안 → 검토 → 승인 → 반영 플로우)
-  - ✅ Supabase 테이블 설계 완료 (또는 웹개발자에게 위임)
+  - ✅ Supabase 테이블 설계 완료 (또는 Web-Builder AI Agent에게 위임)
 
 ### 세부 스텝
 ```
@@ -72,7 +72,7 @@ Step 4: 글로사리 v2.0 문서 작성 (5시간)
 
 Step 5: 운영 프로세스 문서 작성 (3시간)
   → 신규 용어 제안 방법 (누가, 언제, 어디로)
-  → 심사 프로세스 (번역가 심사 → 플레너 승인 → 반영)
+  → 심사 프로세스 (Translator AI Agent 심사 → Planner AI Agent 승인 → 반영)
   → 월간 갱신 루틴 (매월 첫 주 월요일)
   → 버전 관리 (v2.0 → v2.1 → v3.0)
 
@@ -80,7 +80,7 @@ Step 6: Supabase 테이블 설계 (1시간)
   → 테이블명: glossary_terms
   → 컬럼: id, korean, english, section, context, status, added_date, notes
   → 쿼리 예: "Korean이 '보전'인 모든 용어 가져오기"
-  → 웹개발자에게 생성 의뢰 (또는 자신이 직접 생성)
+  → Web-Builder AI Agent에게 생성 의뢰 (또는 자신이 직접 생성)
 
 Step 7: 팀 공지 & Discord 핀 메시지 (1시간)
   → 글로사리 v2.0 배포 공지
@@ -90,8 +90,8 @@ Step 7: 팀 공지 & Discord 핀 메시지 (1시간)
 ```
 
 ### 주의사항
-- Travel 설계서는 플레너가 2026-05-16에 제공할 예정 (그 전까지는 기존 글로사리만 작업)
-- 웹개발자가 UI 라벨 리스트를 2026-05-20에 제공하면 그 후 Task 2 시작
+- Travel 설계서는 Planner AI Agent가 2026-05-16에 제공할 예정 (그 전까지는 기존 글로사리만 작업)
+- Web-Builder AI Agent가 UI 라벨 리스트를 2026-05-20에 제공하면 그 후 Task 2 시작
 - 글로사리 v2.0은 확정본이 아님 → Task 2, 3, 4 진행 중 계속 수정 반영 가능
 
 ### 우선순위
@@ -106,7 +106,7 @@ Step 7: 팀 공지 & Discord 핀 메시지 (1시간)
 ### 왜 이 Task인가?
 - 인도 현장 작업자가 "BM", "PM", "CCB" 같은 약어만 봐서 의미를 모름
 - 현재 UI: 약어 단독 사용 중심 → 글로사리 병기 안 됨
-- 웹개발자가 배포 전에 번역가가 검증하는 게시템 없음
+- Web-Builder AI Agent가 배포 전에 Translator AI Agent가 검증하는 게시템 없음
 - **예상 효과:** 현장 오해 사건 30~50% 감소
 
 ### 기한 & 완료 기준
@@ -115,17 +115,17 @@ Step 7: 팀 공지 & Discord 핀 메시지 (1시간)
   - ✅ 100개 이상 UI 라벨 감시 완료
   - ✅ 30개 이상 개선 제안 제시 (각 라벨별 "현재 ➜ 개선안" 기재)
   - ✅ P0/P1 항목에 구체적 수정안 제시
-  - ✅ 웹개발자와 수정 예상 일정 협의
+  - ✅ Web-Builder AI Agent와 수정 예상 일정 협의
 
 ### 세부 스텝
 ```
-Step 1: 웹개발자에게 UI 라벨 리스트 요청 (2026-05-20 금 08:00)
+Step 1: Web-Builder AI Agent에게 UI 라벨 리스트 요청 (2026-05-20 금 08:00)
   → 메시지: "Asset Master + Backup App의 모든 UI 라벨 리스트업 요청합니다"
   → 형식: CSV 또는 마크다운 (화면명 | 라벨명 | 위치)
-  → 예상: 웹개발자 2026-05-20 16:00에 제공
+  → 예상: Web-Builder AI Agent 2026-05-20 16:00에 제공
 
 Step 2: 라벨 리스트업 검토 (2시간)
-  → 웹개발자 제공 리스트를 스프레드시트에 정리
+  → Web-Builder AI Agent 제공 리스트를 스프레드시트에 정리
   → 컬럼: 화면명 | 라벨명 | 약어 여부 | 글로사리 존재 | 문제 유형
 
 Step 3: 각 라벨 글로사리 매칭 (6시간)
@@ -149,7 +149,7 @@ Step 4: 개선 제안 작성 (6시간)
   → 우선순위 3단계 정의 (P0: 필수, P1: 권장, P2: 선택)
   → 예상: 30~50개 개선 항목
 
-Step 5: 웹개발자와 협력 (2시간)
+Step 5: Web-Builder AI Agent와 협력 (2시간)
   → 제안서 공유
   → "배포 일정이 어떻게 되나요?" 질문
   → 수정 우선순위 조정 (예: "P0는 2026-05-25까지, P1은 6월 후반" 등)
@@ -161,12 +161,12 @@ Step 6: 리포트 작성 (2시간)
 ```
 
 ### 주의사항
-- 웹개발자가 제공하는 시점이 핵심 → 2026-05-20 이전에는 막혔을 수 있음
-- 만약 웹개발자가 늦으면, 기존 UI 스크린샷에서 직접 수기로 라벨 수집 (수동이지만 가능)
+- Web-Builder AI Agent가 제공하는 시점이 핵심 → 2026-05-20 이전에는 막혔을 수 있음
+- 만약 Web-Builder AI Agent가 늦으면, 기존 UI 스크린샷에서 직접 수기로 라벨 수집 (수동이지만 가능)
 - 이 Task는 Task 1과 병렬 진행 가능 (의존성 X)
 
 ### 우선순위
-1. **Step 1-2:** 웹개발자 협력 + 라벨 리스트업 (필수)
+1. **Step 1-2:** Web-Builder AI Agent 협력 + 라벨 리스트업 (필수)
 2. **Step 3-4:** 개선 제안 작성 (핵심)
 3. **Step 5-6:** 리포트 정리 (산출물)
 
@@ -185,11 +185,11 @@ Step 6: 리포트 작성 (2시간)
 - **완료 기준:**
   - ✅ 설계서 완역 (제목, 본문, 테이블, 다이어그램 모두)
   - ✅ 용어 70개 이상 정의 (TRAVEL_PHASE2_GLOSSARY_KO.md)
-  - ✅ 번역 검증 리포트: 외부 검증 통과 (평가자/웹개발자 피드백 0 오류)
+  - ✅ 번역 검증 리포트: 외부 검증 통과 (Evaluator AI Agent/Web-Builder AI Agent 피드백 0 오류)
 
 ### 세부 스텝
 ```
-Step 1: 플레너에게 TRAVEL_PHASE2_DESIGN.md 수신 (2026-05-16 예정)
+Step 1: Planner AI Agent에게 TRAVEL_PHASE2_DESIGN.md 수신 (2026-05-16 예정)
   → 파일: /TRAVEL_PHASE2_DESIGN.md
   → 페이지 수: 예상 20~30페이지 분량 (3,000~5,000 단어)
 
@@ -234,12 +234,12 @@ Step 5: 번역 품질 자체 검증 (4시간)
   → 문법: 오타, 띄어쓰기, 문장 구조
 
 Step 6: 팀원 검증 의뢰 (3시간)
-  → 평가자에게: "사용성 관점에서 번역이 명확한가?" 검증 요청
-  → 웹개발자에게: "기술 정확성이 손상되지 않았나?" 검증 요청
+  → Evaluator AI Agent에게: "사용성 관점에서 번역이 명확한가?" 검증 요청
+  → Web-Builder AI Agent에게: "기술 정확성이 손상되지 않았나?" 검증 요청
   → 각각 1~2시간 소요 예상
 
 Step 7: 피드백 반영 (3시간)
-  → 평가자, 웹개발자의 피드백 수집
+  → Evaluator AI Agent, Web-Builder AI Agent의 피드백 수집
   → 수정 사항 반영 (예: "이 표현이 더 명확할 것 같아요" 등)
   → 최종 배포
 
@@ -256,9 +256,9 @@ Step 7: 피드백 반영 (3시간)
 ```
 
 ### 주의사항
-- 플레너가 2026-05-16에 설계서를 제공할 예정 (확정 아님, 지연 가능성 10%)
+- Planner AI Agent가 2026-05-16에 설계서를 제공할 예정 (확정 아님, 지연 가능성 10%)
 - 만약 지연되면 기한을 2026-06-01로 유연화 가능
-- 번역 후 외부 검증(평가자, 웹개발자)이 필수 → 1주일 버퍼 필요
+- 번역 후 외부 검증(Evaluator AI Agent, Web-Builder AI Agent)이 필수 → 1주일 버퍼 필요
 
 ### 우선순위
 1. **Step 1-3:** 설계서 수신 + 번역 (핵심, 시간 많이 걸림)
@@ -328,9 +328,9 @@ Step 3: 발견 사항 리포트 (4시간)
 
 Step 4: 반복 프로세스 정의 (2시간)
   → 매월 정기 일정: 마지막 주 금요일 16:00
-  → 책임자: 번역가
-  → 보고 대상: 플레너, 웹개발자, 데이터분석가
-  → 자동화 가능성: 웹개발자와 협의 (Supabase 쿼리로 자동 감시?)
+  → 책임자: Translator AI Agent
+  → 보고 대상: Planner AI Agent, Web-Builder AI Agent, Data-Analyst AI Agent
+  → 자동화 가능성: Web-Builder AI Agent와 협의 (Supabase 쿼리로 자동 감시?)
 
 Step 5: 첫 보고 (2026-05-31 금 16:00)
   → Discord #일반 채널에 리포트 공유
@@ -366,7 +366,7 @@ Step 5: 첫 보고 (2026-05-31 금 16:00)
 ```
 [Week 1] 2026-05-16 금 ~ 2026-05-20 수
 ├─ Task 1: 글로사리 v2.0 업그레이드 50% (Asset Master 용어 추출)
-├─ Task 2: 준비 단계 (웹개발자 협력 대기)
+├─ Task 2: 준비 단계 (Web-Builder AI Agent 협력 대기)
 ├─ Task 3: 대기 (Travel 설계서 수신 예정 2026-05-16)
 └─ Task 4: 준비 단계 (프로세스 설계 시작)
   진행도: Task 1 = 50% / Task 2,3,4 = 0~10%
@@ -400,23 +400,23 @@ Step 5: 첫 보고 (2026-05-31 금 16:00)
 - [ ] 신규 용어 40개 이상 추가 확인
 - [ ] 섹션 8 (Travel & 근태) 신규 추가
 - [ ] GLOSSARY_MANAGEMENT_PROCESS.md 생성 (30줄 이상)
-- [ ] Supabase 테이블 설계 완료 (또는 웹개발자 위임 확인)
+- [ ] Supabase 테이블 설계 완료 (또는 Web-Builder AI Agent 위임 확인)
 - [ ] 팀 공지 1-pager + Discord 핀 메시지 (완료)
 
 ### Task 2 검수 (2026-05-23 18:00)
 - [ ] UI_LABEL_STANDARDIZATION_AUDIT.md 생성 (50줄 이상)
 - [ ] UI_LABEL_FIX_CHECKLIST.md 생성 (30개 이상 항목)
-- [ ] 100개 이상 라벨 감시 완료 (웹개발자 확인)
+- [ ] 100개 이상 라벨 감시 완료 (Web-Builder AI Agent 확인)
 - [ ] 개선 제안에 수정안 기재 ("현재 ➜ 개선안" 형식)
 - [ ] P0/P1 항목에 우선순위 표시
-- [ ] 웹개발자와 수정 일정 협의 완료
+- [ ] Web-Builder AI Agent와 수정 일정 협의 완료
 
 ### Task 3 검수 (2026-05-28 18:00)
 - [ ] TRAVEL_PHASE2_DESIGN_KO.md 완역 (제목, 본문, 테이블, 다이어그램)
 - [ ] TRAVEL_PHASE2_GLOSSARY_KO.md 생성 (70개 이상 용어)
 - [ ] TRAVEL_TRANSLATION_QA_REPORT.md 생성 (검증 리포트)
-- [ ] 평가자 검증 의뢰 완료
-- [ ] 웹개발자 검증 의뢰 완료
+- [ ] Evaluator AI Agent 검증 의뢰 완료
+- [ ] Web-Builder AI Agent 검증 의뢰 완료
 - [ ] 피드백 수집 (예정)
 
 ### Task 4 검수 (2026-05-31 18:00)
@@ -431,12 +431,12 @@ Step 5: 첫 보고 (2026-05-31 금 16:00)
 
 ## ⚠️ 이슈 처리 방식
 
-### 만약 웹개발자가 UI 라벨을 제공하지 않으면?
+### 만약 Web-Builder AI Agent가 UI 라벨을 제공하지 않으면?
 ```
 상황: 2026-05-20 16:00인데 아직 없음
 대응:
   1. 카톡 또는 Discord로 재요청 (1회만)
-  2. 웹개발자가 2026-05-21 18:00까지 제공하기로 약속
+  2. Web-Builder AI Agent가 2026-05-21 18:00까지 제공하기로 약속
   3. 약속 불이행 시 → 기존 UI 스크린샷에서 직접 수기로 라벨 수집
   4. Task 2 기한을 2026-05-27로 유연화
 
@@ -447,15 +447,15 @@ Step 5: 첫 보고 (2026-05-31 금 16:00)
 ```
 상황: 2026-05-16금 16:00인데 아직 없음
 대응:
-  1. 플레너에게 "언제쯤 제공 가능할까요?" 문의 (2026-05-16 오후)
-  2. 플레너 회신: "2026-05-18 18:00에 제공하겠습니다" (예상)
+  1. Planner AI Agent에게 "언제쯤 제공 가능할까요?" 문의 (2026-05-16 오후)
+  2. Planner AI Agent 회신: "2026-05-18 18:00에 제공하겠습니다" (예상)
   3. Task 3 시작 시간: 2026-05-18 18:00 기준으로 재계획
   4. Task 3 완료 기한: 2026-05-31 또는 2026-06-04로 유연화
 
 결과: Task 3는 조정되지만 최종 완료는 보장 (Travel 설계서만 있으면 됨)
 ```
 
-### 만약 팀 검증(평가자, 웹개발자)이 지연되면?
+### 만약 팀 검증(Evaluator AI Agent, Web-Builder AI Agent)이 지연되면?
 ```
 상황: Task 3 완료(2026-05-28)했는데 검증 답변이 2026-06-02 아직 없음
 대응:
@@ -472,7 +472,7 @@ Step 5: 첫 보고 (2026-05-31 금 16:00)
 
 ### 일일 체크인
 - 비서와는 **체크인 없음** (주간 리포트로 충분)
-- 플레너와는 **주 1회** (월요일 14:00 KST) 용어 기준 회의
+- Planner AI Agent와는 **주 1회** (월요일 14:00 KST) 용어 기준 회의
 
 ### 주간 리포트 (매주 금요일 16:00)
 ```
@@ -480,7 +480,7 @@ Step 5: 첫 보고 (2026-05-31 금 16:00)
 
 예:
 "Task 1: 글로사리 250줄 완성, 신규 용어 30개 추가 중
-Task 2: 대기 (웹개발자 라벨 리스트 2026-05-20 예정)
+Task 2: 대기 (Web-Builder AI Agent 라벨 리스트 2026-05-20 예정)
 Task 3: Travel 설계서 대기 (2026-05-16 수신 예정)
 Task 4: 프로세스 정의 50% 진행 중
 예상 이슈: 없음"
@@ -508,10 +508,10 @@ Task 4: 프로세스 정의 50% 진행 중
   /ASSET_MASTER_PHASE2_DESIGN.md
   /BACKUP_PHASE2_DESIGN.md (선택)
   /AUDIT_SYSTEM_FRAMEWORK.md (선택)
-  /TRAVEL_PHASE2_DESIGN.md (2026-05-16 예정, 플레너 제공)
+  /TRAVEL_PHASE2_DESIGN.md (2026-05-16 예정, Planner AI Agent 제공)
 
-번역가 learnings (배경 이해):
-  /skills/번역가-learnings.md
+Translator AI Agent learnings (배경 이해):
+  /skills/Translator AI Agent-learnings.md
 
 팀 협력 규칙:
   /memory/team_task_tracking.md
@@ -524,7 +524,7 @@ Task 4: 프로세스 정의 50% 진행 중
 Task 1 산출물:
   - MANUFACTURING_GLOSSARY_v2.0.md (마크다운)
   - GLOSSARY_MANAGEMENT_PROCESS.md (마크다운)
-  - Supabase 테이블 DDL (또는 웹개발자가 생성)
+  - Supabase 테이블 DDL (또는 Web-Builder AI Agent가 생성)
 
 Task 2 산출물:
   - UI_LABEL_STANDARDIZATION_AUDIT.md (마크다운)
@@ -546,10 +546,10 @@ Task 4 산출물:
 
 ## ✅ 최종 확인사항
 
-### 번역가 확인 필요
+### Translator AI Agent 확인 필요
 - [ ] 4개 Task 기한이 현실적인가? (조정 필요시 미리 말씀)
 - [ ] 우선순위 순서가 맞는가? (Task 1 ➜ Task 2+3+4 병렬)
-- [ ] 웹개발자 협력 항목이 명확한가? (UI 라벨, Supabase 테이블)
+- [ ] Web-Builder AI Agent 협력 항목이 명확한가? (UI 라벨, Supabase 테이블)
 - [ ] 팀 회의 일정(매주 월 14:00)이 가능한가?
 
 ### 비서 확인 (이미 수행)
@@ -561,4 +561,4 @@ Task 4 산출물:
 
 ---
 
-**이 메모는 번역가가 2026-05-15 18:00에 수신할 예정입니다.**
+**이 메모는 Translator AI Agent가 2026-05-15 18:00에 수신할 예정입니다.**

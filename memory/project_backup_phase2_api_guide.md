@@ -49,7 +49,7 @@ relatedFiles: dsc-fms-portal/BACKUP_APP_PHASE2_API_GUIDE.md
 
 - **PUT /api/backup/notifications/[id]/read** — 알림 읽음 표시
 
-### 6. Audit API ⭐ (평가자용 검증) (2개)
+### 6. Audit API ⭐ (Evaluator AI Agent용 검증) (2개)
 
 #### 6.1 Validate Group
 - **POST /api/backup/audit/validate/api-response-time** — API 응답 시간 테스트
@@ -88,4 +88,4 @@ const { data: user, error: authError } = await supabaseAdmin.auth.getUser(token)
 ```
 
 ## 상태
-🟡 설계 완료 → 웹개발자 구현 대기
+🟡 설계 완료 → Web-Builder AI Agent 구현 대기

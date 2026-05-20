@@ -1,6 +1,6 @@
 ---
 name: 팀 확대 계획 (2026-05-15~05-17)
-description: 4명팀→6명팀 확대 (평가자 QA + 자동화 전문가 + 웹개발 지원가), 온보딩 2026-05-17 시작, 3명 추가 확정
+description: 4명팀→6명팀 확대 (Evaluator AI Agent QA + 자동화 전문가 + 웹개발 지원가), 온보딩 2026-05-17 시작, 3명 추가 확정
 type: project
 relatedFiles: TEAM_EXPANSION_ROLES.md, TEAM_EXPANSION_ANNOUNCEMENT_2026-05-16.md, HEARTBEAT.md
 ---
@@ -8,13 +8,13 @@ relatedFiles: TEAM_EXPANSION_ROLES.md, TEAM_EXPANSION_ANNOUNCEMENT_2026-05-16.md
 # 팀 확대 계획 (2026-05-15 결정, 2026-05-16 공식 공시)
 
 **결정자:** CEO (Kyeongtae Na)  
-**현황:** 4명 팀(비서/번역가/분석가/개발자) → 6명 팀(+평가자, +자동화) → 실제로는 웹개발 지원가 추가로 5-6명 규모
+**현황:** 4명 팀(비서/Translator AI Agent/분석가/개발자) → 6명 팀(+Evaluator AI Agent, +자동화) → 실제로는 웹개발 지원가 추가로 5-6명 규모
 
 ## 신규 팀원 3명
 
-### 1️⃣ QA 평가자 (Evaluator) - 2026-05-15 설계
+### 1️⃣ QA Evaluator AI Agent (Evaluator) - 2026-05-15 설계
 **역할:** 기능 테스트, 버그 검증, 테스트 케이스 작성, 사용성 평가, 품질 보고서  
-**협력:** 주로 웹개발자, 부분적으로 분석가  
+**협력:** 주로 Web-Builder AI Agent, 부분적으로 분석가  
 **온보딩:** 2026-05-17 시작 (설계 예정)  
 **성과지표:** 배포 전 100% 테스트, 버그 0, 사용자 만족도 30% ↑
 
@@ -26,9 +26,9 @@ relatedFiles: TEAM_EXPANSION_ROLES.md, TEAM_EXPANSION_ANNOUNCEMENT_2026-05-16.md
 
 ### 3️⃣ 웹 개발 지원가 (Web Development Support Engineer) - 2026-05-16 공식 공시
 **담당:** Asset Master Phase 2 (UI 4개 OR API 5-6개) + failure_code 드롭다운 + 개발 지원  
-**보고:** 웹개발자 (수평 관계)  
+**보고:** Web-Builder AI Agent (수평 관계)  
 **온보딩:** 2026-05-17 09:00 시작  
-**기대효과:** 웹개발자 부하 30% ↓, 완료 일정 2026-05-23 또는 2026-05-20 (단축 가능)
+**기대효과:** Web-Builder AI Agent 부하 30% ↓, 완료 일정 2026-05-23 또는 2026-05-20 (단축 가능)
 
 ## 온보딩 일정
 
@@ -44,4 +44,4 @@ relatedFiles: TEAM_EXPANSION_ROLES.md, TEAM_EXPANSION_ANNOUNCEMENT_2026-05-16.md
 | 품질 | 버그 0% |
 | 자동화 | 수동 작업 70% 감소 |
 | 월간 비용 절감 | ₩23,000 |
-| 웹개발자 부하 | 30% ↓ |
+| Web-Builder AI Agent 부하 | 30% ↓ |

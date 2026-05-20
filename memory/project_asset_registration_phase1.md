@@ -87,4 +87,4 @@ create table asset_documents (
 - [ ] QA 검증
 
 ## 상태
-🟡 **설계 완료** — 구현 준비 완료, 웹개발자 할당 대기
+🟡 **설계 완료** — 구현 준비 완료, Web-Builder AI Agent 할당 대기

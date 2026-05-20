@@ -1,6 +1,6 @@
 ---
 name: 신입 3명 채용 요구사항
-description: QA평가자, 자동화전문가, 웹개발지원가 필요 스킬 & 채용공고 초안
+description: QAEvaluator AI Agent, 자동화전문가, 웹개발지원가 필요 스킬 & 채용공고 초안
 type: project
 ---
 
@@ -13,7 +13,7 @@ type: project
 
 ---
 
-## 1️⃣ QA 평가자 (Senior QA Automation Engineer)
+## 1️⃣ QA Evaluator AI Agent (Senior QA Automation Engineer)
 
 ### 핵심 역할
 - Backup Phase 2 UI 검증 (최소 3회 반복)
@@ -167,7 +167,7 @@ type: project
 | **공고 작성 및 게시** | 2026-05-17 | 비서 |
 | **지원자 수집** | 2026-05-17~27 (11일) | 비서/팀원 |
 | **1차 서류 심사** | 2026-05-22 | 비서 |
-| **2차 기술 면접** | 2026-05-24~26 | 웹개발자 + 평가자 |
+| **2차 기술 면접** | 2026-05-24~26 | Web-Builder AI Agent + Evaluator AI Agent |
 | **3차 최종 면접** | 2026-05-28~29 | CEO + 비서 |
 | **제안서 발송** | 2026-05-30 | 비서 |
 | **입사** | 2026-05-31 또는 2026-06-01 | 신입 |
@@ -179,7 +179,7 @@ type: project
 2. **Indeed India** (2M+ 프로필)
 3. **Internshala** (신입/주니어 풀)
 4. **GitHub Jobs** (개발자 커뮤니티)
-5. **팀 추천** (웹개발자/평가자 네트워크)
+5. **팀 추천** (Web-Builder AI Agent/Evaluator AI Agent 네트워크)
 
 ### 서류 심사 기준
 - **필수:** 요구사항 핵심 스킬 2개 이상
@@ -222,7 +222,7 @@ type: project
 ### Day 3 (2026-06-06)
 - [ ] 첫 PR 제출 (코드 리뷰 받기)
 - [ ] 팀 전체 회의 참석
-- [ ] Mentor 배정 (웹개발자 또는 평가자)
+- [ ] Mentor 배정 (Web-Builder AI Agent 또는 Evaluator AI Agent)
 
 ### Week 2 (2026-06-09)
 - [ ] 첫 배포 (작은 기능)
@@ -249,7 +249,7 @@ type: project
 
 | 항목 | INR | ₩ (15.5환율) |
 |------|-----|-----------|
-| **QA 평가자** | 5L | 77.5M |
+| **QA Evaluator AI Agent** | 5L | 77.5M |
 | **자동화 전문가** | 5.5L | 85.25M |
 | **웹개발 지원가** | 3.5L | 54.25M |
 | **3명 합계** | 14L | 217M |
@@ -261,7 +261,7 @@ type: project
 
 ## 지원자 평가 질문 (기술 면접용)
 
-### QA 평가자
+### QA Evaluator AI Agent
 1. "Selenium과 Playwright의 차이점과 각각의 장단점은?"
 2. "GitHub Actions에서 테스트 실패 시 자동 이슈 생성하는 workflow를 어떻게 만들겠어?"
 3. "성능 테스트와 함수형 테스트의 차이는?"
@@ -279,7 +279,7 @@ type: project
 ---
 
 ## 메모
-- **우선순위:** QA 평가자 > 자동화 전문가 > 웹개발 지원가 (순차 채용 가능)
+- **우선순위:** QA Evaluator AI Agent > 자동화 전문가 > 웹개발 지원가 (순차 채용 가능)
 - **협상 전략:** 기본 연봉 협상 가능, 스톡옵션/성과금 제시 가능
 - **배경조사:** GitHub, GitLab, Bitbucket 포트폴리오 반드시 확인
 - **Reference:** 이전 회사 매니저 연락처 반드시 확인

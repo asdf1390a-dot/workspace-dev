@@ -4,11 +4,12 @@ description: 6h cron job for asset online/offline tracking (FIXED 2026-05-20 12:
 type: project
 ---
 
-## Status: 🟢 Fixed
+## Status: 🟡 Partial Data
 
-**Issue:** Cron job ran but couldn't access Supabase credentials (isolated session context)
-**Solution:** Changed `sessionTarget` from `isolated` → `current` (2026-05-20 12:02)
-**Next Run:** 2026-05-20 18:02 KST (6h schedule)
+**Finding (2026-05-20 18:24 KST):** Supabase credentials now accessible; asset data retrieved but schema limitation found
+**Issue:** Assets table has 1000 records with "active" status only; no separate online/offline connectivity tracking
+**Solution:** Temporarily report all assets as online (1000/1000); schema upgrade needed for real connectivity monitoring
+**Next Run:** 2026-05-21 00:02 KST (6h schedule)
 
 ## Job Details
 
@@ -41,15 +42,31 @@ type: project
 - Rolling 7-day window (auto-deletes snapshots older than 7 days)
 - Current snapshot directory: `/home/jeepney/.hermes/sessions/`
 
-## Previous Issues (Resolved)
+## Previous Issues & Resolutions
 
-1. **API Key Unavailable (2026-05-20 06:03)** → Fixed by session context change
-   - Root cause: Isolated cron sessions don't inherit workspace env vars
-   - Supabase service role key was available but not accessible to job
-   - Solution: Use `current` session target
+1. **Session Context (2026-05-20 06:03→12:02)** → FIXED
+   - Issue: Isolated cron session couldn't access env vars
+   - Root cause: Supabase credentials in `.env.local` not available to isolated subprocess
+   - Fix: Changed `sessionTarget` from `isolated` → `current`
+
+2. **Schema Limitation (2026-05-20 18:24)** → DISCOVERED
+   - Issue: Assets table only tracks "active" status, not online/offline connectivity
+   - Finding: 1000 assets all show "active"; no separate health/connectivity table
+   - Current workaround: Report all as online (1000/1000, offline% = 0)
+   - **Action Required:** Add `asset_connectivity` or `asset_health` table to DSC FMS schema for real tracking
+
+## Latest Snapshot (2026-05-20 18:24 KST)
+
+- Timestamp: 2026-05-20T09:24:19+0900
+- Total assets: 1000
+- Online: 1000 (assumed from "active" status)
+- Offline: 0
+- Offline%: 0%
+- Critical alert: false
+- File: `/home/jeepney/.hermes/sessions/asset-health-20260520_182419.json`
 
 ## Next Validation
 
-- Verify next run (18:02 KST) produces actual asset data
-- Check offline_percent calculation accuracy
-- Confirm 7-day retention is working
+- Monitor snapshots directory daily
+- Verify 7-day retention is working correctly
+- Plan schema upgrade for real connectivity tracking (priority: medium)

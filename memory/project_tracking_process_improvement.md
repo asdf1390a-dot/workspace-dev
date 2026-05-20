@@ -9,7 +9,7 @@ relatedFiles: TRACKING_PROCESS_IMPROVEMENT_DESIGN.md
 
 **작성일:** 2026-05-15  
 **상태:** 설계 완료 → 구현 대기  
-**담당:** 플레너 (프로세스 설계)
+**담당:** Planner AI Agent (프로세스 설계)
 
 ## 발견된 5가지 문제점
 
@@ -61,17 +61,17 @@ CTB (active_work_tracking.md)에서 "마지막 commit" 필드가 모호:
 
 ### 프로세스 정의
 
-**1. 설계 완료 시 (플레너)**
+**1. 설계 완료 시 (Planner AI Agent)**
 - workspace repo에 설계서 commit 생성
 - CTB 갱신: `[설계 commit]` 필드에 기록
-- 웹개발자에게 위임
+- Web-Builder AI Agent에게 위임
 
-**2. 개발 진행 중 (웹개발자)**
+**2. 개발 진행 중 (Web-Builder AI Agent)**
 - dsc-fms-portal에 코드 commit (DB/API/UI 각 단계)
 - 각 commit 후 workspace repo의 CTB 갱신
 - 커밋 메시지: `Refs: improve_tracking_process_v1 | Stage: API`
 
-**3. 배포 후 (웹개발자)**
+**3. 배포 후 (Web-Builder AI Agent)**
 - dsc-fms-portal main branch에 merge
 - workspace repo CTB 갱신: `[코드 commit]` = 최신 main 커밋
 
@@ -117,7 +117,7 @@ portal_msg=$(git -C dsc-fms-portal log -1 --pretty=%s origin/main 2>/dev/null)
 
 **템플릿:**
 ```markdown
-## 웹개발자 (web-builder)
+## Web-Builder AI Agent (web-builder)
 
 ### 🟡 진행 중 (2개)
 - [ ] Asset Master Phase 1 실행 (2026-05-16 ~ 18)
@@ -186,4 +186,4 @@ relatedFiles: <원본 설계 파일>
 - 메모리 정보 신뢰도 향상
 
 ## 상태
-🟡 **설계 완료** → 웹개발자 + 플레너 협력 구현
+🟡 **설계 완료** → Web-Builder AI Agent + Planner AI Agent 협력 구현

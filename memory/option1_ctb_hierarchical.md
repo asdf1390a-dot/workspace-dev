@@ -10,7 +10,7 @@ type: project
 
 ## 📊 Asset Master v2 — 35% 완료
 
-**담당자:** 웹개발자 (API), 플레너 (설계)  
+**담당자:** Web-Builder AI Agent (API), Planner AI Agent (설계)  
 **마지막 업데이트:** 2026-05-15 16:30
 
 ```
@@ -22,16 +22,16 @@ Phase 1 ✅                Phase 2 🟡                Phase 3 🔴
 ### Phase 1 ✅ 완료 (2026-05-15)
 
 - **DB Migration** ✅
-  - 담당: 웹개발자
+  - 담당: Web-Builder AI Agent
   - 상태: 완료
   - 파일: db/28_asset_master_v2.sql
 
 - **TypeScript Interfaces** ✅
-  - 담당: 웹개발자
+  - 담당: Web-Builder AI Agent
   - 상태: 완료
 
 - **Asset Documents API** ✅
-  - 담당: 웹개발자
+  - 담당: Web-Builder AI Agent
   - 상태: 완료
   - Endpoints: POST/GET/DELETE
 
@@ -41,7 +41,7 @@ Phase 1 ✅                Phase 2 🟡                Phase 3 🔴
 
 #### 2-1. 설계 🔴 예정 (ETA 2026-05-19)
 
-- **담당자:** 플레너
+- **담당자:** Planner AI Agent
 - **상태:** 🔴 예정 (2026-05-15 16:00 시작)
 - **블로킹:** 없음
 - **규칙:** Audit System 팀 논의와 병렬 진행
@@ -54,11 +54,11 @@ Phase 1 ✅                Phase 2 🟡                Phase 3 🔴
 
 #### 2-2. API 구현 🟡 진행중 (진행률: 5%, ETA 2026-05-23)
 
-- **담당자:** 웹개발자
+- **담당자:** Web-Builder AI Agent
 - **상태:** 🟡 진행중 (설계 대기)
 - **구현 범위:** 25개 엔드포인트
 - **현재:** DB migration + 타입 정의 완료
-- **블로킹:** 플레너 설계 완료 필요
+- **블로킹:** Planner AI Agent 설계 완료 필요
 - **규칙:** 매일 15:00 진도 리포트
 
 **Endpoint 카테고리:**
@@ -74,7 +74,7 @@ Phase 1 ✅                Phase 2 🟡                Phase 3 🔴
 
 #### 2-3. UI 개발 🔴 대기 (ETA 2026-05-28)
 
-- **담당자:** 웹개발자
+- **담당자:** Web-Builder AI Agent
 - **상태:** 🔴 대기 (API 완료 필요)
 - **블로킹:** API 구현 완료 필요
 - **예상 화면:**
@@ -87,7 +87,7 @@ Phase 1 ✅                Phase 2 🟡                Phase 3 🔴
 
 ### Phase 3 🔴 배포 (ETA 2026-06-10)
 
-- **담당자:** 웹개발자 + QA(평가자)
+- **담당자:** Web-Builder AI Agent + QA(Evaluator AI Agent)
 - **상태:** 🔴 대기
 - **블로킹:** Phase 2 완료 필수
 - **작업:**
@@ -99,7 +99,7 @@ Phase 1 ✅                Phase 2 🟡                Phase 3 🔴
 
 ## 📊 Backup App Phase 2 — 40% 완료
 
-**담당자:** 평가자 (UI 검증)  
+**담당자:** Evaluator AI Agent (UI 검증)  
 **마지막 업데이트:** 2026-05-15 12:00
 
 ```
@@ -110,7 +110,7 @@ API ✅                UI 검증 🟡
 
 ### API ✅ 완료 (2026-05-14)
 
-- **담당자:** 데이터분석가
+- **담당자:** Data-Analyst AI Agent
 - **엔드포인트:** 14개
 - **카테고리:**
   ```
@@ -129,10 +129,10 @@ API ✅                UI 검증 🟡
 
 | 화면 | 담당 | 반복 | 상태 | ETA |
 |------|------|------|------|-----|
-| AutoBackupSettings | 평가자 | 1/3 | 🟡 진행 | 2026-05-19 |
-| StorageManagement | 평가자 | 1/3 | 🟡 진행 | 2026-05-20 |
-| BackupMetrics | 평가자 | 0/3 | 🔴 대기 | 2026-05-21 |
-| NotificationSettings | 평가자 | 0/3 | 🔴 대기 | 2026-05-21 |
+| AutoBackupSettings | Evaluator AI Agent | 1/3 | 🟡 진행 | 2026-05-19 |
+| StorageManagement | Evaluator AI Agent | 1/3 | 🟡 진행 | 2026-05-20 |
+| BackupMetrics | Evaluator AI Agent | 0/3 | 🔴 대기 | 2026-05-21 |
+| NotificationSettings | Evaluator AI Agent | 0/3 | 🔴 대기 | 2026-05-21 |
 
 - **규칙:** 매일 12:00 진도 + 반복 횟수 + 이슈 리포트
 
@@ -140,7 +140,7 @@ API ✅                UI 검증 🟡
 
 ## 📊 Audit System Framework — 30% 완료
 
-**담당자:** 플레너 (논의 진행) + 팀원 (의견 수렴)  
+**담당자:** Planner AI Agent (논의 진행) + 팀원 (의견 수렴)  
 **마지막 업데이트:** 2026-05-15 15:00
 
 ```
@@ -151,7 +151,7 @@ API ✅                UI 검증 🟡
 
 ### 설계 ✅ 완료 (2026-05-14)
 
-- **담당자:** 플레너
+- **담당자:** Planner AI Agent
 - **산출물:** Audit System Framework 설계서
 - **상태:** 완료
 
@@ -163,16 +163,16 @@ API ✅                UI 검증 🟡
 
 | 역할 | 담당 | 입력 상태 | 기한 |
 |------|------|---------|------|
-| **논의 진행** | 플레너 | 🟡 진행중 | 2026-05-18 |
-| **웹개발자 입력** | 웹개발자 | 🔵 수렴중 | 2026-05-17 |
-| **평가자 입력** | 평가자 | 🔵 수렴중 | 2026-05-17 |
-| **데이터 입력** | 데이터분석가 | 🔵 수렴중 | 2026-05-17 |
+| **논의 진행** | Planner AI Agent | 🟡 진행중 | 2026-05-18 |
+| **Web-Builder AI Agent 입력** | Web-Builder AI Agent | 🔵 수렴중 | 2026-05-17 |
+| **Evaluator AI Agent 입력** | Evaluator AI Agent | 🔵 수렴중 | 2026-05-17 |
+| **데이터 입력** | Data-Analyst AI Agent | 🔵 수렴중 | 2026-05-17 |
 
 ---
 
 ### 최종결정 🔴 예정 (2026-05-18 19:00)
 
-- **담당자:** 플레너 (진행)
+- **담당자:** Planner AI Agent (진행)
 - **참석:** 전체 팀
 - **산출물:** Audit System 최종 구현 가이드
 - **블로킹:** 팀원 입력 수렴 필수
@@ -217,10 +217,10 @@ API ✅                UI 검증 🟡
 
 | 팀원 | 현재 담당 | 진행률 | 규칙 |
 |------|---------|--------|------|
-| **웹개발자** | Asset Master API | 5% | 📍 매일 15:00 리포트 |
-| **평가자** | Backup App UI | 40% | 📍 매일 12:00 리포트 |
-| **플레너** | Asset Master 설계 + Audit 논의 | 30% | 📍 매일 14:00 리포트 |
-| **데이터분석가** | Audit 의견 수렴 | — | 필요시 |
+| **Web-Builder AI Agent** | Asset Master API | 5% | 📍 매일 15:00 리포트 |
+| **Evaluator AI Agent** | Backup App UI | 40% | 📍 매일 12:00 리포트 |
+| **Planner AI Agent** | Asset Master 설계 + Audit 논의 | 30% | 📍 매일 14:00 리포트 |
+| **Data-Analyst AI Agent** | Audit 의견 수렴 | — | 필요시 |
 | **비서** | Schedule 자동화 | 10% | 실시간 |
 
 ---

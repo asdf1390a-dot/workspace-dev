@@ -57,7 +57,7 @@ type: project
 
 ### 조치 2: Automation System Design 구현 일정 단축
 
-**현재 상태:** 플레너 설계 완료 (2026-05-16), 웹개발자 구현 미시작
+**현재 상태:** Planner AI Agent 설계 완료 (2026-05-16), Web-Builder AI Agent 구현 미시작
 
 **개선:**
 - Daily Checkpoints 자동화 우선순위 상향 (Phase 1 목표)
@@ -88,8 +88,8 @@ IF (08:00 체크 MISSED) THEN:
 | 날짜 | 작업 | 담당자 | 상태 |
 |------|------|--------|------|
 | 2026-05-20 08:00 | Rule Audit Cron 첫 실행 | 자동화 | 🟡 진행중 |
-| 2026-05-20 | Daily Checkpoints Cron 구현 시작 | 웹개발자 | 🔴 대기 |
-| 2026-05-24 18:00 | Automation System Phase 1 완료 | 웹개발자 | 🔴 대기 |
+| 2026-05-20 | Daily Checkpoints Cron 구현 시작 | Web-Builder AI Agent | 🔴 대기 |
+| 2026-05-24 18:00 | Automation System Phase 1 완료 | Web-Builder AI Agent | 🔴 대기 |
 
 ---
 

@@ -18,7 +18,7 @@ relatedFiles: ASSESSMENT_CRITERIA_DYNAMIC_SYSTEM.md, audit_system_framework.md, 
 ### Timeline
 ```
 15일 08:00 (Step 1) — 외부 전문가 기준 수집 (비서)
-15일 10:00 (Step 2) — 기술 발전 속도 분석 (데이터분석가)
+15일 10:00 (Step 2) — 기술 발전 속도 분석 (Data-Analyst AI Agent)
 15일 14:00 (Step 3) — 현재 기준의 문제점 검토 (팀 전체)
 15일 16:00 (Step 4) — 신규 기준 확정 + 기록 + 공지
 ```
@@ -39,7 +39,7 @@ relatedFiles: ASSESSMENT_CRITERIA_DYNAMIC_SYSTEM.md, audit_system_framework.md, 
 
 ## Step 2: 기술 발전 속도 분석 (10:00~14:00)
 
-**데이터분석가 주도:**
+**Data-Analyst AI Agent 주도:**
 - 지난 1개월 기술 변화 분석
 - 새 라이브러리/프레임워크, 성능 개선, 보안 업데이트 평가
 - 산출물: `TECHNOLOGY_VELOCITY_YYYYMM.md`

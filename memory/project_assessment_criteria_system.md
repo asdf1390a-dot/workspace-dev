@@ -41,7 +41,7 @@ relatedFiles: ASSESSMENT_CRITERIA_DYNAMIC_SYSTEM.md
  └─ Step 1: 외부 전문가 기준 수집 (비서) — 2시간
 
 15일 10:00  ← 팀 상의
- └─ Step 2: 기술 발전 속도 분석 (데이터분석가) — 4시간
+ └─ Step 2: 기술 발전 속도 분석 (Data-Analyst AI Agent) — 4시간
 
 15일 14:00  ← 각 팀원 의견
  └─ Step 3: 현재 기준의 문제점 검토 (전체) — 2시간
@@ -80,7 +80,7 @@ relatedFiles: ASSESSMENT_CRITERIA_DYNAMIC_SYSTEM.md
 
 ### Step 2: 기술 발전 속도 분석 (10:00~14:00)
 
-**데이터분석가 주도:**
+**Data-Analyst AI Agent 주도:**
 
 1. 지난 1개월 기술 변화 분석
    - 새 라이브러리/프레임워크 출시
@@ -106,11 +106,11 @@ relatedFiles: ASSESSMENT_CRITERIA_DYNAMIC_SYSTEM.md
 **전체 팀 (Discord 또는 Telegram):**
 
 각 팀원이 1가지씩 의견 제시:
-- **웹개발자:** "현재 API <200ms 기준이 너무 느림 → <150ms로 상향"
-- **평가자:** "신뢰도 95% 목표가 너무 낮음 → 98%로 상향"
-- **데이터분석가:** "현재 기술로는 <100ms 충분히 가능"
-- **번역가:** "정확도 기준이 없음 → 96% 추가"
-- **플레너:** "기준 변경 시 개발 일정 영향 검토"
+- **Web-Builder AI Agent:** "현재 API <200ms 기준이 너무 느림 → <150ms로 상향"
+- **Evaluator AI Agent:** "신뢰도 95% 목표가 너무 낮음 → 98%로 상향"
+- **Data-Analyst AI Agent:** "현재 기술로는 <100ms 충분히 가능"
+- **Translator AI Agent:** "정확도 기준이 없음 → 96% 추가"
+- **Planner AI Agent:** "기준 변경 시 개발 일정 영향 검토"
 
 ### Step 4: 신규 기준 확정 + 공지 (16:00~17:00)
 

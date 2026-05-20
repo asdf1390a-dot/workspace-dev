@@ -23,10 +23,10 @@ type: feedback
 - **개선:** Cron job 연계 (기존 HEARTBEAT.md 활용)
 
 ### 2️⃣ 팀원 진행 상황 정기 체크 없음
-- ✅ 정의: 웹개발자, 평가자, 플레너 각자 배치됨
+- ✅ 정의: Web-Builder AI Agent, Evaluator AI Agent, Planner AI Agent 각자 배치됨
 - ❌ 실제: 위임 후 진행 상황을 자동으로 수집하지 않음
 - 예시: Asset Master Phase 1이 지금 몇 % 진행 중인지 모름
-- **개선:** 매일 15:00 KST (웹개발자), 12:00 KST (평가자), 14:00 KST (플레너) 정기 보고
+- **개선:** 매일 15:00 KST (Web-Builder AI Agent), 12:00 KST (Evaluator AI Agent), 14:00 KST (Planner AI Agent) 정기 보고
 
 ### 3️⃣ 의존성 자동 준비 부족
 - ❌ Travel Phase 2가 Asset Master 완료에 의존하나, 준비 단계 자동 트리거 없음
@@ -64,7 +64,7 @@ Audit System (planner):
 
 **A2. 의존성 준비 시작**
 - Asset Master 진도 50% 도달 → Travel Phase 2 "준비 단계" 자동 시작
-- 웹개발자에게 사전 안내: "다음 작업 Asset Master 완료 후 바로 Travel로 전환"
+- Web-Builder AI Agent에게 사전 안내: "다음 작업 Asset Master 완료 후 바로 Travel로 전환"
 
 **A3. 리스크 감지 규칙**
 - 매주 월/목 15:00 KST: Asset Master 진도 < 계획 진도 → 자동 알람
@@ -78,7 +78,7 @@ Audit System (planner):
 
 **B2. 팀원 과부하 감시**
 - 동시 진행 작업 > 2개 → 우선순위 재평가 필요 신호
-- 예: 웹개발자가 Asset Master + Travel Phase 2 사전 준비 3개 동시 진행 시 "부하 체크" 알람
+- 예: Web-Builder AI Agent가 Asset Master + Travel Phase 2 사전 준비 3개 동시 진행 시 "부하 체크" 알람
 
 **B3. 블로킹 아이템 자동 추적**
 - 매일 08:30 KST: CTB에서 🔴 항목 스캔
@@ -125,11 +125,11 @@ Audit System (planner):
 
 ## 팀원 동의 필요
 
-- 웹개발자: 매일 15:00 KST 진도 리포트 (5분, Telegram)
-- 평가자: 매일 12:00 KST 검증 진도 리포트 (5분, Telegram)
-- 플레너: 매일 14:00 KST 팀 논의 진행 리포트 (5분, Telegram)
+- Web-Builder AI Agent: 매일 15:00 KST 진도 리포트 (5분, Telegram)
+- Evaluator AI Agent: 매일 12:00 KST 검증 진도 리포트 (5분, Telegram)
+- Planner AI Agent: 매일 14:00 KST 팀 논의 진행 리포트 (5분, Telegram)
 
 ---
 
 **적용 시작:** 2026-05-15 17:00 KST (지금부터)
-**첫 정기 체크:** 2026-05-15 17:00 (웹개발자 Asset Master 진도)
+**첫 정기 체크:** 2026-05-15 17:00 (Web-Builder AI Agent Asset Master 진도)

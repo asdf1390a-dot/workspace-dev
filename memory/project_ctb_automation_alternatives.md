@@ -1,6 +1,6 @@
 ---
-name: CTB 자동화 대체방안 (평가자 Critical Issues 해결)
-description: 평가자의 3가지 반려 사유 해결 (Telegram 채널 설정, 파일 중복 제거, 파일 갱신 로직)
+name: CTB 자동화 대체방안 (Evaluator AI Agent Critical Issues 해결)
+description: Evaluator AI Agent의 3가지 반려 사유 해결 (Telegram 채널 설정, 파일 중복 제거, 파일 갱신 로직)
 type: project
 relatedFiles: CTB_AUTOMATION_ALTERNATIVE_PLAN.md, active_work_tracking.md
 ---
@@ -8,8 +8,8 @@ relatedFiles: CTB_AUTOMATION_ALTERNATIVE_PLAN.md, active_work_tracking.md
 # CTB 자동화 대체방안
 
 **기한:** 즉시 (2026-05-16)  
-**상태:** 평가자 재검증 대기  
-**목표:** 평가자의 3가지 Critical Issues 모두 해결
+**상태:** Evaluator AI Agent 재검증 대기  
+**목표:** Evaluator AI Agent의 3가지 Critical Issues 모두 해결
 
 ## Issue 1: Telegram @default 채널 미설정
 
@@ -30,9 +30,9 @@ relatedFiles: CTB_AUTOMATION_ALTERNATIVE_PLAN.md, active_work_tracking.md
 
 **대상 Cron 5개:**
 1. 08:00 블로킹 추적 (2d26b9ea...)
-2. 12:00 평가자 정기 체크 (8469d770...)
-3. 14:00 플레너 정기 체크 (e41c61bd...)
-4. 15:00 웹개발자 정기 체크 (dfec9588...)
+2. 12:00 Evaluator AI Agent 정기 체크 (8469d770...)
+3. 14:00 Planner AI Agent 정기 체크 (e41c61bd...)
+4. 15:00 Web-Builder AI Agent 정기 체크 (dfec9588...)
 5. 08:00 블로킹 추적 systemEvent (모두)
 
 **예상 효과:** Telegram 메시지 손실률 0% → 신뢰도 ↑
@@ -128,7 +128,7 @@ Cron payload = systemEvent(text: "진도 리포트 대기 중")
 
 ---
 
-## 검증 기준 (평가자)
+## 검증 기준 (Evaluator AI Agent)
 
 - [ ] Telegram 채널 설정 가능성 확인
 - [ ] CTB 파일 중복 제거 경로 최종 확인

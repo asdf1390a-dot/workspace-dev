@@ -9,7 +9,7 @@ relatedFiles: JEEPNEY_BACKUP_APP_PHASE1_DESIGN.md
 
 **상태:** 최종 설계 (구현 준비 완료)  
 **작성일:** 2026-05-13  
-**담당:** 플레너 (설계), 웹개발자 (구현), 평가자 (검증)
+**담당:** Planner AI Agent (설계), Web-Builder AI Agent (구현), Evaluator AI Agent (검증)
 
 ## 프로젝트 개요
 
@@ -162,4 +162,4 @@ relatedFiles: JEEPNEY_BACKUP_APP_PHASE1_DESIGN.md
 - [ ] 페이지 로딩 성능
 
 ## 상태
-🟡 **설계 완료** → 웹개발자 구현 대기
+🟡 **설계 완료** → Web-Builder AI Agent 구현 대기

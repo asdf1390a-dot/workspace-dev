@@ -9,7 +9,7 @@ date: 2026-05-15
 # Discord Bot 아키텍처 설계
 
 **작성일:** 2026-05-15 22:45 KST  
-**상태:** 플레너 설계 완료 → 웹개발자 구현 대기  
+**상태:** Planner AI Agent 설계 완료 → Web-Builder AI Agent 구현 대기  
 **완료 예상:** 2026-05-16 10:00~18:00 KST
 
 ## 시스템 개요
@@ -20,9 +20,9 @@ date: 2026-05-15
 Discord DSC-MANNUR-AI Server
 ├── #비서-secretary (비서 작업 로그)
 ├── #번역기-translator (번역 작업)
-├── #데이터분석가-analyst (분석 결과)
-├── #웹개발자-dev (개발 진행)
-├── #플레너-planner (설계/계획)
+├── #Data-Analyst AI Agent-analyst (분석 결과)
+├── #Web-Builder AI Agent-dev (개발 진행)
+├── #Planner AI Agent-planner (설계/계획)
 └── #일반-general (공지사항)
 ```
 

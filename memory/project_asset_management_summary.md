@@ -112,4 +112,4 @@ relatedFiles: ASSET_MANAGEMENT_SUMMARY.md
 - [ ] Vercel 배포 및 검증
 
 ## 상태
-🟡 **설계 완료** → 웹개발자 개발 대기
+🟡 **설계 완료** → Web-Builder AI Agent 개발 대기

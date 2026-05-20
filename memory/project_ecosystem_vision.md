@@ -80,7 +80,7 @@ type: project
 
 ### 3. Team & Agent 구조
 **지금:**
-- 1개 팀 (비서, 웹개발자, 평가자, 데이터분석가, 번역가)
+- 1개 팀 (비서, Web-Builder AI Agent, Evaluator AI Agent, Data-Analyst AI Agent, Translator AI Agent)
 - DSC FMS 전담
 
 **확장 후:**

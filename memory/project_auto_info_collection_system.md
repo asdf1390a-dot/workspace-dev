@@ -9,7 +9,7 @@ relatedFiles: TEAM_DISCUSSION_AUTO_INFO_COLLECTION_SYSTEM.md, project_auto_info_
 
 **회의 일정:** 2026-05-16 14:00 KST (팀 상의)
 
-**참석자:** 웹개발자, 평가자, 데이터분석가, 번역가, 플레너
+**참석자:** Web-Builder AI Agent, Evaluator AI Agent, Data-Analyst AI Agent, Translator AI Agent, Planner AI Agent
 
 **산출물:** TEAM_FEEDBACK_20260516.md → 최종 결정
 
@@ -45,11 +45,11 @@ relatedFiles: TEAM_DISCUSSION_AUTO_INFO_COLLECTION_SYSTEM.md, project_auto_info_
 ```
 🧠 AI가 역할별로 필터링 + 요약:
 
-웹개발자: Next.js, React, 성능, 도구
-평가자: 테스트, QA, 자동화, 검증 도구
-데이터분석가: 분석 기법, 시각화, Kaggle
-번역가: 기술 용어, 문맥, 번역 기법
-플레너: 아키텍처, 시스템 설계, 트렌드
+Web-Builder AI Agent: Next.js, React, 성능, 도구
+Evaluator AI Agent: 테스트, QA, 자동화, 검증 도구
+Data-Analyst AI Agent: 분석 기법, 시각화, Kaggle
+Translator AI Agent: 기술 용어, 문맥, 번역 기법
+Planner AI Agent: 아키텍처, 시스템 설계, 트렌드
 
 + CEO 마인드 추가: "왜 중요한가?" + "어떻게 쓸까?"
 ```
@@ -59,27 +59,27 @@ relatedFiles: TEAM_DISCUSSION_AUTO_INFO_COLLECTION_SYSTEM.md, project_auto_info_
 ```
 📤 역할별 Telegram 채널로 자동 배포:
 
-🔴 웹개발자
+🔴 Web-Builder AI Agent
   • React 19 성능 개선 (40% 빠름)
   • TypeScript 5.4 (빌드 30% 단축)
   → "어떻게 적용할까?"
 
-🟡 평가자
+🟡 Evaluator AI Agent
   • Playwright 자동화 신기능
   • 테스트 커버리지 95%+ 달성법
   → "우리 포탈에 쓸 수 있을까?"
 
-🟢 데이터분석가
+🟢 Data-Analyst AI Agent
   • Kaggle 톱 분석 기법
   • 시각화 라이브러리 순위
   → "우리 Asset 분석에 적용할 부분?"
 
-🔵 번역가
+🔵 Translator AI Agent
   • Medium 기술 기사 추천
   • 한영 기술 용어 표준화
   → "어떤 부분을 학습할까?"
 
-🟣 플레너
+🟣 Planner AI Agent
   • HackerNews 아키텍처 트렌드
   • 시스템 설계 패턴
   → "언제 우리가 도입할까?"

@@ -15,6 +15,9 @@
 - [Vacation Video Compression](vacation_autonomous_video_compression.md) — 휴가 중 초저용량 비디오 변환 (0.62MB 극저용량 + 9.86MB 표준, 96.3% 압축률 달성) + Protocol v2 자동화 실패 분석
 - [Protocol v2 Recovery Status](protocol_v2_recovery_status_2026_05_20.md) — 복구 완료 현황 + 시스템 개선안 + 향후 Cron 조치 (2026-05-20 02:00)
 
+## 📋 프로젝트별 완료보고서 (2026-05-20)
+- [프로젝트별 완료보고서](PROJECT_COMPLETION_REPORTS_2026-05-20.md) — Backup Ph2/Asset Ph2/Travel Ph1/Discord Ph1/BM Ph1 설계 완료 현황 + 개발 일정 + 산출물 (2026-05-20)
+
 ---
 
 ## AI 에이전트 온보딩 & 설정 (AI Agent Configuration Kit) — 복사-붙여넣기 (2026-05-19)
@@ -29,10 +32,13 @@
 ---
 
 ## ⚠️ 감시 & 규칙 준수 (Compliance & Audits)
+- [⭐ 규칙 위반 감시 개선 시스템 Phase 1-3](rule_validation_system_phase1.md) — msg#5358 기반 3개 위반(GitHub링크/Telegram한국어/액션레이블) 자동감시 + 30초사전검증 체크리스트 (2026-05-20 실행)
 - [⭐ Telegram 한국어만 사용 (2026-05-20)](feedback_telegram_korean_only_enforcement.md) — Telegram 모든 답변 한국어만, 영어 절대금지, 상태보고·기술설명 포함 (2026-05-20 강화)
+- [⭐ 이중 검증 규칙 — 코드/링크 제공 전 필수](feedback_double_verification_before_delivery.md) — 코드·링크 제공 시 실제 작동 여부 검증 후 제공 (2026-05-20 추가)
 - [⭐ AI Terminology Standardization Guide](AI_TERMINOLOGY_STANDARDIZATION_GUIDE.md) — AI 에이전트 역할 표준화 (CEO+Secretary 시스템, 74개 파일 정보 갱신 완료, 2026-05-20) 
 - [⭐ Rule Compliance Execution System](rule_compliance_execution_system.md) — 메모리↔실행 갭 해소 + 5개 Cron 자동 감시 (08/14/15/18:00 KST + 자정) + 실시간 CTB 동기화 (2026-05-19 실행)
 - [⭐ Rule Compliance Audit System](rule_compliance_audit_active.md) — 일일 규칙 준수 감시 (자율 모드 + 자동화 규칙), 매일 08:00 체크 (2026-05-19 활성화)
+- [⭐ Phase 2 Cron Automation](phase2_cron_automation_setup.md) — GitHub/Telegram/액션레이블 3가지 위반 자동감시 + 일일 리포트 배포 (2026-05-21 06:00)
 - [⭐ 모델 선택 기준 표준화](model_selection_standard.md) — Haiku/Sonnet/Opus 절대 규칙 + 감시 체크리스트 + 비용 목표 < 15% (2026-05-20 확정, 매주 월 09:00 Evaluator 검증)
 - [⭐ Opus 사용 절대 규칙](feedback_opus_rule_reinforcement.md) — 서브에이전트 호출(web-builder/data-analyst/evaluator)시만 사용, 직접 작업·대화·검토 절대금지 (2026-05-20)
 - [⭐ 위임 후 즉시 대화 종료](feedback_delegation_immediate_exit.md) — 팀원 위임 시 한 줄 알림 후 즉시 종료, 입력중 상태 금지 (2026-05-20)

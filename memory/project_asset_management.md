@@ -90,4 +90,4 @@ assets/{asset_id}/
 - 활성 자산 vs 폐기 자산 분리 표시
 
 ## 상태
-🟡 **설계 완료** → 웹개발자 구현 대기
+🟡 **설계 완료** → Web-Builder AI Agent 구현 대기

@@ -297,7 +297,7 @@ export async function filterByRelevance(
 - [ ] 거짓음성(False Negative) 검토 (예: 관련된 항목 탈락)
 
 ### Success Criteria
-- **필터링 정확도:** > 80% (평가자 판정)
+- **필터링 정확도:** > 80% (Evaluator AI Agent 판정)
 - **중복 제거:** 100% (Supabase 제약 확인)
 - **응답시간:** < 60초/소스
 

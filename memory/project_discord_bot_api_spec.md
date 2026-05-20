@@ -124,4 +124,4 @@ relatedFiles: DISCORD_BOT_API_SPEC.md
 4. **로깅:** pino + Loki 스택으로 모든 요청/응답 기록
 
 ## 상태
-🟡 **설계 완료** → 웹개발자 구현 대기
+🟡 **설계 완료** → Web-Builder AI Agent 구현 대기

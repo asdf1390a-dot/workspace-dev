@@ -49,8 +49,8 @@ type: project
 - **분기별 15일 10:00:** 진단 알림
 
 ## 현황
-- 웹개발자/평가자: learnings 파일 ✅ 활성
-- 데이터분석가/번역가/플레너: learnings 파일 📝 생성 필요
+- Web-Builder AI Agent/Evaluator AI Agent: learnings 파일 ✅ 활성
+- Data-Analyst AI Agent/Translator AI Agent/Planner AI Agent: learnings 파일 📝 생성 필요
 - 팀 자산: design-system.md, manufacturing-glossary.md ✅ 존재
 - 외부 학습 자료: youtube-library.md ✅ 확장 완료 (GitHub+Product Hunt+Dev.to+npm+기술블로그+Claude/Codex)
 - Discord #역량개발 채널: 📝 생성 필요
@@ -65,9 +65,9 @@ type: project
 
 ## 외부 학습 자료 통합 (2026-05-15 확장)
 - **GitHub Trending Repositories** (역할별 12개 추천)
-  - 웹개발자: Next.js, Supabase, shadcn/ui, React Query, Auth0
-  - 평가자: Testing Library, Cypress, Playwright
-  - 데이터분석가: Pandas, Plotly, Apache Superset
+  - Web-Builder AI Agent: Next.js, Supabase, shadcn/ui, React Query, Auth0
+  - Evaluator AI Agent: Testing Library, Cypress, Playwright
+  - Data-Analyst AI Agent: Pandas, Plotly, Apache Superset
   - 자동화전문가: Celery, APScheduler, Prefect
   
 - **Product Hunt 신규 도구** (매주 갱신)
@@ -92,11 +92,11 @@ type: project
   - HackerNews (기술뉴스)
 
 ## 주간 학습 루틴 (Module 3 보강)
-- **웹개발자**: GitHub Trending 3개 + npm trends 1개 검토 (주 30분)
-- **평가자**: Product Hunt 테스트 도구 2개 확인 (주 20분)
-- **데이터분석가**: Dev.to 데이터 분석 글 1개 읽기 (주 30분)
-- **번역가**: Medium 기술 글 1개 한영 번역 (주 40분)
-- **플레너**: CSS-Tricks/Smashing Magazine 아키텍처 글 (주 30분)
+- **Web-Builder AI Agent**: GitHub Trending 3개 + npm trends 1개 검토 (주 30분)
+- **Evaluator AI Agent**: Product Hunt 테스트 도구 2개 확인 (주 20분)
+- **Data-Analyst AI Agent**: Dev.to 데이터 분석 글 1개 읽기 (주 30분)
+- **Translator AI Agent**: Medium 기술 글 1개 한영 번역 (주 40분)
+- **Planner AI Agent**: CSS-Tricks/Smashing Magazine 아키텍처 글 (주 30분)
 
 ## 문서
 - **설계:** `TEAM_COMPETENCY_DEVELOPMENT_FRAMEWORK.md` (완성)

@@ -8,7 +8,7 @@ relatedFiles: dsc-fms-portal/ASSET_MASTER_PHASE2_API_GUIDE.md
 # Asset Master Phase 2 API 구현 가이드
 
 **작성:** 2026-05-16 09:00 KST  
-**대상:** 웹개발자  
+**대상:** Web-Builder AI Agent  
 **범위:** MVP 16개 API + 에러 처리 + 검증 규칙
 
 ## API 목록 (MVP 16개)
@@ -93,4 +93,4 @@ relatedFiles: dsc-fms-portal/ASSET_MASTER_PHASE2_API_GUIDE.md
 5. **RLS 정책:** org_id 기반 액세스 제어
 
 ## 상태
-🟡 설계 완료 → 웹개발자 구현 중
+🟡 설계 완료 → Web-Builder AI Agent 구현 중

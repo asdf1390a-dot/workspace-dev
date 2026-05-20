@@ -8,7 +8,7 @@ relatedFiles: DESIGN_KPI.md
 # KPI 리포트 모듈 설계
 
 **작성일:** 2026-05-12  
-**상태:** 설계 완료 → 웹개발자 개발 대기  
+**상태:** 설계 완료 → Web-Builder AI Agent 개발 대기  
 **대상:** DSC FMS Portal (Next.js 14 + Supabase)
 
 ## 설계 배경
@@ -138,4 +138,4 @@ created_at (timestamptz)
 - Admin 대시보드 운영 효율화
 
 ## 상태
-🟡 **설계 완료** → 웹개발자 개발 대기
+🟡 **설계 완료** → Web-Builder AI Agent 개발 대기

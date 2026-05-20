@@ -21,9 +21,9 @@ relatedFiles: DISCORD_BOT_IMPL_CHECKLIST.md
 - Channel IDs 확인 및 설정 (6개 채널) (15분)
   - #비서-secretary → `DISCORD_CHANNEL_SECRETARY`
   - #번역기-translator → `DISCORD_CHANNEL_TRANSLATOR`
-  - #데이터분석가-analyst → `DISCORD_CHANNEL_ANALYST`
-  - #웹개발자-dev → `DISCORD_CHANNEL_DEVELOPER`
-  - #플레너-planner → `DISCORD_CHANNEL_PLANNER`
+  - #Data-Analyst AI Agent-analyst → `DISCORD_CHANNEL_ANALYST`
+  - #Web-Builder AI Agent-dev → `DISCORD_CHANNEL_DEVELOPER`
+  - #Planner AI Agent-planner → `DISCORD_CHANNEL_PLANNER`
   - #일반-general → `DISCORD_CHANNEL_GENERAL`
 - Message Content Intent 활성화 (Discord Developer Portal) (5분)
 - Telegram Bot Token + Chat ID 확인 (10분)
@@ -50,7 +50,7 @@ src/
 │   │       ├── translator.ts   ← 번역기
 │   │       ├── analyst.ts      ← 분석가
 │   │       ├── developer.ts    ← 개발자
-│   │       └── planner.ts      ← 플레너
+│   │       └── planner.ts      ← Planner AI Agent
 │   └── utils/discord-helpers.ts
 └── pages/api/discord-gateway.ts
 ```
@@ -161,4 +161,4 @@ export abstract class BaseProcessor {
 5. **환경 변수:** .env.local에 모든 토큰/ID 저장 (GitHub에 커밋 금지)
 
 ## 상태
-🟡 **체크리스트 준비** → 웹개발자 구현 개시 대기
+🟡 **체크리스트 준비** → Web-Builder AI Agent 구현 개시 대기

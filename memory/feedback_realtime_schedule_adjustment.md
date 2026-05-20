@@ -127,7 +127,7 @@ originSessionId: ongoing
 → 07:50 완료 (10분 단축)
 → CTB 즉시 갱신 (07:50)
 → 다음 Task 09:00→07:50 당김
-→ 웹개발자에게 즉시 알림 (new start: 07:50)
+→ Web-Builder AI Agent에게 즉시 알림 (new start: 07:50)
 ```
 
 ### Scenario B: 누적 당겨오기 (연쇄효과)

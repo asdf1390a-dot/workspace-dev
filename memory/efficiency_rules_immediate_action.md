@@ -23,8 +23,8 @@ type: feedback
 
 **적용 예시:**
 ```
-❌ 이전: "플레너에게 Asset Master 설계 시작 지시를 보낼까요?"
-✅ 현재: "플레너에게 Asset Master 설계 시작 지시 발송 완료 (ETA 2026-05-19 18:00)"
+❌ 이전: "Planner AI Agent에게 Asset Master 설계 시작 지시를 보낼까요?"
+✅ 현재: "Planner AI Agent에게 Asset Master 설계 시작 지시 발송 완료 (ETA 2026-05-19 18:00)"
 ```
 
 ---
@@ -47,7 +47,7 @@ type: feedback
 
 **적용 예시:**
 ```
-[지시] 플레너: Asset Master v2 Phase 2 설계 시작 | 배경: Audit 팀 논의 병렬 | 산출: DESIGN.md+API_GUIDE.md | ETA: 2026-05-19 18:00 KST
+[지시] Planner AI Agent: Asset Master v2 Phase 2 설계 시작 | 배경: Audit 팀 논의 병렬 | 산출: DESIGN.md+API_GUIDE.md | ETA: 2026-05-19 18:00 KST
 
 참고: memory/option1_ctb_hierarchical.md
 ```
@@ -67,8 +67,8 @@ type: feedback
 
 **적용 예시:**
 ```
-❌ 이전: 플레너 지시 → 팀 분석 요청 → 개별 피드백 (3단계 순차)
-✅ 현재: 플레너 지시 + 팀 분석 요청 + 개별 피드백 (1단계 동시)
+❌ 이전: Planner AI Agent 지시 → 팀 분석 요청 → 개별 피드백 (3단계 순차)
+✅ 현재: Planner AI Agent 지시 + 팀 분석 요청 + 개별 피드백 (1단계 동시)
 ```
 
 ---
@@ -108,10 +108,10 @@ CTB 상태 표시:
 
 **적용 예시:**
 ```
-❌ "플레너에게 지시했는데 받았나요?" (중간 확인)
+❌ "Planner AI Agent에게 지시했는데 받았나요?" (중간 확인)
 ❌ "아직도 작업 중인가요?" (진행 점검)
-✅ "플레너: Asset Master 설계 진행 중. ETA 2026-05-19 18:00" (상태만)
-✅ (완료 시) "플레너: Asset Master 설계 완료. DESIGN.md 완성" (결과)
+✅ "Planner AI Agent: Asset Master 설계 진행 중. ETA 2026-05-19 18:00" (상태만)
+✅ (완료 시) "Planner AI Agent: Asset Master 설계 완료. DESIGN.md 완성" (결과)
 ```
 
 ---

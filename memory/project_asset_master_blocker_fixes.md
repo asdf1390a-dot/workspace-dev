@@ -1,6 +1,6 @@
 ---
 name: Asset Master Phase 2 블로커 4개 긴급 수정
-description: B1-B4 해결완료 (App Router통일, audit스키마, 경로충돌, POST중복) + 웹개발자진행가이드
+description: B1-B4 해결완료 (App Router통일, audit스키마, 경로충돌, POST중복) + Web-Builder AI Agent진행가이드
 type: project
 relatedFiles: dsc-fms-portal/ASSET_MASTER_PHASE2_BLOCKER_FIXES.md
 ---
@@ -8,7 +8,7 @@ relatedFiles: dsc-fms-portal/ASSET_MASTER_PHASE2_BLOCKER_FIXES.md
 # Asset Master v2 Phase 2 — 블로커 4개 긴급 수정 완료
 
 **상태:** 🟢 모든 블로커 해결  
-**웹개발자 진행:** Day 1 재개 가능 (10시간 내 5개 API 완료)
+**Web-Builder AI Agent 진행:** Day 1 재개 가능 (10시간 내 5개 API 완료)
 
 ## 수정 완료 사항 (4개 블로커)
 
@@ -33,7 +33,7 @@ app/api/assets/[assetId]/audit-log/route.ts (GET)
 **문제:** 기존 코드가 이미 POST 구현 → 설계에서 중복 개발 지시
 **해결:** 기존 POST 코드 재사용 (app/api/assets/route.ts의 기존 검증로직 포함)
 
-## 웹개발자 진행 가이드
+## Web-Builder AI Agent 진행 가이드
 
 **파일 검토 순서:**
 1. ASSET_MASTER_PHASE2_DESIGN.md → "기술 스택 (App Router 통일)" 섹션

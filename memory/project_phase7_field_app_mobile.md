@@ -11,7 +11,7 @@ date: 2026-05-19
 **프로젝트 ID:** PHASE7_MOBILE_001  
 **기간:** 2026-05-19 (온보딩) → 2026-07-31 (v1.0 배포)  
 **담당:** 모바일개발자 (신규팀원)  
-**협력:** 웹개발자(API), 평가자(QA), 플레너(설계 검증)
+**협력:** Web-Builder AI Agent(API), Evaluator AI Agent(QA), Planner AI Agent(설계 검증)
 
 ---
 
@@ -101,7 +101,7 @@ date: 2026-05-19
 
 ---
 
-## 🔗 API 협력 (웹개발자)
+## 🔗 API 협력 (Web-Builder AI Agent)
 
 **필요 API (6개):**
 
@@ -114,8 +114,8 @@ date: 2026-05-19
 | 5 | Glossary (실패코드) | GET /api/glossary | P1 | Week 2-3 |
 | 6 | 실시간 구독 | GraphQL: asset_status | P0 | Week 1-2 |
 
-**API 스펙 정의:** 모바일 개발자 → 웹개발자 (2026-06-10)  
-**API 구현:** 웹개발자 (2026-06-10 ~ 06-20)  
+**API 스펙 정의:** 모바일 개발자 → Web-Builder AI Agent (2026-06-10)  
+**API 구현:** Web-Builder AI Agent (2026-06-10 ~ 06-20)  
 **Real API 통합:** 모바일 개발자 (Week 5-6)
 
 ---
@@ -162,28 +162,28 @@ ETA: 2026-06-XX
 ### 코드 리뷰 흐름
 ```
 1. GitHub PR (staging 브랜치)
-2. 플레너 검토 (설계 준수)
-3. 평가자 검토 (성능/보안)
+2. Planner AI Agent 검토 (설계 준수)
+3. Evaluator AI Agent 검토 (성능/보안)
 4. 머지 (staging → main)
 5. Vercel 자동 배포
 ⏱️ 예상: 4-6시간
 ```
 
-### API 협력 (웹개발자)
+### API 협력 (Web-Builder AI Agent)
 ```
 - 모바일 개발자: API 스펙 요청 (GitHub issue)
-- 웹개발자: API 구현 (2-3일)
+- Web-Builder AI Agent: API 구현 (2-3일)
 - 모바일 개발자: Mock API → Real API 전환
-- 평가자: 성능 검증 (응답 시간, 데이터 정확성)
+- Evaluator AI Agent: 성능 검증 (응답 시간, 데이터 정확성)
 ```
 
 ### 문제 해결
 | 상황 | 해결책 | 담당 |
 |------|------|------|
 | API 늦어짐 | Mock API로 먼저 UI 완성 | 모바일개발자 |
-| 설계 변경 필요 | GitHub issue → 플레너 승인 | 플레너 |
-| 버그 발생 | Discord #모바일-앱 | 평가자 지원 |
-| 성능 문제 | DevTools 분석 + 팀 상의 | 모바일개발자 + 평가자 |
+| 설계 변경 필요 | GitHub issue → Planner AI Agent 승인 | Planner AI Agent |
+| 버그 발생 | Discord #모바일-앱 | Evaluator AI Agent 지원 |
+| 성능 문제 | DevTools 분석 + 팀 상의 | 모바일개발자 + Evaluator AI Agent |
 
 ---
 
@@ -192,7 +192,7 @@ ETA: 2026-06-XX
 **내부 문서:**
 - `PHASE7_FIELD_APP_MVP_DESIGN.md` — 완전 설계 문서
 - `MOBILE_DEVELOPER_ONBOARDING_PACKAGE.md` — 온보딩 가이드
-- `memory/work_history_package.md` — 웹개발자 코드 패턴
+- `memory/work_history_package.md` — Web-Builder AI Agent 코드 패턴
 
 **외부 문서:**
 - [Flutter Docs](https://docs.flutter.dev)
@@ -210,7 +210,7 @@ ETA: 2026-06-XX
 3. Flutter 오프라인 동기화 패턴 (2시간)
 
 **Week 2+ 지속:**
-- 매주 평가자와 성능 회고 (1시간)
+- 매주 Evaluator AI Agent와 성능 회고 (1시간)
 - 월간 팀 전체 기술 공유 (1시간)
 
 ---
@@ -231,5 +231,5 @@ ETA: 2026-06-XX
 **다음 액션:**
 1. 모바일개발자: PHASE7_FIELD_APP_MVP_DESIGN.md + MOBILE_DEVELOPER_ONBOARDING_PACKAGE.md 검토 (5시간)
 2. 모바일개발자: 설계 검토 완료 후 Telegram 보고
-3. 플레너: 설계 피드백 수집 (Discord #모바일-앱)
-4. 웹개발자: API 스펙 정의 대기 (Week 3-4)
+3. Planner AI Agent: 설계 피드백 수집 (Discord #모바일-앱)
+4. Web-Builder AI Agent: API 스펙 정의 대기 (Week 3-4)

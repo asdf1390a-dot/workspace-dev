@@ -7,9 +7,9 @@ relatedFiles: dsc-fms-portal/TRAVEL_MANAGEMENT_API_GUIDE.md
 
 # Travel Management API — 상세 구현 가이드
 
-**상태:** API 구현 명세 (웹개발자용)  
+**상태:** API 구현 명세 (Web-Builder AI Agent용)  
 **작성일:** 2026-05-14  
-**담당:** 플레너 (설계), 웹개발자 (구현)
+**담당:** Planner AI Agent (설계), Web-Builder AI Agent (구현)
 
 ## 1. API 개요
 
@@ -135,4 +135,4 @@ CREATE POLICY "Users can view own or member travels"
 - DELETE /api/travels/[id]/checklists/[item_id] — 체크리스트 삭제
 
 ## 상태
-🟡 설계 완료 → 웹개발자 구현 대기
+🟡 설계 완료 → Web-Builder AI Agent 구현 대기

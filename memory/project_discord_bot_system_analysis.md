@@ -8,7 +8,7 @@ relatedFiles: DISCORD_BOT_SYSTEM_ANALYSIS.md
 # Discord Bot System 구조 분석 및 개선 방향
 
 **작성일:** 2026-05-15 22:30 KST  
-**상태:** 근본 원인 분석 완료 → 플레너 설계 검증 대기
+**상태:** 근본 원인 분석 완료 → Planner AI Agent 설계 검증 대기
 
 ## 현재 상태 분석
 
@@ -48,12 +48,12 @@ Discord Channel → [요청] → ??? ❌ (응답 불가)
 ├─ Processing: 번역 수행
 └─ Outgoing: 번역 결과 + 용어 검증
 
-#데이터분석가-data-analyst
+#Data-Analyst AI Agent-data-analyst
 ├─ Incoming: 파일 분석 요청 (Excel/CSV)
 ├─ Processing: KPI, 추세 분석
 └─ Outgoing: 분석 결과 + 차트
 
-#웹개발자-web-dev
+#Web-Builder AI Agent-web-dev
 ├─ Incoming: 개발 이슈, 코드 리뷰 요청
 ├─ Processing: 구현, 버그 수정
 └─ Outgoing: 코드 변경사항, 배포 진행상황
@@ -86,4 +86,4 @@ Discord Channel → [요청] → ??? ❌ (응답 불가)
 - 메시지 손실률 0%
 
 ## 상태
-🟡 **설계 완료** → 플레너 아키텍처 설계(project_discord_bot_integration.md)와 연계
+🟡 **설계 완료** → Planner AI Agent 아키텍처 설계(project_discord_bot_integration.md)와 연계

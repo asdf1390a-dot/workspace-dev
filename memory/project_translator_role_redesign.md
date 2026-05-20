@@ -1,18 +1,18 @@
 ---
-name: 번역가 역할 재정의
+name: Translator AI Agent 역할 재정의
 description: 장기 역할 = 팀 문서 표준화 담당자 + 4가지 즉시 할당 업무 (용어 기준, 글로사리, UI 일관성)
 type: project
 relatedFiles: TRANSLATOR_ROLE_REDESIGN.md
 date: 2026-05-15
 ---
 
-# 번역가 역할 재정의 및 업무 재분장
+# Translator AI Agent 역할 재정의 및 업무 재분장
 
 **작성일:** 2026-05-15 18:00 KST
 
 ## 현황 분석
 
-### 번역가의 현재 상태
+### Translator AI Agent의 현재 상태
 - **역량:** 한영 양방향 번역, 용어 일관성, 문화적 뉘앙스, UI/UX 번역
 - **상태:** 🟢 유휴 (진행률 0%)
 - **다음 할당:** Travel Phase 2 설계서 번역 (2026-05-20 이후)
@@ -42,7 +42,7 @@ date: 2026-05-15
 ### 5️⃣ 현장 신조어 필터링 부재
 - 현장에서 생겨난 신조어는 글로사리에 없음
 - AI가 오역해도 검증 기제 없음
-- **역할:** 번역가만 가능한 가치 영역
+- **역할:** Translator AI Agent만 가능한 가치 영역
 
 ## 새로운 역할 정의
 
@@ -57,8 +57,8 @@ date: 2026-05-15
 
 **보고 라인:**
 - 비서 (주간 리포트만)
-- 플레너 (설계 시 검토)
-- 웹개발자 (UI 배포 전 검증)
+- Planner AI Agent (설계 시 검토)
+- Web-Builder AI Agent (UI 배포 전 검증)
 
 **예상 효과:**
 - 팀 내 용어 혼선 30% → 5% 감소
@@ -88,10 +88,10 @@ date: 2026-05-15
 
 | 업무 | 빈도 | 담당 |
 |------|------|------|
-| 글로사리 업데이트 | 월 1회 (15일) | 번역가 |
-| UI 라벨 일관성 검증 | 월 1회 (20일) | 번역가 + 웹개발자 |
-| 현장 신조어 검토 | 월 1회 (25일) | 번역가 + 평가자 |
-| 팀 용어 기준 리뷰 | 분기 1회 | 번역가 + 플레너 |
+| 글로사리 업데이트 | 월 1회 (15일) | Translator AI Agent |
+| UI 라벨 일관성 검증 | 월 1회 (20일) | Translator AI Agent + Web-Builder AI Agent |
+| 현장 신조어 검토 | 월 1회 (25일) | Translator AI Agent + Evaluator AI Agent |
+| 팀 용어 기준 리뷰 | 분기 1회 | Translator AI Agent + Planner AI Agent |
 
 ## 참고 문서
 - TRANSLATOR_ROLE_REDESIGN.md — 전체 상세 설계

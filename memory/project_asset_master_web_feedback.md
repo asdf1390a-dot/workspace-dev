@@ -1,11 +1,11 @@
 ---
-name: Asset Master Phase 2 웹개발자 리뷰 피드백
+name: Asset Master Phase 2 Web-Builder AI Agent 리뷰 피드백
 description: DB스키마충돌해결, category_code정정, name_ta추가, Excel라이브러리역할분리, MVP16개축소, 부분실패처리
 type: project
 relatedFiles: dsc-fms-portal/ASSET_MASTER_PHASE2_WEB_FEEDBACK.md
 ---
 
-# Asset Master v2 Phase 2 — 웹개발자 리뷰 피드백
+# Asset Master v2 Phase 2 — Web-Builder AI Agent 리뷰 피드백
 
 **대상:** ASSET_MASTER_PHASE2_DESIGN_SKELETON.md 1차 스켈톤  
 **결론:** 방향성 OK. 범위 축소 + 일정 재조정 필요. 25개 → 16개 우선, 나머지는 Phase 2.5로 이월.

@@ -292,8 +292,8 @@ PRODUCT_HUNT_TOKEN=...
 | 역할 | 이름 | Telegram | 담당 |
 |------|------|----------|------|
 | **비서** | Claude Bot | @jeepney_secretary | 프로젝트 관리, 온보딩 |
-| **평가자** | Evaluator | TBD | 테스트 & QA 검증 |
-| **웹개발자** | Web-Builder | TBD | 배포 & 인프라 |
+| **Evaluator AI Agent** | Evaluator | TBD | 테스트 & QA 검증 |
+| **Web-Builder AI Agent** | Web-Builder | TBD | 배포 & 인프라 |
 
 ---
 

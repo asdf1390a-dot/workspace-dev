@@ -28,27 +28,27 @@ date: 2026-05-18
 
 ### Day 2 (Sat 2026-05-18): Compressed Onboarding + Task #1 Kickoff ✅ COMPLETED
 - **09:00-09:30:** Environment setup (VS Code, git, Supabase client, .env)
-- **09:30-10:00:** Code review walkthrough (웹개발자-learnings.md + project structure)
+- **09:30-10:00:** Code review walkthrough (Web-Builder AI Agent-learnings.md + project structure)
 - **10:00-10:15:** Task #1 spec review (failure_code dropdown for BM form)
 - **10:15 onward:** Independent work begins (47h 45m deadline = 2026-05-20 09:30)
 - **Web-dev mentor:** Continuous pair review, PR feedback
-- **플레너:** Completes TOP 3 Ghost selection ✅ (COMPLETED 10:00)
-- **평가자:** Starts Backup Phase 2 UI assessment (40% complete by EOD)
+- **Planner AI Agent:** Completes TOP 3 Ghost selection ✅ (COMPLETED 10:00)
+- **Evaluator AI Agent:** Starts Backup Phase 2 UI assessment (40% complete by EOD)
 
 ### Day 3 (Sun 2026-05-19): Code Review Cycle + Progress Monitoring 
 - **신규팀원 Task #1:** Failure code dropdown implementation (Day 3 checkpoint: 30% expected)
   - Supabase glossary query → dropdown rendering → form integration
   - Web-dev mentor: Code review → PR feedback
 - **15:00 Progress Report:** Web-dev delivers first checkpoint
-- **플레너:** Finalizes TOP 3 project assignment details
-- **평가자:** Completes Backup Phase 2 UI (full assessment ready)
+- **Planner AI Agent:** Finalizes TOP 3 project assignment details
+- **Evaluator AI Agent:** Completes Backup Phase 2 UI (full assessment ready)
 - **비서:** Runs 15:00 checkpoint (Task #1 tracking)
 
 ### Day 4 (Mon 2026-05-20): Task #1 Completion + Phase 3 Start ✅ CHECKPOINT
 - **09:00:** Audit System implementation starts (3-day sprint)
   - Web-dev (Day 1-2): DRS scoring logic + Vercel Cron setup
-  - 평가자 (Day 3): QA validation + edge cases
-  - 플레너: Discord #감시시스템 channel creation
+  - Evaluator AI Agent (Day 3): QA validation + edge cases
+  - Planner AI Agent: Discord #감시시스템 channel creation
 - **14:00-15:00:** Task #1 final testing + code review cycles
 - **신규팀원:** Expected 47h 45m completion (failure_code dropdown DONE)
 - **Next Task:** Asset Master Phase 2 API Endpoint 1 (GET /assets)
@@ -58,29 +58,29 @@ date: 2026-05-18
 - **신규팀원 (Asset Master API):**
   - Task #2 spec review (GET /api/assets endpoint)
   - Expected: 70h work (2026-05-24 completion)
-- **웹개발자 (Backup Phase 2 API):**
+- **Web-Builder AI Agent (Backup Phase 2 API):**
   - Schedule/quota/metrics endpoints (Week 1 focus)
   - Parallel with new team member → minimal mentor overhead
-- **평가자 (Audit System QA):**
+- **Evaluator AI Agent (Audit System QA):**
   - Day 3 validation (Discord alerting, edge cases)
   - Post-testing: sign-off
-- **플레너:** Coordinates schedule between 3 parallel efforts
+- **Planner AI Agent:** Coordinates schedule between 3 parallel efforts
 
 ### Day 6 (Wed 2026-05-22): Audit System Completion ✅
-- **웹개발자 + 평가자:** Audit System finalized
+- **Web-Builder AI Agent + Evaluator AI Agent:** Audit System finalized
   - DRS scoring: ✅ complete
   - Alerts: ✅ complete
   - QA: ✅ sign-off
 - **배포:** Vercel push + Discord channel announcement
 - **신규팀원:** Task #2 (Asset Master API) 35h into 70h sprint
-- **플레너:** Prepares Week 2 parallel execution plan
+- **Planner AI Agent:** Prepares Week 2 parallel execution plan
 
 ### Day 7 (Thu 2026-05-23): Audit System Deploy + Capacity Planning
 - **Audit System:** Deployed to production
 - **신규팀원:** Task #2 nearing completion (60h into 70h)
-- **웹개발자:** Continues Backup Phase 2 API (schedule automation)
-- **평가자:** Next assignment clarification (post-Audit System)
-- **비서:** Projects capacity utilization → 59% (평가자 20% added, fully ramped)
+- **Web-Builder AI Agent:** Continues Backup Phase 2 API (schedule automation)
+- **Evaluator AI Agent:** Next assignment clarification (post-Audit System)
+- **비서:** Projects capacity utilization → 59% (Evaluator AI Agent 20% added, fully ramped)
 
 ---
 
@@ -101,21 +101,21 @@ date: 2026-05-18
   - Web-dev mentor: 5h/week code review
   - Deadline: Complete 5 endpoints by 2026-05-31
 
-- **Thread 2: 웹개발자 (Backup Phase 2 API)**
+- **Thread 2: Web-Builder AI Agent (Backup Phase 2 API)**
   - Week 1 focus: Schedule (3 APIs), Quota (2 APIs), Metrics (3 APIs) = 8 APIs
   - Week 2 focus: Cleanup (2 APIs), Notifications (2 APIs) = 4 APIs
   - Total: 12 of 16 APIs by EOW
   - Velocity: 60h/week (standard)
   - Deadline: 16 APIs complete by 2026-06-03
 
-- **Thread 3: 평가자 (Next Assignment)**
+- **Thread 3: Evaluator AI Agent (Next Assignment)**
   - Decision pending user return (2026-05-25)
   - Option A: Asset Master Phase 2 QA (parallel with endpoint development)
   - Option B: Travel Management Phase 2 UI assessment (staggered start 2026-05-30)
   - Option C: Continuous Backup Phase 2 validation
   - Assumed: Option A (QA gates each Asset Master endpoint)
 
-- **Thread 4: 플레너 (Oversight)**
+- **Thread 4: Planner AI Agent (Oversight)**
   - Coordinates 3 parallel streams
   - Detects blockers automatically (daily 14:00 checkpoints)
   - Escalates risks to user
@@ -123,9 +123,9 @@ date: 2026-05-18
 
 ### Capacity Utilization (Week 2)
 - 신규팀원: 70h/week (100% active) — only 5h/week slack (mentor review)
-- 웹개발자: 60h/week (80% allocated) — 20h/week buffer (can pull Week 3 work forward)
-- 평가자: 20h/week (100% assigned) — fully ramped from Day 4 onward
-- 번역가 + 분석가: 25% idle each (available for Phase 3 support)
+- Web-Builder AI Agent: 60h/week (80% allocated) — 20h/week buffer (can pull Week 3 work forward)
+- Evaluator AI Agent: 20h/week (100% assigned) — fully ramped from Day 4 onward
+- Translator AI Agent + 분석가: 25% idle each (available for Phase 3 support)
 - **Total utilization: 68%** (target 100% with 자동화전문가 2026-05-30)
 
 ---
@@ -136,9 +136,9 @@ date: 2026-05-18
 
 **Milestones:**
 - 신규팀원 Task #2 completion (POST /assets, PUT, DELETE, GET/:id) ✅
-- 웹개발자 Backup Phase 2 API 14/16 complete (cleanup + notifications staging)
-- 평가자 Asset Master QA gates all endpoints through code review
-- 플레너 initiates Travel Management Phase 2 (UI component design kickoff)
+- Web-Builder AI Agent Backup Phase 2 API 14/16 complete (cleanup + notifications staging)
+- Evaluator AI Agent Asset Master QA gates all endpoints through code review
+- Planner AI Agent initiates Travel Management Phase 2 (UI component design kickoff)
 - 비서 onboards 자동화전문가 (Day 8 onboarding if hired on schedule)
 
 **New Team Member Status:**
@@ -150,9 +150,9 @@ date: 2026-05-18
 
 **Capacity Utilization (Week 3):**
 - 신규팀원: 80h/week (overallocation by 10h, planned)
-- 웹개발자: 50h/week (final 2 APIs + testing) — 30h/week freed for Phase 3
-- 평가자: 20h/week (QA gates + Travel Phase 2 assessment)
-- 플레너: 20h/week (Travel UI design coordination)
+- Web-Builder AI Agent: 50h/week (final 2 APIs + testing) — 30h/week freed for Phase 3
+- Evaluator AI Agent: 20h/week (QA gates + Travel Phase 2 assessment)
+- Planner AI Agent: 20h/week (Travel UI design coordination)
 - 자동화전문가: 0h (hiring window, may start EOW)
 - **Total utilization: 74%** (approaching 100% with specialist hire)
 
@@ -164,9 +164,9 @@ date: 2026-05-18
 
 **Milestones:**
 - 신규팀원 Asset Master Phase 2 Advanced APIs complete ✅ (all 25 endpoints)
-- 웹개발자 Backup Phase 2 API 16/16 complete + Vercel deploy ✅
-- 평가자 travels to Travel Management Phase 2 UI validation (started Week 3)
-- 플레너 final Travel Phase 2 component design review
+- Web-Builder AI Agent Backup Phase 2 API 16/16 complete + Vercel deploy ✅
+- Evaluator AI Agent travels to Travel Management Phase 2 UI validation (started Week 3)
+- Planner AI Agent final Travel Phase 2 component design review
 - 비서 full onboarding 자동화전문가 (if started 2026-06-07)
 
 **Integration Activities:**
@@ -182,9 +182,9 @@ date: 2026-05-18
 
 **Capacity Utilization (Week 4):**
 - 신규팀원: 60h/week (Phase 3 ramp-down, final Asset Master reviews)
-- 웹개발자: 40h/week (Backup deployment + Phase 3 prep)
-- 평가자: 25h/week (Travel UI final QA)
-- 플레너: 25h/week (Phase 3 kickoff planning + Travel deployment)
+- Web-Builder AI Agent: 40h/week (Backup deployment + Phase 3 prep)
+- Evaluator AI Agent: 25h/week (Travel UI final QA)
+- Planner AI Agent: 25h/week (Phase 3 kickoff planning + Travel deployment)
 - 자동화전문가: 20h/week (ramp-in, Cron job automation)
 - **Total utilization: 85%** (near target, 자동화전문가 ramped to 50%)
 
@@ -204,19 +204,19 @@ date: 2026-05-18
 
 **Team Status:**
 - 신규팀원 autonomous (Phase 3 feature development)
-- 웹개발자 senior lead (architecture + Phase 3 mentoring)
-- 평가자 QA gatekeeper (all deployments)
-- 플레너 strategy (Phase 7 planning)
-- 번역가 + 분석가 engaged (DSC FMS enhancements)
+- Web-Builder AI Agent senior lead (architecture + Phase 3 mentoring)
+- Evaluator AI Agent QA gatekeeper (all deployments)
+- Planner AI Agent strategy (Phase 7 planning)
+- Translator AI Agent + 분석가 engaged (DSC FMS enhancements)
 - 자동화전문가 steady-state (monitoring + alerting)
 
 **Capacity Utilization (Week 5):**
 - **100%** (target achieved)
   - 신규팀원: 60h/week → mature
-  - 웹개발자: 50h/week → sustained senior lead
-  - 평가자: 25h/week → QA gate
-  - 플레너: 20h/week → strategy
-  - 번역가: 20h/week → DSC communication
+  - Web-Builder AI Agent: 50h/week → sustained senior lead
+  - Evaluator AI Agent: 25h/week → QA gate
+  - Planner AI Agent: 20h/week → strategy
+  - Translator AI Agent: 20h/week → DSC communication
   - 분석가: 20h/week → data insights
   - 자동화전문가: 31h/week → fully ramped
 
@@ -245,13 +245,13 @@ date: 2026-05-18
 - [ ] Task #1 (failure_code dropdown) complete with code review (Day 3-4)
 - [ ] TOP 3 Ghost projects assigned (Day 2)
 - [ ] Audit System 3-day sprint started (Day 4)
-- [ ] 평가자 Backup Phase 2 UI assessment 40%+ (Day 3)
+- [ ] Evaluator AI Agent Backup Phase 2 UI assessment 40%+ (Day 3)
 
 ### WEEK 2: ✅ Parallel Execution Proven
 - [ ] New team member 5 API endpoints (POST, PUT, DELETE, GET/:id) complete
 - [ ] Web-dev 12/16 Backup APIs complete (schedule + quota + metrics)
 - [ ] Audit System fully deployed (production)
-- [ ] 평가자 ramped to 20h/week (100% capacity)
+- [ ] Evaluator AI Agent ramped to 20h/week (100% capacity)
 - [ ] Capacity utilization target: 68%
 
 ### WEEK 3: ✅ Advanced APIs + Travel UI Design
@@ -285,11 +285,11 @@ date: 2026-05-18
 - **Contingency:** Pull work from Week 2 → redistribute to web-dev or defer to Week 3
 
 ### Risk 2: Parallel Execution Coordination
-- **Mitigation:** 플레너 daily 14:00 blocker resolution sprint
+- **Mitigation:** Planner AI Agent daily 14:00 blocker resolution sprint
 - **Decision point:** Day 10+ → if blocking chains emerge, serialize projects
 - **Contingency:** Asset Master + Backup can serialize (2-week separation)
 
-### Risk 3: 평가자 Ramp-in (20h/week)
+### Risk 3: Evaluator AI Agent Ramp-in (20h/week)
 - **Mitigation:** Structured QA gates (code review every endpoint)
 - **Decision point:** Day 10 → if QA gates slow-down > 5h/week, reduce scope
 - **Contingency:** Defer QA gates to Phase 3 (accept risk)
@@ -313,9 +313,9 @@ date: 2026-05-18
 | Agent | Week 1 | Week 2 | Week 3 | Week 4 | Week 5 | Total |
 |-------|--------|--------|--------|--------|--------|--------|
 | 신규팀원 | 50h | 70h | 80h | 60h | 60h | 320h |
-| 웹개발자 | 20h | 60h | 50h | 40h | 50h | 220h |
-| 평가자 | 5h | 20h | 25h | 25h | 25h | 100h |
-| 플레너 | 10h | 15h | 20h | 25h | 20h | 90h |
+| Web-Builder AI Agent | 20h | 60h | 50h | 40h | 50h | 220h |
+| Evaluator AI Agent | 5h | 20h | 25h | 25h | 25h | 100h |
+| Planner AI Agent | 10h | 15h | 20h | 25h | 20h | 90h |
 | 자동화전문가 | 0h | 0h | 5h | 20h | 31h | 56h |
 | **TOTAL** | **85h** | **165h** | **180h** | **170h** | **186h** | **786h** |
 | **% Capacity** | 45% | 68% | 74% | 85% | 100% | — |

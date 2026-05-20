@@ -137,4 +137,4 @@ if (authHeader !== expectedToken) {
 - 30분 timeout으로 행(hung) 프로세스 감지
 
 ## 상태
-🟡 **설계 완료** → 웹개발자 구현 대기 (2026-05-21 18:00 마감)
+🟡 **설계 완료** → Web-Builder AI Agent 구현 대기 (2026-05-21 18:00 마감)
