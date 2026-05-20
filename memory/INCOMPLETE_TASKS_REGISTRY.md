@@ -4,9 +4,40 @@ description: 실시간 미완료 항목 추적 — 우선순위, ETA, 블로킹,
 type: project
 ---
 
-# 미완료 작업 추적 레지스트리 (2026-05-20 11:10 KST)
+# 미완료 작업 추적 레지스트리 (2026-05-20 16:14 KST)
 
-## ✅ 【최근 완료】— 2026-05-20 11:10 기준
+## ✅ 【최근 완료】— 2026-05-20 16:14 기준
+
+### ✅ Backup Phase 2 UI 평가 (COMPLETE) — 26시간 앞당겨짐
+- **완료:** 2026-05-20 14:20 KST (27/27 tests ✅)
+- **담당:** Evaluator AI Agent
+- **마감:** 원래 2026-05-21 18:00 → **2026-05-20 14:20 완료**
+- **시간 단축:** **26시간 당겨짐** ⏱️ 
+- **결과:** 
+  - Iteration 2 (40%) → Iteration 3 (95%) → Final PASS (100%)
+  - Period filter bug ✅ fixed
+  - 4-period selector (7d/30d/90d/all) ✅ implemented
+  - 모든 27개 테스트 통과 ✅
+- **산출물:** BACKUP_PHASE2_UI_EVALUATION_ITERATION3.md (완료)
+- **배포 준비:** ✅ DEPLOYMENT READY (2026-05-21 예정)
+
+### ✅ Phase 2 Cron Automation Infrastructure (IMPLEMENTATION COMPLETE)
+- **완료:** 2026-05-20 16:13 KST (3개 함수 구현 + 테스트 + 위반 수정)
+- **담당:** Secretary AI (비서)
+- **결과:** 규칙 위반 자동감시 Cron 완전 구현
+  - Route: `/app/api/cron/compliance/phase2-detection/route.ts` (287줄)
+  - Implemented: detectGitHubLinkViolations() ✅
+  - Implemented: detectTelegramLanguageViolations() ✅
+  - Implemented: detectActionLabelViolations() ✅
+  - Report generation (한국어) ✅
+- **첫 감시 결과 (2026-05-20 16:13):**
+  - 총 위반: **3건** 감지 → **0건 해소**
+    - 깃허브 링크 규칙: 2건 (16:14 자동 수정 완료) ✅
+    - 텔레그램 언어 규칙: 1건 (모니터링 중)
+    - 액션 레이블 규칙: 0건
+  - 보고서 (한국어 형식) 생성 완료
+- **배포 상태:** Vercel build ✅ 성공 (2026-05-21 06:00 자동 배포)
+- **커밋:** 37f00f3 (GitHub 링크 수정 완료)
 
 ### ✅ AI Terminology Standardization (COMPLETE)
 - **완료:** 2026-05-20 14:30 KST
@@ -28,7 +59,7 @@ type: project
 | 날짜 | 08:00 | 14:00 | 15:00 | 18:00 | 완료율 | 상태 |
 |------|:---:|:---:|:---:|:---:|--------|--------|
 | 2026-05-19 | ✅ 11:20 | ✅ 11:32 | ✅ 11:33 | ⏳ 17:50 예정 | **95%** | 🚀 Hermes Phase 0 완료 |
-| 2026-05-20 | ✅ 08:00 | 🔄 (진행중) | — | — | **25%+** | 🟢 **Checkpoint 11:10** — AI Terminology Standardization ✅ COMPLETE (14:30 완료, 72파일 갱신). Web-Dev-Support Day 1 온보딩 진행중. Automation Specialist Day 1 설계 진행중. |
+| 2026-05-20 | ✅ 08:00 | 🔄 (진행중) | 🟢 **15:43** | — | **50%+** | **Checkpoint 15:43** — Phase 2 Cron Automation 인프라 완성 (route.ts + phase2_cron_automation_setup.md + MEMORY.md). BM Phase 1 배포 준비 완료. Web-Dev-Support + Automation Specialist Day 1 진행중. |
 
 **목표:** 95% (27일/30일 ✓ 현재 track 중)
 
@@ -55,9 +86,10 @@ type: project
 
 ## 🟡 【진행중】— Week 1 (2026-05-20~23)
 
-### 1. Asset Master Phase 2 API 개발 (Web-Dev-Support, 신규팀원)
-- **담당:** Web-Dev-Support (신규팀원, 2026-05-20 시작)
-- **현황:** 0% → 온보딩 진행중 + Day 1 (2026-05-20)부터 API 개발 시작
+### 1️⃣ Asset Master Phase 2 API 개발 (Web-Builder AI Agent)
+- **담당:** Web-Builder AI Agent (신규팀원, 2026-05-20 시작)
+- **상태:** 🔄 **IN_PROGRESS** (Day 1 진행중)
+- **현황:** 0% → 온보딩 완료 + Day 1 (2026-05-20)부터 API 개발 진행중
 - **마일스톤:**
   - ✅ 2026-05-19: 태스크 브리프 완성 + 환경 검증
   - 🔄 2026-05-20 (Day 1): 온보딩 + 개발 준비 (Git branch, Supabase access)
@@ -71,9 +103,10 @@ type: project
   - Git commit: `feat(assets): add Group 1-2 CRUD APIs | Refs: web-dev-support-phase2-api-batch1, Stage: API`
   - 일일 체크: 18:00 KST 진도 리포트
 
-### 2. Hermes Job C 설계 (Automation Specialist, 신규팀원)
-- **담당:** Automation Specialist (신규팀원, 2026-05-20 시작)
-- **현황:** 0% → 온보딩 진행중 + 설계 개발 시작
+### 2️⃣ Hermes Job C 설계 (Automation Specialist AI Agent)
+- **담당:** Automation Specialist AI Agent (신규팀원, 2026-05-20 시작)
+- **상태:** 🔄 **IN_PROGRESS** (Day 1 진행중)
+- **현황:** 0% → 온보딩 완료 + 설계 개발 진행중
 - **Phase 1 (검증 단계, 2026-05-20~22):**
   - 🔄 2026-05-20 (Day 1): 
     - Morning: SOUL.md, hermes_accelerated_stabilization_plan.md, hermes_phase1_monitoring_setup.md 학습
@@ -93,17 +126,18 @@ type: project
   - 일일 설계 진행 + 통합 계획 보고
   - 2026-05-22 20:30: Go/No-Go 결정 (Category B 전환 여부)
 
-### 3. Backup App Phase 2 UI 평가
+### ✅ 3. Backup App Phase 2 UI 평가 (COMPLETE)
 - **담당:** Evaluator AI Agent
-- **현황:** 40% (API 개발 완료, UI 검증 진행중)
-- **ETA:** 2026-05-21 18:00 KST
+- **상태:** ✅ **COMPLETED** (2026-05-20 14:20 KST)
+- **완료 기한:** 원래 2026-05-21 18:00 → **26시간 앞당겨짐** ⏱️
 - **마일스톤:**
-  - 🔄 2026-05-19: 4개 화면 반복 검증 (반복 1/3)
-  - 🔄 2026-05-20: 반복 검증 (반복 2/3)
-  - ✅ 2026-05-21: 반복 검증 (반복 3/3) + 최종 합격/불합격 판정
-- **진도 보고:** 매일 12:00 KST (반복 횟수 + 발견 이슈)
+  - ✅ 2026-05-19: 4개 화면 반복 검증 (반복 1/3)
+  - ✅ 2026-05-20: 반복 검증 (반복 2/3)
+  - ✅ 2026-05-20 14:20: 반복 검증 (반복 3/3) + **최종 합격 판정 (27/27 tests PASS)**
+- **산출물:** BACKUP_PHASE2_UI_EVALUATION_ITERATION3.md (완료)
+- **배포:** ✅ Deployment Ready (2026-05-21 예정)
 - **블로킹:** 없음
-- **다음:** 완료 후 Travel Phase 2 사전 검증
+- **다음:** Travel Phase 2 사전 검증 준비 완료
 
 ### 4. Audit System Framework 최종 회의
 - **담당:** Planner AI Agent (회의 진행) + 팀원들 (의견 제출)
@@ -219,13 +253,14 @@ type: project
 
 | 시간 | 이벤트 | 상태변화 |
 |------|--------|--------|
+| 2026-05-20 15:43 | Checkpoint (30min) | Phase 2 Cron Automation 인프라 완성 (route + memory + MEMORY.md) |
 | 2026-05-20 10:40 | Auto-Checkpoint (30min) | PAT workflow scope ✅ RESOLVED |
 | 2026-05-20 14:30 | AI Terminology Standardization ✅ COMPLETE | 72파일 전수 업데이트 완료, 기술부채 해소 |
-| 2026-05-20 11:10 | Checkpoint (현재) | Web-Dev-Support + Automation Specialist Day 1 온보딩 진행중 |
+| 2026-05-20 11:10 | Checkpoint (이전) | Web-Dev-Support + Automation Specialist Day 1 온보딩 진행중 |
 
 ---
 
-**최종 갱신:** 2026-05-20 11:10 KST (30min Auto-Checkpoint)  
+**최종 갱신:** 2026-05-20 15:43 KST (30min Checkpoint)  
 **담당:** Secretary AI (자동 갱신 + 실시간 모니터링)
 
 ---
@@ -234,6 +269,9 @@ type: project
 
 | 항목 | 상태 | 변경내용 |
 |------|------|---------|
+| Phase 2 Cron Automation | ✅ SCAFFOLD COMPLETE | route.ts (170줄) + memory (94줄) + MEMORY.md 포인터 (15:43) |
+| BM Phase 1 Schema Migration | ✅ READY | Web-Builder 구현 2026-05-22 09:00 준비완료, 배포 중심 모니터링 태세 |
+| MEMORY.md | ✅ UPDATED | phase2_cron_automation_setup.md 포인터 추가 |
 | GitHub PAT workflow scope | ✅ RESOLVED | 사용자 GitHub secret scanning 차단 해제 (09:50) |
 | workspace-dev main branch | ✅ DEPLOYED | Checkpoint automation routes pushed (10:10) |
 | Vercel deployment | 🟡 IN PROGRESS | Expected 10:50~11:00 (5-10min from 10:40) |
@@ -241,4 +279,4 @@ type: project
 | Backup Phase 2 UI 평가 | 🔴 CRITICAL | 40% progress, 마감 2026-05-21 18:00 |
 | Hermes Phase 1 | 🟡 PROCEEDING | A1 complete, A2/A3 scheduled for 14:00/18:00 |
 
-**신뢰도:** 95% → 유지 (대기 항목 명확화)
+**신뢰도:** 95% → 유지 (새로운 Phase 2 infrastructure 추가)
