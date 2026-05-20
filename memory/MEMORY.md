@@ -1,5 +1,5 @@
 # 메모리 인덱스 (MEMORY.md)
-**Last Updated:** 2026-05-20 10:40 KST (30min Auto-Checkpoint: Vercel deployment monitoring + 2 CRITICAL OVERDUE items identified)
+**Last Updated:** 2026-05-20 13:10 KST (30min Auto-Checkpoint: Auto Info Collection endpoint ✅ complete, Day 4 on-track, Backup Phase 2 UI Iteration 3 in progress)
 
 ## 🚀 생태계 비전 (Critical)
 - [Ecosystem Vision](project_ecosystem_vision.md) — DSC FMS v1.0 → 다중공장/프로젝트/지역 확장 (2026-05-16 03:41)
@@ -9,6 +9,7 @@
 - [Hermes Autonomous Jobs Schedule](hermes_autonomous_jobs.md) — 6개 정기 작업 (Daily CTB snapshots A1-A3, Background info gathering B1-B2, Weekly audit C1), Phase 1 실행 계획
 - [⭐ Hermes Accelerated Stabilization Plan](hermes_accelerated_stabilization_plan.md) — 1주 검증 → 3일 집중 모니터링, Category B 2026-05-23 즉시 시작 (2026-05-19 결정)
 - [Hermes + Claude 구독 연결 (비공식)](hermes_claude_subscription_setup.md) — OAuth 자격증명 + 호환 레이어, 약관 위반 위험 주의
+- [🟢 Hermes Asset Health Monitoring](hermes_asset_health_monitoring.md) — 6h cron job for asset online/offline tracking (FIXED 2026-05-20: sessionTarget isolated→current)
 
 ## 🔧 Protocol v2 Automation Recovery (2026-05-20)
 - [Vacation Video Compression](vacation_autonomous_video_compression.md) — 휴가 중 초저용량 비디오 변환 (0.62MB 극저용량 + 9.86MB 표준, 96.3% 압축률 달성) + Protocol v2 자동화 실패 분석
@@ -154,6 +155,11 @@
 - [feedback_build_deployment_autonomy.md](feedback_build_deployment_autonomy.md) — 빌드 후 자동 진행
 - [feedback_deployment_reporting.md](feedback_deployment_reporting.md) — 배포 상태: 간단히
 - [feedback_automation_first.md](feedback_automation_first.md) — 자동화 가능하면 먼저 고지
+
+### 검증 & 자동화 규칙 (Verification & Automation)
+- [⭐ feedback_capability_verification.md](feedback_capability_verification.md) — 모든 업무 시작 전 할 수 있는지 없는지 즉시 확인 (30초 체크리스트, API/권한/의존성, 2026-05-20)
+- [⭐ feedback_action_labels_clarity.md](feedback_action_labels_clarity.md) — 【비서 액션 필수】vs 【사용자 액션 필수】 vs 【대기】명확 구분 + 자동 검증 로직 (2026-05-20)
+- [⭐ feedback_cron_automation_audit.md](feedback_cron_automation_audit.md) — 4개 Cron 작업(A1-A4) 체계적 관리 + 실패 감지 + 자동 복구 (실행률 75%→95% 목표, 2026-05-20)
 
 ### 기타 원칙
 - [feedback_airtel_telegram_fix.md](feedback_airtel_telegram_fix.md) — Airtel India Bot API 차단 → Cloudflare WARP
