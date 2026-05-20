@@ -34,6 +34,7 @@ type: project
 | 2026-05-20 | — | 16:45 🔴 | — | — | — | 🔴 **Asset Master Phase 2 Day 5-7 BLOCKER RESOLVED (AUTONOMOUS DECISION)** — Previous blocker (4 findings) was based on inaccurate session context. **Autonomous Investigation (session preceding CTB update) confirmed:** (A) All 16 items exist as implemented routes ✅, (B) App Router confirmed correct strategy ✅, (C) main@ab17915 confirmed correct branch ✅, (D) db/29_asset_master_v2_phase2.sql verified APPLIED in Supabase ✅. **Result: All implementation blockers resolved. Asset Master Phase 2 ready for execution.** |
 | 2026-05-20 | — | ~19:00 ❌ | — | — | — | 🔴 **db/29 Migration Status CORRECTED — NOT APPLIED** — Web-Builder AI Agent verification found: db/29_asset_master_v2_phase2.sql file exists but **NOT applied to production Supabase**. Import workflow endpoints (preview, execute, batches) return 500 — table lookup fails. db/14 (BM-P1) verified ✅ applied. Build passes ✅, 16 APIs compile ✅, but 4 import endpoints blocked until db/29 runs. **【사용자 액션 필요】SQL Editor 실행 필수** (상세 지시 아래). |
 | 2026-05-20 | — | ~20:50+ (continuation session) | — | — | — | 🟡 **Continuation Session Checkpoint** — Workspace cleaned (verification scripts removed). All 16 asset APIs verified present in codebase (app/api/assets route structure). db/29 migration file verified ✅ exists at dsc-fms-portal/db/29_asset_master_v2_phase2.sql (270 lines). USER_ACTION documentation ready: /home/jeepney/.openclaw/workspace-dev/USER_ACTION_ASSET_MASTER_DB_MIGRATION.md (9.6 KB). **Awaiting:** User executes db/29 migration in Supabase SQL Editor. **Next:** Post-execution: (1) Verify tables created in Supabase, (2) Resume web-builder AI Agent with corrected task brief, (3) Begin integration testing of import endpoints. Vacation mode active (2026-05-15~24), autonomous operations enabled. |
+| 2026-05-20 | — | 23:45 ✅ | — | — | — | 🟢 **Continuation Session (Opus→Haiku handoff) — Status Verification Complete** — ✅ Cron monitoring job active (ID: 0d2d40be-6dd9-4340-af37-9a9df29c2f56, enabled=true, interval=5min). ✅ db/29 migration status confirmed NOT APPLIED (PGRST205 error on asset_import_batches table). ✅ All documentation ready (USER_ACTION + POST_MIGRATION_PLAN). ✅ Web-Builder AI Agent briefing prepared. **Status:** 🔴 BLOCKED_ON_USER — awaiting db/29 execution. **Automation:** Cron will auto-detect table creation → Phase 1-3 execution → Web-Builder resumption. All systems nominal, monitoring active. |
 | 2026-05-20 | — | 20:53 ✅ | — | — | — | 🟢 **Asset Master Phase 2 Post-Migration Plan Created** — ASSET_MASTER_PHASE2_POST_MIGRATION_PLAN.md committed (d3f8f9c). Comprehensive execution plan: Phase 1 (5min schema verification), Phase 2 (15min integration tests), Phase 3 (dev continuation). Includes: verification queries, test cases, success criteria, timeline. Status: READY_FOR_EXECUTION awaiting user db/29 completion. Team status: Backup Phase 2 UI ✅ COMPLETE (100%), Auto Info ✅ DEPLOYED, AI Terminology ✅ COMPLETE, PM Phase 1 ✅ IN_PROGRESS, BM-P1 🔴 BLOCKED_ON_EXTERNAL (evaluator). Next: Monitor for user db/29 execution signal. |
 
 **신뢰도 계산:** 완료 갱신 / 예정된 갱신 × 100%  
@@ -329,14 +330,17 @@ Stage: <DESIGN|DB|API|UI|DEPLOY|VERIFY>
 - **담당자:** 웹 개발 지원가 (신규팀원, 2026-05-17 온보딩 시작)
 - **실제 시작:** 2026-05-18 (Day 2, 코드리뷰 후) 또는 2026-05-20 (Day 4, 독립작업)
 - **진행률:** 0% (온보딩 전, 정상)
-- **현재 단계:** 📋 **준비 완료** — 모든 설계 문서 + DB 마이그레이션 ✅ 확인됨
-- **예정 완료:** 2026-05-23 18:00 KST (Day 7, MVP 16개 엔드포인트) — **일정 현실적**
+- **현재 단계:** 🔴 **BLOCKED_ON_USER** — db/29 마이그레이션 사용자 실행 대기중
+- **예정 완료:** 2026-05-23 18:00 KST (Day 7, MVP 16개 엔드포인트) — **일정 현실적** (마이그레이션 후)
 - **온보딩 일정 (2026-05-17 ~ 2026-05-23):**
   - **Day 1 (2026-05-17):** 프로젝트 구조 + 환경 설정 (Web-Builder AI Agent 주도)
   - **Day 2-3 (2026-05-18~19):** 코드 리뷰 + failure_code 드롭다운 UI (첫 작업)
   - **Day 4-7 (2026-05-20~23):** Asset Master Phase 2 API 독립 개발 (매일 15:00 진도 리포트)
-- **의존성:** DB 마이그레이션 (29번) ✅ 확인됨 (2026-05-15 18:58)
-- **규칙:** 매일 15:00 KST 진도 리포트 (Day 4부터: 2026-05-20 15:00 KST)
+- **의존성:** DB 마이그레이션 (29번) ❌ 미적용 (2026-05-20 23:15 확인됨 — 테이블 없음)
+  - 사용자 액션: db/29_asset_master_v2_phase2.sql을 Supabase SQL Editor에서 실행
+  - 문서: USER_ACTION_ASSET_MASTER_DB_MIGRATION.md (클릭 가능한 SQL Editor 링크 포함)
+  - 모니터링: Cron 자동화 5분마다 체크 (Job ID: 0d2d40be..., 마이그레이션 감지시 Phase 1-3 자동 실행)
+- **규칙:** 매일 15:00 KST 진도 리포트 (Day 4부터: 2026-05-20 15:00 KST, 마이그레이션 후)
 - **P0 완료 항목 (차단 요인 제거됨):**
   - ✅ B1: App Router 통일 (Pages Router → App Router)
   - ✅ B2: 감시 로직 (asset_audit_log() 재사용)
@@ -984,7 +988,43 @@ Stage: <DESIGN|DB|API|UI|DEPLOY|VERIFY>
 
 ---
 
-**마지막 업데이트:** 2026-05-20 18:09 (Day 4 작업 할당 준비, 지연 분석)
+**마지막 업데이트:** 2026-05-20 23:15 KST (db/29 마이그레이션 상태 확인 + Cron 모니터링 설정)
 **업데이트자:** 비서 (자율 운영)
-**다음 정기 체크:** 2026-05-20 22:00 KST (Day 4 진도 확인) → 2026-05-21 15:00 KST (일일 리포트)
+**다음 정기 체크:** db/29 마이그레이션 감지 시 자동 Phase 1-3 실행
+
+---
+
+## 2026-05-20 23:15 — Continuation Session Checkpoint
+
+### Asset Master Phase 2 db/29 마이그레이션 상태 확인
+- **Supabase REST API 확인:** asset_import_batches 테이블 조회 시 "Could not find the table" 에러
+- **결론:** ❌ db/29 마이그레이션 아직 미적용 (2026-05-20 23:15 KST 기준)
+- **테이블 상태:**
+  - ❌ asset_import_batches (미생성)
+  - ❌ asset_import_items (미생성)
+  - ❌ bulk_insert_assets() RPC 함수 (미생성)
+  - ❌ 8개 인덱스 (미생성)
+
+### 자동 모니터링 시스템 설정 완료
+- **Cron Job ID:** 0d2d40be-6dd9-4340-af37-9a9df29c2f56
+- **이름:** Asset Master Phase 2 — Migration Completion Monitor
+- **주기:** 5분마다 체크
+- **동작:**
+  1. asset_import_batches 테이블 존재 확인
+  2. 테이블 발견 시 자동 Phase 1-3 실행:
+     - Phase 1: 5분 (스키마 검증 쿼리)
+     - Phase 2: 15분 (통합 테스트)
+     - Phase 3: Web-Builder AI Agent 재개
+  3. 테이블 발견 후 모니터링 자동 비활성화
+
+### 사용자 액션 문서 상태
+- ✅ USER_ACTION_ASSET_MASTER_DB_MIGRATION.md 준비 완료
+- ✅ Supabase SQL Editor 클릭 가능 링크 포함
+- ✅ db/29_asset_master_v2_phase2.sql 전체 코드 포함
+- ✅ 검증 단계 문서화
+
+### 다음 단계
+1. 사용자가 db/29 마이그레이션 실행 대기 (휴가 기간: 2026-05-15~24)
+2. Cron 작업이 마이그레이션 감지 시 자동 실행
+3. 모든 검증 통과 후 Web-Builder AI Agent 재개 신호
 
