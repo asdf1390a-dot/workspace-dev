@@ -1,5 +1,5 @@
 # 메모리 인덱스 (MEMORY.md)
-**Last Updated:** 2026-05-19 16:23 KST (Day 4 prep finalization: Onboarding audit system + Daily checkpoint)
+**Last Updated:** 2026-05-20 10:40 KST (30min Auto-Checkpoint: Vercel deployment monitoring + 2 CRITICAL OVERDUE items identified)
 
 ## 🚀 생태계 비전 (Critical)
 - [Ecosystem Vision](project_ecosystem_vision.md) — DSC FMS v1.0 → 다중공장/프로젝트/지역 확장 (2026-05-16 03:41)
@@ -16,22 +16,25 @@
 
 ---
 
-## 팀 온보딩 & 즉시 투입 킷 (Team Onboarding Kit) — 복사-붙여넣기 (2026-05-19)
-- [Standard Onboarding Template](../onboarding/STANDARD_ONBOARDING_TEMPLATE.md) — 모든 팀원 공통 온보딩 구조 (Day 0-3, 2시간 + 첫 과제)
-- [Onboarding: Web Builder](../onboarding/ONBOARDING_WEB_BUILDER.md) — Next.js/Supabase 풀스택 개발자 (Day 1: 환경세팅→첫 과제 선택)
-- [Onboarding: Planner](../onboarding/ONBOARDING_PLANNER.md) — UI/UX 설계자 (Day 1: 팀 구조→설계 문서 작성법)
-- [Onboarding: Evaluator](../onboarding/ONBOARDING_EVALUATOR.md) — QA 품질보증 (Day 1: 설계검증→기능테스트→코드리뷰)
-- [Onboarding: Data Analyst](../onboarding/ONBOARDING_DATA_ANALYST.md) — 데이터 분석 & 자동화 (Day 1: Excel/Supabase 학습→첫 분석)
-- [Onboarding: Translator](../onboarding/ONBOARDING_TRANSLATOR.md) — 한↔영 번역 (Day 1: 용어학습→이메일/Excel 번역)
-- [⭐ Onboarding Audit System](onboarding_audit_system.md) — 신규 에이전트/스킬 추가 시 자동 반영, 월 1회 정기 감시, 온보딩 문서 항상 최신 상태 유지
+## AI 에이전트 온보딩 & 설정 (AI Agent Configuration Kit) — 복사-붙여넣기 (2026-05-19)
+- [Standard AI Agent Configuration Template](../onboarding/STANDARD_ONBOARDING_TEMPLATE.md) — 모든 AI 에이전트 공통 설정 (Day 0-3, 2시간 + 첫 과제)
+- [Configuration: Web-Builder AI Agent](../onboarding/ONBOARDING_WEB_BUILDER.md) — Next.js/Supabase 풀스택 개발 (Day 1: 환경세팅→첫 과제 선택)
+- [Configuration: Planner AI Agent](../onboarding/ONBOARDING_PLANNER.md) — UI/UX 설계 (Day 1: 팀 구조→설계 문서 작성법)
+- [Configuration: Evaluator AI Agent](../onboarding/ONBOARDING_EVALUATOR.md) — QA 품질보증 (Day 1: 설계검증→기능테스트→코드리뷰)
+- [Configuration: Data-Analyst AI Agent](../onboarding/ONBOARDING_DATA_ANALYST.md) — 데이터 분석 & 자동화 (Day 1: Excel/Supabase 학습→첫 분석)
+- [Configuration: Translator AI Agent](../onboarding/ONBOARDING_TRANSLATOR.md) — 한↔영 번역 (Day 1: 용어학습→이메일/Excel 번역)
+- [⭐ AI Agent Configuration Audit System](onboarding_audit_system.md) — 신규 에이전트/스킬 추가 시 자동 반영, 월 1회 정기 감시, 에이전트 설정 문서 항상 최신 상태 유지
 
 ---
 
 ## ⚠️ 감시 & 규칙 준수 (Compliance & Audits)
+- [⭐ AI Terminology Standardization Guide](AI_TERMINOLOGY_STANDARDIZATION_GUIDE.md) — AI 에이전트 역할 표준화 (CEO+Secretary 시스템, 74개 파일 정보 갱신 완료, 2026-05-20) 
 - [⭐ Rule Compliance Execution System](rule_compliance_execution_system.md) — 메모리↔실행 갭 해소 + 5개 Cron 자동 감시 (08/14/15/18:00 KST + 자정) + 실시간 CTB 동기화 (2026-05-19 실행)
 - [⭐ Rule Compliance Audit System](rule_compliance_audit_active.md) — 일일 규칙 준수 감시 (자율 모드 + 자동화 규칙), 매일 08:00 체크 (2026-05-19 활성화)
+- [⭐ Session Error Analysis 2026-05-20](session_error_analysis_2026_05_20.md) — Hermes Bot 배포 오류 분석 + 60시간 지연 원인 (capability verification 누락, 액션 레이블 혼동, 완료기준 미정의) + 3가지 개선조치 (2026-05-20 09:37)
 - [⭐ Media Editing Follow-up Measures](media_editing_followup_measures.md) — 사진/영상 편집 규칙 위반 후 개선대책 (경로 묻기 금지, SOUL.md 강화, 2026-05-19)
 - [⭐ Missed Audit Violations Remediation](missed_audit_violations_remediation.md) — 2026-05-17 CTB 4회 MISSED 분석 + Cron 자동화 활성화 (2026-05-19 발견 & 개선)
+- [🔴 GitHub PAT Scope Blocker](github_pat_scope_blocker_2026_05_20.md) — Checkpoint automation 배포 차단 (workflow scope 부재) + 해결방법 (PAT 재생성) (2026-05-20 09:50)
 
 ---
 
@@ -54,11 +57,11 @@
 
 ### Portfolio Career (2026-05-15 설계 완료)
 - [project_portfolio_career.md](project_portfolio_career.md) — 경력 포트폴리오 설계 완료 (520줄 설계 + 240줄 DB + 450줄 체크리스트)
-- 구현 일정: 2026-05-17 ~ 2026-05-30 (14일, 웹개발자 담당)
+- 구현 일정: 2026-05-17 ~ 2026-05-30 (14일, Web-Builder AI Agent 담당)
 
 ### Travel Management (2026-05 설계 완료)
 - [project_travel_management_module_design.md](project_travel_management_module_design.md) — 여행/출장 기록 + 일정/비용/체크리스트 관리, 4탭 상세, 비용분담, 6 API
-- **✅ Phase 2 UI 설계 완료 (2026-05-19)**: [TRAVEL_PHASE2_UI_DESIGN.md](../TRAVEL_PHASE2_UI_DESIGN.md) — 1,195줄, 13개 컴포넌트 + 파일구조 + 3단계 구현계획 + 엣지케이스 매트릭스, 웹개발자 2026-05-22부터 즉시 구현 가능
+- **✅ Phase 2 UI 설계 완료 (2026-05-19)**: [TRAVEL_PHASE2_UI_DESIGN.md](../TRAVEL_PHASE2_UI_DESIGN.md) — 1,195줄, 13개 컴포넌트 + 파일구조 + 3단계 구현계획 + 엣지케이스 매트릭스, Web-Builder AI Agent 2026-05-22부터 즉시 구현 가능
 
 ### Team Expansion (2026-05-15 결정 → 2026-05-19 즉시 실행)
 - [project_team_expansion_plan_2026.md](project_team_expansion_plan_2026.md) — 팀 확대 2명 신규 배정 (2026-05-20 시작)
@@ -89,10 +92,10 @@
 - [../TOP3_PROJECTS_EXECUTION_READINESS.md](../TOP3_PROJECTS_EXECUTION_READINESS.md) — 3개 프로젝트 준비도 종합 평가 (Audit 93%, Travel 87%, Discord 80%, 2026-05-18)
 - [../AUDIT_SYSTEM_IMPLEMENTATION_CHECKLIST_2026-05-20.md](../AUDIT_SYSTEM_IMPLEMENTATION_CHECKLIST_2026-05-20.md) — 3일 상세 구현 계획 (Day 1: API, Day 2: 알림, Day 3: QA)
 - [../AUDIT_SYSTEM_MEETING_DECISION_TEMPLATE.md](../AUDIT_SYSTEM_MEETING_DECISION_TEMPLATE.md) — 2026-05-18 19:00 회의 결정사항 자동 기록 템플릿
-- [../AUDIT_SYSTEM_API_SPECIFICATION.md](../AUDIT_SYSTEM_API_SPECIFICATION.md) — 4개 엔드포인트 명세 (웹개발자 검증용, 기한 05-19 17:00)
-- [../AUDIT_SYSTEM_DB_MIGRATION.md](../AUDIT_SYSTEM_DB_MIGRATION.md) — 5개 테이블 스키마 (웹개발자 검증용, 기한 05-19 17:00)
-- [../AUDIT_SYSTEM_METRIC_FORMULA.md](../AUDIT_SYSTEM_METRIC_FORMULA.md) — 4개 메트릭 계산식 (데이터분석가 확정용, 기한 05-19 17:00)
-- [../AUDIT_SYSTEM_ALERT_CHANNEL_SETUP.md](../AUDIT_SYSTEM_ALERT_CHANNEL_SETUP.md) — Telegram/Discord 설정 가이드 (플레너용, CRITICAL PATH, 기한 05-19 17:00)
+- [../AUDIT_SYSTEM_API_SPECIFICATION.md](../AUDIT_SYSTEM_API_SPECIFICATION.md) — 4개 엔드포인트 명세 (Web-Builder AI Agent 검증용, 기한 05-19 17:00)
+- [../AUDIT_SYSTEM_DB_MIGRATION.md](../AUDIT_SYSTEM_DB_MIGRATION.md) — 5개 테이블 스키마 (Web-Builder AI Agent 검증용, 기한 05-19 17:00)
+- [../AUDIT_SYSTEM_METRIC_FORMULA.md](../AUDIT_SYSTEM_METRIC_FORMULA.md) — 4개 메트릭 계산식 (Data-Analyst AI Agent 확정용, 기한 05-19 17:00)
+- [../AUDIT_SYSTEM_ALERT_CHANNEL_SETUP.md](../AUDIT_SYSTEM_ALERT_CHANNEL_SETUP.md) — Telegram/Discord 설정 가이드 (Planner AI Agent용, CRITICAL PATH, 기한 05-19 17:00)
 - [../AUDIT_SYSTEM_DAY1_KICKOFF_AGENDA.md](../AUDIT_SYSTEM_DAY1_KICKOFF_AGENDA.md) — 30분 회의 안건 + 3일 일정표 (05-20 09:00, 2026-05-18 생성)
 - [../AUDIT_SYSTEM_PREIMPL_CHECKPOINT_TRACKER.md](../AUDIT_SYSTEM_PREIMPL_CHECKPOINT_TRACKER.md) — 실시간 모니터링 + 에스컬레이션 (05-19 08:00~17:00, 2026-05-18 생성)
 
@@ -135,17 +138,17 @@
 - [feedback_auto_status.md](feedback_auto_status.md) — 자동 현황판 **[DEPRECATED]**
 
 ### 팀 및 프로세스
-- [Agent team](project_agent_team.md) — 비서 + 웹개발자 + 평가자 + 데이터분석가 + 번역가
+- [Agent team](project_agent_team.md) — Secretary AI + Web-Builder AI Agent + Evaluator AI Agent + Data-Analyst AI Agent + Translator AI Agent
 - [Design document workflow](design_document_workflow.md) — 설계 완료 = 진행 신호
 - [workflow_context_loss_protocol.md](workflow_context_loss_protocol.md) — Context Loss Prevention v2
-- [workflow_rules_comprehensive.md](workflow_rules_comprehensive.md) — 일정 변동, 오류, 코드 검증 순서 (플레너→웹개발자→평가자→데이터분석가)
-- [feedback_dataanalyst_completion_report.md](feedback_dataanalyst_completion_report.md) — 데이터분석가: 프로젝트 완료시 완료 보고서 작성 (2026-05-15)
+- [workflow_rules_comprehensive.md](workflow_rules_comprehensive.md) — 일정 변동, 오류, 코드 검증 순서 (Planner AI Agent→Web-Builder AI Agent→Evaluator AI Agent→Data-Analyst AI Agent)
+- [feedback_dataanalyst_completion_report.md](feedback_dataanalyst_completion_report.md) — Data-Analyst AI Agent: 프로젝트 완료시 완료 보고서 작성 (2026-05-15)
 
 ### 커뮤니케이션 규칙
 - [feedback_telegram_communication_rule.md](feedback_telegram_communication_rule.md) — Telegram: 최종 결과만, Discord: 기술 상세
 - [feedback_reply_thread.md](feedback_reply_thread.md) — 항상 리플라이 형태로 답변
 - [feedback_links_clickable.md](feedback_links_clickable.md) — 링크는 클릭 가능하게
-- [feedback_channel_code_workflow.md](feedback_channel_code_workflow.md) — Telegram/Discord 수정 시 플레너→웹개발자→평가자
+- [feedback_channel_code_workflow.md](feedback_channel_code_workflow.md) — Telegram/Discord 수정 시 Planner AI Agent→Web-Builder AI Agent→Evaluator AI Agent
 
 ### 배포 & 자동화
 - [feedback_build_deployment_autonomy.md](feedback_build_deployment_autonomy.md) — 빌드 후 자동 진행
@@ -175,9 +178,9 @@
 ## 현재 진행 상황
 
 ### 🟡 진행중 (2026-05-19 16:23, Pre-Implementation)
-1. **Audit System** (Web Dev) — 95% (설계 완료, 2026-05-20~23 구현)
-2. **Discord Bot Phase 1** (Web Dev) — 95% (설계 완료, 2026-05-20~29 구현)
-3. **Travel Management Phase 2 UI** (Web Dev) — 95% (설계 완료, 2026-05-22~31 구현)
+1. **Audit System** (Web-Builder AI Agent) — 95% (설계 완료, 2026-05-20~23 구현)
+2. **Discord Bot Phase 1** (Web-Builder AI Agent) — 95% (설계 완료, 2026-05-20~29 구현)
+3. **Travel Management Phase 2 UI** (Web-Builder AI Agent) — 95% (설계 완료, 2026-05-22~31 구현)
 4. **Web-Dev-Support (신규)** (Asset Master API) — 0% (Day 1 온보딩, 2026-05-20 시작)
 5. **DevOps Engineer (신규)** (3개 병렬 프로젝트) — 0% (Day 1 온보딩, 2026-05-20 시작)
 
@@ -193,16 +196,16 @@
 
 ### 즉시 필요 (2026-05-16)
 - [ ] 사용자(Kyeongtae): Asset Master vs Travel vs Backup Phase 2 우선순위 확정
-- [ ] 평가자: TRACKING_PROCESS_IMPROVEMENT_DESIGN.md 리뷰 시작
+- [ ] Evaluator AI Agent: TRACKING_PROCESS_IMPROVEMENT_DESIGN.md 리뷰 시작
 
 ### 이번주 (2026-05-17~19)
-- [ ] 평가자: 메모리 파일 통합 (status 관련 3개 → 1개)
-- [ ] 플레너: Travel Phase 2 scope 최종화
-- [ ] 웹개발자: Backup API 구현 (Schedule endpoints)
+- [ ] Evaluator AI Agent: 메모리 파일 통합 (status 관련 3개 → 1개)
+- [ ] Planner AI Agent: Travel Phase 2 scope 최종화
+- [ ] Web-Builder AI Agent: Backup API 구현 (Schedule endpoints)
 
 ### 완료예정 (2026-05-20)
-- 추적 프로세스 개선 설계 평가자 리뷰 완료
-- Travel Phase 2 웹개발자 개발 착수 (if 우선)
+- 추적 프로세스 개선 설계 Evaluator AI Agent 리뷰 완료
+- Travel Phase 2 Web-Builder AI Agent 개발 착수 (if 우선)
 - CTB + team_task_tracking 새 구조 안정화
 
 ---
@@ -212,4 +215,4 @@
 - **파일 구조:** `/home/jeepney/.openclaw/workspace-dev/memory/`
 - **총 문서:** 25개 (프로젝트 + 사용자 + 규칙)
 - **업데이트 주기:** 주간 (또는 설계 완료 후)
-- **담당자:** 플레너 (비서 보조)
+- **담당자:** Planner AI Agent (비서 보조)
