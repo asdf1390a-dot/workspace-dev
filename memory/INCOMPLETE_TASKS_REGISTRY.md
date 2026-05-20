@@ -424,3 +424,18 @@ type: project
 
 **자동평가 완료:** 2026-05-20 22:50 KST (Cron Job 작동)  
 **결과저장:** INCOMPLETE_TASKS_REGISTRY.md (자동갱신)
+
+---
+
+## 🔄 【Task State Machine Monitor】— 2026-05-20 21:29 KST
+
+**Transitions Detected:** 0  
+**Stable States:** 3
+
+| Task | Current State | Status | ETA |
+|------|:---:|:---:|---|
+| Asset Master Phase 2 | 🔴 BLOCKED_ON_USER | Awaiting user db/29 execution (Cron Check #25: NOT_APPLIED) | Auto-transition when db/29 detected |
+| Hermes Job C Design | 🔄 IN_PROGRESS | Day 1 learning + design (Automation Specialist on track) | 2026-05-22 design complete |
+| Backup Phase 2 UI | ✅ COMPLETED | 27/27 tests PASS (verified 14:20 KST, 26h ahead) | Ready for 2026-05-21 deployment |
+
+**Status:** All states nominal. Monitoring continues for Rule 3 trigger (user db/29 execution → auto-transition to Phase 1-3 verification).
