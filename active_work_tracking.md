@@ -1,3 +1,51 @@
+## 🤖 **Cron Check #183** — 2026-05-21 11:21 KST
+**Status:** ❌ db/29 migration NOT APPLIED  
+**Error:** PGRST205 — "Could not find the table 'public.asset_import_batches' in the schema cache"  
+**HTTP Status:** 404  
+**Deadline Countdown:** 35h 38m remaining (2026-05-22 23:59 KST)  
+**Action:** Continue 5-minute interval monitoring
+
+
+## 🤖 **Cron Check #182** — 2026-05-21 11:16 KST
+**Status:** ❌ db/29 migration NOT APPLIED  
+**Error:** PGRST205 — "Could not find the table 'public.asset_import_batches' in the schema cache"  
+**HTTP Status:** 404  
+**Deadline Countdown:** 35h 43m remaining (2026-05-22 23:59 KST)  
+**Action:** Continue 5-minute interval monitoring
+
+
+## 🤖 **Cron Check #181** — 2026-05-21 11:11 KST
+**Status:** ❌ db/29 migration NOT APPLIED  
+**Error:** PGRST205 — "Could not find the table 'public.asset_import_batches' in the schema cache"  
+**HTTP Status:** 404  
+**Deadline Countdown:** 35h 48m remaining (2026-05-22 23:59 KST)  
+**Action:** Continue 5-minute interval monitoring
+
+
+## 🤖 **Cron Check #180** — 2026-05-21 11:06 KST
+**Status:** ❌ db/29 migration NOT APPLIED  
+**Error:** PGRST205 — "Could not find the table 'public.asset_import_batches' in the schema cache"  
+**HTTP Status:** 404  
+**Deadline Countdown:** 35h 53m remaining (2026-05-22 23:59 KST)  
+**Action:** Continue 5-minute interval monitoring
+
+
+## 🤖 **Cron Check #179** — 2026-05-21 11:01 KST
+**Status:** ❌ db/29 migration NOT APPLIED  
+**Error:** PGRST205 — "Could not find the table 'public.asset_import_batches' in the schema cache"  
+**HTTP Status:** 404  
+**Deadline Countdown:** 35h 58m remaining (2026-05-22 23:59 KST)  
+**Action:** Continue 5-minute interval monitoring
+
+
+## 🤖 **Cron Check #178** — 2026-05-21 10:56 KST
+**Status:** ❌ db/29 migration NOT APPLIED  
+**Error:** PGRST205 — "Could not find the table 'public.asset_import_batches' in the schema cache"  
+**HTTP Status:** 404  
+**Deadline Countdown:** 36h 3m remaining (2026-05-22 23:59 KST)  
+**Action:** Continue 5-minute interval monitoring
+
+
 ## 🤖 **Cron Check #177** — 2026-05-21 10:51 KST
 **Status:** ❌ db/29 migration NOT APPLIED  
 **Error:** PGRST205 — "Could not find the table 'public.asset_import_batches' in the schema cache"  
