@@ -160,6 +160,7 @@
 - [feedback_reply_thread.md](feedback_reply_thread.md) — 항상 리플라이 형태로 답변
 - [feedback_links_clickable.md](feedback_links_clickable.md) — 링크는 클릭 가능하게
 - [feedback_channel_code_workflow.md](feedback_channel_code_workflow.md) — Telegram/Discord 수정 시 Planner AI Agent→Web-Builder AI Agent→Evaluator AI Agent
+- [⭐ feedback_korean_incomplete_sentence.md](feedback_korean_incomplete_sentence.md) — 한국어 불완성 문장: NO_REPLY로 침묵 대기 (조사/접속사 감지, 2026-05-21)
 
 ### 배포 & 자동화
 - [feedback_build_deployment_autonomy.md](feedback_build_deployment_autonomy.md) — 빌드 후 자동 진행
@@ -170,6 +171,8 @@
 - [⭐ feedback_capability_verification.md](feedback_capability_verification.md) — 모든 업무 시작 전 할 수 있는지 없는지 즉시 확인 (30초 체크리스트, API/권한/의존성, 2026-05-20)
 - [⭐ feedback_action_labels_clarity.md](feedback_action_labels_clarity.md) — 【비서 액션 필수】vs 【사용자 액션 필수】 vs 【대기】명확 구분 + 자동 검증 로직 (2026-05-20)
 - [⭐ feedback_cron_automation_audit.md](feedback_cron_automation_audit.md) — 4개 Cron 작업(A1-A4) 체계적 관리 + 실패 감지 + 자동 복구 (실행률 75%→95% 목표, 2026-05-20)
+- [⭐ feedback_user_action_validation.md](feedback_user_action_validation.md) — 사용자 액션 제공 전 3단계 사전검증 (git status, 링크 접근성, 파일 동기화, 2026-05-21)
+- [⭐ feedback_immediate_failure_reporting.md](feedback_immediate_failure_reporting.md) — 검증 실패 시 즉시 보고 + 원인 + 대체안 (절대 사용자 대기 금지, 2026-05-21)
 
 ### 기타 원칙
 - [feedback_airtel_telegram_fix.md](feedback_airtel_telegram_fix.md) — Airtel India Bot API 차단 → Cloudflare WARP
