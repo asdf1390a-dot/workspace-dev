@@ -4,7 +4,7 @@ description: 실시간 미완료 항목 추적 — 우선순위, ETA, 블로킹,
 type: project
 ---
 
-# 미완료 작업 추적 레지스트리 (2026-05-20 23:29 KST)
+# 미완료 작업 추적 레지스트리 (2026-05-22 04:32 KST)
 
 ## ✅ 【최근 완료】— 2026-05-20 16:14 기준
 
@@ -268,6 +268,7 @@ type: project
 
 | 시간 | 이벤트 | 상태변화 |
 |------|--------|--------|
+| 2026-05-22 04:32 | Task State Machine Monitor (Cron) | 🔴 **TRANSITION DETECTED** — Asset Master Phase 2: BLOCKED_ON_USER → COMPLETED. Rule 3+4 triggered (db/29 executed 15:15 + API complete 23:45 on 2026-05-21). Hermes Job C IN_PROGRESS (Day 3 finalizing). Backup Phase 2 UI stable. |
 | 2026-05-20 21:25 | Checkpoint (30min) | 📋 **자동저장 완료** — db/29 모니터링 Checks #22-#23 (NOT_APPLIED), 상태변화 0건. Vacation mode autonomous monitoring continues. |
 | 2026-05-20 20:55 | Checkpoint (30min) | 📋 **자동저장 완료** — db/29 모니터링 Check #17 (NOT_APPLIED), 상태변화 0건. Vacation mode autonomous monitoring continues. |
 | 2026-05-21 08:00 | Morning Checkpoint (예정) | db/29 모니터링 Check #12 (NOT_APPLIED 확인) — Web-Dev-Support Day 2 대기, Automation Specialist Day 2 계속 진행 |
@@ -280,7 +281,7 @@ type: project
 
 ---
 
-**최종 갱신:** 2026-05-20 21:25 KST (30min Auto-Checkpoint)  
+**최종 갱신:** 2026-05-22 04:32 KST (Task State Machine Monitor)  
 **담당:** Secretary AI (자동 갱신 + 실시간 모니터링)
 
 ---
@@ -427,15 +428,21 @@ type: project
 
 ---
 
-## 🔄 【Task State Machine Monitor】— 2026-05-20 23:29 KST
+## 🔄 【Task State Machine Monitor】— 2026-05-22 04:32 KST
 
-**Transitions Detected:** 0  
-**Stable States:** 3
+**Transitions Detected:** 1  
+**Stable States:** 2
 
-| Task | Current State | Status | ETA |
-|------|:---:|:---:|---|
-| Asset Master Phase 2 | 🔴 BLOCKED_ON_USER | Awaiting user db/29 execution (Cron Check #77: NOT_APPLIED as of 23:27) | Auto-transition when db/29 detected |
-| Hermes Job C Design | 🔄 IN_PROGRESS | Day 1 learning + design (Automation Specialist on track) | 2026-05-22 design complete |
-| Backup Phase 2 UI | ✅ COMPLETED | 27/27 tests PASS (verified 14:20 KST, 26h ahead) | Ready for 2026-05-21 deployment |
+| Task | Previous State | Current State | Trigger | Timestamp |
+|------|:---:|:---:|---|---|
+| Asset Master Phase 2 | 🔴 BLOCKED_ON_USER | ✅ COMPLETED | Rule 3+4: db/29 executed (15:15) + 16/16 API complete (23:45) | 2026-05-21 23:45 |
+| Hermes Job C Design | 🔄 IN_PROGRESS | 🔄 IN_PROGRESS | Day 3 (2026-05-22) — design validation in progress | 2026-05-22 04:32 |
+| Backup Phase 2 UI | ✅ COMPLETED | ✅ COMPLETED | No change (stable since 14:20) | 2026-05-20 14:20 |
 
-**Status:** All states nominal. Monitoring continues for Rule 3 trigger (user db/29 execution → auto-transition to Phase 1-3 verification).
+**Transition 1: Rule 3 + Rule 4 Applied**
+- User action detected (db/29 executed 2026-05-21 15:15 per HEARTBEAT)
+- Work finished + verified (all 16 MVP APIs complete + 35/35 tests PASS)
+- State: BLOCKED_ON_USER → COMPLETED ✅
+- Verification: HEARTBEAT.md Day 5 section confirms "✅ 완료 — 16/16 MVP API 완성"
+
+**Status:** 1 major transition detected. Hermes Job C continues on schedule (Day 3 finalizing design).
