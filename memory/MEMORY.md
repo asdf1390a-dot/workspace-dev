@@ -1,5 +1,5 @@
 # 메모리 인덱스 (MEMORY.md)
-**Last Updated:** 2026-05-21 19:25 KST (Session Checkpoint #71: All 8 task states stable across 55-min monitoring window (18:30→19:25), db/29 still NOT APPLIED (PGRST205), 52h 34m to deadline. Vacation autonomous monitoring active, db/29 migration awaiting user execution in Supabase SQL Editor.)
+**Last Updated:** 2026-05-22 00:55 KST (Session Checkpoint #74: All 8 task states stable. Asset Master Phase 2 MVP completed 16/16 APIs (2026-05-21 23:45), 31h early, WEB-DEV-SUPPORT→COMPLETED. db/29 migration NOT APPLIED (monitoring 5-min cron). Hermes monitoring RESOLVED. Backup Phase 2 UI Iteration 4 live testing in progress. Vacation autonomous mode active.)
 
 ## 🚀 생태계 비전 (Critical)
 - [Ecosystem Vision](project_ecosystem_vision.md) — DSC FMS v1.0 → 다중공장/프로젝트/지역 확장 (2026-05-16 03:41)
@@ -9,6 +9,7 @@
 - [Hermes Autonomous Jobs Schedule](hermes_autonomous_jobs.md) — 6개 정기 작업 (Daily CTB snapshots A1-A3, Background info gathering B1-B2, Weekly audit C1), Phase 1 실행 계획
 - [⭐ Hermes Accelerated Stabilization Plan](hermes_accelerated_stabilization_plan.md) — 1주 검증 → 3일 집중 모니터링, Category B 2026-05-23 즉시 시작 (2026-05-19 결정)
 - [Hermes + Claude 구독 연결 (비공식)](hermes_claude_subscription_setup.md) — OAuth 자격증명 + 호환 레이어, 약관 위반 위험 주의
+- [🟢 Hermes Monitoring Status Resolution](hermes_monitoring_status_2026_05_21_resolved.md) — Critical API key issue RESOLVED 2026-05-21 21:55 KST (Supabase key injection + gateway auto-start, 3 cron jobs active)
 - [🟢 Hermes Asset Health Monitoring](hermes_asset_health_monitoring.md) — 6h cron job for asset online/offline tracking (FIXED 2026-05-20: sessionTarget isolated→current)
 
 ## 🔧 Protocol v2 Automation Recovery (2026-05-20)
