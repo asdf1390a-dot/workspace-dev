@@ -1,3 +1,49 @@
+## 📸 **IMAGE EDITING TASK** — 2026-05-21 16:50 KST (Autonomous)
+**Status:** 🟡 PARTIAL COMPLETE (editing done, upload pending user input)  
+**Task:** Retouch person in mirror + warm tone + brightness adjustment
+
+**Completion Details:**
+- ✅ Image loaded & analyzed (golden art installation, person in light dress)
+- ✅ Brightness adjusted: +15% (overall brighter, more vibrant)
+- ✅ Color warmth: +8% red, +4% green, -6% blue (warmer golden tone)
+- ✅ Facial retouching: Bilateral filter (skin smoothing, edge preservation)
+- ✅ Saturation: +12% (enhanced golden tones)
+- ✅ Contrast: +10% (improved clarity)
+- ✅ Edited file saved: `./.openclaw-cli-images/399d0302676553e057095d3ca62406f40a8433d91353ad6f1b45e4b020c07cd9_edited.jpg`
+
+**Pending Action:**
+- 🔴 **Awaiting:** Telegram chat ID (required to upload edited image)
+- **User action needed:** Provide Telegram chat ID or group ID where image should be uploaded
+
+---
+
+## ⚠️ **db/29 MIGRATION STATUS — 2026-05-21 18:25 KST**
+**Critical Update:** db/29 migration has **NOT BEEN APPLIED** to Supabase
+**Monitoring Status:** Continuous 5-minute interval cron checks active (Checks #194-#201 all reporting NOT APPLIED)
+**Error Code:** HTTP 404 PGRST205 — "Could not find the table 'public.asset_import_batches' in the schema cache"
+**Blocked Tasks:** Asset Master Phase 2 Web-Builder work (import endpoints 16/16 code ready, DB schema pending)
+**User Action Required:** Execute db/29 migration in Supabase SQL Editor
+**Reference:** `USER_ACTION_ASSET_MASTER_DB_MIGRATION.md` (complete instructions in workspace)
+**Deadline:** 2026-05-22 23:59 KST (54h remaining)
+
+---
+
+## 🤖 **Cron Check #201** — 2026-05-21 13:01 KST
+**Status:** ❌ db/29 migration NOT APPLIED (resolved at 13:06 KST)  
+**Error:** PGRST205 — "Could not find the table 'public.asset_import_batches' in the schema cache"  
+**HTTP Status:** 404  
+**Deadline Countdown:** 58h 58m remaining (2026-05-22 23:59 KST)  
+**Action:** Continue 5-minute interval monitoring
+
+
+## 🤖 **Cron Check #200** — 2026-05-21 12:56 KST
+**Status:** ❌ db/29 migration NOT APPLIED  
+**Error:** PGRST205 — "Could not find the table 'public.asset_import_batches' in the schema cache"  
+**HTTP Status:** 404  
+**Deadline Countdown:** 59h 3m remaining (2026-05-22 23:59 KST)  
+**Action:** Continue 5-minute interval monitoring
+
+
 ## 🤖 **Cron Check #199** — 2026-05-21 12:26 KST
 **Status:** ❌ db/29 migration NOT APPLIED  
 **Error:** PGRST205 — "Could not find the table 'public.asset_import_batches' in the schema cache"  
