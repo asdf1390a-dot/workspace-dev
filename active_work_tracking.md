@@ -1,3 +1,28 @@
+## 🤖 **Cron Check #187** — 2026-05-21 11:43 KST
+**Status:** ❌ db/29 migration NOT APPLIED  
+**Error:** PGRST205 — "Could not find the table 'public.asset_import_batches' in the schema cache"  
+**HTTP Status:** 404  
+**Deadline Countdown:** 35h 16m remaining (2026-05-22 23:59 KST)  
+**Action:** Continue 5-minute interval monitoring  
+**Note:** Network URL issue resolved — using correct Supabase project URL (pzkvhomhztikhkgwgqzr.supabase.co)
+
+
+## 🤖 **Cron Check #186** — 2026-05-21 11:36 KST
+**Status:** ❌ db/29 migration NOT APPLIED  
+**Error:** PGRST205 — "Could not find the table 'public.asset_import_batches' in the schema cache"  
+**HTTP Status:** 404  
+**Deadline Countdown:** 35h 23m remaining (2026-05-22 23:59 KST)  
+**Action:** Continue 5-minute interval monitoring
+
+
+## 🤖 **Cron Check #185** — 2026-05-21 11:31 KST
+**Status:** ❌ db/29 migration NOT APPLIED  
+**Error:** PGRST205 — "Could not find the table 'public.asset_import_batches' in the schema cache"  
+**HTTP Status:** 404  
+**Deadline Countdown:** 35h 28m remaining (2026-05-22 23:59 KST)  
+**Action:** Continue 5-minute interval monitoring
+
+
 ## 🤖 **Cron Check #184** — 2026-05-21 11:26 KST
 **Status:** ❌ db/29 migration NOT APPLIED  
 **Error:** PGRST205 — "Could not find the table 'public.asset_import_batches' in the schema cache"  
