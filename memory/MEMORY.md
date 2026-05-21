@@ -15,6 +15,9 @@
 - [Vacation Video Compression](vacation_autonomous_video_compression.md) — 휴가 중 초저용량 비디오 변환 (0.62MB 극저용량 + 9.86MB 표준, 96.3% 압축률 달성) + Protocol v2 자동화 실패 분석
 - [Protocol v2 Recovery Status](protocol_v2_recovery_status_2026_05_20.md) — 복구 완료 현황 + 시스템 개선안 + 향후 Cron 조치 (2026-05-20 02:00)
 
+## 📸 Ad-hoc 작업 세션 (2026-05-21)
+- [Image Editing Session](session_image_editing_2026_05_21.md) — 금 art install. 사진 편집 (밝기+15%, 따뜻한톤, 안면리터칭) ✅ 완료 | 🔴 Telegram 업로드 대기중 (채팅ID 필요) (2026-05-21 16:50)
+
 ## 📋 프로젝트별 완료보고서 (2026-05-20)
 - [프로젝트별 완료보고서](PROJECT_COMPLETION_REPORTS_2026-05-20.md) — Backup Ph2/Asset Ph2/Travel Ph1/Discord Ph1/BM Ph1 설계 완료 현황 + 개발 일정 + 산출물 (2026-05-20)
 
@@ -160,7 +163,8 @@
 - [feedback_reply_thread.md](feedback_reply_thread.md) — 항상 리플라이 형태로 답변
 - [feedback_links_clickable.md](feedback_links_clickable.md) — 링크는 클릭 가능하게
 - [feedback_channel_code_workflow.md](feedback_channel_code_workflow.md) — Telegram/Discord 수정 시 Planner AI Agent→Web-Builder AI Agent→Evaluator AI Agent
-- [⭐ feedback_korean_incomplete_sentence.md](feedback_korean_incomplete_sentence.md) — 한국어 불완성 문장: NO_REPLY로 침묵 대기 (조사/접속사 감지, 2026-05-21)
+- [✅ 한국어 불완성 문장 처리 (해결됨)](feedback_korean_incomplete_sentence.md) — Priority 1 구현 완료: SOUL.md에 규칙 추가 (2026-05-21 16:50) | 예상 오응답 80% 감소
+- [⭐ 한국어 100% 규칙 강화](feedback_korean_100percent_rule.md) — 모든 문서(내부/외부) 순전히 한국어만, 기술용어 이름만 영어 유지 (2026-05-21 17:59)
 
 ### 배포 & 자동화
 - [feedback_build_deployment_autonomy.md](feedback_build_deployment_autonomy.md) — 빌드 후 자동 진행
