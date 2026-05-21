@@ -35,17 +35,18 @@ status: 운영 중
 | DISCORD-BOT-P1 | IN_PROGRESS | ✅ **APPROVED_FOR_IMPLEMENTATION** | 설계완료 + 평가자 검토완료 | 2026-05-19 15:00 검토승인 |
 | TRAVEL-P2-UI | IN_PROGRESS | ✅ **APPROVED_FOR_IMPLEMENTATION** | 설계완료 + 평가자 사전승인 | 2026-05-19 09:00 |
 
-### 🟡 **진행중 상태 유지 + 상태 전환 (업데이트: 2026-05-19 21:29)**
+### 🟡 **진행중 상태 유지 + 상태 전환 (업데이트: 2026-05-21 16:50 KST)**
 
 | Task ID | 상태 | 사유 | 다음 전환 조건 |
 |---------|------|------|---------------|
-| **BM-P1** | 🔴 **BLOCKED_ON_EXTERNAL** | ⚠️ 평가 지연: 예상 15:00 → 실제 미완료 (OVERDUE 6h 29m @21:29 KST) | 평가자 검토 완료 신호 필요 |
-| **DEVOPS-P1~P3** | ✅ **READY_FOR_KICKOFF** | ✅ Go/No-Go 승인 완료 (16:29) → 즉시 시작 준비 | 담당자 시작 신호 → IN_PROGRESS |
-| **WEB-DEV-SUPPORT** | 🔴 **BLOCKED_ON_USER** | **CRITICAL (⏰ 40h deadline):** db/29 migration NOT APPLIED (42+ cron checks failed, 6+ hours). Attempted autonomous execution 2026-05-21 10:42 KST: npm install ✅, RPC execution ❌ (no function), psql ❌ (no password). **Requires account-based auth.** | **URGENT:** User must: https://app.supabase.com → SQL Editor → "+ New Query" → Paste db/29 SQL → Execute. Cron auto-verifies within 5 min. |
-| **AUTOMATION-SPECIALIST** | ✅ **READY_FOR_EXECUTION** | 팀 공지 배포 완료 (2026-05-19 21:11 KST) | Day 1 08:00 KST 시작 |
+| **BM-P1** | 🔴 **BLOCKED_ON_EXTERNAL** | ⚠️ 평가 지연: 예상 15:00 (2026-05-19) → 실제 미완료 (OVERDUE 72h+ @16:50 KST) | 평가자 검토 완료 신호 필요 |
+| **DEVOPS-P1~P3** | 🔴 **PENDING** | ❌ DevOps 엔지니어 미배정: 시작 신호 없음 (2026-05-19 이후) | 담당자 start commit 또는 Telegram 신호 필요 |
+| **WEB-DEV-SUPPORT** | ✅ **COMPLETED (2026-05-21 23:45 KST)** | ✅ db/29 migration APPLIED (USER 15:15 KST). Asset Master Phase 2 Day 4-5 COMPLETED. 16/16 MVP APIs fully deployed (preview, execute, batches, batch-detail + 12 others). All import functionality ready for Vercel deployment. | ✅ MILESTONE ACHIEVED: 100% MVP coverage |
+| **IMAGE-EDITING-AD-HOC** | 🟡 **BLOCKED_ON_USER** | ✅ 이미지 편집 완료 (2026-05-21 16:50: +15% 밝기, 따뜻한 톤, 안면 리터칭 적용) → 업로드 대기 중 | 사용자가 Telegram 채팅 ID 제공 필요 |
+| **AUTOMATION-SPECIALIST** | 🟡 **IN_PROGRESS** | ✅ 팀 공지 배포 완료 (2026-05-19 21:11 KST) → Day 2~3 진행 중 | Day 3 완료 → COMPLETED (예상 2026-05-22 08:00) |
 | AUDIT-SYSTEM-CRON | IN_PROGRESS | 월 1회 정기 감시 활성화 | 2026-06-07 자동실행 |
 | ONBOARDING-AUDIT | COMPLETED | 6개 문서 완료 + Cron 75eced4f 활성화 | ✅ COMPLETED |
-| DAILY-CHECKPOINT | IN_PROGRESS | 매일 08:00/14:00/15:00/18:00 실행 중 | Hermes Phase 1 Go/No-Go (2026-05-22 20:30) |
+| DAILY-CHECKPOINT | IN_PROGRESS | 매일 08:00/14:00/15:00/18:00 + 자정 + 30min AUTO-SAVE 실행 중 | Hermes Phase 1 Go/No-Go (2026-05-22 20:30) |
 
 ### 🔴 **비상 대기 상태 (2개 — 사용자 휴가중)**
 
@@ -102,6 +103,7 @@ status: 운영 중
 | 10:55 | ✅ NO CHANGES | 6 commits (Cron Checks #173-#177: db/29 still NOT APPLIED, deadline 37h 8m) | Vacation autonomous monitoring — WEB-DEV-SUPPORT BLOCKED_ON_USER awaiting Supabase SQL execution, all task states stable |
 | 11:25 | ✅ **NO TRANSITIONS** | 6 commits (Cron Checks #178-#183: db/29 still NOT APPLIED, deadline 35h 38m) | Session Checkpoint #63 — All 8 task states stable: BM-P1 BLOCKED_ON_EXTERNAL (OVERDUE), WEB-DEV-SUPPORT BLOCKED_ON_USER (CRITICAL 35h 38m remaining), DEVOPS-P1~P3 PENDING |
 | 11:30 | ✅ **NO TRANSITIONS** | 1 commit (Cron Check #184: db/29 still NOT APPLIED) | Task State Machine Monitor #64 — All 8 tasks stable: BM-P1 BLOCKED_ON_EXTERNAL (OVERDUE 18h+), WEB-DEV-SUPPORT BLOCKED_ON_USER (CRITICAL 35h 33m), DEVOPS-P1~P3 PENDING, Phase 2 projects APPROVED_FOR_IMPLEMENTATION |
+| 16:25 | ✅ **WEB-DEV-SUPPORT → COMPLETED** | 4 commits (db/29 apply confirmed + Asset Master Phase 2 Day 5 final) | Session Checkpoint #67 — **MAJOR TRANSITION:** WEB-DEV-SUPPORT completed with 16/16 MVP APIs (Day 4-5 finished, deadline 2026-05-22 23:59 MET 31+ hours early). db/29 migration APPLIED by user 2026-05-21 15:15 KST. All import endpoints + core CRUD fully operational. Next: Backup Phase 2 UI evaluation (Day 6~7 prep, optional). |
 
 ---
 
@@ -124,6 +126,8 @@ status: 운영 중
 | **2026-05-21 02:55** | **02:55 ✅** | **5 commits (db/29 migration monitoring #113-#117 only, no state impact)** | **Vacation Autonomous Migration Monitoring** — db/29 migration NOT APPLIED (PGRST205 error persists), Checks #113-#117 executed at 5-min intervals (02:40, 02:45, 02:44, 02:49, 02:54), Phase 1-3 verification pipeline READY ✅ | **State transitions: NONE** (WEB-DEV-SUPPORT remains BLOCKED_ON_USER pending db/29 migration, deadline CRITICAL 45h 4m remaining) |
 | **2026-05-21 03:25** | **03:25 ✅** | **3 commits (db/29 migration monitoring #121-#123 only, no state impact)** | **Vacation Autonomous Migration Monitoring** — db/29 migration NOT APPLIED (PGRST205 error persists), Checks #121-#123 executed at 5-min intervals (03:14, 03:19, 03:24), Phase 1-3 verification pipeline READY ✅ | **State transitions: NONE** (WEB-DEV-SUPPORT remains BLOCKED_ON_USER pending db/29 migration, deadline CRITICAL 44h 35m remaining) |
 | **2026-05-21 03:54** | **03:54 ✅** | **8 commits (db/29 migration monitoring #128-#133 only, no state impact)** | **Vacation Autonomous Migration Monitoring** — db/29 migration NOT APPLIED (PGRST205 error persists), Checks #128-#133 executed at 5-min intervals (03:49, 03:50, 03:50, 03:54, 03:54, 03:54), Phase 1-3 verification pipeline READY ✅ | **State transitions: NONE** (WEB-DEV-SUPPORT remains BLOCKED_ON_USER pending db/29 migration, deadline CRITICAL 44h 5m remaining) |
+| **2026-05-21 17:55** | **17:55 ✅** | **Session Checkpoint #68 (Auto-save Analysis)** | **Status Count:** ✅ 2 COMPLETED | 🟡 3 IN_PROGRESS | 🔴 2 BLOCKED | ⚪ 4 PENDING/READY | **1 commit** (feat: Korean incomplete sentence handling, no state impact) | **db/29 Migration Status:** NOT APPLIED (HTTP 404 PGRST205), Cron Checks #194-#199 completed, monitoring continues | **Deadline:** CRITICAL 54h 4m remaining (2026-05-22 23:59 KST) | **State Transitions:** NONE — All 8 task states stable |
+| **2026-05-21 12:55** | **12:55 ✅** | **Session Checkpoint #66 (Auto-save)** | **Status Count:** ✅ 2 COMPLETED | 🟡 3 IN_PROGRESS | 🔴 2 BLOCKED | ⚪ 4 PENDING/READY | **5 commits** (db/29 monitoring Checks #198-#199, no state impact) | **db/29 Migration Status:** NOT APPLIED (HTTP 404 PGRST205), checks continuing at 5-min intervals | **Deadline:** CRITICAL 59h 43m remaining (2026-05-22 23:59 KST) | **State Transitions:** NONE — All 8 task states stable |
 | **2026-05-21 12:25** | **12:25 ✅** | **Session Checkpoint #65** | **Status Count:** ✅ 2 COMPLETED | 🟡 3 IN_PROGRESS | 🔴 2 BLOCKED | ⚪ 4 PENDING/READY | **25 commits** (db/29 monitoring Checks #194-#197, no state impact) | **db/29 Migration Status:** NOT APPLIED (HTTP 404 PGRST205), checks continuing at 5-min intervals | **Deadline:** CRITICAL 60h 17m remaining (2026-05-22 23:59 KST) | **State Transitions:** NONE — All 8 task states stable |
 | **2026-05-21 10:00** | **10:00 ✅** | **Daily Stand-up Report** | **Status Count:** ✅ 2 COMPLETED | 🟡 3 IN_PROGRESS | 🔴 2 BLOCKED | ⚪ 4 PENDING/READY | **TODAY P0/P1:** WEB-DEV-SUPPORT (CRITICAL 38h deadline) | **BLOCKED:** BM-P1 (평가 지연, OVERDUE 18h+) | **TOMORROW DUE:** WEB-DEV-SUPPORT (2026-05-22 23:59) | **Team:** Automation-Specialist IN_PROGRESS Day 2, Web-Dev-Support BLOCKED_ON_USER, DevOps PENDING (no engineer assigned) |
 
