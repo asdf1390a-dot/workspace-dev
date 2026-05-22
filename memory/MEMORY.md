@@ -1,5 +1,5 @@
 # 메모리 인덱스 (MEMORY.md)
-**Last Updated:** 2026-05-22 00:55 KST (Session Checkpoint #74: All 8 task states stable. Asset Master Phase 2 MVP completed 16/16 APIs (2026-05-21 23:45), 31h early, WEB-DEV-SUPPORT→COMPLETED. db/29 migration NOT APPLIED (monitoring 5-min cron). Hermes monitoring RESOLVED. Backup Phase 2 UI Iteration 4 live testing in progress. Vacation autonomous mode active.)
+**Last Updated:** 2026-05-22 18:00 KST (Checkpoint #86: Daily validation 18:00 KST complete. Checkpoint compliance 100% (4/4), task completion 25% (2/8), reliability 89% ⚠️. AUTOMATION-SPECIALIST 25min overdue. All 8 task states stable. 2026-05-23 tasks pulled: BM-Phase 1 Day 2 + completion signal + DEVOPS planning. Real-time sync lag 3h detected/documented.)
 
 ## 🚀 생태계 비전 (Critical)
 - [Ecosystem Vision](project_ecosystem_vision.md) — DSC FMS v1.0 → 다중공장/프로젝트/지역 확장 (2026-05-16 03:41)
@@ -36,6 +36,7 @@
 ---
 
 ## ⚠️ 감시 & 규칙 준수 (Compliance & Audits)
+- [⭐ 일일 신뢰도 리포트 2026-05-22](daily_reliability_report_2026_05_22.md) — 체크포인트 준수율(100%) + 작업 완료율(25%) + 일정 준수율(67%) + 신뢰도 종합점수(89%) + AUTOMATION-SPECIALIST 25min 지연 분석 (18:00 확정)
 - [⭐ 설계 문서 워크플로우 — 평가자 검토 게이트 (2026-05-25)](design_document_workflow.md) — 설계 타입별(A:UI/B:API/C:자동화) 평가 게이트 정의 + 메타데이터 필드 + 상태전환 (Rule Conflict #1 해결)
 - [⭐ 종합 규칙 충돌 분석 완료 (2026-05-22)](comprehensive_rule_conflict_analysis_2026_05_22.md) — 12개 충돌 식별 + 4단계 개선안 + 우선순위 결정 (TEXT ONLY 분석, 완료)
 - [⭐ 규칙 위반 감시 개선 시스템 Phase 1-3](rule_validation_system_phase1.md) — msg#5358 기반 3개 위반(GitHub링크/Telegram한국어/액션레이블) 자동감시 + 30초사전검증 체크리스트 (2026-05-20 실행)
