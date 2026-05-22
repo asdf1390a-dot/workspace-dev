@@ -3089,3 +3089,60 @@ All task states remain stable since 00:25 checkpoint. db/29 blocker is being act
 **다음 체크포인트:** 2026-05-22 13:25 KST (30min 후)  
 **주의:** AUTOMATION-SPECIALIST 17:00 deadline 4시간 이내 — 최종 신호 대기 중
 
+---
+
+## ✅ **2026-05-22 17:25 SESSION CHECKPOINT #85**
+
+**타이밍:** 2026-05-22 17:25 KST (Cron: 30min auto-save)  
+**간격:** 2026-05-22 12:55 (Checkpoint #83) → 2026-05-22 17:25 (4h 30min window)
+
+### 📊 **상태 변경 감지**
+
+| Task | 상태 | 변화 |
+|------|------|------|
+| — | — | **변경 없음** ✅ |
+
+### 🟢 **안정적 진행 상황 유지**
+
+**신규 커밋:** 0개  
+**신규 파일:** 0개  
+**상태 전환:** 없음
+
+| 메트릭 | 값 | 상태 |
+|--------|-----|------|
+| 완료한 태스크 | 5개 | ✅ |
+| 활성 태스크 | 1개 (BM-P1) | 🟡 |
+| 블로킹된 태스크 | 2개 | 🔴 |
+| 모니터링 | Active | 🟢 |
+
+### ⏰ **CRITICAL: AUTOMATION-SPECIALIST DEADLINE EXCEEDED**
+
+| Task | Deadline | Current | Status |
+|------|----------|---------|--------|
+| **AUTOMATION-SPECIALIST** | 2026-05-22 17:00 | 17:25 | 🔴 **OVERDUE 25min** |
+
+**상태:** 🔴 **IN_PROGRESS + OVERDUE**
+- 예정 마감: 2026-05-22 17:00 KST
+- 현재 시간: 2026-05-22 17:25 KST
+- 초과: 25분
+- 완료 신호: 미수신 ❌
+- 상태 전환: 미적용 (Rule 4 발동 조건 불만족 — 완료 증거 없음)
+
+### 📋 **All 8 Task States**
+
+| Task ID | 상태 | 기한 | 블로커 | 변화 |
+|---------|------|------|--------|------|
+| WEB-DEV-SUPPORT | ✅ COMPLETED | 2026-05-22 23:59 | 없음 ✅ | — |
+| **AUTOMATION-SPECIALIST** | 🔴 **OVERDUE** | **2026-05-22 17:00** | **미완료** | 🔴 **25min 초과** |
+| BM-P1 | 🟡 IN_PROGRESS | 2026-05-25 | 없음 ✅ | — |
+| BACKUP-PHASE2-UI | ✅ COMPLETED | 2026-05-20 | 없음 ✅ | — |
+| IMAGE-EDITING-AD-HOC | 🔴 BLOCKED_ON_USER | N/A | Telegram ID | — |
+| AUDIT-P1 | ✅ APPROVED | — | 없음 ✅ | — |
+| DISCORD-BOT-P1 | ✅ APPROVED | — | 없음 ✅ | — |
+| TRAVEL-P2-UI | ✅ APPROVED | — | 없음 ✅ | — |
+| DEVOPS-P1~P3 | 🔴 PENDING | 2026-05-23/27/30 | 미배정 | — |
+
+**기록 시간:** 2026-05-22 17:25 KST  
+**변경사항:** 없음 (모든 상태 안정적, AUTOMATION-SPECIALIST deadline 초과 모니터링)  
+**다음 체크포인트:** 2026-05-22 17:55 KST (30min 후)
+
