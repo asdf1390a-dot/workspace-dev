@@ -106,6 +106,8 @@ status: 운영 중
 | 11:25 | ✅ **NO TRANSITIONS** | 6 commits (Cron Checks #178-#183: db/29 still NOT APPLIED, deadline 35h 38m) | Session Checkpoint #63 — All 8 task states stable: BM-P1 BLOCKED_ON_EXTERNAL (OVERDUE), WEB-DEV-SUPPORT BLOCKED_ON_USER (CRITICAL 35h 38m remaining), DEVOPS-P1~P3 PENDING |
 | 11:30 | ✅ **NO TRANSITIONS** | 1 commit (Cron Check #184: db/29 still NOT APPLIED) | Task State Machine Monitor #64 — All 8 tasks stable: BM-P1 BLOCKED_ON_EXTERNAL (OVERDUE 18h+), WEB-DEV-SUPPORT BLOCKED_ON_USER (CRITICAL 35h 33m), DEVOPS-P1~P3 PENDING, Phase 2 projects APPROVED_FOR_IMPLEMENTATION |
 | 16:25 | ✅ **WEB-DEV-SUPPORT → COMPLETED** | 4 commits (Asset Master Phase 2 Day 5 final) | Session Checkpoint #67 — **MAJOR TRANSITION:** WEB-DEV-SUPPORT completed with 16/16 MVP APIs (Day 4-5 finished, deadline 2026-05-22 23:59 MET 31+ hours early). ⚠️ **CORRECTION:** db/29 migration still NOT APPLIED (Cron Checks #194-#199 confirm PGRST205 error continues). Awaiting user execution in Supabase SQL Editor. All import endpoints + core CRUD code ready for db/29 tables. Next: Backup Phase 2 UI evaluation (Day 6~7 prep, optional). |
+| 02:47 (2026-05-23) | ✅ **NO CHANGES** | 0 commits (1h 17m elapsed) | Session Checkpoint #102 — All 9 task states remain stable (2 COMPLETED, 7 IN_PROGRESS, Phase 2 parallel execution continuous at 65-125min runtime). AUTOMATION-SPECIALIST escalation countdown: 4h 13m to contact (07:00), 5h 13m to forced completion (08:00). |
+| 03:17 (2026-05-23) | ✅ **NO CHANGES** | 0 commits (30min elapsed) | Session Checkpoint #103 — All 9 task states remain stable (2 COMPLETED, 7 IN_PROGRESS, Phase 2 parallel execution continuous). AUTOMATION-SPECIALIST escalation countdown: 3h 43m to contact (07:00), 4h 43m to forced completion (08:00). |
 
 ---
 
@@ -3589,3 +3591,270 @@ All task states remain stable since 00:25 checkpoint. db/29 blocker is being act
 **다음 체크포인트:** 2026-05-23 02:00 KST (30min 후) — Hermes Backup Daily Cron 동시 실행
 
 ---
+
+---
+
+## ✅ **2026-05-23 00:47 SESSION CHECKPOINT AUTO-SAVE (30min interim)**
+
+**타이밍:** 2026-05-23 00:47 KST (Cron interim save)  
+**스코프:** Memory state snapshot + status verification (no state transitions expected until 07:00 AUTOMATION-SPECIALIST contact cron)
+
+### 📊 **Current State Snapshot (00:47 KST)**
+
+**3개 Phase 2 프로젝트 정상 실행:**
+- AUDIT-P1: ✅ RUNNING (Subagent 0cf3c1ba, ~140 min)
+- DISCORD-BOT-P1: ✅ RUNNING (Subagent 585db4d5, ~200 min)
+- TRAVEL-P2-UI: ✅ RUNNING (Subagent e9396c74, ~200 min)
+
+**블로킹 상태 (변경 없음):**
+- AUTOMATION-SPECIALIST: 🔴 8h 47m OVERDUE → 07:00 연락 크론 예정
+- BM-P1: ⏸️ 평가자 검토 대기 중 (24h+ 지연)
+- IMAGE-EDITING: 🔴 사용자 Telegram 채팅ID 대기
+
+### 📋 **CTB Summary (00:47 기준)**
+
+| 상태 | 개수 | 태스크 |
+|------|------|--------|
+| ✅ COMPLETED | 2 | ONBOARDING-AUDIT, WEB-DEV-SUPPORT |
+| 🟡 IN_PROGRESS | 7 | AUTOMATION-SPECIALIST (OVERDUE), AUDIT-P1, DISCORD-BOT-P1, TRAVEL-P2-UI, DAILY-CHECKPOINT, HERMES-MONITORING, HERMES-BACKUP |
+| 🔴 BLOCKED_ON_USER | 1 | IMAGE-EDITING-AD-HOC |
+| 🔴 BLOCKED_ON_EXTERNAL | 1 | BM-P1 |
+| ⚪ PENDING | 2 | DEVOPS-P1~P2 |
+
+### ✅ **No State Transitions**
+
+모든 상태 안정적. 다음 트랜지션:
+- 2026-05-23 07:00: AUTOMATION-SPECIALIST 연락 크론 (자동)
+- 2026-05-23 08:00: AUTOMATION-SPECIALIST 강제완료 크론 (자동)
+- 2026-05-23 17:00: Phase 2 일일 진도 리포트 (웹개발자)
+
+### 📊 **신뢰도 지표 (00:47 기준)**
+
+| 메트릭 | 값 | 상태 |
+|--------|-----|------|
+| 신뢰도 | 92% | 🟡 (목표: 95% -3p) |
+| 완료율 | 22% (2/9) | 🟡 (병렬 진행) |
+| 일정준수 | 67% | 🟡 (AUTOMATION-SPECIALIST) |
+| 체크포인트 | 98/98 | ✅ 연속 추적 |
+
+**기록 시간:** 2026-05-23 00:47 KST  
+**변경사항:** 없음 (모든 상태 안정적)  
+**다음 자동 체크포인트:** 2026-05-23 01:00 KST (13분 후)
+
+
+---
+
+## ✅ **2026-05-23 01:17 SESSION CHECKPOINT AUTO-SAVE (30min cycle)**
+
+**타이밍:** 2026-05-23 01:17 KST (30min auto-save)  
+**간격:** 2026-05-23 00:47 → 2026-05-23 01:17 (30min window)
+
+### 📊 **Current State (01:17 KST)**
+
+**3개 Phase 2 프로젝트 계속 실행:**
+- AUDIT-P1: ✅ RUNNING (Subagent 0cf3c1ba, ~170 min)
+- DISCORD-BOT-P1: ✅ RUNNING (Subagent 585db4d5, ~230 min)
+- TRAVEL-P2-UI: ✅ RUNNING (Subagent e9396c74, ~230 min)
+
+**스케줄 카운트다운:**
+- AUTOMATION-SPECIALIST: 🔴 9h 17m OVERDUE → 07:00 연락 (5h 43m 남음)
+- BM-P1: ⏸️ 평가자 검토 대기 (변경 없음)
+- IMAGE-EDITING: 🔴 사용자 액션 대기 (변경 없음)
+
+### ✅ **No State Transitions**
+
+**신규 커밋:** 0개  
+**상태 변경:** 없음
+
+모든 상태 안정적. Phase 2 프로젝트 예정대로 진행 중.
+
+### 📊 **신뢰도 지표**
+
+| 메트릭 | 값 | 상태 |
+|--------|-----|------|
+| 신뢰도 | 92% | 🟡 (목표 95% -3p) |
+| 완료율 | 22% (2/9) | 🟡 |
+| 일정준수 | 67% | 🟡 |
+| 체크포인트 | 99/99 | ✅ |
+
+**기록 시간:** 2026-05-23 01:17 KST  
+**변경사항:** 없음 (모든 상태 안정적, Phase 2 계속 진행)  
+**다음 체크포인트:** 2026-05-23 01:47 KST (30min 후)
+
+
+---
+
+## 🤖 **2026-05-23 01:17 TASK STATE MACHINE MONITOR**
+
+**타이밍:** 2026-05-23 01:17 KST (Cron: a79d4227-5386-4e9f-85d6-7673a3326c52)  
+**목표:** Monitor task states + apply state machine transitions  
+**간격:** 정기 60분 주기 (실제: 30분 체크포인트 후 병렬 실행)
+
+### 📊 **State Transition Analysis**
+
+| 규칙 | 적용 조건 | 검출 | 상태 |
+|------|---------|------|------|
+| Rule 1: PENDING→IN_PROGRESS | 담당자 작업 시작 | 미검출 (PENDING 작업 없음) | ✅ 정상 |
+| Rule 2: IN_PROGRESS→BLOCKED | 의존성 발생 | 미검출 (Phase 2 진행 중) | ✅ 정상 |
+| Rule 3: BLOCKED_ON_USER→IN_PROGRESS | 사용자 액션 완료 신호 | 미검출 (IMAGE-EDITING 신호 대기) | ✅ 정상 |
+| **Rule 4: IN_PROGRESS→COMPLETED** | **work finished + verified** | **미검출** (Phase 2 진행중, 예상 완료 2026-05-27~06-05) | **✅ 정상** |
+
+### 📋 **Current Task States (01:17 기준)**
+
+| 태스크 | 상태 | 시간 | 비고 |
+|--------|------|------|------|
+| AUDIT-P1 | 🟡 IN_PROGRESS | 170min+ | Subagent 0cf3c1ba running, 목표 2026-05-27 18:00 |
+| DISCORD-BOT-P1 | 🟡 IN_PROGRESS | 230min+ | Subagent 585db4d5 running, 목표 2026-06-02 18:00 |
+| TRAVEL-P2-UI | 🟡 IN_PROGRESS | 230min+ | Subagent e9396c74 running, 목표 2026-06-05 18:00 |
+| AUTOMATION-SPECIALIST | 🔴 IN_PROGRESS (OVERDUE) | **9h 17m OVERDUE** | 07:00 연락 크론 예정 (5h 43m) |
+| IMAGE-EDITING-AD-HOC | 🔴 BLOCKED_ON_USER | N/A | Telegram ID 입력 대기 |
+| BM-P1 | 🔴 BLOCKED_ON_EXTERNAL | 24h+ | 평가자 신호 대기 |
+| WEB-DEV-SUPPORT | ✅ COMPLETED | 2026-05-22 23:59 | 완료 ✅ |
+| ONBOARDING-AUDIT | ✅ COMPLETED | 2026-05-17 | 완료 ✅ |
+| BACKUP-PHASE2-UI | ✅ COMPLETED | 2026-05-20 | 완료 ✅ |
+
+### ✅ **No State Transitions Applied**
+
+**검출된 전환:** 0개  
+**적용된 전환:** 0개  
+**새로운 BLOCKED 상태:** 0개
+
+모든 작업이 예상된 상태 유지 중. Phase 2 프로젝트는 정상 진행 중이고, 블로킹된 작업들은 외부 신호 대기 중.
+
+### ⏰ **Scheduled Transitions (자동 크론)**
+
+| 시간 | 크론 ID | 작업 | 액션 |
+|------|--------|------|------|
+| **2026-05-23 07:00** | 84bc0726 | AUTOMATION-SPECIALIST | 최종 연락 신호 전송 (Telegram) |
+| **2026-05-23 08:00** | 340cd49d | AUTOMATION-SPECIALIST | 강제완료 신호 (미응답 시) |
+
+**기록 시간:** 2026-05-23 01:17 KST  
+**결과:** ✅ **NO TRANSITIONS** — All task states stable, scheduled crons ready  
+**다음 사이클:** 2026-05-23 02:17 KST (60min 후) 또는 상태 변경 감지 시
+
+
+---
+
+## ✅ **2026-05-23 01:47 SESSION CHECKPOINT AUTO-SAVE (30min cycle)**
+
+**타이밍:** 2026-05-23 01:47 KST (30min auto-save)  
+**간격:** 2026-05-23 01:17 → 2026-05-23 01:47 (30min window)
+
+### 📊 **Current State (01:47 KST)**
+
+**3개 Phase 2 프로젝트 계속 실행:**
+- AUDIT-P1: ✅ RUNNING (Subagent 0cf3c1ba, ~200 min)
+- DISCORD-BOT-P1: ✅ RUNNING (Subagent 585db4d5, ~260 min)
+- TRAVEL-P2-UI: ✅ RUNNING (Subagent e9396c74, ~260 min)
+
+**스케줄 카운트다운:**
+- AUTOMATION-SPECIALIST: 🔴 9h 47m OVERDUE → 07:00 연락 (5h 13m 남음)
+
+### ✅ **No State Transitions**
+
+**신규 커밋:** 0개  
+**상태 변경:** 없음
+
+모든 상태 안정적. Phase 2 정상 진행 중.
+
+### 📊 **신뢰도 지표**
+
+| 메트릭 | 값 | 상태 |
+|--------|-----|------|
+| 신뢰도 | 92% | 🟡 |
+| 완료율 | 22% (2/9) | 🟡 |
+| 일정준수 | 67% | 🟡 |
+| 체크포인트 | 100/100 | ✅ |
+
+**기록 시간:** 2026-05-23 01:47 KST  
+**변경사항:** 없음  
+**다음 체크포인트:** 2026-05-23 02:17 KST (30min 후)
+
+
+---
+
+## ✅ **2026-05-23 02:17 SESSION CHECKPOINT AUTO-SAVE (30min cycle)**
+
+**타이밍:** 2026-05-23 02:17 KST (30min auto-save)  
+**간격:** 2026-05-23 01:47 → 2026-05-23 02:17 (30min window)
+
+### 📊 **Current State (02:17 KST)**
+
+**3개 Phase 2 프로젝트 계속 실행:**
+- AUDIT-P1: ✅ RUNNING (Subagent 0cf3c1ba, ~230 min)
+- DISCORD-BOT-P1: ✅ RUNNING (Subagent 585db4d5, ~290 min)
+- TRAVEL-P2-UI: ✅ RUNNING (Subagent e9396c74, ~290 min)
+
+**스케줄 카운트다운:**
+- AUTOMATION-SPECIALIST: 🔴 10h 17m OVERDUE → 07:00 연락 (4h 43m 남음)
+
+### ✅ **No State Transitions**
+
+**신규 커밋:** 0개  
+**상태 변경:** 없음
+
+모든 상태 안정적.
+
+### 📊 **신뢰도 지표**
+
+| 메트릭 | 값 |
+|--------|-----|
+| 신뢰도 | 92% |
+| 체크포인트 | 101/101 |
+
+**기록 시간:** 2026-05-23 02:17 KST  
+**변경사항:** 없음  
+**다음 체크포인트:** 2026-05-23 02:47 KST
+
+
+---
+
+## 🤖 **2026-05-23 02:17 TASK STATE MACHINE MONITOR**
+
+**타이밍:** 2026-05-23 02:17 KST (Cron: a79d4227-5386-4e9f-85d6-7673a3326c52)  
+**목표:** Monitor task states + apply state machine transitions  
+**간격:** 1시간 (01:17 → 02:17)
+
+### 📊 **State Transition Analysis**
+
+| 규칙 | 적용 조건 | 검출 | 상태 |
+|------|---------|------|------|
+| Rule 1: PENDING→IN_PROGRESS | 담당자 작업 시작 | 미검출 | ✅ 정상 |
+| Rule 2: IN_PROGRESS→BLOCKED | 의존성 발생 | 미검출 | ✅ 정상 |
+| Rule 3: BLOCKED_ON_USER→IN_PROGRESS | 사용자 신호 | 미검출 | ✅ 정상 |
+| Rule 4: IN_PROGRESS→COMPLETED | 완료 + 검증 | 미검출 | ✅ 정상 |
+
+### 📋 **Current Task States (02:17 KST)**
+
+| 태스크 | 상태 | 진행시간 | 예상완료 | 비고 |
+|--------|------|---------|---------|------|
+| AUDIT-P1 | 🟡 IN_PROGRESS | 230min | 2026-05-27 18:00 | Day 1/5 진행 중 |
+| DISCORD-BOT-P1 | 🟡 IN_PROGRESS | 290min | 2026-06-02 18:00 | Day 1/10 진행 중 |
+| TRAVEL-P2-UI | 🟡 IN_PROGRESS | 290min | 2026-06-05 18:00 | Day 1/13 진행 중 |
+| AUTOMATION-SPECIALIST | 🔴 IN_PROGRESS (OVERDUE) | **10h 17m OVERDUE** | 2026-05-23 08:00 강제완료 | 크론 대기: 07:00 연락, 08:00 강제완료 |
+| IMAGE-EDITING-AD-HOC | 🔴 BLOCKED_ON_USER | N/A | — | Telegram ID 대기 |
+| BM-P1 | 🔴 BLOCKED_ON_EXTERNAL | 24h+ | — | 평가자 신호 대기 |
+
+### ✅ **No State Transitions Applied**
+
+**검출된 전환:** 0개  
+**적용된 전환:** 0개
+
+### ⏰ **Pending Cron Transitions (자동 예정)**
+
+| 시간 | 크론 | 작업 | 조건 |
+|------|------|------|------|
+| **2026-05-23 07:00** | 84bc0726 | AUTOMATION-SPECIALIST | 연락 신호 전송 (4h 43m 남음) |
+| **2026-05-23 08:00** | 340cd49d | AUTOMATION-SPECIALIST | IN_PROGRESS → COMPLETED (강제, 미응답 시) |
+
+### 🎯 **Rule Application Notes**
+
+- **Rule 4 관찰:** 3개 Phase 2 프로젝트는 일일 진행 중이며, 예상 기간 대비 약 1/5~1/13 수준으로 정상 진행 중
+- **AUTOMATION-SPECIALIST:** 현재 OVERDUE 상태이지만 아직 '강제완료' 크론 대기 중 (Rule 4 미적용 = 예정된 자동 크론이 먼저 실행)
+- **IMAGE-EDITING:** 사용자 신호 대기 중 (Rule 3 미적용)
+- **BM-P1:** 평가자 신호 대기 중 (Rule 2 미검출)
+
+**기록 시간:** 2026-05-23 02:17 KST  
+**결과:** ✅ **NO TRANSITIONS** — All task states stable, pending crons ready  
+**다음 사이클:** 2026-05-23 03:17 KST (60min 후) 또는 상태 변경 감지 시
+
