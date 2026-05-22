@@ -36,6 +36,8 @@
 ---
 
 ## ⚠️ 감시 & 규칙 준수 (Compliance & Audits)
+- [⭐ 설계 문서 워크플로우 — 평가자 검토 게이트 (2026-05-25)](design_document_workflow.md) — 설계 타입별(A:UI/B:API/C:자동화) 평가 게이트 정의 + 메타데이터 필드 + 상태전환 (Rule Conflict #1 해결)
+- [⭐ 종합 규칙 충돌 분석 완료 (2026-05-22)](comprehensive_rule_conflict_analysis_2026_05_22.md) — 12개 충돌 식별 + 4단계 개선안 + 우선순위 결정 (TEXT ONLY 분석, 완료)
 - [⭐ 규칙 위반 감시 개선 시스템 Phase 1-3](rule_validation_system_phase1.md) — msg#5358 기반 3개 위반(GitHub링크/Telegram한국어/액션레이블) 자동감시 + 30초사전검증 체크리스트 (2026-05-20 실행)
 - [⭐ Telegram 한국어만 사용 (2026-05-20)](feedback_telegram_korean_only_enforcement.md) — Telegram 모든 답변 한국어만, 영어 절대금지, 상태보고·기술설명 포함 (2026-05-20 강화)
 - [⭐ 이중 검증 규칙 — 코드/링크 제공 전 필수](feedback_double_verification_before_delivery.md) — 코드·링크 제공 시 실제 작동 여부 검증 후 제공 (2026-05-20 추가)
@@ -163,6 +165,7 @@
 - [feedback_telegram_communication_rule.md](feedback_telegram_communication_rule.md) — Telegram: 최종 결과만, Discord: 기술 상세
 - [feedback_reply_thread.md](feedback_reply_thread.md) — 항상 리플라이 형태로 답변
 - [feedback_links_clickable.md](feedback_links_clickable.md) — 링크는 클릭 가능하게
+- [⭐ GitHub Repository URLs](project_github_repositories.md) — asdf1390a-dot 계정명 고정, raw 링크 제공 전 항상 확인 (2026-05-22)
 - [feedback_channel_code_workflow.md](feedback_channel_code_workflow.md) — Telegram/Discord 수정 시 Planner AI Agent→Web-Builder AI Agent→Evaluator AI Agent
 - [✅ 한국어 불완성 문장 처리 (해결됨)](feedback_korean_incomplete_sentence.md) — Priority 1 구현 완료: SOUL.md에 규칙 추가 (2026-05-21 16:50) | 예상 오응답 80% 감소
 - [⭐ 한국어 100% 규칙 강화](feedback_korean_100percent_rule.md) — 모든 문서(내부/외부) 순전히 한국어만, 기술용어 이름만 영어 유지 (2026-05-21 17:59)
