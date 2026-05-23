@@ -70,7 +70,35 @@ status: CRITICAL UPDATE (9시간 지연 감지 + 즉시 수정)
 - **Duration:** 31분 50초
 - **상태:** ❌ 실패
 - **원인:** (로그 확인 필요 - 추후 상세 분석)
-- **조치:** ⏳ 자동 복구 대기 (개선 B1-B2 구현 후 3회 자동 재시도)
+- **조치:** ✅ B2 Auto-Recovery 트리거 → 3차 시도 시작됨
+
+#### 2️⃣ AUDIT-P1 (3차 시도) — ✅ DONE (B2 자동복구 성공)
+- **Agent ID:** a200a4c71d79fb189
+- **시작:** 2026-05-23 11:10 KST
+- **완료:** 2026-05-23 11:13 KST
+- **retry_count:** 1 / 3
+- **상태:** ✅ 구현 완료 + DB 적용 완료
+- **Commit:** `2fe1dfe` (integrate/pm-phase1-main)
+- **산출물:**
+  - `db/35_audit_system.sql` (audit_event_logs + audit_sessions) ✅ **실행완료 (2026-05-23 12:12)**
+  - `app/api/audit/report/route.ts`
+  - `app/api/audit/trend/route.ts`
+  - `app/api/audit/issue/route.ts`
+  - `app/api/audit/cron/daily/route.ts`
+- **비고:** audit_logs 기존 충돌 → audit_event_logs로 변경 (db/33 이미 존재)
+- **다음 단계:** ✅ db/35 Supabase 적용 완료 → 평가자 재평가 신호 발송 (2026-05-23 12:12)
+
+#### 3️⃣ BM-P1 Web-Builder 재작업 — ✅ DONE (재평가 필요)
+- **Agent ID:** a4fb87dbbcf44bac8
+- **시작:** 2026-05-23 11:10 KST
+- **완료:** 2026-05-23 11:13 KST
+- **상태:** ✅ 구현 완료 (Evaluator 재평가 대기)
+- **산출물:**
+  - `components/bm/TechnicianSelect.js` (신규)
+  - `pages/bm/[id].js` (수정 — technician_id 저장 + resolve 연동)
+  - `/api/bm/resolve` 기존 파일 재사용 (이미 완성 상태)
+- **커밋:** 미완료 → 별도 커밋 필요
+- **비고:** Discord/Travel 미완성 모듈로 전체 빌드 실패 (BM 코드 자체는 통과)
 
 ### ⚪ **PENDING/BLOCKED TASKS**
 
@@ -163,6 +191,7 @@ status: CRITICAL UPDATE (9시간 지연 감지 + 즉시 수정)
 
 ---
 
-**정정 완료:** 2026-05-23 10:56 KST  
-**대기 중:** Session Polling 메커니즘 구현 시작  
-**영향:** Checkpoint 신뢰도 회복 (11% → 95%+)
+**최종 갱신:** 2026-05-23 11:10 KST  
+**B2 자동복구 실행:** AUDIT-P1 3차 시도 시작 (retry 1/3)  
+**BM-P1 재작업:** Web-Builder 재가동  
+**B1/B2/B3 Cron:** 활성 중 (4220806c, 7115ee13)
