@@ -4478,3 +4478,78 @@ All task states remain stable since 00:25 checkpoint. db/29 blocker is being act
 
 **기록:** 2026-05-25 08:00 KST  
 **결과:** ✅ **2 OVERDUE, 3 URGENT** — All critical items require immediate user/evaluator action
+
+---
+
+## 🤖 **2026-05-25 08:05 MORNING BLOCKER CHECK (Phase 2 A+B)**
+
+**타이밍:** 2026-05-25 08:05 KST (Cron: 58da2d8d-3a31-4b0d-baf9-e33a24406d35)  
+**간격:** 정기 08:00 KST 점검 주기
+
+### 📊 **Blocker Status Report**
+
+| 시간 | 프로젝트 | 상태 | 대기 시간 | 블로커 | 액션 아이템 |
+|------|---------|------|---------|--------|-----------|
+| **08:05** | **AUDIT-P1** | ✅ COMPLETED | 42h | Evaluator GO/NO-GO | Push evaluator for signal |
+| **08:05** | **DISCORD-BOT-P1** | ✅ COMPLETED | 53h | Evaluator GO/NO-GO | Push evaluator for signal |
+| **08:05** | **TRAVEL-P2-UI** | ✅ COMPLETED | 52h | Evaluator GO/NO-GO | Push evaluator for signal |
+| **08:05** | **BM-P1** | 🔴 IN_PROGRESS OVERDUE | +16h | Evaluator re-evaluation | ESCALATE — check Discord for status |
+| **08:05** | **WEB-DEV-SUPPORT** (db/29) | 🔴 PENDING_USER_EXEC | +32h8m | User Supabase SQL execution | User must execute db/29 migration |
+
+### 🔴 **Critical Blocker Status**
+
+**Evaluator Bottleneck — ALL 4 projects blocked on same dependency:**
+- **AUDIT-P1** → 42h no signal (expected 05-23 14:00, still waiting)
+- **DISCORD-BOT-P1** → 53h no signal (expected 05-23 01:36, still waiting)
+- **TRAVEL-P2-UI** → 52h no signal (expected 05-23 02:01, still waiting)
+- **BM-P1** → 16h OVERDUE (expected 05-24 15:00, NO RE-EVAL signal)
+
+**Root Cause:** Evaluator resource exhaustion (4 concurrent reviews, single evaluator)
+
+**Action Items:**
+1. ⚠️ Immediate: Contact evaluator for status update
+2. 🔴 Escalation: If no response within 1 hour, consider reassigning evaluation workload
+3. 📍 Check Discord #일반채널 for any status updates from evaluator
+
+### 📋 **Dependency Status (db/35 Audit System)**
+
+**db/35 Status:** ✅ **EXECUTED** (2026-05-23 12:12 KST)  
+**Impact:** All evaluation intake signals were transmitted after db/35 execution  
+**Current State:** Awaiting evaluator processing
+
+**db/29 Status:** ❌ **NOT EXECUTED** (User action required)  
+**Impact:** Asset Master Phase 2 deployment blocked  
+**Action:** User must execute db/29 migration SQL in Supabase SQL Editor
+
+### 🆘 **Morning CTB Update**
+
+| Project | Development | Evaluation | Deployment | Overall |
+|---------|-------------|-----------|-----------|---------|
+| **AUDIT-P1** | ✅ DONE | 🟡 IN_REVIEW (42h) | ⏸️ PENDING | 🔴 BLOCKED |
+| **DISCORD-BOT-P1** | ✅ DONE | 🟡 IN_REVIEW (53h) | ⏸️ PENDING | 🔴 BLOCKED |
+| **TRAVEL-P2-UI** | ✅ DONE | 🟡 IN_REVIEW (52h) | ⏸️ PENDING | 🔴 BLOCKED |
+| **BM-P1** | ✅ REWORK DONE | 🟡 RE-EVAL DUE (16h OVERDUE) | ⏸️ PENDING | 🔴 CRITICAL |
+| **Asset Master Phase 2** | ✅ CODE DONE | ✅ EVAL APPROVED | ⏸️ db/29 PENDING | 🔴 BLOCKED |
+
+**기록:** 2026-05-25 08:05 KST  
+**결과:** ✅ **ALL 4 PROJECTS BLOCKED ON SAME EVALUATOR** — Single point of failure, escalation recommended
+
+---
+
+## 🤖 **2026-05-25 08:17 SESSION CHECKPOINT #151 (30min auto-save)**
+
+**타이밍:** 2026-05-25 08:17 KST  
+**간격:** 30분 자동갱신 주기  
+**변경사항:** ✅ **NONE** — All task states stable, 0 commits since 08:00
+
+| 항목 | 상태 | 대기시간 | 비고 |
+|------|------|---------|------|
+| BM-P1 | OVERDUE | +17h | Evaluator re-eval signal awaited |
+| AUDIT-P1 | BLOCKED | 42h | Evaluator GO/NO-GO awaited |
+| DISCORD-BOT-P1 | BLOCKED | 53h | Evaluator GO/NO-GO awaited |
+| TRAVEL-P2-UI | BLOCKED | 52h | Evaluator GO/NO-GO awaited |
+| db/29 (Asset Master Phase 2) | PENDING_USER | +32h8m | User Supabase SQL execution required |
+| IMAGE-EDITING | BLOCKED_USER | TBD | Telegram chat_id awaited |
+
+**기록:** 2026-05-25 08:17 KST  
+**결과:** ✅ **NO STATE CHANGES** — All critical items stable, awaiting user/evaluator action
