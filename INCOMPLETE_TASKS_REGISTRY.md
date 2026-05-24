@@ -35,14 +35,14 @@ status: 운영 중
 | DISCORD-BOT-P1 | IN_PROGRESS | ✅ **APPROVED_FOR_IMPLEMENTATION** | 설계완료 + 평가자 검토완료 | 2026-05-19 15:00 검토승인 |
 | TRAVEL-P2-UI | IN_PROGRESS | ✅ **APPROVED_FOR_IMPLEMENTATION** | 설계완료 + 평가자 사전승인 | 2026-05-19 09:00 |
 
-### 🟡 **진행중 상태 유지 + 상태 전환 (업데이트: 2026-05-23 12:17 KST)**
+### 🟡 **진행중 상태 유지 + 상태 전환 (업데이트: 2026-05-25 04:00 KST)**
 
 | Task ID | 상태 | 사유 | 다음 전환 조건 |
 |---------|------|------|---------------|
-| **AUDIT-P1 (Phase 2)** | ✅ **COMPLETED** | ✅ 3차 시도 완료 (11:13) → 구현 완료 (11:13) → db/35_audit_system.sql 실행 (12:12 KST) → 평가자 재평가 신호 (12:12) | 평가자 GO/NO-GO 대기 (ETA ~14:00) |
-| **DISCORD-BOT-P1 (Phase 2)** | ✅ **COMPLETED** | ✅ Phase 1 delivery 완료 (01:36:26) → 평가자 intake 신호 발송 완료 (12:12) | 평가자 평가 진행중 |
-| **TRAVEL-P2-UI (Phase 2)** | ✅ **COMPLETED** | ✅ Component design + UI specifications 완료 (02:01:41) → 설계 평가 완료 | 평가자 피드백 대기 |
-| **BM-P1** | ✅ **COMPLETED + REQUIRES_REWORK** | ✅ 1차 평가 완료 (10:54:34) → 평가결과: **NO-GO** (DB 완료, UI/API 미완성) → 웹개발자 재작업 (11:13) → 재평가 신호 (12:12) | 평가자 GO/NO-GO 대기 (Deadline: 2026-05-24 15:00) |
+| **AUDIT-P1 (Phase 2)** | 🔴 **CRITICAL: EVALUATOR_QUEUE_BLOCKED** | ✅ 3차 시도 완료 (05-23 11:13) → DB 마이그레이션 실행 (05-23 12:12) → 평가자 intake 신호 발송 (05-23 12:12) → **평가자 피드백 미수신 (25h+ 대기)** | 평가자 GO/NO-GO 즉시 필요 (CRITICAL) |
+| **DISCORD-BOT-P1 (Phase 2)** | 🔴 **CRITICAL: EVALUATOR_QUEUE_BLOCKED** | ✅ Phase 1 delivery 완료 (05-23 01:36) → 평가자 intake 신호 발송 (05-23 12:12) → **평가자 피드백 미수신 (25h+ 대기)** | 평가자 GO/NO-GO 즉시 필요 (CRITICAL) |
+| **TRAVEL-P2-UI (Phase 2)** | 🔴 **CRITICAL: EVALUATOR_QUEUE_BLOCKED** | ✅ UI design + components 완료 (05-23 02:01) → 평가자 intake 신호 발송 (05-23 12:12) → **평가자 피드백 미수신 (25h+ 대기)** | 평가자 GO/NO-GO 즉시 필요 (CRITICAL) |
+| **BM-P1** | 🔴 **CRITICAL: OVERDUE +12.5h** | ✅ 1차 평가 NO-GO → 웹개발자 재작업 완료 (05-23 12:12) → 재평가 신호 발송 (05-23 12:12) → **평가자 재검토 미수신 (25h+ 대기)** | Deadline: 05-24 15:00 **OVERDUE +12h 30m** (즉시 웹개발자 재할당 또는 자동화) |
 | **DEVOPS-P1~P3** | 🔴 **PENDING** | ❌ DevOps 엔지니어 미배정 → 담당자 연기 → 재일정: 2026-05-27 | 사용자가 담당자 확정 필요 |
 | **WEB-DEV-SUPPORT** | ✅ **COMPLETED (2026-05-21 23:45 KST)** | ✅ db/29 migration APPLIED. Asset Master Phase 2 16/16 MVP APIs fully deployed. All import functionality ready. | ✅ MILESTONE ACHIEVED |
 | **IMAGE-EDITING-AD-HOC** | 🟡 **BLOCKED_ON_USER** | ✅ 이미지 편집 완료 (2026-05-21 16:50) → 업로드 대기 중 | 사용자가 Telegram 채팅 ID 제공 필요 (ETA: 2026-05-25) |
@@ -4102,4 +4102,72 @@ All task states remain stable since 00:25 checkpoint. db/29 blocker is being act
 **상태 전환:** 2개 (WEB-DEV-SUPPORT BLOCKED→PENDING_EXEC, BM-P1 OVERDUE 시간 갱신)  
 **완료율 유지:** 60% (새로운 전환은 마감일정이 아닌 user execution 카테고리)  
 **다음 체크포인트:** 2026-05-24 16:50 (30분 주기)
+
+---
+
+## 【사용자 복귀】최종 Checkpoint (2026-05-25 00:47 KST)
+
+**휴가 기간 완료:** 2026-05-15 ~ 2026-05-24 (9.5일)  
+**복귀 시점:** 2026-05-25 00:00 KST  
+**최종 브리핑:** FINAL_RETURN_BRIEFING.md 생성 완료
+
+### 현재 상태 (00:47)
+
+| 항목 | 상태 | 변화 |
+|------|------|------|
+| Asset Master Phase A | 🟡IN_PROGRESS | ✅ 없음 |
+| Backup Phase 2 | 🟡IN_PROGRESS | ✅ 없음 |
+| BM-P1 (재평가) | ⏳평가자 대기 | ✅ 없음 |
+| Evaluator Queue (3개) | ⏳모두 초과 | ✅ 없음 |
+| DEVOPS-P1 | 🔴BLOCKED (연기됨) | ✅ 없음 |
+| IMAGE-EDITING-AD-HOC | 🔴BLOCKED (ID 대기) | ✅ 없음 |
+
+### 상태 전이 감지
+✅ **0개 전이 감지** — 모든 작업 상태 안정
+
+### 긴급 액션 (사용자 액션 필요)
+1. 🔴 BM-P1 재평가 결과 확인 (ETA: 00:30)
+2. 🔴 Evaluator Queue 우선순위 재조정 (ETA: 02:00)
+3. 🟡 Asset Master Phase 2 평가 완료 확인
+
+**기록 시간:** 2026-05-25 00:47 KST  
+**상태 변화 감지:** 0개  
+**다음 체크포인트:** 사용자 지시 대기
+
+---
+
+## ✅ **2026-05-25 05:17 SESSION CHECKPOINT (30-min auto-save)**
+
+**타이밍:** 2026-05-25 05:17 KST (Session Checkpoint)  
+**간격:** 2026-05-25 04:47 → 2026-05-25 05:17 (**30분 주기**)
+
+### 상태 변이 분석
+
+| 항목 | 현재 값 | 변화 |
+|------|--------|------|
+| Git Commits | 0 | ✅ 없음 |
+| Task State Changes | 0 | ✅ 없음 |
+| User Signals | 0 | ✅ 없음 |
+
+### 작업 상태 (Snapshot)
+
+| 태스크 | 상태 | 담당 | 소요시간 | 비고 |
+|--------|------|------|---------|------|
+| BM-P1 | 🔴 IN_PROGRESS **OVERDUE** | 평가자 | +13h47m | 재평가 대기 |
+| AUDIT-P1 | ✅ COMPLETED | 평가자 | 52h | 평가 대기 중 |
+| DISCORD-BOT-P1 | ✅ COMPLETED | 평가자 | 52h | 평가 대기 중 |
+| TRAVEL-P2-UI | ✅ COMPLETED | 평가자 | 50h | 평가 대기 중 |
+| WEB-DEV-SUPPORT | 🔴 PENDING_USER_EXEC | User | — | db/29 SQL 실행 대기 |
+| IMAGE-EDITING-AD-HOC | 🔴 BLOCKED_ON_USER | — | — | Telegram ID 대기 |
+| DEVOPS-P1 | ⚪ PENDING | — | — | 담당자 미배정 |
+
+### 🟢 **상태 확인**
+- ✅ 모든 작업 상태 안정적
+- ✅ 0개 상태 전환 감지
+- 🔴 3개 평가자 큐 병목 (50h+)
+- 🔴 BM-P1 마감 초과 (13h47m)
+
+**기록 시간:** 2026-05-25 05:17 KST  
+**상태 전환:** 0개  
+**다음 체크포인트:** 2026-05-25 05:47 (30분 주기)
 
