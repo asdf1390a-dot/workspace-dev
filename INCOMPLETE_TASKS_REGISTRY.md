@@ -4420,3 +4420,61 @@ All task states remain stable since 00:25 checkpoint. db/29 blocker is being act
 **기록:** 2026-05-25 07:27 KST  
 **상태 전환:** 0개  
 **결과:** ✅ **NO TRANSITIONS** — All task states stable, critical blockers unresolved
+
+---
+
+## 🤖 **2026-05-25 07:47 SESSION CHECKPOINT**
+
+**타이밍:** 2026-05-25 07:47 KST (Cron: 5abd5247-840e-49a8-9907-9ea00ac239d9)  
+**간격:** 2026-05-25 07:17 → 2026-05-25 07:47 (**30분**)  
+**변경 감지:** 0 commits, 0 task state changes
+
+### 결과
+**변경사항:** NONE — All task states stable, no new signals, user return briefing presented  
+**다음 체크포인트:** 2026-05-25 08:17 (30분 주기)
+
+**기록 시간:** 2026-05-25 07:47 KST
+
+---
+
+## 🤖 **2026-05-25 08:00 DEADLINE MONITOR**
+
+**타이밍:** 2026-05-25 08:00 KST (Cron: 5cde93a5-fc3c-4d59-9132-77d354571951)  
+**현재 시간:** 2026-05-25 08:00 KST (Monday)
+
+### 🔴 **OVERDUE ITEMS (Deadline < NOW)**
+
+| Task | Expected Deadline | Days Overdue | Status | Impact |
+|------|-------------------|--------------|--------|--------|
+| **BM-P1** | 2026-05-24 15:00 | **+17h** | Awaiting evaluator re-evaluation | CRITICAL — Blocks Phase 2 BM module rollout |
+| **WEB-DEV-SUPPORT** (db/29 SQL user action) | 2026-05-22 23:59 | **+32h8m** | User execution required | CRITICAL — Blocks Asset Master Phase 2 deployment |
+
+### ⚠️ **URGENT ITEMS (Deadline < NOW+6h, i.e., before 14:00 KST)**
+
+| Task | Deadline | Hours Remaining | Status | Action |
+|------|----------|-----------------|--------|--------|
+| **IMAGE-EDITING** | 2026-05-25 (Today) | ~6h | Blocked on user Telegram ID | User must provide chat ID today |
+| **BLOCKER-B1** (Vercel env) | 2026-05-25 (Today) | ~6h | Deferred until user return | User confirmation/action needed |
+| **BLOCKER-B3** (Slack Webhook) | 2026-05-25 (Today) | ~6h | Deferred until user return | User confirmation/action needed |
+
+### 🟢 **ON-TIME ITEMS (Deadline ≥ NOW+6h)**
+
+| Task | Deadline | Days Until | Status |
+|------|----------|-----------|--------|
+| DEVOPS-P1 | 2026-05-27 | 2 days | Pending engineer assignment |
+| AUDIT-SYSTEM-CRON | 2026-06-07 | 13 days | Monthly monitoring (scheduled) |
+
+### 📊 **Deadline Status Summary**
+
+| Category | Count | Tasks |
+|----------|-------|-------|
+| 🔴 OVERDUE | 2 | BM-P1 (+17h), WEB-DEV-SUPPORT (+32h) |
+| ⚠️ URGENT (< 6h) | 3 | IMAGE-EDITING, BLOCKER-B1, BLOCKER-B3 |
+| 🟢 ON-TIME | 2 | DEVOPS-P1 (2d), AUDIT-SYSTEM-CRON (13d) |
+
+### ✅ **State Transitions Detected This Cycle**
+
+**NONE** — All task states stable from 07:47 checkpoint. No evaluator signals, no user actions submitted.
+
+**기록:** 2026-05-25 08:00 KST  
+**결과:** ✅ **2 OVERDUE, 3 URGENT** — All critical items require immediate user/evaluator action
