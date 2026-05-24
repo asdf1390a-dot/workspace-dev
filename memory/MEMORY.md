@@ -1,5 +1,5 @@
 # 메모리 인덱스 (MEMORY.md)
-**Last Updated:** 2026-05-23 03:17 KST (Checkpoint #103: Phase 2 stable / 3 subagents running (95-155min) / reliability 92% / AUTOMATION-SPECIALIST 11h 17m OVERDUE / escalation 07:00 in 3h 43m)
+**Last Updated:** 2026-05-24 18:01 KST (18:00 Daily Checkpoint: CTB 99.6% complete / Reliability 77.6% vs 99% target / BM-P1 +3h 01m OVERDUE / Asset Master Ph2 +72h acceleration)
 
 ## 🚀 생태계 비전 (Critical)
 - [Ecosystem Vision](project_ecosystem_vision.md) — DSC FMS v1.0 → 다중공장/프로젝트/지역 확장 (2026-05-16 03:41)
@@ -22,6 +22,11 @@
 ## 📋 프로젝트별 완료보고서 (2026-05-20)
 - [프로젝트별 완료보고서](PROJECT_COMPLETION_REPORTS_2026-05-20.md) — Backup Ph2/Asset Ph2/Travel Ph1/Discord Ph1/BM Ph1 설계 완료 현황 + 개발 일정 + 산출물 (2026-05-20)
 - [⭐ Phase 2 A+B 조합 효율성 분석](phase2_ab_combination_efficiency_plan.md) — 토큰 30%→100% 달성 전략 (병렬강화+자동화확대, 월간비용분석, 실행로드맵) (2026-05-23)
+
+## 📊 일일 체크포인트 (Daily Checkpoints)
+- [📊 2026-05-24 18:00 KST 일일 최종 검증](CHECKPOINT_2026_05_24_1800_FINAL_VALIDATION.md) — CTB 완성도 99.6% (5/5 항목 기록) + 신뢰도 77.6% (vs 99% 목표) + BM-P1 +3h01m OVERDUE + Asset Master Phase 2 +72h 조기완료 + 내일 작업 당겨오기 분석 (0건 가능) (2026-05-24 18:01)
+- [📊 상태 대시보드 (2026-05-24 15:47 KST 긴급 갱신)](STATUS_DASHBOARD_2026_05_24_CORRECTED.md) — 37시간 갭 메우기 + 완료율 60% + 신뢰도 95% + BM-P1 마감 초과 감지 (2026-05-24 15:47)
+- [🚨 긴급 브리핑 (2026-05-24 18:10)](EMERGENCY_BRIEFING_2026_05_24_1810.md) — 평가자 큐 28시간 초과지연 + BM-P1 OVERDUE + 사용자 복귀 대기
 
 ---
 
