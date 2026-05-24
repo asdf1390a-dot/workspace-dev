@@ -21,6 +21,7 @@
 
 ## 📋 프로젝트별 완료보고서 (2026-05-20)
 - [프로젝트별 완료보고서](PROJECT_COMPLETION_REPORTS_2026-05-20.md) — Backup Ph2/Asset Ph2/Travel Ph1/Discord Ph1/BM Ph1 설계 완료 현황 + 개발 일정 + 산출물 (2026-05-20)
+- [⭐ Phase 2 A+B 조합 효율성 분석](phase2_ab_combination_efficiency_plan.md) — 토큰 30%→100% 달성 전략 (병렬강화+자동화확대, 월간비용분석, 실행로드맵) (2026-05-23)
 
 ---
 
