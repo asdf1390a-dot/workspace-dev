@@ -11,6 +11,10 @@
 - [Automation Specialist Confirmation](AUTOMATION_SPECIALIST_CONFIRMATION_2026_05_30.md) — Senior Automation 채용공고($650/month) + 온보딩 2일 + Cron/배포/모니터링 자동화 (2026-05-26 공고)
 - [Team Expansion Decision (2026-05-25)](memory/team_expansion_decision_2026_05_25.md) — 사용자 최종권장 (13:29), 3가지 동시진행, 재정분석, 성공기준
 
+## ⭐ 비서 역할 강화 (2026-05-25 규칙 업데이트)
+- [자동 처리 범위 명확화](feedback_autonomous_task_execution_explicit.md) — 비서 100% 자동 실행 범위 상세 정의 + 사용자 액션만 필수, 지금까지 재명령 패턴 학습 → 규칙화 (2026-05-25 14:31)
+- [동적 자동화 범위 확장](feedback_dynamic_auto_expansion.md) — 사용자 "해" 승인 → 같은 유형의 모든 작업 자동 처리 (배포/설정/마이그레이션 등), 매주 월 08:00 동적 범위 목록 갱신 (2026-05-25 14:34)
+
 ## 🚀 생태계 비전 (Critical)
 - [Ecosystem Vision](project_ecosystem_vision.md) — DSC FMS v1.0 → 다중공장/프로젝트/지역 확장 (2026-05-16 03:41)
 
