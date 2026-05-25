@@ -114,6 +114,7 @@ status: 운영 중
 | 16:25 | ✅ **WEB-DEV-SUPPORT → COMPLETED** | 4 commits (Asset Master Phase 2 Day 5 final) | Session Checkpoint #67 — **MAJOR TRANSITION:** WEB-DEV-SUPPORT completed with 16/16 MVP APIs (Day 4-5 finished, deadline 2026-05-22 23:59 MET 31+ hours early). ⚠️ **CORRECTION:** db/29 migration still NOT APPLIED (Cron Checks #194-#199 confirm PGRST205 error continues). Awaiting user execution in Supabase SQL Editor. All import endpoints + core CRUD code ready for db/29 tables. Next: Backup Phase 2 UI evaluation (Day 6~7 prep, optional). |
 | 02:47 (2026-05-23) | ✅ **NO CHANGES** | 0 commits (1h 17m elapsed) | Session Checkpoint #102 — All 9 task states remain stable (2 COMPLETED, 7 IN_PROGRESS, Phase 2 parallel execution continuous at 65-125min runtime). AUTOMATION-SPECIALIST escalation countdown: 4h 13m to contact (07:00), 5h 13m to forced completion (08:00). |
 | 03:17 (2026-05-23) | ✅ **NO CHANGES** | 0 commits (30min elapsed) | Session Checkpoint #103 — All 9 task states remain stable (2 COMPLETED, 7 IN_PROGRESS, Phase 2 parallel execution continuous). AUTOMATION-SPECIALIST escalation countdown: 3h 43m to contact (07:00), 4h 43m to forced completion (08:00). |
+| 13:14 (2026-05-25) | ✅ **NO CHANGES** | 0 commits (4min elapsed) | Session Checkpoint #156 (30min auto-save) — All task states STABLE: 🔴 EVALUATOR_QUEUE_BLOCKED (4 projects, 25h+ wait), 🔴 BM-P1 OVERDUE +12h 30m, 🟡 IMAGE-EDITING BLOCKED_ON_USER, ✅ 2 COMPLETED. Task State Machine: 0 transitions detected (no new work started, no user actions). |
 
 ---
 
@@ -4773,3 +4774,45 @@ All task states remain stable since 00:25 checkpoint. db/29 blocker is being act
 
 **기록:** 2026-05-25 10:17 KST  
 **결과:** ✅ **NO STATE CHANGES**
+
+---
+
+## 🤖 **2026-05-25 10:27 TASK STATE MACHINE MONITOR (4-rule check)**
+
+**타이밍:** 2026-05-25 10:27 KST (Cron: a79d4227-5386-4e9f-85d6-7673a3326c52)  
+**주기:** 60분 자동 상태전환 감지
+
+### 📊 **State Transition Analysis (4 Rules Applied)**
+
+| 규칙 | 조건 | 현재 상태 | 결과 |
+|------|------|---------|------|
+| Rule 1: PENDING→IN_PROGRESS | 담당자 작업 시작? | 신규 작업 커밋 없음 | ❌ No |
+| Rule 2: IN_PROGRESS→BLOCKED_ON_* | 의존성 감지? | 모두 캡처됨 (안정) | ✅ Stable |
+| Rule 3: BLOCKED_ON_USER→IN_PROGRESS | 사용자 액션 완료? | db/29 미실행, chat_id 미제공 | ❌ No |
+| Rule 4: IN_PROGRESS→COMPLETED | 작업 완료 + 검증? | 신규 완료 없음 | ❌ No |
+
+### ✅ **State Machine Result**
+
+**Transitions Detected:** 🟢 **0** (all task states remain stable)
+
+**기록:** 2026-05-25 10:27 KST  
+**결과:** ✅ **0 STATE TRANSITIONS** — All task states stable, awaiting external signals
+
+---
+
+## ✅ **2026-05-25 12:44 SESSION CHECKPOINT #156 (30min auto-save)**
+
+**타이밍:** 2026-05-25 12:44 KST (2h17m elapsed since 10:27)  
+**사용자 복귀:** 12:41 KST (Telegram) — 스크립트 링크 검증 요청
+
+**변경사항:** ✅ **NONE** — All task states stable since 10:27
+
+| 항목 | 상태 | 변화 |
+|-----|------|------|
+| **BM-P1 re-eval** | 🔴 OVERDUE +17h (15:00→19:17) | ❌ No change |
+| **db/29 SQL execution** | 🔴 OVERDUE +32h8m (since 23:59) | ❌ No change |
+| **Evaluator queue** | 🔴 4 projects (42-53h backlog) | ❌ No change |
+| **User actions pending** | 4 items (db/29, chat_id, B1, B3) | ❌ No change |
+
+**기록:** 2026-05-25 12:44 KST  
+**결과:** ✅ **NO STATE CHANGES** — User returned, validation check initiated, awaiting user actions
