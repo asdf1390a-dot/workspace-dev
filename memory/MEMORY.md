@@ -1,5 +1,14 @@
 # 메모리 인덱스 (MEMORY.md)
-**Last Updated:** 2026-05-24 23:50 KST (Final Return Briefing: User return in 10 min / BM-P1 OVERDUE +8h+ / Evaluator queue CRITICAL +32-33h / Reliability 77.6% / 3 Priority actions handoff)
+**Last Updated:** 2026-05-25 14:30 KST (Team Expansion 3-Pronged Execution Initiated: Evaluator recruitment Day 1 / QA training Day 1 planned / Automation confirmed Day 5 / Target 100% capacity 2026-06-01)
+
+## 🚨 Team Expansion 3-Pronged Execution (2026-05-25 IMMEDIATE)
+- [BM-P1 URGENT Status (2026-05-25)](BM_P1_URGENT_STATUS_2026_05_25.md) — 🔴 OVERDUE +12h, 절대기한 2026-05-27 14:00 (48시간), 2차 평가 진행중
+- [Team Expansion Action Checklist](TEAM_EXPANSION_ACTION_CHECKLIST_2026_05_25.md) — 일일 실행항목 (비서/평가자/사용자), 2026-05-25~06-01 타임라인
+- [Team Expansion 3-Pronged Execution Plan](TEAM_EXPANSION_EXECUTION_2026_05_25.md) — 통합 실행계획: Evaluator 모집(즉시) + QA교육(05-26~29) + Automation(05-26~30), 목표 100% 활용도 2026-06-01
+- [Evaluator AI Agent Recruitment Package](EVALUATOR_AI_AGENT_RECRUITMENT_PACKAGE.md) — Senior QA 채용공고($500/month) + 온보딩 2일 + 설계/구현/배포 검증 (2026-05-25 14:30 즉시)
+- [QA Training Program (Translator+Data-Analyst)](QA_TRAINING_PROGRAM_TRANSLATOR_ANALYST.md) — 4일 커리큘럼 (methodology/DB/API/UI 검증, 모의평가, 독립리뷰), 2026-05-26~29
+- [Automation Specialist Confirmation](AUTOMATION_SPECIALIST_CONFIRMATION_2026_05_30.md) — Senior Automation 채용공고($650/month) + 온보딩 2일 + Cron/배포/모니터링 자동화 (2026-05-26 공고)
+- [Team Expansion Decision (2026-05-25)](memory/team_expansion_decision_2026_05_25.md) — 사용자 최종권장 (13:29), 3가지 동시진행, 재정분석, 성공기준
 
 ## 🚀 생태계 비전 (Critical)
 - [Ecosystem Vision](project_ecosystem_vision.md) — DSC FMS v1.0 → 다중공장/프로젝트/지역 확장 (2026-05-16 03:41)
@@ -11,6 +20,7 @@
 - [Hermes + Claude 구독 연결 (비공식)](hermes_claude_subscription_setup.md) — OAuth 자격증명 + 호환 레이어, 약관 위반 위험 주의
 - [🟢 Hermes Monitoring Status Resolution](hermes_monitoring_status_2026_05_21_resolved.md) — Critical API key issue RESOLVED 2026-05-21 21:55 KST (Supabase key injection + gateway auto-start, 3 cron jobs active)
 - [🟢 Hermes Asset Health Monitoring](hermes_asset_health_monitoring.md) — 6h cron job for asset online/offline tracking (FIXED 2026-05-20: sessionTarget isolated→current)
+- [⚠️ Hermes Backup Verification Status (2026-05-25)](hermes_backup_verification_status_2026_05_25.md) — Daily 02:30 Cron incomplete: missing Vercel + Supabase tokens for integrity check (2026-05-25 02:30)
 
 ## 🔧 Protocol v2 Automation Recovery (2026-05-20)
 - [Vacation Video Compression](vacation_autonomous_video_compression.md) — 휴가 중 초저용량 비디오 변환 (0.62MB 극저용량 + 9.86MB 표준, 96.3% 압축률 달성) + Protocol v2 자동화 실패 분석
@@ -223,6 +233,7 @@
 - Team expansion 1인 (Web-Dev-Support) 온보딩 패키지 완성 (2026-05-19)
 - Team expansion 2인 (DevOps) 온보딩 패키지 완성 (2026-05-19)
 - Onboarding audit system activated (Cron Job 75eced4f, 2026-05-19)
+- [주간 학습 큐레이션 2026-05-25](weekly_learning_curation_2026_05_25.md) — 매주 월 09:00 팀원별 자료 검토 (youtube-library.md 갱신)
 
 ---
 
