@@ -2,6 +2,7 @@
 **Last Updated:** 2026-05-25 14:30 KST (Team Expansion 3-Pronged Execution Initiated: Evaluator recruitment Day 1 / QA training Day 1 planned / Automation confirmed Day 5 / Target 100% capacity 2026-06-01)
 
 ## 🚨 Team Expansion 3-Pronged Execution (2026-05-25 IMMEDIATE)
+- [⭐ Active Team Structure (2026-05-25)](team_structure_active_2026_05_25.md) — 6명 AI 에이전트 팀 현황 (Secretary/Evaluator/Translator/Analyst/Automation-Specialist/Web-Builder), 49%→96-100% 활용도 달성, AI-only 룰 명확화 (2026-05-25 14:30)
 - [BM-P1 URGENT Status (2026-05-25)](BM_P1_URGENT_STATUS_2026_05_25.md) — 🔴 OVERDUE +12h, 절대기한 2026-05-27 14:00 (48시간), 2차 평가 진행중
 - [Team Expansion Action Checklist](TEAM_EXPANSION_ACTION_CHECKLIST_2026_05_25.md) — 일일 실행항목 (비서/평가자/사용자), 2026-05-25~06-01 타임라인
 - [Team Expansion 3-Pronged Execution Plan](TEAM_EXPANSION_EXECUTION_2026_05_25.md) — 통합 실행계획: Evaluator 모집(즉시) + QA교육(05-26~29) + Automation(05-26~30), 목표 100% 활용도 2026-06-01
