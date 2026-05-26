@@ -20,10 +20,11 @@
   - 엣지 케이스 5대 범주 사전 정의
   - QA 체크리스트 완성
 
-- ✅ **Team Dashboard Phase 1 스키마** (db/41_team_dashboard_schema.sql)
-  - 4개 테이블: team_members | team_org_chart | capability_scores | improvement_actions
-  - RLS 정책 + 감사 트리거
-  - GitHub 제공: https://raw.githubusercontent.com/asdf1390a-dot/dsc-fms-portal/main/db/41_team_dashboard_schema.sql
+- ✅ **Team Dashboard Phase 2 스키마** (db/36_team_dashboard_phase2.sql) — 수정 완료
+  - portfolio 확장: team_projects에 start_date, target_date, actual_date, assignee_id 추가
+  - 3개 테이블: team_project_milestones | team_project_completion_history | v_team_project_portfolio (뷰)
+  - RLS 정책 + 자동 완료 로깅 트리거
+  - GitHub 제공: https://raw.githubusercontent.com/asdf1390a-dot/dsc-fms-portal/main/db/36_team_dashboard_phase2.sql
 
 **상태:** 🟢 **Web-Builder Phase 3 UI 개발 시작 준비 완료**
 
@@ -51,11 +52,15 @@
 - **영향:** Vercel 자동 배포 트리거 중 (예정: 2026-05-26 19:00)
 - **다음:** Vercel 배포 완료 후 Phase 3 UI 개발 시작
 
-### 2️⃣ **Team Dashboard Phase 1 DB 마이그레이션 대기** 🔴
-- **액션 필요:** Supabase에서 db/41_team_dashboard_schema.sql 실행
-- **GitHub Link:** https://raw.githubusercontent.com/asdf1390a-dot/dsc-fms-portal/main/db/41_team_dashboard_schema.sql
+### 2️⃣ **Team Dashboard Phase 2 DB 마이그레이션** 🟢 **수정 완료**
+- **상태:** 스키마 버그 수정 완료 (seed 섹션 PL/pgSQL 개선)
+- **액션 필요:** Supabase SQL Editor에서 다음 실행:
+  ```
+  https://raw.githubusercontent.com/asdf1390a-dot/dsc-fms-portal/main/db/36_team_dashboard_phase2.sql
+  ```
+- **수정 사항:** LATERAL JOIN → PL/pgSQL 블록으로 변경하여 스키마 안정성 향상
 - **예상:** 사용자가 실행 후 Vercel 자동 배포
-- **우선순위:** P1 (Phase 1 구현 필수)
+- **우선순위:** P1 (Team Dashboard Phase 1 구현 필수)
 
 ### 3️⃣ **Discord-P1 최종 배포 승인 대기** 🟢
 - **상태:** 100% 준비 완료 (Item A, B, C 모두 통과)
