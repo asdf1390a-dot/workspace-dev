@@ -36,16 +36,29 @@
 | 프로젝트 | 팀 리더 | 상태 | 진행률 | 다음 액션 | 우선순위 |
 |---------|--------|------|--------|---------|---------|
 | **Discord-P1** | API 전문가 #1 | 🟢 배포완료 | 100% | 운영 중 | P0 |
+| **Harness-ENG-P1** | 운영 | 🟢 배포완료 | 100% | 운영 중 | P0 |
 | **Travel-P2** | 백엔드 전문가 #1 | 🟡 배포진행 | 95% | GitHub Actions 모니터링 | P0 |
 | **Asset-P2** | 웹개발자 #4 | 🟢 Phase 2 준비 | 100% | Phase 2 개발 시작 | P0 |
 | **Dashboard-P2** | 웹개발자 #5 | ✅ Phase 3 완료 | 100% | Vercel 배포 대기 (c0ab046) | P1 |
 | **Team Dashboard P2B** | 웹개발자 #5 | ✅ 프로덕션 배포 | 100% | db/36 마이그레이션 (실데이터 연결) | P1 |
+| **Harness-ENG-P2** | 웹개발자 #5 | 🟡 Design ✅ | 0% → 100% (5일) | Pages 1-2 구현 시작 | P1 |
+| **Backup-P2** | 웹개발자 #3 | 🟡 API 1-5 진행 중 | 40% | API 계속 구현 | P1 |
+| **Memory-Auto-P2** | 자동화 | 🟢 Cron ✅ | 100% | 운영 중 (Phase 2A-2D) | P0 |
 
 **병목:** 모두 해결됨 | **팀 용량:** 100% 최적화 | **메모리 상태:** ✅ 신뢰도 96%
 
 ---
 
 ## 🎯 긴급 액션 필요
+
+### 🆕 **Harness-ENG-P2 설계 완료** ✅ (2026-05-27 08:00)
+- **상태:** Phase 2 설계 완료 (HARNESS_ENGINEERING_PHASE2_DESIGN.md)
+- **범위:** 4 pages (Production Schedule, Maintenance Plan, Conflict Detection, Audit Log) + 12 API endpoints
+- **표준화:** Dashboard-P2 Phase 3 + Team Dashboard P2B 패턴 완벽 일치
+- **구현:** 5일 로드맵 (2026-05-28 ~ 2026-06-01)
+- **테스트 목표:** 80%+ 커버리지 (44+ 테스트)
+- **배포:** Vercel 자동 배포 (main commit 트리거)
+- **다음:** Web-builder 에이전트 spawn → Pages 1-2 구현 시작
 
 ### 1️⃣ **Dashboard-P2 Phase 1 DB 마이그레이션 완료** ✅ (2026-05-26 18:46)
 - **상태:** Supabase에서 성공 실행
