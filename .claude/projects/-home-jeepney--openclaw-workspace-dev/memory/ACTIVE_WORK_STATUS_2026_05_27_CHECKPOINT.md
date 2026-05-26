@@ -76,6 +76,16 @@ date: 2026-05-27
 - **ETA:** 2026-06-02
 - **Target:** 3-5 endpoints/day
 
+### Harness Engineering Phase 2 — Design Complete ✅
+- **Design Document:** HARNESS_ENGINEERING_PHASE2_DESIGN.md
+- **Pages:** 4 (Production Schedule Manager, Maintenance Plan Manager, Conflict Detection Engine, Audit Log Viewer)
+- **API Endpoints:** 12 total (5 schedule, 5 maintenance, 3 validation, 1 audit)
+- **Patterns:** Matches Dashboard-P2 Phase 3 ecosystem (SWR 30s polling, ErrorBoundary, mobile-responsive, 80%+ tests)
+- **Implementation Timeline:** 5 days (2026-05-28 ~ 2026-06-01)
+- **Status:** 🟡 Design ready, awaiting web-builder spawn
+- **ETA:** 2026-06-01 (Phase 2 complete + Vercel deploy)
+- **Target:** Standardized deliverables across all projects + consistent monitoring
+
 ---
 
 ## ⏳ Pending (User Action Required)
@@ -100,7 +110,8 @@ date: 2026-05-27
 | Project | Phase | Status | ETA | Next Action |
 |---------|-------|--------|-----|-------------|
 | Discord-P1 | ✅ Complete | 🟢 Deployed | 2026-05-27 | Operations |
-| Harness Engineering | ✅ Complete | 🟢 Deployed | 2026-05-27 | Operations |
+| Harness-ENG-P1 | ✅ Complete | 🟢 Deployed | 2026-05-27 | Operations |
+| Harness-ENG-P2 | Design ✅ | 🟡 Ready to build | 2026-06-01 | Spawn web-builder (Pages 1-2) |
 | Memory Auto-P2 | ✅ Complete | 🟢 Cron Active | 2026-05-27 | Operations |
 | Team Dashboard P2B | Day 4 | ✅ Production Live | 2026-05-27 | db/36 migration (unblocks real data) |
 | Dashboard-P2 Phase 3 | ✅ All 4 Pages | ✅ Committed | 2026-05-27 | Push to main → Vercel auto-deploy |
