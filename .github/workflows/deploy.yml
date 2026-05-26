@@ -68,7 +68,7 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: '🚀 **Preview Deployment Ready**\nhttps://<your-vercel-url>/pr-' + context.issue.number
+              body: '🚀 **Preview Deployment Ready**\nhttps://pr-' + context.issue.number + '-dsc-fms-portal.vercel.app'
             })
 
   deploy-production:
@@ -90,19 +90,14 @@ jobs:
           working-directory: ./
           prod: true
 
-      - name: Post deployment status
-        uses: actions/github-script@v6
-        with:
-          script: |
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: '✅ **Production Deployed** @ ' + new Date().toISOString() + '\nCommit: ' + context.sha.substring(0, 7)
-            })
+      - name: Log deployment status
+        run: |
+          echo "✅ Production Deployment Complete"
+          echo "Commit: ${{ github.sha }}" | head -c 7
+          echo "Timestamp: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
 
   notify:
-    needs: [build-and-test, deploy-preview, deploy-production]
+    needs: build-and-test
     if: always()
     runs-on: ubuntu-latest
 
