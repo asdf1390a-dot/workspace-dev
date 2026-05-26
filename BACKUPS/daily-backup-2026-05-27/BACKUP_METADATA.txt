@@ -1,0 +1,4 @@
+✅ 백업 완료: 2026-05-27 00:03:19
+백업 경로: /home/jeepney/.openclaw/workspace-dev/BACKUPS/daily-backup-2026-05-27
+메모리 파일: 185 개
+설정 파일: 4 개
