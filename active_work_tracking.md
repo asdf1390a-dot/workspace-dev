@@ -52,15 +52,28 @@
 - **영향:** Vercel 자동 배포 트리거 중 (예정: 2026-05-26 19:00)
 - **다음:** Vercel 배포 완료 후 Phase 3 UI 개발 시작
 
-### 2️⃣ **Team Dashboard Phase 2 DB 마이그레이션** 🟢 **수정 완료**
-- **상태:** 스키마 버그 수정 완료 (seed 섹션 PL/pgSQL 개선)
-- **액션 필요:** Supabase SQL Editor에서 다음 실행:
-  ```
-  https://raw.githubusercontent.com/asdf1390a-dot/dsc-fms-portal/main/db/36_team_dashboard_phase2.sql
-  ```
-- **수정 사항:** LATERAL JOIN → PL/pgSQL 블록으로 변경하여 스키마 안정성 향상
-- **예상:** 사용자가 실행 후 Vercel 자동 배포
-- **우선순위:** P1 (Team Dashboard Phase 1 구현 필수)
+### 2️⃣ **Team Dashboard Phase 2 DB 마이그레이션** ✅ **완료 (2026-05-26 23:28)**
+- **상태:** 스키마 배포 완료 및 검증됨
+- **실행 결과:** 
+  - team_projects 확장: start_date, target_date, actual_date, assignee_id (4 행)
+  - team_project_milestones 생성: 9 마일스톤 ✅
+  - team_project_completion_history 생성: 2 레코드 ✅
+  - v_team_project_portfolio 뷰 생성: 4 프로젝트 ✅
+- **검증 쿼리:** 모두 성공
+- **우선순위:** P1 (완료됨)
+
+### 2️⃣-A **Team Dashboard Phase 2A API 통합** ✅ **완료 (2026-05-27 00:15)**
+- **상태:** API 구현 완료 및 GitHub 커밋됨
+- **구현 내용:**
+  - GET/POST /api/team/projects (목록, 필터, 생성)
+  - GET/PATCH/DELETE /api/team/projects/[id] (상세, 수정, 삭제)
+  - GET/POST /api/team/projects/[id]/milestones (마일스톤 관리)
+  - PATCH/DELETE /api/team/projects/[id]/milestones/[milestoneId] (마일스톤 상세)
+  - GET/POST /api/team/projects/[id]/history (완료 이력)
+- **테스트:** 20개 모두 통과 ✅
+- **커밋:** d4214d9 (GitHub 배포됨)
+- **다음:** Team Dashboard Phase 2B (UI 컴포넌트 개발)
+- **우선순위:** P1
 
 ### 3️⃣ **Discord-P1 최종 배포 승인 대기** 🟢
 - **상태:** 100% 준비 완료 (Item A, B, C 모두 통과)
