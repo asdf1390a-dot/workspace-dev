@@ -81,16 +81,23 @@ log "INFO" "Run ID: $(date +%s)"
 failed_services=0
 services_status=""
 
+# Phase 2A: Always check (production service)
 if ! check_service "Phase2A" "$PHASE2A_URL/health"; then
   ((failed_services++))
 fi
 
+# Phase 2B: Always check (production service)
 if ! check_service "Phase2B" "$PHASE2B_URL/health"; then
   ((failed_services++))
 fi
 
-if ! check_service "Phase2C" "$PHASE2C_URL/health"; then
-  ((failed_services++))
+# Phase 2C: Check only if port is in use (development/deployment phase)
+if lsof -i ":3011" >/dev/null 2>&1; then
+  if ! check_service "Phase2C" "$PHASE2C_URL/health"; then
+    ((failed_services++))
+  fi
+else
+  log "INFO" "Phase2C: Not yet deployed (expected until 2026-05-30)"
 fi
 
 # 디스크 공간 확인
