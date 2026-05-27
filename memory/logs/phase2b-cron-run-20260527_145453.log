@@ -1,0 +1,19 @@
+[2026-05-27 14:54:53] [INFO] ========== Phase 2B Cron Start ==========
+[2026-05-27 14:54:53] [INFO] Run Time: 2026-05-27 14:54:53
+[2026-05-27 14:54:53] [INFO] Script: /home/jeepney/.openclaw/workspace-dev/memory-automation/phase2b-cron.sh
+[2026-05-27 14:54:53] [INFO] Phase 1: Pre-flight checks
+[2026-05-27 14:54:53] [INFO] Checking Phase 2B service at http://localhost:3010...
+[2026-05-27 14:54:53] [INFO] Phase 2B service is running ✓
+[2026-05-27 14:54:53] [INFO] Phase 2: Collecting memory entries
+[2026-05-27 14:54:53] [INFO] Found 193 memory files
+[2026-05-27 14:54:56] [INFO] Prepared 193 entries for duplicate detection
+[2026-05-27 14:54:56] [INFO] Phase 3: Calling Phase 2B API
+[2026-05-27 14:54:56] [INFO] JSON payload size: 77205 bytes
+[2026-05-27 14:54:56] [INFO] Endpoint: http://localhost:3010/api/detect-duplicates
+[2026-05-27 14:54:56] [INFO] API response received
+[2026-05-27 14:54:56] [INFO] Response length: 154 bytes
+[2026-05-27 14:54:56] [INFO] Response (first 200 chars): error: invalid UTF-8 was detected in one or more arguments
+
+For more information, try '--help'.
+{"success": false, "error": "Timeout or connection error"}
+[2026-05-27 14:54:56] [ERROR] API call failed: Timeout or connection error
