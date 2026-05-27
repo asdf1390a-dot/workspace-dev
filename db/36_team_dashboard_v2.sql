@@ -55,6 +55,11 @@ ALTER TABLE team_structure ENABLE ROW LEVEL SECURITY;
 ALTER TABLE portfolio_items ENABLE ROW LEVEL SECURITY;
 ALTER TABLE activity_log ENABLE ROW LEVEL SECURITY;
 
+DROP POLICY IF EXISTS "Public read access" ON team_members;
+DROP POLICY IF EXISTS "Public read access" ON team_structure;
+DROP POLICY IF EXISTS "Public read access" ON portfolio_items;
+DROP POLICY IF EXISTS "Public read access" ON activity_log;
+
 CREATE POLICY "Public read access" ON team_members FOR SELECT USING (true);
 CREATE POLICY "Public read access" ON team_structure FOR SELECT USING (true);
 CREATE POLICY "Public read access" ON portfolio_items FOR SELECT USING (true);
