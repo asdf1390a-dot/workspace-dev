@@ -14,6 +14,14 @@
 ## 🔴 CRITICAL: 사용자 액션 오버듀 — 2026-05-27 08:09
 - [⚡ 규칙 준수 감시 결과](RULE_COMPLIANCE_AUDIT_2026_05_27.md) — 🔴 일정관리 규칙 위반: URGENT-GH-SECRET + URGENT-DB-MIG 각각 15시간 이상 오버듀 (2026-05-27 08:09 즉시 처리 필요)
 
+## 🔧 Phase 2: Memory Automation (2026-05-27 설계 완료 → 2026-05-28+ 순차 구현)
+- [✅ Phase 2A: Message Collection API](../memory-automation/README_PHASE2A.md) — **완료** (2026-05-27 04:35) — 5 endpoints, 9 tests, Express 서버
+- [🟡 Phase 2B: Duplicate Detection](DUPLICATE_DETECTION_SPECIFICATION.md) — **Day 1 완료** (2026-05-27 14:50) — 3-layer 엔진 (Pattern/Fuzzy/Semantic), 92% 정확도
+- [Phase 2C: Trust Score Calculation](TRUST_SCORE_CALCULATION_SPECIFICATION.md) — 설계 완료 — 4-component 가중합 (age/frequency/source/edit)
+- [Phase 2D: Cron Integration](MEMORY_AUTOMATION_CRON_STATUS.md) — **최종검증 완료** (2026-05-27 17:40) — 19/19 체크 통과, Monday 09:00 KST 실행 스케줄
+- [🟡 Phase 2E: Testing & Tuning](PHASE2E_TESTING_AND_TUNING_PLAN.md) — **설계 완료** (2026-05-27 17:50) — 730+ 줄 종합테스트계획, 2026-06-01 실행 예정, 5단계 (Post-Exec/Component/Threshold/Reliability/Integration)
+- [Timeline: 2026-05-27(설계完)→05-30(첫실행)→06-01(테스트E)→06-02(배포F)](MEMORY_AUTOMATION_PHASE2_DESIGN.md)
+
 ## 🚨 Team Expansion 3-Pronged Execution (2026-05-25 IMMEDIATE)
 - [⭐ Active Team Structure (2026-05-25)](team_structure_active_2026_05_25.md) — 6명 AI 에이전트 팀 현황 (Secretary/Evaluator/Translator/Analyst/Automation-Specialist/Web-Builder), 49%→96-100% 활용도 달성, AI-only 룰 명확화 (2026-05-25 14:30)
 - [BM-P1 URGENT Status (2026-05-25)](BM_P1_URGENT_STATUS_2026_05_25.md) — 🔴 OVERDUE +12h, 절대기한 2026-05-27 14:00 (48시간), 2차 평가 진행중
