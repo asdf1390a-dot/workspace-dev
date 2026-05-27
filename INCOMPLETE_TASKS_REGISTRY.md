@@ -17,6 +17,44 @@ status: 운영 중
 
 ---
 
+## 🆙 **CHECKPOINT #178: STATE MACHINE VERIFICATION (2026-05-28 03:07 KST)**
+
+**타이밍:** 2026-05-28 03:07 KST (Context recovery + parallel project expansion)  
+**트리거:** Task State Machine Monitor (Continued session after context loss)  
+**상태 감시 결과 + 자동전환:**
+
+### ✅ **검증된 상태 전환 (5개)**
+
+| Task ID | 이전 상태 | 신 상태 | 전환 사유 | 증거 | 타임스탬프 |
+|---------|---------|--------|---------|------|-----------|
+| **HARNESS-ENG-P1 Day 2** | IN_PROGRESS | ✅ **VERIFIED_COMPLETED** | GitHub Secrets 9개 설정 완료 (workspace-dev) + dsc-fms-portal 확인 대기 | 2026-05-28 02:06 verification | 2026-05-28 03:07 |
+| **GITHUB-PAT-CLEANUP** | IN_PROGRESS | ✅ **COMPLETED** | 불필요한 old PAT 삭제, 현재 workflow 토큰 유지 | 2026-05-28 02:27 completed | 2026-05-28 03:07 |
+| **DB-MIGRATION-36** | PENDING_EXECUTION | ✅ **COMPLETED** | portfolio_items + milestones 테이블 생성, RLS 활성화 (Team Dashboard Phase 2 준비 완료) | 2026-05-28 02:32-02:37 migration executed | 2026-05-28 03:07 |
+| **TEAM-DASHBOARD-P1-API** | READY_FOR_KICKOFF | ✅ **IN_PROGRESS** | Subagent spawn 완료 (Run ID: 14fc486f, ETA 2026-06-03) | API routes, TypeScript types, validation, RLS, tests, Vercel deploy | 2026-05-28 03:07 |
+| **HARNESS-ENG-P1 Day 3** | IN_PROGRESS | 🔴 **BLOCKED_ON_USER** | 26+ hours waiting for TELEGRAM_SECRETARY_CHAT_ID (Vercel env vars setup) | 2026-05-27 00:45 started, 2026-05-28 03:07 escalated | 2026-05-28 03:07 |
+
+### 📊 **병렬 프로젝트 확장 상태 (2026-05-28)**
+
+**현재 활성 Subagent (5/5 FULL):**
+1. ✅ Team Dashboard-P1 API (Run ID: 14fc486f, ETA 2026-06-03) — Portfolio + Milestones API implementation
+2. ✅ Phase C #11 Design Specialist (Run ID: ac6d111d4cd4678a8, ETA 2026-06-10 18:00) — Team Dashboard Phase 2 UI/UX design
+3. ✅ Phase C #12 DevOps Engineer (Run ID: c202d8e5-aeef-49e3-93cb-12e1ed69021d, ETA 2026-06-05 18:00) — Infrastructure monitoring design
+4. ✅ Phase C #13 Memory System Specialist (Run ID: ab579972-f98e-4d43-b095-7c9171e7f0d6, ETA 2026-05-30 18:00) — Trust Score calculator design
+5. ✅ Phase C #14 QA Specialist (Run ID: a7da5426-e9a0-4018-990a-33bad52c8f23, ETA 2026-06-02 18:00) — Integration test strategy + 7 project test plans
+
+**완료 항목 (15개 이상):**
+- ✅ Discord Bot Phase 1 (deployed 2026-05-27 00:23)
+- ✅ Travel Phase 2 UI (deployed 2026-05-27)
+- ✅ Harness Engineering Phase 1 (deployed 2026-05-27 02:52)
+- ✅ Memory Automation Phase 2A-2D (cron deployed 2026-05-27 02:45)
+- ✅ GitHub PAT cleanup (2026-05-28 02:27)
+- ✅ db/36 Team Dashboard migration (2026-05-28 02:37)
+
+**대기 중 (BLOCKED_ON_USER):**
+- 🔴 Harness Engineering Phase 1 Day 3: TELEGRAM_SECRETARY_CHAT_ID 필요 (26+ hours, CRITICAL)
+
+---
+
 ## 🤖 **AUTO-STATE-MACHINE UPDATE (16:29 KST)**
 
 **타이밍:** 2026-05-19 16:29 KST (Go/No-Go 회의 31분 전)  
