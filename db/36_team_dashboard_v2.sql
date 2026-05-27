@@ -1,6 +1,4 @@
 -- Team Dashboard Phase 2: Team Management Tables
--- db/36 - Team Members, Structure, Portfolio, Activity Log
-
 CREATE TABLE IF NOT EXISTS team_members (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   name TEXT NOT NULL,

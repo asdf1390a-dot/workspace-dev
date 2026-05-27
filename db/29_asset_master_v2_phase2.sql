@@ -1,6 +1,4 @@
 -- Asset Master Phase 2: Import Batches Table
--- db/29 - Asset Import Batch Tracking
-
 CREATE TABLE IF NOT EXISTS asset_import_batches (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   user_id UUID NOT NULL REFERENCES auth.users(id) ON DELETE CASCADE,
