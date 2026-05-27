@@ -1,0 +1,453 @@
+{
+  "version": "1.0",
+  "created_at": "2026-05-28",
+  "dashboards": [
+    {
+      "id": "system-overview",
+      "title": "System Overview Dashboard",
+      "description": "시스템 전체 상태 및 건강도 (60초 갱신)",
+      "layout": "grid",
+      "refresh_interval": "60s",
+      "widgets": [
+        {
+          "id": "w1",
+          "type": "big_number",
+          "title": "Uptime Status",
+          "position": {"x": 0, "y": 0, "width": 2, "height": 2},
+          "metric": "system.uptime",
+          "unit": "%",
+          "threshold_critical": 99.9,
+          "threshold_warning": 99.5,
+          "color_logic": {"green": ">=99.9", "yellow": "99.5-99.8", "red": "<99.5"}
+        },
+        {
+          "id": "w2",
+          "type": "timeseries",
+          "title": "API Response Time (p95)",
+          "position": {"x": 2, "y": 0, "width": 3, "height": 2},
+          "metric": "trace.web.response_time.95p",
+          "unit": "ms",
+          "threshold_warning": 500,
+          "threshold_critical": 1000,
+          "yaxis": {"min": 0, "max": 1200}
+        },
+        {
+          "id": "w3",
+          "type": "gauge",
+          "title": "Error Rate",
+          "position": {"x": 5, "y": 0, "width": 2, "height": 2},
+          "metric": "trace.web.errors / trace.web.requests",
+          "unit": "%",
+          "min": 0,
+          "max": 5,
+          "threshold_critical": 1
+        },
+        {
+          "id": "w4",
+          "type": "bar",
+          "title": "Database Connections",
+          "position": {"x": 0, "y": 2, "width": 2, "height": 2},
+          "metric": "pg.connections",
+          "max_value": 50,
+          "threshold_warning": 35,
+          "threshold_critical": 45
+        },
+        {
+          "id": "w5",
+          "type": "big_number",
+          "title": "Cron Job Success (24h)",
+          "position": {"x": 2, "y": 2, "width": 2, "height": 2},
+          "metric": "(batch.success_count / (batch.success_count + batch.fail_count)) * 100",
+          "unit": "%",
+          "threshold_critical": 95
+        },
+        {
+          "id": "w6",
+          "type": "big_number",
+          "title": "Team Health Score",
+          "position": {"x": 4, "y": 2, "width": 2, "height": 2},
+          "metric": "(ai_agents.active / 7) * 100",
+          "unit": "%",
+          "threshold_warning": 85
+        },
+        {
+          "id": "w7",
+          "type": "status",
+          "title": "Telegram Bot Status",
+          "position": {"x": 0, "y": 4, "width": 1, "height": 1},
+          "metric": "webhook.response_code",
+          "expected_value": 200,
+          "color_logic": {"green": "200", "red": "!=200"}
+        },
+        {
+          "id": "w8",
+          "type": "heatmap",
+          "title": "Incident Forecast (ML Anomaly)",
+          "position": {"x": 1, "y": 4, "width": 3, "height": 2},
+          "metric": "ml.anomaly_detection_score",
+          "threshold_warning": 0.6,
+          "threshold_critical": 0.8
+        }
+      ]
+    },
+    {
+      "id": "api-performance",
+      "title": "API Performance Dashboard",
+      "description": "API 엔드포인트별 성능 분석 (실시간)",
+      "refresh_interval": "30s",
+      "widgets": [
+        {
+          "id": "w1",
+          "type": "timeseries",
+          "title": "Requests per Minute (by endpoint)",
+          "position": {"x": 0, "y": 0, "width": 4, "height": 2},
+          "metrics": [
+            "trace.web.requests{endpoint:/api/assets}",
+            "trace.web.requests{endpoint:/api/backup}",
+            "trace.web.requests{endpoint:/api/travel}",
+            "trace.web.requests{endpoint:/api/team}"
+          ],
+          "yaxis": {"min": 0, "max": 200}
+        },
+        {
+          "id": "w2",
+          "type": "heatmap",
+          "title": "Response Time Distribution (P50/P95/P99)",
+          "position": {"x": 4, "y": 0, "width": 3, "height": 2},
+          "metrics": [
+            "trace.web.response_time.50p",
+            "trace.web.response_time.95p",
+            "trace.web.response_time.99p"
+          ]
+        },
+        {
+          "id": "w3",
+          "type": "table",
+          "title": "Endpoint Performance Summary",
+          "position": {"x": 0, "y": 2, "width": 7, "height": 2},
+          "columns": [
+            {"name": "Endpoint", "metric": "endpoint"},
+            {"name": "Req/min", "metric": "trace.web.requests", "sort": "desc"},
+            {"name": "P50 (ms)", "metric": "trace.web.response_time.50p"},
+            {"name": "P95 (ms)", "metric": "trace.web.response_time.95p"},
+            {"name": "Error Rate (%)", "metric": "error_rate"}
+          ]
+        },
+        {
+          "id": "w4",
+          "type": "flame_graph",
+          "title": "Slow Query Analysis (Top 10)",
+          "position": {"x": 0, "y": 4, "width": 7, "height": 2},
+          "query": "SELECT duration, query FROM pg_stat_statements WHERE duration > 1000 ORDER BY duration DESC LIMIT 10"
+        }
+      ]
+    },
+    {
+      "id": "database-health",
+      "title": "Database Health Dashboard",
+      "description": "Supabase PostgreSQL 성능 모니터링",
+      "refresh_interval": "60s",
+      "widgets": [
+        {
+          "id": "w1",
+          "type": "gauge",
+          "title": "Connection Count (current/max)",
+          "position": {"x": 0, "y": 0, "width": 2, "height": 2},
+          "metric": "pg.connections",
+          "max": 50,
+          "threshold_warning": 35,
+          "threshold_critical": 45
+        },
+        {
+          "id": "w2",
+          "type": "timeseries",
+          "title": "Connection Wait Time",
+          "position": {"x": 2, "y": 0, "width": 2, "height": 2},
+          "metric": "pg.conn_wait_time",
+          "unit": "ms",
+          "threshold_warning": 20,
+          "yaxis": {"min": 0, "max": 100}
+        },
+        {
+          "id": "w3",
+          "type": "gauge",
+          "title": "Query P95 Latency",
+          "position": {"x": 4, "y": 0, "width": 2, "height": 2},
+          "metric": "pg.query_latency.p95",
+          "unit": "ms",
+          "max": 200,
+          "threshold_warning": 100,
+          "threshold_critical": 150
+        },
+        {
+          "id": "w4",
+          "type": "big_number",
+          "title": "Cache Hit Ratio",
+          "position": {"x": 6, "y": 0, "width": 2, "height": 2},
+          "metric": "pg.cache_hit_ratio",
+          "unit": "%",
+          "threshold_critical": 80
+        },
+        {
+          "id": "w5",
+          "type": "table",
+          "title": "Top 5 Tables by Size",
+          "position": {"x": 0, "y": 2, "width": 4, "height": 2},
+          "columns": [
+            {"name": "Table Name", "metric": "table_name"},
+            {"name": "Size (MB)", "metric": "table_size_mb", "sort": "desc"},
+            {"name": "Rows", "metric": "row_count"}
+          ]
+        },
+        {
+          "id": "w6",
+          "type": "timeseries",
+          "title": "Slow Query Count (>1s)",
+          "position": {"x": 4, "y": 2, "width": 2, "height": 2},
+          "metric": "pg.slow_queries",
+          "threshold_warning": 5,
+          "yaxis": {"min": 0, "max": 20}
+        },
+        {
+          "id": "w7",
+          "type": "gauge",
+          "title": "Transaction Rollback Rate",
+          "position": {"x": 6, "y": 2, "width": 2, "height": 2},
+          "metric": "pg.rollback_rate",
+          "unit": "%",
+          "max": 5,
+          "threshold_critical": 1
+        },
+        {
+          "id": "w8",
+          "type": "gauge",
+          "title": "Disk Space Usage",
+          "position": {"x": 0, "y": 4, "width": 2, "height": 2},
+          "metric": "pg.disk_usage_percent",
+          "unit": "%",
+          "max": 100,
+          "threshold_warning": 80,
+          "threshold_critical": 90
+        }
+      ]
+    },
+    {
+      "id": "team-productivity",
+      "title": "Team Productivity Dashboard",
+      "description": "7개 AI Agent 활동률 + Task 완료율 (실시간)",
+      "refresh_interval": "5m",
+      "widgets": [
+        {
+          "id": "w1",
+          "type": "table",
+          "title": "AI Agent Activity Status",
+          "position": {"x": 0, "y": 0, "width": 7, "height": 3},
+          "columns": [
+            {"name": "Agent", "metric": "agent_name"},
+            {"name": "Status", "metric": "status", "enum": {"Active": "green", "Idle": "yellow", "In-Progress": "blue"}},
+            {"name": "Task Completion (%)", "metric": "task_completion_rate"},
+            {"name": "Avg Runtime (h)", "metric": "avg_runtime_hours"},
+            {"name": "Last Activity", "metric": "last_activity_ago"}
+          ]
+        },
+        {
+          "id": "w2",
+          "type": "timeseries",
+          "title": "Weekly Task Completion Burndown",
+          "position": {"x": 0, "y": 3, "width": 3, "height": 2},
+          "metric": "team.task_completion_rate",
+          "unit": "%",
+          "yaxis": {"min": 0, "max": 100}
+        },
+        {
+          "id": "w3",
+          "type": "heatmap",
+          "title": "24-Hour Agent Activity Pattern",
+          "position": {"x": 3, "y": 3, "width": 4, "height": 2},
+          "metric": "agent.active_count_by_hour",
+          "aggregation": "hour_of_day"
+        },
+        {
+          "id": "w4",
+          "type": "snapshot",
+          "title": "CTB Current State (from active_work_tracking.md)",
+          "position": {"x": 0, "y": 5, "width": 7, "height": 2},
+          "source": "file:///home/jeepney/.openclaw/workspace-dev/memory/active_work_tracking.md",
+          "parse_mode": "markdown"
+        }
+      ]
+    },
+    {
+      "id": "business-kpi",
+      "title": "Business KPI Dashboard",
+      "description": "비즈니스 관점 KPI 실시간 추적",
+      "refresh_interval": "1h",
+      "widgets": [
+        {
+          "id": "w1",
+          "type": "big_number",
+          "title": "Total Assets",
+          "position": {"x": 0, "y": 0, "width": 1, "height": 1},
+          "metric": "COUNT(*) FROM assets",
+          "goal": 2500,
+          "color_logic": {"green": ">2500", "yellow": "2000-2500", "red": "<2000"}
+        },
+        {
+          "id": "w2",
+          "type": "big_number",
+          "title": "Monthly Travel Expenses",
+          "position": {"x": 1, "y": 0, "width": 1, "height": 1},
+          "metric": "SUM(amount) FROM travel_expenses WHERE MONTH=current",
+          "unit": "$",
+          "goal": 500000,
+          "color_logic": {"green": "<500000", "yellow": "500000-600000", "red": ">600000"}
+        },
+        {
+          "id": "w3",
+          "type": "big_number",
+          "title": "Backup Success Rate (24h)",
+          "position": {"x": 2, "y": 0, "width": 1, "height": 1},
+          "metric": "(backup.success / (backup.success + backup.fail)) * 100",
+          "unit": "%",
+          "goal": 100,
+          "color_logic": {"green": ">=99", "yellow": "95-98", "red": "<95"}
+        },
+        {
+          "id": "w4",
+          "type": "big_number",
+          "title": "Team Utilization",
+          "position": {"x": 3, "y": 0, "width": 1, "height": 1},
+          "metric": "team.utilization_rate",
+          "unit": "%",
+          "goal": 95,
+          "color_logic": {"green": ">=95", "yellow": "85-94", "red": "<85"}
+        },
+        {
+          "id": "w5",
+          "type": "big_number",
+          "title": "Project Completion Rate",
+          "position": {"x": 4, "y": 0, "width": 1, "height": 1},
+          "metric": "projects.completed / projects.total",
+          "unit": "%",
+          "goal": 60
+        },
+        {
+          "id": "w6",
+          "type": "timeseries",
+          "title": "Assets Growth Trend (weekly)",
+          "position": {"x": 0, "y": 1, "width": 3, "height": 2},
+          "metric": "COUNT(*) FROM assets",
+          "aggregation": "week"
+        },
+        {
+          "id": "w7",
+          "type": "timeseries",
+          "title": "Monthly Travel Expense Trend",
+          "position": {"x": 3, "y": 1, "width": 2, "height": 2},
+          "metric": "SUM(amount) FROM travel_expenses",
+          "aggregation": "month",
+          "unit": "$"
+        },
+        {
+          "id": "w8",
+          "type": "gauge",
+          "title": "Backup Success Rate (daily)",
+          "position": {"x": 5, "y": 1, "width": 2, "height": 2},
+          "metric": "backup.success_rate",
+          "unit": "%",
+          "max": 100,
+          "threshold_critical": 99
+        }
+      ]
+    },
+    {
+      "id": "incident-response",
+      "title": "Incident Response Dashboard",
+      "description": "P0/P1 사건 실시간 현황판 (On-call manager용)",
+      "refresh_interval": "30s",
+      "widgets": [
+        {
+          "id": "w1",
+          "type": "list",
+          "title": "🔴 P0 Critical (Active)",
+          "position": {"x": 0, "y": 0, "width": 3, "height": 2},
+          "query": "SELECT incident_id, title, started_at, DATEDIFF(minute, started_at, NOW()) as duration_min FROM incidents WHERE severity='P0' AND status='ACTIVE' ORDER BY started_at ASC"
+        },
+        {
+          "id": "w2",
+          "type": "list",
+          "title": "🟡 P1 High (Last 24h)",
+          "position": {"x": 3, "y": 0, "width": 3, "height": 2},
+          "query": "SELECT incident_id, title, resolved_duration_min FROM incidents WHERE severity='P1' AND created_at > NOW() - INTERVAL 1 day ORDER BY created_at DESC"
+        },
+        {
+          "id": "w3",
+          "type": "big_number",
+          "title": "MTTR (Mean Time To Resolve)",
+          "position": {"x": 6, "y": 0, "width": 1, "height": 1},
+          "metric": "AVG(resolved_duration_min) FROM incidents WHERE created_at > NOW() - INTERVAL 1 week",
+          "unit": "min"
+        },
+        {
+          "id": "w4",
+          "type": "big_number",
+          "title": "P0 Count (7 days)",
+          "position": {"x": 6, "y": 1, "width": 1, "height": 1},
+          "metric": "COUNT(*) FROM incidents WHERE severity='P0' AND created_at > NOW() - INTERVAL 7 day"
+        },
+        {
+          "id": "w5",
+          "type": "table",
+          "title": "Root Cause Summary (Top 3)",
+          "position": {"x": 0, "y": 2, "width": 7, "height": 2},
+          "columns": [
+            {"name": "Incident", "metric": "title"},
+            {"name": "Severity", "metric": "severity"},
+            {"name": "Root Cause", "metric": "root_cause"},
+            {"name": "Resolution", "metric": "resolution_action"}
+          ],
+          "query": "SELECT * FROM incidents WHERE created_at > NOW() - INTERVAL 7 day ORDER BY created_at DESC LIMIT 3"
+        }
+      ]
+    }
+  ],
+  "alert_channels": {
+    "telegram": {
+      "channel_type": "webhook",
+      "endpoint": "/api/datadog/telegram-webhook",
+      "priority_routing": {
+        "P0": {"immediate": true, "escalation_after_min": 5},
+        "P1": {"immediate": false, "delay_min": 15},
+        "P2": {"immediate": false, "digest": "daily"}
+      }
+    },
+    "slack": {
+      "channel_type": "webhook",
+      "endpoint": "/api/datadog/slack-webhook",
+      "channel_mapping": {
+        "P0": "#incidents",
+        "P1": "#performance",
+        "P2": "#monitoring-daily"
+      }
+    },
+    "email": {
+      "channel_type": "smtp",
+      "smtp_host": "smtp.sendgrid.net",
+      "smtp_port": 587,
+      "priority_routing": {
+        "P0": {"to": "ceo@dsc.com", "cc": "tech-lead@dsc.com"},
+        "P1": {"to": "tech-team@dsc.com"},
+        "P2": {"to": "devops@dsc.com"}
+      }
+    }
+  },
+  "metadata": {
+    "version": "1.0",
+    "created_by": "DevOps Engineer (Phase C #12)",
+    "created_date": "2026-05-28",
+    "total_widgets": 45,
+    "total_dashboards": 6,
+    "total_alerts": 15,
+    "implementation_target": "2026-06-02"
+  }
+}
