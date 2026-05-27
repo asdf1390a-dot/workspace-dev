@@ -71,9 +71,9 @@ collect_messages() {
   log "INFO" "Requesting message collection from Phase 2A..."
 
   local response
-  response=$(timeout $TIMEOUT_SECS curl -s -X POST "$PHASE2A_URL/api/collect-and-deduplicate" \
+  response=$(timeout $TIMEOUT_SECS curl -s -X POST "$PHASE2A_URL/api/collect-messages" \
     -H "Content-Type: application/json" \
-    -d '{}' 2>/dev/null || echo '{"success": false, "error": "Request timeout or network error"}')
+    -d '{"sessionKey":"main","limit":100}' 2>/dev/null || echo '{"success": false, "error": "Request timeout or network error"}')
 
   echo "$response"
 }
@@ -115,15 +115,15 @@ RESPONSE=$(collect_messages)
 # jq 사용 가능한지 확인
 if command -v jq &> /dev/null; then
   SUCCESS=$(echo "$RESPONSE" | jq -r '.success // false')
-  MESSAGES=$(echo "$RESPONSE" | jq -r '.messagesCollected // 0')
+  MESSAGES=$(echo "$RESPONSE" | jq -r '.count // 0')
   ERROR=$(echo "$RESPONSE" | jq -r '.error // ""')
-  DURATION=$(echo "$RESPONSE" | jq -r '.duration // 0')
+  COLLECTED_AT=$(echo "$RESPONSE" | jq -r '.collectedAt // "unknown"')
 else
   # jq 없으면 간단한 grep 사용
   SUCCESS=$(echo "$RESPONSE" | grep -o '"success":true' | wc -l)
-  MESSAGES=$(extract_json_value "$RESPONSE" "messagesCollected")
+  MESSAGES=$(extract_json_value "$RESPONSE" "count")
   ERROR=$(extract_json_value "$RESPONSE" "error")
-  DURATION="unknown"
+  COLLECTED_AT="unknown"
 
   if [[ $SUCCESS -gt 0 ]]; then
     SUCCESS="true"
@@ -134,7 +134,8 @@ fi
 
 # 4. 결과 처리
 if [[ "$SUCCESS" == "true" ]]; then
-  log "INFO" "✓ SUCCESS: $MESSAGES messages collected in ${DURATION}ms"
+  log "INFO" "✓ SUCCESS: $MESSAGES messages collected"
+  log "INFO" "Collected at: $COLLECTED_AT"
   log "INFO" "Step 3: Message collection completed ✓"
 
   # 타임스탬프 기록
@@ -144,7 +145,7 @@ if [[ "$SUCCESS" == "true" ]]; then
   exit 0
 else
   log_error "Step 3: Message collection failed"
-  log_error "Error: $ERROR"
+  [[ -n "$ERROR" ]] && log_error "Error: $ERROR"
   log_error "Response: $RESPONSE"
 
   echo "[$(date '+%Y-%m-%d %H:%M:%S')] Phase 2A run failed - $ERROR" >> "$ERROR_LOG"
