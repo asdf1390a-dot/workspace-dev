@@ -14,12 +14,8 @@ ALTER TABLE team_members
   ADD COLUMN IF NOT EXISTS deleted_at TIMESTAMPTZ;
 
 -- Step 2: 기존 데이터 마이그레이션
--- start_date가 있으면 join_date로 사용, 없으면 created_at 사용
 UPDATE team_members
-SET join_date = COALESCE(
-  CASE WHEN start_date IS NOT NULL THEN start_date::TIMESTAMPTZ ELSE NULL END,
-  created_at
-)
+SET join_date = created_at
 WHERE join_date IS NULL;
 
 -- Step 3: 인덱스 추가 (Phase 2 필수)
