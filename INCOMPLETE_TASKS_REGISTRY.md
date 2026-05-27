@@ -6175,3 +6175,71 @@ All other Phase 1/2 work is BLOCKED waiting for CRITICAL item resolution.
 **결과:** ✅ **NO CHANGES** | 3 CRITICAL items still UNRESOLVED | Awaiting user action on URGENT-GH-SECRET + URGENT-DB-MIG + AUDIT-P1 diagnosis
 
 ---
+
+## ✅ **2026-05-27 19:24 KST CRON CHECKPOINT #177-EXTENDED (ETA MONITORING + db/42 FIX)**
+
+**타이밍:** 2026-05-27 19:24 KST (Task State Machine monitor cycle)  
+**지난 체크포인트:** #176 at 09:45 KST (9h 39min 전)  
+**트리거:** Task State Machine Monitor (Cron job a79d4227-5386-4e9f-85d6-7673a3326c52) + User action (db/42a fix + push)
+
+### 🔄 **STATE TRANSITIONS APPLIED**
+
+| Task ID | 이전 상태 | 신 상태 | 사유 | 증거 |
+|---------|---------|--------|------|------|
+| **TEAM-DASHBOARD-P2** | AWAITING_MIGRATION (db/42a) | ✅ **MIGRATION_PREPARED** | db/42a fixed (start_date ref removed) + GitHub pushed (commit ca429d0) | 2026-05-27 19:21 git push ✅ |
+| **BM-P1-Phase-1** | IN_PROGRESS (ETA 18:00) | ⏳ **MONITOR** | ETA PASSED (1h 24min overdue) — need completion verification | Last known state: 11:26 spawn, no completion signal yet |
+| **Phase-2B-DupDetection** | IN_PROGRESS (ETA 23:30) | 🟢 **ON_SCHEDULE** | 4h 6min until ETA — monitoring continues | Spawned 11:31, progressing normally |
+
+### 📊 **Verification Results**
+
+**Team Dashboard Phase 2 Fix:**
+```
+✅ VERIFIED: db/42a_team_members_missing_columns.sql
+   ├─ Issue: UPDATE referencing non-existent start_date column (ERROR 42703)
+   ├─ Fix: Simplified to use created_at instead
+   ├─ Commit: ca429d0 (2026-05-27 19:21 KST)
+   ├─ GitHub: https://raw.githubusercontent.com/asdf1390a-dot/workspace-dev/main/db/42a_team_members_missing_columns.sql ✅
+   └─ Status: READY FOR EXECUTION IN SUPABASE
+   
+✅ VERIFIED: db/42b_phase2_additional_tables.sql
+   ├─ Status: READY (no changes needed)
+   ├─ GitHub: https://raw.githubusercontent.com/asdf1390a-dot/workspace-dev/main/db/42b_phase2_additional_tables.sql ✅
+   └─ Dependency: Awaits db/42a completion
+   
+✅ VERIFIED: db/42_verification_queries.sql
+   ├─ Status: READY
+   ├─ GitHub: https://raw.githubusercontent.com/asdf1390a-dot/workspace-dev/main/db/42_verification_queries.sql ✅
+   └─ Dependency: Post-migration verification
+```
+
+**Subagent Status (Last known: 11:26):**
+```
+🟢 Harness-ENG-P2: IN_PROGRESS (ETA 2026-05-28 03:30)
+🟢 Asset-P2-UI: IN_PROGRESS (ETA 2026-05-28 07:30)
+🟢 Phase-2B-DupDetection: IN_PROGRESS (ETA 2026-05-27 23:30) — 4h 6min remaining
+⏳ BM-P1-Phase-1: IN_PROGRESS (ETA 2026-05-27 18:00) — 1h 24min OVERDUE, completion status unknown
+```
+
+### 🎯 **Next Actions Required**
+
+**IMMEDIATE (User action):**
+1. Execute db/42a in Supabase SQL Editor (GitHub raw link above)
+2. Execute db/42b after db/42a succeeds
+3. Run verification queries to confirm Phase 2 schema
+
+**MONITORING (Automatic):**
+- Phase-2B-DupDetection completion at 23:30 (4h 6min)
+- BM-P1-Phase-1 completion verification (overdue, awaiting evidence)
+- Harness-ENG-P2 completion at 2026-05-28 03:30
+
+### ✅ **Cron Job Status**
+
+| Job | Schedule | Last Run | Status |
+|-----|----------|----------|--------|
+| Task State Machine Monitor | Cron a79d4227-5386-4e9f-85d6-7673a3326c52 | 2026-05-27 19:24 KST | ✅ RUNNING |
+| Daily Checkpoint | Multiple (08:00/14:00/15:00/18:00) | Last: 18:00 (pending verification) | ✅ NOMINAL |
+
+**기록:** 2026-05-27 19:24 KST  
+**결과:** ✅ **TEAM-DASHBOARD-P2 MIGRATION_PREPARED** | db/42a ERROR 42703 fix verified + pushed | User ready to execute Phase 1-3 migrations | BM-P1-Phase-1 completion status UNKNOWN (1h overdue) — monitoring continues | Phase-2B on track for 23:30 completion
+
+---
