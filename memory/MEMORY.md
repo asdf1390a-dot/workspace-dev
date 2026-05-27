@@ -1,5 +1,5 @@
 # 메모리 인덱스 (MEMORY.md)
-**Last Updated:** 2026-05-26 23:50 KST (✅ BM-P1 프로덕션 검증 완료 + 조기 완료 6일 전 + 10개 API + 51개 테스트 모두 통과)
+**Last Updated:** 2026-05-27 08:20 KST ⚡ **Checkpoint #174** (CTB 5분 폴링 완료 — 프로젝트 병렬 진행 정상, 완료 4개 + 진행 2개 | URGENT-GH-SECRET 대기 중 25h+ | Discord-P1 배포 완료)
 
 ## ✅ 주요 완료 (2026-05-26)
 - [✅ Backup Management Phase 1 완료](active_work_tracking.md#bm-p1) — 4개 테이블 + RLS + 16개 API 엔드포인트 + 51개 Jest 테스트 100% 통과 + Vercel 프로덕션 검증 완료 (2026-05-26 23:45, 조기 완료 6일 전)
@@ -7,6 +7,9 @@
 - [✅ Team Dashboard Phase 1 완료](active_work_tracking.md#team-dashboard-p1) — 4개 테이블 + 10개 API + 100% 테스트 커버리지 (2026-05-26 22:15)
 - [✅ Travel Phase 2 UI 완료](active_work_tracking.md#travel-p2-ui) — Vercel 프로덕션 배포 (2026-05-25 15:20)
 - [🟡 팀 활용도 100% 달성](active_work_tracking.md#capacity) — 6명 AI 팀 최적화 운영 중
+
+## 🔴 CRITICAL: 사용자 액션 오버듀 — 2026-05-27 08:09
+- [⚡ 규칙 준수 감시 결과](RULE_COMPLIANCE_AUDIT_2026_05_27.md) — 🔴 일정관리 규칙 위반: URGENT-GH-SECRET + URGENT-DB-MIG 각각 15시간 이상 오버듀 (2026-05-27 08:09 즉시 처리 필요)
 
 ## 🚨 Team Expansion 3-Pronged Execution (2026-05-25 IMMEDIATE)
 - [⭐ Active Team Structure (2026-05-25)](team_structure_active_2026_05_25.md) — 6명 AI 에이전트 팀 현황 (Secretary/Evaluator/Translator/Analyst/Automation-Specialist/Web-Builder), 49%→96-100% 활용도 달성, AI-only 룰 명확화 (2026-05-25 14:30)
@@ -71,6 +74,7 @@
 - [⭐ 설계 문서 워크플로우 — 평가자 검토 게이트 (2026-05-25)](design_document_workflow.md) — 설계 타입별(A:UI/B:API/C:자동화) 평가 게이트 정의 + 메타데이터 필드 + 상태전환 (Rule Conflict #1 해결)
 - [⭐ 종합 규칙 충돌 분석 완료 (2026-05-22)](comprehensive_rule_conflict_analysis_2026_05_22.md) — 12개 충돌 식별 + 4단계 개선안 + 우선순위 결정 (TEXT ONLY 분석, 완료)
 - [⭐ 규칙 위반 감시 개선 시스템 Phase 1-3](rule_validation_system_phase1.md) — msg#5358 기반 3개 위반(GitHub링크/Telegram한국어/액션레이블) 자동감시 + 30초사전검증 체크리스트 (2026-05-20 실행)
+- [⭐⭐ Rule Enforcement Strengthening (2026-05-27)](feedback_rule_enforcement_strengthening.md) — 절대 규칙 체크리스트 + 자동 검증 + 위반 방지 시스템 (통신/일정/작업/기술 4가지 규칙, 2026-05-27)
 - [⭐ Telegram 한국어만 사용 (2026-05-20)](feedback_telegram_korean_only_enforcement.md) — Telegram 모든 답변 한국어만, 영어 절대금지, 상태보고·기술설명 포함 (2026-05-20 강화)
 - [⭐ 이중 검증 규칙 — 코드/링크 제공 전 필수](feedback_double_verification_before_delivery.md) — 코드·링크 제공 시 실제 작동 여부 검증 후 제공 (2026-05-20 추가)
 - [⭐ AI Terminology Standardization Guide](AI_TERMINOLOGY_STANDARDIZATION_GUIDE.md) — AI 에이전트 역할 표준화 (CEO+Secretary 시스템, 74개 파일 정보 갱신 완료, 2026-05-20) 
