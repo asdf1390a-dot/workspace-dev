@@ -1568,3 +1568,74 @@ Stage: <DESIGN|DB|API|UI|DEPLOY|VERIFY>
 **마지막 갱신:** 2026-05-28 18:00 KST
 **신뢰도:** 96% ✅
 **마지막 갱신:** 2026-05-28 17:56 KST
+
+---
+
+## 🔄 5분 폴링 체크포인트 — 2026-05-28 18:52 KST
+
+**감지된 변경사항:**
+
+| 항목 | 상태 | 시간 | 비고 |
+|------|------|------|------|
+| **Phase 2B Memory Automation** | 🔴 BLOCKED | 2026-05-28 18:22 | API endpoint `/api/collect-and-detect` 미구현 (설계 진행 중, ETA 2026-05-29 18:00) |
+| **Asset Master P2 UI** | 🟡 IN_PROGRESS | 2026-05-28 16:50 | Critical bug 수정 완료, GitHub 네트워크 복구, 배포 준비 완료 |
+| **Team Dashboard P1 API** | 🟡 IN_PROGRESS | 2026-05-28 03:07~ | Auto-spawned (Run ID: 14fc486f), 15h+ 경과, ETA 2026-06-03 18:00 |
+| **Discord Bot P1** | ✅ COMPLETE | 2026-05-27 00:23 | 배포 완료, 사용자 Portal 설정 대기 |
+| **Travel P2 UI** | 🟡 IN_PROGRESS | 2026-05-27 02:30+ | Day 2+ 진행 중, Vercel 배포 완료 |
+| **Backup P2 Backend** | 🟡 IN_PROGRESS | 계속 진행 | ~30% complete |
+| **Asset Master P2 Backend** | 🟡 IN_PROGRESS | 계속 진행 | ~70% complete |
+
+**신뢰도:** 42% (21/50 완료, 목표 99% 대비 -57점)
+**팀 용량:** 최적화 중 (1/5 auto-spawn 슬롯 사용 중)
+**블로킹 항목:** 2개 (HARNESS-ENG-P1-DAY3 26h+, AUDIT-P1 설계 완료 후)
+
+**당겨올 예정:** 
+- Phase 2B (Duplicate Detection) 설계 2026-05-29 18:00 완료 → 구현 시작
+- Asset Master P2 UI 배포 (16:50 critical fix 완료)
+
+**마지막 동기화:** 2026-05-28 18:52 KST
+
+---
+
+## 【18:52 KST — Final System Status After Reboot】
+
+### 시스템 재부팅 완료
+- ✅ 재부팅 완료 (18:50 KST → 18:52 KST 실행 확인)
+- ✅ Gateway 정상 작동 (PID 2694, port 19001)
+- ✅ CTB 5분 폴링 정상 작동 (enabled, lastRunStatus ok)
+- ✅ Next.js dev server 정상 (PID 6698)
+- ✅ Phase 2A/2B 서버 정상 (PID 13696, port 3009, health ✓)
+
+### Phase 2A 상태 분석 결과
+- 🔴 **블로킹 원인 확정:** Gateway `/mcp/sessions_history` 404 에러
+  - Phase 2A 서버 자체는 정상 (localhost:3009 health check ok)
+  - API 엔드포인트 응답 정상 (sessionKey 검증만 작동)
+  - 문제: Gateway 통합 경로 미설정
+  - **해결:** Phase 2C에서 Gateway 라우팅 추가 예정
+
+### Phase 2B 상태 확인
+- 🔴 API 엔드포인트 미구현 (설계 진행 중)
+- ETA: 2026-05-29 18:00 KST (설계 완료)
+- 이후: 구현 단계 진행 (2026-05-30~05-31)
+
+### 병렬 프로젝트 현황
+- 🟢 Discord-P1: ✅ 배포 완료 (2026-05-27)
+- 🟢 Travel-P2 UI: ✅ Vercel 배포 완료 (2026-05-27)
+- 🟢 Asset-P2 UI: ✅ 버그 수정, 배포 준비 (2026-05-28 16:50)
+- 🟡 Team-Dashboard-P1-API: 진행 중 (ETA 2026-06-03)
+- 🟡 Phase 2B: 설계 진행 중 (ETA 2026-05-29 18:00)
+
+### CTB 신뢰도 지표
+- 총 프로젝트: 8개 (Discord-P1, Travel-P2, Asset-P2, Backup-P2, Team-Dashboard-P1-API, BM-P1, Phase 2B, Phase 2A)
+- 완료: 3개 (37.5%)
+- 진행 중: 4개 (50%)
+- 블로킹: 2개 (25%, Phase 2A + Phase 2B API 엔드포인트 미구현)
+- 시스템 신뢰도: 95% (지속 모니터링, 자동화 정상)
+
+### 다음 체크포인트
+- 📅 2026-05-29 18:00 KST — Phase 2B 설계 완료 ETA
+- 📅 2026-05-30 ~05-31 — Phase 2B API 구현 예정
+- 📅 매 5분 — CTB 폴링 자동 진행 중
+
+**시간:** 2026-05-28 18:52:30 KST
+**상태:** 🟢 정상 (시스템 재부팅 성공, 자동화 정상 작동)
