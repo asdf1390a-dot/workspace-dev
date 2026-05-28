@@ -76,10 +76,10 @@ count_memory_files() {
 detect_duplicates() {
   log "INFO" "Calling Phase 2B API for duplicate detection..."
 
-  local payload="{\"memoryDir\": \"$MEMORY_DIR\"}"
+  local payload="{\"limit\": 2000, \"includeSemantics\": false}"
 
   local response
-  response=$(timeout $TIMEOUT_SECS curl -s -X POST "$PHASE2B_URL/api/detect-duplicates" \
+  response=$(timeout $TIMEOUT_SECS curl -s -X POST "$PHASE2B_URL/api/collect-and-detect" \
     -H "Content-Type: application/json" \
     -d "$payload" 2>/dev/null || echo '{"success": false, "error": "Request timeout or network error"}')
 

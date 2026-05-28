@@ -12,6 +12,7 @@ const PORT = process.env.PORT || 3010;
 // Configuration
 const PHASE2A_URL = process.env.PHASE2A_URL || 'http://localhost:3009';
 const GATEWAY_TOKEN = process.env.GATEWAY_TOKEN || '';
+const MEMORY_DIR = process.env.MEMORY_DIR || '/home/jeepney/.openclaw/workspace-dev/memory';
 const LOGS_DIR = path.join(__dirname, 'logs');
 const DUPLICATES_DB = path.join(__dirname, 'duplicates.jsonl');
 
@@ -497,38 +498,40 @@ class DuplicateDetectionEngine {
 // HELPER FUNCTIONS
 // ============================================================================
 
-// Fetch messages from Phase 2A API
-async function fetchMessagesFromPhase2A(limit = 1000) {
-  return new Promise((resolve, reject) => {
-    const url = new URL('/api/collect-messages', PHASE2A_URL);
-    url.searchParams.append('limit', limit);
+// Fetch entries from memory files for duplicate detection
+async function fetchEntriesFromMemory(limit = 1000) {
+  try {
+    const files = await fs.readdir(MEMORY_DIR);
+    const entries = [];
 
-    const options = {
-      hostname: url.hostname,
-      port: url.port || 80,
-      path: url.pathname + url.search,
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    };
+    for (const file of files) {
+      if (!file.endsWith('.md')) continue;
 
-    const req = http.request(options, (res) => {
-      let data = '';
-      res.on('data', chunk => (data += chunk));
-      res.on('end', () => {
-        try {
-          const result = JSON.parse(data);
-          resolve(result.messages || []);
-        } catch (e) {
-          reject(e);
-        }
-      });
-    });
+      try {
+        const filePath = path.join(MEMORY_DIR, file);
+        const content = await fs.readFile(filePath, 'utf8');
 
-    req.on('error', reject);
-    req.end();
-  });
+        // Create entry object from memory file
+        entries.push({
+          id: file,
+          filename: file,
+          content: content,
+          type: 'memory',
+          size: content.length,
+          timestamp: new Date().toISOString(),
+        });
+
+        if (entries.length >= limit) break;
+      } catch (e) {
+        console.warn(`Failed to read memory file: ${file}`, e.message);
+      }
+    }
+
+    return entries;
+  } catch (error) {
+    console.error('Error reading memory directory:', error);
+    return [];
+  }
 }
 
 // Log errors to file
@@ -632,20 +635,20 @@ app.post('/api/collect-and-detect', async (req, res) => {
   try {
     const { limit = 1000, includeSemantics = false } = req.body;
 
-    // Fetch messages from Phase 2A
-    const messages = await fetchMessagesFromPhase2A(limit);
+    // Fetch entries from memory files
+    const entries = await fetchEntriesFromMemory(limit);
 
-    if (messages.length === 0) {
+    if (entries.length === 0) {
       return res.status(400).json({
-        error: 'No messages collected from Phase 2A',
+        error: 'No memory files found to analyze',
       });
     }
 
     // Detect duplicates
     const engine = new DuplicateDetectionEngine();
-    const results = await engine.detect(messages, includeSemantics);
+    const results = await engine.detect(entries, includeSemantics);
 
-    entriesProcessed += messages.length;
+    entriesProcessed += entries.length;
     duplicatesDetected += results.totalDuplicates;
     lastRunTime = new Date().toISOString();
 
@@ -655,7 +658,7 @@ app.post('/api/collect-and-detect', async (req, res) => {
     res.json({
       success: true,
       ...results,
-      messagesCollected: messages.length,
+      entriesProcessed: entries.length,
       detectedAt: lastRunTime,
     });
   } catch (error) {
