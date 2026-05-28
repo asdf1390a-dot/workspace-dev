@@ -27,6 +27,36 @@ Phase 2B는 **메모리 자동화 시스템의 핵심 중복 감지 엔진**을 
 
 ---
 
+## ✅ Phase 2B Entry Validation Gate
+
+**목적:** Phase 2A 출력이 Phase 2B 입력 요구사항과 정렬되었는지 검증 (Hypothesis 1: 92% 신뢰도)
+
+### 필수 검증 항목 (Pre-Implementation Checklist)
+
+- [ ] **Phase 2A 5개 API 엔드포인트** 운영 중 (message-collection.js 배포 검증)
+  - `/api/collect-messages` — 메시지 수집
+  - `/api/deduplicate-check` — 기본 중복 확인
+  - `/api/batch-collect` — 배치 모드
+  - `/health` — 헬스 체크
+  - `/api/stats` — 통계
+
+- [ ] **Phase 2B 입력 스키마 호환성** 검증
+  - Phase 2A 출력 JSON 구조가 Phase 2B DuplicateOrchestrator input 포맷과 일치
+  - 필드: `entries[]`, `options.threshold`, `options.enableSemantic`
+
+- [ ] **Cron 통합 지점 테스트** (Phase 2A → Phase 2B 핸드오프)
+  - Memory-Automation cron이 Phase 2A `/api/collect-and-detect` 엔드포인트 호출 가능
+  - 응답 타임아웃: <5초
+
+- [ ] **성공 기준:** Phase 2B 초기화 로그에 `"Input validation PASSED"` 메시지 표시
+  - 로그 위치: `/home/jeepney/.openclaw/workspace-dev/memory-automation/logs/phase2b-startup.log`
+  - 타임스탐프: Phase 2B 구현 완료 후 서버 시작
+
+**검증 완료 기한:** 2026-05-29 18:00 KST (Phase 2B 설계 완성 ETA)  
+**상태:** 🟡 대기 중 (Phase 2A 메시지 수집 API 활성화 필요)
+
+---
+
 ## 🏗️ 시스템 아키텍처
 
 ### 1.1 전체 흐름도

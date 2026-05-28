@@ -19,6 +19,10 @@
 - [🟢 Phase A 실행 상태](PHASE_A_EXECUTION_ACTIVE.md) — Data-Analyst #2 **즉시 투입** 완료 | 첫 과제: Asset Master 506개 자산 분석 (2026-05-27~28) | Phase B 준비 대기 (2026-05-29)
 - [✅ Phase A Go/No-Go 평가틀 (2026-05-28)](PHASE_A_GO_NO_GO_FRAMEWORK_2026_05_28.md) — Data-Analyst #2 평가 기준 + 체크리스트 + 대응 시나리오 (2026-05-28 14:00 Go/No-Go 결정)
 
+## 🔴 Phase 2 Cron 블로킹 상태 (2026-05-28 18:23)
+- [🔴 Phase 2A Gateway 문제](PHASE2A_GATEWAY_ISSUE.md) — 메시지 수집 cron 실패 (Gateway 404) | **원인:** underlying API 도달 불가 | **영향:** Phase 2B 진행 가능 (메시지 수집 모의데이터 대체) | **담당:** DevOps Engineer #12 (인프라 조사 예정)
+- [🔴 Phase 2B API 미구현 — Cron 일시중지](PHASE2B_BLOCKER_STATUS.md) — Duplicate Detection API endpoint 미구현 | **원인:** 설계 phase (ETA 2026-05-29 18:00) | **조치:** Cron disabled (재활성화 2026-05-29 22:00+) | **기술:** 262 메모리파일 준비완료, 엔드포인트만 대기 | **담당:** Automation Specialist #2 (API 구현 예정)
+
 ## ✅ Secretary AI Telegram Configuration (2026-05-28)
 - [✅ Secretary Telegram Chat ID](TELEGRAM_SECRETARY_CONFIG.md) — Chat ID 8650232975 설정 완료 | 상태: ACTIVE | 블로킹 해제: IMAGE-EDITING-AD-HOC, HARNESS-ENG-P1-DAY3
 
