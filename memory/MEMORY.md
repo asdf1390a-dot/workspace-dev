@@ -1,5 +1,5 @@
 # 메모리 인덱스 (MEMORY.md)
-**Last Updated:** 2026-05-28 21:57 KST (✅ CRON CHECKPOINT: Phase C Auto-Spawn Monitor) — Phase C #11 (Design Specialist) ✅ 완료 확인 | Phase C #12 (DevOps Engineer) 🟡 진행 중 | Phase C #13-15 🟡 진행 중 (이미 배포됨) | **팀 용량: 4/5** (1개 슬롯 해제) | 다음 배포 대기: #13 완료 후 (ETA 2026-05-30 18:00) | 신뢰도 96% | Memory Loss: 0
+**Last Updated:** 2026-05-28 23:52 KST (✅ CRON: 30-minute checkpoint #184 EXECUTED) — Travel-P2 배포 ✅ 완료 (2026-05-25 15:20) | Phase C #11 설계 ✅ 완료 (2026-05-28 21:57) | Phase C #12/13/14/15 🟡 진행 중 (4개 프로젝트) | **팀 용량: 4/5** (1개 해제 유지) | 다음 마일스톤: Phase B Batch #2 온보딩 2026-05-29 09:00 (Web-Builder#2/Evaluator#2/Automation#2 3명 동시 배포) | 신뢰도 96% | Memory Loss: 0
 
 ## 🔴 **CRITICAL MILESTONE: Asset Master P2 UI 배포 완료 (2026-05-28 16:46)**
 - [✅ Asset Master Phase 2 UI 완료 배포](ASSET_MASTER_P2_UI_RECOVERY_COMPLETION.md) — **배포시간:** 2026-05-28 16:46 KST | **라이브 URL:** https://dsc-fms-portal.vercel.app/assets | **완료항목:** useRouter 동기화 고정 + CRUD+필터 UI 완성 + Vercel 라이브 배포 | **상태머신 트리거:** ✅ Harness-ENG P2 UI 상태전이 준비 (18:30→자동) / 🟡 BM-P1 Spawn Gate 평가대기 (19:00→결정) | **Evaluator 검증:** 17:00~17:30 예정
