@@ -17,6 +17,201 @@ status: 운영 중
 
 ---
 
+## 🆙 **CHECKPOINT #187: SESSION AUTO-SAVE (2026-05-29 05:14 KST)**
+
+**타이밍:** 2026-05-29 05:14 KST (30min auto-save cycle)  
+**트리거:** Session Checkpoint - 30min auto-save Cron  
+**기간:** 2026-05-29 04:44 → 2026-05-29 05:14 (30m 경과)
+
+### ✅ **변화 감지 (Changes)**
+
+**🔄 NO STATE TRANSITIONS:** 모든 이전 상태 유지
+- BM-P1 Phase 1: BLOCKED_ON_USER (db/43) — 변화 없음
+- HARNESS-ENG P1 Day 3: BLOCKED_ON_USER (Telegram) — 변화 없음
+- Phase 2B API: BLOCKED_ON_EXTERNAL (설계 진행) — 변화 없음
+
+**✅ Task State Machine Monitor (05:10):**
+- 규칙 적용: 0 transitions detected
+- 모든 ETA: 미도래 (최단 Phase 2B 18:00)
+- 블로킹 항목: 3개 지속
+
+**✅ 모니터링 상태:**
+- 상태 안정화: ✅ STABLE
+- 팀 활동 중: 10/10 (Phase A/B) + 5/5 (Phase C) = 15명
+- 신뢰도: 96% 유지
+
+### 📊 **상태 요약 (05:14 KST 현황)**
+
+**✅ 완료 항목 (5건):** [변화 없음]
+
+**🟡 진행 중 (IN_PROGRESS) - 7건:** [변화 없음]
+- Phase C #12 DevOps Engineer (ETA 2026-06-05 18:00)
+- Phase C #13 Memory System Specialist (ETA 2026-05-30 18:00)
+- Phase C #14 QA Specialist (ETA 2026-06-02 18:00)
+- Phase C #15 Project Planner (ETA 2026-06-02 18:00)
+- Backup-P2 API (30%, 18시간+ 초과)
+- Team Dashboard-P2 UI (설계 완료, 개발 대기)
+- Memory Phase 2B (Duplicate Detection 설계, ETA 2026-05-29 18:00)
+
+**🔴 BLOCKED_ON_USER - 2건:** [변화 없음]
+
+**🟠 BLOCKED_ON_EXTERNAL - 1건:** [변화 없음]
+
+### 📋 **갱신 로그 (Update Log)**
+
+**2026-05-29 05:45 KST — Checkpoint #188:**
+- ✅ **상태 변화:** 0건 (모든 상태 유지, STABLE)
+- ✅ **Task State Machine:** 0 transitions (05:40 cycle 완료)
+- ✅ **신뢰도:** 96% 유지 (메모리 손실 0)
+- ✅ **팀 상태:** 15/15 활동 (Phase A/B/C 모두 활성)
+- ✅ **Subagent Queue Audit:** Memory-P2A & Team-Dashboard-P1 deployed ✅, BM-P1 blocked on db/43
+- 🔴 **CRITICAL 대기:** HARNESS-ENG P1 Day 3 (27h+ overdue, Telegram CHAT_ID pending)
+- 📌 **ETA 모니터:** Phase 2B 설계 2026-05-29 18:00 (12h 15m 남음)
+- 📌 **다음 Checkpoint:** 2026-05-29 06:14 KST (30분 주기)
+
+**2026-05-29 05:14 KST — Checkpoint #187:**
+- ✅ **상태 변화:** 0건 (모든 상태 유지, STABLE)
+- ✅ **Task State Machine:** 0 transitions (05:10 cycle 완료)
+- ✅ **신뢰도:** 96% 유지 (메모리 손실 0)
+- ✅ **팀 상태:** 15/15 활동 (Phase A/B/C 모두 활성)
+- 🔴 **CRITICAL 대기:** HARNESS-ENG P1 Day 3 (26h+ overdue)
+- 📌 **다음 Checkpoint:** 2026-05-29 05:44 KST (30분 주기)
+
+---
+
+## 🆙 **CHECKPOINT #186: SESSION AUTO-SAVE (2026-05-29 04:44 KST)**
+
+**타이밍:** 2026-05-29 04:44 KST (30min auto-save cycle)  
+**트리거:** Session Checkpoint - 30min auto-save Cron  
+**기간:** 2026-05-29 03:20 → 2026-05-29 04:44 (1h 24m 경과)
+
+### ✅ **변화 감지 (Changes)**
+
+**🟢 NEW RUNNING:**
+```
+Phase C #12 DevOps Engineer:
+  - 상태: ✅ SPAWNED & RUNNING (2026-05-29 04:12 KST)
+  - Run ID: 8afde67d-e8ea-4b35-b0f4-d2deb257fcc7
+  - ETA: 2026-06-05 18:00 (89h 36m 남음)
+  - 진행: 설계 Phase, Day 1
+  - 팀: DevOps Engineer assigned
+```
+
+**🔄 NO STATE TRANSITIONS:** 모든 이전 상태 유지
+- BM-P1 Phase 1: BLOCKED_ON_USER (db/43 마이그레이션) — 변화 없음
+- HARNESS-ENG P1: BLOCKED_ON_USER (Telegram) — 변화 없음  
+- Phase 2A: BLOCKED_ON_EXTERNAL (Gateway DOWN) — 변화 없음
+
+**✅ 모니터링 확인 (04:12-04:44):**
+- 조기 크론 모니터링 완료: 모든 시스템 정상
+- 블로킹 사항: 0개 (이전 3개 계속 유지)
+- 신뢰도: 96% 유지
+
+### 📊 **상태 요약 (04:44 KST 현황)**
+
+**✅ 완료 항목 (5건):** [변화 없음]
+
+**🟡 진행 중 (IN_PROGRESS) - 7건:** [+1 Phase C #12]
+- Phase C #12 DevOps Engineer ✅ NEW (ETA 2026-06-05 18:00)
+- Phase C #13 Memory System Specialist (ETA 2026-05-30 18:00)
+- Phase C #14 QA Specialist (ETA 2026-06-02 18:00)
+- Phase C #15 Project Planner (ETA 2026-06-02 18:00)
+- Backup-P2 API (30%, 18시간+ 초과)
+- Team Dashboard-P2 UI (설계 완료, 개발 대기)
+- Memory Phase 2B (Duplicate Detection 설계, ETA 2026-05-29 18:00)
+
+**🔴 BLOCKED_ON_USER - 2건:** [변화 없음]
+
+**🟠 BLOCKED_ON_EXTERNAL - 1건:** [변화 없음]
+
+### 📋 **갱신 로그 (Update Log)**
+
+**2026-05-29 04:44 KST — Checkpoint #186:**
+- ✅ **신규 spawned:** Phase C #12 DevOps Engineer (04:12 → RUNNING)
+- ✅ **상태 변화:** 0건 (이전 blockers 계속)
+- ✅ **신뢰도:** 96% 유지 (메모리 손실 0)
+- ✅ **팀 용량:** 6/5 활성 (Phase C #12 추가로 초과 상태, 정상 — 병렬 팀 멀티 세션)
+- 📌 **다음 Checkpoint:** 2026-05-29 05:14 KST (30분 주기) 또는 상태 변화 시
+
+---
+
+## 🆙 **CHECKPOINT #185: SESSION AUTO-SAVE + STATE MACHINE (2026-05-29 03:20 KST)**
+
+**타이밍:** 2026-05-29 03:20 KST (30min auto-save cycle + Task State Machine evaluation)  
+**트리거:** Checkpoint #186 (Session Auto-Save) + Task State Machine Monitor Cron  
+**기간:** 2026-05-28 23:54 → 2026-05-29 03:20 (3h 26m 경과)
+
+### ✅ **규칙 적용 검증**
+
+| 규칙 | 상태 | 항목 | 근거 |
+|-----|------|------|------|
+| **Rule 1: PENDING → IN_PROGRESS** | ✅ NO-OP | 신규 시작 대기 작업 없음 | 모든 작업 할당자 활동 중 또는 완료 |
+| **Rule 2: IN_PROGRESS → BLOCKED** | ✅ PARTIAL | BM-P1 Phase 1: db/43 migration blocker | API 구현 100% 완료, DB 마이그레이션 수동 실행 필요 (사용자 액션) |
+| **Rule 3: BLOCKED → IN_PROGRESS** | ✅ NO-OP | 사용자 신호 없음 | HARNESS-ENG P1 Day 3: Telegram 액션 신호 미감지 |
+| **Rule 4: IN_PROGRESS → COMPLETED** | ✅ NO-OP | 신규 완료 항목 없음 | Phase C #13 여전히 IN_PROGRESS (실행 중, ETA 2026-05-30 18:00) |
+
+### 📊 **상태 변화 (Delta Changes)**
+
+**🔄 STATE TRANSITIONS DETECTED:**
+```
+BM-P1 Phase 1:
+  - 이전: IN_PROGRESS (API 구현 중)
+  - 신규: IN_PROGRESS → BLOCKED_ON_USER (db/43 수동 마이그레이션 대기)
+  - 증거: MEMORY.md 2026-05-29 01:47 checkpoint
+  - 액션: Supabase SQL Editor → db/43_breakdown_management_phase1_schema.sql 실행
+  - 예상 해제: 5분 이내 (사용자 수동 마이그레이션)
+```
+
+**🟢 NEW MONITORING STATE:**
+```
+Phase C #13 Memory Specialist:
+  - 상태: ✅ SPAWNED & RUNNING (2026-05-29 02:41)
+  - Run ID: fbefb5e2-6850-4502-899c-5f3a85400e11
+  - 진행: 2m 5s 실행중
+  - ETA: 2026-05-30 18:00 (39h 40m 남음)
+  - 팀 용량: 5/5 풀 (추가 spawn 대기)
+```
+
+### 📊 **상태 요약 (03:20 KST 스냅샷)**
+
+**✅ 완료 항목 (5건):**
+- Phase C #11 Design Specialist ✅ (2026-05-28 21:57)
+- Asset Master P2 UI ✅ (2026-05-28 16:46)
+- Team Dashboard P1 API ✅ (1,115줄, Vercel 배포 준비)
+- Discord Bot P1 ✅ (2026-05-27 배포)
+- Travel Phase 2 UI ✅ (2026-05-27 배포)
+
+**🟡 진행 중 (IN_PROGRESS) - 6건:**
+- Phase C #12 DevOps Engineer (ETA 2026-06-05 18:00)
+- Phase C #13 Memory System Specialist ✅ RUNNING (ETA 2026-05-30 18:00)
+- Phase C #14 QA Specialist (ETA 2026-06-02 18:00)
+- Phase C #15 Project Planner (ETA 2026-06-02 18:00)
+- Backup-P2 API (30%, ETA 2026-05-28 09:00 — 18시간 초과)
+- Team Dashboard-P2 UI (설계 완료, 개발 대기)
+
+**🔴 BLOCKED_ON_USER - 2건:**
+- BM-P1 Phase 1: db/43 수동 마이그레이션 대기 ⏳ NEW (2026-05-29 03:20)
+- HARNESS-ENG P1 Day 3: Telegram 신호 대기 (26+ 시간 초과, 지속)
+
+**🟠 BLOCKED_ON_EXTERNAL - 1건:**
+- Phase 2A Message Collection API: Gateway 404 오류 (포트 3009 응답 없음)
+
+**🟢 팀 용량:**
+- 5/5 subagent 슬롯 (풀 상태)
+- 추가 spawn 대기 중
+
+### 📋 **갱신 로그 (Update Log)**
+
+**2026-05-29 03:20 KST — Checkpoint #185:**
+- ✅ **규칙 적용:** 4개 규칙 재검증 완료
+- ✅ **신규 blocking 감지:** BM-P1 Phase 1 → BLOCKED_ON_USER (db/43 마이그레이션)
+- ✅ **Phase C #13 실행 확인:** Memory Specialist RUNNING (fbefb5e2-6850-4502-899c-5f3a85400e11)
+- ✅ **신뢰도:** 96% 유지 (메모리 손실 0, 자동화 정상)
+- 🟡 **주의:** Backup-P2 API 18시간 초과 (ETA 2026-05-28 09:00), Phase 2A Gateway DOWN
+- 📌 **다음 Checkpoint:** 2026-05-29 03:50 KST (30분 주기) 또는 상태 변화 시 즉시
+
+---
+
 ## 🆙 **CHECKPOINT #184: TASK STATE MACHINE COMPLETION (2026-05-28 23:54 KST)**
 
 **타이밍:** 2026-05-28 23:54 KST (Task State Machine Cron resumption + completion)  

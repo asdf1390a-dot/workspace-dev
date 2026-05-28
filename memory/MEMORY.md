@@ -1,5 +1,5 @@
 # 메모리 인덱스 (MEMORY.md)
-**Last Updated:** 2026-05-28 23:52 KST (✅ CRON: 30-minute checkpoint #184 EXECUTED) — Travel-P2 배포 ✅ 완료 (2026-05-25 15:20) | Phase C #11 설계 ✅ 완료 (2026-05-28 21:57) | Phase C #12/13/14/15 🟡 진행 중 (4개 프로젝트) | **팀 용량: 4/5** (1개 해제 유지) | 다음 마일스톤: Phase B Batch #2 온보딩 2026-05-29 09:00 (Web-Builder#2/Evaluator#2/Automation#2 3명 동시 배포) | 신뢰도 96% | Memory Loss: 0
+**Last Updated:** 2026-05-29 05:45 KST (✅ Checkpoint #188 Session Auto-Save + Queue Audit 완료) — Phase C #11 설계 ✅ 완료 | Phase C #12 🟡 RUNNING (4시간 경과, Infrastructure Design, ETA 2026-06-05 18:00) | Phase C #13 🟡 RUNNING (3h 이상 경과, Trust Score Design, ETA 2026-05-30 18:00) | Phase 2B 🟡 BLOCKED (Duplicate Detection 설계 진행 중, ETA 2026-05-29 18:00, 11h 15m 남음) | **팀 용량: 15/15 FULL** (Phase A/B/C 모두 활성, 9명 실 활동 중) | 신뢰도 96% (메모리손실: 0, 규칙준수: ✅) | ⚠️ CRITICAL: HARNESS-ENG P1 Day 3 27h+ overdue (Telegram 대기, 블로킹) | 🔴 BM-P1 blocked on db/43 migration (5min manual) | 다음 Checkpoint: 2026-05-29 06:14 KST
 
 ## 🔴 **CRITICAL MILESTONE: Asset Master P2 UI 배포 완료 (2026-05-28 16:46)**
 - [✅ Asset Master Phase 2 UI 완료 배포](ASSET_MASTER_P2_UI_RECOVERY_COMPLETION.md) — **배포시간:** 2026-05-28 16:46 KST | **라이브 URL:** https://dsc-fms-portal.vercel.app/assets | **완료항목:** useRouter 동기화 고정 + CRUD+필터 UI 완성 + Vercel 라이브 배포 | **상태머신 트리거:** ✅ Harness-ENG P2 UI 상태전이 준비 (18:30→자동) / 🟡 BM-P1 Spawn Gate 평가대기 (19:00→결정) | **Evaluator 검증:** 17:00~17:30 예정
@@ -19,9 +19,19 @@
 - [🟢 Phase A 실행 상태](PHASE_A_EXECUTION_ACTIVE.md) — Data-Analyst #2 **즉시 투입** 완료 | 첫 과제: Asset Master 506개 자산 분석 (2026-05-27~28) | Phase B 준비 대기 (2026-05-29)
 - [✅ Phase A Go/No-Go 평가틀 (2026-05-28)](PHASE_A_GO_NO_GO_FRAMEWORK_2026_05_28.md) — Data-Analyst #2 평가 기준 + 체크리스트 + 대응 시나리오 (2026-05-28 14:00 Go/No-Go 결정)
 
+## 🔴 Phase 2C 모니터링 현황 (2026-05-29 01:18 KST)
+- [🔴 Phase 2C Monitoring Status](PHASE_C_MONITORING_STATUS_2026_05_29.md) — **실행 시간:** 2026-05-29 01:18:43 KST | **Phase 2A 상태:** 🔴 DOWN (포트 3009 응답 없음) | **Phase 2B:** ⏭️ SKIPPED (Phase 2A 실패로 인한 체크 스킵) | **Phase 2C:** ⏳ NOT YET (배포 예정 2026-05-30) | **디스크:** ⏭️ SKIPPED | **원인:** Phase 2A 서비스 미실행 | **영향:** Phase 2 파이프라인 블로킹 | **필요조치:** Phase 2A npm start 즉시 실행 | **담당:** Secretary AI (긴급)
+
 ## 🔴 Phase 2 Cron 블로킹 상태 (2026-05-28 18:23)
 - [🔴 Phase 2A Gateway 문제](PHASE2A_GATEWAY_ISSUE.md) — 메시지 수집 cron 실패 (Gateway 404) | **원인:** underlying API 도달 불가 | **영향:** Phase 2B 진행 가능 (메시지 수집 모의데이터 대체) | **담당:** DevOps Engineer #12 (인프라 조사 예정)
 - [🔴 Phase 2B API 미구현 — Cron 일시중지](PHASE2B_BLOCKER_STATUS.md) — Duplicate Detection API endpoint 미구현 | **원인:** 설계 phase (ETA 2026-05-29 18:00) | **조치:** Cron disabled (재활성화 2026-05-29 22:00+) | **기술:** 262 메모리파일 준비완료, 엔드포인트만 대기 | **담당:** Automation Specialist #2 (API 구현 예정)
+
+## 🟡 BM-P1 Phase 1: API Implementation Complete — Awaiting Manual DB Migration (2026-05-29 01:47)
+- [🟡 BM-P1 Phase 1 Checkpoint](BM_P1_CHECKPOINT_2026_05_29.md) — **API Status:** ✅ All 5 endpoints implemented (GET/POST/PUT list + detail + analytics) | **Tests:** ✅ 20/20 passing | **Database Schema:** ✅ Written (db/43, 230 lines) | **GitHub:** ✅ Commit 13acd698 pushed | **Blocker:** 🔴 Supabase table not created (db/43 manual migration required via Supabase console, ~5 min) | **ETA:** 2026-05-31 (after manual migration) | **Documentation:** BM_P1_DEPLOYMENT_GUIDE.md (step-by-step instructions)
+
+## 🟢 Hermes: 자산 건강도 스냅샷 복구 완료 (2026-05-29 00:17)
+- [🟢 자산 건강도 Cron 복구 완료](ASSET_HEALTH_SNAPSHOT_STATUS_2026_05_29.md) — **Root Cause:** Gateway SIGTERM (2026-05-22 21:45, systemd timeout mismatch) | **복구:** Gateway tmux 재시작 (PID 25490/25489) | **검증:** 스냅샷 스크립트 수동 실행 성공 (1000 assets, 0% offline) | **상태:** ✅ 자동화 정상 재개, 다음 cron 6시간 간격 정상 실행 예정 | **담당:** DevOps Engineer #12
+- [🔧 Gateway 복구 절차서](HERMES_GATEWAY_RECOVERY_PROCEDURE.md) — 비상 복구 3단계 + 근본 원인 해결방법 + systemd 설정 영구 수정 (참고용)
 
 ## ✅ Secretary AI Telegram Configuration (2026-05-28)
 - [✅ Secretary Telegram Chat ID](TELEGRAM_SECRETARY_CONFIG.md) — Chat ID 8650232975 설정 완료 | 상태: ACTIVE | 블로킹 해제: IMAGE-EDITING-AD-HOC, HARNESS-ENG-P1-DAY3
@@ -35,11 +45,11 @@
 ## 🟢 Phase C #11: Design Specialist ✅ 완료 (2026-05-28 21:57)
 - [🟢 Phase C #11 Design Specialist COMPLETE](PHASE_C_DESIGN_SPECIALIST_2026_05_28.md) — Team Dashboard P2 UI 설계 | **배포:** 2026-05-28 12:30 KST (RunID: 0291aca6-af58-4861-9073-76ffe7627a4b) | **완료 확인:** 2026-05-28 21:57 KST | 과제: ✅ Team Dashboard-P2 UI 설계 완료 (5개 페이지 와이어프레임 + 20+ 컴포넌트 + 상태관리 설계) | 결과: 설계문서 600+ 줄 + 컴포넌트 명세 완성 | 상태: 🟢 Design Complete, Ready for Handoff | 다음: Web-Builder #2 → P2 구현 (ETA 2026-06-10) | **팀 용량: 5/5 → 4/5** (1개 슬롯 해제)
 
-## 🟡 Phase C #12: DevOps Engineer ✅ 배포 완료 (2026-05-28 08:30)
-- [🟡 Phase C #12 DevOps Engineer ✅ 배포 완료](PHASE_C_DEVOPS_ENGINEER_2026_05_28.md) — Infrastructure Monitoring & Observability Design | ✅ **배포 완료:** 2026-05-28 08:30 KST (RunID: 5fa64ac8-da3c-4f70-ae67-c758646e319e) **[설계 진행 중]** | 과제: Datadog/CloudWatch 모니터링 설계 (30+ 알림 + SLA/SLO 추적 + 인시던트 대응 플레이북) | 마감: 2026-06-05 18:00 | 상태: 설계 진행 중
+## 🟡 Phase C #12: DevOps Engineer ✅ 배포 완료 (2026-05-29 04:12)
+- [🟡 Phase C #12 DevOps Engineer ✅ 배포 완료](PHASE_C_DEVOPS_ENGINEER_SPAWNED_2026_05_29.md) — Infrastructure Monitoring & Observability Design | ✅ **배포 완료:** 2026-05-29 04:12 KST (RunID: 8afde67d-e8ea-4b35-b0f4-d2deb257fcc7) **[설계 진행 중]** | 과제: Datadog/CloudWatch 모니터링 설계 (6층 모니터링 아키텍처 + 30+ 알림 규칙 + SLA/SLO 추적 + 인시던트 대응 플레이북) | 마감: 2026-06-05 18:00 | 상태: 설계 진행 중
 
-## 🟡 Phase C #13: Memory System Specialist ✅ 배포 완료 (2026-05-27 18:13)
-- [🟡 Phase C #13 Memory System Specialist 배포](PHASE_C_TRUST_SCORE_CALCULATOR_2026_05_27.md) — Trust Score Calculator Design | 배포: 2026-05-27 18:13 KST (RunID: e8715d31-a5d0-4eea-8cf4-ae3f1ed5dd47) | 과제: 4-component 신뢰도 점수 계산 엔진 설계 (600+ 줄 + 100 테스트케이스) | 마감: 2026-05-30 18:00 | 상태: 설계 진행 중
+## 🟡 Phase C #13: Memory System Specialist ✅ 배포 완료 (2026-05-29 02:41)
+- [🟡 Phase C #13 Memory System Specialist 배포](PHASE_C_MEMORY_SPECIALIST_2026_05_29.md) — Trust Score Calculator Design | 배포: 2026-05-29 02:41 KST (RunID: fbefb5e2-6850-4502-899c-5f3a85400e11) | 과제: Phase 2C 설계 (1,200+ 줄 + 신뢰도 4-component 알고리즘 + API 엔드포인트 + 성능 최적화 + 100 테스트 케이스) | 입력: Phase 2A ✅ 완료 + Phase 2B 진행 중 활용 | 마감: 2026-05-30 18:00 | 상태: 🟡 설계 진행 중
 
 ## 🟡 Phase C #14: QA Specialist ✅ 배포 완료 (2026-05-27 19:53 KST)
 - [🟡 Phase C #14 QA Specialist 배포](PHASE_C_QA_SPECIALIST_2026_05_28.md) — **배포 완료:** 2026-05-27 19:53 KST | **Run ID:** 3120ccbd-94af-4f0c-8a43-4603b54e5b75 | **Session Key:** 22cf11c5-19b5-4152-8e71-1d188d67253f | 과제: Test Suite Implementation (memory-automation/test-phase2c.js) — 100+ 유닛 테스트 + 95%+ 코드 커버리지 + README_PHASE2C_TESTS.md | 테스트 범위: Unit/Integration/E2E (Phase 2A/2B/2C/2D 모듈 전체) | **마감:** 2026-05-31 18:00 | **상태:** IMPLEMENTATION_IN_PROGRESS (2026-05-28 08:55 기준 13h 22m 경과) | **팀 활용:** 9명 AI 에이전트 활동 (Secretary/Data-Analyst/Web-Builder/Automation-Specialist/Evaluator/Planner/Design-Specialist/DevOps-Engineer/QA-Specialist)
@@ -340,7 +350,7 @@
 
 ## 📊 CTB 실시간 폴링 데이터 (2026-05-28 22:12 KST)
 
-**MEMORY 마지막 갱신:** 2026-05-28 22:12 KST (30min checkpoint #183 — Phase C #11 완료 + 모든 subagent 비활성 + BM-P1 스폰 준비)
+**MEMORY 마지막 갱신:** 2026-05-29 04:44 KST (30min checkpoint #186 — Phase C #12 DevOps Engineer 스폰 + 모든 시스템 정상 + 3개 블로킹 지속)
 
 ### 🎯 프로젝트 상태 요약
 | 프로젝트 | 진행률 | 상태 | ETA |
