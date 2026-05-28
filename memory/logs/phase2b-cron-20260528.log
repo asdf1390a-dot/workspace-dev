@@ -136,3 +136,23 @@
 [2026-05-28 14:00:01] [INFO] Step 1: Pre-flight checks passed ✓
 [2026-05-28 14:00:01] [WARN] Health check attempt 1 failed, retrying in 5s...
 [2026-05-28 14:00:06] [WARN] Health check attempt 2 failed, retrying in 5s...
+[2026-05-28 14:38:56] [INFO] ========== Phase 2B Cron Job Start ==========
+[2026-05-28 14:38:56] [INFO] Run ID: 1779946736
+[2026-05-28 14:38:56] [INFO] Memory Dir: /home/jeepney/.openclaw/workspace-dev/memory
+[2026-05-28 14:38:56] [INFO] Found 255 memory files to analyze
+[2026-05-28 14:38:56] [INFO] Step 1: Pre-flight checks passed ✓
+[2026-05-28 14:38:56] [WARN] Health check attempt 1 failed, retrying in 5s...
+[2026-05-28 14:39:01] [WARN] Health check attempt 2 failed, retrying in 5s...
+[2026-05-28 14:39:29] [INFO] ========== Phase 2B Cron Job Start ==========
+[2026-05-28 14:39:29] [INFO] Run ID: 1779946769
+[2026-05-28 14:39:29] [INFO] Memory Dir: /home/jeepney/.openclaw/workspace-dev/memory
+[2026-05-28 14:39:29] [INFO] Found 255 memory files to analyze
+[2026-05-28 14:39:29] [INFO] Step 1: Pre-flight checks passed ✓
+[2026-05-28 14:39:29] [INFO] Phase 2B service is running ✓
+[2026-05-28 14:39:29] [INFO] Step 2: Service health check passed ✓
+[2026-05-28 14:39:29] [INFO] Calling Phase 2B API for duplicate detection...
+[2026-05-28 14:39:30] [INFO] ✓ SUCCESS: Found unknown duplicate clusters across 255 files in unknownms
+[2026-05-28 14:39:30] [INFO] Entries Processed: 255
+[2026-05-28 14:39:30] [INFO] Step 3: Duplicate detection completed ✓
+[2026-05-28 14:39:30] Phase 2B run succeeded - unknown clusters found
+[2026-05-28 14:39:30] [INFO] ========== Phase 2B Cron Job End ==========
