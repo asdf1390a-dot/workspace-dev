@@ -1,0 +1,4 @@
+{"timestamp":"2026-05-29T18:01:58Z","phase":"PHASE2A","status":"FAILED","duration_ms":0,"details":{"error":""}}
+{"timestamp":"2026-05-29T18:02:02Z","phase":"PHASE2B","status":"SKIPPED_DOWN","duration_ms":0,"details":{"reason":"service_down"}}
+{"timestamp":"2026-05-29T18:02:07Z","phase":"PHASE2C","status":"SKIPPED_DOWN","duration_ms":0,"details":{"reason":"service_down"}}
+{"timestamp":"2026-05-29T18:02:07Z","phase":"CYCLE_COMPLETE","status":"SUCCESS","duration_ms":8203,"details":{"cycle":"phase2d_full"}}
