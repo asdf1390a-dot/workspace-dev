@@ -1,5 +1,5 @@
 # 메모리 인덱스 (MEMORY.md)
-**Last Updated:** 2026-05-29 07:55 KST (✅ Checkpoint #194 Session Auto-Save + 5-slot Spawn Queue Monitor) — **팀:** 15/15 (기존 6명 + Phase A/B 4명 + Phase C 5명) | **프로젝트:** 8개 병렬 실행 (Asset Master 70% / Travel Phase 3 설계 / Backup P2 30% / Discord ✅ / Team Dashboard P2 설계완료 / BM-P1 배포준비 ✅ / Phase 2 자동화 진행중 / Harness-ENG ✅ 준비) | **블로킹:** Phase 2B 1개 (ETA 2026-05-29 18:00) | **Cron:** 5/5 정상 | 신뢰도 96%
+**Last Updated:** 2026-05-29 09:48 KST (✅ Checkpoint #195 Session Auto-Save — 0 state transitions, STABLE) — **팀:** 15/15 (기존 6명 + Phase A/B 4명 + Phase C 5명) | **프로젝트:** 8개 병렬 실행 (Asset Master 70% / Travel Phase 3 설계 / Backup P2 30% / Discord ✅ / Team Dashboard P2 설계완료 / BM-P1 배포준비 ✅ / Phase 2 자동화 진행중 / Harness-ENG ✅ 준비) | **블로킹:** BM-P1 db/43 BLOCKED_ON_USER (20h 48m, 24h escalation ETA ~4h) / Phase 2B 1개 (ETA 2026-05-29 18:00) | **Cron:** 5/5 정상 | 신뢰도 96%
 
 ## 🔴 **CRITICAL MILESTONE: Asset Master P2 UI 배포 완료 (2026-05-28 16:46)**
 - [✅ Asset Master Phase 2 UI 완료 배포](ASSET_MASTER_P2_UI_RECOVERY_COMPLETION.md) — **배포시간:** 2026-05-28 16:46 KST | **라이브 URL:** https://dsc-fms-portal.vercel.app/assets | **완료항목:** useRouter 동기화 고정 + CRUD+필터 UI 완성 + Vercel 라이브 배포 | **상태머신 트리거:** ✅ Harness-ENG P2 UI 상태전이 준비 (18:30→자동) / 🟡 BM-P1 Spawn Gate 평가대기 (19:00→결정) | **Evaluator 검증:** 17:00~17:30 예정

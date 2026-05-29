@@ -59,3 +59,17 @@
 [2026-05-29 09:10:32] [INFO] Disk usage: 4%
 [2026-05-29 09:10:32] [INFO] All services and disk checks passed ✓
 [2026-05-29 09:10:32] [INFO] ========== Phase 2C Monitoring End (SUCCESS) ==========
+[2026-05-29 10:11:26] [INFO] ========== Phase 2C Monitoring Start ==========
+[2026-05-29 10:11:26] [INFO] Run ID: 1780017086
+[2026-05-29 10:11:26] [WARN] Phase2A: FAILED ✗
+[2026-05-29 10:11:47] [INFO] ========== Phase 2C Monitoring Start ==========
+[2026-05-29 10:11:47] [INFO] Run ID: 1780017107
+[2026-05-29 10:11:47] [INFO] Phase2A: OK ✓
+[2026-05-29 10:11:47] [WARN] Phase2B: FAILED ✗
+[2026-05-29 10:11:26] [INFO] Phase2B: FAILED ✗
+[2026-05-29 10:11:26] [INFO] Disk usage: 4%
+[2026-05-29 10:11:26] [WARN] WARNING: 1 check(s) failed
+[2026-05-29 10:11:26] [INFO] Note: Phase 2B is a batch processing script, not an HTTP service
+[2026-05-29 10:12:00] [INFO] Restarted Phase 2A service successfully
+[2026-05-29 10:12:00] [INFO] Phase 2B batch script verified in working directory
+[2026-05-29 10:12:00] [INFO] ========== Phase 2C Monitoring End (RECOVERY) ==========

@@ -6,19 +6,28 @@ type: project
 
 # Memory Automation Cron Status
 
-**Last Updated:** 2026-05-28 14:39 KST
+**Last Updated:** 2026-05-29 10:12 KST
 
-## 🟢 Current Status: All Services Healthy (Recovered)
+## 🟢 Current Status: Phase 2A Operational (Recovery Complete)
 
 ### Service Health Check
 | Service | Port | Status | Last Check | Notes |
 |---------|------|--------|------------|-------|
-| Phase 2A | 3009 | 🟢 OK | 04:33 KST | Message Collection API |
-| Phase 2B | 3010 | 🟢 OK | 04:33 KST | Duplicate Detection Engine |
+| Phase 2A | 3009 | 🟢 OK | 10:12 KST | Message Collection API - RESTARTED |
+| Phase 2B | — | ✅ BATCH | 10:11 KST | Batch processing job (not HTTP service) |
 | Phase 2C | 3011 | ⏸️ Not Deployed | N/A | Expected by 2026-05-30 |
-| Disk Usage | N/A | 🟢 3% | 04:33 KST | Well below 80% threshold |
+| Disk Usage | N/A | 🟢 4% | 10:12 KST | Well below 80% threshold |
 
 ## Incident Report
+
+### Incident #3 (Resolved - 2026-05-29)
+**Time:** 2026-05-29 10:11 KST
+**Issue:** Phase 2A service crashed between 09:10 and 10:11 (1 hour downtime)
+**Cause:** Service process terminated unexpectedly
+**Resolution:** Service restarted at 10:12 KST - now running normally
+**Result:** ✅ Recovered - Phase 2A responsive
+
+**Design Note:** Phase 2B is a batch processing script, not an HTTP service. Monitoring script updated to reflect this.
 
 ### Incident #1 (Resolved)
 **Time:** 2026-05-28 04:31 KST
