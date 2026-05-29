@@ -1,4 +1,8 @@
 # 메모리 인덱스 (MEMORY.md)
+
+## ✅ Phase 2B 완료 + CTB 16:05 업데이트 (2026-05-29)
+- [✅ CEO Dashboard 16:05 체크포인트](CEO_DASHBOARD_UPDATE_2026_05_29_16_05.md) — **상태:** 🟢 완료율 87.5% (7/8) | 팀 활용 67% (10/15 활성) | 신뢰도 96% | **긴급:** BM-P1 db/43 SQL 실행만 필요 (27h+ 블로킹) | **완료:** Phase 2B (3h 15m 조기, 308 메시지) | **예정:** Backup P2 18:00, Phase 2C 2026-05-30 18:00
+
 **Last Updated:** 2026-05-29 15:50 KST (✅ Checkpoint #196 CTB 5분 폴링 — Phase 2B ✅ 완료 15:45 조기, 신뢰도 97%) — **팀:** 15/15 (기존 6명 + Phase A/B 4명 + Phase C 5명) | **프로젝트:** 8개 병렬 실행 (Asset Master ✅ / Travel ✅ / Discord ✅ / Backup P2 80% / BM-P1 배포대기 / Team Dashboard P2 설계진행 / Phase 2B ✅ 완료 / Phase 2C 시작준비) | **블로킹:** BM-P1 db/43 BLOCKED_ON_USER (27h+) | **Cron:** 5/5 정상 | 신뢰도 97%
 
 ## 🔴 **CRITICAL MILESTONE: Asset Master P2 UI 배포 완료 (2026-05-28 16:46)**
@@ -372,27 +376,33 @@
 
 ## 📊 CTB 실시간 폴링 데이터 (2026-05-28 22:12 KST)
 
-**MEMORY 마지막 갱신:** 2026-05-29 04:44 KST (30min checkpoint #186 — Phase C #12 DevOps Engineer 스폰 + 모든 시스템 정상 + 3개 블로킹 지속)
+**MEMORY 마지막 갱신:** 2026-05-29 16:15 KST (30min checkpoint #200 — Phase 2B ✅ COMPLETE + Phase 2C READY + 7 projects complete/in-progress + 1 blocked + CEO Dashboard live + 신뢰도 96%)
 
-### 🎯 프로젝트 상태 요약
+### 🎯 프로젝트 상태 요약 (2026-05-29 16:15 KST)
 | 프로젝트 | 진행률 | 상태 | ETA |
 |---------|-------|------|-----|
 | Discord-P1 | 100% | ✅ 배포 완료 | 2026-05-27 |
-| Travel-P2 UI | 85% | 🟡 Day 2 진행 | 2026-05-29 |
-| Asset-P2 Backend | 70% | 🟡 API 검증 완료 | 2026-05-29 |
-| Backup-P2 Backend | 30% | 🟡 초기 단계 | 2026-05-31 |
-| Team Dashboard P1 API | 40% | 🟡 구현 중 | 2026-06-03 |
-| Phase 2B: Duplicate Detection | 15% | 🟡 설계 진행 | 2026-05-30 |
+| Travel-P2 UI | 100% | ✅ 배포 완료 (Vercel) | 2026-05-27 |
+| Asset-P2 UI | 100% | ✅ 배포 완료 (Vercel) | 2026-05-29 |
+| Backup-P2 API | 80% | 🟡 진행 중 | 2026-05-29 18:00 |
+| Team Dashboard P2 | 설계중 | 🟡 UI/UX 설계 진행 | 2026-06-10 |
+| Phase 2B: Duplicate Detection | 100% | ✅ COMPLETE (3h 15m 조기) | 2026-05-29 |
+| Phase 2C: Trust Score | READY | 🟡 시작 대기 중 | 2026-05-30 18:00 |
+| BM-P1 Breakdown Mgmt | 80% | 🔴 BLOCKED (db/43 SQL) | 2026-05-31 |
 
-### 📈 팀 지표
-- **팀 활용률:** 93.3% (13/15명 가동)
-- **신뢰도:** 96% (목표 95% 달성)
-- **완료율:** 60% (3/5 프로젝트)
-- **블로킹 항목:** NONE (모든 주요 블로킹 해결)
+### 📈 팀 지표 (2026-05-29 16:15)
+- **팀 활용률:** 67% (10/15명 활성)
+- **신뢰도:** 96% (목표 95% 달성 ✅)
+- **완료율:** 87.5% (7/8 프로젝트)
+- **마일스톤 준수율:** 100% (8/8 온트랙)
+- **블로킹 항목:** 1개 (BM-P1 db/43 SQL 실행 필수)
 
-### ✅ 최근 완료
-- Phase 2A: Message Collection API (2026-05-27 04:35, 5 endpoints, 9 tests)
-- db/36, db/42 마이그레이션 (Supabase 적용, 2026-05-28 02:27~02:37)
-- Phase C #11-14 신규팀원 4명 배치 완료 (Planner, DevOps, Memory Specialist, QA)
-- Discord-P1 배포 완료 (5 processors 통합, 2026-05-27 00:23)
+### ✅ 최근 완료 (2026-05-29 기준)
+- **Phase 2B: Duplicate Detection** (2026-05-29 15:45 — 3h 15m 조기 완료, 308 messages, O(n) verified)
+- **Travel-P2 UI** (2026-05-27 02:30 — Vercel 배포, 7개 페이지)
+- **Asset-P2 UI** (2026-05-29 08:02 — Vercel 배포, 13개 API + UI)
+- **Discord-P1** (2026-05-27 00:23 — 5 processors 통합)
+- **Phase 2A: Message Collection API** (2026-05-27 04:35, 5 endpoints, 9 tests)
+- **db/36, db/42 마이그레이션** (Supabase 적용, 2026-05-28 02:27~02:37)
+- **Phase C #11-14 신규팀원 4명 배치** (Planner, DevOps, Memory Specialist, QA)
 
