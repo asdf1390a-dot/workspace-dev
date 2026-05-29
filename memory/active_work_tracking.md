@@ -1,10 +1,10 @@
 ---
-name: 중앙 작업 추적판 (CTB)
-description: 실시간 팀 작업 현황 추적 — 담당자, 진행률, 의존성, ETA + 일일 갱신 로그
+name: Active Work Tracking (CTB) 
+description: 중앙 작업 현황판 - 실시간 갱신
 type: project
 ---
 
-# 중앙 작업 추적판 (CTB) — 2026-05-16 06:00 KST → Phase 7 추가 (2026-09-30 확장) | 2026-05-19 20:10 KST Cron 자동화 완성
+# 📊 Central Task Board (CTB) — 2026-05-29 23:38 KST (Checkpoint #211)
 
 ## 📊 CTB 갱신 체계 (Fixed + Real-Time)
 
