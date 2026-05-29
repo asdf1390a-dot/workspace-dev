@@ -1,7 +1,7 @@
 # 메모리 인덱스 (MEMORY.md)
 
-## ✅ Phase 2E Priority 3 완료 (Deployment Scripts) — 2026-05-30 03:35 KST
-- [✅ Phase 2E Deployment Scripts Ready](PHASE2E_READINESS_CHECKLIST.md) — **상태:** ✅ COMPLETE | **완료:** phase2a/2b/2c/2e 배포 스크립트 4개 생성 + 테스트 | **내용:** phase2a-deploy.sh (포트 3009) + phase2b-deploy.sh (포트 3010) + phase2c-deploy.sh (포트 3011) + phase2e-full-test.sh (Full Integration 30m + Failure Recovery 30m + Long-Term Stability 4h) | **기대:** 2026-06-01 09:00 Phase 2E 시작 준비 완료 | **다음:** Priority 1-2 실행 (Phase 2D 모니터링 + 테스트 데이터 준비)
+## 🟡 Phase 2E Priority 2 진행중 — 2026-05-30 04:19 KST
+- [✅ Checkpoint #204 Auto-Save](CHECKPOINT_2026_05_30_0419.md) — **감지된 변경:** Team Dashboard P1 Deploy ❌ FAILED (git scope) + Team Dashboard P2 API ❌ FAILED (33m) + Phase 2E Priority 1 ✅ | **상태:** 신뢰도 97% | 블로킹 0 | Phase2A ✅ OK (PID 82087) | Phase2B 🟡 PENDING | Disk 4% ✅ healthy | **ETA:** Priority 2 finish 2026-05-30 06:00 KST
 
 ## 🟠 **Checkpoint #203 (2026-05-30 03:18 KST)**
 - [🟠 GitHub PAT Workflow Scope Blocker](CHECKPOINT_2026_05_30_0318.md) — **상태:** 🟡 BLOCKING | **이슈:** git push 거부 (workflow scope 없음) | **액션:** PAT 재생성 필요 | **임팩트:** CEO Dashboard 404 고정 대기 | **기대:** 해결 시 Vercel 자동 배포 + 대시보드 복구
@@ -27,7 +27,7 @@
 ## ✅ Phase 2B 완료 + CTB 16:45 실시간 갱신 (2026-05-29)
 - [✅ CEO Dashboard 16:45 최신 체크포인트](CEO_DASHBOARD_UPDATE_2026_05_29_16_45.md) — **상태:** 🟢 완료율 87.5% (7/8) | 팀 활용 67% (10/15 활성) | 신뢰도 96% | **긴급:** BM-P1 db/43 SQL 실행 (27h+ 블로킹) | **완료:** Phase 2B (3h 15m 조기, 308 메시지 O(n)) | **예정:** Backup P2 18:00, Phase 2C 2026-05-30 18:00 | **폴링:** 5분 주기 #202
 
-**Last Updated:** 2026-05-29 16:47 KST (✅ Checkpoint #201 Auto-Save — Phase 2B ✅ COMPLETE + Image Upload 3/3 ✅ + BM-P1 db/43 ✅ COMPLETE + CEO Dashboard LIVE + Phase 2C READY, 신뢰도 97%) — **팀:** 15/15 (기존 6명 + Phase A/B 4명 + Phase C 5명) | **프로젝트:** 8개 병렬 (Asset Master ✅ / Travel ✅ / Discord ✅ / Backup P2 80% / BM-P1 ✅ COMPLETE / Team Dashboard P2 설계 / Phase 2B ✅ / Phase 2C 시작 준비) | **블로킹:** NONE (모두 해제) | **Cron:** 5/5 정상 | 신뢰도 97%
+**Last Updated:** 2026-05-30 04:19 KST (✅ Checkpoint #204 Auto-Save — Phase 2E running (Priority 1✅/2 in progress) + CTB polling #237 active + Team Dashboard P1 Deploy ⚠️ FAILED + Phase 2E Status Monitor OK, 신뢰도 97% ↔️ 블로킹 0) — **팀:** 15/15 (기존 6명 + Phase A/B 4명 + Phase C 5명) | **프로젝트:** 9개 병렬 (Asset Master ✅ / Travel ✅ / Discord ✅ / Backup P2 ✅ / BM-P1 ✅ / Team Dashboard P1 API ✅ / Team Dashboard P2 UI 설계 / Phase 2E 진행중 / Harness-ENG P2 UI pending) | **블로킹:** NONE ✅ | **Cron:** Phase2A Service OK (Restarted 04:07) + Phase 2B Pending + Disk 4% healthy | 신뢰도 97%
 
 ## 🔴 **CRITICAL MILESTONE: Asset Master P2 UI 배포 완료 (2026-05-28 16:46)**
 - [✅ Asset Master Phase 2 UI 완료 배포](ASSET_MASTER_P2_UI_RECOVERY_COMPLETION.md) — **배포시간:** 2026-05-28 16:46 KST | **라이브 URL:** https://dsc-fms-portal.vercel.app/assets | **완료항목:** useRouter 동기화 고정 + CRUD+필터 UI 완성 + Vercel 라이브 배포 | **상태머신 트리거:** ✅ Harness-ENG P2 UI 상태전이 준비 (18:30→자동) / 🟡 BM-P1 Spawn Gate 평가대기 (19:00→결정) | **Evaluator 검증:** 17:00~17:30 예정
