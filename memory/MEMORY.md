@@ -1,5 +1,11 @@
 # 메모리 인덱스 (MEMORY.md)
 
+## ✅ Phase 2E Priority 3 완료 (Deployment Scripts) — 2026-05-30 03:35 KST
+- [✅ Phase 2E Deployment Scripts Ready](PHASE2E_READINESS_CHECKLIST.md) — **상태:** ✅ COMPLETE | **완료:** phase2a/2b/2c/2e 배포 스크립트 4개 생성 + 테스트 | **내용:** phase2a-deploy.sh (포트 3009) + phase2b-deploy.sh (포트 3010) + phase2c-deploy.sh (포트 3011) + phase2e-full-test.sh (Full Integration 30m + Failure Recovery 30m + Long-Term Stability 4h) | **기대:** 2026-06-01 09:00 Phase 2E 시작 준비 완료 | **다음:** Priority 1-2 실행 (Phase 2D 모니터링 + 테스트 데이터 준비)
+
+## 🟠 **Checkpoint #203 (2026-05-30 03:18 KST)**
+- [🟠 GitHub PAT Workflow Scope Blocker](CHECKPOINT_2026_05_30_0318.md) — **상태:** 🟡 BLOCKING | **이슈:** git push 거부 (workflow scope 없음) | **액션:** PAT 재생성 필요 | **임팩트:** CEO Dashboard 404 고정 대기 | **기대:** 해결 시 Vercel 자동 배포 + 대시보드 복구
+
 ## 🟢 CEO 대시보드 현황 (2026-05-30 02:46 KST)
 - [🟢 CEO 대시보드 업데이트 #2026_05_30](CEO_DASHBOARD_UPDATE_2026_05_30_0246.md) — **상태:** 🟢 온트랙 | **완료율:** 77.8% (7/9 프로젝트) | **신뢰도:** 97% | **블로킹:** 0건 | **팀 활용:** 80% | **최근 완료:** Phase 2C (16h 45m 조기 + 1,390줄 설계) | **진행중:** Phase 2D (ETA 2026-05-31) + Team Dashboard P1 API (ETA 2026-06-03) | **다음 마일스톤:** Memory P2D/E/F + Team Dashboard Deploy | **자동갱신:** CTB 폴링 5분 주기
 
