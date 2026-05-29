@@ -71,8 +71,42 @@ jobs:
               body: '🚀 **Preview Deployment Ready**\nhttps://pr-' + context.issue.number + '-dsc-fms-portal.vercel.app'
             })
 
-  deploy-production:
+  validate-migrations:
     needs: build-and-test
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Run migration safety validator (H3)
+        run: |
+          if [ -d "supabase/migrations" ] && [ "$(find supabase/migrations -type f -name '*.sql' | wc -l)" -gt 0 ]; then
+            node crons/check-migration-safety.js
+          else
+            echo "ℹ️  No migrations to validate"
+          fi
+        env:
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        continue-on-error: false
+
+      - name: Validate H3 safety report
+        run: |
+          if [ -f "memory/MIGRATION_SAFETY_REPORT.md" ]; then
+            if grep -q "UNSAFE\|FAILED" memory/MIGRATION_SAFETY_REPORT.md; then
+              echo "❌ Unsafe migrations detected — blocking production deployment"
+              exit 1
+            fi
+          fi
+
+  deploy-production:
+    needs: [build-and-test, validate-migrations]
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     runs-on: ubuntu-latest
 
