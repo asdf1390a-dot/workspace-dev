@@ -1,5 +1,10 @@
 # 메모리 인덱스 (MEMORY.md)
 
+**🟢 Last Auto-Checkpoint:** 2026-05-30 07:27 KST (Checkpoint #208) — BM-P1 Pre-Deployment Verification spawned | 9/9 프로젝트 활성 (100%) | 신뢰도 97% | 블로킹 0 | 팀 활용 93.3% (14/15)
+
+## 🟡 BM-P1 Pre-Deployment Verification SPAWNED (2026-05-30 07:27 KST) — RUN ID: cc33eeb8-a0a4-4ce1-b311-3f8832d7ac74
+- **상태:** 🟡 IN_PROGRESS (Subagent: web-builder) | **ETA:** 2026-06-02 18:00 KST | **Deliverables:** 32-item pre-deployment checklist + API test results + DevOps/QA sign-offs + deployment SOP | **Scope:** Database schema validation → RLS policy testing → API endpoint verification → performance/security testing → final sign-offs
+
 ## ✅ Phase C #15: Project Planner COMPLETE (2026-05-30 06:47 KST) — CROSS-PROJECT COORDINATION FRAMEWORK ✅
 - [✅ Phase C #15 프로젝트 조율 시스템 완료](PHASE_C15_COMPLETION_SUMMARY.md) — **상태:** 🟢 **FRAMEWORK READY FOR DEPLOYMENT** | **완료물:** 7개 문서 (10,700+ 라인) + 6개 시스템 | **배포:** 2026-05-30 06:47 KST (모든 검증 완료) | **마감:** 2026-06-02 18:00 (59시간 13분 조기 완료) | **문서:** PROJECT_COORDINATION_SYSTEM.md (3,200줄) + CHECKPOINT_AUTOMATION_TEMPLATES.md (520줄) + DEPENDENCY_MAPPER_SYSTEM.md (2,100줄) + CAPACITY_PLANNING_DASHBOARD.md (2,800줄) + COORDINATION_FRAMEWORK_DEPLOYMENT_PLAN.md (400줄) + PHASE_C15_COMPLETION_SUMMARY.md (350줄) + COORDINATION_SYSTEM_QUICK_START.md (240줄) | **6개 필수 전달물:** (1) 조율 프레임워크 ✅ + (2) Dependency Mapper ✅ + (3) 용량계획 대시보드 ✅ + (4) 블로킹 에스컬레이션 ✅ + (5) 크로스프로젝트 통합 ✅ + (6) 팀 일정 5/28-6/10 ✅ | **검증:** DFS circular-check ✅ (0 순환 8프로젝트 47링크), longest-path critical-path ✅ (23일 TEAM-DASHBOARD-P2-API), 15명 용량 ✅ (100.8% 최적화), 30분 에스컬레이션 ✅, 4-checkpoint 구현 ✅ | **배포:** 3개 Git commits (0d76f98, 1594b44, d732d72) | **다음:** 2026-05-31 08:00 KST 실시간 운영 시작
 
