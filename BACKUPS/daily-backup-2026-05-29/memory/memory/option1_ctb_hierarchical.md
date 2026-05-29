@@ -1,0 +1,249 @@
+---
+name: Option 1 — CTB Hierarchical 포맷 (검토용 초안)
+description: 프로젝트 위계 중심 추적 방식 (팀 협의 대기)
+type: project
+---
+
+# 【Option 1】CTB Hierarchical — 프로젝트 위계 추적 (2026-05-15 16:30)
+
+---
+
+## 📊 Asset Master v2 — 35% 완료
+
+**담당자:** Web-Builder AI Agent (API), Planner AI Agent (설계)  
+**마지막 업데이트:** 2026-05-15 16:30
+
+```
+Phase 1 ✅                Phase 2 🟡                Phase 3 🔴
+└─ 완료                   └─ 진행중                 └─ 배포예정
+  (2026-05-15)             (진행률: 5%)              (ETA: 2026-06-10)
+```
+
+### Phase 1 ✅ 완료 (2026-05-15)
+
+- **DB Migration** ✅
+  - 담당: Web-Builder AI Agent
+  - 상태: 완료
+  - 파일: db/28_asset_master_v2.sql
+
+- **TypeScript Interfaces** ✅
+  - 담당: Web-Builder AI Agent
+  - 상태: 완료
+
+- **Asset Documents API** ✅
+  - 담당: Web-Builder AI Agent
+  - 상태: 완료
+  - Endpoints: POST/GET/DELETE
+
+---
+
+### Phase 2 🟡 진행중 (진행률: 5%, ETA 2026-05-23)
+
+#### 2-1. 설계 🔴 예정 (ETA 2026-05-19)
+
+- **담당자:** Planner AI Agent
+- **상태:** 🔴 예정 (2026-05-15 16:00 시작)
+- **블로킹:** 없음
+- **규칙:** Audit System 팀 논의와 병렬 진행
+- **산출물:**
+  - DESIGN.md
+  - API_GUIDE.md
+  - DB migration SQL
+
+---
+
+#### 2-2. API 구현 🟡 진행중 (진행률: 5%, ETA 2026-05-23)
+
+- **담당자:** Web-Builder AI Agent
+- **상태:** 🟡 진행중 (설계 대기)
+- **구현 범위:** 25개 엔드포인트
+- **현재:** DB migration + 타입 정의 완료
+- **블로킹:** Planner AI Agent 설계 완료 필요
+- **규칙:** 매일 15:00 진도 리포트
+
+**Endpoint 카테고리:**
+```
+├─ Asset Master (기본 조회/생성/수정)
+├─ Asset Relations (자산 관계 관리)
+├─ Asset History (변경 이력 추적)
+├─ Bulk Operations (대량 작업)
+└─ Search & Filter (검색/필터)
+```
+
+---
+
+#### 2-3. UI 개발 🔴 대기 (ETA 2026-05-28)
+
+- **담당자:** Web-Builder AI Agent
+- **상태:** 🔴 대기 (API 완료 필요)
+- **블로킹:** API 구현 완료 필요
+- **예상 화면:**
+  - Asset 목록 (Grid)
+  - Asset 상세
+  - Asset 생성/수정 Form
+  - Asset History Timeline
+
+---
+
+### Phase 3 🔴 배포 (ETA 2026-06-10)
+
+- **담당자:** Web-Builder AI Agent + QA(Evaluator AI Agent)
+- **상태:** 🔴 대기
+- **블로킹:** Phase 2 완료 필수
+- **작업:**
+  - 통합 테스트
+  - 성능 검증
+  - 배포
+
+---
+
+## 📊 Backup App Phase 2 — 40% 완료
+
+**담당자:** Evaluator AI Agent (UI 검증)  
+**마지막 업데이트:** 2026-05-15 12:00
+
+```
+API ✅                UI 검증 🟡
+└─ 완료              └─ 진행중 (40%)
+  (2026-05-14)       (ETA: 2026-05-21)
+```
+
+### API ✅ 완료 (2026-05-14)
+
+- **담당자:** Data-Analyst AI Agent
+- **엔드포인트:** 14개
+- **카테고리:**
+  ```
+  ├─ Schedule (3개)
+  ├─ Quota (2개)
+  ├─ Metrics (3개)
+  ├─ Cleanup (2개)
+  └─ Notifications (2개)
+  ```
+
+---
+
+### UI 검증 🟡 진행중 (진행률: 40%, ETA 2026-05-21)
+
+#### 검증 항목
+
+| 화면 | 담당 | 반복 | 상태 | ETA |
+|------|------|------|------|-----|
+| AutoBackupSettings | Evaluator AI Agent | 1/3 | 🟡 진행 | 2026-05-19 |
+| StorageManagement | Evaluator AI Agent | 1/3 | 🟡 진행 | 2026-05-20 |
+| BackupMetrics | Evaluator AI Agent | 0/3 | 🔴 대기 | 2026-05-21 |
+| NotificationSettings | Evaluator AI Agent | 0/3 | 🔴 대기 | 2026-05-21 |
+
+- **규칙:** 매일 12:00 진도 + 반복 횟수 + 이슈 리포트
+
+---
+
+## 📊 Audit System Framework — 30% 완료
+
+**담당자:** Planner AI Agent (논의 진행) + 팀원 (의견 수렴)  
+**마지막 업데이트:** 2026-05-15 15:00
+
+```
+설계 ✅           팀 논의 🟡           최종결정 🔴
+└─ 완료          └─ 진행중            └─ 예정
+ (2026-05-14)     (30%)                (2026-05-18 19:00)
+```
+
+### 설계 ✅ 완료 (2026-05-14)
+
+- **담당자:** Planner AI Agent
+- **산출물:** Audit System Framework 설계서
+- **상태:** 완료
+
+---
+
+### 팀 논의 🟡 진행중 (진행률: 30%, ETA 2026-05-18 19:00)
+
+#### 팀원별 입력 수렴
+
+| 역할 | 담당 | 입력 상태 | 기한 |
+|------|------|---------|------|
+| **논의 진행** | Planner AI Agent | 🟡 진행중 | 2026-05-18 |
+| **Web-Builder AI Agent 입력** | Web-Builder AI Agent | 🔵 수렴중 | 2026-05-17 |
+| **Evaluator AI Agent 입력** | Evaluator AI Agent | 🔵 수렴중 | 2026-05-17 |
+| **데이터 입력** | Data-Analyst AI Agent | 🔵 수렴중 | 2026-05-17 |
+
+---
+
+### 최종결정 🔴 예정 (2026-05-18 19:00)
+
+- **담당자:** Planner AI Agent (진행)
+- **참석:** 전체 팀
+- **산출물:** Audit System 최종 구현 가이드
+- **블로킹:** 팀원 입력 수렴 필수
+
+---
+
+## 📊 Schedule Management Phase A — 10% 완료
+
+**담당자:** 비서  
+**마지막 업데이트:** 2026-05-15 17:00
+
+```
+규칙 수립 🟡       자동화 🔴              Phase B 🔴
+└─ 진행중         └─ 예정                 └─ 대기
+ (진행률: 10%)     (ETA: 2026-05-22)      (ETA: 2026-05-29)
+```
+
+### 규칙 수립 🟡 진행중
+
+| 규칙 | 담당 | 진행률 | 상태 |
+|------|------|--------|------|
+| **정기 체크** | 비서 | ✅ 100% | 완료 |
+| **의존성 감시** | 비서 | 🟡 50% | 자동화 중 |
+| **리스크 감지** | 비서 | 🔴 0% | 예정 (주 2회) |
+| **블로킹 추적** | 비서 | 🔴 0% | 예정 (매일) |
+
+---
+
+## 📊 Travel App Phase 2 — 0% (미시작)
+
+**예상 시작:** 2026-06-04  
+**예상 완료:** 2026-06-27
+
+### 의존성 & 준비
+
+- 🔴 Backup App Phase 2 완료 필요 (2026-05-21)
+- 🔴 Travel Phase 1 설계 검증 필요 (2026-05-21~06-03)
+
+---
+
+## 🎯 팀원 상태 & 규칙
+
+| 팀원 | 현재 담당 | 진행률 | 규칙 |
+|------|---------|--------|------|
+| **Web-Builder AI Agent** | Asset Master API | 5% | 📍 매일 15:00 리포트 |
+| **Evaluator AI Agent** | Backup App UI | 40% | 📍 매일 12:00 리포트 |
+| **Planner AI Agent** | Asset Master 설계 + Audit 논의 | 30% | 📍 매일 14:00 리포트 |
+| **Data-Analyst AI Agent** | Audit 의견 수렴 | — | 필요시 |
+| **비서** | Schedule 자동화 | 10% | 실시간 |
+
+---
+
+## 📌 Hierarchical 특징
+
+✅ **장점:**
+1. **깊은 위계 추적** — Project → Phase → Task → Subtask
+2. **진행률 집계** — 하위 단계 합산으로 상위 진행률 자동 계산
+3. **블로킹 가시성** — 각 레벨에서 의존성 표시
+4. **책임 추적** — 각 Task 단위 담당자 명확
+5. **ETA 자동 계산** — Subtask ETAsub로 Task ETA 도출
+
+⚠️ **단점:**
+1. **깊이 증가** — 문서 길이 증가 가능
+2. **업데이트 복잡** — 여러 단계 동시 갱신 필요
+3. **탐색** — 전체 구조 이해 필요
+
+---
+
+## 메타
+
+**작성:** 2026-05-15 16:30 KST (비서)  
+**상태:** 🔵 팀 협의 대기  
+**피드백 수렴:** 18:00 KST까지  
+**다음:** 팀원 의견 반영 → Option 1 최종안 도출 또는 다른 옵션과 비교

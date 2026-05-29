@@ -1,0 +1,293 @@
+{
+  "timestamp": "2026-05-28T23:38:29.614Z",
+  "component": "H4-Component4",
+  "interface_type": "telegram",
+  "timeout_seconds": 600,
+  "templates": [
+    {
+      "template_id": "BM_P1_CONFIRMATION",
+      "blocker_id": "BM-P1",
+      "channel": "telegram",
+      "title": "🔐 DB Migration Approval Required",
+      "message": "\n*H4 Blocker Confirmation: BM-P1*\n\n📋 *Database Migration: db/43 Breakdown Management Phase 1*\n\n*Details:*\n• *File:* `43_breakdown_management_phase1_schema.sql`\n• *Size:* 8.22 KB\n• *Lines:* 230\n• *Safety:* 🟢 HIGH (validated)\n\n*Schema Objects:*\n• Tables: 1\n• Indexes: 8\n• Functions: 1\n• Triggers: 1\n• Views: 1\n• RLS Policies: 3\n\n*Validation Status:*\n✅ Syntax: PASSED\n✅ Destructive Ops: NONE\n✅ RLS: ENABLED\n✅ Transaction Support: YES\n\n*Action Required:*\nPlease confirm to execute this migration in Supabase.\n\n⏰ *Response Window:* 10 minutes\n      ",
+      "buttons": [
+        {
+          "id": "BM_P1_YES",
+          "label": "✅ Approve & Execute",
+          "callback": "execute_db_migration",
+          "color": "success"
+        },
+        {
+          "id": "BM_P1_REVIEW",
+          "label": "🔍 Review Code",
+          "callback": "open_migration_file",
+          "color": "primary"
+        },
+        {
+          "id": "BM_P1_NO",
+          "label": "❌ Reject",
+          "callback": "reject_blocker",
+          "color": "danger"
+        }
+      ],
+      "timeout_seconds": 600,
+      "on_timeout": "remind_user"
+    },
+    {
+      "template_id": "REMINDER_BM-P1_5M",
+      "blocker_id": "BM-P1",
+      "channel": "telegram",
+      "title": "⏰ Reminder: Pending Confirmation",
+      "message": "\n⏰ *Reminder: H4 Blocker Awaiting Confirmation*\n\nBM-P1 is still pending user approval.\n\n⚠️ *5+ minutes elapsed - please respond soon*\n\n\n⏱️ *Time remaining:* 5 minutes\n      ",
+      "buttons": [
+        {
+          "id": "REMINDER_ACTION_BM-P1",
+          "label": "👉 Respond Now",
+          "callback": "show_original_prompt",
+          "color": "warning"
+        }
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "template_id": "REMINDER_BM-P1_9M",
+      "blocker_id": "BM-P1",
+      "channel": "telegram",
+      "title": "⏰ Reminder: Pending Confirmation",
+      "message": "\n⏰ *Reminder: H4 Blocker Awaiting Confirmation*\n\nBM-P1 is still pending user approval.\n\n⚠️ *5+ minutes elapsed - please respond soon*\n🚨 *Less than 1 minute remaining before auto-rejection*\n\n⏱️ *Time remaining:* 1 minutes\n      ",
+      "buttons": [
+        {
+          "id": "REMINDER_ACTION_BM-P1",
+          "label": "👉 Respond Now",
+          "callback": "show_original_prompt",
+          "color": "warning"
+        }
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "template_id": "TIMEOUT_BM-P1",
+      "blocker_id": "BM-P1",
+      "channel": "telegram",
+      "title": "⏰ Confirmation Timeout",
+      "message": "\n⏰ *H4 Blocker Confirmation Timeout*\n\nBM-P1 confirmation window has expired.\n\n*Status:* REJECTED (no response within 10 minutes)\n*Action:* Blocker remains in BLOCKED_ON_USER state\n\nEscalation will trigger if unresolved for 6+ hours.\n      ",
+      "buttons": [
+        {
+          "id": "TIMEOUT_RETRY_BM-P1",
+          "label": "🔄 Retry Confirmation",
+          "callback": "retry_blocker",
+          "color": "primary"
+        }
+      ]
+    },
+    {
+      "template_id": "TELEGRAM_CONFIG_CONFIRMATION",
+      "blocker_id": "HARNESS-ENG-P1",
+      "channel": "telegram",
+      "title": "⚙️ Environment Variable Configuration",
+      "message": "\n*H4 Blocker Confirmation: HARNESS-ENG-P1*\n\n🤖 *Telegram Secretary Configuration*\n\n*Details:*\n• *Variable:* `TELEGRAM_SECRETARY_CHAT_ID`\n• *Platform:* Vercel\n• *Scope:* Environment Variables\n• *Safety:* 🟡 MEDIUM (requires user verification)\n\n*Detected Value:*\n```\n8650232975\n```\n\n*Validation Status:*\n✅ Format: VALID (numeric chat ID)\n✅ Length: VALID (10+ digits)\n✅ Source: Verified in memory config\n\n*Action Required:*\n1. Verify the chat ID is correct\n2. Confirm connection test will work\n3. Approve to set environment variable\n\n⏰ *Response Window:* 10 minutes\n      ",
+      "buttons": [
+        {
+          "id": "TELEGRAM_YES",
+          "label": "✅ Confirm & Deploy",
+          "callback": "deploy_telegram_config",
+          "color": "success"
+        },
+        {
+          "id": "TELEGRAM_TEST",
+          "label": "📱 Test Connection",
+          "callback": "send_test_message",
+          "color": "primary"
+        },
+        {
+          "id": "TELEGRAM_NO",
+          "label": "❌ Cancel",
+          "callback": "reject_blocker",
+          "color": "danger"
+        }
+      ],
+      "timeout_seconds": 600,
+      "on_timeout": "remind_user"
+    },
+    {
+      "template_id": "REMINDER_HARNESS-ENG-P1_5M",
+      "blocker_id": "HARNESS-ENG-P1",
+      "channel": "telegram",
+      "title": "⏰ Reminder: Pending Confirmation",
+      "message": "\n⏰ *Reminder: H4 Blocker Awaiting Confirmation*\n\nHARNESS-ENG-P1 is still pending user approval.\n\n⚠️ *5+ minutes elapsed - please respond soon*\n\n\n⏱️ *Time remaining:* 5 minutes\n      ",
+      "buttons": [
+        {
+          "id": "REMINDER_ACTION_HARNESS-ENG-P1",
+          "label": "👉 Respond Now",
+          "callback": "show_original_prompt",
+          "color": "warning"
+        }
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "template_id": "REMINDER_HARNESS-ENG-P1_9M",
+      "blocker_id": "HARNESS-ENG-P1",
+      "channel": "telegram",
+      "title": "⏰ Reminder: Pending Confirmation",
+      "message": "\n⏰ *Reminder: H4 Blocker Awaiting Confirmation*\n\nHARNESS-ENG-P1 is still pending user approval.\n\n⚠️ *5+ minutes elapsed - please respond soon*\n🚨 *Less than 1 minute remaining before auto-rejection*\n\n⏱️ *Time remaining:* 1 minutes\n      ",
+      "buttons": [
+        {
+          "id": "REMINDER_ACTION_HARNESS-ENG-P1",
+          "label": "👉 Respond Now",
+          "callback": "show_original_prompt",
+          "color": "warning"
+        }
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "template_id": "TIMEOUT_HARNESS-ENG-P1",
+      "blocker_id": "HARNESS-ENG-P1",
+      "channel": "telegram",
+      "title": "⏰ Confirmation Timeout",
+      "message": "\n⏰ *H4 Blocker Confirmation Timeout*\n\nHARNESS-ENG-P1 confirmation window has expired.\n\n*Status:* REJECTED (no response within 10 minutes)\n*Action:* Blocker remains in BLOCKED_ON_USER state\n\nEscalation will trigger if unresolved for 6+ hours.\n      ",
+      "buttons": [
+        {
+          "id": "TIMEOUT_RETRY_HARNESS-ENG-P1",
+          "label": "🔄 Retry Confirmation",
+          "callback": "retry_blocker",
+          "color": "primary"
+        }
+      ]
+    }
+  ],
+  "buttons": {},
+  "workflows": [
+    {
+      "workflow_id": "WORKFLOW_BM-P1",
+      "blocker_id": "BM-P1",
+      "states": [
+        {
+          "state": "CONFIRMATION_PENDING",
+          "template_id": "BM_P1_CONFIRMATION",
+          "duration_seconds": 0,
+          "next_states": {
+            "YES": "EXECUTING",
+            "REVIEW": "REVIEW_MODE",
+            "NO": "REJECTED",
+            "TIMEOUT": "TIMEOUT"
+          }
+        },
+        {
+          "state": "EXECUTING",
+          "template_id": null,
+          "duration_seconds": 300,
+          "next_states": {
+            "SUCCESS": "COMPLETED",
+            "FAILED": "EXECUTION_FAILED",
+            "TIMEOUT": "EXECUTION_TIMEOUT"
+          }
+        },
+        {
+          "state": "REVIEW_MODE",
+          "template_id": null,
+          "duration_seconds": 600,
+          "next_states": {
+            "CONFIRMED": "EXECUTING",
+            "REJECTED": "REJECTED",
+            "TIMEOUT": "TIMEOUT"
+          }
+        },
+        {
+          "state": "COMPLETED",
+          "template_id": null,
+          "duration_seconds": 0,
+          "final": true
+        },
+        {
+          "state": "REJECTED",
+          "template_id": null,
+          "duration_seconds": 0,
+          "final": true
+        },
+        {
+          "state": "TIMEOUT",
+          "template_id": "TIMEOUT_BM-P1",
+          "duration_seconds": 0,
+          "final": false
+        }
+      ],
+      "reminder_schedule": [
+        {
+          "minutes_elapsed": 5,
+          "action": "send_reminder"
+        },
+        {
+          "minutes_elapsed": 9,
+          "action": "send_final_warning"
+        }
+      ]
+    },
+    {
+      "workflow_id": "WORKFLOW_HARNESS-ENG-P1",
+      "blocker_id": "HARNESS-ENG-P1",
+      "states": [
+        {
+          "state": "CONFIRMATION_PENDING",
+          "template_id": "TELEGRAM_CONFIG_CONFIRMATION",
+          "duration_seconds": 0,
+          "next_states": {
+            "YES": "EXECUTING",
+            "REVIEW": "REVIEW_MODE",
+            "NO": "REJECTED",
+            "TIMEOUT": "TIMEOUT"
+          }
+        },
+        {
+          "state": "EXECUTING",
+          "template_id": null,
+          "duration_seconds": 300,
+          "next_states": {
+            "SUCCESS": "COMPLETED",
+            "FAILED": "EXECUTION_FAILED",
+            "TIMEOUT": "EXECUTION_TIMEOUT"
+          }
+        },
+        {
+          "state": "REVIEW_MODE",
+          "template_id": null,
+          "duration_seconds": 600,
+          "next_states": {
+            "CONFIRMED": "EXECUTING",
+            "REJECTED": "REJECTED",
+            "TIMEOUT": "TIMEOUT"
+          }
+        },
+        {
+          "state": "COMPLETED",
+          "template_id": null,
+          "duration_seconds": 0,
+          "final": true
+        },
+        {
+          "state": "REJECTED",
+          "template_id": null,
+          "duration_seconds": 0,
+          "final": true
+        },
+        {
+          "state": "TIMEOUT",
+          "template_id": "TIMEOUT_HARNESS-ENG-P1",
+          "duration_seconds": 0,
+          "final": false
+        }
+      ],
+      "reminder_schedule": [
+        {
+          "minutes_elapsed": 5,
+          "action": "send_reminder"
+        },
+        {
+          "minutes_elapsed": 9,
+          "action": "send_final_warning"
+        }
+      ]
+    }
+  ]
+}

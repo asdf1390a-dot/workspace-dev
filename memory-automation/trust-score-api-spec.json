@@ -1,0 +1,526 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Trust Score Calculator API",
+    "version": "2.0.0",
+    "description": "Phase 2C — CTB workflow reliability scoring. 4-component formula: completion 30% / schedule 30% / incident 20% / compliance 20%. Deterministic, no ML, no external calls.",
+    "contact": {
+      "name": "Memory System Specialist (Phase C #13)",
+      "email": "asdf1390a@gmail.com"
+    },
+    "license": {
+      "name": "Internal — DSC Mannur"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3009",
+      "description": "Local development"
+    },
+    {
+      "url": "https://gateway.dsc.local",
+      "description": "Gateway proxied (production)"
+    }
+  ],
+  "security": [
+    { "BearerAuth": [] }
+  ],
+  "tags": [
+    { "name": "trust-score", "description": "Workflow reliability scoring endpoints" }
+  ],
+  "paths": {
+    "/api/trust-score/calculate": {
+      "post": {
+        "tags": ["trust-score"],
+        "operationId": "calculateTrustScore",
+        "summary": "Calculate and persist trust score for a single task",
+        "description": "Computes the 4-component score, upserts into `trust_score_tasks`, and caches in Redis for 7 days. Returns 400 on validation failure.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/CalculateRequest" },
+              "examples": {
+                "perfect_task": {
+                  "summary": "On-time, fully delivered, no incidents",
+                  "value": {
+                    "ctb_ref": "ctb-2026-05-29-002",
+                    "owner": "web-builder",
+                    "team": "engineering",
+                    "planned_start": "2026-05-29T14:00:00+09:00",
+                    "planned_end": "2026-05-29T16:00:00+09:00",
+                    "actual_start": "2026-05-29T14:05:00+09:00",
+                    "actual_end": "2026-05-29T15:55:00+09:00",
+                    "status": "completed",
+                    "deliverables": ["api_spec.json", "tests.js", "design.md"],
+                    "deliverables_actual": ["api_spec.json", "tests.js", "design.md"],
+                    "incidents": [],
+                    "compliance_violations": []
+                  }
+                },
+                "late_with_violation": {
+                  "summary": "30min late, one R001 violation",
+                  "value": {
+                    "ctb_ref": "ctb-2026-05-29-003",
+                    "owner": "data-analyst",
+                    "team": "analytics",
+                    "planned_start": "2026-05-29T10:00:00+09:00",
+                    "planned_end": "2026-05-29T12:00:00+09:00",
+                    "actual_start": "2026-05-29T10:00:00+09:00",
+                    "actual_end": "2026-05-29T12:30:00+09:00",
+                    "status": "completed",
+                    "deliverables": ["report.pdf"],
+                    "deliverables_actual": ["report.pdf"],
+                    "incidents": [],
+                    "compliance_violations": [{ "rule_id": "R001", "detected_at": "2026-05-29T11:00:00+09:00" }]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Score computed (may be served from cache).",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ScoreResponse" },
+                "example": {
+                  "task_id": "ab579972-f98e-4d43-b095-7c9171e7f0d6",
+                  "score": {
+                    "total": 92.50,
+                    "grade": "A",
+                    "components": { "completion": 100.0, "schedule": 85.0, "incident": 100.0, "compliance": 100.0 }
+                  },
+                  "scored_at": "2026-05-29T16:16:23+09:00",
+                  "cached": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation failed.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ValidationError" },
+                "example": {
+                  "error": "INVALID_INPUT",
+                  "details": {
+                    "planned_end": "must be after planned_start",
+                    "status": "must be one of: planned, in_progress, completed, abandoned, blocked"
+                  }
+                }
+              }
+            }
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "500": { "$ref": "#/components/responses/ServerError" }
+        }
+      }
+    },
+    "/api/trust-score/historical": {
+      "get": {
+        "tags": ["trust-score"],
+        "operationId": "getHistoricalTrustScore",
+        "summary": "Time-series trust scores for an owner/team",
+        "description": "Returns bucketed historical scores with a rolling summary. Cached 15min–12h depending on window.",
+        "parameters": [
+          {
+            "name": "owner",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "string" },
+            "description": "Filter by owner. Mutually optional with `team`.",
+            "example": "web-builder"
+          },
+          {
+            "name": "team",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "string" },
+            "example": "engineering"
+          },
+          {
+            "name": "window",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "string", "enum": ["1d", "7d", "30d", "90d", "all"], "default": "7d" }
+          },
+          {
+            "name": "granularity",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "string", "enum": ["task", "hour", "day", "week"], "default": "day" }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "string", "format": "date-time" },
+            "description": "Override window start. Ignored if `window != all`."
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "string", "format": "date-time" },
+            "description": "Override window end."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Time-series buckets + summary.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HistoricalResponse" },
+                "example": {
+                  "owner": "web-builder",
+                  "window": {
+                    "start": "2026-05-22T00:00:00+09:00",
+                    "end": "2026-05-29T00:00:00+09:00",
+                    "granularity": "day"
+                  },
+                  "buckets": [
+                    {
+                      "label": "2026-05-22",
+                      "task_count": 4,
+                      "avg_total": 88.50,
+                      "avg_completion": 95.0,
+                      "avg_schedule": 82.5,
+                      "avg_incident": 95.0,
+                      "avg_compliance": 80.0,
+                      "grade": "B+"
+                    },
+                    {
+                      "label": "2026-05-23",
+                      "task_count": 3,
+                      "avg_total": 92.00,
+                      "avg_completion": 100.0,
+                      "avg_schedule": 88.3,
+                      "avg_incident": 90.0,
+                      "avg_compliance": 90.0,
+                      "grade": "A"
+                    }
+                  ],
+                  "summary": {
+                    "rolling_avg": 89.75,
+                    "rolling_grade": "B+",
+                    "trend": "+3.5",
+                    "task_count_total": 22
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad query.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ValidationError" }
+              }
+            }
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "500": { "$ref": "#/components/responses/ServerError" }
+        }
+      }
+    },
+    "/api/trust-score/compare": {
+      "post": {
+        "tags": ["trust-score"],
+        "operationId": "compareTrustScore",
+        "summary": "Compare two owners/teams",
+        "description": "Computes side-by-side averages and deltas for two cohorts within a window. Confidence label depends on sample sizes and delta magnitude.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/CompareRequest" },
+              "example": {
+                "baseline": { "type": "owner", "value": "web-builder" },
+                "comparison": { "type": "owner", "value": "data-analyst" },
+                "window": "30d",
+                "metrics": ["total", "completion", "schedule", "incident", "compliance"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Comparison result.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/CompareResponse" },
+                "example": {
+                  "baseline": {
+                    "owner": "web-builder",
+                    "task_count": 22,
+                    "avg_total": 89.75,
+                    "components": { "completion": 95.0, "schedule": 85.0, "incident": 92.0, "compliance": 88.5 }
+                  },
+                  "comparison": {
+                    "owner": "data-analyst",
+                    "task_count": 8,
+                    "avg_total": 94.50,
+                    "components": { "completion": 100.0, "schedule": 92.0, "incident": 95.0, "compliance": 91.0 }
+                  },
+                  "delta": {
+                    "total": "+4.75",
+                    "completion": "+5.0",
+                    "schedule": "+7.0",
+                    "incident": "+3.0",
+                    "compliance": "+2.5"
+                  },
+                  "winner": "data-analyst",
+                  "confidence": "medium"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ValidationError" } }
+            }
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "500": { "$ref": "#/components/responses/ServerError" }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "GATEWAY_TOKEN"
+      }
+    },
+    "responses": {
+      "Unauthorized": {
+        "description": "Missing or invalid bearer token.",
+        "content": {
+          "application/json": {
+            "example": { "error": "UNAUTHORIZED", "details": { "auth": "missing or invalid bearer token" } }
+          }
+        }
+      },
+      "ServerError": {
+        "description": "Unexpected server-side error.",
+        "content": {
+          "application/json": {
+            "example": { "error": "DB_ERROR", "details": "connection refused" }
+          }
+        }
+      }
+    },
+    "schemas": {
+      "TaskStatus": {
+        "type": "string",
+        "enum": ["planned", "in_progress", "completed", "abandoned", "blocked"]
+      },
+      "Deliverable": {
+        "oneOf": [
+          { "type": "string", "description": "Name only — counted as full delivery." },
+          {
+            "type": "object",
+            "required": ["name"],
+            "properties": {
+              "name": { "type": "string" },
+              "partial": { "type": "boolean", "default": false, "description": "If true, scored as 0.5." }
+            }
+          }
+        ]
+      },
+      "Incident": {
+        "type": "object",
+        "required": ["detected_at"],
+        "properties": {
+          "detected_at": { "type": "string", "format": "date-time" },
+          "responded_at": { "type": "string", "format": "date-time", "nullable": true },
+          "resolved_at": { "type": "string", "format": "date-time", "nullable": true },
+          "type": {
+            "type": "string",
+            "enum": ["technical_block", "user_required", "scope_change", "external_dependency", "other"]
+          },
+          "user_communicated": { "type": "boolean", "default": false }
+        }
+      },
+      "ComplianceViolation": {
+        "type": "object",
+        "required": ["rule_id"],
+        "properties": {
+          "rule_id": {
+            "type": "string",
+            "pattern": "^R[0-9]{3}$",
+            "description": "Catalog id R001-R015 (see TRUST_SCORE_PHASE2C_DESIGN.md §1.2.4)."
+          },
+          "detected_at": { "type": "string", "format": "date-time" },
+          "note": { "type": "string" }
+        }
+      },
+      "CalculateRequest": {
+        "type": "object",
+        "required": ["owner", "planned_start", "planned_end", "status"],
+        "properties": {
+          "task_id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Omit to create a new record; provide to upsert an existing one."
+          },
+          "ctb_ref": { "type": "string", "description": "CTB reference id (e.g. ctb-2026-05-29-002)." },
+          "owner": { "type": "string" },
+          "team": { "type": "string" },
+          "planned_start": { "type": "string", "format": "date-time" },
+          "planned_end": { "type": "string", "format": "date-time" },
+          "actual_start": { "type": "string", "format": "date-time", "nullable": true },
+          "actual_end": { "type": "string", "format": "date-time", "nullable": true },
+          "status": { "$ref": "#/components/schemas/TaskStatus" },
+          "deliverables": { "type": "array", "items": { "type": "string" } },
+          "deliverables_actual": { "type": "array", "items": { "$ref": "#/components/schemas/Deliverable" } },
+          "incidents": { "type": "array", "items": { "$ref": "#/components/schemas/Incident" }, "default": [] },
+          "compliance_violations": { "type": "array", "items": { "$ref": "#/components/schemas/ComplianceViolation" }, "default": [] }
+        }
+      },
+      "ScoreComponents": {
+        "type": "object",
+        "properties": {
+          "completion":  { "type": "number", "format": "float", "minimum": 0, "maximum": 100 },
+          "schedule":    { "type": "number", "format": "float", "minimum": 0, "maximum": 100 },
+          "incident":    { "type": "number", "format": "float", "minimum": 0, "maximum": 100 },
+          "compliance":  { "type": "number", "format": "float", "minimum": 0, "maximum": 100 }
+        }
+      },
+      "Grade": {
+        "type": "string",
+        "enum": ["A+", "A", "B+", "B", "C", "D", "F"]
+      },
+      "ScoreResponse": {
+        "type": "object",
+        "properties": {
+          "task_id": { "type": "string", "format": "uuid" },
+          "score": {
+            "type": "object",
+            "properties": {
+              "total": { "type": "number", "format": "float", "minimum": 0, "maximum": 100 },
+              "grade": { "$ref": "#/components/schemas/Grade" },
+              "components": { "$ref": "#/components/schemas/ScoreComponents" }
+            }
+          },
+          "scored_at": { "type": "string", "format": "date-time" },
+          "cached": { "type": "boolean", "description": "True if served from Redis." }
+        }
+      },
+      "HistoricalBucket": {
+        "type": "object",
+        "properties": {
+          "label": { "type": "string", "description": "Bucket label (ISO date for `day`, ISO week for `week`, etc.)" },
+          "task_count": { "type": "integer", "minimum": 0 },
+          "avg_total": { "type": "number" },
+          "avg_completion": { "type": "number" },
+          "avg_schedule": { "type": "number" },
+          "avg_incident": { "type": "number" },
+          "avg_compliance": { "type": "number" },
+          "grade": { "$ref": "#/components/schemas/Grade" }
+        }
+      },
+      "HistoricalSummary": {
+        "type": "object",
+        "properties": {
+          "rolling_avg": { "type": "number" },
+          "rolling_grade": { "$ref": "#/components/schemas/Grade" },
+          "trend": { "type": "string", "description": "Signed delta vs previous window, e.g. \"+3.5\" or \"-1.2\"." },
+          "task_count_total": { "type": "integer", "minimum": 0 }
+        }
+      },
+      "HistoricalResponse": {
+        "type": "object",
+        "properties": {
+          "owner": { "type": "string" },
+          "team":  { "type": "string" },
+          "window": {
+            "type": "object",
+            "properties": {
+              "start": { "type": "string", "format": "date-time" },
+              "end":   { "type": "string", "format": "date-time" },
+              "granularity": { "type": "string", "enum": ["task", "hour", "day", "week"] }
+            }
+          },
+          "buckets": {
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/HistoricalBucket" }
+          },
+          "summary": { "$ref": "#/components/schemas/HistoricalSummary" }
+        }
+      },
+      "CompareTarget": {
+        "type": "object",
+        "required": ["type", "value"],
+        "properties": {
+          "type": { "type": "string", "enum": ["owner", "team"] },
+          "value": { "type": "string" }
+        }
+      },
+      "CompareRequest": {
+        "type": "object",
+        "required": ["baseline", "comparison"],
+        "properties": {
+          "baseline":   { "$ref": "#/components/schemas/CompareTarget" },
+          "comparison": { "$ref": "#/components/schemas/CompareTarget" },
+          "window": { "type": "string", "enum": ["1d", "7d", "30d", "90d", "all"], "default": "30d" },
+          "metrics": {
+            "type": "array",
+            "items": { "type": "string", "enum": ["total", "completion", "schedule", "incident", "compliance"] },
+            "default": ["total"]
+          }
+        }
+      },
+      "CohortSummary": {
+        "type": "object",
+        "properties": {
+          "owner": { "type": "string" },
+          "team":  { "type": "string" },
+          "task_count": { "type": "integer" },
+          "avg_total": { "type": "number" },
+          "components": { "$ref": "#/components/schemas/ScoreComponents" }
+        }
+      },
+      "CompareResponse": {
+        "type": "object",
+        "properties": {
+          "baseline":   { "$ref": "#/components/schemas/CohortSummary" },
+          "comparison": { "$ref": "#/components/schemas/CohortSummary" },
+          "delta": {
+            "type": "object",
+            "description": "String-formatted signed deltas (comparison - baseline).",
+            "properties": {
+              "total":      { "type": "string" },
+              "completion": { "type": "string" },
+              "schedule":   { "type": "string" },
+              "incident":   { "type": "string" },
+              "compliance": { "type": "string" }
+            }
+          },
+          "winner": { "type": "string", "description": "Owner/team identifier of the higher-scoring cohort." },
+          "confidence": {
+            "type": "string",
+            "enum": ["high", "medium", "low"],
+            "description": "high: both ≥10 tasks AND |delta|>5. medium: one <10 OR |delta| in [2,5]. low: both <5 OR |delta|<2."
+          }
+        }
+      },
+      "ValidationError": {
+        "type": "object",
+        "required": ["error"],
+        "properties": {
+          "error": { "type": "string", "example": "INVALID_INPUT" },
+          "details": {
+            "type": "object",
+            "additionalProperties": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}

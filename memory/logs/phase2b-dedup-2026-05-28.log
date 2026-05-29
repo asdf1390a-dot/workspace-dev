@@ -1,0 +1,9 @@
+[2026-05-28T21:23:08.260Z] [INFO] ========== Phase 2B Duplicate Detection Start ==========
+[2026-05-28T21:23:08.264Z] [INFO] Input: /home/jeepney/.openclaw/workspace-dev/memory/messages.jsonl
+[2026-05-28T21:23:08.264Z] [INFO] Output: /home/jeepney/.openclaw/workspace-dev/memory/messages_deduplicated.jsonl
+[2026-05-28T21:23:08.264Z] [INFO] Step 1: Loading messages...
+[2026-05-28T21:23:08.276Z] [INFO] Loaded 281 messages
+[2026-05-28T21:23:08.276Z] [INFO] Step 2: Running Layer 1 - Pattern-Based Exact Matching...
+[2026-05-28T21:23:08.277Z] [INFO] Layer 1: 280 unique, 1 duplicates (exact hash)
+[2026-05-28T21:23:08.277Z] [INFO] Step 3: Running Layer 2 - Fuzzy Matching...
+[2026-05-28T21:23:08.473Z] [ERROR] Deduplication failed: Cannot set properties of undefined (setting '0')

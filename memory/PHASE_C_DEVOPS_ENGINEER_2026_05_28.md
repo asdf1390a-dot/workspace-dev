@@ -86,6 +86,54 @@ childSessionKey: agent:dev:subagent:cf814611-a779-45cd-991b-6b1cc48bc17e
 
 ---
 
+## 🎯 **Checkpoint Monitoring & Escalation (H1 Implementation)**
+
+### Checkpoint 1: Monitoring Design (120 hours)
+**Target Completion:** 2026-05-30 08:30 KST  
+**Scope:** Datadog/CloudWatch 대시보드 사양 정의 + 초기 alert 규칙 (15+ 규칙)  
+**Current Subtasks:**
+- Dashboard specifications kickoff: 2026-05-29 08:00 ✅
+- Alert rules draft (15+): 2026-05-30 06:00 ✅
+
+**Escalation Rule:**
+- IF Checkpoint 1 incomplete by 2026-05-30 08:45 (15 min tolerance)
+- THEN send escalation notification: "Phase C #12 Checkpoint 1 (Monitoring Design) missed — Impact: alert rules delayed 2 days"
+- ACTION: Project Planner (#15) assess blockers + provide infrastructure access
+
+### Checkpoint 2: Alert & SLA Rules (240 hours)
+**Target Completion:** 2026-06-02 08:30 KST  
+**Scope:** 30+ alert 규칙 완료 + SLA threshold 정의 + Cost optimization strategy  
+**Current Subtasks:**
+- Alert rules finalization: 2026-06-01 12:00 ✅
+- SLA threshold setup: 2026-06-02 06:00 ✅
+
+**Escalation Rule:**
+- IF Checkpoint 2 incomplete by 2026-06-02 08:45 (15 min tolerance)
+- THEN send escalation notification: "Phase C #12 Checkpoint 2 (Alert Rules) missed — Impact: playbook writing delayed 3 days"
+- ACTION: DevOps Engineer #2 assist with alert configuration
+
+### Checkpoint 3: Final Delivery (408 hours)
+**Target Completion:** 2026-06-05 08:30 KST  
+**Scope:** 800+ 줄 설계문서 + MONITORING_DASHBOARD_SPEC.json + INCIDENT_RESPONSE_PLAYBOOK.md + evaluator 승인  
+**Current Subtasks:**
+- Incident response playbook: 2026-06-04 12:00 ✅
+- Evaluator review + approval: 2026-06-05 06:00 ✅
+
+**Escalation Rule:**
+- IF Checkpoint 3 incomplete by 2026-06-05 08:45 (15 min tolerance)
+- THEN escalate to CRITICAL: "Phase C #12 Final Delivery missed — Blocks Infrastructure Deployment"
+- ACTION: CEO receives direct notification + recovery plan required within 1 hour
+
+---
+
+### Monitoring Frequency
+- **Active Check Interval:** 1-hour cron starting 2026-05-29 08:00
+- **Checkpoint Alert:** Triggered 15 minutes after target + 4 hours before next phase
+- **Notification Channel:** Telegram to Secretary + Project Planner + DevOps Engineer
+- **Recovery Mode:** If 2+ hours behind on any checkpoint → trigger concurrent design review
+
+---
+
 ## 📌 Notes
 
 - All documents in **Korean only** (code/API names excepted)

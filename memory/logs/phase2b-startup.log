@@ -1,0 +1,8 @@
+
+🚀 Phase 2B - Duplicate Detection Engine
+📡 Listening on http://localhost:3010
+📊 Health check: http://localhost:3010/health
+🔍 Detect duplicates: POST http://localhost:3010/api/detect-duplicates
+📦 Batch operation: POST http://localhost:3010/api/collect-and-detect
+📈 Statistics: GET http://localhost:3010/api/stats
+

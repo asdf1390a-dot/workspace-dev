@@ -1,0 +1,52 @@
+{
+  "timestamp": "2026-05-28T23:33:37.590Z",
+  "blockers": [
+    {
+      "blocker_id": "BM-P1",
+      "type": "db_migration",
+      "file_path": "43_breakdown_management_phase1_schema.sql",
+      "safety_level": "HIGH",
+      "objects_created": {
+        "tables": 1,
+        "indexes": 8,
+        "functions": 1,
+        "triggers": 1,
+        "views": 1,
+        "policies": 3
+      },
+      "destructive_operations": false,
+      "validation_status": "PASSED",
+      "validation_errors": [],
+      "execution_method": "Supabase console with transaction rollback",
+      "user_action_required": "Review + Approve before commit",
+      "schema_details": {
+        "file_size": 8422,
+        "lines": 230,
+        "rls_enabled": true
+      }
+    },
+    {
+      "blocker_id": "HARNESS-ENG-P1",
+      "type": "env_var_config",
+      "variable_name": "TELEGRAM_SECRETARY_CHAT_ID",
+      "safety_level": "MEDIUM",
+      "detected_value": "8650232975",
+      "source": "memory/TELEGRAM_SECRETARY_CONFIG.md",
+      "value_format_valid": true,
+      "validation_status": "PASSED",
+      "execution_method": "Vercel environment variable + test connection",
+      "user_action_required": "Verify value correct + confirm connection works",
+      "env_details": {
+        "platform": "Vercel",
+        "scope": "Environment variables",
+        "test_method": "Send test Telegram message"
+      }
+    }
+  ],
+  "summary": {
+    "total_blockers": 2,
+    "high_safety": 1,
+    "medium_safety": 1,
+    "low_safety": 0
+  }
+}

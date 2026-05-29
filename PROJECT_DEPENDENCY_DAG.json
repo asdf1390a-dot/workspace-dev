@@ -1,0 +1,586 @@
+{
+  "metadata": {
+    "generated_at": "2026-05-29T00:00:00Z",
+    "project_planner": "Phase C #15 Project Planner",
+    "design_ref": "PHASE_C_PROJECT_PLANNER_2026_05_28.md",
+    "circular_dependencies": 0,
+    "dag_status": "CLEAN"
+  },
+  "projects": {
+    "BM-P1": {
+      "name": "Breakdown Management Phase 1",
+      "phase": 1,
+      "status": "✅",
+      "status_label": "COMPLETE",
+      "completion_percent": 100,
+      "completion_date": "2026-05-22",
+      "description": "Breakdown event tracking and management system",
+      "components": {
+        "db": {
+          "name": "DB Schema (db/14)",
+          "status": "✅",
+          "completion_percent": 100
+        },
+        "api": {
+          "name": "API (16 endpoints)",
+          "status": "✅",
+          "completion_percent": 100,
+          "endpoint_count": 16
+        },
+        "ui": {
+          "name": "UI Implementation",
+          "status": "✅",
+          "completion_percent": 100,
+          "approval": "Evaluator approval ✅"
+        }
+      },
+      "dependencies": [],
+      "dependents": [],
+      "team_members": ["Evaluator #1"],
+      "critical_path": false
+    },
+    "DISCORD-BOT-P1": {
+      "name": "Discord Bot Phase 1",
+      "phase": 1,
+      "status": "✅",
+      "status_label": "COMPLETE",
+      "completion_percent": 100,
+      "completion_date": "2026-05-27",
+      "description": "Telegram ↔ Discord bi-directional integration",
+      "components": {
+        "telegram_integration": {
+          "name": "Telegram API integration",
+          "status": "✅",
+          "completion_percent": 100
+        },
+        "discord_binding": {
+          "name": "Discord API binding",
+          "status": "✅",
+          "completion_percent": 100
+        },
+        "token_management": {
+          "name": "Token management system",
+          "status": "✅",
+          "completion_percent": 100
+        }
+      },
+      "dependencies": [],
+      "dependents": [],
+      "team_members": ["Web-Builder #1"],
+      "critical_path": false
+    },
+    "HARNESS-ENG-P1": {
+      "name": "Harness Engine Phase 1",
+      "phase": 1,
+      "status": "✅",
+      "status_label": "COMPLETE",
+      "completion_percent": 100,
+      "completion_date": "2026-05-27",
+      "description": "User authentication and session management",
+      "components": {
+        "auth": {
+          "name": "User authentication",
+          "status": "✅",
+          "completion_percent": 100
+        },
+        "session": {
+          "name": "Session management",
+          "status": "✅",
+          "completion_percent": 100
+        },
+        "routing": {
+          "name": "Basic routing",
+          "status": "✅",
+          "completion_percent": 100
+        }
+      },
+      "dependencies": [],
+      "dependents": ["HARNESS-ENG-P2"],
+      "team_members": ["Data-Analyst #1"],
+      "critical_path": false
+    },
+    "ASSET-P2": {
+      "name": "Asset Master Phase 2",
+      "phase": 2,
+      "status": "🟡",
+      "status_label": "IN_PROGRESS",
+      "completion_percent": 55,
+      "completion_eta": "2026-06-10",
+      "description": "Complete asset management with UI and Excel import",
+      "components": {
+        "api": {
+          "name": "API Phase 2",
+          "status": "✅",
+          "completion_percent": 100,
+          "completion_date": "2026-05-27",
+          "endpoint_count": 16,
+          "dependencies": ["db/29"]
+        },
+        "ui": {
+          "name": "UI Implementation",
+          "status": "🟡",
+          "completion_percent": 0,
+          "start_date": "2026-05-28",
+          "completion_eta": "2026-06-10",
+          "days_planned": 13,
+          "pages": 7,
+          "components": 35,
+          "dependencies": ["ASSET-P2-API", "Design Specialist approval"]
+        }
+      },
+      "dependencies": [],
+      "dependents": [],
+      "team_members": ["Web-Builder #1", "Design Specialist"],
+      "critical_path": true,
+      "slack_days": 5,
+      "slack_percent": 38
+    },
+    "BACKUP-P2": {
+      "name": "Backup Management Phase 2",
+      "phase": 2,
+      "status": "🟡",
+      "status_label": "IN_PROGRESS",
+      "completion_percent": 35,
+      "completion_eta": "2026-06-15",
+      "description": "Backup creation, restoration, and scheduling",
+      "components": {
+        "db": {
+          "name": "DB Schema (db/28)",
+          "status": "✅",
+          "completion_percent": 100
+        },
+        "api": {
+          "name": "API Phase 2 (16 endpoints)",
+          "status": "🟡",
+          "completion_percent": 31,
+          "completed_endpoints": 5,
+          "total_endpoints": 16,
+          "completed_list": ["List backups", "Create backup", "Restore backup", "Delete backup", "Get backup details"],
+          "in_progress": ["Schedule backup"],
+          "pending_endpoints": 10,
+          "completion_eta": "2026-06-05",
+          "days_planned": 8,
+          "dependencies": []
+        },
+        "ui": {
+          "name": "UI Implementation",
+          "status": "🔴",
+          "completion_percent": 0,
+          "start_blocked": true,
+          "blocker": "Backup-P2-API ≥70% required",
+          "completion_eta": "2026-06-15",
+          "days_planned": 10,
+          "dependencies": ["BACKUP-P2-API ≥70%"]
+        }
+      },
+      "dependencies": [],
+      "dependents": [],
+      "team_members": ["Web-Builder #1", "Web-Builder #2"],
+      "critical_path": true,
+      "slack_days": 0,
+      "slack_percent": 0
+    },
+    "TEAM-DASHBOARD-P2": {
+      "name": "Team Dashboard Phase 2",
+      "phase": 2,
+      "status": "🟡",
+      "status_label": "IN_PROGRESS",
+      "completion_percent": 62,
+      "completion_eta": "2026-06-20",
+      "description": "Organizational team member dashboard with portfolio tracking",
+      "components": {
+        "db": {
+          "name": "DB Schema (db/36)",
+          "status": "✅",
+          "completion_percent": 100,
+          "completion_date": "2026-05-27"
+        },
+        "api_phase1": {
+          "name": "API Phase 1 (16 endpoints)",
+          "status": "✅",
+          "completion_percent": 100,
+          "endpoint_count": 16,
+          "completion_date": "2026-05-26",
+          "features": ["CRUD", "Activity tracking"]
+        },
+        "api_phase2b": {
+          "name": "API Phase 2B (8 additional endpoints)",
+          "status": "🟡",
+          "completion_percent": 80,
+          "days_complete": "4/5",
+          "completion_eta": "2026-05-28",
+          "endpoint_count": 8,
+          "dependencies": []
+        },
+        "ui_design": {
+          "name": "UI Design",
+          "status": "🟡",
+          "completion_percent": 30,
+          "start_date": "2026-05-27",
+          "completion_eta": "2026-06-04",
+          "days_planned": 8,
+          "pages": 5,
+          "components": 35,
+          "owner": "Design Specialist (Phase C #1)",
+          "tool": "Figma prototype",
+          "dependencies": []
+        },
+        "ui_implementation": {
+          "name": "UI Implementation",
+          "status": "🔴",
+          "completion_percent": 0,
+          "start_blocked": true,
+          "blocker": "Team-Dashboard-P2-UI-Design ≥90% required",
+          "start_date": "2026-06-04",
+          "completion_eta": "2026-06-18",
+          "days_planned": 14,
+          "dependencies": ["Team-Dashboard-P2-UI-Design ≥90%"]
+        }
+      },
+      "dependencies": [],
+      "dependents": ["TEAM-DASHBOARD-P3"],
+      "team_members": ["Web-Builder #1", "Design Specialist"],
+      "critical_path": true,
+      "is_critical_path_driver": true,
+      "critical_path_length_days": 23,
+      "critical_path_completion": "2026-06-20",
+      "slack_days": 10,
+      "slack_percent": 142
+    },
+    "TRAVEL-P2": {
+      "name": "Travel Management Phase 2",
+      "phase": 2,
+      "status": "✅",
+      "status_label": "COMPLETE",
+      "completion_percent": 100,
+      "completion_date": "2026-05-26",
+      "description": "Travel booking, voucher parsing, and expense management",
+      "components": {
+        "api_phase1": {
+          "name": "API Phase 1",
+          "status": "✅",
+          "completion_percent": 100,
+          "endpoint_count": 13,
+          "db": "db/30"
+        },
+        "ui_phase2": {
+          "name": "UI Phase 2",
+          "status": "✅",
+          "completion_percent": 100,
+          "deployment_date": "2026-05-26"
+        },
+        "voucher_parsing": {
+          "name": "Voucher parsing (PDF auto-analysis)",
+          "status": "✅",
+          "completion_percent": 100
+        }
+      },
+      "dependencies": [],
+      "dependents": [],
+      "team_members": ["Web-Builder #2"],
+      "critical_path": false
+    },
+    "MEMORY-AUTO-P2": {
+      "name": "Memory Automation Phase 2",
+      "phase": 2,
+      "status": "🟡",
+      "status_label": "IN_PROGRESS",
+      "completion_percent": 83,
+      "completion_eta": "2026-06-02",
+      "description": "Automated memory management with duplicate detection and trust scoring",
+      "components": {
+        "phase_2a": {
+          "name": "Phase 2A: Message Collection API",
+          "status": "✅",
+          "completion_percent": 100,
+          "completion_date": "2026-05-27",
+          "endpoint_count": 5,
+          "endpoints": ["collect", "status", "history", "health", "validate"],
+          "test_count": 9
+        },
+        "phase_2b": {
+          "name": "Phase 2B: Duplicate Detection",
+          "status": "✅",
+          "completion_percent": 100,
+          "completion_date": "2026-05-27",
+          "features": ["Fuzzy matching engine"],
+          "test_count": 54
+        },
+        "phase_2c": {
+          "name": "Phase 2C: Trust Score Calculator",
+          "status": "✅",
+          "completion_percent": 100,
+          "completion_date": "2026-05-27",
+          "features": ["4-component scoring"],
+          "test_count": 64
+        },
+        "phase_2d": {
+          "name": "Phase 2D: Cron Integration",
+          "status": "✅",
+          "completion_percent": 100,
+          "completion_date": "2026-05-27",
+          "cron_jobs": 8,
+          "features": ["Monitoring dashboard"]
+        },
+        "phase_2e": {
+          "name": "Phase 2E: Testing & Tuning",
+          "status": "🟡",
+          "completion_percent": 0,
+          "start_date": "2026-06-01",
+          "completion_eta": "2026-06-01",
+          "days_planned": 1,
+          "dependencies": ["Phase 2D ✅"]
+        },
+        "phase_2f": {
+          "name": "Phase 2F: Production Deployment",
+          "status": "🔴",
+          "completion_percent": 0,
+          "start_date": "2026-06-02",
+          "completion_eta": "2026-06-02",
+          "days_planned": 1,
+          "dependencies": ["Phase 2E ≥90%"]
+        }
+      },
+      "dependencies": [],
+      "dependents": [],
+      "team_members": ["Automation-Specialist #1", "QA Specialist"],
+      "critical_path": false
+    }
+  },
+  "dependencies_graph": {
+    "edges": [
+      {
+        "from": "TEAM-DASHBOARD-P2-API-Phase-2B",
+        "to": "TEAM-DASHBOARD-P2-UI-Design",
+        "blocking": true,
+        "type": "prerequisite"
+      },
+      {
+        "from": "TEAM-DASHBOARD-P2-UI-Design",
+        "to": "TEAM-DASHBOARD-P2-UI-Implementation",
+        "blocking": true,
+        "required_completion_percent": 90,
+        "type": "prerequisite"
+      },
+      {
+        "from": "TEAM-DASHBOARD-P2-UI-Implementation",
+        "to": "TEAM-DASHBOARD-P3",
+        "blocking": true,
+        "type": "prerequisite"
+      },
+      {
+        "from": "ASSET-P2-API",
+        "to": "ASSET-P2-UI",
+        "blocking": true,
+        "type": "prerequisite"
+      },
+      {
+        "from": "BACKUP-P2-API",
+        "to": "BACKUP-P2-UI",
+        "blocking": true,
+        "required_completion_percent": 70,
+        "type": "prerequisite"
+      },
+      {
+        "from": "HARNESS-ENG-P1",
+        "to": "HARNESS-ENG-P2",
+        "blocking": true,
+        "type": "prerequisite"
+      },
+      {
+        "from": "MEMORY-AUTO-P2D",
+        "to": "MEMORY-AUTO-P2E",
+        "blocking": true,
+        "type": "prerequisite"
+      },
+      {
+        "from": "MEMORY-AUTO-P2E",
+        "to": "MEMORY-AUTO-P2F",
+        "blocking": true,
+        "required_completion_percent": 90,
+        "type": "prerequisite"
+      }
+    ],
+    "circular_dependencies_detected": false,
+    "circular_check_timestamp": "2026-05-29T00:00:00Z"
+  },
+  "critical_path": {
+    "description": "Longest dependency chain determining project completion time",
+    "total_duration_days": 23,
+    "projected_completion": "2026-06-20",
+    "path": [
+      {
+        "sequence": 1,
+        "task": "TEAM-DASHBOARD-P2-API-Phase-2B",
+        "duration_days": 1,
+        "status": "✅",
+        "completion_eta": "2026-05-28",
+        "slack_days": 0
+      },
+      {
+        "sequence": 2,
+        "task": "TEAM-DASHBOARD-P2-UI-Design",
+        "duration_days": 8,
+        "status": "🟡",
+        "completion_eta": "2026-06-04",
+        "slack_days": 0
+      },
+      {
+        "sequence": 3,
+        "task": "TEAM-DASHBOARD-P2-UI-Implementation",
+        "duration_days": 14,
+        "status": "🔴",
+        "completion_eta": "2026-06-18",
+        "slack_days": 0
+      }
+    ],
+    "secondary_paths": [
+      {
+        "description": "Asset Phase 2 completion",
+        "duration_days": 13,
+        "projected_completion": "2026-06-10",
+        "slack_days": 5,
+        "slack_percent": 38
+      },
+      {
+        "description": "Backup Phase 2 completion",
+        "duration_days": 18,
+        "projected_completion": "2026-06-15",
+        "slack_days": 0,
+        "slack_percent": 0
+      },
+      {
+        "description": "Memory Automation completion",
+        "duration_days": 6,
+        "projected_completion": "2026-06-02",
+        "slack_days": 4,
+        "slack_percent": 67
+      }
+    ]
+  },
+  "resource_allocation": {
+    "total_team_members": 15,
+    "currently_engaged": 8,
+    "engagement_percent": 53.3,
+    "target_engagement": 93.3,
+    "target_team_members": 14,
+    "utilization_by_phase": {
+      "phase_0": {
+        "count": 6,
+        "allocation_percent": 100,
+        "status": "✅ Active"
+      },
+      "phase_a": {
+        "count": 4,
+        "deployed_count": 2,
+        "deployment_percent": 50,
+        "status": "🟡 In progress"
+      },
+      "phase_c": {
+        "count": 5,
+        "deployed_count": 3,
+        "deployment_percent": 60,
+        "status": "🟡 In progress"
+      }
+    }
+  },
+  "api_inventory": {
+    "total_endpoints": 98,
+    "completed_endpoints": 71,
+    "completed_percent": 72.4,
+    "by_project": {
+      "BM-P1": { "total": 16, "completed": 16, "percent": 100 },
+      "ASSET-P2": { "total": 16, "completed": 16, "percent": 100 },
+      "BACKUP-P2": { "total": 16, "completed": 5, "percent": 31 },
+      "TEAM-DASHBOARD-P2": { "total": 24, "completed": 20, "percent": 83 },
+      "TRAVEL-P2": { "total": 13, "completed": 13, "percent": 100 },
+      "MEMORY-AUTO-P2": { "total": 10, "completed": 1, "percent": 10 },
+      "DISCORD-BOT-P1": { "total": 3, "completed": 3, "percent": 100 }
+    }
+  },
+  "database_migrations": {
+    "total_migrations": 8,
+    "completed": 6,
+    "migrations": [
+      { "id": "db/14", "project": "BM-P1", "status": "✅", "completion_date": "2026-05-22" },
+      { "id": "db/28", "project": "BACKUP-P2", "status": "✅", "completion_date": "2026-05-26" },
+      { "id": "db/29", "project": "ASSET-P2", "status": "✅", "completion_date": "2026-05-27" },
+      { "id": "db/30", "project": "TRAVEL-P2", "status": "✅", "completion_date": "2026-05-26" },
+      { "id": "db/36", "project": "TEAM-DASHBOARD-P2", "status": "✅", "completion_date": "2026-05-27" },
+      { "id": "db/42", "project": "TEAM-DASHBOARD-P2-API", "status": "✅", "completion_date": "2026-05-28" },
+      { "id": "db/43", "project": "BM-P1-Enhanced", "status": "🟡", "completion_eta": "2026-06-02" },
+      { "id": "db/44", "project": "HARNESS-ENG-P2", "status": "🔴", "completion_eta": "2026-06-05" }
+    ]
+  },
+  "identified_contentions": [
+    {
+      "priority": "HIGH",
+      "title": "Web-Builder #1 Overallocation",
+      "status": "🔴",
+      "description": "Web-Builder #1 assigned to 4 UI projects with overlapping timelines",
+      "affected_projects": ["ASSET-P2-UI", "BACKUP-P2-UI", "TEAM-DASHBOARD-P3-UI", "HARNESS-ENG-P2-UI"],
+      "max_concurrent": 3,
+      "peak_window": "2026-06-05 ~ 2026-06-15",
+      "mitigation_strategies": [
+        "Web-Builder #2 handles BACKUP-P2-UI (primary owner)",
+        "Design Specialist parallelizes 2 projects",
+        "Daily sprint breakdown (3-4 tasks instead of 5+)",
+        "Handoff timing optimization at phase boundaries"
+      ],
+      "expected_relief_date": "2026-06-05",
+      "expected_relief_percent": 50
+    },
+    {
+      "priority": "MEDIUM",
+      "title": "Evaluator Bottleneck",
+      "status": "🟡",
+      "description": "Single evaluator supporting 5 concurrent projects",
+      "affected_projects": ["ASSET-P2", "BACKUP-P2", "TEAM-DASHBOARD-P2", "HARNESS-ENG-P2", "DISCORD-BOT-P1"],
+      "current_throughput_percent": 70,
+      "mitigation_strategies": [
+        "Deploy Evaluator #2 (2026-05-31)",
+        "Split workload: #1 → ASSET/HARNESS/DISCORD, #2 → BACKUP/TEAM-DASHBOARD",
+        "Enable parallel evaluation execution"
+      ],
+      "expected_relief_date": "2026-05-31",
+      "expected_throughput_increase_percent": 100
+    },
+    {
+      "priority": "MEDIUM",
+      "title": "Design Resource Constraint",
+      "status": "🟡",
+      "description": "Single Design Specialist supporting 2 concurrent design projects",
+      "affected_projects": ["TEAM-DASHBOARD-P2", "HARNESS-ENG-P2"],
+      "max_concurrent": 2,
+      "mitigation_strategies": [
+        "Design Specialist parallelizes both projects (2026-05-28~06-05, 8-day window)",
+        "Reuse Figma component library",
+        "Modular design approach"
+      ],
+      "expected_relief_date": "2026-06-05",
+      "expected_days_saved": 1
+    }
+  ],
+  "success_metrics": {
+    "schedule_compliance": {
+      "target": "95%",
+      "definition": "Projects complete within ±1 day of planned ETA"
+    },
+    "resource_utilization": {
+      "target": "93.3%",
+      "definition": "14/15 team members actively engaged in projects"
+    },
+    "quality_metrics": {
+      "target": "95%+ test coverage",
+      "definition": "All APIs and components have automated tests"
+    },
+    "team_collaboration": {
+      "target": "100%",
+      "definition": "Zero context loss, all blockers escalated within SLA"
+    },
+    "technical_delivery": {
+      "target": "0 circular dependencies",
+      "definition": "Clean DAG with verified acyclic structure"
+    }
+  }
+}

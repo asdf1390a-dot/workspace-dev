@@ -1,0 +1,555 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "created": "2026-05-29",
+    "description": "Alert rules and escalation configuration for DSC Mannur 15-person team",
+    "team_size": 15,
+    "on_call_rotation": "weekly",
+    "sla_target": "99.5%"
+  },
+  "alert_channels": {
+    "slack": {
+      "workspace": "dsc-mannur",
+      "channels": {
+        "critical": "#alerts-critical",
+        "ops": "#alerts-ops",
+        "deployments": "#alerts-deployments",
+        "database": "#alerts-database",
+        "cost": "#alerts-cost",
+        "sla": "#alerts-sla"
+      }
+    },
+    "pagerduty": {
+      "service_id": "service_xxxxx",
+      "integration_key": "xxx_integration_key_xxx",
+      "escalation_policy": "default_escalation_v1"
+    },
+    "telegram": {
+      "bot_token": "env:TELEGRAM_BOT_TOKEN",
+      "ceo_chat_id": "env:TELEGRAM_CEO_CHAT_ID",
+      "team_chat_id": "env:TELEGRAM_TEAM_CHAT_ID",
+      "notification_hours": {
+        "critical": "00:00-23:59",
+        "warning": "08:00-18:00"
+      }
+    },
+    "email": {
+      "sla_violations": "devops@dsc-mannur.com",
+      "billing": "cfo@dsc-mannur.com"
+    }
+  },
+  "escalation_policies": {
+    "default_escalation_v1": {
+      "levels": [
+        {
+          "level": 1,
+          "name": "Tier 1 - On-call Engineer",
+          "delay_minutes": 0,
+          "targets": ["web_builder_1_schedule", "web_builder_2_schedule"],
+          "notification_method": ["pagerduty_page", "slack_mention"],
+          "required_ack_minutes": 5
+        },
+        {
+          "level": 2,
+          "name": "Tier 2 - DevOps Lead",
+          "delay_minutes": 10,
+          "targets": ["automation_specialist_schedule"],
+          "notification_method": ["pagerduty_page", "sms"],
+          "required_ack_minutes": 5
+        },
+        {
+          "level": 3,
+          "name": "Tier 3 - Management",
+          "delay_minutes": 30,
+          "targets": ["evaluator_schedule", "planner_schedule"],
+          "notification_method": ["email", "slack_mention"],
+          "required_ack_minutes": 0
+        }
+      ]
+    }
+  },
+  "alert_rules": {
+    "critical_rules": [
+      {
+        "rule_id": "DB-001-CONNECTION-UNAVAILABLE",
+        "name": "Database Connection Unavailable",
+        "type": "metric",
+        "metric": "supabase.db.connections.errors",
+        "condition": "> 10 per minute for 1 minute",
+        "severity": "CRITICAL",
+        "threshold": {
+          "critical": 10,
+          "warning": 5
+        },
+        "notification": {
+          "slack_channel": "critical",
+          "pagerduty": "page_immediately",
+          "telegram_ceo": true,
+          "email": "devops@dsc-mannur.com"
+        },
+        "runbook": "https://github.com/dsc-mannur/runbooks/blob/main/db-connection-failed.md",
+        "auto_remediation": {
+          "enabled": true,
+          "action": "restart_connection_pool",
+          "max_attempts": 3
+        },
+        "tags": ["database", "critical-path", "sla-sensitive"]
+      },
+      {
+        "rule_id": "API-002-ERROR-RATE-CRITICAL",
+        "name": "API Error Rate Critical (>5%)",
+        "type": "metric",
+        "metric": "trace.web.request.errors",
+        "condition": "> 5% for 2 minutes",
+        "severity": "CRITICAL",
+        "threshold": {
+          "critical": 5,
+          "warning": 2
+        },
+        "notification": {
+          "slack_channel": "critical",
+          "pagerduty": "page_immediately",
+          "telegram_ceo": true
+        },
+        "auto_remediation": {
+          "enabled": true,
+          "action": "trigger_log_analysis",
+          "max_attempts": 1
+        },
+        "tags": ["api", "critical-path"]
+      },
+      {
+        "rule_id": "DEPLOY-001-BUILD-FAILED",
+        "name": "Vercel Build Failed",
+        "type": "event",
+        "condition": "deployment.status == FAILED",
+        "severity": "CRITICAL",
+        "notification": {
+          "slack_channel": "deployments",
+          "pagerduty": "page_on_call_dev",
+          "telegram_ceo": true
+        },
+        "auto_remediation": {
+          "enabled": false,
+          "action": "manual_investigation_required"
+        },
+        "tags": ["deployment", "ci-cd"]
+      },
+      {
+        "rule_id": "INFRA-001-MEMORY-CRITICAL",
+        "name": "Server Memory Critical (>95%)",
+        "type": "metric",
+        "metric": "system.memory.usage",
+        "condition": "> 95% for 2 minutes",
+        "severity": "CRITICAL",
+        "threshold": {
+          "critical": 95,
+          "warning": 85
+        },
+        "notification": {
+          "slack_channel": "critical",
+          "pagerduty": "page_immediately",
+          "telegram_ceo": true
+        },
+        "auto_remediation": {
+          "enabled": true,
+          "action": ["kill_idle_connections", "restart_container"],
+          "max_attempts": 2
+        },
+        "tags": ["infrastructure", "critical"]
+      },
+      {
+        "rule_id": "SYNTH-001-HEALTH-CHECK-FAILED",
+        "name": "API Health Check Failed (3+ consecutive)",
+        "type": "synthetic",
+        "condition": "health_check_failed == true for 3 checks",
+        "severity": "CRITICAL",
+        "notification": {
+          "slack_channel": "critical",
+          "pagerduty": "page_immediately",
+          "telegram_ceo": true
+        },
+        "tags": ["synthetic", "uptime"]
+      },
+      {
+        "rule_id": "DB-006-RLS-VIOLATION",
+        "name": "Row-Level Security Violation Detected",
+        "type": "metric",
+        "metric": "supabase.db.rls_violations",
+        "condition": "> 10 per minute for 1 minute",
+        "severity": "CRITICAL",
+        "notification": {
+          "slack_channel": "critical",
+          "pagerduty": "page_immediately",
+          "telegram_ceo": true,
+          "email": "security@dsc-mannur.com"
+        },
+        "tags": ["database", "security", "critical"]
+      },
+      {
+        "rule_id": "DB-008-BACKUP-FAILED",
+        "name": "Daily Database Backup Failed",
+        "type": "event",
+        "condition": "backup.status == FAILED",
+        "severity": "CRITICAL",
+        "notification": {
+          "slack_channel": "critical",
+          "pagerduty": "page_immediately",
+          "email": "devops@dsc-mannur.com"
+        },
+        "tags": ["database", "backup", "disaster-recovery"]
+      }
+    ],
+    "warning_rules": [
+      {
+        "rule_id": "DB-002-CONNECTION-POOL-HIGH",
+        "name": "Database Connection Pool Usage High (>80%)",
+        "type": "metric",
+        "metric": "supabase.db.connections.active",
+        "condition": "> 80% for 5 minutes",
+        "severity": "WARNING",
+        "threshold": {
+          "critical": 95,
+          "warning": 80
+        },
+        "notification": {
+          "slack_channel": "ops",
+          "pagerduty": false,
+          "email": "devops@dsc-mannur.com"
+        },
+        "runbook": "https://github.com/dsc-mannur/runbooks/blob/main/db-connection-pool-scaling.md",
+        "tags": ["database", "capacity"]
+      },
+      {
+        "rule_id": "API-001-LATENCY-HIGH",
+        "name": "API Latency p95 > 500ms",
+        "type": "metric",
+        "metric": "trace.web.request.duration.p95",
+        "condition": "> 500ms for 5 minutes",
+        "severity": "WARNING",
+        "threshold": {
+          "critical": 2000,
+          "warning": 500
+        },
+        "notification": {
+          "slack_channel": "ops",
+          "pagerduty": false
+        },
+        "tags": ["api", "performance"]
+      },
+      {
+        "rule_id": "INFRA-002-DISK-USAGE-HIGH",
+        "name": "Disk Usage High (>70%)",
+        "type": "metric",
+        "metric": "system.disk.usage",
+        "condition": "> 70% for 10 minutes",
+        "severity": "WARNING",
+        "threshold": {
+          "critical": 85,
+          "warning": 70
+        },
+        "notification": {
+          "slack_channel": "ops",
+          "pagerduty": false
+        },
+        "auto_remediation": {
+          "enabled": true,
+          "action": "cleanup_logs",
+          "max_attempts": 1
+        },
+        "tags": ["infrastructure", "capacity"]
+      },
+      {
+        "rule_id": "DB-003-SLOW-QUERIES",
+        "name": "Slow Query Detected (>1 second)",
+        "type": "metric",
+        "metric": "supabase.db.slow_queries",
+        "condition": "> 0 for 5 minutes",
+        "severity": "WARNING",
+        "notification": {
+          "slack_channel": "database",
+          "pagerduty": false
+        },
+        "tags": ["database", "performance"]
+      },
+      {
+        "rule_id": "DEPLOY-002-BUILD-TIME",
+        "name": "Build Time Exceeds Threshold (>15 minutes)",
+        "type": "event",
+        "condition": "build_duration > 15 minutes",
+        "severity": "WARNING",
+        "notification": {
+          "slack_channel": "deployments",
+          "pagerduty": false
+        },
+        "tags": ["deployment", "ci-cd", "performance"]
+      },
+      {
+        "rule_id": "COST-001-BUDGET-WARNING",
+        "name": "Monthly Cost Approaching Budget (>80%)",
+        "type": "metric",
+        "metric": "aws.billing.estimated_charges",
+        "condition": "> 80% of monthly budget",
+        "severity": "WARNING",
+        "notification": {
+          "slack_channel": "cost",
+          "pagerduty": false,
+          "email": "cfo@dsc-mannur.com"
+        },
+        "tags": ["cost", "budget", "financial"]
+      },
+      {
+        "rule_id": "SLA-001-UPTIME-WARNING",
+        "name": "Uptime Below SLA Target",
+        "type": "metric",
+        "metric": "system.uptime.percentage",
+        "condition": "< 99.7% for 1 hour",
+        "severity": "WARNING",
+        "notification": {
+          "slack_channel": "sla",
+          "pagerduty": false,
+          "email": "devops@dsc-mannur.com"
+        },
+        "tags": ["sla", "uptime"]
+      }
+    ],
+    "info_rules": [
+      {
+        "rule_id": "INFO-001-DEPLOYMENT-SUCCESS",
+        "name": "Deployment Completed Successfully",
+        "type": "event",
+        "condition": "deployment.status == SUCCESS",
+        "severity": "INFO",
+        "notification": {
+          "slack_channel": "deployments",
+          "pagerduty": false
+        },
+        "tags": ["deployment", "ci-cd"]
+      },
+      {
+        "rule_id": "INFO-002-DAILY-SUMMARY",
+        "name": "Daily Operations Summary",
+        "type": "scheduled",
+        "schedule": "0 18 * * *",
+        "severity": "INFO",
+        "notification": {
+          "slack_channel": "ops",
+          "email": "devops@dsc-mannur.com"
+        },
+        "tags": ["operations", "reporting"]
+      },
+      {
+        "rule_id": "INFO-003-WEEKLY-COST-REPORT",
+        "name": "Weekly Cost Report",
+        "type": "scheduled",
+        "schedule": "0 9 * * 1",
+        "severity": "INFO",
+        "notification": {
+          "slack_channel": "cost",
+          "email": "cfo@dsc-mannur.com"
+        },
+        "tags": ["cost", "reporting", "weekly"]
+      }
+    ]
+  },
+  "synthetic_tests": [
+    {
+      "test_id": "SYNTH-ASSET-MASTER-API",
+      "name": "Asset Master API Health Check",
+      "type": "api",
+      "endpoints": [
+        {
+          "method": "GET",
+          "url": "https://asset-master-p2.vercel.app/api/health",
+          "expected_status": 200,
+          "timeout_ms": 5000,
+          "tags": ["asset-master", "health-check"]
+        },
+        {
+          "method": "GET",
+          "url": "https://asset-master-p2.vercel.app/api/assets?limit=10",
+          "expected_status": 200,
+          "timeout_ms": 2000,
+          "tags": ["asset-master", "read"]
+        }
+      ],
+      "frequency_minutes": 1,
+      "locations": ["aws:ap-south-1", "aws:us-west-2"]
+    },
+    {
+      "test_id": "SYNTH-BACKUP-APP-API",
+      "name": "Backup App API Health Check",
+      "type": "api",
+      "endpoints": [
+        {
+          "method": "GET",
+          "url": "https://backup-app-p2.vercel.app/api/health",
+          "expected_status": 200,
+          "timeout_ms": 5000,
+          "tags": ["backup-app", "health-check"]
+        }
+      ],
+      "frequency_minutes": 1,
+      "locations": ["aws:ap-south-1", "aws:us-west-2"]
+    },
+    {
+      "test_id": "SYNTH-TRAVEL-API",
+      "name": "Travel Management API Health Check",
+      "type": "api",
+      "endpoints": [
+        {
+          "method": "GET",
+          "url": "https://travel-management-p2.vercel.app/api/health",
+          "expected_status": 200,
+          "timeout_ms": 5000
+        }
+      ],
+      "frequency_minutes": 2,
+      "locations": ["aws:ap-south-1"]
+    },
+    {
+      "test_id": "SYNTH-FMS-PORTAL",
+      "name": "DSC FMS Portal Health Check",
+      "type": "api",
+      "endpoints": [
+        {
+          "method": "GET",
+          "url": "https://fms-portal-p2.vercel.app/api/health",
+          "expected_status": 200,
+          "timeout_ms": 5000
+        }
+      ],
+      "frequency_minutes": 1,
+      "locations": ["aws:ap-south-1", "aws:us-west-2"]
+    }
+  ],
+  "on_call_schedules": {
+    "web_builder_1_schedule": {
+      "team": "Web Development",
+      "name": "웹개발자 #1",
+      "shift_duration_hours": 12,
+      "timezone": "Asia/Seoul",
+      "rotation_start": "2026-05-29",
+      "rotation_days": 14,
+      "coverage": ["Mon-Wed daytime", "Thu-Sun mixed"]
+    },
+    "web_builder_2_schedule": {
+      "team": "Web Development",
+      "name": "웹개발자 #2",
+      "shift_duration_hours": 12,
+      "timezone": "Asia/Kolkata",
+      "rotation_start": "2026-05-29",
+      "rotation_days": 14,
+      "coverage": ["Mon-Wed nighttime", "Thu-Sun mixed"]
+    },
+    "automation_specialist_schedule": {
+      "team": "DevOps/Automation",
+      "name": "자동화전문가",
+      "shift_duration_hours": 24,
+      "timezone": "Asia/Seoul",
+      "rotation_start": "2026-05-29",
+      "rotation_days": 7,
+      "coverage": ["Full week"]
+    },
+    "evaluator_schedule": {
+      "team": "QA",
+      "name": "평가자",
+      "shift_duration_hours": 24,
+      "timezone": "Asia/Seoul",
+      "rotation_start": "2026-05-29",
+      "rotation_days": 14,
+      "coverage": ["Escalation only"]
+    },
+    "planner_schedule": {
+      "team": "Planning",
+      "name": "플래너",
+      "shift_duration_hours": 24,
+      "timezone": "Asia/Seoul",
+      "rotation_start": "2026-05-29",
+      "rotation_days": 14,
+      "coverage": ["Escalation only"]
+    }
+  },
+  "sla_definitions": {
+    "uptime_sla": {
+      "target": "99.5%",
+      "calculation_period": "monthly",
+      "downtime_allowance_minutes": 216,
+      "threshold_critical": "< 99.0%",
+      "threshold_warning": "< 99.7%"
+    },
+    "response_time_sla": {
+      "p50_target_ms": 100,
+      "p95_target_ms": 500,
+      "p99_target_ms": 2000,
+      "threshold_critical": "p95 > 2000ms",
+      "threshold_warning": "p95 > 500ms"
+    },
+    "error_rate_sla": {
+      "target_percent": 0.5,
+      "threshold_critical": "> 5%",
+      "threshold_warning": "> 1%"
+    },
+    "mttr_sla": {
+      "target_minutes": 30,
+      "definition": "Mean Time To Recovery (average incident resolution time)"
+    }
+  },
+  "integration_examples": {
+    "slack_webhook": {
+      "endpoint": "env:SLACK_WEBHOOK_URL",
+      "message_format": {
+        "critical": "🔴 [CRITICAL] {rule_name} - {service} - {impact}",
+        "warning": "🟡 [WARNING] {rule_name} - {service}",
+        "info": "🟢 [INFO] {message}"
+      }
+    },
+    "pagerduty_webhook": {
+      "endpoint": "https://api.pagerduty.com/incidents",
+      "headers": {
+        "Authorization": "Token token=env:PAGERDUTY_API_KEY",
+        "Content-Type": "application/json"
+      }
+    },
+    "telegram_webhook": {
+      "endpoint": "env:TELEGRAM_BOT_TOKEN",
+      "message_format": {
+        "critical": "⚠️ *[긴급]* {rule_name}\n서비스: {service}\n영향: {impact}\n\n즉시 대응 필요",
+        "warning": "⚠️ *[경고]* {rule_name}\n서비스: {service}"
+      }
+    }
+  },
+  "notification_preferences": {
+    "business_hours": "08:00-18:00 KST",
+    "off_hours_critical": "all_channels",
+    "off_hours_warning": "pagerduty_only",
+    "off_hours_info": "silent",
+    "ceo_notification_level": "critical_only",
+    "team_notification_level": "warning_and_above"
+  },
+  "maintenance_windows": [
+    {
+      "name": "Weekly Database Maintenance",
+      "day": "Sunday",
+      "start_time": "02:00 UTC",
+      "duration_minutes": 30,
+      "affected_services": ["supabase"],
+      "notification": "suppress_alerts"
+    },
+    {
+      "name": "Vercel Deployment Pause (Team Sync)",
+      "day": "Monday",
+      "start_time": "14:30 KST",
+      "duration_minutes": 60,
+      "affected_services": ["vercel"],
+      "notification": "warning_only"
+    }
+  ],
+  "deployment_status": {
+    "created": "2026-05-29",
+    "status": "📐 설계 완료",
+    "next_step": "Datadog 계정 생성 및 규칙 적용",
+    "estimated_implementation_hours": 8,
+    "owner": "DevOps Engineer (Phase C #12)"
+  }
+}

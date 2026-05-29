@@ -1,0 +1,142 @@
+{
+  "timestamp": "2026-05-28T23:40:39.090Z",
+  "tests": [
+    {
+      "name": "Scanner detects 2 blockers",
+      "status": "PASS",
+      "duration_ms": 0,
+      "timestamp": "2026-05-28T23:40:39.090Z"
+    },
+    {
+      "name": "Executor receives all detected blockers",
+      "status": "PASS",
+      "duration_ms": 0,
+      "timestamp": "2026-05-28T23:40:39.090Z"
+    },
+    {
+      "name": "Executor processes both blocker types",
+      "status": "PASS",
+      "duration_ms": 0,
+      "timestamp": "2026-05-28T23:40:39.090Z"
+    },
+    {
+      "name": "BM-P1 migration details are preserved",
+      "status": "PASS",
+      "duration_ms": 0,
+      "timestamp": "2026-05-28T23:40:39.090Z"
+    },
+    {
+      "name": "HARNESS config value is passed to executor",
+      "status": "PASS",
+      "duration_ms": 1,
+      "timestamp": "2026-05-28T23:40:39.091Z"
+    },
+    {
+      "name": "Executor records state transitions",
+      "status": "PASS",
+      "duration_ms": 0,
+      "timestamp": "2026-05-28T23:40:39.091Z"
+    },
+    {
+      "name": "All transitions are BLOCKED_ON_USER → COMPLETED",
+      "status": "PASS",
+      "duration_ms": 0,
+      "timestamp": "2026-05-28T23:40:39.091Z"
+    },
+    {
+      "name": "Each transition has timestamp and reason",
+      "status": "PASS",
+      "duration_ms": 0,
+      "timestamp": "2026-05-28T23:40:39.091Z"
+    },
+    {
+      "name": "BM-P1 transition recorded correctly",
+      "status": "PASS",
+      "duration_ms": 0,
+      "timestamp": "2026-05-28T23:40:39.091Z"
+    },
+    {
+      "name": "HARNESS transition recorded correctly",
+      "status": "PASS",
+      "duration_ms": 0,
+      "timestamp": "2026-05-28T23:40:39.091Z"
+    },
+    {
+      "name": "Monitor detects same blockers as executor",
+      "status": "PASS",
+      "duration_ms": 0,
+      "timestamp": "2026-05-28T23:40:39.091Z"
+    },
+    {
+      "name": "Monitor calculates blockage duration in hours",
+      "status": "PASS",
+      "duration_ms": 0,
+      "timestamp": "2026-05-28T23:40:39.091Z"
+    },
+    {
+      "name": "Monitor records escalations at correct thresholds",
+      "status": "PASS",
+      "duration_ms": 0,
+      "timestamp": "2026-05-28T23:40:39.091Z"
+    },
+    {
+      "name": "Escalation actions are properly mapped",
+      "status": "PASS",
+      "duration_ms": 0,
+      "timestamp": "2026-05-28T23:40:39.091Z"
+    },
+    {
+      "name": "All executor blockers have corresponding templates",
+      "status": "PASS",
+      "duration_ms": 0,
+      "timestamp": "2026-05-28T23:40:39.091Z"
+    },
+    {
+      "name": "BM-P1 confirmation template shows migration details",
+      "status": "PASS",
+      "duration_ms": 0,
+      "timestamp": "2026-05-28T23:40:39.091Z"
+    },
+    {
+      "name": "TELEGRAM template shows environment variable details",
+      "status": "PASS",
+      "duration_ms": 0,
+      "timestamp": "2026-05-28T23:40:39.091Z"
+    },
+    {
+      "name": "All templates have timeout configuration",
+      "status": "PASS",
+      "duration_ms": 0,
+      "timestamp": "2026-05-28T23:40:39.091Z"
+    },
+    {
+      "name": "All templates have buttons with callbacks",
+      "status": "PASS",
+      "duration_ms": 1,
+      "timestamp": "2026-05-28T23:40:39.092Z"
+    },
+    {
+      "name": "Complete flow: Detection → Execution → Monitoring",
+      "status": "PASS",
+      "duration_ms": 0,
+      "timestamp": "2026-05-28T23:40:39.092Z"
+    },
+    {
+      "name": "All component outputs are timestamped",
+      "status": "PASS",
+      "duration_ms": 0,
+      "timestamp": "2026-05-28T23:40:39.092Z"
+    },
+    {
+      "name": "No data loss across component boundaries",
+      "status": "PASS",
+      "duration_ms": 0,
+      "timestamp": "2026-05-28T23:40:39.092Z"
+    }
+  ],
+  "summary": {
+    "total": 22,
+    "passed": 22,
+    "failed": 0
+  }
+}

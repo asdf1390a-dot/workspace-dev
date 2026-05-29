@@ -11,25 +11,28 @@ status: ACTIVE
 ## Chat ID Configuration
 
 **Type:** Direct Message (1:1)  
-**Chat ID:** 8650232975  
+**User Chat ID:** 8650232975  
+**Secretary Bot ID:** 7997743065  
 **Format:** Can use with prefix for groups: -1008650232975  
 **User ID:** 8650232975  
 **Telegram Handle:** @jeepney  
 
 ## Status
 
-✅ Configuration verified 2026-05-28 (user provided via Telegram interface)
+✅ Configuration verified 2026-05-29 (both IDs confirmed: Chat ID 8650232975, Bot ID 7997743065)
 
-## Blocked Tasks — NOW UNBLOCKED
+## Unblocked Tasks — READY FOR EXECUTION
 
-1. **HARNESS-ENG-P1-DAY3** (11+ hours overdue)
-   - Status: ✅ UNBLOCKED (Chat ID now configured)
+1. **HARNESS-ENG-P1-DAY3** (11+ hours overdue → NOW RESUMING)
+   - Status: ✅ UNBLOCKED & RESUMING (2026-05-29 02:50 KST)
    - Task: Production Scheduling & Maintenance Validation APIs
-   - Secretary can now execute autonomous tasks to this chat
+   - Both Chat ID + Bot ID confirmed
+   - Secretary ready to execute and report to this chat
 
-2. **IMAGE-EDITING-AD-HOC** (user action pending)
-   - Status: ✅ UNBLOCKED (Chat ID now configured)
-   - Secretary can now send image editing notifications to this chat
+2. **IMAGE-EDITING-AD-HOC** (user action complete)
+   - Status: ✅ UNBLOCKED & RESUMING (2026-05-29 02:50 KST)
+   - Secretary can now deliver image editing notifications
+   - Both Chat ID + Bot ID confirmed
 
 ## Environment Variable
 

@@ -1,0 +1,50 @@
+{
+  "timestamp": "2026-05-29T10:00:00.000Z",
+  "run_id": "H4-CRON-2026-05-29T10-00-00",
+  "checks": [
+    {
+      "blocker_id": "BM-P1",
+      "status": "BLOCKED_ON_USER",
+      "type": "db_migration",
+      "description": "db/43 migration approval pending",
+      "blockage_start": "2026-05-29T08:30:00.000Z",
+      "blockage_duration_hours": 1.5,
+      "check_time": "2026-05-29T10:00:00.000Z",
+      "escalations": []
+    },
+    {
+      "blocker_id": "HARNESS-ENG-P1",
+      "status": "BLOCKED_ON_USER",
+      "type": "env_var_config",
+      "description": "Telegram Secretary Chat ID configuration",
+      "blockage_start": "2026-05-28T22:30:00.000Z",
+      "blockage_duration_hours": 11.5,
+      "check_time": "2026-05-29T10:00:00.000Z",
+      "escalations": [
+        {
+          "blocker_id": "HARNESS-ENG-P1",
+          "threshold_hours": 6,
+          "actual_hours": 11,
+          "level": "WARNING",
+          "action": "notify_ceo",
+          "triggered_at": "2026-05-29T10:00:00.000Z"
+        }
+      ]
+    }
+  ],
+  "escalations": [
+    {
+      "blocker_id": "HARNESS-ENG-P1",
+      "threshold_hours": 6,
+      "actual_hours": 11,
+      "level": "WARNING",
+      "action": "notify_ceo",
+      "triggered_at": "2026-05-29T10:00:00.000Z"
+    }
+  ],
+  "summary": {
+    "blockers_detected": 2,
+    "escalations_triggered": 1,
+    "resolution_time": null
+  }
+}

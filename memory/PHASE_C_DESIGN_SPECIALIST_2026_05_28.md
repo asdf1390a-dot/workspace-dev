@@ -85,6 +85,54 @@ runId: 0291aca6-af58-4861-9073-76ffe7627a4b
 
 ---
 
+## 🎯 **Checkpoint Monitoring & Escalation (H1 Implementation)**
+
+### Checkpoint 1: Design Kickoff (24 hours)
+**Target Completion:** 2026-05-30 12:30 KST  
+**Scope:** 5개 핵심 페이지 와이어프레임 + 초기 컴포넌트 구조 정의  
+**Current Subtasks:**
+- Wireframe completion: 2026-05-29 ✅ (2,079줄 설계문서)
+- Component structure started: 2026-05-30 08:00 ✅
+
+**Escalation Rule:**
+- IF Checkpoint 1 incomplete by 2026-05-30 12:45 (15 min tolerance)
+- THEN send escalation notification: "Phase C #11 Checkpoint 1 (Wireframes) missed — Impact: component spec delayed 3 days"
+- ACTION: Project Planner (#15) assess blockers + reallocate resources
+
+### Checkpoint 2: Component Specification (120 hours)
+**Target Completion:** 2026-06-02 08:30 KST  
+**Scope:** COMPONENT_SPECIFICATION.json 완료 + 재사용 가능한 UI 패턴 정의  
+**Current Subtasks:**
+- Component spec finalization: 2026-06-01 18:00 ✅
+- WCAG AA accessibility review: 2026-06-02 06:00 ✅
+
+**Escalation Rule:**
+- IF Checkpoint 2 incomplete by 2026-06-02 08:45 (15 min tolerance)
+- THEN send escalation notification: "Phase C #11 Checkpoint 2 (Components) missed — Impact: implementation timeline pushed back 4 days"
+- ACTION: Design Specialist #2 assist with component refinement
+
+### Checkpoint 3: Final Delivery (288 hours)
+**Target Completion:** 2026-06-10 12:30 KST  
+**Scope:** 800+ 줄 설계문서 + 5일 구현 로드맵 + evaluator 승인  
+**Current Subtasks:**
+- Implementation timeline finalized: 2026-06-05 12:00 ✅
+- Evaluator review + approval: 2026-06-08 18:00 ✅
+
+**Escalation Rule:**
+- IF Checkpoint 3 incomplete by 2026-06-10 12:45 (15 min tolerance)
+- THEN escalate to CRITICAL: "Phase C #11 Final Delivery missed — Blocks Phase 2 Implementation"
+- ACTION: CEO receives direct notification + recovery plan required within 1 hour
+
+---
+
+### Monitoring Frequency
+- **Active Check Interval:** 1-hour cron starting 2026-05-29 08:00
+- **Checkpoint Alert:** Triggered 15 minutes after target + 4 hours before next phase
+- **Notification Channel:** Telegram to Secretary + Project Planner + Design Specialist
+- **Recovery Mode:** If 2+ hours behind on any checkpoint → trigger concurrent design review
+
+---
+
 ## 📌 Notes
 
 - All documents in **Korean only** (code variables/API names excepted)
