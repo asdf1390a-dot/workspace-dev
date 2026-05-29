@@ -1,6 +1,9 @@
 # 메모리 인덱스 (MEMORY.md)
 
-**🟢 Last Auto-Checkpoint:** 2026-05-30 07:27 KST (Checkpoint #208) — BM-P1 Pre-Deployment Verification spawned | 9/9 프로젝트 활성 (100%) | 신뢰도 97% | 블로킹 0 | 팀 활용 93.3% (14/15)
+**🟢 Last Auto-Checkpoint:** 2026-05-30 07:50 KST (Checkpoint #209) — Task State Machine Evaluation | 11/13 항목 완료 (84.6%) + 2/13 진행중 (15.4%) | 신뢰도 97% | 블로킹 0 | 팀 활용 80% (12/15 활동중) | 90.9% 프로젝트 완료율
+
+## 🆙 **Checkpoint #209: Task State Machine + CTB Consolidation (2026-05-30 07:50 KST)**
+- **상태:** 🟢 STABLE | **전이 감지:** 2건 (Backup-P2 ✅ COMPLETED @ 06:52 + BM-P1 🟡 IN_PROGRESS @ 07:27) | **프로젝트:** 10/11 완료 (90.9%) + 1/11 진행 (Team Dashboard P2 UI) | **팀:** 12/15 활동 (80% utilization) | **신뢰도:** 97% | **블로킹:** 0 ✅ | **다음:** 2026-05-30 18:00 (Phase 2E progress check) 또는 2026-06-01 09:00 (Phase 2F launch)
 
 ## 🟡 BM-P1 Pre-Deployment Verification SPAWNED (2026-05-30 07:27 KST) — RUN ID: cc33eeb8-a0a4-4ce1-b311-3f8832d7ac74
 - **상태:** 🟡 IN_PROGRESS (Subagent: web-builder) | **ETA:** 2026-06-02 18:00 KST | **Deliverables:** 32-item pre-deployment checklist + API test results + DevOps/QA sign-offs + deployment SOP | **Scope:** Database schema validation → RLS policy testing → API endpoint verification → performance/security testing → final sign-offs

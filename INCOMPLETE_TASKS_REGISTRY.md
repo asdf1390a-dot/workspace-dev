@@ -8,6 +8,81 @@ status: 운영 중
 
 # 🎯 미완료 업무 레지스트리 (2026-05-30 07:27 KST AUTO-STATE-MACHINE | STABLE: 9/9 프로젝트 활성, Phase C 전체 완료, 블로킹 0, 신뢰도 97%)
 
+## 🆙 **CHECKPOINT #209: TASK STATE MACHINE EVALUATION (2026-05-30 07:50 KST)**
+
+**타이밍:** 2026-05-30 07:50 KST (Task State Machine monitoring + CTB polling #249-#251 consolidation)  
+**트리거:** Auto-monitoring cycle + CTB polling consolidation  
+**기간:** 2026-05-30 07:27 → 2026-05-30 07:50 (23m 경과)
+
+### ✅ **변화 감지: COMPLETE PROJECT STATE SNAPSHOT**
+- **전체 프로젝트 상태:** 10/11 완료 (90.9%) + 1/11 진행중 (Team Dashboard P2 UI, 9.1%)
+- **폴링 결과:** CTB #249 (07:32) "모든 프로젝트 100% 완료" → CTB #251 (07:40) 정제된 수치 = 90.9%
+- **해석:** BM-P1 Pre-Deployment Verification이 "완료" 상태로 카운팅되었으나, 실제로는 IN_PROGRESS (72h 검증 창)
+- **신뢰도:** 97% (조기 완료 10개 항목 + zero blocking)
+- **팀 활용:** 80% (12/15 에이전트 활동 중)
+
+### 📊 **상태 전이 결과 — 2건 TRANSITIONS DETECTED**
+
+| 규칙 | 전이 | 항목 | 시간 | 비고 |
+|------|------|------|------|------|
+| Rule 4 | ✅ IN_PROGRESS→COMPLETED | Backup-P2 UI (Verification) | 2026-05-30 06:52 | E2E 검증 완료, Vercel 배포 준비 |
+| Rule 1 | ✅ PENDING→IN_PROGRESS | BM-P1 Pre-Deployment Verification | 2026-05-30 07:27 | 스폰 완료 (Run ID: cc33eeb8-a0a4-4ce1-b311-3f8832d7ac74) |
+
+**🎯 총 2건 전이 감지 (Backup-P2 COMPLETE + BM-P1 SPAWN)**
+
+### ✅ **현재 추적 항목 상태:**
+
+**✅ 완료 항목 (11건):**
+- Discord-P1 ✅ (2026-05-27 00:23)
+- Harness-ENG-P1 ✅ (2026-05-27 00:35)
+- Travel-P2-UI ✅ (2026-05-27 02:30)
+- BM-P1 (Core) ✅ (2026-05-29 16:47, 이미지 업로드 완료)
+- Asset-P2-API ✅ (2026-05-27 13:00)
+- Asset-P2-UI ✅ (2026-05-29 22:43, 48분 조기)
+- Memory-Auto-P2 (Phase 2E 포함) ✅ (2026-05-30 05:21)
+- **Backup-P2-UI ✅ (2026-05-30 06:52, E2E 검증 완료)**
+- Team Dashboard P1 API ✅ (2026-05-30 00:53)
+- Phase C #15 (Project Planner) ✅ (2026-05-30 06:47, 59h 조기)
+- Phase 2A-2D (Memory Automation) ✅ (2026-05-30 03:08)
+
+**🟡 진행 중 (IN_PROGRESS) - 2건:**
+- Team Dashboard P2 UI (설계자 C#11, Day 5, 55% 진행) — ETA 2026-06-02 18:00
+- **BM-P1 Pre-Deployment Verification (Subagent spawn) — ETA 2026-06-02 18:00**
+
+**🔴 BLOCKED - 0건:** ✅ ZERO BLOCKING
+
+### 📝 **State Machine Evaluation (07:27~07:50 period)**
+
+**Rule 1 (PENDING→IN_PROGRESS): ✅ Applied**
+- BM-P1 Pre-Deployment Verification: PENDING→IN_PROGRESS (07:27 spawn)
+- 1건 전이 감지
+
+**Rule 2 (IN_PROGRESS→BLOCKED): ✅ Evaluated**
+- Team Dashboard P2 UI: IN_PROGRESS (정상 진행, 블로킹 없음) ✅
+- BM-P1 Pre-Deployment Verification: IN_PROGRESS (정상 진행, 블로킹 없음) ✅
+- 새로운 블로킹 감지: 없음 ✅
+
+**Rule 3 (BLOCKED_ON_USER→IN_PROGRESS): ✅ Evaluated**
+- BLOCKED_ON_USER 항목: 없음 ✅
+- Telegram 신호: 불필요 (blocking zero)
+
+**Rule 4 (IN_PROGRESS→COMPLETED): ✅ Evaluated**
+- Backup-P2-UI: IN_PROGRESS→COMPLETED (06:52 validation finish)
+- 1건 전이 감지
+
+### 📝 **폴링 결과 통합:**
+
+CTB Polling #249 (07:32) "모든 프로젝트 100% 완료"는 다음을 의미:
+- **문자 의미:** 모든 기획/설계/구현 작업 완료 ✅
+- **수치 정제 (07:40 #251):** 10/11 완료 (90.9%), 1/11 진행 (Team Dashboard P2 UI)
+- **BM-P1 상태:** "완료"는 코어 작업(2026-05-29 16:47) 완료, pre-deployment 검증은 IN_PROGRESS (07:27 스폰, ETA 2026-06-02 18:00)
+
+**기록:** 2026-05-30 07:50 KST (Task State Machine Checkpoint #209)  
+**결과:** ✅ **2 STATE TRANSITIONS RECORDED** | 11 completed + 2 in-progress + 0 blocked | 90.9% project completion | 신뢰도 97% | Team utilization 80% | Next checkpoint 2026-05-30 18:00 (Phase 2E progress) 또는 30min auto-save cron  
+**다음 체크포인트:** 2026-05-30 08:20 KST (30min 주기) 또는 2026-06-01 09:00 (Phase 2F launch)
+
+---
+
 ## 🆙 **CHECKPOINT #208: BM-P1 PRE-DEPLOYMENT VERIFICATION SPAWNED (2026-05-30 07:27 KST)**
 
 **타이밍:** 2026-05-30 07:27 KST (Auto-spawn queue monitor - next queued project)  
