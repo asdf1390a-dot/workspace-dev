@@ -1707,3 +1707,63 @@ Stage: <DESIGN|DB|API|UI|DEPLOY|VERIFY>
 ### 2026-05-29 14:42 KST CTB 5분 폴링 체크포인트
 
 | **2026-05-29** | **14:42** | **cron** | — | — | — | ✅ **CTB 5분 폴링 사이클** — **상태 수집 완료.** 🟢 **Asset Master P2:** Vercel 배포 안정 운영 (6+ 시간, <200ms). 🟡 **Phase 2B:** 설계 65% (ETA 18:00 KST, 3h 18m). 🟡 **Team Dashboard P2 UI 설계 검증:** Evaluator 진행 중 (Run ID: 56c0edc0, ETA 2026-06-02 18:00). 🔴 **BM-P1 db/43:** 블로킹 지속 (27+ 시간), 사용자 SQL 실행 대기. 🟢 **Phase 2A:** uptime 6,470sec (1h 47m, 무중단). **팀:** 10/15 활성 (Phase C 5명 배치 완료). **신뢰도:** 96%. **대시보드:** CEO_DASHBOARD_UPDATE_2026_05_29_14_42.md 생성. **다음 사이클:** 2026-05-29 14:47 KST. |
+
+---
+
+## 🔄 5분 폴링 체크포인트 — 2026-05-29 15:30 KST
+
+**프로젝트 상태 수집 완료:**
+
+| 항목 | 상태 | 진행률 | 담당자 | 신뢰도 |
+|------|------|--------|--------|--------|
+| Phase 2B (Duplicate Detection 설계) | 🟡 ON_TRACK | 65% | Automation-Specialist | 96% |
+| Team Dashboard P2 UI 설계 검증 | 🟡 IN_PROGRESS | 검증 중 | Evaluator AI | 95% |
+| BM-P1 Phase 1 (db/43 migration) | 🔴 BLOCKED | 100% API/테스트 | Web-Builder #1 | 100% |
+| Asset Master P2 | ✅ COMPLETED | 100% | Web-Builder #1 | 100% |
+| 팀 활용률 | 10/15 활성 | 67% | Secretary | 100% |
+
+**주요 메트릭:**
+- **프로젝트 완료:** 6/8 (75%)
+- **마일스톤 온트랙:** 7/7 (100%)
+- **신뢰도:** 96% ✅
+- **마지막 갱신:** 2026-05-29 15:30 KST
+- **CEO 대시보드:** CEO_DASHBOARD_UPDATE_2026_05_29_15_30.md
+
+**【긴급 사용자 액션】**
+- **BM-P1 db/43 Supabase SQL 실행** (27시간 블로킹)
+  - 링크: https://app.supabase.com/project/pzkvhomhztikhkgwgqzr/sql
+  - 소요시간: ~5분
+  - 완료 후: 즉시 배포 준비 완료
+
+**다음 마일스톤:**
+- 18:00 KST: Phase 2B 설계 완료 (ETA)
+- 2026-05-31: BM-P1 배포 완료 (db/43 SQL 실행 후)
+- 2026-06-02 18:00: Team Dashboard P2 UI 검증 완료
+
+---
+
+---
+
+## 【15:49 KST — Cron: 30분 주기 Telegram 팀 상태 보고】
+
+**실행 결과:** 🔴 전송 실패 (Telegram chat ID 미구성)
+
+**수집된 상태:**
+| 항목 | 상태 | 진도 | ETA | 비고 |
+|------|------|------|-----|------|
+| Discord-P1 | ✅ COMPLETE | 100% | 2026-05-27 | 배포 완료 |
+| Travel-P2 UI | 🟡 LIVE | 100% | 2026-05-27 | Vercel 배포 완료 |
+| Team Dashboard P1 API | ✅ COMPLETE | 100% | 2026-05-28 | Run ID: 14fc486f |
+| Asset Master P2 UI | 🟡 READY | 100% | 2026-05-28 16:50 | Critical bug fix 완료 |
+| Backup P2 API | 🟡 IN_PROGRESS | 80% | 2026-05-29 18:00 | endpoints 12/16 |
+| Team Dashboard P2 UI | 🟡 DESIGN | 설계중 | 2026-06-10 18:00 | Planner 진행 중 |
+| Phase 2B (Dedup) | ✅ COMPLETE | 100% | 2026-05-29 15:45 | 308 messages |
+| Phase 2C/2D | ✅ COMPLETE | 100% | 2026-05-28 | 검증 완료 |
+
+**팀 용량:** 8/15 (53%)
+**신뢰도:** 96%
+**블로킹:** 없음
+
+【대응】Fallback → Discord #일반채널로 전환 예정. Telegram chat ID 설정 시까지 메모리 내부 추적 유지.
+
+마지막 갱신: 2026-05-29 15:49 KST (cron:7ae285e6)

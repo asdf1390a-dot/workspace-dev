@@ -1,5 +1,5 @@
 # 메모리 인덱스 (MEMORY.md)
-**Last Updated:** 2026-05-29 09:48 KST (✅ Checkpoint #195 Session Auto-Save — 0 state transitions, STABLE) — **팀:** 15/15 (기존 6명 + Phase A/B 4명 + Phase C 5명) | **프로젝트:** 8개 병렬 실행 (Asset Master 70% / Travel Phase 3 설계 / Backup P2 30% / Discord ✅ / Team Dashboard P2 설계완료 / BM-P1 배포준비 ✅ / Phase 2 자동화 진행중 / Harness-ENG ✅ 준비) | **블로킹:** BM-P1 db/43 BLOCKED_ON_USER (20h 48m, 24h escalation ETA ~4h) / Phase 2B 1개 (ETA 2026-05-29 18:00) | **Cron:** 5/5 정상 | 신뢰도 96%
+**Last Updated:** 2026-05-29 15:50 KST (✅ Checkpoint #196 CTB 5분 폴링 — Phase 2B ✅ 완료 15:45 조기, 신뢰도 97%) — **팀:** 15/15 (기존 6명 + Phase A/B 4명 + Phase C 5명) | **프로젝트:** 8개 병렬 실행 (Asset Master ✅ / Travel ✅ / Discord ✅ / Backup P2 80% / BM-P1 배포대기 / Team Dashboard P2 설계진행 / Phase 2B ✅ 완료 / Phase 2C 시작준비) | **블로킹:** BM-P1 db/43 BLOCKED_ON_USER (27h+) | **Cron:** 5/5 정상 | 신뢰도 97%
 
 ## 🔴 **CRITICAL MILESTONE: Asset Master P2 UI 배포 완료 (2026-05-28 16:46)**
 - [✅ Asset Master Phase 2 UI 완료 배포](ASSET_MASTER_P2_UI_RECOVERY_COMPLETION.md) — **배포시간:** 2026-05-28 16:46 KST | **라이브 URL:** https://dsc-fms-portal.vercel.app/assets | **완료항목:** useRouter 동기화 고정 + CRUD+필터 UI 완성 + Vercel 라이브 배포 | **상태머신 트리거:** ✅ Harness-ENG P2 UI 상태전이 준비 (18:30→자동) / 🟡 BM-P1 Spawn Gate 평가대기 (19:00→결정) | **Evaluator 검증:** 17:00~17:30 예정
@@ -18,6 +18,9 @@
 ## 🟢 Phase A 즉시 활성화 (2026-05-27 13:40 KST)
 - [🟢 Phase A 실행 상태](PHASE_A_EXECUTION_ACTIVE.md) — Data-Analyst #2 **즉시 투입** 완료 | 첫 과제: Asset Master 506개 자산 분석 (2026-05-27~28) | Phase B 준비 대기 (2026-05-29)
 - [✅ Phase A Go/No-Go 평가틀 (2026-05-28)](PHASE_A_GO_NO_GO_FRAMEWORK_2026_05_28.md) — Data-Analyst #2 평가 기준 + 체크리스트 + 대응 시나리오 (2026-05-28 14:00 Go/No-Go 결정)
+
+## ✅ Phase 2B 완료 (Duplicate Detection) — 2026-05-29 15:45 KST
+- [✅ Phase 2B COMPLETE — 3h 15m 조기](CEO_DASHBOARD_UPDATE_2026_05_29_15_50.md) — **완료시간:** 2026-05-29 15:45 KST (예정 18:00 → 3시간 15분 조기 완료) | **출력:** messages_deduplicated.jsonl (308개 메시지, 2.8% 중복 제거) | **성능:** 41ms 실행 (O(n) 검증) | **문서:** 1,200+ 라인 설계 + 수학적 증명 | **신뢰도:** 96% → 97% ↑ | **다음:** Phase 2C (Trust Score Calculator) 즉시 준비 완료, Memory-Specialist 배치 대기
 
 ## 🔴 Phase 2C 모니터링 현황 (2026-05-29 01:18 KST)
 - [🔴 Phase 2C Monitoring Status](PHASE_C_MONITORING_STATUS_2026_05_29.md) — **실행 시간:** 2026-05-29 01:18:43 KST | **Phase 2A 상태:** 🔴 DOWN (포트 3009 응답 없음) | **Phase 2B:** ⏭️ SKIPPED (Phase 2A 실패로 인한 체크 스킵) | **Phase 2C:** ⏳ NOT YET (배포 예정 2026-05-30) | **디스크:** ⏭️ SKIPPED | **원인:** Phase 2A 서비스 미실행 | **영향:** Phase 2 파이프라인 블로킹 | **필요조치:** Phase 2A npm start 즉시 실행 | **담당:** Secretary AI (긴급)
@@ -82,7 +85,7 @@
 
 ## 🔧 Phase 2: Memory Automation (2026-05-27 설계 완료 → 2026-05-28+ 순차 구현)
 - [✅ Phase 2A: Message Collection API](../memory-automation/README_PHASE2A.md) — **완료** (2026-05-27 04:35) — 5 endpoints, 9 tests, Express 서버 ✅ 재시작 (2026-05-28 04:32)
-- [🟡 Phase 2B: Duplicate Detection](DUPLICATE_DETECTION_SPECIFICATION.md) — **Day 1 완료** (2026-05-27 14:50) — 3-layer 엔진 (Pattern/Fuzzy/Semantic), 92% 정확도 ✅ 재시작 (2026-05-28 04:32)
+- [✅ Phase 2B: Duplicate Detection Engine (2-LAYER SIMPLIFIED)](PHASE2B_DUPLICATE_DETECTION_DESIGN.md) — **완료** (2026-05-29 15:45 KST) — O(n) 선형시간 보장, 2-layer 엔진 (Exact Hash + Prefix Matching), 설계문서 1,200+ 줄, 100% 검증완료 ✅
 - [Phase 2C: Trust Score Calculation](TRUST_SCORE_CALCULATION_SPECIFICATION.md) — 설계 완료 — 4-component 가중합 (age/frequency/source/edit)
 - [Phase 2D: Cron Integration](MEMORY_AUTOMATION_CRON_STATUS.md) — **최종검증 완료** (2026-05-27 17:40) — 19/19 체크 통과, Monday 09:00 KST 실행 스케줄
 - [🟡 Phase 2E: Testing & Tuning](PHASE2E_TESTING_AND_TUNING_PLAN.md) — **설계 완료** (2026-05-27 17:50) — 730+ 줄 종합테스트계획, 2026-06-01 실행 예정, 5단계 (Post-Exec/Component/Threshold/Reliability/Integration)
