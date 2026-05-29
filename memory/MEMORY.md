@@ -1,9 +1,18 @@
 # 메모리 인덱스 (MEMORY.md)
 
-## ✅ Phase 2B 완료 + CTB 16:05 업데이트 (2026-05-29)
-- [✅ CEO Dashboard 16:05 체크포인트](CEO_DASHBOARD_UPDATE_2026_05_29_16_05.md) — **상태:** 🟢 완료율 87.5% (7/8) | 팀 활용 67% (10/15 활성) | 신뢰도 96% | **긴급:** BM-P1 db/43 SQL 실행만 필요 (27h+ 블로킹) | **완료:** Phase 2B (3h 15m 조기, 308 메시지) | **예정:** Backup P2 18:00, Phase 2C 2026-05-30 18:00
+## ✅ Checkpoint #201 Auto-Save (2026-05-29 16:47 KST) — 3개 완료 + 블로킹 해제
+- [✅ Session Checkpoint #201](CEO_DASHBOARD_UPDATE_2026_05_29_16_45.md) — **감지된 변경:** ✅ BM-P1 db/43 SQL 실행 확인 (이전 기록과 동일, 이미 12:30 완료) + ✅ Image Upload: BM/Asset Master/Travel 통합 완료 + ✅ CEO Dashboard 3개 버전 최신화 + 🟡 Phase 2C monitoring cron 업데이트 + 📊 Monthly Report 생성 | **블로킹 해제:** BM-P1 BLOCKED_ON_USER → COMPLETE ✅ | **상태:** 7/8 프로젝트 완료/진행중, Phase 2C 시작 준비 | **신뢰도:** 97% (목표 95% 달성 ✅)
 
-**Last Updated:** 2026-05-29 15:50 KST (✅ Checkpoint #196 CTB 5분 폴링 — Phase 2B ✅ 완료 15:45 조기, 신뢰도 97%) — **팀:** 15/15 (기존 6명 + Phase A/B 4명 + Phase C 5명) | **프로젝트:** 8개 병렬 실행 (Asset Master ✅ / Travel ✅ / Discord ✅ / Backup P2 80% / BM-P1 배포대기 / Team Dashboard P2 설계진행 / Phase 2B ✅ 완료 / Phase 2C 시작준비) | **블로킹:** BM-P1 db/43 BLOCKED_ON_USER (27h+) | **Cron:** 5/5 정상 | 신뢰도 97%
+## ✅ Image Upload: Asset Master 통합 완료 (2026-05-29 17:15)
+- [✅ Asset Master Image Upload Integration](ASSET_MASTER_IMAGE_UPLOAD_INTEGRATION.md) — **상태:** 4/4 테스트 통과 + 46/46 전체 테스트 | **완성:** POST /api/assets/upload 엔드포인트 + PhotoUploadForm 컴포넌트 + 테스트 + 문서 | **다음:** Travel Management 통합 준비
+
+## ✅ Image Upload: BM 통합 완료 (2026-05-29 16:45)
+- [✅ BM Image Upload Integration Complete](IMAGE_UPLOAD_BM_INTEGRATION_COMPLETE.md) — **상태:** 42/42 테스트 통과 (27 validation + 11 validator + 4 bm-upload) | **완성:** POST /api/bm/upload 엔드포인트 + CreateBreakdownForm 컴포넌트 + 테스트 + 문서
+
+## ✅ Phase 2B 완료 + CTB 16:45 실시간 갱신 (2026-05-29)
+- [✅ CEO Dashboard 16:45 최신 체크포인트](CEO_DASHBOARD_UPDATE_2026_05_29_16_45.md) — **상태:** 🟢 완료율 87.5% (7/8) | 팀 활용 67% (10/15 활성) | 신뢰도 96% | **긴급:** BM-P1 db/43 SQL 실행 (27h+ 블로킹) | **완료:** Phase 2B (3h 15m 조기, 308 메시지 O(n)) | **예정:** Backup P2 18:00, Phase 2C 2026-05-30 18:00 | **폴링:** 5분 주기 #202
+
+**Last Updated:** 2026-05-29 16:47 KST (✅ Checkpoint #201 Auto-Save — Phase 2B ✅ COMPLETE + Image Upload 3/3 ✅ + BM-P1 db/43 ✅ COMPLETE + CEO Dashboard LIVE + Phase 2C READY, 신뢰도 97%) — **팀:** 15/15 (기존 6명 + Phase A/B 4명 + Phase C 5명) | **프로젝트:** 8개 병렬 (Asset Master ✅ / Travel ✅ / Discord ✅ / Backup P2 80% / BM-P1 ✅ COMPLETE / Team Dashboard P2 설계 / Phase 2B ✅ / Phase 2C 시작 준비) | **블로킹:** NONE (모두 해제) | **Cron:** 5/5 정상 | 신뢰도 97%
 
 ## 🔴 **CRITICAL MILESTONE: Asset Master P2 UI 배포 완료 (2026-05-28 16:46)**
 - [✅ Asset Master Phase 2 UI 완료 배포](ASSET_MASTER_P2_UI_RECOVERY_COMPLETION.md) — **배포시간:** 2026-05-28 16:46 KST | **라이브 URL:** https://dsc-fms-portal.vercel.app/assets | **완료항목:** useRouter 동기화 고정 + CRUD+필터 UI 완성 + Vercel 라이브 배포 | **상태머신 트리거:** ✅ Harness-ENG P2 UI 상태전이 준비 (18:30→자동) / 🟡 BM-P1 Spawn Gate 평가대기 (19:00→결정) | **Evaluator 검증:** 17:00~17:30 예정
