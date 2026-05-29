@@ -1,0 +1,84 @@
+{
+  "timestamp": "2026-05-29T23:06:52.572Z",
+  "summary": {
+    "total": 74,
+    "passed": 74,
+    "failed": 0,
+    "successRate": "100.0",
+    "duration": "0.01"
+  },
+  "coverage": {
+    "lineRate": "97.0",
+    "funcRate": "100.0",
+    "status": "PASS"
+  },
+  "suites": [
+    {
+      "name": "Phase 2A: Message Collection API (Unit)",
+      "total": 8,
+      "passed": 8,
+      "failed": 0
+    },
+    {
+      "name": "Phase 2B: Duplicate Detection (Unit)",
+      "total": 8,
+      "passed": 8,
+      "failed": 0
+    },
+    {
+      "name": "Phase 2C: Trust Score Calculator (Unit)",
+      "total": 8,
+      "passed": 8,
+      "failed": 0
+    },
+    {
+      "name": "Phase 2D: Cron Integration (Unit)",
+      "total": 8,
+      "passed": 8,
+      "failed": 0
+    },
+    {
+      "name": "Integration: Message Collection → Duplicate Detection",
+      "total": 5,
+      "passed": 5,
+      "failed": 0
+    },
+    {
+      "name": "Integration: Duplicate Detection → Trust Score",
+      "total": 3,
+      "passed": 3,
+      "failed": 0
+    },
+    {
+      "name": "Integration: Full Phase 2 Workflow",
+      "total": 3,
+      "passed": 3,
+      "failed": 0
+    },
+    {
+      "name": "Error Handling & Edge Cases",
+      "total": 8,
+      "passed": 8,
+      "failed": 0
+    },
+    {
+      "name": "Performance Benchmarking",
+      "total": 8,
+      "passed": 8,
+      "failed": 0
+    },
+    {
+      "name": "End-to-End Workflow Validation",
+      "total": 8,
+      "passed": 8,
+      "failed": 0
+    },
+    {
+      "name": "Extended Coverage: Phase 2A Edge Cases",
+      "total": 7,
+      "passed": 7,
+      "failed": 0
+    }
+  ],
+  "errors": []
+}
