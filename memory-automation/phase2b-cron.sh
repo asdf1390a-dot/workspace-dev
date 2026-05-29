@@ -15,9 +15,8 @@ set -euo pipefail
 readonly SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 readonly MEMORY_DIR="${MEMORY_DIR:-/home/jeepney/.openclaw/workspace-dev/memory}"
 readonly LOG_DIR="${MEMORY_DIR}/logs"
-readonly PHASE2B_URL="${PHASE2B_URL:-http://localhost:3010}"
 readonly TIMEOUT_SECS=180  # 3분
-readonly MAX_RETRIES=3
+readonly MAX_RETRIES=1
 readonly RETRY_DELAY=5
 
 # 초기화
@@ -47,24 +46,25 @@ log_error() {
   echo "[$timestamp] [ERROR] $msg" | tee -a "$ERROR_LOG" >&2
 }
 
-# 상태 확인
-check_health() {
-  local attempt=1
-  while [[ $attempt -le $MAX_RETRIES ]]; do
-    if curl -s -m 5 "$PHASE2B_URL/health" > /dev/null 2>&1; then
-      log "INFO" "Phase 2B service is running ✓"
-      return 0
-    else
-      if [[ $attempt -lt $MAX_RETRIES ]]; then
-        log "WARN" "Health check attempt $attempt failed, retrying in ${RETRY_DELAY}s..."
-        sleep "$RETRY_DELAY"
-      fi
-    fi
-    ((attempt++))
-  done
+# 배치 프로세서 실행
+run_batch_processor() {
+  log "INFO" "Starting Phase 2B batch processor..."
 
-  log_error "Phase 2B service not responding after $MAX_RETRIES attempts"
-  return 1
+  if [[ ! -f "${SCRIPT_DIR}/phase2b-duplicate-detection.js" ]]; then
+    log_error "phase2b-duplicate-detection.js not found"
+    return 1
+  fi
+
+  timeout $TIMEOUT_SECS node "${SCRIPT_DIR}/phase2b-duplicate-detection.js" 2>&1 | tee -a "$LOG_FILE"
+  local exit_code=$?
+
+  if [[ $exit_code -eq 0 ]]; then
+    log "INFO" "Phase 2B batch processor completed successfully ✓"
+    return 0
+  else
+    log_error "Phase 2B batch processor failed with exit code $exit_code"
+    return 1
+  fi
 }
 
 # 메모리 파일 수집
@@ -72,18 +72,16 @@ count_memory_files() {
   find "$MEMORY_DIR" -maxdepth 1 -name "*.md" -type f 2>/dev/null | wc -l
 }
 
-# 중복 감지 요청
-detect_duplicates() {
-  log "INFO" "Calling Phase 2B API for duplicate detection..."
+# 중복 감지 결과 검증
+verify_duplicates_result() {
+  if [[ ! -f "${MEMORY_DIR}/messages_deduplicated.jsonl" ]]; then
+    log_error "Output file not created: messages_deduplicated.jsonl"
+    return 1
+  fi
 
-  local payload="{\"limit\": 2000, \"includeSemantics\": false}"
-
-  local response
-  response=$(timeout $TIMEOUT_SECS curl -s -X POST "$PHASE2B_URL/api/collect-and-detect" \
-    -H "Content-Type: application/json" \
-    -d "$payload" 2>/dev/null || echo '{"success": false, "error": "Request timeout or network error"}')
-
-  echo "$response"
+  local output_lines=$(wc -l < "${MEMORY_DIR}/messages_deduplicated.jsonl")
+  log "INFO" "Output file created with $output_lines entries"
+  return 0
 }
 
 # JSON 파싱 (jq 없는 경우 대비)
@@ -117,79 +115,59 @@ fi
 
 log "INFO" "Step 1: Pre-flight checks passed ✓"
 
-# 2. 헬스 체크
-if ! check_health; then
-  log_error "Cannot proceed without Phase 2B service"
-  exit 1
-fi
+# 2. 배치 프로세서 실행
+if ! run_batch_processor; then
+  log_error "Step 2: Batch processor execution failed"
 
-log "INFO" "Step 2: Service health check passed ✓"
-
-# 3. 중복 감지 요청
-RESPONSE=$(detect_duplicates)
-
-# jq 사용 가능한지 확인
-if command -v jq &> /dev/null; then
-  SUCCESS=$(echo "$RESPONSE" | jq -r '.success // false')
-  CLUSTERS=$(echo "$RESPONSE" | jq -r '.duplicateClusters | length // 0')
-  EXEC_TIME=$(echo "$RESPONSE" | jq -r '.executionTime // 0')
-  ERROR=$(echo "$RESPONSE" | jq -r '.error // ""')
-  PROCESSED=$(echo "$RESPONSE" | jq -r '.entriesProcessed // 0')
-else
-  # jq 없으면 간단한 grep 사용
-  SUCCESS=$(echo "$RESPONSE" | grep -o '"success":true' | wc -l)
-  CLUSTERS=$(extract_json_value "$RESPONSE" "duplicateClusters")
-  EXEC_TIME=$(extract_json_value "$RESPONSE" "executionTime")
-  ERROR=$(extract_json_value "$RESPONSE" "error")
-  PROCESSED=$(extract_json_value "$RESPONSE" "entriesProcessed")
-
-  if [[ $SUCCESS -gt 0 ]]; then
-    SUCCESS="true"
-  else
-    SUCCESS="false"
-  fi
-fi
-
-# 4. 결과 처리
-if [[ "$SUCCESS" == "true" ]]; then
-  log "INFO" "✓ SUCCESS: Found $CLUSTERS duplicate clusters across $FILE_COUNT files in ${EXEC_TIME}ms"
-  log "INFO" "Entries Processed: $PROCESSED"
-  log "INFO" "Step 3: Duplicate detection completed ✓"
-
-  # 마스터 로그 업데이트
-  {
-    echo ""
-    echo "### $(date '+%Y-%m-%d %H:%M:%S') - Cron Run"
-    echo "- **Status:** ✅ Success"
-    echo "- **Files Scanned:** $FILE_COUNT"
-    echo "- **Duplicate Clusters Found:** $CLUSTERS"
-    echo "- **Entries Processed:** $PROCESSED"
-    echo "- **Processing Time:** ${EXEC_TIME}ms"
-    echo ""
-  } >> "$DUPLICATES_LOG" 2>/dev/null || true
-
-  # 타임스탬프 기록
-  echo "[$(date '+%Y-%m-%d %H:%M:%S')] Phase 2B run succeeded - $CLUSTERS clusters found" >> "$LOG_FILE"
-
-  log "INFO" "========== Phase 2B Cron Job End =========="
-  exit 0
-else
-  log_error "Step 3: Duplicate detection failed"
-  log_error "Error: $ERROR"
-  log_error "Response: $RESPONSE"
-
-  echo "[$(date '+%Y-%m-%d %H:%M:%S')] Phase 2B run failed - $ERROR" >> "$ERROR_LOG"
-
-  # 마스터 로그 업데이트
   {
     echo ""
     echo "### $(date '+%Y-%m-%d %H:%M:%S') - Cron Run (FAILED)"
     echo "- **Status:** ❌ Failed"
     echo "- **Files Scanned:** $FILE_COUNT"
-    echo "- **Error:** $ERROR"
+    echo "- **Error:** Batch processor failed"
     echo ""
   } >> "$DUPLICATES_LOG" 2>/dev/null || true
 
   log "INFO" "========== Phase 2B Cron Job End (FAILED) =========="
   exit 1
 fi
+
+log "INFO" "Step 2: Batch processor execution passed ✓"
+
+# 3. 결과 검증
+if ! verify_duplicates_result; then
+  log_error "Step 3: Result verification failed"
+
+  {
+    echo ""
+    echo "### $(date '+%Y-%m-%d %H:%M:%S') - Cron Run (FAILED)"
+    echo "- **Status:** ❌ Failed"
+    echo "- **Files Scanned:** $FILE_COUNT"
+    echo "- **Error:** Output file not created"
+    echo ""
+  } >> "$DUPLICATES_LOG" 2>/dev/null || true
+
+  log "INFO" "========== Phase 2B Cron Job End (FAILED) =========="
+  exit 1
+fi
+
+# 4. 결과 처리
+OUTPUT_LINES=$(wc -l < "${MEMORY_DIR}/messages_deduplicated.jsonl")
+log "INFO" "✓ SUCCESS: Batch processing completed"
+log "INFO" "Files Scanned: $FILE_COUNT"
+log "INFO" "Deduplicated Entries: $OUTPUT_LINES"
+log "INFO" "Step 3: Duplicate detection completed ✓"
+
+{
+  echo ""
+  echo "### $(date '+%Y-%m-%d %H:%M:%S') - Cron Run"
+  echo "- **Status:** ✅ Success"
+  echo "- **Files Scanned:** $FILE_COUNT"
+  echo "- **Deduplicated Entries:** $OUTPUT_LINES"
+  echo ""
+} >> "$DUPLICATES_LOG" 2>/dev/null || true
+
+echo "[$(date '+%Y-%m-%d %H:%M:%S')] Phase 2B run succeeded - $OUTPUT_LINES entries" >> "$LOG_FILE"
+
+log "INFO" "========== Phase 2B Cron Job End =========="
+exit 0

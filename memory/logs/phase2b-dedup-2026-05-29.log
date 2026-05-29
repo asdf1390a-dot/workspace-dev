@@ -6,3 +6,104 @@
 [2026-05-29T01:11:39.791Z] [INFO] Step 2: Running Layer 1 - Pattern-Based Exact Matching...
 [2026-05-29T01:11:39.791Z] [INFO] Layer 1: 280 unique, 1 duplicates (exact hash)
 [2026-05-29T01:11:39.791Z] [INFO] Step 3: Running Layer 2 - Fuzzy Matching...
+[2026-05-29T03:37:48.424Z] [INFO] ========== Phase 2B Duplicate Detection Start ==========
+[2026-05-29T03:37:48.425Z] [INFO] Input: /home/jeepney/.openclaw/workspace-dev/memory/messages.jsonl
+[2026-05-29T03:37:48.425Z] [INFO] Output: /home/jeepney/.openclaw/workspace-dev/memory/messages_deduplicated.jsonl
+[2026-05-29T03:37:48.425Z] [INFO] Step 1: Loading messages...
+[2026-05-29T03:37:48.438Z] [INFO] Loaded 317 messages
+[2026-05-29T03:37:48.438Z] [INFO] Step 2: Running Layer 1 - Pattern-Based Exact Matching...
+[2026-05-29T03:37:48.439Z] [INFO] Layer 1: 316 unique, 1 duplicates (exact hash)
+[2026-05-29T03:37:48.439Z] [INFO] Step 3: Running Layer 2 - Fuzzy Matching...
+[2026-05-29T03:53:30.830Z] [INFO] ========== Phase 2B Duplicate Detection Start ==========
+[2026-05-29T03:53:30.833Z] [INFO] Input: /home/jeepney/.openclaw/workspace-dev/memory/messages.jsonl
+[2026-05-29T03:53:30.833Z] [INFO] Output: /home/jeepney/.openclaw/workspace-dev/memory/messages_deduplicated.jsonl
+[2026-05-29T03:53:30.833Z] [INFO] Step 1: Loading messages...
+[2026-05-29T03:53:30.848Z] [INFO] Loaded 317 messages
+[2026-05-29T03:53:30.848Z] [INFO] Step 2: Running Layer 1 - Pattern-Based Exact Matching...
+[2026-05-29T03:53:30.849Z] [INFO] Layer 1: 316 unique, 1 duplicates (exact hash)
+[2026-05-29T03:53:30.849Z] [INFO] Step 3: Running Layer 2 - Fuzzy Matching...
+[2026-05-29T04:35:00.606Z] [INFO] ========== Phase 2B Duplicate Detection Start ==========
+[2026-05-29T04:35:00.608Z] [INFO] Input: /home/jeepney/.openclaw/workspace-dev/memory/messages.jsonl
+[2026-05-29T04:35:00.608Z] [INFO] Output: /home/jeepney/.openclaw/workspace-dev/memory/messages_deduplicated.jsonl
+[2026-05-29T04:35:00.608Z] [INFO] Step 1: Loading messages...
+[2026-05-29T04:35:00.621Z] [INFO] Loaded 317 messages
+[2026-05-29T04:35:00.621Z] [INFO] Step 2: Running Layer 1 - Pattern-Based Exact Matching...
+[2026-05-29T04:35:00.622Z] [INFO] Layer 1: 316 unique, 1 duplicates (exact hash)
+[2026-05-29T04:35:00.622Z] [INFO] Step 3: Running Layer 2 - Fuzzy Matching...
+[2026-05-29T04:36:29.927Z] [INFO] Layer 2: Processing message 0/316 (315 comparisons)
+[2026-05-29T04:36:29.928Z] [WARN] Layer 2 timeout approaching, skipping remaining 306 messages
+[2026-05-29T04:36:29.928Z] [WARN] Layer 2 timeout approaching, skipping remaining 296 messages
+[2026-05-29T04:36:29.928Z] [WARN] Layer 2 timeout approaching, skipping remaining 286 messages
+[2026-05-29T04:36:29.928Z] [WARN] Layer 2 timeout approaching, skipping remaining 276 messages
+[2026-05-29T04:36:29.928Z] [WARN] Layer 2 timeout approaching, skipping remaining 266 messages
+[2026-05-29T04:36:29.928Z] [WARN] Layer 2 timeout approaching, skipping remaining 256 messages
+[2026-05-29T04:36:29.928Z] [WARN] Layer 2 timeout approaching, skipping remaining 246 messages
+[2026-05-29T04:36:29.928Z] [WARN] Layer 2 timeout approaching, skipping remaining 236 messages
+[2026-05-29T04:36:29.928Z] [WARN] Layer 2 timeout approaching, skipping remaining 226 messages
+[2026-05-29T04:36:29.928Z] [WARN] Layer 2 timeout approaching, skipping remaining 216 messages
+[2026-05-29T04:36:29.928Z] [WARN] Layer 2 timeout approaching, skipping remaining 206 messages
+[2026-05-29T04:36:29.928Z] [WARN] Layer 2 timeout approaching, skipping remaining 196 messages
+[2026-05-29T04:36:29.928Z] [WARN] Layer 2 timeout approaching, skipping remaining 186 messages
+[2026-05-29T04:36:29.929Z] [WARN] Layer 2 timeout approaching, skipping remaining 176 messages
+[2026-05-29T04:36:29.929Z] [WARN] Layer 2 timeout approaching, skipping remaining 166 messages
+[2026-05-29T04:36:29.929Z] [WARN] Layer 2 timeout approaching, skipping remaining 156 messages
+[2026-05-29T04:36:29.929Z] [WARN] Layer 2 timeout approaching, skipping remaining 146 messages
+[2026-05-29T04:36:29.929Z] [WARN] Layer 2 timeout approaching, skipping remaining 136 messages
+[2026-05-29T04:36:29.929Z] [WARN] Layer 2 timeout approaching, skipping remaining 126 messages
+[2026-05-29T04:36:29.929Z] [WARN] Layer 2 timeout approaching, skipping remaining 116 messages
+[2026-05-29T04:36:29.929Z] [WARN] Layer 2 timeout approaching, skipping remaining 106 messages
+[2026-05-29T04:36:29.929Z] [WARN] Layer 2 timeout approaching, skipping remaining 96 messages
+[2026-05-29T04:36:29.929Z] [WARN] Layer 2 timeout approaching, skipping remaining 86 messages
+[2026-05-29T04:36:29.929Z] [WARN] Layer 2 timeout approaching, skipping remaining 76 messages
+[2026-05-29T04:36:29.929Z] [WARN] Layer 2 timeout approaching, skipping remaining 66 messages
+[2026-05-29T04:36:29.929Z] [WARN] Layer 2 timeout approaching, skipping remaining 56 messages
+[2026-05-29T04:36:29.929Z] [WARN] Layer 2 timeout approaching, skipping remaining 46 messages
+[2026-05-29T04:36:29.929Z] [WARN] Layer 2 timeout approaching, skipping remaining 35 messages
+[2026-05-29T04:36:29.929Z] [WARN] Layer 2 timeout approaching, skipping remaining 25 messages
+[2026-05-29T04:36:29.929Z] [WARN] Layer 2 timeout approaching, skipping remaining 15 messages
+[2026-05-29T04:36:29.929Z] [WARN] Layer 2 timeout approaching, skipping remaining 5 messages
+[2026-05-29T04:36:29.929Z] [INFO] Layer 2: Completed in 89307ms (315 comparisons, 314 msgs skipped)
+[2026-05-29T04:36:29.929Z] [INFO] Layer 2: 1 unique, 1 duplicates (fuzzy >=70% similarity)
+[2026-05-29T04:36:29.929Z] [INFO] Layer 2: 1 clusters formed
+[2026-05-29T04:36:29.929Z] [WARN] Layer 2 timed out, results partial
+[2026-05-29T04:36:29.929Z] [INFO] Step 4: Running Layer 3 - Semantic Clustering...
+[2026-05-29T04:36:29.929Z] [INFO] Layer 3: Processing message 0/1 (0 comparisons)
+[2026-05-29T04:36:29.929Z] [INFO] Layer 3: Completed in 0ms (0 comparisons, 0 msgs skipped)
+[2026-05-29T04:36:29.930Z] [INFO] Layer 3: 1 unique, 0 duplicates (semantic >=60% keyword overlap)
+[2026-05-29T04:36:29.930Z] [INFO] Layer 3: 1 semantic groups formed
+[2026-05-29T04:36:29.930Z] [INFO] Step 5: Saving deduplicated messages...
+[2026-05-29T04:36:29.930Z] [INFO] ✓ Saved 1 deduplicated messages to /home/jeepney/.openclaw/workspace-dev/memory/messages_deduplicated.jsonl
+[2026-05-29T04:36:29.930Z] [INFO] ✓ Metadata saved to /home/jeepney/.openclaw/workspace-dev/memory/dedup_metadata.json
+[2026-05-29T04:36:29.930Z] [INFO] Final: 1 unique messages (99.7% reduction)
+[2026-05-29T04:36:29.930Z] [INFO] Total runtime: 89324ms
+[2026-05-29T04:36:29.930Z] [INFO] ========== Phase 2B Duplicate Detection End ==========
+[2026-05-29T04:37:04.305Z] [INFO] ========== Phase 2B Duplicate Detection Start (SIMPLIFIED) ==========
+[2026-05-29T04:37:04.306Z] [INFO] Input: /home/jeepney/.openclaw/workspace-dev/memory/messages.jsonl
+[2026-05-29T04:37:04.306Z] [INFO] Output: /home/jeepney/.openclaw/workspace-dev/memory/messages_deduplicated.jsonl
+[2026-05-29T04:37:04.307Z] [INFO] Step 1: Loading messages...
+[2026-05-29T04:37:04.323Z] [INFO] Loaded 317 messages
+[2026-05-29T04:37:04.323Z] [INFO] Step 2: Running Layer 1 - Exact Hash Matching...
+[2026-05-29T04:37:04.324Z] [INFO] Layer 1: 316 unique, 1 exact duplicates
+[2026-05-29T04:37:04.324Z] [INFO] Step 3: Running Layer 2 - Prefix Matching...
+[2026-05-29T04:37:04.328Z] [INFO] Layer 2: 308 unique, 8 prefix duplicates
+[2026-05-29T04:37:04.328Z] [INFO] Step 4: Saving deduplicated messages...
+[2026-05-29T04:37:04.339Z] [INFO] ✓ Saved 308 deduplicated messages to /home/jeepney/.openclaw/workspace-dev/memory/messages_deduplicated.jsonl
+[2026-05-29T04:37:04.339Z] [INFO] ✓ Metadata saved to /home/jeepney/.openclaw/workspace-dev/memory/dedup_metadata.json
+[2026-05-29T04:37:04.339Z] [INFO] Final: 308 unique messages (2.8% reduction)
+[2026-05-29T04:37:04.339Z] [INFO] Total runtime: 23ms
+[2026-05-29T04:37:04.339Z] [INFO] ========== Phase 2B Duplicate Detection Complete ==========
+[2026-05-29T05:00:01.991Z] [INFO] ========== Phase 2B Duplicate Detection Start (SIMPLIFIED) ==========
+[2026-05-29T05:00:01.994Z] [INFO] Input: /home/jeepney/.openclaw/workspace-dev/memory/messages.jsonl
+[2026-05-29T05:00:01.994Z] [INFO] Output: /home/jeepney/.openclaw/workspace-dev/memory/messages_deduplicated.jsonl
+[2026-05-29T05:00:01.994Z] [INFO] Step 1: Loading messages...
+[2026-05-29T05:00:02.008Z] [INFO] Loaded 317 messages
+[2026-05-29T05:00:02.008Z] [INFO] Step 2: Running Layer 1 - Exact Hash Matching...
+[2026-05-29T05:00:02.008Z] [INFO] Layer 1: 316 unique, 1 exact duplicates
+[2026-05-29T05:00:02.008Z] [INFO] Step 3: Running Layer 2 - Prefix Matching...
+[2026-05-29T05:00:02.012Z] [INFO] Layer 2: 308 unique, 8 prefix duplicates
+[2026-05-29T05:00:02.013Z] [INFO] Step 4: Saving deduplicated messages...
+[2026-05-29T05:00:02.024Z] [INFO] ✓ Saved 308 deduplicated messages to /home/jeepney/.openclaw/workspace-dev/memory/messages_deduplicated.jsonl
+[2026-05-29T05:00:02.025Z] [INFO] ✓ Metadata saved to /home/jeepney/.openclaw/workspace-dev/memory/dedup_metadata.json
+[2026-05-29T05:00:02.025Z] [INFO] Final: 308 unique messages (2.8% reduction)
+[2026-05-29T05:00:02.025Z] [INFO] Total runtime: 22ms
+[2026-05-29T05:00:02.025Z] [INFO] ========== Phase 2B Duplicate Detection Complete ==========

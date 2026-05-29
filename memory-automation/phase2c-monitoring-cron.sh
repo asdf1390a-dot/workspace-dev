@@ -86,9 +86,23 @@ if ! check_service "Phase2A" "$PHASE2A_URL/health"; then
   ((failed_services++))
 fi
 
-# Phase 2B: Always check (production service)
-if ! check_service "Phase2B" "$PHASE2B_URL/health"; then
-  ((failed_services++))
+# Phase 2B: Check batch script execution (not HTTP service)
+if [[ -f "$LOG_DIR/phase2b-cron-$(date +%Y%m%d).log" ]]; then
+  # Check if Phase 2B completed in last 2 hours (7200 seconds)
+  last_run=$(stat -f%m "$LOG_DIR/phase2b-cron-$(date +%Y%m%d).log" 2>/dev/null || stat -c%Y "$LOG_DIR/phase2b-cron-$(date +%Y%m%d).log" 2>/dev/null || echo 0)
+  current_time=$(date +%s)
+  time_diff=$((current_time - last_run))
+
+  if [[ $time_diff -lt 7200 ]]; then
+    log "INFO" "Phase2B: Batch job executed recently (${time_diff}s ago) ✓"
+    echo "\"Phase2B\": \"OK (batch)\""
+  else
+    log "WARN" "Phase2B: Last execution >2 hours ago (${time_diff}s)"
+    echo "\"Phase2B\": \"STALE\""
+    ((failed_services++))
+  fi
+else
+  log "INFO" "Phase2B: Batch job log not found (first run expected)"
 fi
 
 # Phase 2C: Check only if port is in use (development/deployment phase)

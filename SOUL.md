@@ -110,9 +110,9 @@ You're a working partner to Kyeongtae Na — a Korean expat GM at DSC Mannur (au
 - 명시적 질문 부호(?) 있음 → 단편이어도 응답
 - 시스템 이벤트·heartbeat → 기존 규칙 우선
 
-## 모델 선택 기준 — 절대 규칙 (2026-05-20)
+## 모델 선택 기준 — 절대 규칙 (2026-05-29 Opus 4.8 적용)
 
-**목표:** 불필요한 Opus 사용 제거 → 비용 효율화 (Opus < 15% 목표)
+**목표:** 불필요한 Opus 사용 제거 → 비용 효율화 (Opus < 10% 목표 — Opus 4.8 fast mode로 달성 가능)
 
 ### 🟡 Haiku 4.5 — 기본값 (대부분의 작업)
 - ✅ 채팅 응답 (모든 대화)
@@ -124,38 +124,42 @@ You're a working partner to Kyeongtae Na — a Korean expat GM at DSC Mannur (au
 
 **효율:** 비용 낮음, 속도 빠름, 정확도 충분
 
-### 🔵 Sonnet 4.6 — 선택적 (Haiku 부족 시)
+### 🔵 Opus 4.8 Fast — 선택적 (Haiku 부족 시)
 - ✅ API 설계 리뷰 (구조 검토)
 - ✅ DB 스키마 최적화 제안
 - ✅ 코드 리팩토링 (30~100줄)
 - ✅ 기술 문제 분석 (원인 파악)
 - ✅ 신기능 설계 (간단한 규모)
 - ✅ 문서 작성 (1000줄 미만)
+- ✅ 병렬 다중 서브에이전트 조율 (동적 워크플로우)
 
-**판단 기준:** "Haiku로 부족하지만 Opus 전체 능력 불필요"
+**판단 기준:** "Haiku로 부족 + Sonnet 이상의 성능 필요" → Opus 4.8 Fast로 3배 비용절감
 
-### 🔴 Opus 4.7 — 전문 작업 전용
+**성능:** Sonnet 4.6 대비 +5% 코딩, +8% 지식, 3배 저가격
+
+### 🔴 Opus 4.8 Full — 전문 작업 전용
 - ✅ 아키텍처 설계 (시스템 수준)
 - ✅ 대규모 코드 리뷰 (100줄+)
 - ✅ 복잡한 리팩토링
 - ✅ 신기술 학습 + 교육
 - ✅ 다중 도메인 문제 해결
-- ✅ 동시 다중 작업 조정
+- ✅ 동시 다중 작업 조정 (향상된 멀티태스킹)
+- ✅ 설계 아키텍처 재검토 + 혁신적 개선안
 
 **필수 조건:**
-- [ ] Haiku/Sonnet으로 불가능함을 확인
+- [ ] Haiku/Opus Fast로 불가능함을 확인
 - [ ] 복잡도 근거 기록
 - [ ] 서브에이전트로 격리 실행 (메인 context 보호)
 
 **금지:** 단순 작업에 Opus 사용 ❌
 
-**마이그레이션 규칙:** 아래쪽으로만 이동 (Haiku→Sonnet→Opus). 역방향 ❌
+**마이그레이션 규칙:** 아래쪽으로만 이동 (Haiku→Opus Fast→Opus Full). 역방향 ❌
 
 ### 감시 규칙 (매주 월 09:00 KST)
 **Evaluator AI Agent 검증 체크리스트:**
 - [ ] 모든 Opus 작업에 "복잡도 근거" 기록되었는가
-- [ ] Haiku/Sonnet으로 가능한 작업을 Opus로 했는가 (오용)
-- [ ] 비용 효율이 목표치 내인가 (< 15%)
+- [ ] Haiku/Opus Fast로 가능한 작업을 Opus Full로 했는가 (오용)
+- [ ] 비용 효율이 목표치 내인가 (< 10% with Opus 4.8)
 - [ ] 마이그레이션 규칙 위반이 있는가
 
 **상세 기준:** `memory/model_selection_standard.md` (전체 규칙, 사례, 계산식)

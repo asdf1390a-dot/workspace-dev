@@ -73,3 +73,31 @@
 [2026-05-29 10:12:00] [INFO] Restarted Phase 2A service successfully
 [2026-05-29 10:12:00] [INFO] Phase 2B batch script verified in working directory
 [2026-05-29 10:12:00] [INFO] ========== Phase 2C Monitoring End (RECOVERY) ==========
+[2026-05-29 13:05:06] [INFO] ========== Phase 2C Monitoring Start ==========
+[2026-05-29 13:05:06] [INFO] Run ID: 1780027506
+[2026-05-29 13:05:06] [INFO] Phase2A: OK ✓
+[2026-05-29 13:05:06] [WARN] Phase2B: FAILED ✗
+[2026-05-29 13:05:27] [INFO] ========== Phase 2C Monitoring Start ==========
+[2026-05-29 13:05:27] [INFO] Run ID: 1780027527
+[2026-05-29 13:05:27] [INFO] Phase2A: OK ✓
+[2026-05-29 13:05:27] [INFO] Phase2B: Batch job executed recently (717s ago) ✓
+[2026-05-29 13:05:27] [INFO] Phase2C: Not yet deployed (expected until 2026-05-30)
+[2026-05-29 13:05:27] [INFO] Disk usage: 4%
+[2026-05-29 13:05:27] [INFO] All services and disk checks passed ✓
+[2026-05-29 13:05:27] [INFO] ========== Phase 2C Monitoring End (SUCCESS) ==========
+[2026-05-29 13:05:30] [INFO] ========== Phase 2C Monitoring Start ==========
+[2026-05-29 13:05:30] [INFO] Run ID: 1780027530
+[2026-05-29 13:05:30] [INFO] Phase2A: OK ✓
+[2026-05-29 13:05:30] [INFO] Phase2B: Batch job executed recently (720s ago) ✓
+[2026-05-29 13:05:30] [INFO] Phase2C: Not yet deployed (expected until 2026-05-30)
+[2026-05-29 13:05:30] [INFO] Disk usage: 4%
+[2026-05-29 13:05:30] [INFO] All services and disk checks passed ✓
+[2026-05-29 13:05:30] [INFO] ========== Phase 2C Monitoring End (SUCCESS) ==========
+[2026-05-29 14:12:11] [INFO] ========== Phase 2C Monitoring Start ==========
+[2026-05-29 14:12:11] [INFO] Run ID: 1780031531
+[2026-05-29 14:12:11] [INFO] Phase2A: OK ✓
+[2026-05-29 14:12:11] [INFO] Phase2B: Batch job executed recently (729s ago) ✓
+[2026-05-29 14:12:11] [INFO] Phase2C: Not yet deployed (expected until 2026-05-30)
+[2026-05-29 14:12:11] [INFO] Disk usage: 4%
+[2026-05-29 14:12:11] [INFO] All services and disk checks passed ✓
+[2026-05-29 14:12:11] [INFO] ========== Phase 2C Monitoring End (SUCCESS) ==========
