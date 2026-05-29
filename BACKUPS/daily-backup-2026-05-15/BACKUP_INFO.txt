@@ -1,6 +1,0 @@
-Backup Date: Fri May 15 00:01:17 KST 2026
-Contents:
-- memory/ (agent memory)
-- workspace-config/ (CLAUDE.md, SOUL.md, AGENTS.md, settings.json)
-- project-code.tar.gz (dsc-fms-portal, skills)
-Retention: 30 days

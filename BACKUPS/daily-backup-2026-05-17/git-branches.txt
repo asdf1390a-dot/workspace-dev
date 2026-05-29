@@ -1,2 +1,0 @@
-* master
-+ worktree-agent-af4a2bdc789a4eec5

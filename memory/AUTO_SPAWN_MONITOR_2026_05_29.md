@@ -9,8 +9,8 @@ timestamp: 2026-05-29 11:30 KST
 # AUTO-SPAWN Queue Monitor — 2026-05-29 11:30 KST
 
 **Status:** ✅ SYSTEM OPERATIONAL  
-**Capacity:** 5/5 concurrent subagent slots (FULL)  
-**Last Event:** BM-P1 completed (Run ID: 653061f0-1bff-4787-a08c-5f56cebf7bd5, 13min ago)
+**Capacity:** 0/5 concurrent subagent slots (all released, ready for next spawn)  
+**Last Event:** Phase 2B (Duplicate Detection) completed 2026-05-29 15:45 (71min ago), Asset Master P2 UI completed 2026-05-28 16:46
 
 ---
 

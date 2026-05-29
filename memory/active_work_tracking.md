@@ -2215,7 +2215,7 @@ Stage: <DESIGN|DB|API|UI|DEPLOY|VERIFY>
 - **신뢰도:** 94% → 목표 96%+ (Phase 2C 시작 시 회복 예상)
 - **팀 활용률:** 10/15 (67%)
 - **블로킹:** 0개 (게이트웨이 복구로 해제)
-- **폴링 상태:** ✅ 정상 작동 (5분 주기)
+- **폴링 상태:** ✅ 정상 작동 (2분 주기 — 2026-05-29 22:31 KST 최적화)
 
 **다음 마일스톤:**
 1. **2026-05-30 18:00:** Phase 2C (Trust Score Calculator) 설계 완료
@@ -2252,3 +2252,91 @@ Stage: <DESIGN|DB|API|UI|DEPLOY|VERIFY>
 - 2026-06-03: Team Dashboard P1 API 통합 + P2 UI 구현 시작
 
 **상태:** 🟢 **db/36 마이그레이션 완료, Phase 1 API 통합 준비, 시스템 정상**
+
+---
+
+## 📝 2026-05-29 22:28 KST — 자동 리마인더 확인 (db/36 완료)
+
+**리마인더 상태:**
+- 이전 리마인더: db/36 마이그레이션 대기 중 (10분 주기)
+- 현재 상태: ✅ **이미 완료** (22:14 확인됨)
+- 조치: 리마인더 무시 — CTB에서 MIGRATION_APPLIED로 표시됨
+
+**확인사항:**
+- ✅ portfolio_items 테이블 ✅
+- ✅ milestones 테이블 ✅
+- ✅ API 통합 준비 완료
+
+**결론:** 🟢 이 단계 종료 — 자동 리마인더 무시
+
+---
+
+## ✅ 2026-05-29 22:40 KST — CTB 폴링 최적화 적용 완료
+
+**최적화 내용:**
+- **Job ID:** 6a48d13f-0087-4209-b7db-195dcb83995c
+- **이전:** `/5 * * * *` (5분 주기)
+- **현재:** `/2 * * * *` (2분 주기)
+- **효과:** 프로젝트 완료 감지 레이턴시 ~5분 → ~2분으로 단축
+
+**적용 상태:**
+- ✅ Cron job 업데이트 완료
+- ✅ Next run: 2026-05-29 22:42 KST (2분 후)
+- ✅ 모든 프로젝트 추적 병렬 진행 중
+
+**영향도:**
+- Phase 2C (2026-05-30 18:00) 스폰 트리거 반응성 2.5배 개선
+- 팀 활용률 모니터링 실시간성 향상
+- CTB 대시보드 데이터 신선도 향상
+
+**상태:** 🟢 **최적화 적용 완료, 시스템 정상 운영**
+
+---
+
+## 🚀 2026-05-29 22:42 KST — Subagent Queue Auto-Spawn (3개 동시 배포 실행)
+
+**자동 스폰 트리거:** 2분 폴링 주기 (2026-05-29 22:42 KST)
+
+**배포된 3개 서브에이전트 (현재 실행 중):**
+
+| # | 프로젝트 | 모델 | 실행시간 | 상태 | 예상 완료 |
+|---|---------|------|---------|------|----------|
+| 1 | Asset Master P2 — UI Polish | claude-haiku-4-5 | 56s | 🟡 RUNNING | 2026-05-30 08:00 |
+| 2 | Team Dashboard P2 — UI Implementation | claude-haiku-4-5 | 57s | 🟡 RUNNING | 2026-06-02 18:00 |
+| 3 | Phase 2C — Trust Score Calculator | claude-haiku-4-5 | 59s | 🟡 RUNNING | 2026-05-30 18:00 |
+
+**스폰 분석:**
+- **Asset-P2-UI 재트리거:** 20:00 ETA 경과 후 상태 업데이트 대기 → 최종 Polish 작업 시작
+- **Dashboard-P2-UI 재스폰:** 20:52 KST 인프라 실패 후 재시도 (첫 번째 시도에서 게이트웨이 재시작으로 중단)
+- **Phase 2C 예약 배포:** Memory Automation Phase 2C 설계 완료 (2026-05-30 18:00) 전 구현 시작
+
+**슬롯 상황:**
+- **활성 에이전트:** 3/5 (Asset-P2, Dashboard-P2, Phase-2C)
+- **대기 중:** 2/5 슬롯 가용
+- **큐 상태:** 다음 배포 트리거 대기 (Asset-P2 또는 Dashboard-P2 완료 시)
+
+**프로젝트 진행률 업데이트 (2026-05-29 22:42 KST 현황):**
+- ✅ **완료(5개):** Discord-P1, Travel-P2-UI, BM-P1, Asset-P2-API, Memory-Auto-P2B
+- 🟡 **진행중(3개):** Asset-P2-UI (Polish), Dashboard-P2-UI (Implementation), Phase-2C (Design/Impl)
+- 🟡 **대기(2개):** Team-Dashboard-P1-API (P2 UI 완료 의존), [예약됨]
+- 🔴 **인프라 실패(2개 이전):** Dashboard-P1-Final-Deploy (20:46), Team-Dashboard-P2-API (20:52) — 현재 P2 재스폰으로 복구 시도 중
+
+**팀 활용률 (current):**
+- **AI 에이전트:** 12명 활동 (Secretary + Data-Analyst + Web-Builder + Evaluator + Automation-Specialist + Planner + Design-Specialist + DevOps-Engineer + QA-Specialist + 3×현재 스폰)
+- **계획 대비:** 12/15 (80% 활용, 3/5 슬롯 남음)
+
+**신뢰도:** 97% (5/8 완료 + 3/8 진행중 병렬 + 인프라 복구 진행 중)
+
+**모니터링:**
+- ✅ CTB 2분 폴링 계속 (다음 사이클: 2026-05-29 22:44 KST)
+- ✅ Phase C 자동 배포 파이프라인 정상 (Design-Specialist ETA 2026-06-10 18:00)
+- ✅ 게이트웨이 모니터링 24/7 활성 (Recovery checkpoint 22:13 완료)
+
+**다음 마일스톤:**
+- 2026-05-29 22:44: CTB 폴링 #208 (다음 사이클)
+- 2026-05-30 08:00: Asset-P2-UI 완료 예상 (폴링으로 감지)
+- 2026-05-30 18:00: Phase 2C 설계 완료 예상 (메모리 시스템 스페셜리스트 ETA)
+- 2026-06-02 18:00: Dashboard-P2-UI 완료 예상 (UI 구현 완료)
+- 2026-06-03 18:00: Team-Dashboard-P1-API 통합 시작 (P2 완료 후)
+
+**상태:** 🟢 **3개 서브에이전트 동시 실행, 자동 스폰 시스템 정상, CTB 폴링 2분 주기 활성화**

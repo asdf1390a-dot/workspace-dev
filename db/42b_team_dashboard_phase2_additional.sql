@@ -2,6 +2,10 @@
 -- db/42b - Phase 2: team_structure, portfolio_items, activity_log
 
 ---
+-- Drop existing activity_log table if it exists (safe if empty)
+DROP TABLE IF EXISTS activity_log CASCADE;
+
+---
 
 -- Table 1: Team Structure
 

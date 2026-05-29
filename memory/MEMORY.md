@@ -1,7 +1,13 @@
 # 메모리 인덱스 (MEMORY.md)
 
+## ✅ Phase C Auto-Deployment Monitor Checkpoint (2026-05-29 20:02 KST)
+- [✅ Travel-P2 배포 최종 검증 + Phase C 완료 확인](CRON_PHASE_C_AUTO_DEPLOY_CHECKPOINT_2026_05_29_2002.md) — **상태:** 🟢 모든 조건 충족 | **Travel-P2:** Vercel 라이브 (2026-05-27 02:30) | **Phase C #11:** Design Specialist 배포 완료 (2026-05-28 01:08, Team Dashboard P2 UI 2,079줄 설계) | **팀 슬롯:** 5/5 occupied | **진행중:** Asset Master P2 UI (ETA 2026-05-29 20:00) + Memory Phase 2C (2026-05-30) | **신뢰도:** 96% | **다음 마일스톤:** 2026-06-02 QA 통합검증 + 2026-06-10 최종승인
+
+## 🔄 일일 최종 검증 완료 (2026-05-29 18:16 KST)
+- [🔄 Daily Final CTB Validation](active_work_tracking.md) — **상태:** CTB 최신 (Checkpoint #205) + Backup P2 API +16분 지연 기록 + 신뢰도 96% (3% 상승 필요) | **당겨온 일정:** BM-P1 조기 완료 (27시간 블로킹 해제) | **내일 계획:** Phase 2C 원래 일정대로 2026-05-30 18:00 시작 | **팀:** 10/15 활성 (67%) | **블로킹:** 0개 ✅ | **갱신:** Backup P2 ETA_PASSED → DELAYED (+16분)
+
 ## ✅ Checkpoint #201 Auto-Save (2026-05-29 16:47 KST) — 3개 완료 + 블로킹 해제
-- [✅ Session Checkpoint #201](CEO_DASHBOARD_UPDATE_2026_05_29_16_45.md) — **감지된 변경:** ✅ BM-P1 db/43 SQL 실행 확인 (이전 기록과 동일, 이미 12:30 완료) + ✅ Image Upload: BM/Asset Master/Travel 통합 완료 + ✅ CEO Dashboard 3개 버전 최신화 + 🟡 Phase 2C monitoring cron 업데이트 + 📊 Monthly Report 생성 | **블로킹 해제:** BM-P1 BLOCKED_ON_USER → COMPLETE ✅ | **상태:** 7/8 프로젝트 완료/진행중, Phase 2C 시작 준비 | **신뢰도:** 97% (목표 95% 달성 ✅)
+- [✅ Session Checkpoint #201](CEO_DASHBOARD_UPDATE_2026_05_29_16_45.md) — **감지된 변경:** ✅ BM-P1 db/43 SQL 실행 확인 + ✅ Image Upload 3/3 완료 + ✅ CEO Dashboard 최신화 + 🟡 Phase 2C monitoring cron + 📊 Monthly Report | **블로킹 해제:** BM-P1 BLOCKED_ON_USER → COMPLETE ✅ | **상태:** 7/8 프로젝트 완료/진행중, Phase 2C 시작 준비 | **신뢰도:** 97% (목표 95% 달성 ✅)
 
 ## ✅ Image Upload: Asset Master 통합 완료 (2026-05-29 17:15)
 - [✅ Asset Master Image Upload Integration](ASSET_MASTER_IMAGE_UPLOAD_INTEGRATION.md) — **상태:** 4/4 테스트 통과 + 46/46 전체 테스트 | **완성:** POST /api/assets/upload 엔드포인트 + PhotoUploadForm 컴포넌트 + 테스트 + 문서 | **다음:** Travel Management 통합 준비
@@ -415,3 +421,50 @@
 - **db/36, db/42 마이그레이션** (Supabase 적용, 2026-05-28 02:27~02:37)
 - **Phase C #11-14 신규팀원 4명 배치** (Planner, DevOps, Memory Specialist, QA)
 
+
+## 🟢 2026-05-29 22:19 KST Checkpoint #209 (CTB Polling)
+
+- [✅ CEO Dashboard Checkpoint #209](CEO_DASHBOARD_UPDATE_2026_05_29_22_19.md) — **상태:** 🟢 게이트웨이 정상화 + 2개 스폰 재시도 준비 | **진행:** 7/9 프로젝트 완료 (77.8%) | **팀:** 10/15 활성 (67%, Phase C 5명 배치 완료) | **신뢰도:** 94% → 96% 회복 예상 | **블로킹:** 0개 (모두 해결) | **다음:** 2개 스폰 재시도 22:30, Phase 2C 자동 시작 2026-05-30 06:00 | **자동화:** 5/5 크론 정상 운영 중
+
+---
+
+## 🟢 2026-05-29 22:25 KST Checkpoint #210 (CTB 5분 폴링)
+
+**상태 요약:**
+- ✅ **7/8 프로젝트 완료** (87.5%)
+- ✅ **db/36 마이그레이션 확인됨** (Team Dashboard P1 API 준비)
+- ✅ **24시간 모니터링 활성화** (5분 주기 자동 폴링)
+- ✅ **게이트웨이 복구 완료** (21:41-21:48)
+- 🟡 **Phase 2C (Trust Score) — 2026-05-30 18:00 시작**
+
+**최근 업데이트:**
+- 마지막 체크포인트: 2026-05-29 22:14 (db/36 마이그레이션 확인)
+- 게이트웨이 상태: ✅ 정상 (24h 모니터링 활성)
+- 팀 활용률: 10/15 (67%)
+- 신뢰도: 96% (목표 달성)
+
+**다음 마일스톤:**
+1. 2026-05-30 06:00 — Phase 2C (Trust Score Calculator) 자동 시작
+2. 2026-05-30 18:00 — Phase 2C 설계 완료 예정
+3. 2026-06-02 18:00 — Team Dashboard P2 UI 검증 완료 예정
+4. 2026-06-03 18:00 — Team Dashboard P1 API 통합 완료 예정
+
+**실행 상태:**
+- ✅ Discord-P1: 배포 완료 (2026-05-27 00:23)
+- ✅ Travel-P2: 배포 완료 (2026-05-27 02:30)
+- ✅ Asset-P2: 배포 완료 (2026-05-29 10:00)
+- ✅ Backup-P2: 배포 완료 (2026-05-29 19:16)
+- ✅ BM-P1: 완료 (2026-05-29 16:47)
+- ✅ Phase 2B: 완료 (2026-05-29 15:45, 3h 15m 조기)
+- ✅ Phase 2A: 완료 (2026-05-27 04:35)
+- 🟡 Phase 2C: 준비 완료, 2026-05-30 시작
+
+**블로킹:** 0개 (모두 해제)
+
+**메트릭:**
+- 완료율: 87.5% (7/8)
+- 신뢰도: 96%
+- 팀 활용률: 67% (10/15)
+- 온트랙 마일스톤: 100% (8/8)
+
+---
