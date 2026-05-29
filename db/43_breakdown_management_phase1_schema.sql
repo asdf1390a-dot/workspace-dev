@@ -33,14 +33,14 @@ CREATE TABLE IF NOT EXISTS breakdown_reports (
   started_at TIMESTAMPTZ,                       -- 고장 시작 시간 (실제)
   resolved_at TIMESTAMPTZ,                      -- 고장 해결 시간
 
-  -- 계산 필드 (자동 계산, STORED)
+  -- 계산 필드 (자동 계산, VIRTUAL)
   duration_minutes INT GENERATED ALWAYS AS (
     CASE
       WHEN resolved_at IS NOT NULL AND started_at IS NOT NULL
       THEN EXTRACT(EPOCH FROM (resolved_at - started_at))::integer / 60
       ELSE NULL
     END
-  ) STORED,
+  ) VIRTUAL,
 
   -- 담당자
   reported_by UUID NOT NULL REFERENCES auth.users(id) ON DELETE SET NULL,
@@ -124,17 +124,20 @@ EXECUTE FUNCTION set_breakdown_updated_at();
 ALTER TABLE breakdown_reports ENABLE ROW LEVEL SECURITY;
 
 -- Policy 1: 모든 사용자가 active 고장 보고서 조회 가능
-CREATE POLICY IF NOT EXISTS "users_view_all_breakdowns" ON breakdown_reports
+DROP POLICY IF EXISTS "users_view_all_breakdowns" ON breakdown_reports;
+CREATE POLICY "users_view_all_breakdowns" ON breakdown_reports
   FOR SELECT
   USING (deleted_at IS NULL);
 
 -- Policy 2: 인증된 사용자는 새 고장 보고 작성 가능
-CREATE POLICY IF NOT EXISTS "users_create_breakdowns" ON breakdown_reports
+DROP POLICY IF EXISTS "users_create_breakdowns" ON breakdown_reports;
+CREATE POLICY "users_create_breakdowns" ON breakdown_reports
   FOR INSERT
   WITH CHECK (auth.uid() IS NOT NULL);
 
 -- Policy 3: 보고자, 담당자, 또는 관리자만 업데이트 가능
-CREATE POLICY IF NOT EXISTS "users_update_own_breakdowns" ON breakdown_reports
+DROP POLICY IF EXISTS "users_update_own_breakdowns" ON breakdown_reports;
+CREATE POLICY "users_update_own_breakdowns" ON breakdown_reports
   FOR UPDATE
   USING (
     auth.uid() = reported_by
