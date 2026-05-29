@@ -1,5 +1,8 @@
 # 메모리 인덱스 (MEMORY.md)
 
+## 🟢 CEO 대시보드 현황 (2026-05-30 02:46 KST)
+- [🟢 CEO 대시보드 업데이트 #2026_05_30](CEO_DASHBOARD_UPDATE_2026_05_30_0246.md) — **상태:** 🟢 온트랙 | **완료율:** 77.8% (7/9 프로젝트) | **신뢰도:** 97% | **블로킹:** 0건 | **팀 활용:** 80% | **최근 완료:** Phase 2C (16h 45m 조기 + 1,390줄 설계) | **진행중:** Phase 2D (ETA 2026-05-31) + Team Dashboard P1 API (ETA 2026-06-03) | **다음 마일스톤:** Memory P2D/E/F + Team Dashboard Deploy | **자동갱신:** CTB 폴링 5분 주기
+
 ## ✅ Phase C Auto-Deployment Monitor Checkpoint (2026-05-29 20:02 KST)
 - [✅ Travel-P2 배포 최종 검증 + Phase C 완료 확인](CRON_PHASE_C_AUTO_DEPLOY_CHECKPOINT_2026_05_29_2002.md) — **상태:** 🟢 모든 조건 충족 | **Travel-P2:** Vercel 라이브 (2026-05-27 02:30) | **Phase C #11:** Design Specialist 배포 완료 (2026-05-28 01:08, Team Dashboard P2 UI 2,079줄 설계) | **팀 슬롯:** 5/5 occupied | **진행중:** Asset Master P2 UI (ETA 2026-05-29 20:00) + Memory Phase 2C (2026-05-30) | **신뢰도:** 96% | **다음 마일스톤:** 2026-06-02 QA 통합검증 + 2026-06-10 최종승인
 
@@ -37,6 +40,9 @@
 ## 🟢 Phase A 즉시 활성화 (2026-05-27 13:40 KST)
 - [🟢 Phase A 실행 상태](PHASE_A_EXECUTION_ACTIVE.md) — Data-Analyst #2 **즉시 투입** 완료 | 첫 과제: Asset Master 506개 자산 분석 (2026-05-27~28) | Phase B 준비 대기 (2026-05-29)
 - [✅ Phase A Go/No-Go 평가틀 (2026-05-28)](PHASE_A_GO_NO_GO_FRAMEWORK_2026_05_28.md) — Data-Analyst #2 평가 기준 + 체크리스트 + 대응 시나리오 (2026-05-28 14:00 Go/No-Go 결정)
+
+## 🟢 CEO 통합 대시보드 명세 (SaaS 벤치마크 통합) — 2026-05-30
+- [🟢 CEO 통합 대시보드 스펙 (SaaS 벤치마크 완성)](CEO_UNIFIED_DASHBOARD_SPEC.md) — **상태:** 설계 완료 | **출처:** Asana(포트폴리오) + ClickUp(액션) + Monday.com(시각성) 통합 | **기능:** KPI 요약 + 프로젝트 그리드 + 팀원 분배도 + 타임라인 | **옵션:** A(HTML 프로토타입, 2-4h) 또는 B(Team Dashboard P2 UI, 6/10 예정) | **색상:** 🟢완료/🟡진행/🔴블로킹/⚪대기 | **다음:** 사용자 의사결정 필요
 
 ## ✅ Phase 2B 완료 (Duplicate Detection) — 2026-05-29 15:45 KST
 - [✅ Phase 2B COMPLETE — 3h 15m 조기](CEO_DASHBOARD_UPDATE_2026_05_29_15_50.md) — **완료시간:** 2026-05-29 15:45 KST (예정 18:00 → 3시간 15분 조기 완료) | **출력:** messages_deduplicated.jsonl (308개 메시지, 2.8% 중복 제거) | **성능:** 41ms 실행 (O(n) 검증) | **문서:** 1,200+ 라인 설계 + 수학적 증명 | **신뢰도:** 96% → 97% ↑ | **다음:** Phase 2C (Trust Score Calculator) 즉시 준비 완료, Memory-Specialist 배치 대기
