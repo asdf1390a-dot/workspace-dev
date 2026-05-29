@@ -19,16 +19,20 @@ CREATE INDEX IF NOT EXISTS idx_team_structure_reports_to ON team_structure(repor
 
 ALTER TABLE team_structure ENABLE ROW LEVEL SECURITY;
 
-CREATE POLICY IF NOT EXISTS "Public read team structure" ON team_structure
+DROP POLICY IF EXISTS "Public read team structure" ON team_structure;
+CREATE POLICY "Public read team structure" ON team_structure
   FOR SELECT USING (true);
 
-CREATE POLICY IF NOT EXISTS "Authenticated insert team structure" ON team_structure
+DROP POLICY IF EXISTS "Authenticated insert team structure" ON team_structure;
+CREATE POLICY "Authenticated insert team structure" ON team_structure
   FOR INSERT WITH CHECK (auth.role() = 'authenticated');
 
-CREATE POLICY IF NOT EXISTS "Authenticated update team structure" ON team_structure
+DROP POLICY IF EXISTS "Authenticated update team structure" ON team_structure;
+CREATE POLICY "Authenticated update team structure" ON team_structure
   FOR UPDATE WITH CHECK (auth.role() = 'authenticated');
 
-CREATE POLICY IF NOT EXISTS "Authenticated delete team structure" ON team_structure
+DROP POLICY IF EXISTS "Authenticated delete team structure" ON team_structure;
+CREATE POLICY "Authenticated delete team structure" ON team_structure
   FOR DELETE USING (auth.role() = 'authenticated');
 
 -- Trigger: auto-update updated_at
@@ -69,16 +73,20 @@ CREATE INDEX IF NOT EXISTS idx_portfolio_items_status ON portfolio_items(status)
 
 ALTER TABLE portfolio_items ENABLE ROW LEVEL SECURITY;
 
-CREATE POLICY IF NOT EXISTS "Public read portfolio items" ON portfolio_items
+DROP POLICY IF EXISTS "Public read portfolio items" ON portfolio_items;
+CREATE POLICY "Public read portfolio items" ON portfolio_items
   FOR SELECT USING (true);
 
-CREATE POLICY IF NOT EXISTS "Authenticated insert portfolio items" ON portfolio_items
+DROP POLICY IF EXISTS "Authenticated insert portfolio items" ON portfolio_items;
+CREATE POLICY "Authenticated insert portfolio items" ON portfolio_items
   FOR INSERT WITH CHECK (auth.role() = 'authenticated');
 
-CREATE POLICY IF NOT EXISTS "Authenticated update portfolio items" ON portfolio_items
+DROP POLICY IF EXISTS "Authenticated update portfolio items" ON portfolio_items;
+CREATE POLICY "Authenticated update portfolio items" ON portfolio_items
   FOR UPDATE WITH CHECK (auth.role() = 'authenticated');
 
-CREATE POLICY IF NOT EXISTS "Authenticated delete portfolio items" ON portfolio_items
+DROP POLICY IF EXISTS "Authenticated delete portfolio items" ON portfolio_items;
+CREATE POLICY "Authenticated delete portfolio items" ON portfolio_items
   FOR DELETE USING (auth.role() = 'authenticated');
 
 ---
@@ -99,16 +107,20 @@ CREATE INDEX IF NOT EXISTS idx_activity_log_activity_type ON activity_log(activi
 
 ALTER TABLE activity_log ENABLE ROW LEVEL SECURITY;
 
-CREATE POLICY IF NOT EXISTS "Public read activity log" ON activity_log
+DROP POLICY IF EXISTS "Public read activity log" ON activity_log;
+CREATE POLICY "Public read activity log" ON activity_log
   FOR SELECT USING (true);
 
-CREATE POLICY IF NOT EXISTS "Authenticated insert activity log" ON activity_log
+DROP POLICY IF EXISTS "Authenticated insert activity log" ON activity_log;
+CREATE POLICY "Authenticated insert activity log" ON activity_log
   FOR INSERT WITH CHECK (auth.role() = 'authenticated');
 
-CREATE POLICY IF NOT EXISTS "Authenticated update activity log" ON activity_log
+DROP POLICY IF EXISTS "Authenticated update activity log" ON activity_log;
+CREATE POLICY "Authenticated update activity log" ON activity_log
   FOR UPDATE WITH CHECK (auth.role() = 'authenticated');
 
-CREATE POLICY IF NOT EXISTS "Authenticated delete activity log" ON activity_log
+DROP POLICY IF EXISTS "Authenticated delete activity log" ON activity_log;
+CREATE POLICY "Authenticated delete activity log" ON activity_log
   FOR DELETE USING (auth.role() = 'authenticated');
 
 -- 검증 쿼리
