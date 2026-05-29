@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 /**
- * Phase 2B: Duplicate Detection Engine
- * 입력: /memory/messages.jsonl (281 messages)
- * 처리: 3-layer duplicate detection (Pattern → Fuzzy → Semantic)
- * 출력: /memory/messages_deduplicated.jsonl (예상 50-100 고유 메시지)
- * 주기: Phase 2A 완료 후 자동 실행
+ * Phase 2B: Duplicate Detection Engine (SIMPLIFIED)
+ * 입력: /memory/messages.jsonl
+ * 처리: 2-layer duplicate detection (Exact Hash + Fast Prefix Matching)
+ * 출력: /memory/messages_deduplicated.jsonl
  */
 
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
 
 // 설정
 const MEMORY_DIR = process.env.MEMORY_DIR || '/home/jeepney/.openclaw/workspace-dev/memory';
@@ -16,9 +16,7 @@ const INPUT_FILE = path.join(MEMORY_DIR, 'messages.jsonl');
 const OUTPUT_FILE = path.join(MEMORY_DIR, 'messages_deduplicated.jsonl');
 const LOG_DIR = path.join(MEMORY_DIR, 'logs');
 const LOG_FILE = path.join(LOG_DIR, `phase2b-dedup-${new Date().toISOString().split('T')[0]}.log`);
-const ERROR_LOG = path.join(LOG_DIR, 'phase2b-errors.log');
 
-// 로깅
 function log(level, msg) {
   const timestamp = new Date().toISOString();
   const logMsg = `[${timestamp}] [${level}] ${msg}`;
@@ -31,26 +29,27 @@ function log(level, msg) {
 }
 
 // ============================================================================
-// LAYER 1: PATTERN-BASED EXACT MATCHING
+// LAYER 1: EXACT HASH MATCHING
 // ============================================================================
 
-function layer1PatternMatching(messages) {
-  const exactHashMap = new Map();
-  const duplicates = [];
+function layer1ExactMatching(messages) {
+  const hashMap = new Map();
   const unique = [];
+  const duplicates = [];
 
   messages.forEach((msg, idx) => {
-    if (exactHashMap.has(msg.hash)) {
+    const contentHash = msg.hash; // Use existing hash from messages
+    if (hashMap.has(contentHash)) {
       duplicates.push({
         index: idx,
-        hash: msg.hash,
+        hash: contentHash,
         sourceFile: msg.sourceFile,
-        reason: 'EXACT_HASH_MATCH',
-        duplicateOf: exactHashMap.get(msg.hash).index
+        reason: 'EXACT_HASH',
+        duplicateOf: hashMap.get(contentHash).index
       });
     } else {
-      exactHashMap.set(msg.hash, { index: idx, msg });
       unique.push(msg);
+      hashMap.set(contentHash, { index: idx, message: msg });
     }
   });
 
@@ -59,200 +58,58 @@ function layer1PatternMatching(messages) {
     duplicates,
     count: unique.length,
     removed: duplicates.length,
-    method: 'LAYER1_PATTERN'
+    method: 'LAYER1_EXACT'
   };
 }
 
 // ============================================================================
-// LAYER 2: FUZZY MATCHING (Levenshtein Distance + Similarity Score)
+// LAYER 2: FAST PREFIX-BASED MATCHING (Non-Levenshtein)
 // ============================================================================
-
-function levenshteinDistance(s1, s2) {
-  const len1 = s1.length;
-  const len2 = s2.length;
-  const matrix = [];
-
-  for (let i = 0; i <= len2; i++) {
-    matrix[i] = [i];
-  }
-
-  for (let j = 0; j <= len1; j++) {
-    matrix[0][j] = j;
-  }
-
-  for (let i = 1; i <= len2; i++) {
-    for (let j = 1; j <= len1; j++) {
-      const cost = s1[j - 1] === s2[i - 1] ? 0 : 1;
-      matrix[i][j] = Math.min(
-        matrix[i][j - 1] + 1,
-        matrix[i - 1][j] + 1,
-        matrix[i - 1][j - 1] + cost
-      );
-    }
-  }
-
-  return matrix[len2][len1];
-}
-
-function similarityScore(s1, s2) {
-  const maxLen = Math.max(s1.length, s2.length);
-  if (maxLen === 0) return 1.0;
-  const distance = levenshteinDistance(s1, s2);
-  return 1 - (distance / maxLen);
-}
 
 function normalizeText(text) {
-  return text.toLowerCase().replace(/\s+/g, ' ').trim();
+  return text.toLowerCase().trim();
 }
 
-function layer2FuzzyMatching(uniqueMessages, threshold = 0.70) {
-  const clusters = [];
-  const processed = new Set();
+function getPrefixKey(text) {
+  const normalized = normalizeText(text);
+  return normalized.substring(0, Math.min(100, normalized.length));
+}
+
+function layer2PrefixMatching(uniqueMessages, prefixLen = 80) {
+  const prefixMap = new Map();
+  const unique = [];
+  const duplicates = [];
 
   uniqueMessages.forEach((msg, idx) => {
-    if (processed.has(idx)) return;
+    const normalized = normalizeText(msg.content);
+    const prefix = normalized.substring(0, prefixLen);
 
-    const cluster = [{ index: idx, message: msg, score: 1.0 }];
-    processed.add(idx);
-
-    const normalizedA = normalizeText(msg.content);
-
-    for (let j = idx + 1; j < uniqueMessages.length; j++) {
-      if (processed.has(j)) continue;
-
-      const msg2 = uniqueMessages[j];
-      const normalizedB = normalizeText(msg2.content);
-      const score = similarityScore(normalizedA, normalizedB);
-
-      if (score >= threshold) {
-        cluster.push({ index: j, message: msg2, score });
-        processed.add(j);
-      }
-    }
-
-    clusters.push(cluster);
-  });
-
-  const fuzzyUnique = [];
-  const fuzzyDuplicates = [];
-
-  clusters.forEach((cluster) => {
-    const primary = cluster[0];
-    fuzzyUnique.push(primary.message);
-
-    if (cluster.length > 1) {
-      cluster.slice(1).forEach(item => {
-        fuzzyDuplicates.push({
-          index: item.index,
-          sourceFile: item.message.sourceFile,
-          reason: 'FUZZY_MATCH',
-          similarity: item.score,
-          duplicateOf: primary.index,
-          clusterSize: cluster.length
-        });
-      });
+    if (prefixMap.has(prefix)) {
+      const duplicate = {
+        index: idx,
+        sourceFile: msg.sourceFile,
+        reason: 'PREFIX_MATCH',
+        duplicateOf: prefixMap.get(prefix).index,
+        prefixLen
+      };
+      duplicates.push(duplicate);
+    } else {
+      unique.push(msg);
+      prefixMap.set(prefix, { index: idx, message: msg });
     }
   });
 
   return {
-    unique: fuzzyUnique,
-    duplicates: fuzzyDuplicates,
-    clusters: clusters.length,
-    count: fuzzyUnique.length,
-    removed: fuzzyDuplicates.length,
-    method: 'LAYER2_FUZZY'
+    unique,
+    duplicates,
+    count: unique.length,
+    removed: duplicates.length,
+    method: 'LAYER2_PREFIX'
   };
 }
 
 // ============================================================================
-// LAYER 3: SEMANTIC CLUSTERING (Keyword-based grouping)
-// ============================================================================
-
-function extractKeywords(text, topK = 5) {
-  const words = text.toLowerCase().match(/\b[a-z가-힣]{3,}\b/g) || [];
-  const freq = {};
-
-  words.forEach(w => {
-    freq[w] = (freq[w] || 0) + 1;
-  });
-
-  return Object.entries(freq)
-    .sort((a, b) => b[1] - a[1])
-    .slice(0, topK)
-    .map(entry => entry[0]);
-}
-
-function keywordSimilarity(kw1, kw2) {
-  const set1 = new Set(kw1);
-  const set2 = new Set(kw2);
-  const intersection = new Set([...set1].filter(x => set2.has(x)));
-  const union = new Set([...set1, ...set2]);
-
-  return union.size === 0 ? 0 : intersection.size / union.size;
-}
-
-function layer3SemanticClustering(fuzzyUnique, threshold = 0.50) {
-  const semanticGroups = [];
-  const processed = new Set();
-
-  fuzzyUnique.forEach((msg, idx) => {
-    if (processed.has(idx)) return;
-
-    const keywords = extractKeywords(msg.content);
-    const group = [{ index: idx, message: msg, keywords, sim: 1.0 }];
-    processed.add(idx);
-
-    for (let j = idx + 1; j < fuzzyUnique.length; j++) {
-      if (processed.has(j)) continue;
-
-      const msg2 = fuzzyUnique[j];
-      const kw2 = extractKeywords(msg2.content);
-      const sim = keywordSimilarity(keywords, kw2);
-
-      if (sim >= threshold) {
-        group.push({ index: j, message: msg2, keywords: kw2, sim });
-        processed.add(j);
-      }
-    }
-
-    semanticGroups.push(group);
-  });
-
-  const semanticUnique = [];
-  const semanticDuplicates = [];
-
-  semanticGroups.forEach((group) => {
-    const primary = group[0];
-    semanticUnique.push(primary.message);
-
-    if (group.length > 1) {
-      group.slice(1).forEach(item => {
-        semanticDuplicates.push({
-          index: item.index,
-          sourceFile: item.message.sourceFile,
-          reason: 'SEMANTIC_CLUSTER',
-          similarity: item.sim,
-          duplicateOf: primary.index,
-          groupSize: group.length,
-          primaryKeywords: primary.keywords,
-          itemKeywords: item.keywords
-        });
-      });
-    }
-  });
-
-  return {
-    unique: semanticUnique,
-    duplicates: semanticDuplicates,
-    groups: semanticGroups.length,
-    count: semanticUnique.length,
-    removed: semanticDuplicates.length,
-    method: 'LAYER3_SEMANTIC'
-  };
-}
-
-// ============================================================================
-// 메시지 로드 및 저장
+// LOAD & SAVE
 // ============================================================================
 
 function loadMessages() {
@@ -289,7 +146,7 @@ function saveDeduplicatedMessages(messages, metadata) {
       const enriched = {
         ...msg,
         dedup_timestamp: new Date().toISOString(),
-        dedup_layers_passed: 3
+        dedup_layers_passed: 2
       };
       const jsonLine = JSON.stringify(enriched) + '\n';
       fs.appendFileSync(OUTPUT_FILE, jsonLine);
@@ -311,37 +168,46 @@ function saveDeduplicatedMessages(messages, metadata) {
 // ============================================================================
 
 async function main() {
-  log('INFO', '========== Phase 2B Duplicate Detection Start ==========');
+  const startTime = Date.now();
+  const MASTER_TIMEOUT = 180000; // 3-minute master timeout
+
+  const timeoutHandle = setTimeout(() => {
+    log('ERROR', 'MASTER TIMEOUT: Process exceeded 3 minutes, forcing exit');
+    process.exit(1);
+  }, MASTER_TIMEOUT);
+
+  log('INFO', '========== Phase 2B Duplicate Detection Start (SIMPLIFIED) ==========');
   log('INFO', `Input: ${INPUT_FILE}`);
   log('INFO', `Output: ${OUTPUT_FILE}`);
 
   try {
+    // Clear old output
+    if (fs.existsSync(OUTPUT_FILE)) {
+      fs.unlinkSync(OUTPUT_FILE);
+    }
+
     log('INFO', 'Step 1: Loading messages...');
     const messages = loadMessages();
     log('INFO', `Loaded ${messages.length} messages`);
 
     if (messages.length === 0) {
-      log('WARN', 'No messages found, nothing to deduplicate');
+      log('WARN', 'No messages found');
+      clearTimeout(timeoutHandle);
       process.exit(0);
     }
 
-    log('INFO', 'Step 2: Running Layer 1 - Pattern-Based Exact Matching...');
-    const layer1Result = layer1PatternMatching(messages);
-    log('INFO', `Layer 1: ${layer1Result.count} unique, ${layer1Result.removed} duplicates (exact hash)`);
+    log('INFO', 'Step 2: Running Layer 1 - Exact Hash Matching...');
+    const layer1Result = layer1ExactMatching(messages);
+    log('INFO', `Layer 1: ${layer1Result.count} unique, ${layer1Result.removed} exact duplicates`);
 
-    log('INFO', 'Step 3: Running Layer 2 - Fuzzy Matching...');
-    const layer2Result = layer2FuzzyMatching(layer1Result.unique, 0.70);
-    log('INFO', `Layer 2: ${layer2Result.count} unique, ${layer2Result.removed} duplicates (fuzzy >=70% similarity)`);
-    log('INFO', `Layer 2: ${layer2Result.clusters} clusters formed`);
+    log('INFO', 'Step 3: Running Layer 2 - Prefix Matching...');
+    const layer2Result = layer2PrefixMatching(layer1Result.unique, 80);
+    log('INFO', `Layer 2: ${layer2Result.count} unique, ${layer2Result.removed} prefix duplicates`);
 
-    log('INFO', 'Step 4: Running Layer 3 - Semantic Clustering...');
-    const layer3Result = layer3SemanticClustering(layer2Result.unique, 0.50);
-    log('INFO', `Layer 3: ${layer3Result.count} unique, ${layer3Result.removed} duplicates (semantic >=50% keyword overlap)`);
-    log('INFO', `Layer 3: ${layer3Result.groups} semantic groups formed`);
-
-    log('INFO', 'Step 5: Saving deduplicated messages...');
+    log('INFO', 'Step 4: Saving deduplicated messages...');
     const metadata = {
       timestamp: new Date().toISOString(),
+      runtime_ms: Date.now() - startTime,
       input: {
         file: INPUT_FILE,
         count: messages.length
@@ -349,39 +215,31 @@ async function main() {
       layer1: {
         unique: layer1Result.count,
         duplicates: layer1Result.removed,
-        threshold: 'EXACT_HASH'
+        method: 'EXACT_HASH'
       },
       layer2: {
         unique: layer2Result.count,
         duplicates: layer2Result.removed,
-        threshold: 0.70,
-        clusters: layer2Result.clusters
-      },
-      layer3: {
-        unique: layer3Result.count,
-        duplicates: layer3Result.removed,
-        threshold: 0.50,
-        groups: layer3Result.groups
+        method: 'PREFIX_MATCH',
+        prefixLen: 80
       },
       final: {
-        unique: layer3Result.count,
-        reduction: ((messages.length - layer3Result.count) / messages.length * 100).toFixed(1) + '%'
+        unique: layer2Result.count,
+        reduction: ((messages.length - layer2Result.count) / messages.length * 100).toFixed(1) + '%'
       }
     };
 
-    saveDeduplicatedMessages(layer3Result.unique, metadata);
+    saveDeduplicatedMessages(layer2Result.unique, metadata);
 
-    log('INFO', `Final: ${layer3Result.count} unique messages (${metadata.final.reduction} reduction)`);
-    log('INFO', '========== Phase 2B Duplicate Detection End ==========');
+    log('INFO', `Final: ${layer2Result.count} unique messages (${metadata.final.reduction} reduction)`);
+    log('INFO', `Total runtime: ${metadata.runtime_ms}ms`);
+    log('INFO', '========== Phase 2B Duplicate Detection Complete ==========');
 
+    clearTimeout(timeoutHandle);
     process.exit(0);
   } catch (error) {
     log('ERROR', `Deduplication failed: ${error.message}`);
-    try {
-      fs.appendFileSync(ERROR_LOG, `[${new Date().toISOString()}] ${error.message}\n`);
-    } catch (e) {
-      console.error('Failed to write error log:', e);
-    }
+    clearTimeout(timeoutHandle);
     process.exit(1);
   }
 }
