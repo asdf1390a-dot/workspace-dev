@@ -22,3 +22,15 @@
 [2026-05-30T03:00:59.559Z] [INFO] ✓ Saved: 3, Duplicates: 358
 [2026-05-30T03:00:59.559Z] [INFO] Step 5: Statistics updated
 [2026-05-30T03:00:59.559Z] [INFO] ========== Phase 2A Local Collector End ==========
+[2026-05-30T09:11:25.177Z] [INFO] ========== Phase 2A Local Collector Start ==========
+[2026-05-30T09:11:25.178Z] [INFO] Memory Dir: /home/jeepney/.openclaw/workspace-dev/memory
+[2026-05-30T09:11:25.178Z] [INFO] Step 1: Scanning memory files...
+[2026-05-30T09:11:25.182Z] [INFO] Found 363 memory files
+[2026-05-30T09:11:25.182Z] [INFO] Step 2: Extracting messages from files...
+[2026-05-30T09:11:25.282Z] [INFO] Extracted 363 messages
+[2026-05-30T09:11:25.283Z] [INFO] Step 3: Loading existing message hashes...
+[2026-05-30T09:11:25.301Z] [INFO] Existing hashes: 389
+[2026-05-30T09:11:25.302Z] [INFO] Step 4: Saving new messages...
+[2026-05-30T09:11:25.303Z] [INFO] ✓ Saved: 5, Duplicates: 358
+[2026-05-30T09:11:25.303Z] [INFO] Step 5: Statistics updated
+[2026-05-30T09:11:25.303Z] [INFO] ========== Phase 2A Local Collector End ==========
