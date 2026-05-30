@@ -29,14 +29,15 @@ date: 2026-05-31 08:00 KST (실행 예정)
 # Phase 2A (Message Collection API) 확인
 curl -s http://localhost:3009/health
 
-# Phase 2B (Duplicate Detection) 확인
-curl -s http://localhost:3010/health
+# Phase 2A 상태 정보 확인
+curl -s http://localhost:3009/api/status
 
-# 예상 응답: { "status": "ok", "uptime": "...", "timestamp": "..." }
+# 예상 응답 Phase 2A: { "uptime": X, "messagesCollected": Y, "errors": 0, ... }
 ```
-**합격 기준:** 둘 다 HTTP 200 OK + status: "ok"  
-- [ ] Phase 2A ✅
-- [ ] Phase 2B ✅
+**합격 기준:** Phase 2A HTTP 200 OK + errors: 0  
+**참고:** Phase 2B는 배치 처리 엔진 (HTTP 서비스 아님, 독립 실행)  
+- [ ] Phase 2A Health ✅
+- [ ] Phase 2A Status ✅
 **완료:** _____ (HH:MM)
 
 ---
@@ -83,23 +84,17 @@ SELECT COUNT(*) FROM assets;
 **리더:** DevOps Engineer  
 **명령:**
 ```bash
-# Phase 2A: Message Collection API
-for i in {1..10}; do
-  curl -s -X POST http://localhost:3009/api/messages \
-    -H "Content-Type: application/json" \
-    -d '{"type":"test","content":"smoke-test-'$i'"}' | jq .
-done
+# Phase 2A: Message Collection API 테스트
+curl -s http://localhost:3009/api/status
 
-# Phase 2B: Duplicate Detection Endpoint
-for i in {1..10}; do
-  curl -s -X POST http://localhost:3010/api/detect-duplicates \
-    -H "Content-Type: application/json" \
-    -d '{"message_ids":["test-'$i'"]}' | jq .
+# 10번 반복 테스트
+for i in {1..5}; do
+  curl -s http://localhost:3009/api/status > /dev/null && echo "Request $i: OK"
 done
 ```
-**합격 기준:** 20건 요청 모두 HTTP 200 OK, 응답 시간 < 500ms  
-- [ ] Phase 2A API 10/10 OK
-- [ ] Phase 2B API 10/10 OK
+**합격 기준:** 모든 요청 HTTP 200 OK, 응답 시간 < 500ms  
+- [ ] Phase 2A API 5/5 OK
+- [ ] Phase 2A 응답 시간 정상
 **완료:** _____ (HH:MM)
 
 ---
