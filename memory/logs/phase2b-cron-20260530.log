@@ -88,3 +88,33 @@
 [2026-05-30 10:00:01] [INFO] Step 3: Duplicate detection completed ✓
 [2026-05-30 10:00:01] Phase 2B run succeeded - 345 entries
 [2026-05-30 10:00:01] [INFO] ========== Phase 2B Cron Job End ==========
+[2026-05-30 11:12:55] [INFO] ========== Phase 2B Cron Job Start ==========
+[2026-05-30 11:12:55] [INFO] Run ID: 1780107175
+[2026-05-30 11:12:55] [INFO] Memory Dir: /home/jeepney/.openclaw/workspace-dev/memory
+[2026-05-30 11:12:55] [INFO] Found 361 memory files to analyze
+[2026-05-30 11:12:55] [INFO] Step 1: Pre-flight checks passed ✓
+[2026-05-30 11:12:55] [INFO] Starting Phase 2B batch processor...
+[2026-05-30T02:12:55.349Z] [INFO] ========== Phase 2B Duplicate Detection Start (SIMPLIFIED) ==========
+[2026-05-30T02:12:55.351Z] [INFO] Input: /home/jeepney/.openclaw/workspace-dev/memory/messages.jsonl
+[2026-05-30T02:12:55.351Z] [INFO] Output: /home/jeepney/.openclaw/workspace-dev/memory/messages_deduplicated.jsonl
+[2026-05-30T02:12:55.351Z] [INFO] Step 1: Loading messages...
+[2026-05-30T02:12:55.371Z] [INFO] Loaded 387 messages
+[2026-05-30T02:12:55.371Z] [INFO] Step 2: Running Layer 1 - Exact Hash Matching...
+[2026-05-30T02:12:55.371Z] [INFO] Layer 1: 386 unique, 1 exact duplicates
+[2026-05-30T02:12:55.371Z] [INFO] Step 3: Running Layer 2 - Prefix Matching...
+[2026-05-30T02:12:55.376Z] [INFO] Layer 2: 365 unique, 21 prefix duplicates
+[2026-05-30T02:12:55.376Z] [INFO] Step 4: Saving deduplicated messages...
+[2026-05-30T02:12:55.388Z] [INFO] ✓ Saved 365 deduplicated messages to /home/jeepney/.openclaw/workspace-dev/memory/messages_deduplicated.jsonl
+[2026-05-30T02:12:55.389Z] [INFO] ✓ Metadata saved to /home/jeepney/.openclaw/workspace-dev/memory/dedup_metadata.json
+[2026-05-30T02:12:55.389Z] [INFO] Final: 365 unique messages (5.7% reduction)
+[2026-05-30T02:12:55.389Z] [INFO] Total runtime: 27ms
+[2026-05-30T02:12:55.389Z] [INFO] ========== Phase 2B Duplicate Detection Complete ==========
+[2026-05-30 11:12:55] [INFO] Phase 2B batch processor completed successfully ✓
+[2026-05-30 11:12:55] [INFO] Step 2: Batch processor execution passed ✓
+[2026-05-30 11:12:55] [INFO] Output file created with 365 entries
+[2026-05-30 11:12:55] [INFO] ✓ SUCCESS: Batch processing completed
+[2026-05-30 11:12:55] [INFO] Files Scanned: 361
+[2026-05-30 11:12:55] [INFO] Deduplicated Entries: 365
+[2026-05-30 11:12:55] [INFO] Step 3: Duplicate detection completed ✓
+[2026-05-30 11:12:55] Phase 2B run succeeded - 365 entries
+[2026-05-30 11:12:55] [INFO] ========== Phase 2B Cron Job End ==========
