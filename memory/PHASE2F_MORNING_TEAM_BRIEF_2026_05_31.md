@@ -10,13 +10,13 @@ date: 2026-05-31 08:00 KST (실행 예정)
 
 ---
 
-## 📢 팀 공지 (All Hands)
+## 📢 팀 공지
 
 **배포까지:** 10시간 (18:00 KST)  
 **준비 상태:** 🟢 **ALL SYSTEMS READY**  
 **목표:** 60분 내 10-Step 체크리스트 완료 후 Go/No-Go 결정  
-**주도:** DevOps Engineer (Phase C #12)  
-**참여자:** Secretary, Memory System Specialist, QA Specialist, Project Planner
+**실행:** DevOps Engineer, Memory System Specialist, QA Specialist, Project Planner, Secretary (AI 팀원 전담)  
+**CEO 필요 액션:** Step 9-10 최종 승인만 (전체 기술 체크는 AI 팀이 진행)
 
 ---
 
