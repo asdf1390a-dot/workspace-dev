@@ -1,6 +1,9 @@
 # 메모리 인덱스 (MEMORY.md)
 
-**🟢 Last Auto-Checkpoint:** 2026-05-30 07:50 KST (Checkpoint #209) — Task State Machine Evaluation | 11/13 항목 완료 (84.6%) + 2/13 진행중 (15.4%) | 신뢰도 97% | 블로킹 0 | 팀 활용 80% (12/15 활동중) | 90.9% 프로젝트 완료율
+**🟢 Last Auto-Checkpoint:** 2026-05-30 10:44 KST (CTB 폴링 #260) — CEO 대시보드 갱신 | 11/13 프로젝트 완료 (84.6%) + 2/13 진행중 (15.4%) | 신뢰도 97% | 블로킹 0 | 팀 활용 80% (12/15 활동중) | 모든 프로젝트 온트랙
+
+## 📊 CTB 폴링 #260 (2026-05-30 10:44 KST)
+- [📊 CEO Dashboard 2026-05-30 10:44](CEO_DASHBOARD_2026_05_30_1044.md) — **상태:** 🟢 안정 | **완료:** 11/13 (84.6%) | **신뢰도:** 97% | **팀활용:** 80% (12/15) | **블로킹:** 0건 | **13프로젝트:** 11개 완료 + 2개 진행중 | **자동화:** Phase 2A OK (Port 3009) + Phase 2C 배포준비완료 | **시스템:** Cron 100% + Disk 4.9GB healthy | **다음마일스톤:** 14:00 체크포인트, 18:00 최종체크, 5/31 18:00 Phase 2F 배포, 6/2 18:00 P2/Verify 완료
 
 ## 🆙 **Checkpoint #209: Task State Machine + CTB Consolidation (2026-05-30 07:50 KST)**
 - **상태:** 🟢 STABLE | **전이 감지:** 2건 (Backup-P2 ✅ COMPLETED @ 06:52 + BM-P1 🟡 IN_PROGRESS @ 07:27) | **프로젝트:** 10/11 완료 (90.9%) + 1/11 진행 (Team Dashboard P2 UI) | **팀:** 12/15 활동 (80% utilization) | **신뢰도:** 97% | **블로킹:** 0 ✅ | **다음:** 2026-05-30 18:00 (Phase 2E progress check) 또는 2026-06-01 09:00 (Phase 2F launch)
