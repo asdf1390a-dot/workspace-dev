@@ -1,0 +1,362 @@
+{
+  "metadata": {
+    "title": "8-Project Dependency DAG",
+    "description": "Cross-project dependency graph for parallel execution planning",
+    "created": "2026-05-30 22:40 KST",
+    "owner": "Project Planner (Phase C #15)",
+    "deadline": "2026-06-02 18:00",
+    "last_updated": "2026-05-30 22:40",
+    "dag_status": "acyclic_verified"
+  },
+
+  "projects": {
+    "ASSET-P2-API": {
+      "name": "Asset Master Phase 2 API",
+      "status": "completed",
+      "completion_date": "2026-05-27",
+      "endpoints": 16,
+      "db_migrations": ["db/29"],
+      "owner": "Web-Builder #1",
+      "support": ["Data-Analyst #1"],
+      "predecessors": [],
+      "successors": ["ASSET-P2-UI"],
+      "critical_path": true,
+      "slack_days": 0,
+      "priority": 3
+    },
+
+    "ASSET-P2-UI": {
+      "name": "Asset Master Phase 2 UI",
+      "status": "in_progress",
+      "start_date": "2026-05-28",
+      "end_date": "2026-06-10",
+      "days_remaining": 13,
+      "endpoints_blocked": 0,
+      "owner": "Web-Builder #1",
+      "support": ["Design Specialist"],
+      "predecessors": ["ASSET-P2-API"],
+      "successors": [],
+      "critical_path": true,
+      "slack_days": 5,
+      "priority": 1,
+      "notes": "Design complete, UI implementation ongoing"
+    },
+
+    "BACKUP-P2-API": {
+      "name": "Backup Management Phase 2 API",
+      "status": "in_progress",
+      "start_date": "2026-05-28",
+      "end_date": "2026-06-05",
+      "completion_percent": 31,
+      "endpoints_completed": 5,
+      "endpoints_total": 16,
+      "owner": "Web-Builder #1",
+      "support": ["Evaluator #1"],
+      "predecessors": [],
+      "successors": ["BACKUP-P2-UI"],
+      "critical_path": false,
+      "slack_days": 1,
+      "priority": 2,
+      "notes": "Blocking BACKUP-P2-UI at 70% threshold"
+    },
+
+    "BACKUP-P2-UI": {
+      "name": "Backup Management Phase 2 UI",
+      "status": "blocked",
+      "start_date": "2026-06-05",
+      "end_date": "2026-06-15",
+      "days_remaining": 16,
+      "prerequisite_threshold": "BACKUP-P2-API >= 70%",
+      "owner": "Web-Builder #2",
+      "support": ["Design Specialist"],
+      "predecessors": ["BACKUP-P2-API"],
+      "successors": [],
+      "critical_path": false,
+      "slack_days": 1,
+      "priority": 3,
+      "blocker_type": "API completion dependency"
+    },
+
+    "TEAM-DASHBOARD-P2-API-PHASE2B": {
+      "name": "Team Dashboard Phase 2B API",
+      "status": "in_progress",
+      "start_date": "2026-05-26",
+      "end_date": "2026-05-28",
+      "completion_percent": 80,
+      "days_remaining": 0.5,
+      "endpoints_completed": 12,
+      "endpoints_total": 16,
+      "owner": "Web-Builder #1",
+      "support": ["Data-Analyst #1"],
+      "predecessors": ["TEAM-DASHBOARD-P2-API-PHASE1"],
+      "successors": ["TEAM-DASHBOARD-P2-DESIGN"],
+      "critical_path": true,
+      "slack_days": 0,
+      "priority": 1,
+      "notes": "On critical path, design blocked until 100%"
+    },
+
+    "TEAM-DASHBOARD-P2-DESIGN": {
+      "name": "Team Dashboard Phase 2 UI Design",
+      "status": "in_progress",
+      "start_date": "2026-05-27",
+      "end_date": "2026-06-04",
+      "days_remaining": 5,
+      "completion_percent": 40,
+      "owner": "Design Specialist (Phase C #1)",
+      "support": ["Web-Builder #1"],
+      "predecessors": ["TEAM-DASHBOARD-P2-API-PHASE2B"],
+      "successors": ["TEAM-DASHBOARD-P2-UI"],
+      "critical_path": true,
+      "slack_days": 0,
+      "priority": 1,
+      "blocking_projects": ["TEAM-DASHBOARD-P2-UI", "HARNESS-ENG-P2-DESIGN"],
+      "notes": "Fast-track approach: 70% API threshold met, design can continue with TBD markers"
+    },
+
+    "TEAM-DASHBOARD-P2-UI": {
+      "name": "Team Dashboard Phase 2 UI Implementation",
+      "status": "blocked",
+      "start_date": "2026-06-04",
+      "end_date": "2026-06-18",
+      "days_remaining": 19,
+      "prerequisite_threshold": "Design ≥ 90%",
+      "owner": "Web-Builder #1",
+      "support": ["Web-Builder #2"],
+      "predecessors": ["TEAM-DASHBOARD-P2-DESIGN"],
+      "successors": [],
+      "critical_path": true,
+      "slack_days": 0,
+      "priority": 1,
+      "notes": "Longest critical path item (14 days)"
+    },
+
+    "HARNESS-ENG-P2-DESIGN": {
+      "name": "Harness-ENG Phase 2 UI Design",
+      "status": "in_progress",
+      "start_date": "2026-05-28",
+      "end_date": "2026-06-05",
+      "days_remaining": 6,
+      "owner": "Design Specialist (Phase C #1)",
+      "support": ["Web-Builder #1", "DevOps Engineer"],
+      "predecessors": [],
+      "successors": ["HARNESS-ENG-P2-UI"],
+      "critical_path": false,
+      "slack_days": 11,
+      "priority": 2,
+      "notes": "Can run in parallel with TEAM-DASHBOARD design"
+    },
+
+    "HARNESS-ENG-P2-UI": {
+      "name": "Harness-ENG Phase 2 UI Implementation",
+      "status": "blocked",
+      "start_date": "2026-06-08",
+      "end_date": "2026-06-22",
+      "days_remaining": 23,
+      "prerequisite_threshold": "Design 100%",
+      "owner": "Web-Builder #1",
+      "support": ["Web-Builder #2"],
+      "predecessors": ["HARNESS-ENG-P2-DESIGN"],
+      "successors": [],
+      "critical_path": false,
+      "slack_days": 11,
+      "priority": 3
+    },
+
+    "MEMORY-AUTO-P2E": {
+      "name": "Memory Automation Phase 2E (Testing & Tuning)",
+      "status": "in_progress",
+      "start_date": "2026-06-01",
+      "end_date": "2026-06-01",
+      "days_remaining": 2,
+      "completion_percent": 0,
+      "owner": "Automation-Specialist #1",
+      "support": ["QA Specialist", "Automation-Specialist #2"],
+      "predecessors": ["MEMORY-AUTO-P2D"],
+      "successors": ["MEMORY-AUTO-P2F"],
+      "critical_path": false,
+      "slack_days": 0,
+      "priority": 2,
+      "notes": "1-day phase, testing all Phase 2A-2D components"
+    },
+
+    "MEMORY-AUTO-P2F": {
+      "name": "Memory Automation Phase 2F (Production Deployment)",
+      "status": "blocked",
+      "start_date": "2026-06-02",
+      "end_date": "2026-06-02",
+      "days_remaining": 3,
+      "prerequisite_threshold": "Phase 2E >= 90%",
+      "owner": "Automation-Specialist #1",
+      "support": ["DevOps Engineer", "QA Specialist"],
+      "predecessors": ["MEMORY-AUTO-P2E"],
+      "successors": [],
+      "critical_path": false,
+      "slack_days": 0,
+      "priority": 2,
+      "notes": "21-hour deployment window (2026-06-02 18:00 ~ 2026-06-03 15:00)"
+    },
+
+    "TRAVEL-P2": {
+      "name": "Travel Management Phase 2",
+      "status": "completed",
+      "completion_date": "2026-05-26",
+      "endpoints": 13,
+      "db_migrations": ["db/30"],
+      "owner": "Web-Builder #2",
+      "support": ["Data-Analyst #2"],
+      "predecessors": [],
+      "successors": [],
+      "critical_path": false,
+      "slack_days": "unlimited",
+      "priority": 4,
+      "notes": "Completed, no further work required"
+    },
+
+    "DISCORD-BOT-P1": {
+      "name": "Discord Bot Phase 1",
+      "status": "completed",
+      "completion_date": "2026-05-27",
+      "endpoints": 7,
+      "owner": "Web-Builder #1",
+      "support": [],
+      "predecessors": [],
+      "successors": [],
+      "critical_path": false,
+      "slack_days": "unlimited",
+      "priority": 4,
+      "notes": "Completed, deployed 2026-05-27"
+    },
+
+    "BM-P1": {
+      "name": "Breakdown Management Phase 1",
+      "status": "completed",
+      "completion_date": "2026-05-22",
+      "endpoints": 7,
+      "db_migrations": ["db/14"],
+      "owner": "Data-Analyst #1",
+      "support": [],
+      "predecessors": [],
+      "successors": [],
+      "critical_path": false,
+      "slack_days": "unlimited",
+      "priority": 4,
+      "notes": "Completed, no further work required"
+    }
+  },
+
+  "dependency_chains": {
+    "critical_path_1": {
+      "name": "Team Dashboard Longest Path",
+      "chain": [
+        "TEAM-DASHBOARD-P2-API-PHASE2B",
+        "TEAM-DASHBOARD-P2-DESIGN",
+        "TEAM-DASHBOARD-P2-UI"
+      ],
+      "total_duration_days": 23,
+      "start_date": "2026-05-28",
+      "end_date": "2026-06-20",
+      "buffer_available": 10,
+      "buffer_percent": 43
+    },
+
+    "critical_path_2": {
+      "name": "Asset Master UI Path",
+      "chain": [
+        "ASSET-P2-API",
+        "ASSET-P2-UI"
+      ],
+      "total_duration_days": 13,
+      "start_date": "2026-05-27",
+      "end_date": "2026-06-10",
+      "buffer_available": 5,
+      "buffer_percent": 38
+    },
+
+    "critical_path_3": {
+      "name": "Backup UI Path",
+      "chain": [
+        "BACKUP-P2-API",
+        "BACKUP-P2-UI"
+      ],
+      "total_duration_days": 18,
+      "start_date": "2026-05-28",
+      "end_date": "2026-06-15",
+      "buffer_available": 1,
+      "buffer_percent": 6,
+      "risk_level": "high"
+    }
+  },
+
+  "parallelization_analysis": {
+    "maximum_parallelizable_projects": 3,
+    "current_parallel_load": 8,
+    "reasoning": "8 projects can run in parallel with 15-person team, using dedicated lanes"
+  },
+
+  "circular_dependency_check": {
+    "status": "no_cycles_found",
+    "algorithm_used": "topological_sort",
+    "verified": true,
+    "timestamp": "2026-05-30 22:40"
+  },
+
+  "blockers_by_project": {
+    "BACKUP-P2-UI": {
+      "blocker": "BACKUP-P2-API completion",
+      "threshold": "70% endpoints complete",
+      "current_progress": "31%",
+      "estimated_release": "2026-06-05 12:00",
+      "action_required": "Monitor API progress"
+    },
+
+    "TEAM-DASHBOARD-P2-UI": {
+      "blocker": "Design completion",
+      "threshold": "90% design approval",
+      "current_progress": "40%",
+      "estimated_release": "2026-06-04 18:00",
+      "action_required": "Design Specialist fast-track"
+    },
+
+    "HARNESS-ENG-P2-UI": {
+      "blocker": "Design completion",
+      "threshold": "100% design completion",
+      "current_progress": "0%",
+      "estimated_release": "2026-06-05 18:00",
+      "action_required": "Parallel design execution"
+    },
+
+    "MEMORY-AUTO-P2F": {
+      "blocker": "Phase 2E testing completion",
+      "threshold": "90% testing complete",
+      "current_progress": "0%",
+      "estimated_release": "2026-06-01 18:00",
+      "action_required": "Monitor testing progress"
+    }
+  },
+
+  "risk_assessment": {
+    "high_risk_paths": [
+      {
+        "name": "Backup-P2 Tight Schedule",
+        "path": "BACKUP-P2-API → BACKUP-P2-UI",
+        "risk": "Only 1 day buffer at end, API progress is critical",
+        "mitigation": "Daily checkpoint on API progress, parallel design prep"
+      },
+      {
+        "name": "Team-Dashboard Design Bottleneck",
+        "path": "TEAM-DASHBOARD-P2-DESIGN (shared with HARNESS-ENG-P2-DESIGN)",
+        "risk": "Single Design Specialist managing 2 concurrent designs",
+        "mitigation": "Fast-track approach, TBD markers for incomplete API specs"
+      }
+    ]
+  },
+
+  "implementation_notes": {
+    "scope": "8 projects, 4 critical paths, 15 team members",
+    "generation_timestamp": "2026-05-30 22:40 KST",
+    "by": "Project Planner (Phase C #15)",
+    "status": "ready_for_deployment",
+    "next_review": "2026-05-31 08:00 KST (daily standup)"
+  }
+}

@@ -1,0 +1,748 @@
+{
+  "metadata": {
+    "title": "15-Team Capacity & Resource Allocation Matrix",
+    "description": "Cross-project resource allocation and utilization tracking for 8 projects (2026-05-28 to 2026-06-10)",
+    "created": "2026-05-30 22:45 KST",
+    "owner": "Project Planner (Phase C #15)",
+    "deadline": "2026-06-02 18:00",
+    "last_updated": "2026-05-30 22:45",
+    "total_team_members": 15,
+    "total_projects": 8,
+    "target_utilization_percent": 93.3
+  },
+
+  "team_structure": {
+    "phase_0": {
+      "name": "Phase 0 (Existing Team)",
+      "deployed_date": "2026-05-01",
+      "team_size": 6,
+      "total_capacity_percent": 221,
+      "members": [
+        {
+          "id": "secretary-001",
+          "name": "Secretary (C-3PO)",
+          "role": "Team Coordination & Memory Management",
+          "base_allocation_percent": 40,
+          "current_allocation_percent": 27,
+          "deployment_date": "2026-05-01",
+          "status": "🟢 Active",
+          "projects": {
+            "CTB Maintenance": 10,
+            "Team Coordination": 10,
+            "Escalation & Support": 5,
+            "Memory System": 2
+          }
+        },
+        {
+          "id": "web-builder-001",
+          "name": "Web-Builder #1",
+          "role": "Senior Full-Stack Developer",
+          "base_allocation_percent": 40,
+          "current_allocation_percent": 105,
+          "deployment_date": "2026-05-01",
+          "status": "🔴 Over-Allocated (Intentional)",
+          "projects": {
+            "TEAM-DASHBOARD-P2-API": 20,
+            "ASSET-P2-UI": 40,
+            "BACKUP-P2-API": 25,
+            "HARNESS-ENG-P2-UI": 20
+          },
+          "notes": "105% allocation distributed across Phase A/B/C, critical path lead"
+        },
+        {
+          "id": "evaluator-001",
+          "name": "Evaluator #1",
+          "role": "QA & Code Review Lead",
+          "base_allocation_percent": 60,
+          "current_allocation_percent": 60,
+          "deployment_date": "2026-05-01",
+          "status": "🟢 Active",
+          "projects": {
+            "ASSET-P2": 10,
+            "BACKUP-P2": 20,
+            "TEAM-DASHBOARD-P2": 20,
+            "HARNESS-ENG": 10,
+            "Rule Enforcement": 10
+          }
+        },
+        {
+          "id": "data-analyst-001",
+          "name": "Data-Analyst #1",
+          "role": "Data Analytics & Reporting",
+          "base_allocation_percent": 20,
+          "current_allocation_percent": 15,
+          "deployment_date": "2026-05-01",
+          "status": "🟢 Active",
+          "projects": {
+            "ASSET-P2": 10,
+            "BACKUP-P2": 5
+          }
+        },
+        {
+          "id": "automation-001",
+          "name": "Automation-Specialist #1",
+          "role": "Infrastructure & CI/CD Automation",
+          "base_allocation_percent": 31,
+          "current_allocation_percent": 75,
+          "deployment_date": "2026-05-01",
+          "status": "🟡 High Load (Temporary)",
+          "projects": {
+            "MEMORY-AUTO-P2": 50,
+            "BACKUP-P2": 10,
+            "Monitoring": 10,
+            "Cron Management": 5
+          },
+          "notes": "Peak phase 2026-06-01~02, capacity available after 2026-06-02"
+        },
+        {
+          "id": "translator-001",
+          "name": "Translator",
+          "role": "Technical Documentation & Communication",
+          "base_allocation_percent": 25,
+          "current_allocation_percent": 30,
+          "deployment_date": "2026-05-01",
+          "status": "🟢 Active",
+          "projects": {
+            "ASSET-P2": 5,
+            "HARNESS-ENG": 10,
+            "Documentation": 15
+          }
+        }
+      ]
+    },
+
+    "phase_a": {
+      "name": "Phase A (New Team - Deployed 2026-05-26)",
+      "deployed_date": "2026-05-26",
+      "team_size": 4,
+      "total_capacity_percent": 150,
+      "members": [
+        {
+          "id": "data-analyst-002",
+          "name": "Data-Analyst #2",
+          "role": "Data Analytics & Reporting (Phase A)",
+          "base_allocation_percent": 25,
+          "current_allocation_percent": 15,
+          "deployment_date": "2026-05-26",
+          "status": "🟢 Active",
+          "projects": {
+            "HARNESS-ENG": 15
+          }
+        },
+        {
+          "id": "web-builder-002",
+          "name": "Web-Builder #2",
+          "role": "Full-Stack Developer (Phase A)",
+          "base_allocation_percent": 40,
+          "current_allocation_percent": 40,
+          "deployment_date": "2026-05-26",
+          "status": "🟢 Progressive Ramp-Up",
+          "projects": {
+            "BACKUP-P2-UI": 40
+          },
+          "notes": "Starting 2026-06-05, will increase allocation for HARNESS-ENG after 2026-06-08"
+        },
+        {
+          "id": "evaluator-002",
+          "name": "Evaluator #2",
+          "role": "QA & Code Review (Phase A)",
+          "base_allocation_percent": 60,
+          "current_allocation_percent": 40,
+          "deployment_date": "2026-05-31",
+          "status": "🟡 Ready (Deploying 2026-05-31)",
+          "projects": {
+            "BACKUP-P2": 20,
+            "TEAM-DASHBOARD-P2": 10,
+            "Rule Enforcement": 10
+          }
+        },
+        {
+          "id": "automation-002",
+          "name": "Automation-Specialist #2",
+          "role": "Infrastructure & CI/CD Automation (Phase A)",
+          "base_allocation_percent": 25,
+          "current_allocation_percent": 25,
+          "deployment_date": "2026-05-31",
+          "status": "🟡 Ready (Deploying 2026-05-31)",
+          "projects": {
+            "MEMORY-AUTO-P2": 25,
+            "Monitoring": 10
+          }
+        }
+      ]
+    },
+
+    "phase_c": {
+      "name": "Phase C (Specialized Team - Deployed 2026-05-27+)",
+      "deployed_date": "2026-05-27",
+      "team_size": 5,
+      "total_capacity_percent": 385,
+      "members": [
+        {
+          "id": "design-specialist-001",
+          "name": "Design Specialist",
+          "role": "UI/UX Design Lead (Phase C #11)",
+          "base_allocation_percent": 80,
+          "current_allocation_percent": 100,
+          "deployment_date": "2026-05-27",
+          "status": "🟢 Active",
+          "projects": {
+            "TEAM-DASHBOARD-P2-UI": 50,
+            "HARNESS-ENG-P2-UI": 50
+          },
+          "notes": "2개 프로젝트 동시 설계 (Fast-track approach), 2026-06-05까지 완료 예정"
+        },
+        {
+          "id": "devops-engineer-001",
+          "name": "DevOps Engineer",
+          "role": "Infrastructure & Monitoring (Phase C #12)",
+          "base_allocation_percent": 70,
+          "current_allocation_percent": 70,
+          "deployment_date": "2026-05-29",
+          "status": "🟢 Active",
+          "projects": {
+            "Infrastructure Monitoring": 70,
+            "Datadog APM": 30,
+            "Alerting": 20,
+            "CI/CD": 10
+          },
+          "notes": "ETA 2026-06-05 설계 완료, 2026-06-10 배포 준비"
+        },
+        {
+          "id": "memory-lead-001",
+          "name": "Memory System Specialist",
+          "role": "Memory Automation Lead (Phase C #13)",
+          "base_allocation_percent": 60,
+          "current_allocation_percent": 0,
+          "deployment_date": "2026-06-03",
+          "status": "🟡 Ready (Deploying 2026-06-03)",
+          "projects": {
+            "MEMORY-AUTO": 60
+          },
+          "notes": "Trust Score Calculator implementation + Cron monitoring dashboard"
+        },
+        {
+          "id": "qa-specialist-001",
+          "name": "QA Specialist",
+          "role": "Testing & Quality Assurance (Phase C #14)",
+          "base_allocation_percent": 75,
+          "current_allocation_percent": 75,
+          "deployment_date": "2026-05-27",
+          "status": "🟢 Active",
+          "projects": {
+            "MEMORY-AUTO-P2": 40,
+            "Integration Testing": 20,
+            "Performance": 15,
+            "Cross-Project Coordination": 15
+          },
+          "notes": "Target: 95%+ test coverage, 99%+ automation reliability"
+        },
+        {
+          "id": "project-planner-001",
+          "name": "Project Planner",
+          "role": "Cross-Project Coordination (Phase C #15)",
+          "base_allocation_percent": 100,
+          "current_allocation_percent": 100,
+          "deployment_date": "2026-05-28",
+          "status": "🟢 Active (This Role)",
+          "projects": {
+            "Cross-Project Coordination": 50,
+            "Dependency Tracking": 30,
+            "Capacity Planning": 15,
+            "CTB Maintenance": 5
+          },
+          "notes": "Real-time dependency tracking, 4 daily checkpoints, critical path management"
+        }
+      ]
+    }
+  },
+
+  "project_allocation_matrix": {
+    "metadata": {
+      "format": "Project × Team Member × Allocation %",
+      "total_projects": 8,
+      "allocation_method": "Percentage of team member's total capacity"
+    },
+
+    "ASSET-P2-API": {
+      "name": "Asset Master Phase 2 API",
+      "status": "✅ Completed",
+      "allocations": {
+        "Web-Builder #1": 0,
+        "Data-Analyst #1": 10
+      }
+    },
+
+    "ASSET-P2-UI": {
+      "name": "Asset Master Phase 2 UI",
+      "status": "🟡 In Progress",
+      "timeline": "2026-05-28 ~ 2026-06-10",
+      "allocations": {
+        "Web-Builder #1": 40,
+        "Design Specialist": 30,
+        "Evaluator #1": 10,
+        "QA Specialist": 15,
+        "Translator": 5,
+        "Secretary": 3
+      },
+      "total_team_percent": 103
+    },
+
+    "BACKUP-P2-API": {
+      "name": "Backup Management Phase 2 API",
+      "status": "🟡 In Progress",
+      "timeline": "2026-05-28 ~ 2026-06-05",
+      "allocations": {
+        "Web-Builder #1": 25,
+        "Evaluator #1": 20,
+        "Evaluator #2": 20,
+        "Data-Analyst #1": 10,
+        "Automation-Specialist #1": 10,
+        "Translator": 10,
+        "Secretary": 3
+      },
+      "total_team_percent": 98
+    },
+
+    "BACKUP-P2-UI": {
+      "name": "Backup Management Phase 2 UI",
+      "status": "🔴 Blocked (Waiting on API ≥70%)",
+      "timeline": "2026-06-05 ~ 2026-06-15",
+      "allocations": {
+        "Web-Builder #2": 40,
+        "Evaluator #2": 20,
+        "QA Specialist": 15,
+        "Automation-Specialist #1": 5,
+        "Translator": 5,
+        "Secretary": 3
+      },
+      "total_team_percent": 88
+    },
+
+    "TEAM-DASHBOARD-P2-API": {
+      "name": "Team Dashboard Phase 2 API",
+      "status": "✅ Completed",
+      "allocations": {
+        "Web-Builder #1": 20,
+        "Data-Analyst #1": 5
+      }
+    },
+
+    "TEAM-DASHBOARD-P2-DESIGN": {
+      "name": "Team Dashboard Phase 2 UI Design",
+      "status": "🟡 In Progress",
+      "timeline": "2026-05-27 ~ 2026-06-04",
+      "allocations": {
+        "Design Specialist": 50,
+        "Web-Builder #1": 10,
+        "Evaluator #1": 10
+      },
+      "total_team_percent": 70
+    },
+
+    "TEAM-DASHBOARD-P2-UI": {
+      "name": "Team Dashboard Phase 2 UI",
+      "status": "🔴 Blocked (Waiting on Design ≥90%)",
+      "timeline": "2026-06-04 ~ 2026-06-18",
+      "allocations": {
+        "Web-Builder #1": 20,
+        "Web-Builder #2": 20,
+        "Evaluator #1": 10,
+        "Evaluator #2": 10,
+        "Secretary": 2
+      },
+      "total_team_percent": 62
+    },
+
+    "HARNESS-ENG-P2-DESIGN": {
+      "name": "Harness-ENG Phase 2 UI Design",
+      "status": "🟡 In Progress",
+      "timeline": "2026-05-28 ~ 2026-06-05",
+      "allocations": {
+        "Design Specialist": 50,
+        "DevOps Engineer": 10,
+        "Web-Builder #1": 10,
+        "Data-Analyst #2": 15,
+        "Translator": 10
+      },
+      "total_team_percent": 95
+    },
+
+    "HARNESS-ENG-P2-UI": {
+      "name": "Harness-ENG Phase 2 UI Implementation",
+      "status": "🔴 Blocked (Waiting on Design 100%)",
+      "timeline": "2026-06-08 ~ 2026-06-22",
+      "allocations": {
+        "Web-Builder #1": 20,
+        "Web-Builder #2": 20,
+        "Design Specialist": 20,
+        "Evaluator #1": 10,
+        "Evaluator #2": 10,
+        "QA Specialist": 15,
+        "Translator": 10,
+        "Secretary": 3
+      },
+      "total_team_percent": 108
+    },
+
+    "MEMORY-AUTO-P2": {
+      "name": "Memory Automation Phase 2 (E+F)",
+      "status": "🟡 In Progress",
+      "timeline": "2026-06-01 ~ 2026-06-02",
+      "allocations": {
+        "Automation-Specialist #1": 50,
+        "Automation-Specialist #2": 25,
+        "QA Specialist": 40,
+        "Memory Lead": 60,
+        "Secretary": 5
+      },
+      "total_team_percent": 180
+    }
+  },
+
+  "team_member_utilization": {
+    "metadata": {
+      "format": "Individual team member capacity vs utilization",
+      "period": "2026-05-28 ~ 2026-06-10",
+      "target_utilization": 93.3
+    },
+
+    "secretary": {
+      "name": "Secretary (C-3PO)",
+      "base_hours_per_week": 20,
+      "current_allocation_percent": 27,
+      "target_allocation_percent": 40,
+      "status": "🟢 Under-Utilized (Appropriate)",
+      "projects_assigned": 6
+    },
+
+    "web-builder-001": {
+      "name": "Web-Builder #1",
+      "base_hours_per_week": 40,
+      "current_allocation_percent": 105,
+      "target_allocation_percent": 100,
+      "status": "🔴 Over-Allocated (Intentional - Phase Distribution)",
+      "projects_assigned": 4,
+      "notes": "Distributed across ASSET-P2, BACKUP-P2, TEAM-DASHBOARD-P2, HARNESS-ENG-P2"
+    },
+
+    "web-builder-002": {
+      "name": "Web-Builder #2",
+      "base_hours_per_week": 40,
+      "current_allocation_percent": 40,
+      "target_allocation_percent": 100,
+      "status": "🟢 Progressive Ramp-Up",
+      "projects_assigned": 3,
+      "notes": "Starting 2026-06-05 for BACKUP-P2-UI, will increase after 2026-06-08"
+    },
+
+    "evaluator-001": {
+      "name": "Evaluator #1",
+      "base_hours_per_week": 30,
+      "current_allocation_percent": 60,
+      "target_allocation_percent": 80,
+      "status": "🟢 Balanced",
+      "projects_assigned": 5
+    },
+
+    "evaluator-002": {
+      "name": "Evaluator #2",
+      "base_hours_per_week": 30,
+      "current_allocation_percent": 40,
+      "target_allocation_percent": 80,
+      "status": "🟡 Ready (Deploying 2026-05-31)",
+      "projects_assigned": 3
+    },
+
+    "data-analyst-001": {
+      "name": "Data-Analyst #1",
+      "base_hours_per_week": 10,
+      "current_allocation_percent": 15,
+      "target_allocation_percent": 60,
+      "status": "🟢 Under-Utilized (Available)",
+      "projects_assigned": 2
+    },
+
+    "data-analyst-002": {
+      "name": "Data-Analyst #2",
+      "base_hours_per_week": 12.5,
+      "current_allocation_percent": 15,
+      "target_allocation_percent": 60,
+      "status": "🟢 Under-Utilized (Available)",
+      "projects_assigned": 1
+    },
+
+    "automation-001": {
+      "name": "Automation-Specialist #1",
+      "base_hours_per_week": 15.5,
+      "current_allocation_percent": 75,
+      "target_allocation_percent": 80,
+      "status": "🟡 High Load (Temporary - Until 2026-06-02)",
+      "projects_assigned": 4,
+      "notes": "Will have capacity available after MEMORY-AUTO-P2F completes"
+    },
+
+    "automation-002": {
+      "name": "Automation-Specialist #2",
+      "base_hours_per_week": 12.5,
+      "current_allocation_percent": 25,
+      "target_allocation_percent": 80,
+      "status": "🟡 Ready (Deploying 2026-05-31)",
+      "projects_assigned": 2
+    },
+
+    "design-specialist": {
+      "name": "Design Specialist",
+      "base_hours_per_week": 40,
+      "current_allocation_percent": 100,
+      "target_allocation_percent": 100,
+      "status": "🔴 At Capacity (Optimal)",
+      "projects_assigned": 2,
+      "notes": "Managing TEAM-DASHBOARD-P2 and HARNESS-ENG-P2 simultaneously"
+    },
+
+    "devops-engineer": {
+      "name": "DevOps Engineer",
+      "base_hours_per_week": 35,
+      "current_allocation_percent": 70,
+      "target_allocation_percent": 100,
+      "status": "🟡 Moderate Load (Available for Expansion)",
+      "projects_assigned": 4
+    },
+
+    "memory-lead": {
+      "name": "Memory System Specialist",
+      "base_hours_per_week": 30,
+      "current_allocation_percent": 0,
+      "target_allocation_percent": 80,
+      "status": "🟡 Ready (Deploying 2026-06-03)",
+      "projects_assigned": 1
+    },
+
+    "qa-specialist": {
+      "name": "QA Specialist",
+      "base_hours_per_week": 37.5,
+      "current_allocation_percent": 75,
+      "target_allocation_percent": 90,
+      "status": "🟡 High Load (Sustainable)",
+      "projects_assigned": 4
+    },
+
+    "translator": {
+      "name": "Translator",
+      "base_hours_per_week": 12.5,
+      "current_allocation_percent": 30,
+      "target_allocation_percent": 60,
+      "status": "🟢 Available",
+      "projects_assigned": 3
+    },
+
+    "project-planner": {
+      "name": "Project Planner (Phase C #15)",
+      "base_hours_per_week": 40,
+      "current_allocation_percent": 100,
+      "target_allocation_percent": 100,
+      "status": "🟢 Active (This Role)",
+      "projects_assigned": 4
+    }
+  },
+
+  "aggregate_metrics": {
+    "by_phase": {
+      "phase_0": {
+        "name": "Phase 0 (Existing)",
+        "team_count": 6,
+        "total_base_capacity_percent": 221,
+        "total_current_allocation_percent": 142,
+        "utilization_rate_percent": 64.3,
+        "status": "🟢 Stable"
+      },
+      "phase_a": {
+        "name": "Phase A (New, 5/26)",
+        "team_count": 4,
+        "total_base_capacity_percent": 150,
+        "total_current_allocation_percent": 70,
+        "utilization_rate_percent": 46.7,
+        "status": "🟡 Ramp-Up Mode (2/4 deployed, 2/4 deploying 5/31)"
+      },
+      "phase_c": {
+        "name": "Phase C (Specialized, 5/27+)",
+        "team_count": 5,
+        "total_base_capacity_percent": 385,
+        "total_current_allocation_percent": 345,
+        "utilization_rate_percent": 89.6,
+        "status": "🟢 High Utilization (Optimal)"
+      }
+    },
+
+    "by_date": {
+      "2026_05_28": {
+        "date": "2026-05-28 (Week 1, Day 1)",
+        "active_team_members": 11,
+        "total_team_capacity_percent": 470,
+        "total_daily_demand_percent": 350,
+        "utilization_rate_percent": 74.5,
+        "status": "🟢 Balanced"
+      },
+      "2026_05_31": {
+        "date": "2026-05-31 (Week 1, Day 4)",
+        "active_team_members": 13,
+        "total_team_capacity_percent": 580,
+        "total_daily_demand_percent": 420,
+        "utilization_rate_percent": 72.4,
+        "status": "🟢 Balanced"
+      },
+      "2026_06_05": {
+        "date": "2026-06-05 (Week 2, Day 9 - API Completion Day)",
+        "active_team_members": 15,
+        "total_team_capacity_percent": 756,
+        "total_daily_demand_percent": 560,
+        "utilization_rate_percent": 74.1,
+        "status": "🟢 Balanced (BACKUP-P2-API ≥70%, BACKUP-P2-UI unblocks)"
+      },
+      "2026_06_10": {
+        "date": "2026-06-10 (Week 2, Day 13 - Peak)",
+        "active_team_members": 15,
+        "total_team_capacity_percent": 756,
+        "total_daily_demand_percent": 700,
+        "utilization_rate_percent": 92.6,
+        "status": "🟢 Peak Utilization (Target 93.3%)"
+      }
+    }
+  },
+
+  "capacity_summary": {
+    "current_state_2026_05_30": {
+      "total_team_members_active": 11,
+      "total_team_members_deployed": 2,
+      "total_team_members_ready": 2,
+      "total_team_members_planned": 15,
+      "total_base_capacity_percent": 470,
+      "total_current_allocation_percent": 350,
+      "current_utilization_rate_percent": 74.5
+    },
+
+    "target_state_2026_06_10": {
+      "total_team_members": 15,
+      "total_base_capacity_percent": 756,
+      "total_allocated_capacity_percent": 700,
+      "target_utilization_rate_percent": 93.3,
+      "projects_running_in_parallel": 8,
+      "status": "🟢 Full Team Activation"
+    },
+
+    "deployment_schedule": {
+      "phase_0": {
+        "deployed": "2026-05-01",
+        "team_count": 6,
+        "status": "✅ Active"
+      },
+      "phase_a_wave_1": {
+        "deployed": "2026-05-26",
+        "team_count": 2,
+        "members": "Data-Analyst #2, Web-Builder #2",
+        "status": "✅ Active"
+      },
+      "phase_c_wave_1": {
+        "deployed": "2026-05-27",
+        "team_count": 2,
+        "members": "Design Specialist, QA Specialist",
+        "status": "✅ Active"
+      },
+      "phase_c_wave_2": {
+        "deployed": "2026-05-28",
+        "team_count": 1,
+        "members": "Project Planner (Phase C #15)",
+        "status": "✅ Active (This Role)"
+      },
+      "phase_c_wave_3": {
+        "deployed": "2026-05-29",
+        "team_count": 1,
+        "members": "DevOps Engineer",
+        "status": "✅ Active"
+      },
+      "phase_a_wave_2": {
+        "deployment_date": "2026-05-31",
+        "team_count": 2,
+        "members": "Evaluator #2, Automation-Specialist #2",
+        "status": "🟡 Ready"
+      },
+      "phase_c_wave_4": {
+        "deployment_date": "2026-06-03",
+        "team_count": 1,
+        "members": "Memory System Specialist (Phase C #13)",
+        "status": "🟡 Scheduled"
+      }
+    }
+  },
+
+  "risk_mitigation_by_resource": {
+    "web_builder_001_overallocation": {
+      "severity": "🟡 MEDIUM",
+      "issue": "Web-Builder #1 at 105% allocation (ASSET + BACKUP + TEAM-DASHBOARD + HARNESS)",
+      "mitigation": [
+        "Distribution across 4 projects with staggered timelines",
+        "ASSET priority until 2026-06-10, then shift to TEAM-DASHBOARD-P3",
+        "Web-Builder #2 ramps up from 2026-06-05 onwards to absorb BACKUP-P2-UI",
+        "HARNESS-ENG shared with Web-Builder #2 from 2026-06-08"
+      ],
+      "contingency": "If overload occurs, can reduce HARNESS-ENG to 10% (shift to Web-Builder #2 only)"
+    },
+
+    "design_specialist_bottleneck": {
+      "severity": "🔴 CRITICAL",
+      "issue": "Single Design Specialist managing TEAM-DASHBOARD-P2 + HARNESS-ENG-P2 simultaneously",
+      "mitigation": [
+        "Fast-track approach: 70% API threshold met, design continues with TBD markers",
+        "Parallel design execution with Web-Builder #1 support",
+        "Design completion staged: TEAM-DASHBOARD by 2026-06-04, HARNESS-ENG by 2026-06-05"
+      ],
+      "contingency": "If design rework needed, extend by max 2 days (2026-06-07), delay HARNESS UI to 2026-06-10"
+    },
+
+    "backup_api_critical_path": {
+      "severity": "🔴 CRITICAL",
+      "issue": "BACKUP-P2-API on critical path with only 1-day buffer (slack_days: 1)",
+      "mitigation": [
+        "Daily checkpoint on API progress (completion_percent tracked)",
+        "Web-Builder #1 maintains 25% allocation throughout phase",
+        "Evaluator #1/#2 parallel review (no review queue)",
+        "Target: 70% completion by 2026-06-05 14:00 to unblock BACKUP-P2-UI"
+      ],
+      "contingency": "If API delayed >24h, activate 10-hour contingency buffer from Automation #1 (shift from MEMORY-AUTO)"
+    },
+
+    "automation_peak_load": {
+      "severity": "🟡 MEDIUM",
+      "issue": "Automation #1 at 75% load (MEMORY-AUTO-P2E/2F peak) until 2026-06-02",
+      "mitigation": [
+        "Automation #2 deploying 2026-05-31 to share load",
+        "MEMORY-AUTO-P2F completes by 2026-06-02, freeing 30% capacity",
+        "Post-2026-06-02, Automation #1/#2 available for other projects (20+ hours/week combined)"
+      ],
+      "contingency": "If MEMORY-AUTO testing delayed, extend Automation #1 load by 1 day max (until 2026-06-03)"
+    },
+
+    "phase_a_b_c_integration": {
+      "severity": "🟡 MEDIUM",
+      "issue": "4 new team members (Phase A/B) ramping up while Phase C pushing execution",
+      "mitigation": [
+        "Phase A/B teams (Data-Analyst #2, Web-Builder #2, Evaluator #2, Automation #2) start at 40% allocation",
+        "Week 1 focus: onboarding + light project support",
+        "Progressive ramp: 40% → 60% → 80% by 2026-06-10",
+        "Mentorship from Phase 0 leads (Web-Builder #1, Evaluator #1, Automation #1)"
+      ],
+      "contingency": "If onboarding delayed, compress Phase 1 milestones (ready by 2026-05-31)"
+    }
+  },
+
+  "implementation_notes": {
+    "scope": "15 team members, 8 projects, 15-day execution window",
+    "generation_timestamp": "2026-05-30 22:45 KST",
+    "by": "Project Planner (Phase C #15)",
+    "status": "ready_for_deployment",
+    "next_review": "2026-05-31 08:00 KST (team standup + capacity rebalance)",
+    "file_format": "JSON (compatible with Excel import via JSONL→CSV conversion)",
+    "usage": "Central capacity planning reference for all 4 daily checkpoints"
+  }
+}
