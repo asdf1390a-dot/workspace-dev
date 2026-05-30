@@ -139,9 +139,11 @@
 - [✅ Phase 2B: Duplicate Detection Engine (2-LAYER SIMPLIFIED)](PHASE2B_DUPLICATE_DETECTION_DESIGN.md) — **완료** (2026-05-29 15:45 KST) — O(n) 선형시간 보장, 2-layer 엔진 (Exact Hash + Prefix Matching), 설계문서 1,200+ 줄, 100% 검증완료 ✅
 - [Phase 2C: Trust Score Calculation](TRUST_SCORE_CALCULATION_SPECIFICATION.md) — 설계 완료 — 4-component 가중합 (age/frequency/source/edit)
 - [Phase 2D: Cron Integration](MEMORY_AUTOMATION_CRON_STATUS.md) — **최종검증 완료** (2026-05-27 17:40) — 19/19 체크 통과, Monday 09:00 KST 실행 스케줄
-- [🟡 Phase 2E: Testing & Tuning](PHASE2E_TESTING_AND_TUNING_PLAN.md) — **설계 완료** (2026-05-27 17:50) — 730+ 줄 종합테스트계획, 2026-06-01 실행 예정, 5단계 (Post-Exec/Component/Threshold/Reliability/Integration)
-- [🟢 Phase 2C 서비스 모니터링](MEMORY_AUTOMATION_CRON_STATUS.md) — 2026-05-28 04:33 KST — Phase 2A ✅ OK | Phase 2B ✅ OK | Phase 2C (배포대기) | 디스크 3% (정상)
-- [Timeline: 2026-05-27(설계完)→05-30(첫실행)→06-01(테스트E)→06-02(배포F)](MEMORY_AUTOMATION_PHASE2_DESIGN.md)
+- [✅ Phase 2E: Testing & Tuning](PHASE2E_TESTING_AND_TUNING_PLAN.md) — **완료** (2026-05-30 05:23) — 3개 Priority 완료 (P1 Phase 2D Monitoring + P2 Test Data + P3 Deployment Scripts), phase2e-full-test.sh 배포 스크립트 완성, 2026-06-01 09:00 실행 준비 완료
+- [🟡 Phase 2F: Production Deployment](PHASE2F_PRODUCTION_DEPLOYMENT_PLAN.md) — **설계 완료** (2026-05-30 10:57) — 330줄 배포계획서, 2026-05-31 18:00 실행 (인프라 배포 1.5h → Grafana 1.5h → 알림 0.5h → 검증 6h), 12/12 API endpoints, 4h 안정성 테스트 포함, 4개 팀원 사인오프
+- [🟡 Phase 2F: Pre-Deployment Checklist](PHASE2F_PRE_DEPLOYMENT_CHECKLIST.md) — **체크리스트** (2026-05-30 10:57) — 2026-05-31 17:00 시행 (1시간 전), 7개 섹션 (인프라/스크립트/모니터링/알림/DB/로그/승인), Go/No-Go 결정 포함
+- [🟢 Phase 2C 서비스 모니터링](MEMORY_AUTOMATION_CRON_STATUS.md) — 2026-05-30 03:08 KST — Phase 2A ✅ OK | Phase 2B ✅ OK | Phase 2C ✅ DEPLOYED | Phase 2D ✅ INTEGRATED | 모든 서비스 온라인
+- [Timeline: 2026-05-27(설계完)→05-30(모든Phase完)→05-31(인프라배포F)→06-01(테스트E+F)→06-02(최종배포)](MEMORY_AUTOMATION_PHASE2_DESIGN.md)
 
 ## 🚨 Team Expansion 3-Pronged Execution (2026-05-25 IMMEDIATE)
 - [⭐ Active Team Structure (2026-05-25)](team_structure_active_2026_05_25.md) — 6명 AI 에이전트 팀 현황 (Secretary/Evaluator/Translator/Analyst/Automation-Specialist/Web-Builder), 49%→96-100% 활용도 달성, AI-only 룰 명확화 (2026-05-25 14:30)
