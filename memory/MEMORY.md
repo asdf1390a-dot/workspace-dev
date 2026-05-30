@@ -5,6 +5,11 @@
 ## 📊 CTB 폴링 #260 (2026-05-30 10:44 KST)
 - [📊 CEO Dashboard 2026-05-30 10:44](CEO_DASHBOARD_2026_05_30_1044.md) — **상태:** 🟢 안정 | **완료:** 11/13 (84.6%) | **신뢰도:** 97% | **팀활용:** 80% (12/15) | **블로킹:** 0건 | **13프로젝트:** 11개 완료 + 2개 진행중 | **자동화:** Phase 2A OK (Port 3009) + Phase 2C 배포준비완료 | **시스템:** Cron 100% + Disk 4.9GB healthy | **다음마일스톤:** 14:00 체크포인트, 18:00 최종체크, 5/31 18:00 Phase 2F 배포, 6/2 18:00 P2/Verify 완료
 
+## 🚀 Phase 2F 배포 문서 완성 (2026-05-30 10:57 KST)
+- [🟢 Phase 2F Production Deployment Plan](PHASE2F_PRODUCTION_DEPLOYMENT_PLAN.md) — **상태:** ✅ 완성 (329줄) | **범위:** 21시간 배포 (18:00-06:00 next day) | **담당:** Secretary (Lead) + Memory Specialist (Monitoring) + DevOps + QA | **체크리스트:** 1.5h 인프라 + 1.5h 그라파나 + 0.5h 알림 + 0.5h 스모크테스트 + 4h 안정성 + 2h 기준선 | **성공기준:** 4/4 서비스 배포 + 12/12 API + Grafana 메트릭 + 48/48 cron 사이클
+- [🟢 Phase 2F Pre-Deployment Checklist](PHASE2F_PRE_DEPLOYMENT_CHECKLIST.md) — **상태:** ✅ 완성 (410줄) | **실행시간:** 2026-05-31 17:00 KST (배포 1시간 전) | **소요시간:** 60분 | **7섹션:** A인프라 + B스크립트 + C모니터링 + D알림 + E데이터베이스 + F로그백업 + G최종승인 | **결정:** Go/No-Go 결정게이트 (모든항목 통과 필수)
+- [🟢 Phase 2F Execution Day Timeline](PHASE2F_EXECUTION_DAY_TIMELINE.md) — **상태:** ✅ 완성 (1,000+ 줄 실시간 운영 매뉴얼) | **실행일:** 2026-05-31 17:00-09:00 KST (26시간) | **6단계:** T-60min 사전검증 + T-0 배포시작 + T+90min 모니터링 + T+180min 알림 + T+210min 스모크테스트 + T+240min 8h 안정성테스트 + T+480min 기준선수집 + T+540min 최종사인 | **담당자:** Secretary Agent (조율) + DevOps (인프라) + Memory Specialist (모니터링) + QA Specialist (검증) | **긴급절차:** Rollback 체크리스트 포함
+
 ## 🆙 **Checkpoint #209: Task State Machine + CTB Consolidation (2026-05-30 07:50 KST)**
 - **상태:** 🟢 STABLE | **전이 감지:** 2건 (Backup-P2 ✅ COMPLETED @ 06:52 + BM-P1 🟡 IN_PROGRESS @ 07:27) | **프로젝트:** 10/11 완료 (90.9%) + 1/11 진행 (Team Dashboard P2 UI) | **팀:** 12/15 활동 (80% utilization) | **신뢰도:** 97% | **블로킹:** 0 ✅ | **다음:** 2026-05-30 18:00 (Phase 2E progress check) 또는 2026-06-01 09:00 (Phase 2F launch)
 
