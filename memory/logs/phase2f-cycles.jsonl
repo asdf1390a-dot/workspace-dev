@@ -371,3 +371,7 @@
 {"timestamp":"2026-05-31T14:25:33Z","cycle":3,"status":"success","cycle_time_ms":48,"phase2a":"ok","phase2b":"ok","phase2c":"ok"}
 {"timestamp":"2026-05-31T14:26:03Z","cycle":4,"status":"success","cycle_time_ms":50,"phase2a":"ok","phase2b":"ok","phase2c":"ok"}
 {"timestamp":"2026-05-31T14:26:33Z","cycle":5,"status":"success","cycle_time_ms":51,"phase2a":"ok","phase2b":"ok","phase2c":"ok"}
+{"timestamp":"2026-05-31T14:27:03Z","cycle":6,"status":"success","cycle_time_ms":52,"phase2a":"ok","phase2b":"ok","phase2c":"ok"}
+{"timestamp":"2026-05-31T14:27:34Z","cycle":7,"status":"success","cycle_time_ms":52,"phase2a":"ok","phase2b":"ok","phase2c":"ok"}
+{"timestamp":"2026-05-31T14:28:04Z","cycle":8,"status":"success","cycle_time_ms":51,"phase2a":"ok","phase2b":"ok","phase2c":"ok"}
+{"timestamp":"2026-05-31T14:28:34Z","cycle":9,"status":"success","cycle_time_ms":57,"phase2a":"ok","phase2b":"ok","phase2c":"ok"}
