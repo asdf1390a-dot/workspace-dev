@@ -12,3 +12,9 @@
 [2026-05-31 13:00:35 KST] Timeline: 3h 59m until Pre-Deployment Verification (17:00 KST)
 [2026-05-31 13:00:35 KST] 
 [2026-05-31 13:00:35 KST] Next check scheduled at 13:30:35 KST
+[2026-05-31 13:08:36 KST] === Health Check ===
+[2026-05-31 13:08:36 KST] ✅ Phase 2A: ready
+[2026-05-31 13:08:36 KST] ✅ Phase 2B: ready
+[2026-05-31 13:08:36 KST] Disk: 4% | Memory: 2.1Gi/15Gi
+[2026-05-31 13:08:36 KST] 
+[2026-05-31 13:08:36 KST] Next check scheduled at 13:38:36 KST
