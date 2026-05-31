@@ -28,3 +28,48 @@
 [2026-05-31T05:00:02.205Z] [INFO] Final: 386 unique messages (7.9% reduction)
 [2026-05-31T05:00:02.205Z] [INFO] Total runtime: 36ms
 [2026-05-31T05:00:02.205Z] [INFO] ========== Phase 2B Duplicate Detection Complete ==========
+[2026-05-31T08:58:45.315Z] [INFO] ========== Phase 2B Duplicate Detection Start (SIMPLIFIED) ==========
+[2026-05-31T08:58:45.316Z] [INFO] Input: /home/jeepney/.openclaw/workspace-dev/memory/messages.jsonl
+[2026-05-31T08:58:45.316Z] [INFO] Output: /home/jeepney/.openclaw/workspace-dev/memory/messages_deduplicated.jsonl
+[2026-05-31T08:58:45.316Z] [INFO] Step 1: Loading messages...
+[2026-05-31T08:58:45.345Z] [INFO] Loaded 419 messages
+[2026-05-31T08:58:45.345Z] [INFO] Step 2: Running Layer 1 - Exact Hash Matching...
+[2026-05-31T08:58:45.345Z] [INFO] Layer 1: 418 unique, 1 exact duplicates
+[2026-05-31T08:58:45.345Z] [INFO] Step 3: Running Layer 2 - Prefix Matching...
+[2026-05-31T08:58:45.353Z] [INFO] Layer 2: 386 unique, 32 prefix duplicates
+[2026-05-31T08:58:45.353Z] [INFO] Step 4: Saving deduplicated messages...
+[2026-05-31T08:58:45.369Z] [INFO] ✓ Saved 386 deduplicated messages to /home/jeepney/.openclaw/workspace-dev/memory/messages_deduplicated.jsonl
+[2026-05-31T08:58:45.369Z] [INFO] ✓ Metadata saved to /home/jeepney/.openclaw/workspace-dev/memory/dedup_metadata.json
+[2026-05-31T08:58:45.369Z] [INFO] Final: 386 unique messages (7.9% reduction)
+[2026-05-31T08:58:45.369Z] [INFO] Total runtime: 38ms
+[2026-05-31T08:58:45.369Z] [INFO] ========== Phase 2B Duplicate Detection Complete ==========
+[2026-05-31T08:59:12.899Z] [INFO] ========== Phase 2B Duplicate Detection Start (SIMPLIFIED) ==========
+[2026-05-31T08:59:12.900Z] [INFO] Input: /home/jeepney/.openclaw/workspace-dev/memory/messages.jsonl
+[2026-05-31T08:59:12.900Z] [INFO] Output: /home/jeepney/.openclaw/workspace-dev/memory/messages_deduplicated.jsonl
+[2026-05-31T08:59:12.900Z] [INFO] Step 1: Loading messages...
+[2026-05-31T08:59:12.920Z] [INFO] Loaded 419 messages
+[2026-05-31T08:59:12.920Z] [INFO] Step 2: Running Layer 1 - Exact Hash Matching...
+[2026-05-31T08:59:12.920Z] [INFO] Layer 1: 418 unique, 1 exact duplicates
+[2026-05-31T08:59:12.920Z] [INFO] Step 3: Running Layer 2 - Prefix Matching...
+[2026-05-31T08:59:12.926Z] [INFO] Layer 2: 386 unique, 32 prefix duplicates
+[2026-05-31T08:59:12.927Z] [INFO] Step 4: Saving deduplicated messages...
+[2026-05-31T08:59:12.943Z] [INFO] ✓ Saved 386 deduplicated messages to /home/jeepney/.openclaw/workspace-dev/memory/messages_deduplicated.jsonl
+[2026-05-31T08:59:12.943Z] [INFO] ✓ Metadata saved to /home/jeepney/.openclaw/workspace-dev/memory/dedup_metadata.json
+[2026-05-31T08:59:12.943Z] [INFO] Final: 386 unique messages (7.9% reduction)
+[2026-05-31T08:59:12.943Z] [INFO] Total runtime: 28ms
+[2026-05-31T08:59:12.943Z] [INFO] ========== Phase 2B Duplicate Detection Complete ==========
+[2026-05-31T09:00:01.898Z] [INFO] ========== Phase 2B Duplicate Detection Start (SIMPLIFIED) ==========
+[2026-05-31T09:00:01.902Z] [INFO] Input: /home/jeepney/.openclaw/workspace-dev/memory/messages.jsonl
+[2026-05-31T09:00:01.902Z] [INFO] Output: /home/jeepney/.openclaw/workspace-dev/memory/messages_deduplicated.jsonl
+[2026-05-31T09:00:01.902Z] [INFO] Step 1: Loading messages...
+[2026-05-31T09:00:01.920Z] [INFO] Loaded 419 messages
+[2026-05-31T09:00:01.920Z] [INFO] Step 2: Running Layer 1 - Exact Hash Matching...
+[2026-05-31T09:00:01.920Z] [INFO] Layer 1: 418 unique, 1 exact duplicates
+[2026-05-31T09:00:01.920Z] [INFO] Step 3: Running Layer 2 - Prefix Matching...
+[2026-05-31T09:00:01.929Z] [INFO] Layer 2: 386 unique, 32 prefix duplicates
+[2026-05-31T09:00:01.929Z] [INFO] Step 4: Saving deduplicated messages...
+[2026-05-31T09:00:01.945Z] [INFO] ✓ Saved 386 deduplicated messages to /home/jeepney/.openclaw/workspace-dev/memory/messages_deduplicated.jsonl
+[2026-05-31T09:00:01.945Z] [INFO] ✓ Metadata saved to /home/jeepney/.openclaw/workspace-dev/memory/dedup_metadata.json
+[2026-05-31T09:00:01.945Z] [INFO] Final: 386 unique messages (7.9% reduction)
+[2026-05-31T09:00:01.945Z] [INFO] Total runtime: 32ms
+[2026-05-31T09:00:01.945Z] [INFO] ========== Phase 2B Duplicate Detection Complete ==========

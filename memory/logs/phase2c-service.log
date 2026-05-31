@@ -1,0 +1,47 @@
+Phase 2C Trust Score Calculator listening on port 3011
+Health check: http://localhost:3011/health
+API: http://localhost:3011/api/calculate-trust-scores
+SyntaxError: Unexpected token '<', ..."entries":[<!DOCTYPE "... is not valid JSON
+    at JSON.parse (<anonymous>)
+    at parse (/home/jeepney/.openclaw/workspace-dev/memory-automation/node_modules/body-parser/lib/types/json.js:92:19)
+    at /home/jeepney/.openclaw/workspace-dev/memory-automation/node_modules/body-parser/lib/read.js:128:18
+    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    at invokeCallback (/home/jeepney/.openclaw/workspace-dev/memory-automation/node_modules/raw-body/index.js:238:16)
+    at done (/home/jeepney/.openclaw/workspace-dev/memory-automation/node_modules/raw-body/index.js:227:7)
+    at IncomingMessage.onEnd (/home/jeepney/.openclaw/workspace-dev/memory-automation/node_modules/raw-body/index.js:287:7)
+    at IncomingMessage.emit (node:events:519:28)
+    at endReadableNT (node:internal/streams/readable:1698:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:89:21)
+SyntaxError: Unexpected token '<', ..."entries":[<!DOCTYPE "... is not valid JSON
+    at JSON.parse (<anonymous>)
+    at parse (/home/jeepney/.openclaw/workspace-dev/memory-automation/node_modules/body-parser/lib/types/json.js:92:19)
+    at /home/jeepney/.openclaw/workspace-dev/memory-automation/node_modules/body-parser/lib/read.js:128:18
+    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    at invokeCallback (/home/jeepney/.openclaw/workspace-dev/memory-automation/node_modules/raw-body/index.js:238:16)
+    at done (/home/jeepney/.openclaw/workspace-dev/memory-automation/node_modules/raw-body/index.js:227:7)
+    at IncomingMessage.onEnd (/home/jeepney/.openclaw/workspace-dev/memory-automation/node_modules/raw-body/index.js:287:7)
+    at IncomingMessage.emit (node:events:519:28)
+    at endReadableNT (node:internal/streams/readable:1698:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:89:21)
+SyntaxError: Expected double-quoted property name in JSON at position 28 (line 1 column 29)
+    at JSON.parse (<anonymous>)
+    at parse (/home/jeepney/.openclaw/workspace-dev/memory-automation/node_modules/body-parser/lib/types/json.js:92:19)
+    at /home/jeepney/.openclaw/workspace-dev/memory-automation/node_modules/body-parser/lib/read.js:128:18
+    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    at invokeCallback (/home/jeepney/.openclaw/workspace-dev/memory-automation/node_modules/raw-body/index.js:238:16)
+    at done (/home/jeepney/.openclaw/workspace-dev/memory-automation/node_modules/raw-body/index.js:227:7)
+    at IncomingMessage.onEnd (/home/jeepney/.openclaw/workspace-dev/memory-automation/node_modules/raw-body/index.js:287:7)
+    at IncomingMessage.emit (node:events:519:28)
+    at endReadableNT (node:internal/streams/readable:1698:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:89:21)
+SyntaxError: Expected double-quoted property name in JSON at position 28 (line 1 column 29)
+    at JSON.parse (<anonymous>)
+    at parse (/home/jeepney/.openclaw/workspace-dev/memory-automation/node_modules/body-parser/lib/types/json.js:92:19)
+    at /home/jeepney/.openclaw/workspace-dev/memory-automation/node_modules/body-parser/lib/read.js:128:18
+    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    at invokeCallback (/home/jeepney/.openclaw/workspace-dev/memory-automation/node_modules/raw-body/index.js:238:16)
+    at done (/home/jeepney/.openclaw/workspace-dev/memory-automation/node_modules/raw-body/index.js:227:7)
+    at IncomingMessage.onEnd (/home/jeepney/.openclaw/workspace-dev/memory-automation/node_modules/raw-body/index.js:287:7)
+    at IncomingMessage.emit (node:events:519:28)
+    at endReadableNT (node:internal/streams/readable:1698:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:89:21)

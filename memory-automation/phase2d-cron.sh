@@ -208,30 +208,35 @@ phase2a_collect_messages() {
     return 1
   fi
 
-  # Request message collection
-  local payload='{}'
-  local response=$(api_call "POST" "$PHASE2A_URL/api/collect-and-deduplicate" "$payload" "Phase 2A")
+  # Request memory collection (using correct endpoint: /api/collect-memory)
+  # Collects raw memory files from the memory directory for processing
+  local payload='{"path":"MEMORY.md","lines":100}'
+  local response=$(api_call "POST" "$PHASE2A_URL/api/collect-memory" "$payload" "Phase 2A")
 
-  # Parse response
-  local success=$(echo "$response" | jq -r '.success // false' 2>/dev/null)
-  local messages_count=$(echo "$response" | jq -r '.messagesCollected // 0' 2>/dev/null)
-  local error=$(echo "$response" | jq -r '.error // ""' 2>/dev/null)
+  # Parse response (using grep/sed since jq not available)
+  local success=$(echo "$response" | grep -o '"success":\(true\|false\)' | cut -d':' -f2)
+  local messages_count=$(echo "$response" | grep -o '"contentLength":[0-9]*' | cut -d':' -f2)
+  local error=$(echo "$response" | grep -o '"error":"[^"]*"' | cut -d'"' -f4)
+
+  # Fallback defaults
+  success=${success:-false}
+  messages_count=${messages_count:-0}
+  error=${error:-}
 
   if [[ "$success" != "true" ]]; then
-    log "ERROR" "Phase 2A collection failed: $error"
+    log "ERROR" "Phase 2A memory collection failed: $error"
     log_activity "PHASE2A" "FAILED" 0 "{\"error\":\"$error\"}"
     return 1
   fi
 
   local duration_ms=$(( ($(date +%s%N) - start_time) / 1000000 ))
-  log "INFO" "Phase 2A collected $messages_count messages in ${duration_ms}ms"
-  log_activity "PHASE2A" "SUCCESS" "$duration_ms" "{\"messages_collected\":$messages_count}"
+  log "INFO" "Phase 2A collected memory content ($messages_count bytes) in ${duration_ms}ms"
+  log_activity "PHASE2A" "SUCCESS" "$duration_ms" "{\"content_size\":$messages_count}"
 
-  # Save response to file
-  local collection_file="$COLLECTIONS_DIR/messages_$TIMESTAMP_SHORT.jsonl"
-  if echo "$response" | jq '.messages[]? // empty' 2>/dev/null | \
-     while read -r msg; do echo "$msg"; done > "$collection_file" 2>/dev/null; then
-    log "INFO" "Messages saved to: $(basename $collection_file)"
+  # Save response to file (raw JSON, no jq needed)
+  local collection_file="$COLLECTIONS_DIR/memory_$TIMESTAMP_SHORT.json"
+  if echo "$response" > "$collection_file"; then
+    log "INFO" "Memory collection saved to: $(basename $collection_file)"
   fi
 
   return 0
@@ -252,33 +257,53 @@ phase2b_detect_duplicates() {
     return 1
   fi
 
-  # Collect all memory files as input
-  local memory_files=$(find "$MEMORY_DIR" -maxdepth 1 -name "*.md" -type f 2>/dev/null | wc -l)
+  # Get Phase 2A collected data (most recent collection file)
+  local phase2a_file=$(find "$COLLECTIONS_DIR" -name "memory_*.json" -type f 2>/dev/null | sort -r | head -1)
+  if [[ -z "$phase2a_file" ]]; then
+    log "ERROR" "Phase 2B: No Phase 2A collection file found"
+    log_activity "PHASE2B" "FAILED" 0 '{"error":"no_phase2a_data"}'
+    return 1
+  fi
+
+  # Read Phase 2A response and wrap in entries array for Phase 2B API
+  local phase2a_data=$(cat "$phase2a_file" 2>/dev/null)
+  if [[ -z "$phase2a_data" ]]; then
+    log "ERROR" "Phase 2B: Failed to read Phase 2A data"
+    log_activity "PHASE2B" "FAILED" 0 '{"error":"cannot_read_phase2a_file"}'
+    return 1
+  fi
+
+  # Build entries array: Phase 2B expects {"entries":[...array of entry objects...]}
+  local payload="{\"entries\":[${phase2a_data}]}"
 
   # Request duplicate detection
-  local payload="{\"memoryDir\":\"$MEMORY_DIR\",\"options\":{\"threshold\":0.85,\"enableSemantic\":false}}"
   local response=$(api_call "POST" "$PHASE2B_URL/api/detect-duplicates" "$payload" "Phase 2B")
 
-  # Parse response
-  local success=$(echo "$response" | jq -r '.success // false' 2>/dev/null)
-  local clusters=$(echo "$response" | jq -r '.duplicateClusters | length // 0' 2>/dev/null)
-  local error=$(echo "$response" | jq -r '.error // ""' 2>/dev/null)
+  # Parse response (using grep/sed instead of jq)
+  # Phase 2B returns: {"unique":[...], "duplicates":[...], "count":X, "removed":Y}
+  local success=$(echo "$response" | grep -o '"count":[0-9]*' | head -1 | cut -d':' -f2)
+  success=${success:-0}
 
-  if [[ "$success" != "true" ]]; then
+  # Extract duplicate count
+  local duplicates=$(echo "$response" | grep -o '"removed":[0-9]*' | cut -d':' -f2)
+  duplicates=${duplicates:-0}
+
+  local error=$(echo "$response" | grep -o '"error":"[^"]*"' | cut -d'"' -f4)
+
+  if [[ -z "$success" ]] || [[ $success -lt 0 ]]; then
     log "ERROR" "Phase 2B detection failed: $error"
     log_activity "PHASE2B" "FAILED" 0 "{\"error\":\"$error\"}"
     return 1
   fi
 
   local duration_ms=$(( ($(date +%s%N) - start_time) / 1000000 ))
-  log "INFO" "Phase 2B detected $clusters duplicate clusters across $memory_files files in ${duration_ms}ms"
-  log_activity "PHASE2B" "SUCCESS" "$duration_ms" "{\"clusters_found\":$clusters,\"memory_files\":$memory_files}"
+  log "INFO" "Phase 2B processed $success unique entries, $duplicates duplicates removed in ${duration_ms}ms"
+  log_activity "PHASE2B" "SUCCESS" "$duration_ms" "{\"unique_count\":$success,\"duplicates_removed\":$duplicates}"
 
-  # Save duplicates report
-  local dups_file="$COLLECTIONS_DIR/duplicates_$TIMESTAMP_SHORT.jsonl"
-  if echo "$response" | jq '.duplicateClusters[]? // empty' 2>/dev/null | \
-     while read -r cluster; do echo "$cluster"; done > "$dups_file" 2>/dev/null; then
-    log "INFO" "Duplicate clusters saved to: $(basename $dups_file)"
+  # Save duplicates report (raw response)
+  local dups_file="$COLLECTIONS_DIR/duplicates_$TIMESTAMP_SHORT.json"
+  if echo "$response" > "$dups_file"; then
+    log "INFO" "Duplicate detection result saved to: $(basename $dups_file)"
   fi
 
   return 0
@@ -299,51 +324,62 @@ phase2c_calculate_trust_scores() {
     return 1
   fi
 
-  # Get latest collected messages (from Phase 2A)
-  local latest_collection=$(ls -1t "$COLLECTIONS_DIR"/messages_*.jsonl 2>/dev/null | head -1)
+  # Get Phase 2B result (duplicate detection output)
+  # This contains the deduplicated entries that need trust scoring
+  local latest_duplicates=$(ls -1t "$COLLECTIONS_DIR"/duplicates_*.json 2>/dev/null | head -1)
 
-  if [[ -z "$latest_collection" ]]; then
+  if [[ -z "$latest_duplicates" ]]; then
+    # Fall back to Phase 2A collection if Phase 2B hasn't run yet
+    latest_duplicates=$(ls -1t "$COLLECTIONS_DIR"/memory_*.json 2>/dev/null | head -1)
+  fi
+
+  if [[ -z "$latest_duplicates" ]]; then
     log "WARNING" "No collected messages found, skipping trust score calculation"
     log_activity "PHASE2C" "SKIPPED_NO_DATA" 0 '{"reason":"no_messages"}'
     return 1
   fi
 
-  # Read messages from collection file
-  local messages=()
-  local msg_count=0
-  while IFS= read -r line; do
-    messages+=("$line")
-    ((msg_count++))
-  done < "$latest_collection"
-
-  if [[ $msg_count -eq 0 ]]; then
-    log "INFO" "No messages to score (collection empty)"
-    log_activity "PHASE2C" "SKIPPED_EMPTY" 0 '{"reason":"no_messages_in_collection"}'
-    return 0
+  # Read the Phase 2B output (which contains "unique" array of deduplicated entries)
+  # or Phase 2A output (single entry) and wrap in entries array for Phase 2C API
+  local phase2b_data=$(cat "$latest_duplicates" 2>/dev/null)
+  if [[ -z "$phase2b_data" ]]; then
+    log "ERROR" "Phase 2C: Failed to read phase2b/phase2a data"
+    log_activity "PHASE2C" "FAILED" 0 '{"error":"cannot_read_phase2b_data"}'
+    return 1
   fi
 
-  # Batch calculate trust scores
-  # Note: Phase 2C API expects array of messages with specific schema
-  local batch_payload='{"messages":['
-  local first=true
-  for msg in "${messages[@]}"; do
-    if [[ "$first" == "true" ]]; then
-      batch_payload="$batch_payload$msg"
-      first=false
-    else
-      batch_payload="$batch_payload,$msg"
+  # Check if this is Phase 2B output (has "unique" field) or Phase 2A output
+  if echo "$phase2b_data" | grep -q '"unique"'; then
+    # Extract unique entries array from Phase 2B output using Python JSON parser
+    local unique_array=$(python3 -c "import json, sys; data = json.load(sys.stdin); print(json.dumps(data.get('unique', [])))" <<< "$phase2b_data" 2>/dev/null)
+    if [[ -z "$unique_array" ]] || [[ "$unique_array" == "null" ]]; then
+      log "ERROR" "Phase 2C: Failed to extract unique array from Phase 2B"
+      log_activity "PHASE2C" "FAILED" 0 '{"error":"cannot_extract_unique_array"}'
+      return 1
     fi
-  done
-  batch_payload="$batch_payload]}"
+    local payload="{\"entries\":${unique_array}}"
+  else
+    # This is Phase 2A single entry, wrap it in entries array
+    local payload="{\"entries\":[${phase2b_data}]}"
+  fi
 
-  local response=$(api_call "POST" "$PHASE2C_URL/api/calculate-trust-scores" "$batch_payload" "Phase 2C")
+  local response=$(api_call "POST" "$PHASE2C_URL/api/calculate-trust-scores" "$payload" "Phase 2C")
 
   # Parse response
-  local success=$(echo "$response" | jq -r '.success // false' 2>/dev/null)
-  local accepted=$(echo "$response" | jq -r '.summary.accepted // 0' 2>/dev/null)
-  local quarantined=$(echo "$response" | jq -r '.summary.quarantined // 0' 2>/dev/null)
-  local rejected=$(echo "$response" | jq -r '.summary.rejected // 0' 2>/dev/null)
-  local error=$(echo "$response" | jq -r '.error // ""' 2>/dev/null)
+  local success=$(echo "$response" | grep -o '"success":\(true\|false\)' | cut -d':' -f2)
+  success=${success:-false}
+
+  local accepted=$(echo "$response" | grep -o '"accepted":[0-9]*' | cut -d':' -f2)
+  accepted=${accepted:-0}
+
+  local quarantined=$(echo "$response" | grep -o '"quarantined":[0-9]*' | cut -d':' -f2)
+  quarantined=${quarantined:-0}
+
+  local rejected=$(echo "$response" | grep -o '"rejected":[0-9]*' | cut -d':' -f2)
+  rejected=${rejected:-0}
+
+  local error=$(echo "$response" | grep -o '"error":"[^"]*"' | cut -d'"' -f4)
+  error=${error:-}
 
   if [[ "$success" != "true" ]]; then
     log "ERROR" "Phase 2C scoring failed: $error"
@@ -351,14 +387,14 @@ phase2c_calculate_trust_scores() {
     return 1
   fi
 
+  local total=$((accepted + quarantined + rejected))
   local duration_ms=$(( ($(date +%s%N) - start_time) / 1000000 ))
-  log "INFO" "Phase 2C processed $msg_count messages in ${duration_ms}ms: $accepted accepted, $quarantined quarantined, $rejected rejected"
-  log_activity "PHASE2C" "SUCCESS" "$duration_ms" "{\"accepted\":$accepted,\"quarantined\":$quarantined,\"rejected\":$rejected,\"total\":$msg_count}"
+  log "INFO" "Phase 2C processed $total entries in ${duration_ms}ms: $accepted accepted, $quarantined quarantined, $rejected rejected"
+  log_activity "PHASE2C" "SUCCESS" "$duration_ms" "{\"accepted\":$accepted,\"quarantined\":$quarantined,\"rejected\":$rejected,\"total\":$total}"
 
-  # Save trust scores
-  local scores_file="$COLLECTIONS_DIR/trust_scores_$TIMESTAMP_SHORT.jsonl"
-  if echo "$response" | jq '.results[]? // empty' 2>/dev/null | \
-     while read -r result; do echo "$result"; done > "$scores_file" 2>/dev/null; then
+  # Save trust scores (raw response JSON)
+  local scores_file="$COLLECTIONS_DIR/trust_scores_$TIMESTAMP_SHORT.json"
+  if echo "$response" > "$scores_file"; then
     log "INFO" "Trust scores saved to: $(basename $scores_file)"
   fi
 
@@ -378,7 +414,7 @@ update_memory_file() {
   fi
 
   # Collect all scored messages that were ACCEPTED
-  local scores_file=$(ls -1t "$COLLECTIONS_DIR"/trust_scores_*.jsonl 2>/dev/null | head -1)
+  local scores_file=$(ls -1t "$COLLECTIONS_DIR"/trust_scores_*.json 2>/dev/null | head -1)
 
   if [[ -z "$scores_file" ]] || [[ ! -f "$scores_file" ]]; then
     log "INFO" "No trust scores to merge, MEMORY.md unchanged"
@@ -388,16 +424,31 @@ update_memory_file() {
   local accepted_count=0
   local merge_entries=()
 
+  # Extract results array from JSON and process each result entry
+  # Simple approach: extract entries between [ and ] and split by },{
+  local results_section=$(sed -n '/"results":\[/,/\]/p' "$scores_file")
+
   while IFS= read -r line; do
-    local decision=$(echo "$line" | jq -r '.decision // ""' 2>/dev/null)
-    local score=$(echo "$line" | jq -r '.trustScore // 0' 2>/dev/null)
+    [[ -z "$line" ]] && continue
+
+    # Extract decision and trust score using grep
+    local decision=$(echo "$line" | grep -o '"decision":"[^"]*"' | cut -d'"' -f4)
+    local score=$(echo "$line" | grep -o '"trustScore":[0-9.]*' | cut -d':' -f2)
+
+    # Fallback defaults
+    decision=${decision:-}
+    score=${score:-0}
 
     # Only merge entries with ACCEPT decision and trust score >= threshold
-    if [[ "$decision" == "ACCEPT" ]] && (( $(echo "$score >= $TRUST_SCORE_THRESHOLD" | bc -l) )); then
-      merge_entries+=("$line")
-      ((accepted_count++))
+    # Use awk for floating-point comparison since bash arithmetic is integer-only
+    if [[ "$decision" == "ACCEPT" ]]; then
+      local should_merge=$(awk -v score="$score" -v threshold="$TRUST_SCORE_THRESHOLD" 'BEGIN {print (score >= threshold ? 1 : 0)}')
+      if [[ "$should_merge" == "1" ]]; then
+        merge_entries+=("$line")
+        ((accepted_count++))
+      fi
     fi
-  done < "$scores_file"
+  done <<< "$results_section"
 
   if [[ $accepted_count -eq 0 ]]; then
     log "INFO" "No entries eligible for merge (all below threshold or not ACCEPTED)"
@@ -414,9 +465,15 @@ update_memory_file() {
   local update_count=0
 
   for entry in "${merge_entries[@]}"; do
-    local msg_id=$(echo "$entry" | jq -r '.messageId // "unknown"' 2>/dev/null)
-    local score=$(echo "$entry" | jq -r '.trustScore // 0' 2>/dev/null)
-    local source=$(echo "$entry" | jq -r '.source // "unknown"' 2>/dev/null)
+    # Extract fields using grep (JSON object parsing without jq)
+    local msg_id=$(echo "$entry" | grep -o '"messageId":"[^"]*"' | cut -d'"' -f4)
+    msg_id=${msg_id:-unknown}
+
+    local score=$(echo "$entry" | grep -o '"trustScore":[0-9.]*' | cut -d':' -f2)
+    score=${score:-0}
+
+    local source=$(echo "$entry" | grep -o '"source":"[^"]*"' | cut -d'"' -f4)
+    source=${source:-unknown}
 
     # Create markdown entry
     update_section+=$'- [✅ Auto-Collected] '
