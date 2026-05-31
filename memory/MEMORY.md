@@ -1,8 +1,9 @@
 # 메모리 색인 (SSOT)
 
 ## 🟢 실시간 상태
-- [라이브 체크포인트](CHECKPOINTS_LIVE_STATUS.md) — Phase 2F 배포 진행 중 (안정성 테스트 159/480 cycles, 33.1%), 신뢰도 99%, 블로킹 0
-- [팀 동기화](UNIFIED/_TEAM_SYNC.md) — 15명 팀, 87% 활용도, Phase 5 on-schedule
+- [라이브 조직도 06:11](ORG_STATUS_2026_06_01_0611.md) — Phase 2F 배포 100% ✅ (960/960 cycles, 12h 11m, 06:05 완료), 신뢰도 99%, 성공률 100%, 블로킹 0
+- [주간 개선 리포트](WEEKLY_IMPROVEMENT_REPORT.md) — 2026-05-26~06-01, 위반 0건, 신뢰도 99%, 패턴 분석 3개
+- [팀 동기화](UNIFIED/_TEAM_SYNC.md) — 15명 팀, 87%→100% 활용도 (Freeze 해제 준비), Phase 5 Final Sprint 완료
 
 ## 🎯 핵심 규칙
 - [자율운영](feedback_core_autonomous_operation.md) — 카펌 없이 기술작업 진행, API/토큰 자동화
@@ -34,4 +35,4 @@
 
 ---
 
-**마지막 갱신:** 2026-06-01 00:44 KST (Checkpoint #269) | **상태:** Phase 2F 안정성 테스트 진행 중 (Cycle #159, 33.1%) | **신뢰도:** 99% | **성공률:** 100% | **예정완료:** 02:40 KST (안정성) → 09:00 KST (전체)
+**마지막 갱신:** 2026-06-01 06:11 KST (Org Status Snapshot #276, Phase B Checkpoint #275, Weekly Report) | **상태:** Phase 2F 배포 100% ✅ 완료 (06:05 KST 실제 완료, +105분 조기), Team Dashboard P2 재개 준비중 | **신뢰도:** 99% | **성공률:** 100% (0 failures, 960 cycles) | **팀 상태:** 13→15명 활성화 예정 (Freeze 해제)
