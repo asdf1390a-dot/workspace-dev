@@ -113,3 +113,30 @@
 [2026-05-31 09:15:17] [INFO] Disk usage: 4%
 [2026-05-31 09:15:17] [INFO] All services and disk checks passed ✓
 [2026-05-31 09:15:17] [INFO] ========== Phase 2C Monitoring End (SUCCESS) ==========
+[2026-05-31 10:16:04] [INFO] ========== Phase 2C Monitoring Start ==========
+[2026-05-31 10:16:04] [INFO] Run ID: 1780190164
+[2026-05-31 10:16:04] [WARN] Phase2A: FAILED ✗
+[2026-05-31 10:16:16] [INFO] ========== Phase 2C Monitoring Start ==========
+[2026-05-31 10:16:16] [INFO] Run ID: 1780190176
+[2026-05-31 10:16:16] [INFO] Phase2A: OK ✓
+[2026-05-31 10:16:16] [INFO] Phase2B: ✓ Batch job COMPLETED (dedup output exists)
+[2026-05-31 10:16:16] [INFO] Phase2C: Not yet deployed (expected until 2026-05-30)
+[2026-05-31 10:16:16] [INFO] Disk usage: 4%
+[2026-05-31 10:16:16] [INFO] All services and disk checks passed ✓
+[2026-05-31 10:16:16] [INFO] ========== Phase 2C Monitoring End (SUCCESS) ==========
+[2026-05-31 11:03:55] [INFO] ========== Phase 2C Monitoring Start ==========
+[2026-05-31 11:03:55] [INFO] Run ID: 1780193035
+[2026-05-31 11:03:55] [INFO] Phase2A: OK ✓
+[2026-05-31 11:03:55] [INFO] Phase2B: ✓ Batch job COMPLETED (dedup output exists)
+[2026-05-31 11:03:55] [INFO] Phase2C: Not yet deployed (expected until 2026-05-30)
+[2026-05-31 11:03:55] [INFO] Disk usage: 4%
+[2026-05-31 11:03:55] [INFO] All services and disk checks passed ✓
+[2026-05-31 11:03:55] [INFO] ========== Phase 2C Monitoring End (SUCCESS) ==========
+[2026-05-31 12:03:56] [INFO] ========== Phase 2C Monitoring Start ==========
+[2026-05-31 12:03:56] [INFO] Run ID: 1780196636
+[2026-05-31 12:03:56] [INFO] Phase2A: OK ✓
+[2026-05-31 12:03:56] [INFO] Phase2B: ✓ Batch job COMPLETED (dedup output exists)
+[2026-05-31 12:03:56] [INFO] Phase2C: Not yet deployed (expected until 2026-05-30)
+[2026-05-31 12:03:56] [INFO] Disk usage: 4%
+[2026-05-31 12:03:56] [INFO] All services and disk checks passed ✓
+[2026-05-31 12:03:56] [INFO] ========== Phase 2C Monitoring End (SUCCESS) ==========
