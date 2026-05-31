@@ -1,5 +1,33 @@
 # 메모리 인덱스 (MEMORY.md)
 
+## 🟢 Session Checkpoint #268 (2026-05-31 15:51 KST) — PHASE 1 READY + DISCORD BOT CLASSIFICATION CONFIRMED ✅
+- **상태:** 🟢 DEPLOYMENT-READY + PHASE-1-READY | **상태전이:** 2건 (Discord Bot 분류 ✅, Phase 1 준비완료 ✅) | **프로젝트:** 12/13 완료 (92.3%) + 2/13 진행중 (15.4%) | **신뢰도:** 99% ✓ | **팀활용:** 80% (12/15) ✓ | **블로킹:** 0건 ✓
+- **🆕 DECISION CONFIRMED:** Discord Bot = 회사용 (DSC-INDIA-MANNUR-DISCORD-BOT) — Phase 3c 블로킹 항목 해제
+- **🆕 PHASE 1 STATUS:** 한국어 100% 강제 준비 완료 (171개 메모리 파일) — 시작 신호 대기 (CEO 지시 대기)
+- **Services VERIFIED:** Phase 2A ✅ (port 3009, PID 252632, TCP responding) | Phase 2B ✅ (port 3010, PID 256879, TCP responding) | Health: 15:51 PASS (Disk 4%, Memory 2.1GB/15GB)
+- **Timeline:** 1h 9m to Pre-Deployment Verification 17:00 KST → 2h 9m to Production Deployment 18:00 KST | **Status:** All checkpoints zero transitions, monitoring script active (PID 262270)
+
+## 🟢 Session Continuation (2026-05-31 14:00+ KST) — DEPLOYMENT CYCLE LOCKED ✅
+- **상태:** 🟢 DEPLOYMENT-READY | **상태전이:** 0건 (연속 5시간+ 안정) | **프로젝트:** 12/13 완료 (92.3%) + 2/13 진행중 (15.4%) | **신뢰도:** 99% ✓ | **팀활용:** 80% (12/15) ✓ | **블로킹:** 0건 ✓
+- **Services VERIFIED:** Phase 2A ✅ (port 3009, PID 252632, TCP responding) | Phase 2B ✅ (port 3010, PID 256879, TCP responding) | Health: 13:38:37 PASS (Disk 4%, Memory 2.1GB/15GB)
+- **Timeline:** 3h+ to Pre-Deployment Verification 17:00 KST → 4h+ to Production Deployment 18:00 KST | **Status:** All checkpoints zero transitions, monitoring script active (PID 262270)
+- **Monitoring:** Health Check #5 @ 14:08:37 KST | Checkpoint #253+ every 30min | Phase B enforcement active | Pre-deployment freeze locked (no new spawns) | **GATE READINESS:** 🟢 CONFIRMED
+- **🟡 CRON JOB ALERT:** Phase A Checkpoint Validation (ec3e1404-610e-4f30-8c35-3587ac4b89ff) is legacy (May 20) — system now in Phase 2F deployment. Validation report created: /home/jeepney/.hermes/sessions/phase-a-validation-2026-05-31.json. **Recommendation:** Replace with Phase 2F validation cron or archive after deployment complete.
+
+## 🟢 Session Checkpoint #252 (2026-05-31 13:40 KST) — MONITORING CYCLE STABLE ✅
+- **상태:** 🟢 STABLE | **상태전이:** 0건 (3시간 연속 안정) | **프로젝트:** 12/13 완료 (92.3%) + 2/13 진행중 (15.4%) | **신뢰도:** 99% ✓ | **팀활용:** 80% (12/15) ✓ | **블로킹:** 0건 ✓
+- **Health Checks:** Phase 2A ✅ (port 3009, ready) | Phase 2B ✅ (port 3010, ready) | Resources: Disk 4%, Memory 2.1GB/15GB | Timeline: **3h 20m → 17:00 Pre-Deployment Verification**
+- **다음체크:** 2026-05-31 14:08:37 KST (health monitoring) | 2026-05-31 14:10 KST (checkpoint #253)
+
+---
+
+## 🟢 Overnight Checkpoint #267 (2026-05-31 13:36 KST) — ALL SYSTEMS GO FOR DEPLOYMENT ✅
+- **상태:** 🟢 GO FOR DEPLOYMENT | **상태전이:** 0건 (12:38 #266 대비) | **프로젝트:** 12/13 완료 (92.3%) + 1/13 진행중 (7.7%) | **신뢰도:** 99% ✓ | **팀활용:** 80% (12/15) ✓ | **블로킹:** 0건 ✓
+- **완료 확인:** Backup-P2-UI ✅ (2026-05-29 22:43, 50+ E2E tests) | Phase 2E ✅ (2026-05-30 05:21, all priorities 1/2/3) | Morning Checklist ✅ (2026-05-31 08:59, 10/10 items)
+- **자동화 상태:** Phase 2A ✅ (port 3009, PID 252632, uptime 3.3h, health: ready) | Phase 2B ✅ (port 3010, PID 256879, uptime 8.5h, health: ready) | Phase 2F Monitoring ✅ (PID 262270, 30min cycle active)
+- **시스템 상태:** Disk 4%, Memory 1.9GB/15GB, CPU normal | **블로킹:** 0 | **규칙준수:** 3/3 ✅
+- **배포 일정:** 17:00 Pre-Deployment Verification (4h 24m) → 18:00 Production Deployment START (5h 24m) | **신뢰도:** VERY HIGH (99%)
+
 **🟢 Session Checkpoint #266 (2026-05-31 12:38 KST) — MONITORING PHASE ACTIVE**: Phase 2A ✅ (port 3009, PID 252632, health: ready) | Phase 2B ✅ (port 3010, PID 256879, health: ready) | Monitoring script ✅ running (PID 262270, 30min checks) | Resources: Disk 4%, Memory 1.9GB/15GB | **Timeline:** 4h 22m → 17:00 pre-deployment verification | Cron scheduled: 17:00 Pre-Deployment Verification (18/18 checklist) + 18:00 Production Deployment START | **상태:** 12/13 완료, 신뢰도 99%, 블로킹 0
 
 ## 🟢 Session Checkpoint #241 (2026-05-31 06:25 KST) — ZERO Transitions, Team Status Update Complete ✅

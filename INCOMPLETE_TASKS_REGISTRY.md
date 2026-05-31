@@ -83,9 +83,35 @@ status: 운영 중
 
 ---
 
+## 🆙 **CHECKPOINT #268: SESSION AUTO-SAVE (2026-05-31 15:51 KST)**
+
+**타이밍:** 2026-05-31 15:51 KST (30분 주기 Session checkpoint cron)  
+**트리거:** Auto-save cycle (#267 대비 2h 15m 경과)  
+**기간:** 2026-05-31 13:36 → 2026-05-31 15:51 (2h 15m 경과)
+
+### ✅ **변화 감지: NEW DECISIONS LOGGED**
+- **Discord Bot 분류:** 🔴 Phase 3c (사용자 확인 대기) → ✅ 회사용 (DSC-INDIA-MANNUR-DISCORD-BOT) **CONFIRMED 15:50 KST**
+- **Phase 1 상태:** 🟡 준비 진행중 → 🟢 준비 완료 (시작 신호 대기)
+- **프로젝트 상태:** 12/13 완료 (92.3%) + 2/13 진행중 (15.4%) — 상태 유지
+- **상태 전이:** 0건 (ZERO transitions since #267 13:36)
+- **블로킹:** 0건 (ZERO blocking items)
+- **신뢰도:** 99% (유지)
+- **팀 활용:** 80% (12/15 활동중, 프리즈 기간 3명 대기)
+- **Health Checks:** Phase 2A ✅ (port 3009, ready) | Phase 2B ✅ (port 3010, ready)
+- **Resource State:** Disk 4%, Memory 2.1Gi/15Gi (stable)
+
+**변화:** 2개 DECISION ITEMS LOGGED
+- ✅ Discord Bot 분류 확정
+- ✅ Phase 1 준비 완료 신호
+
+**진행 상황:** 커밋 1건 (discrepancies resolved)  
+**다음 체크:** 16:21 KST (30min 주기) + **17:00 KST Pre-Deployment Verification Gate (중요)**
+
+---
+
 **⏳ 임계점까지 남은 시간:**
-- Pre-Deployment Verification Gate: **3h 20m** (17:00 KST)
-- Production Deployment Window: **4h 20m** (18:00 KST start)
+- Pre-Deployment Verification Gate: **1h 9m** (17:00 KST)
+- Production Deployment Window: **2h 9m** (18:00 KST start)
 
 ---
 

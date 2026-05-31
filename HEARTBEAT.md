@@ -54,12 +54,12 @@
 ### 📊 **작업 현황 요약 — 최종 체크 (19:49 KST)**
 **✅ 모든 활성 subagent 완료됨 (최근 30분 활성 0개)**
 
-**✅ 완료 프로젝트:**
+**✅ 완료한 프로젝트:**
 1. BM-P1: ✅ (2026-05-28 14:26)
 2. Team Dashboard P1 API: ✅ (1,115줄) → Vercel 배포 중
 3. Discord-Bot-P1: ✅ (2026-05-27 00:23)
 4. Travel-P2-UI: ✅ (2026-05-27 02:30)
-5. Asset Master P2 UI: ✅ 버그 고정 (2026-05-28 16:50) → Vercel 배포 준비
+5. Asset Master P2 UI: ✅ 버그 수정 (2026-05-28 16:50) → Vercel 배포 준비
 
 **🟡 진행 중 (백그라운드 모니터링):**
 - Backup Management P2: 30%
@@ -67,25 +67,25 @@
 - Phase C 팀 (Memory/DevOps/QA/Planner): 배치 완료, 작업 중
 
 **⚪ 저장 상태:**
-- Git status: modified 3개 파일 (tracked)
+- 깃 상태: modified 3개 파일 (추적중)
 - CTB: 최신 업데이트 (2026-05-28 14:27)
-- Memory: 정상 (MEMORY.md updated 14:14)
-- Subagent queue: 활성 0개, 대기 가능
+- 메모리: 정상 (MEMORY.md updated 14:14)
+- 서브에이전트 큐: 활성 0개, 대기 가능
 
 ### 🚨 **긴급 항목 — 모두 해결**
 1. **db/35_audit_system.sql 실행** ✅ **완료 (2026-05-23 12:12 KST)**
-   - Status: ✅ Supabase에서 성공 실행 (Success. No rows returned)
-   - Result: audit_event_logs, audit_sessions 테이블 생성 완료
+   - 상태: ✅ Supabase에서 성공 실행 (Success. No rows returned)
+   - 결과: audit_event_logs, audit_sessions 테이블 생성 완료
    - 평가자 신호: ✅ 발송 완료 (12:12)
 
 2. **BM-P1 재작업** ✅ **완료 (2026-05-23 12:12 KST)**
-   - Status: ✅ 웹개발자 재작업 완료 (UI/API 구현)
+   - 상태: ✅ 웹개발자 재작업 완료 (UI/API 구현)
    - 평가자 재평가 신호: ✅ 발송 완료 (12:12)
-   - Deadline: 2026-05-24 15:00
+   - 마감: 2026-05-24 15:00
 
 3. **AUDIT-P1 3차** ✅ **완료 (2026-05-23 11:13 KST)**
-   - Status: ✅ 평가자 intake 신호 발송 완료
-   - Deadline: 2026-05-24 09:00 (예상)
+   - 상태: ✅ 평가자 intake 신호 발송 완료
+   - 예상 마감: 2026-05-24 09:00
 
 ### 📈 **성과 지표 (18:00 KST 최종)**
 | 지표 | 수치 | 목표 | 상태 |
@@ -104,77 +104,77 @@
 - ✅ DISCORD-BOT-P1 완료 → 평가자 intake 신호 발송 ✅
 - ✅ TRAVEL-P2-UI 완료 → 평가자 피드백 대기
 - ✅ db/35_audit_system.sql 실행 완료 (12:12)
-- ✅ IMAGE-EDITING-AD-HOC: ✅ 언블록 완료 (2026-05-28, Chat ID 8650232975)
+- ✅ IMAGE-EDITING-AD-HOC: ✅ 블로킹 해제 완료 (2026-05-28, Chat ID 8650232975)
 
-### 📋 **Tomorrow (2026-05-24) Pulled Tasks**
-🔴 **CRITICAL:**
+### 📋 **내일 (2026-05-24) 당겨온 작업**
+🔴 **긴급:**
 1. DISCORD-BOT-P1 평가자 피드백 수신 → 필요시 웹개발자 수정
-2. BM-P1 평가자 재평가 완료 (Deadline 15:00)
+2. BM-P1 평가자 재평가 완료 (마감 15:00)
 
-🟡 **HIGH:**
+🟡 **높음:**
 1. DEVOPS-P1 공식 재계획 (2026-05-27로 변경 + 팀 공지)
 2. TRAVEL-P2-UI 평가자 피드백 수신 → 필요시 수정
 
-🔵 **MEDIUM:**
+🔵 **중간:**
 1. IMAGE-EDITING-AD-HOC 재시작 (✅ Chat ID 8650232975 설정 완료, 즉시 진행 가능)
 2. HARNESS-ENG-P1-DAY3 블로킹 해제 (✅ Chat ID 설정 완료, 즉시 진행 가능)
 
-### 💬 **Vacation Mode Status (Day 14 — Final Check)**
-- Autonomous execution: COMPLETE (2026-05-15 ~ 2026-05-28 19:49)
-- Phase 2 autonomous execution: ✅ 완료
-- All systems: ✅ nominal
-- **Last saved: 2026-05-28 19:49 KST**
-- Next: User return expected — resuming manual operations
+### 💬 **휴가모드 상태 (Day 14 — 최종 점검)**
+- 자율 실행: 완료 (2026-05-15 ~ 2026-05-28 19:49)
+- Phase 2 자율 실행: ✅ 완료
+- 모든 시스템: ✅ 정상
+- **마지막 저장: 2026-05-28 19:49 KST**
+- 다음: 사용자 복귀 예상 — 수동 운영 재개
 
 ---
 
 ## 🟢 2026-05-23 11:13 Checkpoint Update — Phase 2 Critical Milestone
 
-### 📊 **Task Status Summary**
-**60% Completion (6/10 tasks)**
-- ✅ COMPLETED: 6 tasks
-  - AUTOMATION-SPECIALIST (08:00 forced completion)
+### 📊 **작업 상태 요약**
+**60% 완료 (6/10 작업)**
+- ✅ 완료: 6개 작업
+  - AUTOMATION-SPECIALIST (08:00 강제완료)
   - WEB-DEV-SUPPORT (2026-05-22 23:59)
   - BACKUP-PHASE2-UI (2026-05-20)
   - ONBOARDING-AUDIT (2026-05-17)
   - **AUDIT-P1 Phase 2** (11:13 ✅ 3차 시도 완료)
   - **BM-P1 재작업** (11:13 ✅ UI/API 구현 완료)
   
-- 🟡 IN_PROGRESS: 2 tasks (Phase 2 Parallel Execution)
+- 🟡 진행중: 2개 작업 (Phase 2 병렬 실행)
   - DISCORD-BOT-P1: ✅ 완료 (01:36) → 평가자 intake 신호 발송 완료
   - TRAVEL-P2-UI: ✅ 완료 (02:01) → 평가자 피드백 대기
   
-- 🔴 BLOCKED_ON_USER: 1 task
-  - IMAGE-EDITING-AD-HOC: Telegram ID pending
+- 🔴 사용자 대기중: 1개 작업
+  - IMAGE-EDITING-AD-HOC: Telegram ID 대기 중
   - ~~**db/35_audit_system.sql 실행 필요**~~ ✅ **완료 (2026-05-23 12:12)**
   
-- ⚪ PENDING: 0 tasks (DEVOPS-P1 공식 2026-05-27로 연기)
+- ⚪ 보류중: 0개 작업 (DEVOPS-P1 공식 2026-05-27로 연기)
 
-### 🚨 **Critical Items**
+### 🚨 **긴급 항목**
 1. **db/35_audit_system.sql 실행** ✅ **완료 (2026-05-23 12:12 KST)**
-   - Status: ✅ Supabase에서 성공 실행 (Success. No rows returned)
-   - Result: audit_event_logs, audit_sessions 테이블 생성 완료
+   - 상태: ✅ Supabase에서 성공 실행 (Success. No rows returned)
+   - 결과: audit_event_logs, audit_sessions 테이블 생성 완료
    - 평가자 신호: ✅ 발송 완료
 
 2. **BM-P1 재평가 진행중**
-   - Status: 🟡 웹개발자 재작업 완료 (11:13), 평가자 재평가 신호 발송 완료
-   - Deadline: 2026-05-24 15:00
-   - Action: 평가자 재평가 중
+   - 상태: 🟡 웹개발자 재작업 완료 (11:13), 평가자 재평가 신호 발송 완료
+   - 마감: 2026-05-24 15:00
+   - 조치: 평가자 재평가 중
 
-### 📈 **Performance Metrics (11:13 KST)**
-| Metric | Value | Target | Status |
+### 📈 **성능 지표 (11:13 KST)**
+| 지표 | 수치 | 목표 | 상태 |
 |--------|-------|--------|--------|
-| Completion Rate | 60% (6/10) | 70% | 🟡 -10% |
-| Reliability Score | 96% | 95% | ✅ +1% |
-| Schedule Adherence | 89% | 95% | 🟡 -6% |
-| Checkpoint Compliance | 100% | 95% | ✅ +5% |
+| 완료율 | 60% (6/10) | 70% | 🟡 -10% |
+| 신뢰도 | 96% | 95% | ✅ +1% |
+| 일정 준수율 | 89% | 95% | 🟡 -6% |
+| 체크포인트 준수 | 100% | 95% | ✅ +5% |
 
-### 🤖 **Phase 2 Autonomous Execution Status (12:13 KST)**
+### 🤖 **Phase 2 자율 실행 상태 (12:13 KST)**
 - ✅ 4/4 Phase 2 프로젝트 완료 (AUDIT-P1 1차, DISCORD-BOT-P1, TRAVEL-P2-UI, BM-P1 평가)
-- ✅ AUDIT-P1 2차 FAILED → 자동복구 B2 트리거 → 3차 완료 (11:13) → DB 적용 (12:12) ✅
-- ✅ BM-P1 평가 완료 (NO-GO) → 웹개발자 재작업 (11:13) → 재평가 신호 발송 (12:12) ✅
+- ✅ AUDIT-P1 2차 실패 → 자동복구 B2 트리거 → 3차 완료 (11:13) → DB 적용 (12:12) ✅
+- ✅ BM-P1 평가 완료 (진행안함) → 웹개발자 재작업 (11:13) → 재평가 신호 발송 (12:12) ✅
 - ✅ 평가자 intake 신호 3건 발송 완료 (AUDIT-P1 3차, BM-P1 재작업, DISCORD-BOT-P1)
-- ✅ 사용자 액션 완료: db/35_audit_system.sql 실행 (12:12 KST)
+- ✅ 사용자 조치 완료: db/35_audit_system.sql 실행 (12:12 KST)
 
 ### 📋 **Current Timeline (2026-05-23 12:12 → 2026-05-23 13:00)**
 - **12:12:** ✅ db/35_audit_system.sql 실행 완료 (Supabase)
@@ -183,11 +183,11 @@
 - **12:30:** ✅ Checkpoint #117 자동 실행 (예정)
 - **이후:** AUDIT-P1 3차 & BM-P1 평가자 재평가 결과 대기
 
-### 💬 **Vacation Mode Status**
-- Autonomous execution: ACTIVE (2026-05-15~24)
-- User action completed: ✅ db/35_audit_system.sql 실행 완료 (12:12 KST)
-- Phase 2 parallel execution: 4/4 프로젝트 완료, 평가자 재평가 대기
-- Auto-recovery system: B1/B2/B3 모두 active, Checkpoint #117 12:30 KST 예정
+### 💬 **휴가모드 상태**
+- 자율 실행: 활성화 (2026-05-15~24)
+- 사용자 조치 완료: ✅ db/35_audit_system.sql 실행 완료 (12:12 KST)
+- Phase 2 병렬 실행: 4/4 프로젝트 완료, 평가자 재평가 대기
+- 자동복구 시스템: B1/B2/B3 모두 활성화, 체크포인트 #117 12:30 KST 예정
 
 ---
 
@@ -324,6 +324,6 @@
 
 ---
 
-## Related
+## 관련
 
-- [Heartbeat config](/gateway/config-agents)
+- [하트비트 설정](/gateway/config-agents)
