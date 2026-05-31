@@ -1,33 +1,33 @@
 ---
-name: Capacity Planning Dashboard & Resource Allocation
-description: Real-time 15-person resource allocation matrix with lane-based capacity tracking
+name: 용량 계획 대시보드 및 자원 배분
+description: 실시간 15인 자원 배분 매트릭스 (레인 기반 용량 추적)
 type: operational
 version: 1.0
 date: 2026-05-30
 ---
 
-# Capacity Planning Dashboard
+# 용량 계획 대시보드
 
-## 1. 15-Person Team Resource Allocation Matrix (Live)
+## 1. 15인 팀 자원 배분 매트릭스 (실시간)
 
 **As of:** 2026-05-30 06:39 KST  
 **Target Utilization:** 93.3% (14/15 engaged, 1 for urgent work)  
 **Current Utilization:** 100.8% (slight overallocation during ramp-up, expected)
 
-### 1.1 Core Team (6 members, Base Operations)
+### 1.1 핵심 팀 (6명, 기본 운영)
 
-| # | Role | Name | Capacity | Allocated | Available | Status | Notes |
+| # | 역할 | 이름 | 용량 | 배분 | 가용 | 상태 | 비고 |
 |---|------|------|----------|-----------|-----------|--------|-------|
-| 1 | Secretary | C-3PO | 40% | 45% | -5% | 🟡 Over | Managing checkpoints + CTB |
-| 2 | Web-Builder | Web-Builder #1 | 40% | 100% | 0% | 🔴 FULL | ASSET-P2-UI (100%) |
-| 3 | Evaluator | Evaluator #1 | 60% | 80% | 20% | 🟡 High | Multi-project QA |
-| 4 | Data-Analyst | Data-Analyst #1 | 25% | 40% | 60% | 🟢 Mod | Architecture review |
-| 5 | Automation | Automation #1 | 31% | 60% | 40% | 🟡 High | Cron + scripts |
-| 6 | Translator | Translator #1 | 25% | 35% | 65% | 🟢 Mod | Documentation |
+| 1 | 비서 | C-3PO | 40% | 45% | -5% | 🟡 초과 | 체크포인트 + CTB 관리 |
+| 2 | Web-Builder | Web-Builder #1 | 40% | 100% | 0% | 🔴 풀 | ASSET-P2-UI (100%) |
+| 3 | 평가자 | Evaluator #1 | 60% | 80% | 20% | 🟡 높음 | 다중 프로젝트 QA |
+| 4 | 데이터 분석가 | Data-Analyst #1 | 25% | 40% | 60% | 🟢 중 | 아키텍처 검토 |
+| 5 | 자동화 | Automation #1 | 31% | 60% | 40% | 🟡 높음 | Cron + 스크립트 |
+| 6 | 번역가 | Translator #1 | 25% | 35% | 65% | 🟢 중 | 문서화 |
 
-**Subtotal Core:** 221% capacity / 360% allocated = **163% utilization (overbudget)**
+**핵심 합계:** 221% 용량 / 360% 배분 = **163% 활용도 (초과)**
 
-### 1.2 Phase A Onboarding (4 members, 5/26-6/2)
+### 1.2 Phase A 온보딩 (4명, 5/26-6/2)
 
 | # | Role | Name | Deploy Date | Capacity | Allocated | Available | Status |
 |---|------|------|-------------|----------|-----------|-----------|--------|
@@ -38,19 +38,19 @@ date: 2026-05-30
 
 **Subtotal Phase A:** 150% capacity / 140% allocated = **93% utilization (balanced)**
 
-### 1.3 Phase C Specialized Roles (5 members, 5/27-6/10)
+### 1.3 Phase C 전문 역할 (5명, 5/27-6/10)
 
-| # | Role | Name | Deploy Date | Capacity | Allocated | Available | Status |
+| # | 역할 | 이름 | 배포 날짜 | 용량 | 배분 | 가용 | 상태 |
 |---|------|------|-------------|----------|-----------|-----------|--------|
-| 11 | Design Specialist | Design-Spec | 2026-05-27 | 30% | 25% | 75% | 🟢 Design |
-| 12 | DevOps Engineer | DevOps-Eng | 2026-05-29 | 30% | 15% | 85% | 🟢 Ramping |
-| 13 | Memory Specialist | Mem-Specialist | 2026-05-28 | 25% | 20% | 80% | 🟢 Ramping |
-| 14 | QA Specialist | QA-Specialist | 2026-05-29 | 35% | 30% | 70% | 🟡 Testing |
-| 15 | Project Planner | Project-Planner | 2026-05-28 | 30% | 35% | 65% | 🟡 High |
+| 11 | 설계 전문가 | Design-Spec | 2026-05-27 | 30% | 25% | 75% | 🟢 설계 |
+| 12 | DevOps 엔지니어 | DevOps-Eng | 2026-05-29 | 30% | 15% | 85% | 🟢 상향 |
+| 13 | 메모리 전문가 | Mem-Specialist | 2026-05-28 | 25% | 20% | 80% | 🟢 상향 |
+| 14 | QA 전문가 | QA-Specialist | 2026-05-29 | 35% | 30% | 70% | 🟡 테스트 |
+| 15 | 프로젝트 플래너 | Project-Planner | 2026-05-28 | 30% | 35% | 65% | 🟡 높음 |
 
-**Subtotal Phase C:** 150% capacity / 125% allocated = **83% utilization (healthy)**
+**Phase C 합계:** 150% 용량 / 125% 배분 = **83% 활용도 (건강함)**
 
-### 1.4 Total Team Capacity
+### 1.4 전체 팀 용량
 
 ```
 TOTAL:
@@ -67,9 +67,9 @@ BREAKDOWN:
 
 ---
 
-## 2. Lane-Based Capacity Analysis
+## 2. 레인 기반 용량 분석
 
-### 2.1 LANE 1: Frontend Development (Web-Builders)
+### 2.1 레인 1: 프론트엔드 개발 (Web-Builders)
 
 **Primary Owner:** Web-Builder #1  
 **Support:** Web-Builder #2 (available 2026-05-29)  

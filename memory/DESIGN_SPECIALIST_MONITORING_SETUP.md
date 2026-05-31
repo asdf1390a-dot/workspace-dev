@@ -4,7 +4,7 @@ description: Automated daily checkpoint schedule for Team Dashboard P2 UI design
 type: project
 ---
 
-# Design Specialist Daily Monitoring Setup
+# 설계 Specialist Daily Monitoring Setup
 **Created:** 2026-05-27 18:50 KST  
 **Project:** Team Dashboard Phase 2 UI Design  
 **Timeline:** 2026-05-27 ~ 2026-06-10 (8 days)  

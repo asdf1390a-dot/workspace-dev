@@ -6,7 +6,7 @@ version: 1.0
 date: 2026-05-30
 ---
 
-# Coordination System Quick Start (TL;DR)
+# 조율 시스템 빠른시작 (TL;DR)
 
 **Go-Live:** 2026-05-31 08:00 KST  
 **Status:** READY FOR ACTIVATION  

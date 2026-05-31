@@ -4,7 +4,7 @@ description: Jest + Supertest 테스트 케이스, 커버리지 전략, Mock 데
 type: project
 ---
 
-# DSC-INDIA-MANNUR-BM Phase 1 — Test Specification
+# DSC-INDIA-MANNUR-BM Phase 1 — 테스트 명세
 
 **프로젝트:** Breakdown Management Phase 1  
 **테스트 프레임워크:** Jest + Supertest  

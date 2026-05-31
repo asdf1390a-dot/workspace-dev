@@ -18,3 +18,33 @@
 [2026-05-31 13:08:36 KST] Disk: 4% | Memory: 2.1Gi/15Gi
 [2026-05-31 13:08:36 KST] 
 [2026-05-31 13:08:36 KST] Next check scheduled at 13:38:36 KST
+[2026-05-31 13:38:37 KST] === Health Check ===
+[2026-05-31 13:38:37 KST] ✅ Phase 2A: ready
+[2026-05-31 13:38:37 KST] ✅ Phase 2B: ready
+[2026-05-31 13:38:37 KST] Disk: 4% | Memory: 2.1Gi/15Gi
+[2026-05-31 13:38:37 KST] 
+[2026-05-31 13:38:37 KST] Next check scheduled at 14:08:37 KST
+[2026-05-31 14:08:38 KST] === Health Check ===
+[2026-05-31 14:08:38 KST] ✅ Phase 2A: ready
+[2026-05-31 14:08:38 KST] ✅ Phase 2B: ready
+[2026-05-31 14:08:38 KST] Disk: 4% | Memory: 2.8Gi/15Gi
+[2026-05-31 14:08:38 KST] 
+[2026-05-31 14:08:38 KST] Next check scheduled at 14:38:38 KST
+[2026-05-31 14:38:38 KST] === Health Check ===
+[2026-05-31 14:38:38 KST] ✅ Phase 2A: ready
+[2026-05-31 14:38:38 KST] ✅ Phase 2B: ready
+[2026-05-31 14:38:38 KST] Disk: 4% | Memory: 2.0Gi/15Gi
+[2026-05-31 14:38:38 KST] 
+[2026-05-31 14:38:38 KST] Next check scheduled at 15:08:38 KST
+[2026-05-31 15:08:39 KST] === Health Check ===
+[2026-05-31 15:08:39 KST] ✅ Phase 2A: ready
+[2026-05-31 15:08:39 KST] ✅ Phase 2B: ready
+[2026-05-31 15:08:39 KST] Disk: 4% | Memory: 2.6Gi/15Gi
+[2026-05-31 15:08:39 KST] 
+[2026-05-31 15:08:39 KST] Next check scheduled at 15:38:39 KST
+[2026-05-31 15:38:40 KST] === Health Check ===
+[2026-05-31 15:38:40 KST] ✅ Phase 2A: ready
+[2026-05-31 15:38:40 KST] ✅ Phase 2B: ready
+[2026-05-31 15:38:40 KST] Disk: 4% | Memory: 2.0Gi/15Gi
+[2026-05-31 15:38:40 KST] 
+[2026-05-31 15:38:40 KST] Next check scheduled at 16:08:40 KST

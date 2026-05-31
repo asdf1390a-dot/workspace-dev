@@ -1,13 +1,13 @@
 ---
-name: Work History Package for New Team Member Onboarding
-description: Complete design documents, code patterns, documentation structure, and team communication protocols for new Web-Builder AI Agent onboarding
+name: 신규팀원 온보딩용 작업 이력 패키지
+description: 완성된 설계 문서, 코드 패턴, 문서 구조, 팀 커뮤니케이션 프로토콜 (Web-Builder AI Agent 온보딩용)
 type: reference
 date: 2026-05-18
 ---
 
-# Work History Package — New Web Developer Onboarding Reference
+# 작업 이력 패키지 — 신규 웹개발자 온보딩 참고자료
 
-## 📚 Design Documents Completed (Persisted Portfolio)
+## 📚 완료된 설계 문서 (보존된 포트폴리오)
 
 ### Phase 2 Projects (2026-05-16 ~ 06-03)
 

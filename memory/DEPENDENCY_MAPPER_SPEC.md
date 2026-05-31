@@ -586,7 +586,7 @@ python3 scripts/analyze-parallelization.py
 # Migration watch (every 30 min)
 */30 * * * * /usr/local/bin/dependency-monitor-migrations.sh
 
-# Deployment conflict watch (every 15 min)
+# 배포 conflict watch (every 15 min)
 */15 * * * * /usr/local/bin/dependency-monitor-deployments.sh
 
 # Daily summary

@@ -12,7 +12,7 @@ originSessionId: agent:dev:cron:92eef23b-ab1b-453a-826a-b07cd74458b5:run:5cd5dc0
 childSessionKey: agent:dev:subagent:cf814611-a779-45cd-991b-6b1cc48bc17e
 ---
 
-# Phase C #12: DevOps Engineer — Infrastructure Monitoring & Observability
+# Phase C #12: DevOps 엔지니어 — 인프라 모니터링 & 관찰성
 
 **Spawn Time:** 2026-05-28 08:30 KST (Auto-spawn after Phase C #11 completion)  
 **Run ID:** 5fa64ac8-da3c-4f70-ae67-c758646e319e  
@@ -21,18 +21,18 @@ childSessionKey: agent:dev:subagent:cf814611-a779-45cd-991b-6b1cc48bc17e
 
 ---
 
-## 🎯 Assignment Summary
+## 🎯 할당 요약
 
-**Objective:** Design comprehensive infrastructure monitoring + observability system for 15-person distributed team
+**목표:** 15명 분산팀을 위한 종합 인프라 모니터링 + 관찰성 시스템 설계
 
-**Scope:**
-- Alert framework (Datadog/CloudWatch)
-- Real-time dashboards (7-day + 30-day views)
-- SLA tracking (uptime, latency, error rate)
-- Incident response playbooks
-- Cost optimization monitoring
+**범위:**
+- 알림 프레임워크 (Datadog/CloudWatch)
+- 실시간 대시보드 (7일 + 30일 뷰)
+- SLA 추적 (가용성, 지연시간, 에러율)
+- 인시던트 대응 플레이북
+- 비용 최적화 모니터링
 
-**Technology Stack:**
+**기술 스택:**
 - Monitoring: Datadog or AWS CloudWatch
 - Alerting: PagerDuty/Opsgenie
 - Logging: CloudWatch Logs / Datadog APM

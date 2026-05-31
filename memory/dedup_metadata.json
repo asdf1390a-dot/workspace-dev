@@ -1,23 +1,23 @@
 {
-  "timestamp": "2026-05-31T01:00:02.172Z",
-  "runtime_ms": 32,
+  "timestamp": "2026-05-31T05:00:02.189Z",
+  "runtime_ms": 36,
   "input": {
     "file": "/home/jeepney/.openclaw/workspace-dev/memory/messages.jsonl",
-    "count": 415
+    "count": 419
   },
   "layer1": {
-    "unique": 414,
+    "unique": 418,
     "duplicates": 1,
     "method": "EXACT_HASH"
   },
   "layer2": {
-    "unique": 384,
-    "duplicates": 30,
+    "unique": 386,
+    "duplicates": 32,
     "method": "PREFIX_MATCH",
     "prefixLen": 80
   },
   "final": {
-    "unique": 384,
-    "reduction": "7.5%"
+    "unique": 386,
+    "reduction": "7.9%"
   }
 }

@@ -1,11 +1,11 @@
-# Team Dashboard Project Memory
+# 팀 대시보드 프로젝트 메모리
 
 **Status:** ✅ Phase 1 COMPLETE  
 **Created:** 2026-05-26  
 **Milestone:** 2026-05-31 18:00 KST  
 **Progress:** Phase 1 완료 (100%)
 
-## 🎯 Project Overview
+## 🎯 프로젝트 개요
 
 DSC Mannur 팀 11명 규모의 조직도 + 포트폴리오 + 이력 추적 대시보드를 구현하는 프로젝트.
 

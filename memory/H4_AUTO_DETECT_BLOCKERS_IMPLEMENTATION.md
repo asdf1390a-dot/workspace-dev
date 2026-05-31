@@ -1,28 +1,28 @@
 ---
-name: H4 — Auto-Detection of Safe-to-Execute Blockers
-description: Hypothesis 4 implementation — Auto-detect + auto-execute BLOCKED_ON_USER items where safe
+name: H4 — 안전실행 가능 차단항목 자동감지
+description: 가설 4 구현 — BLOCKED_ON_USER 항목 중 안전한 것 자동감지 + 자동실행
 type: system
 created: 2026-05-29 08:30 KST
 implementation_status: 🟡 Planning
 test_period: 2026-05-29 to 2026-05-31 18:00
 ---
 
-# H4: Auto-Detection of Safe-to-Execute Blockers
+# H4: 안전실행 가능 차단항목 자동감지
 
-**Problem Statement:**  
-BM-P1 (db/43 migration) and HARNESS-ENG-P1 (Telegram config) require specific user actions but detection relies on manual Telegram signals. Risk: Users need to discover + manually execute actions, causing 8+ hour delays.
+**문제 진술:**  
+BM-P1 (db/43 마이그레이션) 및 HARNESS-ENG-P1 (Telegram 설정)은 특정 사용자 작업이 필요하지만 감지가 수동 Telegram 신호에 의존합니다. 위험: 사용자가 조치를 발견하고 수동으로 실행해야 하므로 8시간 이상 지연.
 
-**Solution:**  
-Implement auto-detection system that identifies safe-to-execute blockers (db migrations with syntax validation, env var configs with existing values elsewhere) and automatically executes them with user confirmation step.
+**솔루션:**  
+안전실행 가능한 차단항목(구문 검증이 있는 DB 마이그레이션, 기존값이 다른 곳에 있는 환경변수 설정)을 식별하고 사용자 확인 단계를 거쳐 자동으로 실행하는 자동감지 시스템 구현.
 
 ---
 
-## Implementation Specification
+## 구현 명세
 
-### Component 1: Blocker Scanner (Safe-to-Execute Detection)
+### 구성요소 1: 차단항목 스캐너 (안전실행 가능 감지)
 
-**Scope:**  
-Scan INCOMPLETE_TASKS_REGISTRY for BLOCKED_ON_USER items and classify by execution safety.
+**범위:**  
+INCOMPLETE_TASKS_REGISTRY에서 BLOCKED_ON_USER 항목을 스캔하고 실행 안전성별로 분류.
 
 **Classification Logic:**
 ```

@@ -9,17 +9,17 @@ owner: DevOps Engineer (Phase C #12)
 status: 🟡 In Progress
 ---
 
-# PHASE C #12: DEVOPS ENGINEER FIRST TASK
-## Infrastructure Monitoring + Logging + Alerting System Design
+# PHASE C #12: DEVOPS 엔지니어 첫 번째 과제
+## 인프라 모니터링 + 로깅 + 알림 시스템 설계
 
-**Objective:** Design comprehensive real-time monitoring + alerting system for 15-person team operating 8 concurrent projects  
-**Deadline:** 2026-06-05 18:00 KST  
-**Success Criteria:** 
-- ✅ Datadog monitoring architecture + dashboard deployment
-- ✅ Real-time alerting rules (Slack/Telegram/Email)
-- ✅ CI/CD pipeline optimization (GitHub Actions)
-- ✅ Distributed logging + tracing strategy
-- ✅ Implementation roadmap (Phase D: 2026-06-06~06-12)
+**목표:** 8개 동시 프로젝트를 운영하는 15명 팀을 위한 종합 실시간 모니터링 + 알림 시스템 설계  
+**마감일:** 2026-06-05 18:00 KST  
+**성공 기준:** 
+- ✅ Datadog 모니터링 아키텍처 + 대시보드 배포
+- ✅ 실시간 알림 규칙 (Slack/Telegram/Email)
+- ✅ CI/CD 파이프라인 최적화 (GitHub Actions)
+- ✅ 분산 로깅 + 추적 전략
+- ✅ 구현 로드맵 (Phase D: 2026-06-06~06-12)
 
 ---
 

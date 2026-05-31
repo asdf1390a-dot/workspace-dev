@@ -4,7 +4,7 @@ description: Phase 2F 실행 1시간 전 최종 체크리스트 — 2026-05-31 1
 type: project
 ---
 
-# Phase 2F Pre-Deployment Verification Checklist
+# Phase 2F 배포 전 검증 체크리스트
 
 **실행 시간:** 2026-05-31 17:00 KST (Phase 2F 시작 1시간 전)  
 **담당:** Secretary Agent (배포 리드) + DevOps Engineer (인프라 검증)  
