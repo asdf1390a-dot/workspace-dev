@@ -1,9 +1,9 @@
 # 메모리 색인 (SSOT)
 
 ## 🟢 실시간 상태
-- [라이브 조직도 06:11](ORG_STATUS_2026_06_01_0611.md) — Phase 2F 배포 100% ✅ (960/960 cycles, 12h 11m, 06:05 완료), 신뢰도 99%, 성공률 100%, 블로킹 0
+- [라이브 조직도 07:39](ORG_STATUS_2026_06_01_0737.md) — Phase 2F 배포 100% ✅ (960/960 cycles, 12h 5m, 06:05 완료, +105분 조기), Team Dashboard P2 진행중 (ETA 06-10 18:00), BM-P1 Phase 2 + Memory Auto-P3 실행중 (2/5 슬롯), 팀 100% 활성화 (15/15), 신뢰도 99%, 블로킹 0, Freeze 완전해제
 - [주간 개선 리포트](WEEKLY_IMPROVEMENT_REPORT.md) — 2026-05-26~06-01, 위반 0건, 신뢰도 99%, 패턴 분석 3개
-- [팀 동기화](UNIFIED/_TEAM_SYNC.md) — 15명 팀, 87%→100% 활용도 (Freeze 해제 준비), Phase 5 Final Sprint 완료
+- [팀 동기화](UNIFIED/_TEAM_SYNC.md) — 15명 팀, 87%→100% 활용도 ✅ (Freeze 06:15 해제 완료), Phase 5 Final Sprint 완료
 
 ## 🎯 핵심 규칙
 - [자율운영](feedback_core_autonomous_operation.md) — 카펌 없이 기술작업 진행, API/토큰 자동화
@@ -35,4 +35,4 @@
 
 ---
 
-**마지막 갱신:** 2026-06-01 06:11 KST (Org Status Snapshot #276, Phase B Checkpoint #275, Weekly Report) | **상태:** Phase 2F 배포 100% ✅ 완료 (06:05 KST 실제 완료, +105분 조기), Team Dashboard P2 재개 준비중 | **신뢰도:** 99% | **성공률:** 100% (0 failures, 960 cycles) | **팀 상태:** 13→15명 활성화 예정 (Freeze 해제)
+**마지막 갱신:** 2026-06-01 07:13 KST (Org Status Snapshot #6, Phase B Compliance ✅) | **상태:** Phase 2F 배포 100% ✅ 완료 (06:05 KST 실제, +105분 조기), Team Dashboard P2 활성화 진행중, 팀 15/15 (100%) 활성, Freeze 완전해제 | **신뢰도:** 99% | **성공률:** 100% (0 failures, 960 cycles) | **블로킹:** 0건 | **규칙 준수:** 100% (Phase B 07:07 ✅)
