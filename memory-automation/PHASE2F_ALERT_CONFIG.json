@@ -1,0 +1,113 @@
+{
+  "alert_rules": {
+    "critical": [
+      {
+        "id": "service_down",
+        "name": "Service Down Alert",
+        "condition": "Phase2A.status == DOWN || Phase2B.status == DOWN || Phase2C.status == DOWN",
+        "duration": "1m",
+        "severity": "CRITICAL",
+        "action": "page_oncall",
+        "channels": ["slack", "discord", "email"],
+        "escalation_timeout": "5m"
+      },
+      {
+        "id": "cycle_timeout",
+        "name": "Cycle Execution Timeout",
+        "condition": "time_since_last_cycle > 6m",
+        "severity": "CRITICAL",
+        "action": "page_oncall",
+        "channels": ["slack", "discord"]
+      },
+      {
+        "id": "error_spike",
+        "name": "Error Rate Spike",
+        "condition": "error_rate > 20%",
+        "duration": "2 consecutive cycles",
+        "severity": "CRITICAL",
+        "action": "page_oncall"
+      },
+      {
+        "id": "memory_leak",
+        "name": "Memory Leak Detection",
+        "condition": "memory_usage > 800MB",
+        "duration": "5m",
+        "severity": "CRITICAL",
+        "action": "page_oncall"
+      }
+    ],
+    "warning": [
+      {
+        "id": "slow_cycle",
+        "name": "Slow Cycle Execution",
+        "condition": "cycle_time > 3000ms",
+        "duration": "3 cycles",
+        "severity": "WARNING",
+        "action": "notify_team",
+        "channels": ["slack"]
+      },
+      {
+        "id": "low_trust_score",
+        "name": "Low Average Trust Score",
+        "condition": "trust_score_avg < 60",
+        "duration": "5 cycles",
+        "severity": "WARNING",
+        "action": "notify_team",
+        "channels": ["slack"]
+      },
+      {
+        "id": "high_duplicate_ratio",
+        "name": "High Duplicate Detection Rate",
+        "condition": "duplicate_ratio > 50%",
+        "duration": "10 cycles",
+        "severity": "WARNING",
+        "action": "notify_team",
+        "channels": ["slack"]
+      },
+      {
+        "id": "entries_pending_queue",
+        "name": "Entries Pending in Queue",
+        "condition": "entries_pending > 100",
+        "duration": "30m",
+        "severity": "WARNING",
+        "action": "notify_team",
+        "channels": ["slack"]
+      }
+    ],
+    "info": [
+      {
+        "id": "cycle_completed",
+        "name": "Cycle Completed Successfully",
+        "condition": "cycle_status == SUCCESS",
+        "severity": "INFO",
+        "action": "log_event",
+        "channels": []
+      }
+    ]
+  },
+  "notification_channels": {
+    "slack": {
+      "enabled": true,
+      "webhook_url": "${SLACK_WEBHOOK_URL}",
+      "format": "rich",
+      "rate_limit": "per_rule"
+    },
+    "discord": {
+      "enabled": true,
+      "webhook_url": "${DISCORD_WEBHOOK_URL}",
+      "format": "rich"
+    },
+    "email": {
+      "enabled": true,
+      "recipients": ["ops-team@dscfms.local"],
+      "rate_limit": "per_rule"
+    }
+  },
+  "escalation_policies": {
+    "default": {
+      "level1": { "delay": "0m", "notify": ["slack", "discord"] },
+      "level2": { "delay": "5m", "notify": ["email", "page_oncall"] },
+      "level3": { "delay": "15m", "notify": ["sms", "call"] }
+    }
+  }
+}

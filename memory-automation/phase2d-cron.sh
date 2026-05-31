@@ -28,6 +28,7 @@ set -uo pipefail
 
 # Directory structure
 WORKSPACE_DIR="${WORKSPACE_DIR:-/home/jeepney/.openclaw/workspace-dev}"
+MEMORY_PROJECT_DIR="${MEMORY_PROJECT_DIR:-/home/jeepney/.claude/projects/-home-jeepney--openclaw-workspace-dev}"
 MEMORY_DIR="$WORKSPACE_DIR/memory"
 SCRIPT_DIR="$WORKSPACE_DIR/memory-automation"
 LOG_DIR="$MEMORY_DIR/logs"
@@ -58,7 +59,7 @@ ACTIVITY_LOG="$LOG_DIR/phase2d-activity-$DATE_SHORT.jsonl"
 
 # Memory backups (for safety)
 MEMORY_BACKUP_DIR="$MEMORY_DIR/backups"
-MEMORY_FILE="$MEMORY_DIR/MEMORY.md"
+MEMORY_FILE="$MEMORY_PROJECT_DIR/MEMORY.md"
 MEMORY_BACKUP="$MEMORY_BACKUP_DIR/MEMORY_$(date '+%Y%m%d_%H%M%S').md.bak"
 
 # Colors for output

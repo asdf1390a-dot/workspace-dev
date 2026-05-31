@@ -1,0 +1,10 @@
+[2026-05-31T09:34:29.526Z] [INFO] Alert Dispatcher listening on port 9000
+[2026-05-31T09:34:36.846Z] [INFO] Routing alert: System Health Alert (CRITICAL)
+[2026-05-31T09:34:36.854Z] [INFO] Routing alert: Memory Usage High (WARNING)
+[2026-05-31T09:35:00.036Z] [INFO] Routing alert: Test (CRITICAL)
+[2026-05-31T09:35:00.046Z] [INFO] Routing alert: Test (WARNING)
+[2026-05-31T09:35:44.024Z] [INFO] Routing alert: Test (CRITICAL)
+[2026-05-31T09:35:44.033Z] [INFO] Routing alert: Test (WARNING)
+[2026-05-31T09:40:18.520Z] [INFO] Routing alert: Test (CRITICAL)
+[2026-05-31T09:40:18.528Z] [INFO] Routing alert: Test (WARNING)
+[2026-05-31T12:44:31.662Z] [INFO] Shutting down gracefully...

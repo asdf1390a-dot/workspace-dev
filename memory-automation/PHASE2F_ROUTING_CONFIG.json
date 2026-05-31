@@ -1,0 +1,105 @@
+{
+  "routing_rules": {
+    "critical_alerts": {
+      "target_channels": [
+        "slack:ops-alerts",
+        "discord:phase2-critical",
+        "email:oncall@dscfms.local"
+      ],
+      "escalation": "immediate",
+      "requires_acknowledgement": true
+    },
+    "warning_alerts": {
+      "target_channels": [
+        "slack:phase2-warnings",
+        "discord:phase2-monitoring"
+      ],
+      "escalation": "delayed_5min",
+      "requires_acknowledgement": false
+    },
+    "info_events": {
+      "target_channels": [
+        "slack:phase2-logs",
+        "discord:phase2-monitoring"
+      ],
+      "escalation": "none",
+      "requires_acknowledgement": false
+    }
+  },
+  "channel_configs": {
+    "slack": {
+      "base_url": "https://hooks.slack.com/services/",
+      "message_format": "blocks",
+      "rate_limit": {
+        "per_rule": 60,
+        "global": 1000
+      },
+      "retry": {
+        "max_attempts": 3,
+        "backoff": "exponential"
+      }
+    },
+    "discord": {
+      "base_url": "https://discordapp.com/api/webhooks/",
+      "message_format": "embeds",
+      "rate_limit": {
+        "per_rule": 120,
+        "global": 5000
+      },
+      "retry": {
+        "max_attempts": 3,
+        "backoff": "exponential"
+      }
+    },
+    "email": {
+      "smtp_server": "smtp.google.com",
+      "smtp_port": 587,
+      "from_address": "phase2-automation@dscfms.local",
+      "retry": {
+        "max_attempts": 2,
+        "backoff": "linear"
+      }
+    }
+  },
+  "alert_format_templates": {
+    "slack_critical": {
+      "color": "#FF0000",
+      "icon_emoji": ":rotating_light:",
+      "title_template": "🚨 CRITICAL: {alert_name}",
+      "fields": [
+        "timestamp",
+        "severity",
+        "service",
+        "condition",
+        "action",
+        "escalation"
+      ]
+    },
+    "slack_warning": {
+      "color": "#FFA500",
+      "icon_emoji": ":warning:",
+      "title_template": "⚠️  WARNING: {alert_name}",
+      "fields": [
+        "timestamp",
+        "service",
+        "condition",
+        "current_value"
+      ]
+    },
+    "discord_critical": {
+      "color": 16711680,
+      "title": "CRITICAL ALERT: {alert_name}",
+      "description": "{condition}",
+      "fields": {
+        "Service": "{service}",
+        "Severity": "CRITICAL",
+        "Action": "{action}",
+        "Timestamp": "{timestamp}"
+      }
+    },
+    "email_critical": {
+      "subject": "[CRITICAL] Phase 2 Alert: {alert_name}",
+      "body_template": "email_critical.html"
+    }
+  }
+}

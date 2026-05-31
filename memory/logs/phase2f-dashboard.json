@@ -1,0 +1,111 @@
+{
+  "dashboard": {
+    "title": "Phase 2 Memory Automation — Real-Time Monitor",
+    "refresh_interval": 60000,
+    "created_at": "2026-05-31T18:30:00Z",
+    "sections": [
+      {
+        "name": "System Status",
+        "metrics": [
+          {
+            "id": "service_health",
+            "name": "Service Health",
+            "type": "status",
+            "values": {
+              "Phase2A": "checking",
+              "Phase2B": "checking",
+              "Phase2C": "checking"
+            }
+          },
+          {
+            "id": "uptime",
+            "name": "Service Uptime (hours)",
+            "type": "gauge",
+            "thresholds": { "warning": 0.5, "critical": 0.1 }
+          },
+          {
+            "id": "memory_usage",
+            "name": "Memory Usage (MB)",
+            "type": "gauge",
+            "thresholds": { "warning": 500, "critical": 800 }
+          }
+        ]
+      },
+      {
+        "name": "Pipeline Metrics",
+        "metrics": [
+          {
+            "id": "cycle_time",
+            "name": "5-Min Cycle Duration (ms)",
+            "type": "gauge",
+            "thresholds": { "warning": 3000, "critical": 5000 },
+            "target": 200
+          },
+          {
+            "id": "messages_collected",
+            "name": "Messages Collected (per cycle)",
+            "type": "counter"
+          },
+          {
+            "id": "duplicates_removed",
+            "name": "Duplicates Removed (per cycle)",
+            "type": "counter"
+          },
+          {
+            "id": "entries_accepted",
+            "name": "Entries Accepted (per cycle)",
+            "type": "counter",
+            "thresholds": { "warning": 5, "critical": 0 }
+          }
+        ]
+      },
+      {
+        "name": "Quality Metrics",
+        "metrics": [
+          {
+            "id": "trust_score_avg",
+            "name": "Avg Trust Score (accepted entries)",
+            "type": "gauge",
+            "thresholds": { "warning": 60, "critical": 50 },
+            "target": 80
+          },
+          {
+            "id": "duplicate_ratio",
+            "name": "Duplicate Detection Ratio (%)",
+            "type": "gauge",
+            "thresholds": { "warning": 50, "critical": 70 }
+          },
+          {
+            "id": "error_rate",
+            "name": "Pipeline Error Rate (%)",
+            "type": "gauge",
+            "thresholds": { "warning": 5, "critical": 10 }
+          }
+        ]
+      },
+      {
+        "name": "Operational Status",
+        "metrics": [
+          {
+            "id": "last_cycle",
+            "name": "Last Cycle Timestamp",
+            "type": "timestamp"
+          },
+          {
+            "id": "cycle_success_rate",
+            "name": "Cycle Success Rate (24h) (%)",
+            "type": "gauge",
+            "thresholds": { "warning": 95, "critical": 90 },
+            "target": 100
+          },
+          {
+            "id": "entries_pending",
+            "name": "Pending Entries in Queue",
+            "type": "gauge",
+            "thresholds": { "warning": 100, "critical": 500 }
+          }
+        ]
+      }
+    ]
+  }
+}
