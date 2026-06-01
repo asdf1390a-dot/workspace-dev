@@ -1,10 +1,11 @@
 # 메모리 색인 (SSOT)
 
 ## 🟢 실시간 상태
-- [⭐ 6월 기술 평가 기준](evaluation_criteria_history/criteria_v202606.md) — TVI 3.8 (공격적+안정), React Query + E2E + DevOps 고도화, 팀 평가항목 역할별 명확화, 2026-06-30 월말 평가 준비
-- [라이브 조직도 07:39](ORG_STATUS_2026_06_01_0737.md) — Phase 2F 배포 100% ✅ (960/960 cycles, 12h 5m, 06:05 완료, +105분 조기), Team Dashboard P2 진행중 (ETA 06-10 18:00), BM-P1 Phase 2 + Memory Auto-P3 실행중 (2/5 슬롯), 팀 100% 활성화 (15/15), 신뢰도 99%, 블로킹 0, Freeze 완전해제
+- [⭐ Post-Deployment Validation ✅](POST_DEPLOYMENT_VALIDATION_2026_06_01_1700.md) — 2026-06-01 16:44 KST 완료, 8/8 체크 PASS, 0 이슈, Phase 2F 운영 정상 확정
+- [세션 상태 16:44](SESSION_STATUS_2026_06_01_1644.md) — Phase 2F Validation PASSED (16분 조기), 시스템 건강도 100%, 152 cron cycles, 메모리13.3%, CPU98.7% idle
+- [라이브 조직도 07:39](ORG_STATUS_2026_06_01_0737.md) — Phase 2F 배포 100% ✅ (960/960 cycles, 12h 5m, 06:05 완료, +105분 조기), Team Dashboard P2 진행중 (ETA 06-10 18:00), BM-P1 Phase 2 + Memory Auto-P3 실행중 (2/5 슬롯), 팀 100% 활성화 (15/15), 신뢰도 99%, 블로킹 0
 - [주간 개선 리포트](WEEKLY_IMPROVEMENT_REPORT.md) — 2026-05-26~06-01, 위반 0건, 신뢰도 99%, 패턴 분석 3개
-- [팀 동기화](UNIFIED/_TEAM_SYNC.md) — 15명 팀, 87%→100% 활용도 ✅ (Freeze 06:15 해제 완료), Phase 5 Final Sprint 완료
+- [팀 동기화](UNIFIED/_TEAM_SYNC.md) — 15명 팀, 87%→100% 활용도 ✅, Phase 5 Final Sprint 완료
 
 ## 🎯 핵심 규칙
 - [자율운영](feedback_core_autonomous_operation.md) — 카펌 없이 기술작업 진행, API/토큰 자동화
@@ -36,4 +37,4 @@
 
 ---
 
-**마지막 갱신:** 2026-06-01 14:52 KST (14:00 일일 검증 크론) | **상태:** Phase 2F ✅ 완료 (09:00 KST, +6시간 조기), BM-P1 Phase 2 🟡 진행 (7h 경과/27h 17m, ETA 06-02 18:00), Team Dashboard P2 🟡 진행 (60%, ETA 06-10 18:00), Post-Deployment 🔵 대기 (17:00), 팀 15/15 활성 (87%) | **신뢰도:** 99% | **성공률:** 100% | **블로킹:** 0건 | **규칙준수:** 100%
+**마지막 갱신:** 2026-06-01 16:44 KST (Post-Deployment Validation 완료) | **상태:** Phase 2F ✅ 완료+검증통과 (06:05 완료, 16:44 Validation PASS), BM-P1 Phase 2 🟡 진행 (진행중, ETA 06-02), Team Dashboard P2 🟡 진행 (55%, ETA 06-02 18:00), 전체 프로젝트 92.9% 완료 (12/13), 팀 15/15 활성 (100%) | **신뢰도:** 99% | **성공률:** 100% | **블로킹:** 0건 | **규칙준수:** 100%
