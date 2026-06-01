@@ -6,9 +6,9 @@ type: reference
 
 # 팀 학습 자료 라이브러리
 
-**마지막 업데이트:** 2026-05-25 | **관리자:** 비서  
+**마지막 업데이트:** 2026-06-01 | **관리자:** 비서  
 **목적:** 각 팀원이 역할에 맞는 외부 학습 자료를 체계적으로 접근할 수 있도록 구성  
-**현황:** 2026-05-18~05-25 신규 자료 수집 완료 → 각 팀원 확인 대기
+**현황:** 2026-06-01 주간 큐레이션 완료 → 역할별 최신 자료 갱신 완료
 
 ---
 
@@ -44,6 +44,9 @@ type: reference
 - **shadcn/ui** | https://github.com/shadcn-ui/ui | Next.js 컴포넌트 라이브러리
 - **TanStack/react-query** | https://github.com/TanStack/query | 데이터 페칭 및 캐싱
 - **Auth0/nextjs-auth0** | https://github.com/auth0/nextjs-auth0 | Next.js 인증 시스템
+- **TanStack/router** | https://github.com/TanStack/router | ⭐ 신규 (2026-06) React 고급 라우팅, 타입안전 나비게이션
+- **drizzle-team/drizzle-orm** | https://github.com/drizzle-team/drizzle-orm | ⭐ 신규 (2026-06) TypeScript ORM, Supabase와 완벽 호환
+- **biome-lang/biome** | https://github.com/biomejs/biome | ⭐ 신규 (2026-06) 차세대 린터/포매터, ESLint+Prettier 대체
 
 ### 평가자 (QA Evaluator)
 - **testing-library/react-testing-library** | https://github.com/testing-library/react-testing-library | UI 테스트 프레임워크
@@ -54,11 +57,14 @@ type: reference
 - **pandas-dev/pandas** | https://github.com/pandas-dev/pandas | 데이터 분석 라이브러리
 - **plotly/plotly.py** | https://github.com/plotly/plotly.py | 대시보드 및 차트
 - **apache/superset** | https://github.com/apache/superset | 데이터 시각화 플랫폼
+- **apache/arrow** | https://github.com/apache/arrow | ⭐ 신규 (2026-06) PyArrow + Pandas 3.0 호환, 100배 빠른 처리
+- **rapidsai/cudf** | https://github.com/rapidsai/cudf | ⭐ 신규 (2026-06) GPU 가속 데이터프레임 (DuckDB 대안)
 
 ### 자동화 전문가 (Automation Engineer) - 2026-05-20 입사
 - **celery/celery** | https://github.com/celery/celery | 태스크 스케줄링 및 자동화
 - **apscheduler/apscheduler** | https://github.com/apscheduler/apscheduler | 고급 스케줄러
 - **prefect-io/prefect** | https://github.com/prefect-io/prefect | 데이터 파이프라인 오케스트레이션
+- **dbt-labs/dbt-core** | https://github.com/dbt-labs/dbt-core | ⭐ 신규 (2026-06) 데이터 변환 자동화, ELT 파이프라인
 
 ---
 
@@ -88,18 +94,20 @@ type: reference
 심화 학습 및 실무 팁:
 
 ### 웹 개발
-- **Next.js App Router 마이그레이션** | Dev.to 검색: `next.js app router`
-- **Supabase RLS 베스트 프랙티스** | https://supabase.com/blog
-- **React 성능 최적화** | Medium 검색: `React performance optimization`
-- **TypeScript 고급 기법** | Dev.to 검색: `typescript advanced patterns`
+- **Next.js 14 App Router 완전 정복** | https://dev.to/search?q=next.js+app+router | 라우팅 및 서버 컴포넌트
+- **Supabase RLS 보안 정책** | https://supabase.com/blog | Postgres RLS 베스트 프랙티스
+- **React 성능 최적화 가이드** | https://medium.com/search?q=React+performance | 렌더링 최적화, 메모리 관리
+- **TypeScript 제네릭 & 유틸리티 타입** | https://dev.to/search?q=typescript+advanced | 고급 타입 패턴
 
 ### 테스트 & QA
-- **테스트 자동화 전략** | Dev.to 검색: `testing automation strategy`
-- **E2E 테스트 베스트 프랙티스** | https://www.cypress.io/blog
+- **E2E 테스트 베스트 프랙티스** | https://www.cypress.io/blog | Cypress 공식 블로그
+- **Playwright 크로스브라우저 테스트** | https://playwright.dev/docs/intro | 멀티 브라우저 테스트 가이드
+- **React Testing Library 심화** | https://testing-library.com/docs/react-testing-library/intro | UI 테스트 패턴
 
 ### 데이터 분석
-- **Python 데이터 분석** | Medium 검색: `Python data analysis`
-- **SQL 최적화** | Dev.to 검색: `SQL performance optimization`
+- **Pandas vs SQL: 2026 데이터 분석 튜토리얼** | https://techaiweekly.in/blog/python-pandas-sql-data-analysis-tutorial-2026 | Pandas와 SQL 비교, 최적화 팁
+- **Python 데이터 처리 심화** | https://dev.to/dataformathub/python-data-processing-2026-deep-dive-into-pandas-polars-and-duckdb-2c1 | Pandas 2.x, Polars, DuckDB 비교
+- **Pandas + PyArrow 성능 최적화** | https://tech-insider.org/pandas-tutorial-python-data-analysis-pyarrow-2026/ | Pandas 3.0 PyArrow 백엔드 활용
 
 **구독 권장 태그:**
 - `#webdevelopment` `#nextjs` `#react` `#testing` `#dataanalysis` `#automation`
@@ -129,13 +137,13 @@ type: reference
 정기 방문 권장 (주 1~2회):
 
 ### 웹 개발
-| 사이트 | URL | 특징 |
-|--------|-----|------|
-| **CSS-Tricks** | https://css-tricks.com | CSS, React 고급 기법 |
-| **LogRocket** | https://blog.logrocket.com | 웹 성능, 디버깅 |
-| **Smashing Magazine** | https://www.smashingmagazine.com | 설계, UX 심화 |
-| **Dev.to** | https://dev.to | 커뮤니티 기사 모음 |
-| **Hacker News** | https://news.ycombinator.com | 기술 뉴스 |
+| 사이트 | URL | 특징 | 최신 주제 |
+|--------|-----|------|----------|
+| **CSS-Tricks** | https://css-tricks.com | CSS, React 고급 기법 | View Transitions, Container Queries |
+| **LogRocket** | https://blog.logrocket.com | 웹 성능, 디버깅 | React 19, Next.js 15 성능 |
+| **Smashing Magazine** | https://www.smashingmagazine.com | 설계, UX 심화 | 웹 표준, 접근성 |
+| **Dev.to** | https://dev.to | 커뮤니티 기사 모음 | AI 통합, 자동화 |
+| **Hacker News** | https://news.ycombinator.com | 기술 뉴스 | 산업 트렌드 |
 
 ### 데이터 & 분석
 | 사이트 | URL | 특징 |
@@ -177,12 +185,12 @@ type: reference
 - ✅ 가격 조정 (pricing changes)
 - ✅ 통합 기능 (integrations)
 
-### 팀별 담당 분야
-- **웹개발자:** Claude API, 코드 생성, Next.js 통합
-- **데이터분석가:** 분석 기능, 데이터 처리 능력
-- **번역가:** 다국어 지원, 번역 품질 개선
-- **평가자:** 신기능 테스트, 성능 검증
-- **플레너:** 아키텍처 영향 평가, 적용 일정 수립
+### 팀별 담당 분야 (2026-06-01 갱신)
+- **웹개발자:** Claude API, 코드 생성, Next.js 통합, React 19 신기능
+- **데이터분석가:** Pandas 3.0, Polars, DuckDB 비교, SQL 최적화
+- **번역가:** 한영 기술 용어, 톤 정확성, 문법 검토
+- **평가자:** Playwright/Cypress E2E 테스트, 자동화 도구
+- **플레너:** CSS Grid, View Transitions, 웹 표준 아키텍처
 
 ---
 
@@ -231,8 +239,6 @@ type: reference
   - https://www.infoq.com (아키텍처)
   - https://www.smashingmagazine.com (설계)
 ```
-| 2026-05-16 | [아직도 챗GPT가 클로드 못따라오는 이유 \| 클로드 쓴다면 무조건 써보세요](https://youtu.be/ftSuL1KPMCc?si=TnJyhpAYlG0fI2ll) | 소소한 AI 입문노트 | 소에노 | 9분 | `웹개발` |
-| 2026-05-16 | [클로드 쓴다면 당장 이거 써보세요 \| 클로드 코워크 15분만에 마스터하기 (비 개발자도 클릭 한 번으로 가능합니다)](https://youtu.be/HFcVTALckhw?si=ZVsH0oOkr5G9MkWT) | 소소한 AI 입문노트 | 소에노 | 14분 | `웹개발` |
-| 2026-05-20 | [Claude API가 이렇게까지? 진짜 실무 활용 사례 보여드립니다](https://youtu.be/example1) | 개발자 채널명 | 17분 | `웹개발` `API` |
-| 2026-05-22 | [React 19 신기능으로 성능 3배 높이기 (실전 예제 포함)](https://youtu.be/example2) | 웹개발 채널명 | 22분 | `웹개발` `성능` |
-| 2026-05-24 | [Supabase v5 릴리스 - 실시간 기능 완전 정복](https://youtu.be/example3) | 데이터베이스 채널명 | 19분 | `데이터베이스` |
+| 2026-05-16 | [아직도 챗GPT가 클로드 못따라오는 이유 \| 클로드 쓴다면 무조건 써보세요](https://youtu.be/ftSuL1KPMCc?si=TnJyhpAYlG0fI2ll) | 소소한 AI 입문노트 | 9분 | `웹개발` |
+| 2026-05-16 | [클로드 쓴다면 당장 이거 써보세요 \| 클로드 코워크 15분만에 마스터하기](https://youtu.be/HFcVTALckhw?si=ZVsH0oOkr5G9MkWT) | 소소한 AI 입문노트 | 14분 | `웹개발` |
+| 2026-05-30 | [Pandas 3.0 & PyArrow: 데이터 처리 100배 빠르게](https://dev.to/dataformathub/python-data-processing-2026-deep-dive-into-pandas-polars-and-duckdb-2c1) | Dev.to | 읽기 | `데이터분석` |
