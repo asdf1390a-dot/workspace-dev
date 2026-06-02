@@ -11,6 +11,7 @@
 ## 🎯 핵심 규칙
 - [자율운영](feedback_core_autonomous_operation.md) — 카펌 없이 기술작업 진행, API/토큰 자동화
 - [Task 완료](feedback_absolute_task_completion_rule.md) — 결과물 도출 중심, CTB 실시간 추적
+- [⭐ 일정 최적화 선행](feedback_schedule_optimization_before_reporting.md) — 모든 예정/일정 자동화·병렬화 검토 후 보고 (2026-06-02)
 - 한국어 100% — 최종결과만 한국어, 코드는 영어
 
 ## 🚀 프로젝트 현황
@@ -44,4 +45,4 @@
 
 ---
 
-**마지막 갱신:** 2026-06-02 03:47 KST (Session Checkpoint #312 — Phase 2B Task 1 Implementation Complete + Rule Violations Auto-Fixed) | **상태:** Phase 2F ✅ 안정운영, BM-P1 P1 ✅ 완료 (2026-06-01 23:49) + P2 🟡 진행중 (ETA 06-02 18:00, 14h 13m), Team Dashboard P1 🟢 설계완료 (사용자 SQL 대기) + P2 🟡 진행중 (60%, ETA 06-10), Phase 2B Task 1 ✅ 완료 (규칙 위반 3건 자동 수정, 3개 파일 개선), 팀 활용도 100% (15/15), 신뢰도 99% (규칙준수 100%), 블로킹 0, 상태전이 0건 | **경고:** 없음 | **규칙준수:** Autonomous ✅ / Task Ownership ✅ / Schedule ✅ (모두 복구됨)
+**마지막 갱신:** 2026-06-02 12:25 KST (Overnight Checkpoint #313) | **상태:** Phase 2F ✅ 안정운영, BM-P1 P2 🟡 진행중 (30.6%, ETA 06-03 19:00), Team Dashboard P2 🟡 진행중 (60%, ETA 06-10), Phase 2A ✅ 실행중 (port 3009), Phase 2B/2C ❌ 다운 (port 3010/3011), Overnight Checkpoint Cron ❌ Discord 인증 오류 (4회 실패), 팀 활용도 83.3% (2명 활성), 신뢰도 75% (6 완료/8 예정), 블로킹 0 | **경고:** Overnight Cron 배포 완료됨 (필요 없을 수도), Phase 2B/2C 서비스 다운 상태 | **조치필요:** Phase 2B/2C 재시작 또는 정리, Discord 토큰 갱신
