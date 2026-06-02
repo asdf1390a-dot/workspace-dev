@@ -235,3 +235,31 @@
 [1;33m[2026-06-02 22:45:11] [WARNING] Phase 2C health check failed (attempt 2/3), retrying in 2s...[0m
 [0;31m[2026-06-02 22:45:13] [ERROR] Phase 2C health check FAILED after 3 attempts[0m
 [1;33m[2026-06-02 22:45:13] [WARNING] Phase 2C unavailable, skipping trust score calculation[0m
+[1;33m[2026-06-02 22:50:02] [WARNING] Phase 2A health check failed (attempt 1/3), retrying in 2s...[0m
+[1;33m[2026-06-02 22:50:04] [WARNING] Phase 2A health check failed (attempt 2/3), retrying in 2s...[0m
+[0;31m[2026-06-02 22:50:06] [ERROR] Phase 2A health check FAILED after 3 attempts[0m
+[1;33m[2026-06-02 22:50:06] [WARNING] Phase 2A unavailable, skipping message collection[0m
+[1;33m[2026-06-02 22:50:06] [WARNING] Phase 2B health check failed (attempt 1/3), retrying in 2s...[0m
+[1;33m[2026-06-02 22:50:08] [WARNING] Phase 2B health check failed (attempt 2/3), retrying in 2s...[0m
+[0;31m[2026-06-02 22:50:10] [ERROR] Phase 2B health check FAILED after 3 attempts[0m
+[1;33m[2026-06-02 22:50:10] [WARNING] Phase 2B unavailable, skipping duplicate detection[0m
+[1;33m[2026-06-02 22:50:10] [WARNING] Phase 2C health check failed (attempt 1/3), retrying in 2s...[0m
+[1;33m[2026-06-02 22:50:12] [WARNING] Phase 2C health check failed (attempt 2/3), retrying in 2s...[0m
+[0;31m[2026-06-02 22:50:14] [ERROR] Phase 2C health check FAILED after 3 attempts[0m
+[1;33m[2026-06-02 22:50:14] [WARNING] Phase 2C unavailable, skipping trust score calculation[0m
+[1;33m[2026-06-02 22:55:01] [WARNING] Phase 2A health check failed (attempt 1/3), retrying in 2s...[0m
+[1;33m[2026-06-02 22:55:03] [WARNING] Phase 2A health check failed (attempt 2/3), retrying in 2s...[0m
+[0;31m[2026-06-02 22:55:05] [ERROR] Phase 2A health check FAILED after 3 attempts[0m
+[1;33m[2026-06-02 22:55:05] [WARNING] Phase 2A unavailable, skipping message collection[0m
+[1;33m[2026-06-02 22:55:05] [WARNING] Phase 2B health check failed (attempt 1/3), retrying in 2s...[0m
+[1;33m[2026-06-02 22:55:07] [WARNING] Phase 2B health check failed (attempt 2/3), retrying in 2s...[0m
+[0;31m[2026-06-02 22:55:09] [ERROR] Phase 2B health check FAILED after 3 attempts[0m
+[1;33m[2026-06-02 22:55:09] [WARNING] Phase 2B unavailable, skipping duplicate detection[0m
+[1;33m[2026-06-02 22:55:09] [WARNING] Phase 2C health check failed (attempt 1/3), retrying in 2s...[0m
+[1;33m[2026-06-02 22:55:11] [WARNING] Phase 2C health check failed (attempt 2/3), retrying in 2s...[0m
+[0;31m[2026-06-02 22:55:13] [ERROR] Phase 2C health check FAILED after 3 attempts[0m
+[1;33m[2026-06-02 22:55:13] [WARNING] Phase 2C unavailable, skipping trust score calculation[0m
+[1;33m[2026-06-02 23:00:01] [WARNING] Phase 2A health check failed (attempt 1/3), retrying in 2s...[0m
+[1;33m[2026-06-02 23:00:03] [WARNING] Phase 2B health check failed (attempt 1/3), retrying in 2s...[0m
+[1;33m[2026-06-02 23:00:05] [WARNING] Phase 2B health check failed (attempt 2/3), retrying in 2s...[0m
+[1;33m[2026-06-02 23:00:07] [WARNING] Phase 2C health check failed (attempt 1/3), retrying in 2s...[0m
