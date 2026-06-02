@@ -1,29 +1,35 @@
-# 🔴 2026-06-02 18:01 KST — **마감 초과 — GitHub Actions ✅ 배포 완료, 평가 불가 (UI 미구현)**
+# 🟡 2026-06-02 18:05 KST — **마감 초과 → 긴급 수정 진행 중 (API 엔드포인트 생성 + 재배포)**
 
-## 🔴 **마감 경과 — 배포는 성공, 평가는 불가**
+## 🟡 **상황 전개 — Root Cause 규명 및 수정 적용**
 
-### 📊 **최종 상태**
-- **GitHub Actions 배포:** ✅ 성공 (Run 26810286887, 17:48~17:56 KST)
-- **Vercel 프로덕션:** ✅ 라이브 (https://dsc-fms-portal.vercel.app, HTTP 200 ✅)
-- **근본 원인 (수정됨):** 워크플로우 캐시 경로 오류 → `.github/workflows/deploy.yml` 라인 27 수정 (`cache-dependency-path: './dsc-fms-portal/package-lock.json'` 추가)
-- **마감:** 🔴 2026-06-02 18:00 KST 경과 (약 1분 초과)
-- **평가 상태:** 🔴 불가 — Evaluator Agent (a8787b810a742a719) 완성된 UI 페이지 부재로 검증 거부
+### 📊 **현재 상태 (18:05 KST)**
+- **이전 상태:** 🔴 Vercel 페이지 HTTP 200이나 영구 로딩 상태 ("로딩 중...")
+- **근본 원인 규명:** API 엔드포인트 4개 **완전히 미구현** → fetch 404 → setLoading(false) 미실행
+- **즉시 조치:**
+  - ✅ `/api/backup/settings/route.ts` 생성 (GET/POST)
+  - ✅ `/api/backup/metrics/route.ts` 생성 (GET)
+  - ✅ `/api/backup/storage/route.ts` 생성 (GET/POST)
+  - ✅ `/api/backup/notifications/route.ts` 생성 (GET/POST)
+- **커밋:** cfe6c07 (feat(backup-api): Implement missing API endpoints)
+- **배포:** main 브랜치로 푸시 완료 → GitHub Actions 자동 트리거
+- **진행 상태:** 🟡 Vercel 재배포 모니터링 중 (ETA ~3-5분)
 
-### 📊 **배포 파이프라인 검증 (Run 26810286887)**
+### 📊 **이전 배포 파이프라인 (Run 26810286887, 18:01 검토됨)**
 | 단계 | 상태 | 소요시간 | 결과 |
 |------|------|---------|------|
 | build-and-test | ✅ | 58초 | npm ci, test, build 성공 |
 | validate-migrations | ✅ | 5초 | Supabase 마이그레이션 검증 통과 |
 | deploy-production | ✅ | 36초 | Vercel 배포 완료 |
-| **Total Pipeline** | ✅ | **99초** | 전 단계 성공 |
+| **Total Pipeline** | ✅ | **99초** | 전 단계 성공 (API 없음) |
 
-### 🔴 **평가 실패 이유**
-| 항목 | 상태 | 비고 |
+### 🔴 **이전 평가 실패 원인 분석**
+| 항목 | 상태 | 원인 |
 |------|------|------|
 | **코드 배포** | ✅ | Vercel 라이브 |
-| **API** | ❓ | 배포됨 (확인 필요) |
-| **UI 페이지** | 🔴 | 미구현 — `/backup` 또는 BM-P1 UI 페이지 없음 |
-| **Evaluator 평가** | 🔴 | 완성된 기능 없어 3회 검증 거부 |
+| **UI 페이지** | ✅ | `/backup` 렌더링됨 |
+| **API 엔드포인트** | 🔴 | **존재하지 않음** — 4개 route 파일 누락 |
+| **로딩 상태** | 🔴 | fetch 404 → Promise.reject → catch → **setLoading(false) 미실행** |
+| **Evaluator 평가** | 🔴 | "로딩 중..." 영구 표시 → 검증 불가 |
 
 ### 📋 **마감 시간 상황**
 - **예정:** 2026-06-02 18:00 KST
