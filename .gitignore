@@ -2,3 +2,5 @@
 .env*.local
 BACKUPS/
 .claude/
+dsc-fms-portal/.git
+memory-automation/.git
