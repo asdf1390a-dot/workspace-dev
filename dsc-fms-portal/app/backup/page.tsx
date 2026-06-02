@@ -31,38 +31,38 @@ export default function BackupPage() {
   useEffect(() => {
     const loadData = async () => {
       try {
-        // Fetch backup configuration
-        const settingsRes = await fetch('/api/backup/settings', { method: 'GET' });
+        const [settingsRes, metricsRes, storageRes, notifRes] = await Promise.all([
+          fetch('/api/backup/settings'),
+          fetch('/api/backup/metrics'),
+          fetch('/api/backup/storage'),
+          fetch('/api/backup/notifications'),
+        ]);
+
         if (settingsRes.ok) {
           const data = await settingsRes.json();
           setSettings(data);
         }
 
-        // Fetch metrics
-        const metricsRes = await fetch('/api/backup/metrics', { method: 'GET' });
         if (metricsRes.ok) {
           const data = await metricsRes.json();
           setMetrics(data);
         }
 
-        // Fetch storage
-        const storageRes = await fetch('/api/backup/storage', { method: 'GET' });
         if (storageRes.ok) {
           const data = await storageRes.json();
           setStorage(data);
         }
 
-        // Fetch notifications
-        const notifRes = await fetch('/api/backup/notifications', { method: 'GET' });
         if (notifRes.ok) {
           const data = await notifRes.json();
           setNotifications(data.channels || []);
         }
 
         setError(null);
+        setLoading(false);
       } catch (err) {
+        console.error('Error loading backup data:', err);
         setError('Failed to load backup data');
-      } finally {
         setLoading(false);
       }
     };
