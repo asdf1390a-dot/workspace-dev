@@ -4,6 +4,52 @@ description: 중앙 작업 현황판 - 실시간 갱신
 type: project
 ---
 
+# 📊 Central Task Board (CTB) — 2026-06-02 18:13 KST (Cron Cleanup: Phase 2A Duplicate Removal)
+
+## 🟡 [체크포인트 #317] 2026-06-02 18:25+ KST — BM-P1 Phase 2 Loading State Fix Deployed
+
+**상황:** Backup Phase 2 UI 배포 후 "로딩 중..." 상태에서 벗어나지 않음 → Evaluator 검증 불가 → 마감 25분 경과
+
+**근본 원인 파악:** 
+- API 호출이 순차(sequential) 실행되어 하나 실패 시 나머지 미실행 → 로딩 상태 유지
+- 로딩 조건이 복잡함 `if (loading && Object.keys(settings).length === 0)` → 상태 업데이트 미적용시 렌더링 불가
+
+**조치 완료 (2026-06-02 18:25 deploy):**
+- ✅ **병렬 API 호출:** `Promise.all()` 으로 4개 API 동시 실행 (순차 → 병렬)
+- ✅ **로딩 조건 단순화:** `if (loading)` 로 변경 (복잡 조건 제거)
+- ✅ **에러 처리 강화:** try-catch 양쪽에서 `setLoading(false)` 보장
+- ✅ **콘솔 로깅:** 디버깅용 `console.error()` 추가
+- ✅ **배포:** Commit c98939e pushed to GitHub → Vercel 라이브 (HTTP 200 확인)
+
+**기대 결과:**
+- Backup 페이지가 4개 섹션 렌더링: 자동 백업 설정, 저장소 관리, 백업 메트릭, 알림 설정
+- Evaluator subagent (ID: b47bca07) 검증 재실행 → BM-P1 Phase 2 완료 판정
+
+**상태:** ⏳ Evaluator 검증 대기 (async subagent 진행 중)
+
+---
+
+## 🟢 [체크포인트 #316] 2026-06-02 18:13 KST — Phase 2A 중복 크론 비활성화 완료
+
+**상황:** 시스템 크론 트리거로 Phase 2A Message Collection 크론이 발화 → 이미 Express 서버로 배포된 Phase 2A와 겹쳐 중복 실행
+
+**조치 완료:**
+- ✅ **c51f1b9c-3cd3-4fa9-896e-1632021a757d** (Phase 2A - Message Collection) → **disabled** (6시간 주기 0/6/12/18 KST)
+- ✅ **319c23d9-26ce-4a01-b116-94a8a2deb608** (Phase 2A Message Collection Native) → **disabled** (6시간 주기, 22회 연속오류)
+- ✅ **6a311116-b26a-497b-bf02-f16a343ef121** (Phase 2B - Duplicate Detection) → already disabled
+
+**근거:**
+- Phase 2A는 2026-05-27 완료 후 Express 서버로 배포됨 (port 3009, 현재 건강)
+- Cron 방식 주기 실행은 Express 24시간 항상-실행 방식과 중복
+- 시스템 감사(2026-06-02 14:58)에서 "重複 cron" 블로킹으로 플래그됨
+
+**영향:**
+- Cron 실행 중단 → 불필요한 bash 스크립트 실행 중지 → 시스템 노이즈 감소
+- Express 서버 (Phase 2A-2C) 계속 운영 → 메모리 자동화 파이프라인 정상 작동
+- 신뢰도 영향: **0 (Express 서버가 이미 처리 중)**
+
+---
+
 # 📊 Central Task Board (CTB) — 2026-06-02 15:00 KST (15시 정기 체크포인트 — Web Developer Report + Tech Blockers)
 
 ## 🔄 [체크포인트 #315] 2026-06-02 15:00 KST — 웹개발자 리포트 + 기술 블로킹 점검
@@ -13,7 +59,7 @@ type: project
 ### 📋 주요 작업 상태 (실시간)
 | 작업 | 상태 | 진도 | ETA | 상태 메시지 |
 |------|------|------|-----|-----------|
-| **BM-P1 Phase 2** | 🟡 IN_PROGRESS | **72%** | 2026-06-02 18:00 | 평가/테스트 진행 중 (3시간 남음) |
+| **BM-P1 Phase 2** | 🔴 EVAL_FAILED | **72%** | 2026-06-02 18:00 | ❌ 마감 경과 — 배포 ✅, 평가 불가 (UI 미구현) |
 | **Team Dashboard P2** | 🟡 IN_PROGRESS | 60% | 2026-06-10 18:00 | UI/UX 설계 진행 중 |
 | **Phase 2F Deployment** | ✅ COMPLETED | 100% | 2026-06-01 06:05 | 배포 완료, 검증 통과 |
 | **Asset Master P2** | ✅ COMPLETED | 100% | 2026-05-29 22:43 | E2E 테스트 통과 |
