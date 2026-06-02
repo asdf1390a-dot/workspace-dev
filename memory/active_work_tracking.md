@@ -4,16 +4,16 @@ description: 중앙 작업 현황판 - 실시간 갱신
 type: project
 ---
 
-# 📊 Central Task Board (CTB) — 2026-06-02 19:41 KST (30min Auto-Checkpoint + Phase A Snapshot #266)
+# 📊 Central Task Board (CTB) — 2026-06-03 08:06 KST (H1/H2 배포 완료 + 상태 동기화)
 
-## 🔴 [체크포인트 #320] 2026-06-02 19:41 KST — BM-P1 Phase 2 마감 +1h 41m, GitHub Secrets P0 블로킹, Evaluator ETA 20:00
+## 🟢 [체크포인트 #321] 2026-06-03 08:06 KST — H1/H2 배포 완료 ✅, BM-P1 Phase 2 평가자 검증 진행 중, Team Dashboard P2 정상 진행
 
-**BM-P1 Phase 2 상태 업데이트:**
-- 마감: 2026-06-02 18:00 KST
-- 현재: 19:41 KST (초과 1h 41m)
+**BM-P1 Phase 2 상태 업데이트 (2026-06-03 08:06 KST):**
+- 마감: 2026-06-02 18:00 KST (지난 13h 6m)
 - API 엔드포인트: 4/4 ✅ (settings, storage, metrics, notifications)
-- Evaluator 검증: 진행 중, ETA 20:00 KST
-- **GitHub Secrets 미설정 (P0):** 6개 환경변수 수동 설정 필요 (https://github.com/asdf1390a-dot/workspace-dev/settings/secrets/actions)
+- **상태: 🟡 In Recovery** — Evaluator validation 진행 중 (구체 평가자 완료 시간 대기)
+- GitHub Secrets: ✅ 8개 설정 완료 (2026-06-02 23:04)
+- **H1 & H2 배포:** ✅ 완료 (2026-06-03 02:35~37), 데드라인 05:00 KST 달성 ✅ (2h 23m 조기)
 
 **Phase A 메모리 보호:**
 - ✅ 스냅샷 #266 완료 (2026-06-02 20:10 KST)
@@ -21,10 +21,17 @@ type: project
 - 크기: 2.3M → 2.5M (+0.2M)
 - 심각도: 🟢 INFO (정상 성장)
 
-**시스템 건강도:**
-- 신뢰도: 99%
-- 포트 상태: 3009 ✅, 3010 ✅, 3011 ✅
-- 메모리: <20%, 디스크 4%, CPU 안정
+**Team Dashboard P2 상태 (2026-06-03 08:06 KST):**
+- 시작: 2026-06-03 03:00 KST (Web-Builder #2 배치)
+- 마감: 2026-06-10 18:00 KST (183시간 남음, 약 7.6일)
+- **상태: 🟡 In Progress** (진행 중, 정상 일정)
+- H1 모니터링: 🟢 ACTIVE (15분마다 데드라인 감시 중)
+
+**시스템 건강도 (2026-06-03 08:06 KST):**
+- 신뢰도: 99% (목표 85% 초과)
+- 포트 상태: 3009 ✅, 3010 ✅, 3011 ✅ (Phase 2A/2B/2C 정상)
+- H1 크론: 🟢 ACTIVE (ID: 7038cb2f-f692-4cf9-9986-8afc89ac40e7, 15분 주기)
+- 메모리: <20%, 디스크 4%, CPU 안정, 0 incident (20h+ 연속)
 
 ---
 
