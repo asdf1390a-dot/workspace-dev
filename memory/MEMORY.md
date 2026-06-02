@@ -23,6 +23,8 @@
 - [통합 팀 구조 (15명)](TEAM_STRUCTURE_UNIFIED_2026_05_26.md) — CEO + 기존팀(6) + Phase A/B(4) + Phase C(5)
 - [Phase C #14-15 모니터 ✅](PHASE_C_14_15_AUTOSPAWN_MONITOR_COMPLETE_2026_06_01.md) — 2026-06-01 17:45, 모든 Phase C 스폰 완료, 추가 작업 불필요
 - [✅ 5-스킬 배포 완료 (2026-06-02)](../SKILLS_DEPLOYMENT_2026_06_02.md) — 15명 팀원 전체에 5개 스킬 배포 (75/75), claude-video, andrej-karpathy-skills, superpowers, understand-anything, agentmemory
+- [🟢 스킬 습득 현황 (2026-06-02)](../SKILL_ACQUISITION_STATUS_2026_06_02.md) — 75/75 배포 완료 ✅, 모든 팀원 5개 스킬 보유, Phase 0-C 전원 활성화
+- [📊 스킬 습득 추적](skill_acquisition_tracking.md) — 15명 팀원, 5개 스킬 실시간 추적, 주간 검토 매주 월요 09:00
 
 ## 🔧 자동화
 - Phase 2 설계 — 중복검출 + 신뢰도계산 + 크론통합
