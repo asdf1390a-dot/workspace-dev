@@ -89,7 +89,7 @@ CREATE INDEX IF NOT EXISTS idx_breakdown_reports_resolved_at
   WHERE resolved_at IS NOT NULL;
 
 CREATE INDEX IF NOT EXISTS idx_breakdown_reports_asset_month
-  ON breakdown_reports(asset_id, DATE_TRUNC('month', reported_at))
+  ON breakdown_reports(asset_id, reported_at DESC)
   WHERE deleted_at IS NULL;
 
 CREATE INDEX IF NOT EXISTS idx_breakdown_reports_reported_by
