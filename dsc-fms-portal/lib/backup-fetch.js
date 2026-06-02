@@ -1,13 +1,19 @@
 // Tiny client helper for the Backup App pages.
-// All endpoints under /api/backup/* require a Bearer JWT.
+// Public endpoints (/api/backup/settings, /metrics, /storage, /notifications) do not require auth.
 
-import { supabase } from './supabase';
+import { getSupabase } from './supabase';
 
 async function authHeaders() {
-  const { data } = await supabase.auth.getSession();
-  const token = data?.session?.access_token;
-  if (!token) throw new Error('로그인이 필요합니다');
-  return { Authorization: `Bearer ${token}` };
+  try {
+    const supabase = getSupabase();
+    if (!supabase) return {};
+    const { data } = await supabase.auth.getSession();
+    const token = data?.session?.access_token;
+    if (token) return { Authorization: `Bearer ${token}` };
+  } catch (err) {
+    // Silently fail if auth unavailable
+  }
+  return {};
 }
 
 export async function apiGet(path) {
