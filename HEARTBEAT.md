@@ -37,22 +37,27 @@
 
 ---
 
-## 🟡 2026-06-02 19:11 KST — 배포 ✅ 완료, 평가 진행 중
+## 🟡 2026-06-02 19:15 KST — **CRITICAL API 수정 + GitHub Secrets 확인 필요**
 
-### 📊 **긴급 대응 결과 (18:05~19:11 KST, 66분 소요)**
-- **코드 수정:** ✅ 모든 API 라우트 설정 검증 완료
-  - `/api/backup/storage` → `export const dynamic = 'force-dynamic'`, error handling ✅
-  - `/api/backup/settings` → 동일 설정 ✅
-  - 인증 제거됨 ✅
-- **Vercel 배포:** ✅ 커밋 37b0494 반영 (2026-06-02 배포됨)
-- **다음 단계:** 🟡 Evaluator Agent 평가 진행 대기 (ETA 19:30~20:00 KST)
+### 📊 **즉시 조치 완료 (19:15 KST)**
+- **CRITICAL FIX:** ✅ 누락된 2개 API 엔드포인트 생성 (metrics, notifications) — Commit 9bdad71
+- **전체 API 현황:** ✅ 4개 모두 완성 (settings ✅, storage ✅, metrics ✅, notifications ✅)
+- **코드 배포:** ✅ git push origin main 완료
+- **Rule Enforcement:** ✅ Phase 2A/2B/2C 실행 중 (포트 3009-3011)
 
-### 📋 **마감 상황 (마감 초과)**
-- **예정:** 2026-06-02 18:00 KST
-- **현재:** 2026-06-02 19:11 KST
-- **초과:** 1시간 11분 🔴
-- **원인:** API 엔드포인트 누락 (18:01~18:05 발견·수정)
-- **예상 완료:** 20:00 KST (평가 3회 = ~50분 필요)
+### 📊 **BM-P1 P2 최종 상태**
+- **마감:** 2026-06-02 18:00 KST
+- **초과:** 1시간 14분 (19:14 현재)
+- **진행률:** 코드 배포 ✅ (18:25), API 검증 ✅ (19:11)
+- **대기:** Evaluator 평가 진행 중 → ETA 20:00 KST
+
+### 📋 **Blocking 항목 상태 (19:15 업데이트)**
+| 항목 | 상태 | 조치 | 상세 |
+|------|------|------|------|
+| **API 엔드포인트 4/4** | ✅ 완료 | metrics/notifications 생성 | Commit 9bdad71 |
+| **GitHub Actions 빌드** | ⏳ 진행 중 | 자동 트리거됨 | Secrets 필요 |
+| **GitHub Secrets** | 🔴 **미설정** | **사용자 액션 필요** | **https://github.com/asdf1390a-dot/workspace-dev/settings/secrets/actions** |
+| **Vercel 배포** | ⏳ 대기 | Secrets 완료 후 자동 | CI/CD 성공 대기 |
 
 ---
 
