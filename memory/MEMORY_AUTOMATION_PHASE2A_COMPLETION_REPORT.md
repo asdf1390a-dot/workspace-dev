@@ -264,8 +264,8 @@ No breaking changes to existing codebase.
 
 **What to Do:**
 1. Read this report (you're reading it now)
-2. Review `MEMORY_AUTOMATION_PHASE2_DESIGN.md` section 3-2
-3. Use Phase 2A API endpoints as input:
+2. Use Phase 2A API endpoints for duplicate detection input
+3. Phase 2B duplicated message processing:
    ```typescript
    // Example usage
    const response = await fetch('/api/memory/collect', {

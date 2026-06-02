@@ -4,54 +4,58 @@
     "number": 204,
     "timestamp": "2026-05-30T04:19:00+0900",
     "status": "OK",
-    "changes_detected": ["Team Dashboard P1 Deploy FAILED", "CTB polling #237 running", "Phase 2E Priority 2 in progress"]
+    "changes_detected": [
+      "Team Dashboard P1 Deploy FAILED",
+      "CTB polling #237 running",
+      "Phase 2E Priority 2 in progress"
+    ]
   },
   "Memory-System-Specialist": {
-    "last_report": "2026-05-30T01:15:00Z",
+    "last_report": "2026-05-22T14:19:41.381Z",
     "phase_c_id": "#13",
     "eta": "2026-05-30T18:00:00+0900",
     "status": "on_schedule",
-    "silent_hours": 0,
-    "escalation_sent": false,
-    "checkpoint_count": 1,
+    "silent_hours": 247,
+    "escalation_sent": true,
+    "checkpoint_count": 3,
     "first_run": false
   },
   "DevOps-Engineer": {
-    "last_report": "2026-05-29T14:34:00Z",
+    "last_report": "2026-05-22T14:19:41.381Z",
     "phase_c_id": "#12",
     "eta": "2026-06-05T18:00:00+0900",
     "status": "on_schedule",
-    "silent_hours": 0,
-    "escalation_sent": false,
-    "checkpoint_count": 1,
+    "silent_hours": 247,
+    "escalation_sent": true,
+    "checkpoint_count": 3,
     "first_run": false
   },
   "QA-Specialist": {
-    "last_report": "2026-05-29T11:27:00Z",
+    "last_report": "2026-05-22T14:19:41.381Z",
     "phase_c_id": "#14",
     "eta": "2026-06-02T18:00:00+0900",
     "status": "on_schedule",
-    "silent_hours": 0,
-    "escalation_sent": false,
-    "checkpoint_count": 1,
+    "silent_hours": 247,
+    "escalation_sent": true,
+    "checkpoint_count": 3,
     "first_run": false
   },
   "Project-Planner": {
-    "last_report": "2026-05-28T16:47:00Z",
+    "last_report": "2026-05-22T14:19:41.381Z",
     "phase_c_id": "#15",
     "eta": "2026-06-02T18:00:00+0900",
     "status": "on_schedule",
-    "silent_hours": 0,
-    "escalation_sent": false,
-    "checkpoint_count": 1,
+    "silent_hours": 247,
+    "escalation_sent": true,
+    "checkpoint_count": 3,
     "first_run": false
   },
   "Evaluator-AI": {
-    "last_report": "2026-05-29T16:47:00Z",
+    "last_report": "2026-05-22T14:19:41.381Z",
     "status": "on_schedule",
-    "silent_hours": 0,
-    "escalation_sent": false,
-    "checkpoint_count": 1,
+    "silent_hours": 247,
+    "escalation_sent": true,
+    "checkpoint_count": 3,
     "first_run": false
   },
   "system_health": {

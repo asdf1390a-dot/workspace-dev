@@ -199,8 +199,6 @@ CREATE INDEX idx_trust_scores_calculated_at ON trust_scores(calculated_at DESC);
 ## 🔗 Related Documents
 
 - [Phase 2C Design Spec](TRUST_SCORE_CALCULATION_SPECIFICATION.md) — High-level design
-- [Phase 2 Timeline](MEMORY_AUTOMATION_PHASE2_DESIGN.md) — Full roadmap (2026-05-27 설계 완료)
-- [Phase 2A Completion](../memory-automation/README_PHASE2A.md) — Message Collection API (dependency ✅)
 - [Phase 2B Status](DUPLICATE_DETECTION_SPECIFICATION.md) — Duplicate Detection (dependency 🟡)
 - [Active Work Tracking](active_work_tracking.md) — Task completion metrics (data source)
 - [Rule Tracking](RULE_VIOLATION_TRACKING.md) — Compliance component data

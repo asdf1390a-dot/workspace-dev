@@ -96,7 +96,6 @@ parentCron: cron:92eef23b-ab1b-453a-826a-b07cd74458b5
 
 - [Phase C #11 Design (Complete)](PHASE_C_DESIGN_SPECIALIST_2026_05_28.md) — Predecessor, Team Dashboard Phase 2 design
 - [Team Structure](TEAM_STRUCTURE_UNIFIED_2026_05_26.md) — 15명 팀 구성
-- [Ecosystem Architecture](ECOSYSTEM_ARCHITECTURE_SEPARATION.md) — FMS 포탈 + 8개 독립 앱
 - [Active Work Tracking](active_work_tracking.md) — CTB
 
 ---

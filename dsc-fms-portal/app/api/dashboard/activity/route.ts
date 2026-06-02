@@ -13,7 +13,7 @@ const CreateActivitySchema = z.object({
   action_type: z.enum(['created', 'updated', 'completed', 'commented', 'joined', 'left']),
   subject: z.string(),
   description: z.string().optional(),
-  metadata: z.record(z.any()).optional(),
+  metadata: z.record(z.string(), z.any()).optional(),
 });
 
 function jsonResponse(data: any, status: number = 200): Response {

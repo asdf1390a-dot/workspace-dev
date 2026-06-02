@@ -86,7 +86,6 @@ childSessionKey: agent:dev:subagent:0e10f5a7-e000-4acc-8b9c-49bac567711f
 
 ## 🔗 Related Documents
 
-- [Memory Automation Phase 2 Master Design](MEMORY_AUTOMATION_PHASE2_DESIGN.md) — Section 4.3-4.4 (Trust Score specification)
 - [Duplicate Detection Spec](DUPLICATE_DETECTION_SPECIFICATION.md) — Phase 2B (completed)
 - [Memory System Specialist Onboarding](work_history_package.md) — Phase C #13 context
 - [Active Work Tracking](active_work_tracking.md) — CTB (Central Task Board)
@@ -139,7 +138,6 @@ Phase 2F: Production Deployment (2026-06-02)
 - Score history audit trail required for compliance
 - 멘토: Planner AI (technical design review)
 - 평가자: Evaluator AI (신뢰도 + 정확도 검증)
-- 참고: `MEMORY_AUTOMATION_PHASE2_DESIGN.md` section 4.3 (Trust Score Calculator 초안)
 
 **Next Phase:** Phase 2D Cron Integration (2026-06-01, DevOps Engineer)
 

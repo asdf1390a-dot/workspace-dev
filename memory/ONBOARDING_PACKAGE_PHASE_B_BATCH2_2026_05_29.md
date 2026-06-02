@@ -176,8 +176,8 @@ owner: Secretary AI (C-3PO)
 **입력물:**
 1. Phase 2A 완료 (Message Collection API, 5 endpoints, 9 tests)
 2. Phase 2B 설계 (Duplicate Detection engine, 730+ 라인)
-3. Cron 템플릿 (설계 문서의 Section 4.5에 포함)
-4. 기존 cron 조직 (MEMORY_AUTOMATION_PHASE2_DESIGN.md 참고)
+3. Cron 템플릿 (DUPLICATE_DETECTION_SPECIFICATION.md에 포함)
+4. 기존 cron 조직 (Cron 통합 표준 참고)
 
 **산출물 (마감 2026-06-02 17:00):**
 1. ✅ phase2b-duplicate-detection-cron.sh (300+ 라인)

@@ -73,7 +73,6 @@ The service is running but the duplicate detection API has not been implemented 
 ## Related Memory Files
 
 - [`memory-automation/phase2b-cron.sh`](../memory-automation/phase2b-cron.sh) — Cron script (ready to execute)
-- [`MEMORY_AUTOMATION_PHASE2_DESIGN.md`](MEMORY_AUTOMATION_PHASE2_DESIGN.md) — Phase 2B architecture
 - [`DUPLICATE_DETECTION_SPECIFICATION.md`](DUPLICATE_DETECTION_SPECIFICATION.md) — Technical specs
 - [`PHASE_C_DESIGN_SPECIALIST_2026_05_28.md`](PHASE_C_DESIGN_SPECIALIST_2026_05_28.md) — Design Specialist assignment
 

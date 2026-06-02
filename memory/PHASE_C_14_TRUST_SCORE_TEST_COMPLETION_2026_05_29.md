@@ -283,6 +283,4 @@ R015: Format violation -5 ✅
 
 - [Phase 2C Design (Approved)](TRUST_SCORE_PHASE2C_DESIGN.md)
 - [Evaluator Final Approval](PHASE_C_13_EVALUATOR_FINAL_APPROVAL.md)
-- [Phase 2 Timeline](MEMORY_AUTOMATION_PHASE2_DESIGN.md)
-- [Phase 2A Completion](../memory-automation/README_PHASE2A.md)
 - [Phase 2B Status](DUPLICATE_DETECTION_SPECIFICATION.md)

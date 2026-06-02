@@ -78,18 +78,18 @@
 
 ### 🔴 심각한 손상된 참조
 
-| MEMORY.md에서 참조 | 실제 파일 | 상태 |
-|------------------|---------|------|
-| UNIFIED/_TEAM_SYNC.md | ❌ 없음 | 참조 끊김 |
-| AUTO_RULE_CHECK_BEFORE_RESPONSE.md | ❌ 없음 | 참조 끊김 |
-| project_asset_master_phase_a.md | ❌ 없음 | 참조 끊김 |
-| project_travel_management_phase1_api.md | ❌ 없음 | 참조 끊김 |
-| project_backup_phase2_completion_report.md | ❌ 없음 | 참조 끊김 |
-| project_discord_bot_phase1.md | ❌ 없음 | 참조 끊김 |
-| MEMORY_AUTOMATION_PHASE2_DESIGN.md | ❌ 없음 | 참조 끊김 |
-| ECOSYSTEM_ARCHITECTURE_SEPARATION.md | ❌ 없음 | 참조 끊김 |
-| project_exchange_rate.md | ❌ 없음 | 참조 끊김 |
-| project_asset_cutoff.md | ❌ 없음 | 참조 끊김 |
+| 파일명 | 상태 | 조치 |
+|--------|------|------|
+| UNIFIED/_TEAM_SYNC.md | ❌ 없음 | ✅ 제거 (2026-06-02 16:45) |
+| AUTO_RULE_CHECK_BEFORE_RESPONSE.md | ❌ 없음 | ✅ 제거 (2026-06-02 16:45) |
+| project_asset_master_phase_a.md | ❌ 없음 | ✅ 제거 (2026-06-02 16:45) |
+| project_travel_management_phase1_api.md | ❌ 없음 | ✅ 제거 (2026-06-02 16:45) |
+| project_backup_phase2_completion_report.md | ❌ 없음 | ✅ 제거 (2026-06-02 16:45) |
+| project_discord_bot_phase1.md | ❌ 없음 | ✅ 제거 (2026-06-02 16:45) |
+| MEMORY_AUTOMATION_PHASE2_DESIGN.md | ❌ 없음 | ✅ 제거 (2026-06-02 16:45) |
+| ECOSYSTEM_ARCHITECTURE_SEPARATION.md | ❌ 없음 | ✅ 제거 (2026-06-02 16:45) |
+| project_exchange_rate.md | ❌ 없음 | ✅ 제거 (2026-06-02 16:45) |
+| project_asset_cutoff.md | ❌ 없음 | ✅ 제거 (2026-06-02 16:45) |
 
 **분석:**
 - 대부분 **프로젝트 파일** (project_*.md) 또는 **설계 문서** (MEMORY_AUTOMATION_PHASE2_DESIGN.md)

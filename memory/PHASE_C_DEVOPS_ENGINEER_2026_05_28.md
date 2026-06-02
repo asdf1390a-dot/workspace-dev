@@ -81,7 +81,6 @@ childSessionKey: agent:dev:subagent:cf814611-a779-45cd-991b-6b1cc48bc17e
 
 - [Team Structure Unified](TEAM_STRUCTURE_UNIFIED_2026_05_26.md) — 15명 팀 규모
 - [CEO Dashboard Spec](CEO_UNIFIED_DASHBOARD_SPEC.md) — 실시간 모니터링 요구사항
-- [Phase 2 Design Standard](MEMORY_AUTOMATION_PHASE2_DESIGN.md) — 설계 품질 기준
 - [Active Work Tracking](active_work_tracking.md) — 통합 추적 보드
 
 ---
