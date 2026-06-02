@@ -44,3 +44,27 @@
 [2026-06-02 19:00:01] ✅ Phase 2B cron job present
 [2026-06-02 19:00:01] ✅ Phase 2D cron job present
 [2026-06-02 19:00:01] === P0 CHECK COMPLETE ===
+[2026-06-02 20:00:01] === P0 AUTO-RECOVERY CHECK ===
+[2026-06-02 20:00:01] Checking service health...
+[2026-06-02 20:00:01] ✅ Phase 2A (port 3009) OK
+[2026-06-02 20:00:01] ✅ Phase 2B (port 3010) OK
+[2026-06-02 20:00:01] ✅ Phase 2C (port 3011) OK
+[2026-06-02 20:00:01] Checking critical cron jobs...
+[2026-06-02 20:00:01] ✅ Phase 2B cron job present
+[2026-06-02 20:00:01] ✅ Phase 2D cron job present
+[2026-06-02 20:00:01] === P0 CHECK COMPLETE ===
+[2026-06-02 22:00:01] === P0 AUTO-RECOVERY CHECK ===
+[2026-06-02 22:00:01] Checking service health...
+[2026-06-02 22:00:01] ❌ Phase 2A (port 3009) is down
+[2026-06-02 22:00:01] 🔴 Service phase2a-message-collection (port 3009) is down. Attempting restart...
+[2026-06-02 22:00:04] ✅ Service phase2a-message-collection restarted successfully (port 3009)
+[2026-06-02 22:00:04] ❌ Phase 2B (port 3010) is down
+[2026-06-02 22:00:04] 🔴 Service phase2b-express-wrapper (port 3010) is down. Attempting restart...
+[2026-06-02 22:00:07] ✅ Service phase2b-express-wrapper restarted successfully (port 3010)
+[2026-06-02 22:00:07] ❌ Phase 2C (port 3011) is down
+[2026-06-02 22:00:07] 🔴 Service phase2c-express-wrapper (port 3011) is down. Attempting restart...
+[2026-06-02 22:00:10] ✅ Service phase2c-express-wrapper restarted successfully (port 3011)
+[2026-06-02 22:00:10] Checking critical cron jobs...
+[2026-06-02 22:00:10] ✅ Phase 2B cron job present
+[2026-06-02 22:00:10] ✅ Phase 2D cron job present
+[2026-06-02 22:00:10] === P0 CHECK COMPLETE ===
