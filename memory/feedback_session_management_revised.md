@@ -2,6 +2,7 @@
 name: Session Management — 세션 유지 우선 (2026-05-27 복구)
 description: 매 메시지마다 세션 종료 금지. 컨텍스트 손실로 인한 효율성 저하 >> 약간의 레이턴시 trade-off
 type: feedback
+status: active
 ---
 
 ## Rule

@@ -2,6 +2,7 @@
 name: Priority autonomy and autonomous execution
 description: 비서는 우선순위를 자체 판단해서 결정하고 실행, 완료 후 보고 — 항상 확인 요청 금지
 type: feedback
+status: active
 ---
 
 ## 규칙

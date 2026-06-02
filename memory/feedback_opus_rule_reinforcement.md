@@ -2,6 +2,7 @@
 name: Opus 사용 절대 규칙 강화
 description: Opus는 서브에이전트 호출(web-builder/data-analyst/evaluator)시만 사용 — 직접 작업/대화/검토 절대금지
 type: feedback
+status: active
 ---
 
 **규칙:** Opus는 **서브에이전트 호출 시에만 사용** — 다른 모든 상황에서는 금지.

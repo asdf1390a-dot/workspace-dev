@@ -2,6 +2,7 @@
 name: 동적 자동화 범위 확장
 description: 사용자가 한 번 "해" 라고 승인한 작업 유형은 이후 같은 유형의 모든 작업 자동 처리
 type: feedback
+status: active
 ---
 
 ## 규칙

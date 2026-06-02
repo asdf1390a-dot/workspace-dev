@@ -2,6 +2,7 @@
 name: Cron Automation Audit & Maintenance
 description: 모든 Cron 작업 체계적 관리 + 실패 감지 + 자동 복구
 type: feedback
+status: active
 ---
 
 # Cron Automation Audit System — 정기 점검 & 수정

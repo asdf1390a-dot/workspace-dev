@@ -2,6 +2,7 @@
 name: 한국어 100% 규칙 강화
 description: 모든 문서는 한국어만 — 기술용어 이름만 영어, 제목/본문/설명은 순전히 한국어 (2026-05-21)
 type: feedback
+status: active
 ---
 
 ## 규칙

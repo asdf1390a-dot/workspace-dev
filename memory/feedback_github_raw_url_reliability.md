@@ -2,6 +2,7 @@
 name: GitHub Raw URL 신뢰성 문제
 description: Raw CDN이 404를 반환하는 경우 발생 — 웹페이지는 작동하는 현상 (2026-05-20)
 type: feedback
+status: active
 ---
 
 ## 규칙

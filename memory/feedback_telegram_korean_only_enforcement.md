@@ -2,6 +2,7 @@
 name: Telegram 한국어만 사용 규칙 (2026-05-20 강화)
 description: Telegram에서 최종 결과·상태 보고·기술 설명 모두 한국어만 사용, 영어 절대 금지
 type: feedback
+status: active
 ---
 
 ## 규칙

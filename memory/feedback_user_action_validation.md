@@ -2,6 +2,7 @@
 name: 사용자 액션 제공 시 사전검증 3단계
 description: 사용자에게 링크/코드/파일 제공 전 유효성 검증 절차 (비서 자동화)
 type: feedback
+status: active
 ---
 
 ## 규칙

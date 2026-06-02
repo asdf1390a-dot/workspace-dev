@@ -2,6 +2,7 @@
 name: 즉시 실패 보고 규칙
 description: 문제 발생 시 즉시 인지 + 원인 + 대체안 제시 (기다리지 말기)
 type: feedback
+status: active
 ---
 
 ## 규칙

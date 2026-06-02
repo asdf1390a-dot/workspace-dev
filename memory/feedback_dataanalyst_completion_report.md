@@ -2,6 +2,7 @@
 name: Data-Analyst AI Agent 프로젝트 완료 보고서
 description: 각 프로젝트 완료시 Data-Analyst AI Agent가 완료 보고서 작성 (필수 규칙)
 type: feedback
+status: active
 ---
 
 # Data-Analyst AI Agent 프로젝트 완료 보고서 규칙

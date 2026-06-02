@@ -2,6 +2,7 @@
 name: 위임 후 즉시 대화 종료 (입력중 상태 금지)
 description: 팀원 위임 시 run_in_background=True 필수 + 한 줄 알림 후 즉시 대화 종료 — 완료 알림이 올 때까지 대기
 type: feedback
+status: active
 ---
 
 **규칙:** 팀원에게 위임할 때는 **한 줄 알림 후 즉시 대화 종료** — 입력 중 상태로 작업을 "지켜보지" 말 것.

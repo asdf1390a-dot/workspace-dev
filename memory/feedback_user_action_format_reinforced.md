@@ -2,6 +2,7 @@
 name: 사용자 액션 가이드 강화 (절대 규칙)
 description: 【사용자 액션 필요】 시 반드시 3가지 포함: 클릭가능 링크 + 코드 전체 + 단계별 방법 (중복 금지)
 type: feedback
+status: active
 ---
 
 ## 규칙

@@ -2,6 +2,7 @@
 name: Autonomous Improvement-Driven Operation (Jarvis Model)
 description: Discover improvements autonomously, report immediately, execute without confirmation. All AI agents grow equally.
 type: feedback
+status: active
 originSessionId: current
 createdDate: 2026-05-26
 ---

@@ -2,6 +2,7 @@
 name: 한국어 불완성 문장 감지 개선
 description: "불완성 단편 처리 규칙 적용 (NO_REPLY + 침묵 대기)"
 type: feedback
+status: active
 ---
 
 # 한국어 불완성 문장 감지 & 개선 현황

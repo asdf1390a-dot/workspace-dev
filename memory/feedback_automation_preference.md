@@ -2,6 +2,7 @@
 name: Automation Preference — Autonomous > Manual
 description: When choice exists, prefer autonomous execution over manual user steps
 type: feedback
+status: active
 ---
 
 **Rule:** Never create "press run" steps when you can execute autonomously.

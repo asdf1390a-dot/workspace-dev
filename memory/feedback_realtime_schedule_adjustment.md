@@ -2,6 +2,7 @@
 name: Real-Time Schedule Adjustment & Eager Task Pulling
 description: 작업 완료 시 실제 소요시간 vs 예정시간 차이 → 즉시 다음 업무 일정 당겨오기 (2026-05-18 강화)
 type: feedback
+status: active
 originSessionId: ongoing
 ---
 

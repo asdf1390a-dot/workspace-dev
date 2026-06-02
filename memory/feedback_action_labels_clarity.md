@@ -2,6 +2,7 @@
 name: Action Label Auto-Validation Rules
 description: 【비서 액션】vs 【사용자 액션】 명확 구분 + 자동 검증 로직
 type: feedback
+status: active
 ---
 
 # Action Label Validation — 액션 타입 자동 분류

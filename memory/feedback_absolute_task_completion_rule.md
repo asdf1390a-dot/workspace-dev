@@ -2,6 +2,7 @@
 name: Absolute Task Completion & Ownership Rule
 description: Complete every task end-to-end with verifiable results; own the outcome; sync CTB realtime
 type: feedback
+status: active
 originSessionId: 6a896707-173f-456e-b2a0-8d6570dc4d50
 consolidatedFrom: feedback_absolute_task_ownership.md + feedback_absolute_task_completion_rule.md (2026-05-26)
 ---

@@ -2,6 +2,7 @@
 name: 이중 검증 규칙 — 코드/링크 제공 전 필수
 description: 코드·링크·파일 제공 시 실제 작동 여부 이중 검증 후 제공 (2026-05-20)
 type: feedback
+status: active
 ---
 
 ## 규칙

@@ -2,6 +2,7 @@
 name: Rule Enforcement Strengthening (2026-05-27)
 description: 절대 규칙 체크리스트 + 자동 검증 + 위반 방지 시스템
 type: feedback
+status: active
 ---
 
 # 규칙 강화 방안 — 절대 준수 시스템 (2026-05-27)

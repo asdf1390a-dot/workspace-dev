@@ -2,6 +2,7 @@
 name: SQL 검증 쿼리 작성 개선 규칙
 description: 데이터베이스 쿼리 작성 시 컬럼명/테이블 구조 선확인 후 작성, 자체검증 3단계 필수
 type: feedback
+status: active
 ---
 
 ## 규칙

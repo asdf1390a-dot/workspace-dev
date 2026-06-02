@@ -2,6 +2,7 @@
 name: Dynamic Team Allocation — No Blocking Wait
 description: 블로킹 요인으로 팀원을 기다리지 말고, 즉시 다른 작업으로 재배치. 블로킹 풀리면 자동 복귀.
 type: feedback
+status: active
 ---
 
 ## 규칙

@@ -2,6 +2,7 @@
 name: Capability Verification Checklist
 description: 모든 업무 시작 전 할 수 있는지 없는지 즉시 확인 → 확인 없이 약속 금지
 type: feedback
+status: active
 ---
 
 # Capability Verification Checklist — 업무 실행 전 필수 체크

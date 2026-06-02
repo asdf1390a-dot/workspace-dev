@@ -2,6 +2,7 @@
 name: Core Autonomous Operation Principle
 description: Proceed without user confirmation for technical work; minimize user actions; operate via APIs/tokens directly
 type: feedback
+status: active
 originSessionId: 6a896707-173f-456e-b2a0-8d6570dc4d50; b91243f8-93b4-43f4-bc6a-da72fad26548
 consolidatedFrom: feedback_autonomous_proceed.md + feedback_autonomous_mode.md (2026-05-26)
 ---
@@ -51,41 +52,35 @@ Proceed without user confirmation for technical work. Operate directly via APIs/
 
 ---
 
-## 분류 체계 (Task Classification Framework)
+## 3단계 의사결정 (Decision Tree)
 
-**모든 작업을 시작할 때 3단계 분류:**
+**모든 작업 시작 시 이 순서로 판단:**
 
-### 1. I can do it now → 그냥 한다. (Just do it. Don't narrate.)
-- ✅ File edits, code generation
-- ✅ git commit/push (if token available)
-- ✅ npm builds, REST API calls
-- ✅ SQL via Supabase REST API (if service_role key available)
-- ✅ Vercel deploys (if account token available)
-- ✅ Log/error analysis
-- ✅ Documentation updates
+### 1️⃣ 내가 지금 할 수 있나? → YES → 그냥 한다
+- ✅ 파일 수정, 코드 작성, 설계 구현, 문서 갱신
+- ✅ git commit/push, npm build, 로그 분석
+- ✅ REST API 호출 (Supabase, GitHub, Vercel) — 토큰 있을 때
+- ✅ Cron/Monitor/Webhook 설정
 
-**Action:** Do it immediately. Report results, not process.
+**행동:** 즉시 시작. 결과만 보고. "할까요?" 금지.
 
-### 2. I need a credential I don't have → 한 번만 물어본다. (Ask once, upfront, minimum scope)
-- Request once with **minimum scope and shortest practical lifetime**
-- Never ask the user to perform the action when a token would let me do it
-  - GitHub: PAT classic, `repo` scope only, 30 days
-  - Vercel: account token, full or project-scoped, 30 days
-  - Other SaaS: usually has API token settings under user/account
+### 2️⃣ 토큰/자격증명이 필요한가? → 없으면 한 번만 요청
+- GitHub PAT (repo scope, 30일)
+- Vercel token (project-scoped, 30일)  
+- Supabase service_role (REST API SQL 실행용)
+- Telegram Bot token
 
-**Action:** Ask for credential, wait for response, proceed autonomously thereafter.
+**행동:** 필요한 것 정확히 명시. 받으면 즉시 실행 (다시 묻지 않음).
 
-**Credential locations on this host:**
-- `~/.config/dsc-fms-secrets/supabase.env` (mode 600): Supabase URL, anon, service_role + Vercel token
-- GitHub PAT: used one-shot via env var (not persisted); re-ask if expired
+**저장 위치:** `~/.config/dsc-fms-secrets/supabase.env` (mode 600)
 
-### 3. Truly irreducible to assistant → 명확히 설명하고 기다린다. (State plainly; provide clear steps)
-- Account signup requiring payment + KYC
-- 2FA acknowledgment (interactive)
-- Physical-world actions
-- Tasks requiring your personal identity
+### 3️⃣ 사용자만 가능한 것인가? → 명확한 단계만 제시
+- 계정 가입 (결제, SMS, 2FA, 신원확인)
+- 개인 인증 (로그인, OAuth)
+- 물리적 작업 (하드웨어 재시작, 서명)
+- 비즈니스 최종 승인
 
-**Action:** Explain what's needed, list clear steps, get confirmation, then proceed or wait.
+**행동:** 필요 사항 설명 + 단계 제시 + 대기. 그 다음 진행.
 
 ---
 
