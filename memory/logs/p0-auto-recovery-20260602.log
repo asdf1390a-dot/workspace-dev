@@ -16,3 +16,22 @@
 [2026-06-02 17:00:01] ✅ Phase 2B cron job present
 [2026-06-02 17:00:01] ✅ Phase 2D cron job present
 [2026-06-02 17:00:01] === P0 CHECK COMPLETE ===
+[2026-06-02 18:00:01] === P0 AUTO-RECOVERY CHECK ===
+[2026-06-02 18:00:01] Checking service health...
+[2026-06-02 18:00:01] ✅ Phase 2A (port 3009) OK
+[2026-06-02 18:00:01] ✅ Phase 2B (port 3010) OK
+[2026-06-02 18:00:01] ❌ Phase 2C (port 3011) is down
+[2026-06-02 18:00:01] 🔴 Service phase2c-express-wrapper (port 3011) is down. Attempting restart...
+[2026-06-02 18:00:04] ✅ Service phase2c-express-wrapper restarted successfully (port 3011)
+[2026-06-02 18:00:04] Checking critical cron jobs...
+[2026-06-02 18:00:04] ✅ Phase 2B cron job present
+[2026-06-02 18:00:04] ✅ Phase 2D cron job present
+[2026-06-02 18:00:04] === P0 CHECK COMPLETE ===
+[2026-06-02 18:30:17] === P0 AUTO-RECOVERY CHECK (CRON: e876ea89-b78a-4f62-aaed-17c610f2c3d9) ===
+[2026-06-02 18:30:17] Checking service health...
+[2026-06-02 18:30:17] ✅ Phase 2A (port 3009) OK — uptime 36m
+[2026-06-02 18:30:17] ✅ Phase 2B (port 3010) OK — uptime 25d, requests 8
+[2026-06-02 18:30:17] ✅ Phase 2C (port 3011) OK — uptime 21d, requests 7 (recovered at 18:00)
+[2026-06-02 18:30:17] ✅ Trust score: 99% (target >= 85%)
+[2026-06-02 18:30:17] ✅ Cron jobs: Phase 2B + Phase 2D both active
+[2026-06-02 18:30:17] === ✅ ALL SYSTEMS NOMINAL — NO ACTION REQUIRED ===

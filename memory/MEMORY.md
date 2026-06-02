@@ -4,6 +4,7 @@
 - [🔴 **즉시 조치 필요: GitHub Secrets 설정**](ORG_STATUS_2026_06_02_1749.md) — ⏰ **11분 남음** (18:00 마감) | VERCEL_ORG_ID, VERCEL_PROJECT_ID, VERCEL_TOKEN, SUPABASE_URL/ANON_KEY/SERVICE_KEY 모두 미설정 | 모든 배포 실패 (5회 연속) | **https://github.com/asdf1390a-dot/workspace-dev/settings/secrets/actions** 에서 지금 당장 설정 필요 | 마감 불가능 확률 95% → **마감 연장 권장**
 
 ## 🟢 실시간 상태 (차순위)
+- [🟢 Cron Cleanup — Phase 2A 중복 제거 (2026-06-02 18:13)](CRON_CLEANUP_2026_06_02.md) — 2개 중복 크론 disabled, Express 서버 3/3 running ✅
 - [🔴 **BM-P1 Phase 2 최종 11분 (2026-06-02 17:49)](ORG_STATUS_2026_06_02_1749.md) — GitHub Actions 연속 5회 실패 중 | 프로덕션 배포 안됨 (HTTP 404) | 18:00 마감까지 11분 | **옵션 A: 즉시 Secrets 설정 (성공률 ~5%) / 옵션 B: 마감 연장 40분 요청** 🔴
 - [⭐⭐⭐ 세션 체크포인트 #316 (2026-06-02 16:40)](SESSION_CHECKPOINT_2026_06_02_1640.md) — P0/P1 완료 ✅ | BM-P1 Phase 2 72%→진행중 | GitHub Actions 빌드 중 | 80분 남음
 - [⭐⭐⭐ 메모리 감사 P0/P1 완료 (2026-06-02 16:38)](P1_CLEANUP_COMPLETION_2026_06_02.md) — P0: 파일 461→380 정리 ✅ | P1: Cron 중복 제거 + 마이크로서비스 검증 ✅ | 신뢰도 95%+ 유지
@@ -40,6 +41,7 @@
 ## 🔧 자동화
 - Phase 2 설계 — 중복검출 + 신뢰도계산 + 크론통합
 - Phase 2A ✅ — 메시지수집 API (5개 엔드포인트, port 3009)
+  - 🟢 중복 크론 비활성화 (2026-06-02 18:13) — c51f1b9c-3cd3-4fa9-896e-1632021a757d + 319c23d9-26ce-4a01-b116-94a8a2deb608 disabled
 - Phase 2B ✅ — 중복검출 (308개 메시지, port 3010)
 - [Phase 2F 배포 ✅](POST_DEPLOYMENT_VALIDATION_2026_06_01_1700.md) — 2026-06-01 06:05 완료, 8/8 검증 통과
 
