@@ -26,6 +26,8 @@
 - [🟢 최종 배포 패키지 (2026-06-02)](../SKILL_DEPLOYMENT_PACKAGE_FINAL_2026_06_02.md) — 5개 스킬 설치 방법 + 팀별 전략 + 체크리스트, 배포 준비 100%, agentmemory NPM 포함
 - [🟢 스킬 습득 현황 (2026-06-02)](../SKILL_ACQUISITION_STATUS_2026_06_02.md) — 75/75 배포 완료 ✅, 모든 팀원 5개 스킬 보유, Phase 0-C 전원 활성화
 - [📊 스킬 습득 추적](skill_acquisition_tracking.md) — 15명 팀원, 5개 스킬 실시간 추적, 주간 검토 매주 월요 09:00
+- [🟡 Phase 0/A/B 배포 실행 (2026-06-02)](../PHASE0_AB_DEPLOYMENT_EXECUTION_2026_06_02.md) — 11명 (Phase 0-6 + Phase A/B-4 + CEO-1), 08:00 시작, 18:00 완료 목표
+- [📊 배포 상태 추적 LIVE](../PHASE0_AB_DEPLOYMENT_STATUS_LIVE_2026_06_02.md) — 실시간 모니터링, 팀별 진행상황 추적, 30분~1시간 갱신
 
 ## 🔧 자동화
 - Phase 2 설계 — 중복검출 + 신뢰도계산 + 크론통합
