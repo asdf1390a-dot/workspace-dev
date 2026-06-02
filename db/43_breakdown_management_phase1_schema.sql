@@ -33,14 +33,14 @@ CREATE TABLE IF NOT EXISTS breakdown_reports (
   started_at TIMESTAMPTZ,                       -- 고장 시작 시간 (실제)
   resolved_at TIMESTAMPTZ,                      -- 고장 해결 시간
 
-  -- 계산 필드 (자동 계산, VIRTUAL)
+  -- 계산 필드 (자동 계산)
   duration_minutes INT GENERATED ALWAYS AS (
     CASE
       WHEN resolved_at IS NOT NULL AND started_at IS NOT NULL
       THEN EXTRACT(EPOCH FROM (resolved_at - started_at))::integer / 60
       ELSE NULL
     END
-  ) VIRTUAL,
+  ) STORED,
 
   -- 담당자
   reported_by UUID NOT NULL REFERENCES auth.users(id) ON DELETE SET NULL,
