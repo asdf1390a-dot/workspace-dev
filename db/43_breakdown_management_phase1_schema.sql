@@ -135,18 +135,13 @@ CREATE POLICY "users_create_breakdowns" ON breakdown_reports
   FOR INSERT
   WITH CHECK (auth.uid() IS NOT NULL);
 
--- Policy 3: 보고자, 담당자, 또는 관리자만 업데이트 가능
+-- Policy 3: 보고자 또는 담당자만 업데이트 가능
 DROP POLICY IF EXISTS "users_update_own_breakdowns" ON breakdown_reports;
 CREATE POLICY "users_update_own_breakdowns" ON breakdown_reports
   FOR UPDATE
   USING (
     auth.uid() = reported_by
     OR auth.uid() = assigned_to
-    OR EXISTS (
-      SELECT 1 FROM org_members
-      WHERE org_members.user_id = auth.uid()
-      AND org_members.role = 'admin'
-    )
   );
 
 -- ============================================================================
