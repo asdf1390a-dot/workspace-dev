@@ -31,33 +31,18 @@ export default function BackupPage() {
   useEffect(() => {
     const loadData = async () => {
       try {
-        const [settingsRes, metricsRes, storageRes, notifRes] = await Promise.all([
-          fetch('/api/backup/settings'),
-          fetch('/api/backup/metrics'),
-          fetch('/api/backup/storage'),
-          fetch('/api/backup/notifications'),
+        const { apiGet } = await import('@/lib/backup-fetch');
+        const [settingsData, metricsData, storageData, notifData] = await Promise.all([
+          apiGet('/api/backup/settings'),
+          apiGet('/api/backup/metrics'),
+          apiGet('/api/backup/storage'),
+          apiGet('/api/backup/notifications'),
         ]);
 
-        if (settingsRes.ok) {
-          const data = await settingsRes.json();
-          setSettings(data);
-        }
-
-        if (metricsRes.ok) {
-          const data = await metricsRes.json();
-          setMetrics(data);
-        }
-
-        if (storageRes.ok) {
-          const data = await storageRes.json();
-          setStorage(data);
-        }
-
-        if (notifRes.ok) {
-          const data = await notifRes.json();
-          setNotifications(data.channels || []);
-        }
-
+        setSettings(settingsData);
+        setMetrics(metricsData);
+        setStorage(storageData);
+        setNotifications(notifData.channels || []);
         setError(null);
         setLoading(false);
       } catch (err) {
@@ -73,12 +58,8 @@ export default function BackupPage() {
   const handleSaveSettings = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const res = await fetch('/api/backup/settings', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(settings),
-      });
-      if (!res.ok) throw new Error('Failed to save settings');
+      const { apiPost } = await import('@/lib/backup-fetch');
+      await apiPost('/api/backup/settings', settings);
       setError(null);
     } catch (err) {
       setError('Failed to save backup settings');
@@ -87,12 +68,8 @@ export default function BackupPage() {
 
   const handleNotificationToggle = async (channel: string, enabled: boolean) => {
     try {
-      const res = await fetch('/api/backup/notifications', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ channel, enabled }),
-      });
-      if (!res.ok) throw new Error('Failed to update notification');
+      const { apiPost } = await import('@/lib/backup-fetch');
+      await apiPost('/api/backup/notifications', { channel, enabled });
       if (enabled) {
         setNotifications([...notifications, channel]);
       } else {
