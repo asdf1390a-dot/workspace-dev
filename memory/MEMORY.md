@@ -46,3 +46,6 @@
 ---
 
 **마지막 갱신:** 2026-06-02 12:25 KST (Overnight Checkpoint #313) | **상태:** Phase 2F ✅ 안정운영, BM-P1 P2 🟡 진행중 (30.6%, ETA 06-03 19:00), Team Dashboard P2 🟡 진행중 (60%, ETA 06-10), Phase 2A ✅ 실행중 (port 3009), Phase 2B/2C ❌ 다운 (port 3010/3011), Overnight Checkpoint Cron ❌ Discord 인증 오류 (4회 실패), 팀 활용도 83.3% (2명 활성), 신뢰도 75% (6 완료/8 예정), 블로킹 0 | **경고:** Overnight Cron 배포 완료됨 (필요 없을 수도), Phase 2B/2C 서비스 다운 상태 | **조치필요:** Phase 2B/2C 재시작 또는 정리, Discord 토큰 갱신
+
+## 📋 업무 시작 프로토콜 (2026-06-02 CEO 공식)
+- [업무 시작 3단계](feedback_work_initiation_protocol.md) — 방향→이유 설명→자동시작→완료보고 (CEO 공식 지시)

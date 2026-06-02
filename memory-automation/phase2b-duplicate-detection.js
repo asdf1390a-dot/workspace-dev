@@ -10,18 +10,28 @@ const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 
-// 설정
+// ============================================================================
+// CONFIGURATION
+// ============================================================================
+
 const MEMORY_DIR = process.env.MEMORY_DIR || '/home/jeepney/.openclaw/workspace-dev/memory';
 const INPUT_FILE = path.join(MEMORY_DIR, 'messages.jsonl');
 const OUTPUT_FILE = path.join(MEMORY_DIR, 'messages_deduplicated.jsonl');
 const LOG_DIR = path.join(MEMORY_DIR, 'logs');
 const LOG_FILE = path.join(LOG_DIR, `phase2b-dedup-${new Date().toISOString().split('T')[0]}.log`);
 
+// ============================================================================
+// LOGGER
+// ============================================================================
+
 function log(level, msg) {
   const timestamp = new Date().toISOString();
   const logMsg = `[${timestamp}] [${level}] ${msg}`;
   console.log(logMsg);
   try {
+    if (!fs.existsSync(LOG_DIR)) {
+      fs.mkdirSync(LOG_DIR, { recursive: true });
+    }
     fs.appendFileSync(LOG_FILE, logMsg + '\n');
   } catch (e) {
     console.error('Failed to write log:', e.message);
@@ -29,87 +39,120 @@ function log(level, msg) {
 }
 
 // ============================================================================
-// LAYER 1: EXACT HASH MATCHING
+// DUPLICATE DETECTION ENGINE (MODULAR)
 // ============================================================================
 
-function layer1ExactMatching(messages) {
-  const hashMap = new Map();
-  const unique = [];
-  const duplicates = [];
+class DuplicateDetectionEngine {
+  constructor(prefixLen = 80) {
+    this.prefixLen = prefixLen;
+  }
 
-  messages.forEach((msg, idx) => {
-    const contentHash = msg.hash; // Use existing hash from messages
-    if (hashMap.has(contentHash)) {
-      duplicates.push({
-        index: idx,
-        hash: contentHash,
-        sourceFile: msg.sourceFile,
-        reason: 'EXACT_HASH',
-        duplicateOf: hashMap.get(contentHash).index
-      });
-    } else {
-      unique.push(msg);
-      hashMap.set(contentHash, { index: idx, message: msg });
-    }
-  });
+  /**
+   * Run full deduplication pipeline: Layer 1 + Layer 2
+   */
+  deduplicate(messages) {
+    const layer1Result = this.layer1ExactMatching(messages);
+    const layer2Result = this.layer2PrefixMatching(layer1Result.unique);
 
-  return {
-    unique,
-    duplicates,
-    count: unique.length,
-    removed: duplicates.length,
-    method: 'LAYER1_EXACT'
-  };
+    return {
+      original: messages.length,
+      layer1: layer1Result,
+      layer2: layer2Result,
+      final: {
+        unique: layer2Result.unique,
+        totalRemoved: layer1Result.removed + layer2Result.removed,
+        allDuplicates: [...layer1Result.duplicates, ...layer2Result.duplicates],
+      },
+    };
+  }
+
+  /**
+   * Layer 1: Exact Hash Matching (O(n))
+   */
+  layer1ExactMatching(messages) {
+    const hashMap = new Map();
+    const unique = [];
+    const duplicates = [];
+
+    messages.forEach((msg, idx) => {
+      const contentHash = msg.hash || this.computeHash(msg);
+      if (hashMap.has(contentHash)) {
+        duplicates.push({
+          index: idx,
+          hash: contentHash,
+          sourceFile: msg.sourceFile,
+          reason: 'EXACT_HASH',
+          duplicateOf: hashMap.get(contentHash).index,
+        });
+      } else {
+        unique.push(msg);
+        hashMap.set(contentHash, { index: idx, message: msg });
+      }
+    });
+
+    return {
+      unique,
+      duplicates,
+      count: unique.length,
+      removed: duplicates.length,
+      method: 'LAYER1_EXACT',
+    };
+  }
+
+  /**
+   * Layer 2: Prefix-Based Matching (O(n))
+   */
+  layer2PrefixMatching(uniqueMessages) {
+    const prefixMap = new Map();
+    const unique = [];
+    const duplicates = [];
+
+    uniqueMessages.forEach((msg, idx) => {
+      const normalized = this.normalizeText(msg.content);
+      const prefix = normalized.substring(0, this.prefixLen);
+
+      if (prefixMap.has(prefix)) {
+        duplicates.push({
+          index: idx,
+          sourceFile: msg.sourceFile,
+          reason: 'PREFIX_MATCH',
+          duplicateOf: prefixMap.get(prefix).index,
+          prefixLen: this.prefixLen,
+        });
+      } else {
+        unique.push(msg);
+        prefixMap.set(prefix, { index: idx, message: msg });
+      }
+    });
+
+    return {
+      unique,
+      duplicates,
+      count: unique.length,
+      removed: duplicates.length,
+      method: 'LAYER2_PREFIX',
+    };
+  }
+
+  /**
+   * Normalize text for comparison
+   */
+  normalizeText(text) {
+    if (!text) return '';
+    return text.toLowerCase().trim();
+  }
+
+  /**
+   * Compute SHA256 hash of message content (content field only)
+   */
+  computeHash(msg) {
+    const content = typeof msg === 'string' ? msg : (msg.content || JSON.stringify(msg));
+    return crypto.createHash('sha256').update(content).digest('hex');
+  }
 }
 
 // ============================================================================
-// LAYER 2: FAST PREFIX-BASED MATCHING (Non-Levenshtein)
-// ============================================================================
-
-function normalizeText(text) {
-  return text.toLowerCase().trim();
-}
-
-function getPrefixKey(text) {
-  const normalized = normalizeText(text);
-  return normalized.substring(0, Math.min(100, normalized.length));
-}
-
-function layer2PrefixMatching(uniqueMessages, prefixLen = 80) {
-  const prefixMap = new Map();
-  const unique = [];
-  const duplicates = [];
-
-  uniqueMessages.forEach((msg, idx) => {
-    const normalized = normalizeText(msg.content);
-    const prefix = normalized.substring(0, prefixLen);
-
-    if (prefixMap.has(prefix)) {
-      const duplicate = {
-        index: idx,
-        sourceFile: msg.sourceFile,
-        reason: 'PREFIX_MATCH',
-        duplicateOf: prefixMap.get(prefix).index,
-        prefixLen
-      };
-      duplicates.push(duplicate);
-    } else {
-      unique.push(msg);
-      prefixMap.set(prefix, { index: idx, message: msg });
-    }
-  });
-
-  return {
-    unique,
-    duplicates,
-    count: unique.length,
-    removed: duplicates.length,
-    method: 'LAYER2_PREFIX'
-  };
-}
-
-// ============================================================================
-// LOAD & SAVE
+// FILE I/O
 // ============================================================================
 
 function loadMessages() {
@@ -142,16 +185,23 @@ function loadMessages() {
 
 function saveDeduplicatedMessages(messages, metadata) {
   try {
+    // Clear output file
+    if (fs.existsSync(OUTPUT_FILE)) {
+      fs.unlinkSync(OUTPUT_FILE);
+    }
+
+    // Write deduplicated messages
     messages.forEach(msg => {
       const enriched = {
         ...msg,
         dedup_timestamp: new Date().toISOString(),
-        dedup_layers_passed: 2
+        dedup_layers_passed: 2,
       };
       const jsonLine = JSON.stringify(enriched) + '\n';
       fs.appendFileSync(OUTPUT_FILE, jsonLine);
     });
 
+    // Write metadata
     const metaFile = path.join(MEMORY_DIR, 'dedup_metadata.json');
     fs.writeFileSync(metaFile, JSON.stringify(metadata, null, 2));
 
@@ -164,7 +214,7 @@ function saveDeduplicatedMessages(messages, metadata) {
 }
 
 // ============================================================================
-// MAIN
+// MAIN (CLI MODE)
 // ============================================================================
 
 async function main() {
@@ -181,11 +231,6 @@ async function main() {
   log('INFO', `Output: ${OUTPUT_FILE}`);
 
   try {
-    // Clear old output
-    if (fs.existsSync(OUTPUT_FILE)) {
-      fs.unlinkSync(OUTPUT_FILE);
-    }
-
     log('INFO', 'Step 1: Loading messages...');
     const messages = loadMessages();
     log('INFO', `Loaded ${messages.length} messages`);
@@ -196,42 +241,41 @@ async function main() {
       process.exit(0);
     }
 
-    log('INFO', 'Step 2: Running Layer 1 - Exact Hash Matching...');
-    const layer1Result = layer1ExactMatching(messages);
-    log('INFO', `Layer 1: ${layer1Result.count} unique, ${layer1Result.removed} exact duplicates`);
+    log('INFO', 'Step 2: Running deduplication pipeline...');
+    const engine = new DuplicateDetectionEngine(80);
+    const result = engine.deduplicate(messages);
 
-    log('INFO', 'Step 3: Running Layer 2 - Prefix Matching...');
-    const layer2Result = layer2PrefixMatching(layer1Result.unique, 80);
-    log('INFO', `Layer 2: ${layer2Result.count} unique, ${layer2Result.removed} prefix duplicates`);
+    log('INFO', `Layer 1: ${result.layer1.count} unique, ${result.layer1.removed} exact duplicates`);
+    log('INFO', `Layer 2: ${result.layer2.count} unique, ${result.layer2.removed} prefix duplicates`);
 
-    log('INFO', 'Step 4: Saving deduplicated messages...');
+    log('INFO', 'Step 3: Saving deduplicated messages...');
     const metadata = {
       timestamp: new Date().toISOString(),
       runtime_ms: Date.now() - startTime,
       input: {
         file: INPUT_FILE,
-        count: messages.length
+        count: messages.length,
       },
       layer1: {
-        unique: layer1Result.count,
-        duplicates: layer1Result.removed,
-        method: 'EXACT_HASH'
+        unique: result.layer1.count,
+        duplicates: result.layer1.removed,
+        method: 'EXACT_HASH',
       },
       layer2: {
-        unique: layer2Result.count,
-        duplicates: layer2Result.removed,
+        unique: result.layer2.count,
+        duplicates: result.layer2.removed,
         method: 'PREFIX_MATCH',
-        prefixLen: 80
+        prefixLen: 80,
       },
       final: {
-        unique: layer2Result.count,
-        reduction: ((messages.length - layer2Result.count) / messages.length * 100).toFixed(1) + '%'
-      }
+        unique: result.layer2.count,
+        reduction: ((messages.length - result.layer2.count) / messages.length * 100).toFixed(1) + '%',
+      },
     };
 
-    saveDeduplicatedMessages(layer2Result.unique, metadata);
+    saveDeduplicatedMessages(result.layer2.unique, metadata);
 
-    log('INFO', `Final: ${layer2Result.count} unique messages (${metadata.final.reduction} reduction)`);
+    log('INFO', `Final: ${result.layer2.count} unique messages (${metadata.final.reduction} reduction)`);
     log('INFO', `Total runtime: ${metadata.runtime_ms}ms`);
     log('INFO', '========== Phase 2B Duplicate Detection Complete ==========');
 
@@ -244,4 +288,21 @@ async function main() {
   }
 }
 
-main();
+// ============================================================================
+// EXPORTS (FOR TESTING & MODULES)
+// ============================================================================
+
+module.exports = {
+  DuplicateDetectionEngine,
+  loadMessages,
+  saveDeduplicatedMessages,
+  log,
+};
+
+// ============================================================================
+// RUN IF CALLED DIRECTLY
+// ============================================================================
+
+if (require.main === module) {
+  main();
+}

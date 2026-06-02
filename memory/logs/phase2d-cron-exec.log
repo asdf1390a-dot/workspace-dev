@@ -2719,3 +2719,14 @@ Sun May 31 18:30:11 KST 2026: Phase 2F Gate Sequence Starting - All microservice
 [1;33m[2026-06-02 12:30:07] [WARNING] Phase 2C health check failed (attempt 2/3), retrying in 2s...[0m
 [0;31m[2026-06-02 12:30:09] [ERROR] Phase 2C health check FAILED after 3 attempts[0m
 [1;33m[2026-06-02 12:30:09] [WARNING] Phase 2C unavailable, skipping trust score calculation[0m
+[1;33m[2026-06-02 12:35:01] [WARNING] Phase 2B health check failed (attempt 1/3), retrying in 2s...[0m
+[1;33m[2026-06-02 12:35:03] [WARNING] Phase 2B health check failed (attempt 2/3), retrying in 2s...[0m
+[0;31m[2026-06-02 12:35:05] [ERROR] Phase 2B health check FAILED after 3 attempts[0m
+[1;33m[2026-06-02 12:35:05] [WARNING] Phase 2B unavailable, skipping duplicate detection[0m
+[1;33m[2026-06-02 12:35:05] [WARNING] Phase 2C health check failed (attempt 1/3), retrying in 2s...[0m
+[1;33m[2026-06-02 12:35:07] [WARNING] Phase 2C health check failed (attempt 2/3), retrying in 2s...[0m
+[0;31m[2026-06-02 12:35:09] [ERROR] Phase 2C health check FAILED after 3 attempts[0m
+[1;33m[2026-06-02 12:35:09] [WARNING] Phase 2C unavailable, skipping trust score calculation[0m
+[0;31m[2026-06-02 12:40:01] [ERROR] Phase 2C scoring failed: Internal server error[0m
+[0;31m[2026-06-02 12:45:01] [ERROR] Phase 2C scoring failed: Internal server error[0m
+[0;31m[2026-06-02 12:50:02] [ERROR] Phase 2C scoring failed: Internal server error[0m

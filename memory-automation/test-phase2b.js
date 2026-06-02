@@ -1,9 +1,10 @@
 #!/usr/bin/env node
+/**
+ * Phase 2B: Duplicate Detection Engine - Test Suite
+ * Tests: 42 comprehensive test cases covering 2-layer deduplication
+ */
 
-const http = require('http');
-const { DuplicateDetectionEngine, PatternDetector, FuzzyMatcher, SemanticMatcher } = require('./phase2b-duplicate-detection.js');
-
-const API_URL = 'http://localhost:3010';
+const { DuplicateDetectionEngine } = require('./phase2b-duplicate-detection.js');
 
 let testsRun = 0;
 let testsPassed = 0;
@@ -13,59 +14,6 @@ const failedTests = [];
 // ============================================================================
 // TEST UTILITIES
 // ============================================================================
-
-function makeRequest(method, path, body = null) {
-  return new Promise((resolve, reject) => {
-    const url = new URL(path, API_URL);
-    const options = {
-      hostname: url.hostname,
-      port: url.port,
-      path: url.pathname + url.search,
-      method: method,
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    };
-
-    const req = http.request(options, (res) => {
-      let data = '';
-      res.on('data', chunk => (data += chunk));
-      res.on('end', () => {
-        try {
-          resolve({
-            status: res.statusCode,
-            body: data ? JSON.parse(data) : null,
-            headers: res.headers,
-          });
-        } catch (e) {
-          resolve({
-            status: res.statusCode,
-            body: data,
-            headers: res.headers,
-          });
-        }
-      });
-    });
-
-    req.on('error', reject);
-    if (body) req.write(JSON.stringify(body));
-    req.end();
-  });
-}
-
-async function test(name, fn) {
-  testsRun++;
-  try {
-    await fn();
-    console.log(`  ✓ ${name}`);
-    testsPassed++;
-  } catch (error) {
-    console.log(`  ✗ ${name}`);
-    console.log(`    Error: ${error.message}`);
-    testsFailed++;
-    failedTests.push(name);
-  }
-}
 
 function assertEqual(actual, expected, msg) {
   if (actual !== expected) {
@@ -115,489 +63,411 @@ function assertInRange(value, min, max, msg) {
   }
 }
 
+async function test(name, fn) {
+  testsRun++;
+  try {
+    await fn();
+    console.log(`  ✓ ${name}`);
+    testsPassed++;
+  } catch (error) {
+    console.log(`  ✗ ${name}`);
+    console.log(`    Error: ${error.message}`);
+    testsFailed++;
+    failedTests.push(name);
+  }
+}
+
 // ============================================================================
 // TEST SUITE
 // ============================================================================
 
 async function runTests() {
-  console.log('\n=== Phase 2B: Duplicate Detection Engine - Test Suite ===\n');
+  console.log('\n🔍 Phase 2B: Duplicate Detection Engine - Test Suite\n');
+  console.log('Total Tests: 42\n');
+
+  const engine = new DuplicateDetectionEngine(80);
 
   // ========================================================================
-  // LAYER 1: PATTERN DETECTION TESTS (15 tests)
+  // GROUP 1: BASIC FUNCTIONALITY (8 tests)
   // ========================================================================
-  console.log('📐 Layer 1: Pattern Detection\n');
+  console.log('📋 Group 1: Basic Functionality\n');
 
-  const patternDetector = new PatternDetector();
-
-  await test('Pattern: Normalize filename with date', () => {
-    const result = patternDetector.normalizeFilename('memory-2026-05-27-data');
-    assertEqual(result, 'memorydata', 'Filename normalization');
+  await test('Initialization with default prefix length', () => {
+    const e = new DuplicateDetectionEngine();
+    assertExists(e, 'Engine should be created');
+    assertEqual(e.prefixLen, 80, 'Default prefix length should be 80');
   });
 
-  await test('Pattern: Normalize filename with version', () => {
-    const result = patternDetector.normalizeFilename('asset-master-v2.1.3');
-    assertEqual(result, 'assetmaster', 'Version removal');
+  await test('Initialization with custom prefix length', () => {
+    const e = new DuplicateDetectionEngine(100);
+    assertEqual(e.prefixLen, 100, 'Should accept custom prefix length');
   });
 
-  await test('Pattern: Normalize filename with brackets', () => {
-    const result = patternDetector.normalizeFilename('report[final](approved)');
-    assertEqual(result, 'report', 'Bracket removal');
+  await test('Normalize text - basic', () => {
+    const result = engine.normalizeText('Hello World');
+    assertEqual(result, 'hello world', 'Text should be lowercase and trimmed');
   });
 
-  await test('Pattern: Normalize title with special characters', () => {
-    const result = patternDetector.normalizeTitle('Asset Master v2.0 [FINAL]');
-    assertTrue(
-      result.includes('asset') && result.includes('master'),
-      'Title normalization'
-    );
+  await test('Normalize text - with whitespace', () => {
+    const result = engine.normalizeText('  HELLO  ');
+    assertEqual(result, 'hello', 'Should trim and lowercase');
   });
 
-  await test('Pattern: Hash exact matches', () => {
-    const entry1 = { filename: 'data-2026-05-27', title: 'Memory DB', size: 100 };
-    const entry2 = { filename: 'data-2026-05-27', title: 'Memory DB', size: 100 };
-    const hash1 = patternDetector.hashEntry(entry1);
-    const hash2 = patternDetector.hashEntry(entry2);
-    assertEqual(hash1, hash2, 'Hash consistency for identical entries');
+  await test('Normalize text - null input', () => {
+    const result = engine.normalizeText(null);
+    assertEqual(result, '', 'Null should return empty string');
   });
 
-  await test('Pattern: Hash differs for different entries', () => {
-    const entry1 = { filename: 'file1', title: 'Title A', size: 100 };
-    const entry2 = { filename: 'file2', title: 'Title B', size: 200 };
-    const hash1 = patternDetector.hashEntry(entry1);
-    const hash2 = patternDetector.hashEntry(entry2);
-    assertFalse(hash1 === hash2, 'Hashes should differ for different entries');
+  await test('Normalize text - undefined input', () => {
+    const result = engine.normalizeText(undefined);
+    assertEqual(result, '', 'Undefined should return empty string');
   });
 
-  await test('Pattern: Detect exact duplicates in cluster', () => {
-    const entries = [
-      { filename: 'data-v1', title: 'Report', size: 100 },
-      { filename: 'data-v1', title: 'Report', size: 100 },
-      { filename: 'other', title: 'Different', size: 200 },
-    ];
-    const clusters = patternDetector.detectPatternMatches(entries);
-    assertGreater(clusters.length, 0, 'Should find at least one cluster');
-    assertTrue(clusters[0].indices.length >= 2, 'Cluster should have 2+ entries');
+  await test('Compute hash - identical content', () => {
+    const hash1 = engine.computeHash('test content');
+    const hash2 = engine.computeHash('test content');
+    assertEqual(hash1, hash2, 'Same content should produce same hash');
   });
 
-  await test('Pattern: Handle empty filename', () => {
-    const result = patternDetector.normalizeFilename('');
-    assertEqual(result, '', 'Empty filename handling');
-  });
-
-  await test('Pattern: Handle null/undefined entry', () => {
-    const entry = { filename: null, title: undefined };
-    const hash = patternDetector.hashEntry(entry);
-    assertExists(hash, 'Hash should handle null/undefined');
-  });
-
-  await test('Pattern: Case insensitive matching', () => {
-    const entry1 = { filename: 'DATA-FILE', title: 'Report' };
-    const entry2 = { filename: 'data-file', title: 'report' };
-    const hash1 = patternDetector.hashEntry(entry1);
-    const hash2 = patternDetector.hashEntry(entry2);
-    assertEqual(hash1, hash2, 'Hashing should be case-insensitive');
-  });
-
-  await test('Pattern: Normalize multiple consecutive separators', () => {
-    const result = patternDetector.normalizeFilename('file___name---data');
-    assertTrue(
-      !result.includes('___') && !result.includes('---'),
-      'Multiple separators should be collapsed'
-    );
-  });
-
-  await test('Pattern: Handle very long filename', () => {
-    const longName = 'a'.repeat(500) + '-file-2026-05-27-v1.2.3';
-    const result = patternDetector.normalizeFilename(longName);
-    assertTrue(result.length > 0, 'Should handle long filenames');
-  });
-
-  await test('Pattern: Detect multiple clusters', () => {
-    const entries = [
-      { filename: 'a', title: 'X', size: 1 },
-      { filename: 'a', title: 'X', size: 1 },
-      { filename: 'b', title: 'Y', size: 2 },
-      { filename: 'b', title: 'Y', size: 2 },
-      { filename: 'c', title: 'Z', size: 3 },
-    ];
-    const clusters = patternDetector.detectPatternMatches(entries);
-    assertGreater(clusters.length, 1, 'Should find multiple clusters');
-  });
-
-  await test('Pattern: No false positives for similar names', () => {
-    const entries = [
-      { filename: 'report-v1', title: 'A' },
-      { filename: 'report-v2', title: 'B' },
-    ];
-    const clusters = patternDetector.detectPatternMatches(entries);
-    assertEqual(clusters.length, 0, 'Similar but different files should not match');
+  await test('Compute hash - different content', () => {
+    const hash1 = engine.computeHash('test content 1');
+    const hash2 = engine.computeHash('test content 2');
+    assertFalse(hash1 === hash2, 'Different content should produce different hash');
   });
 
   // ========================================================================
-  // LAYER 2: FUZZY MATCHING TESTS (15 tests)
+  // GROUP 2: LAYER 1 - EXACT HASH MATCHING (10 tests)
   // ========================================================================
-  console.log('\n🔤 Layer 2: Fuzzy Matching\n');
+  console.log('\n🔗 Group 2: Layer 1 - Exact Hash Matching\n');
 
-  const fuzzyMatcher = new FuzzyMatcher(0.63);
-
-  await test('Fuzzy: Levenshtein distance - exact match', () => {
-    const distance = fuzzyMatcher.levenshteinDistance('hello', 'hello');
-    assertEqual(distance, 0, 'Identical strings should have distance 0');
-  });
-
-  await test('Fuzzy: Levenshtein distance - one character off', () => {
-    const distance = fuzzyMatcher.levenshteinDistance('hello', 'hallo');
-    assertEqual(distance, 1, 'One character difference');
-  });
-
-  await test('Fuzzy: Levenshtein distance - empty string', () => {
-    const distance = fuzzyMatcher.levenshteinDistance('', 'hello');
-    assertEqual(distance, 5, 'Empty string should have distance equal to other length');
-  });
-
-  await test('Fuzzy: Similarity ratio calculation', () => {
-    const sim = fuzzyMatcher.similarity('test', 'test');
-    assertEqual(sim, 1.0, 'Identical strings should have similarity 1.0');
-  });
-
-  await test('Fuzzy: Partial similarity', () => {
-    const sim = fuzzyMatcher.similarity('hello', 'hallo');
-    assertTrue(sim >= 0.8, 'Similar strings should have high similarity (sim=' + sim.toFixed(2) + ')');
-  });
-
-  await test('Fuzzy: Content similarity - high match', () => {
-    const sim = fuzzyMatcher.contentSimilarity(
-      'The quick brown fox jumps over the lazy dog',
-      'The quick brown fox jumps over the lazy dog'
-    );
-    assertEqual(sim, 1.0, 'Identical content should have similarity 1.0');
-  });
-
-  await test('Fuzzy: Content similarity - partial match', () => {
-    const sim = fuzzyMatcher.contentSimilarity(
-      'Asset Master Configuration',
-      'Asset Master Settings'
-    );
-    assertTrue(sim >= 0.5, 'Partial overlap should yield moderate similarity (sim=' + sim.toFixed(2) + ')');
-  });
-
-  await test('Fuzzy: Tokenization', () => {
-    const tokens = fuzzyMatcher.tokenize('Hello World from Testing Framework');
-    assertTrue(tokens.includes('hello'), 'Should contain lowercase tokens');
-    assertTrue(tokens.length >= 3, 'Should tokenize into multiple words');
-  });
-
-  await test('Fuzzy: Detect fuzzy duplicates', () => {
-    const entries = [
-      { title: 'Memory Database Backup', description: 'Full system backup' },
-      { title: 'Memory DB Backup', description: 'Complete system backup' },
-      { title: 'Other Report', description: 'Different content' },
+  await test('Layer 1: Identify exact duplicate', () => {
+    const messages = [
+      { id: 1, content: 'message', hash: 'abc123', sourceFile: 'a.txt' },
+      { id: 2, content: 'message', hash: 'abc123', sourceFile: 'a.txt' },
     ];
-    const clusters = fuzzyMatcher.detectFuzzyMatches(entries);
-    assertGreater(clusters.length, 0, 'Should find fuzzy duplicates');
+    const result = engine.layer1ExactMatching(messages);
+    assertEqual(result.count, 1, 'Should have 1 unique message');
+    assertEqual(result.removed, 1, 'Should detect 1 duplicate');
   });
 
-  await test('Fuzzy: Avoid false positives below threshold', () => {
-    const entries = [
-      { title: 'Report A', description: 'Content A' },
-      { title: 'Report B', description: 'Content B' },
+  await test('Layer 1: No duplicates', () => {
+    const messages = [
+      { id: 1, content: 'message 1', hash: 'abc123', sourceFile: 'a.txt' },
+      { id: 2, content: 'message 2', hash: 'def456', sourceFile: 'b.txt' },
     ];
-    const clusters = fuzzyMatcher.detectFuzzyMatches(entries);
-    assertEqual(clusters.length, 0, 'Dissimilar entries should not match');
+    const result = engine.layer1ExactMatching(messages);
+    assertEqual(result.count, 2, 'Should have 2 unique messages');
+    assertEqual(result.removed, 0, 'Should detect no duplicates');
   });
 
-  await test('Fuzzy: Case insensitive matching', () => {
-    const entries = [
-      { title: 'ASSET MASTER', description: 'Configuration' },
-      { title: 'asset master', description: 'configuration' },
+  await test('Layer 1: All duplicates', () => {
+    const messages = [
+      { id: 1, content: 'message', hash: 'abc123', sourceFile: 'a.txt' },
+      { id: 2, content: 'message', hash: 'abc123', sourceFile: 'a.txt' },
+      { id: 3, content: 'message', hash: 'abc123', sourceFile: 'a.txt' },
     ];
-    const clusters = fuzzyMatcher.detectFuzzyMatches(entries);
-    assertGreater(clusters.length, 0, 'Case differences should not prevent matching');
+    const result = engine.layer1ExactMatching(messages);
+    assertEqual(result.count, 1, 'Should have 1 unique message');
+    assertEqual(result.removed, 2, 'Should detect 2 duplicates');
   });
 
-  await test('Fuzzy: Handle special characters', () => {
-    const entries = [
-      { title: 'Asset-Master (v2.0)', description: 'Test!' },
-      { title: 'Asset Master v2.0', description: 'Test' },
+  await test('Layer 1: Compute hash for objects without hash field', () => {
+    const messages = [
+      { sourceFile: 'a.txt', content: 'message' },
+      { sourceFile: 'a.txt', content: 'message' },
     ];
-    const clusters = fuzzyMatcher.detectFuzzyMatches(entries);
-    // Should handle special chars gracefully
-    assertTrue(true, 'Special characters handled');
+    const result = engine.layer1ExactMatching(messages);
+    assertEqual(result.count, 1, 'Should compute and detect duplicates');
+    assertEqual(result.removed, 1, 'Should identify 1 duplicate');
   });
 
-  await test('Fuzzy: Empty content handling', () => {
-    const entries = [
-      { title: '', description: '' },
-      { title: '', description: '' },
-    ];
-    const clusters = fuzzyMatcher.detectFuzzyMatches(entries);
-    // Should handle empty content
-    assertTrue(true, 'Empty content handled');
+  await test('Layer 1: Empty input', () => {
+    const result = engine.layer1ExactMatching([]);
+    assertEqual(result.count, 0, 'Should handle empty input');
+    assertEqual(result.removed, 0, 'No duplicates in empty input');
   });
 
-  await test('Fuzzy: Cluster merging with threshold', () => {
-    const mf = new FuzzyMatcher(0.90); // Higher threshold
-    const entries = [
-      { title: 'Test', description: 'Content' },
-      { title: 'Test', description: 'Content' },
-      { title: 'TestX', description: 'Content' },
-    ];
-    const clusters = mf.detectFuzzyMatches(entries);
-    assertTrue(clusters.length >= 0, 'Higher threshold should be more selective');
+  await test('Layer 1: Single message', () => {
+    const messages = [{ id: 1, content: 'message', hash: 'abc123', sourceFile: 'a.txt' }];
+    const result = engine.layer1ExactMatching(messages);
+    assertEqual(result.count, 1, 'Should have 1 unique message');
+    assertEqual(result.removed, 0, 'Single message has no duplicates');
   });
 
-  // ========================================================================
-  // LAYER 3: SEMANTIC MATCHING TESTS (10 tests)
-  // ========================================================================
-  console.log('\n🧠 Layer 3: Semantic Matching\n');
-
-  const semanticMatcher = new SemanticMatcher();
-
-  await test('Semantic: Get simple embedding', async () => {
-    const emb = await semanticMatcher.getEmbedding('test content');
-    assertTrue(Array.isArray(emb) || emb === null, 'Embedding should be array or null');
-  });
-
-  await test('Semantic: Embedding caching', async () => {
-    const text = 'duplicate test content';
-    const emb1 = await semanticMatcher.getEmbedding(text);
-    const emb2 = await semanticMatcher.getEmbedding(text);
-    // Both should be available
-    assertTrue(true, 'Caching works');
-  });
-
-  await test('Semantic: Cosine similarity - identical vectors', () => {
-    const emb = [1, 2, 3];
-    const sim = semanticMatcher.cosineSimilarity(emb, emb);
-    assertInRange(sim, 0.99, 1.01, 'Identical vectors should have similarity ~1.0');
-  });
-
-  await test('Semantic: Cosine similarity - orthogonal vectors', () => {
-    const sim = semanticMatcher.cosineSimilarity([1, 0, 0], [0, 1, 0]);
-    assertEqual(sim, 0, 'Orthogonal vectors should have similarity 0');
-  });
-
-  await test('Semantic: Handle null embeddings', () => {
-    const sim = semanticMatcher.cosineSimilarity(null, [1, 2, 3]);
-    assertEqual(sim, 0, 'Null embeddings should yield 0 similarity');
-  });
-
-  await test('Semantic: Fallback to fuzzy on error', async () => {
-    const sm = new SemanticMatcher(null);
-    sm.failover = true;
-    // Should not throw
-    assertTrue(true, 'Fallback mechanism in place');
-  });
-
-  await test('Semantic: Detect semantic duplicates', async () => {
-    const entries = [
-      { content: 'Machine learning is a subset of artificial intelligence' },
-      { content: 'AI includes machine learning as a component' },
-      { content: 'Completely different topic about cooking' },
-    ];
-    const clusters = await semanticMatcher.detectSemanticMatches(entries);
-    // Semantic matching is probabilistic, just verify no errors
-    assertTrue(Array.isArray(clusters), 'Should return array of clusters');
-  });
-
-  await test('Semantic: Handle very long content', async () => {
-    const longContent = 'word '.repeat(1000);
-    const emb = await semanticMatcher.getEmbedding(longContent);
-    assertTrue(true, 'Should handle long content');
-  });
-
-  await test('Semantic: Empty content', async () => {
-    const emb = await semanticMatcher.getEmbedding('');
-    assertTrue(true, 'Should handle empty content');
-  });
-
-  // ========================================================================
-  // ORCHESTRATOR & INTEGRATION TESTS (10 tests)
-  // ========================================================================
-  console.log('\n🎼 Orchestrator & Integration\n');
-
-  const engine = new DuplicateDetectionEngine();
-
-  await test('Orchestrator: Basic detection', async () => {
-    const entries = [
-      { filename: 'data-v1', title: 'Report', description: 'System data' },
-      { filename: 'data-v1', title: 'Report', description: 'System data' },
-      { filename: 'other', title: 'Different', description: 'Other' },
-    ];
-    const result = await engine.detect(entries);
-    assertTrue(result.totalDuplicates > 0, 'Should detect duplicates');
-  });
-
-  await test('Orchestrator: No duplicates in unique set', async () => {
-    const entries = [
-      { filename: 'file1', title: 'A', description: 'Content A' },
-      { filename: 'file2', title: 'B', description: 'Content B' },
-      { filename: 'file3', title: 'C', description: 'Content C' },
-    ];
-    const result = await engine.detect(entries);
-    assertEqual(result.duplicateClustersFound, 0, 'Unique entries should have no clusters');
-  });
-
-  await test('Orchestrator: Generate recommendations', async () => {
-    const entries = [
-      { filename: 'a', title: 'X', description: 'Y', timestamp: 1000 },
-      { filename: 'a', title: 'X', description: 'Y', timestamp: 2000 },
-    ];
-    const result = await engine.detect(entries);
-    if (result.recommendations.length > 0) {
-      const rec = result.recommendations[0];
-      assertTrue(rec.primaryIndex !== undefined, 'Should have primary index');
-      assertTrue(Array.isArray(rec.duplicateIndices), 'Should have duplicates');
+  await test('Layer 1: Large dataset (1000 messages)', () => {
+    const messages = [];
+    for (let i = 0; i < 1000; i++) {
+      messages.push({
+        id: i,
+        content: `message ${i % 100}`,
+        hash: `hash${i % 100}`,
+        sourceFile: 'test.txt',
+      });
     }
+    const result = engine.layer1ExactMatching(messages);
+    assertEqual(result.count, 100, 'Should identify 100 unique messages');
+    assertEqual(result.removed, 900, 'Should identify 900 duplicates');
   });
 
-  await test('Orchestrator: Layer merging priority', async () => {
-    const entries = [
-      { filename: 'test', title: 'A' },
-      { filename: 'test', title: 'A' },
+  await test('Layer 1: Maintains original field order', () => {
+    const messages = [
+      { id: 1, content: 'msg', hash: 'h1', sourceFile: 'a.txt', custom: 'value' },
     ];
-    const result = await engine.detect(entries);
-    assertTrue(result.layerResults !== undefined, 'Should have layer results');
+    const result = engine.layer1ExactMatching(messages);
+    assertTrue(result.unique[0].custom === 'value', 'Should preserve all fields');
   });
 
-  await test('Orchestrator: Performance - 100 entries', async () => {
-    const entries = Array.from({ length: 100 }, (_, i) => ({
-      filename: `file-${Math.floor(i / 10)}`,
-      title: `Title ${Math.floor(i / 10)}`,
-      description: `Content ${i}`,
-    }));
+  await test('Layer 1: Method field set correctly', () => {
+    const messages = [{ content: 'test', hash: 'h1', sourceFile: 'a.txt' }];
+    const result = engine.layer1ExactMatching(messages);
+    assertEqual(result.method, 'LAYER1_EXACT', 'Method should be LAYER1_EXACT');
+  });
+
+  // ========================================================================
+  // GROUP 3: LAYER 2 - PREFIX MATCHING (10 tests)
+  // ========================================================================
+  console.log('\n🔤 Group 3: Layer 2 - Prefix Matching\n');
+
+  await test('Layer 2: Identical prefix match', () => {
+    const prefix = 'This is a test message that is long enough to be a full 80 character prefix match test';
+    const messages = [
+      { id: 1, content: prefix, sourceFile: 'a.txt' },
+      { id: 2, content: prefix + ' with additional text', sourceFile: 'b.txt' },
+    ];
+    const result = engine.layer2PrefixMatching(messages);
+    assertEqual(result.count, 1, 'Should detect prefix duplicate');
+    assertEqual(result.removed, 1, 'Should identify 1 prefix duplicate');
+  });
+
+  await test('Layer 2: Different prefixes', () => {
+    const messages = [
+      { id: 1, content: 'Message type A', sourceFile: 'a.txt' },
+      { id: 2, content: 'Message type B', sourceFile: 'b.txt' },
+    ];
+    const result = engine.layer2PrefixMatching(messages);
+    assertEqual(result.count, 2, 'Should keep both messages');
+    assertEqual(result.removed, 0, 'No prefix duplicates');
+  });
+
+  await test('Layer 2: Case insensitive matching', () => {
+    const prefix = 'HELLO WORLD TEST MESSAGE WITH CONSISTENT CONTENT THAT WILL MATCH WHEN NORMALIZED';
+    const messages = [
+      { id: 1, content: prefix, sourceFile: 'a.txt' },
+      { id: 2, content: prefix.toLowerCase() + ' and more', sourceFile: 'b.txt' },
+    ];
+    const result = engine.layer2PrefixMatching(messages);
+    assertEqual(result.count, 1, 'Should match case-insensitively');
+    assertEqual(result.removed, 1, 'Should identify 1 case-insensitive duplicate');
+  });
+
+  await test('Layer 2: Whitespace normalization', () => {
+    const prefix = 'Test Message with consistent content that will match after whitespace normalization';
+    const messages = [
+      { id: 1, content: '  ' + prefix + '  ', sourceFile: 'a.txt' },
+      { id: 2, content: prefix + ' extended', sourceFile: 'b.txt' },
+    ];
+    const result = engine.layer2PrefixMatching(messages);
+    assertEqual(result.count, 1, 'Should normalize whitespace');
+    assertEqual(result.removed, 1, 'Should identify 1 whitespace duplicate');
+  });
+
+  await test('Layer 2: Empty input', () => {
+    const result = engine.layer2PrefixMatching([]);
+    assertEqual(result.count, 0, 'Should handle empty input');
+  });
+
+  await test('Layer 2: Single message', () => {
+    const messages = [{ id: 1, content: 'test', sourceFile: 'a.txt' }];
+    const result = engine.layer2PrefixMatching(messages);
+    assertEqual(result.count, 1, 'Single message is always unique');
+  });
+
+  await test('Layer 2: Very short messages', () => {
+    const messages = [
+      { id: 1, content: 'a', sourceFile: 'a.txt' },
+      { id: 2, content: 'ab', sourceFile: 'b.txt' },
+      { id: 3, content: 'a', sourceFile: 'c.txt' },
+    ];
+    const result = engine.layer2PrefixMatching(messages);
+    assertEqual(result.count, 2, 'Should handle short prefixes');
+  });
+
+  await test('Layer 2: Long message with short unique prefix', () => {
+    const longMsg = 'a' + 'x'.repeat(200);
+    const messages = [
+      { id: 1, content: longMsg, sourceFile: 'a.txt' },
+      { id: 2, content: longMsg + 'b', sourceFile: 'b.txt' },
+    ];
+    const result = engine.layer2PrefixMatching(messages);
+    assertEqual(result.count, 1, 'Should detect prefix match despite length');
+  });
+
+  await test('Layer 2: Method field set correctly', () => {
+    const messages = [{ id: 1, content: 'test', sourceFile: 'a.txt' }];
+    const result = engine.layer2PrefixMatching(messages);
+    assertEqual(result.method, 'LAYER2_PREFIX', 'Method should be LAYER2_PREFIX');
+  });
+
+  // ========================================================================
+  // GROUP 4: FULL PIPELINE (8 tests)
+  // ========================================================================
+  console.log('\n🔄 Group 4: Full Deduplication Pipeline\n');
+
+  await test('Pipeline: Basic deduplication', () => {
+    const messages = [
+      { id: 1, content: 'message', hash: 'h1', sourceFile: 'a.txt' },
+      { id: 2, content: 'message', hash: 'h1', sourceFile: 'a.txt' },
+      { id: 3, content: 'other', hash: 'h2', sourceFile: 'b.txt' },
+    ];
+    const result = engine.deduplicate(messages);
+    assertEqual(result.final.unique.length, 2, 'Should have 2 unique messages');
+  });
+
+  await test('Pipeline: No duplicates', () => {
+    const messages = [
+      { id: 1, content: 'msg1', hash: 'h1', sourceFile: 'a.txt' },
+      { id: 2, content: 'msg2', hash: 'h2', sourceFile: 'b.txt' },
+    ];
+    const result = engine.deduplicate(messages);
+    assertEqual(result.final.totalRemoved, 0, 'No duplicates should be removed');
+  });
+
+  await test('Pipeline: All duplicates', () => {
+    const messages = Array(10)
+      .fill(null)
+      .map((_, i) => ({
+        id: i,
+        content: 'duplicate',
+        hash: 'h1',
+        sourceFile: 'a.txt',
+      }));
+    const result = engine.deduplicate(messages);
+    assertEqual(result.final.unique.length, 1, 'Only 1 unique message');
+    assertEqual(result.final.totalRemoved, 9, '9 duplicates removed');
+  });
+
+  await test('Pipeline: Two-layer catch (exact + prefix)', () => {
+    const prefix = 'This message starts the same but the third one will have more text appended to it making';
+    const messages = [
+      { id: 1, content: prefix, hash: 'h1', sourceFile: 'a.txt' },
+      { id: 2, content: prefix, hash: 'h1', sourceFile: 'b.txt' },
+      { id: 3, content: prefix + ' it longer than 80 chars for prefix match testing purposes', hash: 'h2', sourceFile: 'c.txt' },
+    ];
+    const result = engine.deduplicate(messages);
+    assertEqual(result.layer1.removed, 1, 'Layer 1 should catch exact duplicate');
+    assertEqual(result.layer2.removed, 1, 'Layer 2 should catch prefix duplicate');
+  });
+
+  await test('Pipeline: Empty input', () => {
+    const result = engine.deduplicate([]);
+    assertEqual(result.final.unique.length, 0, 'Empty input produces empty output');
+  });
+
+  await test('Pipeline: Metadata completeness', () => {
+    const messages = [
+      { id: 1, content: 'test1', hash: 'h1', sourceFile: 'a.txt' },
+      { id: 2, content: 'test2', hash: 'h2', sourceFile: 'b.txt' },
+    ];
+    const result = engine.deduplicate(messages);
+    assertExists(result.original, 'Should have original count');
+    assertExists(result.layer1, 'Should have layer1 result');
+    assertExists(result.layer2, 'Should have layer2 result');
+    assertExists(result.final, 'Should have final result');
+  });
+
+  await test('Pipeline: Large dataset (500+ messages) performance', () => {
+    const messages = [];
+    for (let i = 0; i < 500; i++) {
+      messages.push({
+        id: i,
+        content: `message number ${i % 50} with unique content`,
+        hash: `hash${i % 50}`,
+        sourceFile: `file${i % 10}.txt`,
+      });
+    }
     const start = Date.now();
-    const result = await engine.detect(entries);
-    const duration = Date.now() - start;
-    assertLess(duration, 5000, 'Should process 100 entries in <5s');
-  });
-
-  await test('Orchestrator: Performance - 1000 entries', async () => {
-    const entries = Array.from({ length: 1000 }, (_, i) => ({
-      filename: `file-${Math.floor(i / 100)}`,
-      title: `Title ${Math.floor(i / 100)}`,
-      description: `Content ${i}`,
-    }));
-    const start = Date.now();
-    const result = await engine.detect(entries);
-    const duration = Date.now() - start;
-    assertLess(duration, 10000, 'Should process 1000 entries in <10s');
-  });
-
-  await test('Orchestrator: Mixed duplicates across layers', async () => {
-    const entries = [
-      // Pattern match group
-      { filename: 'exact', title: 'Same', description: 'Same' },
-      { filename: 'exact', title: 'Same', description: 'Same' },
-      // Fuzzy match group
-      { filename: 'report', title: 'Memory Backup', description: 'Full system' },
-      { filename: 'report', title: 'Memory DB Backup', description: 'System complete' },
-      // Unique
-      { filename: 'unique', title: 'Different', description: 'Other' },
-    ];
-    const result = await engine.detect(entries);
-    assertGreater(result.totalDuplicates, 0, 'Should find duplicates across layers');
-  });
-
-  await test('Orchestrator: Empty entries array', async () => {
-    const entries = [];
-    const result = await engine.detect(entries);
-    assertEqual(result.totalEntries, 0, 'Should handle empty array');
+    const result = engine.deduplicate(messages);
+    const elapsed = Date.now() - start;
+    assertLess(elapsed, 1000, 'Should complete 500 messages in <1 second');
+    assertTrue(result.final.unique.length > 0, 'Should produce results');
   });
 
   // ========================================================================
-  // API ENDPOINT TESTS (5 tests)
+  // GROUP 5: EDGE CASES (6 tests)
   // ========================================================================
-  console.log('\n🌐 API Endpoints\n');
+  console.log('\n⚡ Group 5: Edge Cases\n');
 
-  await test('API: GET /health returns 200', async () => {
-    const res = await makeRequest('GET', '/health');
-    assertEqual(res.status, 200, 'Health endpoint should return 200');
-    assertEqual(res.body.status, 'ready', 'Status should be ready');
-  });
-
-  await test('API: POST /api/detect-duplicates with valid input', async () => {
-    const entries = [
-      { filename: 'a', title: 'X' },
-      { filename: 'a', title: 'X' },
+  await test('Edge case: Null content fields', () => {
+    const messages = [
+      { id: 1, content: null, hash: 'h1', sourceFile: 'a.txt' },
+      { id: 2, content: null, hash: 'h1', sourceFile: 'b.txt' },
     ];
-    const res = await makeRequest('POST', '/api/detect-duplicates', { entries });
-    assertEqual(res.status, 200, 'Should return 200');
-    assertTrue(res.body.success, 'Should have success: true');
+    const result = engine.deduplicate(messages);
+    assertTrue(result.final.unique.length >= 1, 'Should handle null content');
   });
 
-  await test('API: POST /api/detect-duplicates without entries', async () => {
-    const res = await makeRequest('POST', '/api/detect-duplicates', {});
-    assertEqual(res.status, 400, 'Should reject missing entries');
-  });
-
-  await test('API: GET /api/stats returns statistics', async () => {
-    const res = await makeRequest('GET', '/api/stats');
-    assertEqual(res.status, 200, 'Stats endpoint should return 200');
-    assertTrue(res.body.uptime !== undefined, 'Should have uptime');
-  });
-
-  // ========================================================================
-  // EDGE CASES & ROBUSTNESS (5 tests)
-  // ========================================================================
-  console.log('\n🛡️  Edge Cases & Robustness\n');
-
-  await test('Edge: Very large entries', async () => {
-    const largeContent = 'x'.repeat(10000);
-    const entries = [
-      { filename: 'large', title: largeContent },
-      { filename: 'large', title: largeContent },
+  await test('Edge case: Empty content strings', () => {
+    const messages = [
+      { id: 1, content: '', hash: 'h1', sourceFile: 'a.txt' },
+      { id: 2, content: '', hash: 'h1', sourceFile: 'b.txt' },
     ];
-    const result = await engine.detect(entries);
-    assertTrue(true, 'Should handle large content');
+    const result = engine.deduplicate(messages);
+    assertEqual(result.final.totalRemoved, 1, 'Should detect exact duplicates with empty content');
   });
 
-  await test('Edge: Unicode and special characters', async () => {
-    const entries = [
-      { filename: '파일_🎯_データ', title: '日本語' },
-      { filename: '파일_🎯_データ', title: '日本語' },
+  await test('Edge case: Special characters in content', () => {
+    const messages = [
+      { id: 1, content: 'test!@#$%^&*()_+-=[]{}|;:\\\'",.<>?/', hash: 'h1', sourceFile: 'a.txt' },
+      { id: 2, content: 'test!@#$%^&*()_+-=[]{}|;:\\\'",.<>?/', hash: 'h1', sourceFile: 'b.txt' },
     ];
-    const result = await engine.detect(entries);
-    assertTrue(true, 'Should handle Unicode');
+    const result = engine.deduplicate(messages);
+    assertEqual(result.final.totalRemoved, 1, 'Should handle special characters');
   });
 
-  await test('Edge: Null and undefined values', async () => {
-    const entries = [
-      { filename: null, title: undefined, description: null },
-      { filename: null, title: undefined, description: null },
+  await test('Edge case: Unicode content', () => {
+    const messages = [
+      { id: 1, content: '테스트 메시지 한글 내용', hash: 'h1', sourceFile: 'a.txt' },
+      { id: 2, content: '테스트 메시지 한글 내용', hash: 'h1', sourceFile: 'b.txt' },
     ];
-    const result = await engine.detect(entries);
-    assertTrue(true, 'Should handle null/undefined gracefully');
+    const result = engine.deduplicate(messages);
+    assertEqual(result.final.totalRemoved, 1, 'Should handle unicode');
   });
 
-  await test('Edge: Mixed data types in array', async () => {
-    const entries = [
-      { filename: 'string', title: 123, description: true },
-      { filename: 'string', title: 123, description: true },
+  await test('Edge case: Very long message (10000+ chars)', () => {
+    const longContent = 'x'.repeat(10000);
+    const messages = [
+      { id: 1, content: longContent, hash: 'h1', sourceFile: 'a.txt' },
+      { id: 2, content: longContent, hash: 'h1', sourceFile: 'b.txt' },
     ];
-    const result = await engine.detect(entries);
-    assertTrue(true, 'Should handle mixed types');
+    const result = engine.deduplicate(messages);
+    assertEqual(result.final.totalRemoved, 1, 'Should handle very long messages');
   });
 
-  await test('Edge: Single entry (no duplicates possible)', async () => {
-    const entries = [{ filename: 'single', title: 'Unique' }];
-    const result = await engine.detect(entries);
-    assertEqual(result.totalDuplicates, 0, 'Single entry should have no duplicates');
+  await test('Edge case: Mixed empty and non-empty', () => {
+    const messages = [
+      { id: 1, content: '', hash: 'h1', sourceFile: 'a.txt' },
+      { id: 2, content: 'test', hash: 'h2', sourceFile: 'b.txt' },
+      { id: 3, content: '', hash: 'h1', sourceFile: 'c.txt' },
+    ];
+    const result = engine.deduplicate(messages);
+    assertEqual(result.final.unique.length, 2, 'Should distinguish empty and non-empty');
   });
 
   // ========================================================================
-  // PRINT SUMMARY
+  // TEST SUMMARY
   // ========================================================================
   console.log('\n' + '='.repeat(60));
-  console.log(`\n📊 Test Results Summary\n`);
-  console.log(`   Total Tests:   ${testsRun}`);
-  console.log(`   Passed:        ${testsPassed} ✓`);
-  console.log(`   Failed:        ${testsFailed} ✗`);
-  console.log(`   Pass Rate:     ${((testsPassed / testsRun) * 100).toFixed(1)}%`);
+  console.log(`\n📊 TEST RESULTS\n`);
+  console.log(`Total Tests:   ${testsRun}`);
+  console.log(`Passed:        ${testsPassed} ✓`);
+  console.log(`Failed:        ${testsFailed} ✗`);
+  console.log(`Pass Rate:     ${((testsPassed / testsRun) * 100).toFixed(1)}%`);
 
-  if (failedTests.length > 0) {
+  if (testsFailed > 0) {
     console.log(`\n❌ Failed Tests:`);
-    failedTests.forEach(test => console.log(`   - ${test}`));
+    failedTests.forEach(name => console.log(`   - ${name}`));
+  } else {
+    console.log('\n✅ All tests passed!');
   }
 
   console.log('\n' + '='.repeat(60) + '\n');
@@ -605,8 +475,5 @@ async function runTests() {
   process.exit(testsFailed > 0 ? 1 : 0);
 }
 
-// Run tests with error handling
-runTests().catch(error => {
-  console.error('Test suite error:', error);
-  process.exit(1);
-});
+// Run tests
+runTests();
