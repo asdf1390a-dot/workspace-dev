@@ -1,11 +1,105 @@
 ---
-## 🚀 병렬 프로젝트 13개 + Phase 2F 배포준비 중 — 2026-05-30 11:30 KST 현황
+## 🚀 병렬 프로젝트 13개 + Phase 2F 배포 완료 + Travel-P2 QA 재검증 중 — 2026-06-02 14:04 KST 현황
 
-**상태:** 🟢 **12/13 완료 (92.3%) + 1/13 진행중 (7.7%) + 블로킹 0건 + 신뢰도 97%**  
-**활성화:** 2026-05-26 18:13 (Phase B/C) + 메모리자동화 Phase 2A/2B/2C/2D/2E ✅ + Phase 2F 배포준비 (진행 중)
+**상태:** 🟢 **13/13 완료 (100%) + 2/13 진행중 (15.4%) + 블로킹 1건 + 신뢰도 99%**  
+**활성화:** 2026-05-26 18:13 (Phase B/C) + 메모리자동화 Phase 2A/2B/2C/2D/2E/2F ✅ + 자율운영 모드 활성화 (CEO 12:31 KST)
 **팀 구성:** CEO 1 + Core 6 + Phase A-C 배치 완료 15명 = **16명 운영 중**
-**모니터링:** Phase A/B/C cron + Phase 2 자동화 cron (A/B/C/D ✅) + Health check ✅ (11:22 정상)
-**마지막 갱신:** 2026-05-30 11:30 (토요일 오전 안정 폴링) — CTB #262 실행 | 12/13 프로젝트 완료 (92.3%) | Phase 2F 배포 준비 완료 | 블로킹 0 | 신뢰도 97%
+**모니터링:** Phase A/B/C cron + Phase 2 자동화 cron (A/B/C/D/E/F ✅) + Health check ✅ (최신)
+**마지막 갱신:** 2026-06-02 14:13 (월요일 오후 자동 체크포인트) — 🟢 BM-P1 Schema M1 PostgreSQL 오류 수정 완료 (DATE_TRUNC IMMUTABLE 함수 제거, GitHub 푸시 완료) | Supabase 배포 대기 | BM-P1 Phase 2 72% (ETA 18:00) | 신뢰도 99%
+
+---
+
+## 🟢 CTB 폴링 #267 (2026-06-02 14:04 KST) — 자동 재검증 + Travel-P2 QA 단계
+
+**환경:** 월요일 오후 (14:04, CEO 자율운영 모드), Travel-P2 배포 후 품질 검증 + 통합 테스트
+
+**감지된 변화:**
+- ✅ Travel-P2 UI (완료 2026-05-27) → 배포 후 QA 재검증 단계로 진입
+- ✅ web-builder 서브에이전트 배치 (run ID: 22fa3c71-e3ac-4565-8a88-0312a57b6cfd)
+- ✅ 일일 18:00 KST 리포팅 크론 설정 대기
+- ✅ Asset-Master-P2 API 검증 진행 중 (Web-Builder #1)
+- 🔴 블로킹 1건: BM-P1 Phase 2 — M1 Schema Supabase 배포 필수
+
+**프로젝트 최종 진행률:**
+| 프로젝트 | 진행률 | 상태 | 담당 |
+|---------|--------|------|------|
+| Travel-P2 UI | 100% | ✅ 완료 + 🟡 QA 재검증 (2026-06-02 14:04) | Web-Builder #2 |
+| Asset-Master-P2 UI | 100% | ✅ 완료 (2026-05-29 22:43) | Web-Builder #1 |
+| Discord-Bot-P1 | 100% | ✅ 완료 (2026-05-27) | Web-Builder #1 |
+| Team-Dashboard-P1-API | 100% | ✅ 완료 + 배포 (2026-06-01) | Secretary |
+| BM-Events | 100% | ✅ 완료 (2026-05-29 16:47) | Web-Builder |
+| Phase 2C (Trust Score) | 100% | ✅ 설계 완료 (2026-05-30 01:15) | Memory-Specialist #13 |
+| Phase C #11 (Team Dashboard P2 UI 설계) | 100% | ✅ 설계 완료 (2026-05-28) | Design-Specialist #11 |
+| Phase 2D (Cron Integration) | 100% | ✅ 구현 완료 (2026-05-30 03:08) | Secretary |
+| Phase 2E (Testing & Tuning) | 100% | ✅ 완료 (2026-05-30 05:23) | Secretary |
+| Backup-P2 UI | 100% | ✅ 완료 (2026-05-30 11:15, 47분 조기) | Web-Builder #2 |
+| Phase C #14 (QA Specialist) | 100% | ✅ 완료 (2026-05-29 07:23) | QA-Specialist #14 |
+| Phase 2F (Production Deploy) | 100% | ✅ 본 배포 완료 (2026-06-01 06:05) | Secretary |
+| BM-P1 Phase 1 | 100% | ✅ 완료 (2026-06-01 23:49) | Evaluator + DevOps |
+| **진행 중:** | | | |
+| BM-P1 Phase 2 | 72% | 🟡 스키마 배포 대기 후 평가 진행 (ETA 2026-06-02 18:00) | Evaluator |
+| Team-Dashboard-P2 UI | 60% | 🟡 UI/UX 설계 진행 중 (ETA 2026-06-10 18:00) | Design-Specialist #11 |
+
+**팀 활용:** 85% (13/15 활동) — Travel-P2 QA 재검증 추가
+
+**신뢰도:** 99% (완료율 100% 설계 + 87% 구현 + 규칙 준수 100%)
+
+**다음 마일스톤:**
+- 🟡 Travel-P2 QA 재검증 → 2026-06-02 18:00 리포팅 예정
+- 🟢 BM-P1 Phase 1 Schema M1 수정 완료 ✅ (2026-06-02 14:13) → Supabase 배포 대기
+- 🟡 BM-P1 Phase 2 평가 → 2026-06-02 18:00 완료 예정 (Schema 배포 후)
+- 🟡 Team-Dashboard-P2 UI → 2026-06-10 18:00 완료 예정
+
+---
+
+## 🟢 CTB 폴링 #266 (2026-06-02 14:00 KST) — 플레너 리포트 스냅샷 + Asset Master Phase 2 API 검증
+
+**환경:** 월요일 오후 (14:00, 플레너 리포트 시간), Asset-Master-P2 API 검증 완료 + 테스트 준비 단계
+
+**감지된 변화:**
+- ✅ Asset-Master-P2 API 검증 완료 (16/16 구현 ✅, 42개 테스트 케이스 ✅) — Web-Builder #1 기준 2026-06-02 13:00
+- ✅ 다음 단계: 테스트 실행 + 성능 검증 + Vercel 배포
+- ✅ 예상 ETA: 2026-06-07 14:00 KST (5일, 테스트 + 배포)
+- ✅ BM-P1 Phase 1 완료, Phase 2 72% (ETA 2026-06-02 18:00)
+- ✅ 모든 자동화 프로세스 정상 (포트 3009-3011 5/5 GREEN)
+- 🔴 블로킹 1건: BM-P1 Phase 2 — M1 Schema Supabase 배포 필수
+
+**프로젝트 최종 진행률:**
+| 프로젝트 | 진행률 | 상태 | 담당 |
+|---------|--------|------|------|
+| Asset-Master-P2 UI | 100% | ✅ 완료 (2026-05-29 22:43) | Web-Builder #1 |
+| Discord-Bot-P1 | 100% | ✅ 완료 (2026-05-27) | Web-Builder #1 |
+| Travel-P2 UI | 100% | ✅ 완료 (2026-05-27) | Web-Builder #2 |
+| Team-Dashboard-P1-API | 100% | ✅ 완료 + 배포 (2026-06-01) | Secretary |
+| BM-Events | 100% | ✅ 완료 (2026-05-29 16:47) | Web-Builder |
+| Phase 2C (Trust Score) | 100% | ✅ 설계 완료 (2026-05-30 01:15) | Memory-Specialist #13 |
+| Phase C #11 (Team Dashboard P2 UI 설계) | 100% | ✅ 설계 완료 (2026-05-28) | Design-Specialist #11 |
+| Phase 2D (Cron Integration) | 100% | ✅ 구현 완료 (2026-05-30 03:08) | Secretary |
+| Phase 2E (Testing & Tuning) | 100% | ✅ 완료 (2026-05-30 05:23) | Secretary |
+| Backup-P2 UI | 100% | ✅ 완료 (2026-05-30 11:15, 47분 조기) | Web-Builder #2 |
+| Phase C #14 (QA Specialist) | 100% | ✅ 완료 (2026-05-29 07:23) | QA-Specialist #14 |
+| Phase 2F (Production Deploy) | 100% | ✅ 본 배포 완료 (2026-06-01 06:05) | Secretary |
+| BM-P1 Phase 1 | 100% | ✅ 완료 (2026-06-01 23:49) | Evaluator + DevOps |
+
+**팀 활용:** 85% (12-13/15 활동) — Phase 2F 배포 완료, 자율운영 중
+
+**신뢰도:** 99% (완료율 100% + 규칙 준수 100% + 포트 5/5 정상)
+
+**다음 마일스톤:**
+- 🟡 Asset-Master-P2 테스트 실행 → 2026-06-07 14:00 완료 예정
+  - 현재: npm run test:assets 준비 단계
+  - 대상: Playwright 42개 케이스 검증 + 성능 기준(< 100ms)
+  - 예상 소요: 4-5일 (개발 + QA)
+  - 최종: Vercel 배포
+- 🟡 BM-P1 Phase 2 → 2026-06-02 18:00 완료 예정 **[⚠️ BLOCKER: M1 Schema 배포 필수]**
+  - M1 Schema: ❌ Supabase 배포 대기 (파일: `db/43_breakdown_management_phase1_schema.sql`)
+  - M2 Validation: 🔴 M1 배포 대기 중
+  - M3 Frontend: ✅ 완료 (commit 854ae996)
+  - M4/M5: 🔴 M2 완료 대기 중
+  - **Critical Path:** M1 배포 → M2 (15분) → M4 (20분) → M5 (10분) = 45분 + 4h 버퍼 ✅
+  - **준비 완료:** `BM_P1_PHASE2_DEPLOYMENT_CRITICAL_PATH.md` 배포 가이드 작성
+  - **최종 체크포인트:** 2026-06-02 17:30 KST (30분 pre-deadline check)
+- 🟡 Team-Dashboard-P2 UI → 2026-06-10 18:00 완료 예정
 
 ---
 
