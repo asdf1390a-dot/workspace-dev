@@ -326,86 +326,44 @@ export default function TravelDetailPage() {
 
       {/* 탭 네비게이션 */}
       <div className="bg-white border-b border-gray-200 sticky top-0 z-10">
-        <div className="max-w-7xl mx-auto px-8">
-          <div className="flex gap-8">
-            <button
-              onClick={() => setActiveTab('overview')}
-              className={`py-4 px-2 border-b-2 font-medium ${
-                activeTab === 'overview'
-                  ? 'border-blue-600 text-blue-600'
-                  : 'border-transparent text-gray-600 hover:text-gray-900'
-              }`}
-            >
-              개요
-            </button>
-            <button
-              onClick={() => setActiveTab('expenses')}
-              className={`py-4 px-2 border-b-2 font-medium ${
-                activeTab === 'expenses'
-                  ? 'border-blue-600 text-blue-600'
-                  : 'border-transparent text-gray-600 hover:text-gray-900'
-              }`}
-            >
-              지출 ({costs.length})
-            </button>
-            <button
-              onClick={() => setActiveTab('documents')}
-              className={`py-4 px-2 border-b-2 font-medium ${
-                activeTab === 'documents'
-                  ? 'border-blue-600 text-blue-600'
-                  : 'border-transparent text-gray-600 hover:text-gray-900'
-              }`}
-            >
-              문서 ({documents.length})
-            </button>
-            <button
-              onClick={() => setActiveTab('events')}
-              className={`py-4 px-2 border-b-2 font-medium ${
-                activeTab === 'events'
-                  ? 'border-blue-600 text-blue-600'
-                  : 'border-transparent text-gray-600 hover:text-gray-900'
-              }`}
-            >
-              일정 ({events.length})
-            </button>
-            <button
-              onClick={() => setActiveTab('checklist')}
-              className={`py-4 px-2 border-b-2 font-medium ${
-                activeTab === 'checklist'
-                  ? 'border-blue-600 text-blue-600'
-                  : 'border-transparent text-gray-600 hover:text-gray-900'
-              }`}
-            >
-              체크리스트 ({checklistItems.length})
-            </button>
-            <button
-              onClick={() => setActiveTab('notifications')}
-              className={`py-4 px-2 border-b-2 font-medium ${
-                activeTab === 'notifications'
-                  ? 'border-blue-600 text-blue-600'
-                  : 'border-transparent text-gray-600 hover:text-gray-900'
-              }`}
-            >
-              알림
-            </button>
-            <button
-              onClick={() => setActiveTab('analytics')}
-              className={`py-4 px-2 border-b-2 font-medium ${
-                activeTab === 'analytics'
-                  ? 'border-blue-600 text-blue-600'
-                  : 'border-transparent text-gray-600 hover:text-gray-900'
-              }`}
-            >
-              분석
-            </button>
+        <div className="max-w-7xl mx-auto px-4 sm:px-8">
+          <div
+            className="flex gap-2 sm:gap-8 overflow-x-auto scrollbar-hide"
+            role="tablist"
+            aria-label="Travel details tabs"
+          >
+            {[
+              { id: 'overview', label: '개요' },
+              { id: 'expenses', label: `지출 (${costs.length})` },
+              { id: 'documents', label: `문서 (${documents.length})` },
+              { id: 'events', label: `일정 (${events.length})` },
+              { id: 'checklist', label: `체크리스트 (${checklistItems.length})` },
+              { id: 'notifications', label: '알림' },
+              { id: 'analytics', label: '분석' },
+            ].map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id as any)}
+                role="tab"
+                aria-selected={activeTab === tab.id}
+                aria-controls={`${tab.id}-panel`}
+                className={`py-4 px-2 sm:px-3 border-b-2 font-medium text-sm sm:text-base whitespace-nowrap transition-colors ${
+                  activeTab === tab.id
+                    ? 'border-blue-600 text-blue-600'
+                    : 'border-transparent text-gray-600 hover:text-gray-900 hover:border-gray-300'
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
           </div>
         </div>
       </div>
 
       {/* 탭 콘텐츠 */}
-      <div className="max-w-7xl mx-auto px-8 py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 py-8">
         {activeTab === 'overview' && (
-          <div>
+          <div role="tabpanel" id="overview-panel" aria-labelledby="overview-tab">
             <h2 className="text-2xl font-bold mb-4">여행 요약</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="bg-white rounded-lg shadow p-6">
