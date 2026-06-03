@@ -2,7 +2,7 @@
 // Verifies: env wiring, Supabase reachability, latest session age.
 
 import { NextResponse } from 'next/server';
-import { createClient } from '@supabase/supabase-js';
+import { getSupabaseClient } from '@/lib/supabase-server';
 
 export const dynamic = 'force-dynamic';
 
@@ -19,11 +19,7 @@ export async function GET(): Promise<NextResponse> {
   };
 
   try {
-    const sb = createClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL!,
-      process.env.SUPABASE_SERVICE_ROLE_KEY!,
-      { auth: { persistSession: false } }
-    );
+    const sb = getSupabaseClient();
     const { data, error } = await sb
       .from('audit_sessions')
       .select('report_date, drs_score, status')

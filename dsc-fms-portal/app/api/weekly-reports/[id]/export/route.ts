@@ -1,10 +1,5 @@
-import { createClient } from '@supabase/supabase-js';
 import { NextRequest, NextResponse } from 'next/server';
-
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
+import { getSupabaseClient } from '@/lib/supabase-server';
 
 export const dynamic = 'force-dynamic';
 
@@ -12,6 +7,7 @@ export async function POST(
   request: NextRequest,
   { params }: { params: { id: string } }
 ) {
+  const supabase = getSupabaseClient();
   try {
     const body = await request.json();
     const { format = 'excel', language = 'ko' } = body;

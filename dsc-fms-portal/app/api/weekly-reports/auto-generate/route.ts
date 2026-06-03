@@ -1,16 +1,12 @@
-import { createClient } from '@supabase/supabase-js';
 import { NextRequest, NextResponse } from 'next/server';
 import { generateWeeklyReport } from '@/lib/weekly-reports/service';
 import type { PostAutoGenerateRequest } from '@/lib/weekly-reports/types';
-
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!,
-);
+import { getSupabaseClient } from '@/lib/supabase-server';
 
 export const dynamic = 'force-dynamic';
 
 export async function POST(request: NextRequest) {
+  const supabase = getSupabaseClient();
   try {
     const body = (await request.json().catch(() => ({}))) as PostAutoGenerateRequest;
     const { year, week, force = false, seed_entries = true } = body ?? {};

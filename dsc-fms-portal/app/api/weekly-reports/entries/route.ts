@@ -1,17 +1,13 @@
-import { createClient } from '@supabase/supabase-js';
 import { NextRequest, NextResponse } from 'next/server';
 import type { PostEntryRequest, WeeklyDept } from '@/lib/weekly-reports/types';
-
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!,
-);
+import { getSupabaseClient } from '@/lib/supabase-server';
 
 export const dynamic = 'force-dynamic';
 
 const VALID_DEPTS: WeeklyDept[] = ['production', 'technology', 'maintenance', 'management'];
 
 export async function POST(request: NextRequest) {
+  const supabase = getSupabaseClient();
   try {
     const body = (await request.json()) as PostEntryRequest;
     const { year, week, dept_name, data, source = 'manual', template_id } = body ?? {};
@@ -64,6 +60,7 @@ export async function POST(request: NextRequest) {
 }
 
 export async function GET(request: NextRequest) {
+  const supabase = getSupabaseClient();
   try {
     const { searchParams } = new URL(request.url);
     const yearStr = searchParams.get('year');

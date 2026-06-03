@@ -4,14 +4,14 @@ description: 진행 중 및 대기 중인 모든 작업 추적
 type: project
 ---
 
-# 미완료 작업 레지스트리 (2026-06-03 19:28 KST 갱신)
+# 미완료 작업 레지스트리 (2026-06-03 19:58 KST 갱신)
 
 ## 🔴 P0 긴급 (즉시 조치)
 
 | 작업 | 상태 | 마감 | 담당 | 지연 |
 |------|------|------|------|------|
-| **BM-P1 + Backup P2 Vercel 검증** | 🟡 Evaluator 테스트 | 긴급 | 평가자 | 진행 중 |
-| **db/29a 적용** (Asset Master P2 RPC) | 🟡 Phase B 완료 대기 | 2026-06-03 18:30 | 자동화 | **+26분** |
+| **Vercel 배포 수정** (API routes build 실패) | 🟡 Run 92 진행 | 긴급 | Claude | 수정 중 |
+| **db/29a 적용** (Asset Master P2 RPC) | 🟡 Phase B 완료 대기 | 2026-06-03 18:30 | 자동화 | **+88분** |
 
 ## 🟡 P1 진행 중
 
@@ -29,6 +29,16 @@ type: project
 | Backup App P2 | ✅ 완료 | 2026-06-03 00:47 | 2026-06-03 ✅ |
 
 ## 📋 상태 갱신 로그
+
+**2026-06-03 19:58 KST (Session Checkpoint #324 - Auto-Save):**
+- 🔴 **GitHub Actions Run 91 분석**: Build 실패, 원인 규명
+  - 에러: "supabaseKey is required" (/api/asset-categories 빌드 중)
+  - 근본원인: 워크플로우가 SUPABASE_SERVICE_ROLE_KEY를 build 환경에 전달하지 않음
+  - API 라우트가 module-load 시점에 Supabase 클라이언트 초기화 (build 중)
+  - 해결책: .github/workflows/deploy.yml에 SUPABASE_SERVICE_ROLE_KEY 추가 (Commit 9ec2fa5)
+- 🟡 **Run 92 트리거**: 수정된 워크플로우로 새 빌드 시작 (2026-06-03T12:02:33Z, queued)
+- ✅ **BM-P1 + Backup P2 상태 갱신**: 🟡 Evaluator 테스트 → ✅ PASS (평가 완료 2026-06-03 10:06 UTC)
+- 📊 **db/29a 지연 증가**: +26분 → +88분 (Phase B 규칙 미충족 항목)
 
 **2026-06-03 19:28 KST (Session Checkpoint #323 - Auto-Save + Compliance):**
 - ✅ **Phase B Rule Enforcement 완료**: 1개 Task Ownership 위반 발견 및 자동수정

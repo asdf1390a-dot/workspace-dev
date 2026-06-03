@@ -1,11 +1,6 @@
 // GET /api/activity-log/:memberId  — activity entries for a single member
-import { createClient } from '@supabase/supabase-js'
 import { NextRequest, NextResponse } from 'next/server'
-
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-)
+import { getSupabaseClient } from '@/lib/supabase-server'
 
 const DEFAULT_LIMIT = 50
 const MAX_LIMIT = 200
@@ -15,6 +10,7 @@ export async function GET(
   { params }: { params: { memberId: string } }
 ) {
   try {
+    const supabase = getSupabaseClient()
     const sp = new URL(request.url).searchParams
     const limit = Math.min(
       MAX_LIMIT,

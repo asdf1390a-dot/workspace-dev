@@ -14,7 +14,7 @@
 // schemas.
 
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@supabase/supabase-js';
+import { getSupabaseClient } from '@/lib/supabase-server';
 import {
   calculateDrs,
   buildAlertText,
@@ -25,12 +25,6 @@ import {
 import { withRetry } from '../../../../../lib/audit/retry';
 
 export const dynamic = 'force-dynamic';
-
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!,
-  { auth: { persistSession: false } }
-);
 
 type EventType = 'backup' | 'storage' | 'integrity' | 'access';
 interface EventRow {
@@ -114,6 +108,7 @@ async function sendTelegram(text: string): Promise<boolean> {
 }
 
 export async function POST(request: NextRequest): Promise<NextResponse> {
+  const supabase = getSupabaseClient();
   const authHeader = request.headers.get('authorization');
   if (
     !process.env.CRON_SECRET ||

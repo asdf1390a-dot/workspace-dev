@@ -1,11 +1,6 @@
-import { createClient } from '@supabase/supabase-js';
 import { NextRequest, NextResponse } from 'next/server';
 import { generateWeeklyReport } from '@/lib/weekly-reports/service';
-
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
+import { getSupabaseClient } from '@/lib/supabase-server';
 
 export const dynamic = 'force-dynamic';
 
@@ -16,6 +11,7 @@ export const dynamic = 'force-dynamic';
  * Authorization: X-CRON-TOKEN header (set in Vercel env)
  */
 export async function POST(request: NextRequest) {
+  const supabase = getSupabaseClient();
   try {
     // Verify cron token
     const cronToken = request.headers.get('x-cron-token');

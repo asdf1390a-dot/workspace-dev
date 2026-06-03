@@ -1,11 +1,6 @@
-import { createClient } from '@supabase/supabase-js';
 import { NextRequest, NextResponse } from 'next/server';
 import type { WeeklyDept, WeeklyEntryStatus } from '@/lib/weekly-reports/types';
-
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!,
-);
+import { getSupabaseClient } from '@/lib/supabase-server';
 
 export const dynamic = 'force-dynamic';
 
@@ -13,6 +8,7 @@ const VALID_DEPTS: WeeklyDept[] = ['production', 'technology', 'maintenance', 'm
 const VALID_STATUSES: WeeklyEntryStatus[] = ['draft', 'submitted', 'merged', 'rejected'];
 
 export async function GET(request: NextRequest) {
+  const supabase = getSupabaseClient();
   try {
     const { searchParams } = new URL(request.url);
     const yearStr = searchParams.get('year');

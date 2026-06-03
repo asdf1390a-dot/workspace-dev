@@ -1,18 +1,9 @@
-import { createClient } from '@supabase/supabase-js';
 import { Category, ApiResponse } from '@/lib/assets/types';
-
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!,
-  {
-    auth: {
-      persistSession: false,
-    },
-  }
-);
+import { getSupabaseClient } from '@/lib/supabase-server';
 
 export async function GET(request: Request): Promise<Response> {
   try {
+    const supabase = getSupabaseClient();
     const { data: categories, error } = await supabase
       .from('categories')
       .select('code, name_en, name_ko, display_order')
