@@ -1,10 +1,10 @@
-# 🟢 메모리 SSOT (2026-06-03 17:15 KST)
+# 🟢 메모리 SSOT (2026-06-03 17:25 KST)
 
 ## 📌 현재 상태 (3초 요약)
 | 항목 | 상태 |
 |------|------|
 | **Team Dashboard P2** | 🟡 65% (ETA 2026-06-10 18:00) |
-| **Asset Master P1** | 🟡 Day 2 완료 (db/28 ✅, POST /scans ✅, ETA 2026-06-15) |
+| **Asset Master P1** | 🟡 Day 4 완료 (db/28 ✅, Day 3 API ✅, Day 4 UI ✅, ETA 2026-06-15) |
 | **Backup App P2** | ✅ 완료 (2026-06-03 00:47) |
 | **블로킹** | 0개 |
 | **신뢰도** | 99% |
@@ -15,7 +15,7 @@
 - [일정관리](feedback_schedule_delay_handling.md) ✅ (H1 모니터 활성)
 
 ## 🚀 프로젝트 요약
-- **Asset Master P1:** db/28 ✅ 마이그레이션 완료, Phase 1 Day 1-2 설계+구현 완료 (Day 3-5 진행 예정)
+- **Asset Master P1:** db/28 ✅ 마이그레이션 완료, Day 1-4 완료 (⏳ Day 5 테스트/배포 남음, 2026-06-07)
 - **Team Dashboard P2:** 65% 진행 (Web-Builder #2 배치 중, 2026-06-10 마감)
 - **백업앱 P2:** ✅ 완료 (평가자 검증 대기)
 - **Discord 봇:** ✅ 완료
@@ -28,5 +28,6 @@
 - **메모리 자동화:** Phase 2A-2F 배포 완료 ✅
 
 ## 💡 기타
+- [❌ 미완료 작업](../INCOMPLETE_TASKS_REGISTRY.md) — Day 5 테스트/배포, Team Dashboard P2 UI 남음
 - 팀 구조: [15명 통합](TEAM_STRUCTURE_UNIFIED_2026_05_26.md) (CEO+6기존+9신규)
 - 비즈니스: INR→KRW 15.5, 자산기준일 2026-03-15
