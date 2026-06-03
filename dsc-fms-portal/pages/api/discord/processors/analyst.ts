@@ -53,7 +53,7 @@ export default async function handler(
       try {
         const { data: assets, error: assetsError } = await supabaseAdmin
           .from('assets')
-          .select('id, name_en, asset_class, location, status')
+          .select('id, name_en, location, status')
           .limit(10);
 
         if (assetsError) throw assetsError;
