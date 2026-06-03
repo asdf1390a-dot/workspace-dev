@@ -943,3 +943,13 @@
 {"timestamp":"2026-06-03T07:40:13Z","phase":"PHASE2C","status":"SKIPPED_DOWN","duration_ms":0,"details":{"reason":"service_down"}}
 {"timestamp":"2026-06-03T07:40:13Z","phase":"MEMORY_UPDATE","status":"SKIPPED","duration_ms":0,"details":{"reason":"no_eligible_entries"}}
 {"timestamp":"2026-06-03T07:40:13Z","phase":"CYCLE_COMPLETE","status":"SUCCESS","duration_ms":12221,"details":{"cycle":"phase2d_full"}}
+{"timestamp":"2026-06-03T07:45:06Z","phase":"PHASE2A","status":"SKIPPED_DOWN","duration_ms":0,"details":{"reason":"service_down"}}
+{"timestamp":"2026-06-03T07:45:10Z","phase":"PHASE2B","status":"SKIPPED_DOWN","duration_ms":0,"details":{"reason":"service_down"}}
+{"timestamp":"2026-06-03T07:45:14Z","phase":"PHASE2C","status":"SKIPPED_DOWN","duration_ms":0,"details":{"reason":"service_down"}}
+{"timestamp":"2026-06-03T07:45:14Z","phase":"MEMORY_UPDATE","status":"SKIPPED","duration_ms":0,"details":{"reason":"no_eligible_entries"}}
+{"timestamp":"2026-06-03T07:45:14Z","phase":"CYCLE_COMPLETE","status":"SUCCESS","duration_ms":12206,"details":{"cycle":"phase2d_full"}}
+{"timestamp":"2026-06-03T07:50:05Z","phase":"PHASE2A","status":"SKIPPED_DOWN","duration_ms":0,"details":{"reason":"service_down"}}
+{"timestamp":"2026-06-03T07:50:09Z","phase":"PHASE2B","status":"SKIPPED_DOWN","duration_ms":0,"details":{"reason":"service_down"}}
+{"timestamp":"2026-06-03T07:50:13Z","phase":"PHASE2C","status":"SKIPPED_DOWN","duration_ms":0,"details":{"reason":"service_down"}}
+{"timestamp":"2026-06-03T07:50:13Z","phase":"MEMORY_UPDATE","status":"SKIPPED","duration_ms":0,"details":{"reason":"no_eligible_entries"}}
+{"timestamp":"2026-06-03T07:50:13Z","phase":"CYCLE_COMPLETE","status":"SUCCESS","duration_ms":12227,"details":{"cycle":"phase2d_full"}}

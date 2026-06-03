@@ -4761,3 +4761,59 @@
 [2026-06-03 16:40:13] [INFO] ║  Cycle Complete — Check logs for details              ║
 [2026-06-03 16:40:13] [INFO] ║  Log file: /home/jeepney/.openclaw/workspace-dev/memory/logs/phase2d-cron-20260603.log              ║
 [2026-06-03 16:40:13] [INFO] ╚════════════════════════════════════════════════════════╝
+[2026-06-03 16:45:01] [INFO] ╔════════════════════════════════════════════════════════╗
+[2026-06-03 16:45:01] [INFO] ║  Phase 2D: Cron Integration — Full Cycle              ║
+[2026-06-03 16:45:01] [INFO] ║  Start: 2026-06-03 16:45:01 KST                    ║
+[2026-06-03 16:45:01] [INFO] ╚════════════════════════════════════════════════════════╝
+[2026-06-03 16:45:01] [INFO] === PHASE 2A: Message Collection ===
+[2026-06-03 16:45:02] [WARNING] Phase 2A health check failed (attempt 1/3), retrying in 2s...
+[2026-06-03 16:45:04] [WARNING] Phase 2A health check failed (attempt 2/3), retrying in 2s...
+[2026-06-03 16:45:06] [ERROR] Phase 2A health check FAILED after 3 attempts
+[2026-06-03 16:45:06] [WARNING] Phase 2A unavailable, skipping message collection
+[2026-06-03 16:45:06] [INFO] === PHASE 2B: Duplicate Detection ===
+[2026-06-03 16:45:06] [WARNING] Phase 2B health check failed (attempt 1/3), retrying in 2s...
+[2026-06-03 16:45:08] [WARNING] Phase 2B health check failed (attempt 2/3), retrying in 2s...
+[2026-06-03 16:45:10] [ERROR] Phase 2B health check FAILED after 3 attempts
+[2026-06-03 16:45:10] [WARNING] Phase 2B unavailable, skipping duplicate detection
+[2026-06-03 16:45:10] [INFO] === PHASE 2C: Trust Score Calculation ===
+[2026-06-03 16:45:10] [WARNING] Phase 2C health check failed (attempt 1/3), retrying in 2s...
+[2026-06-03 16:45:12] [WARNING] Phase 2C health check failed (attempt 2/3), retrying in 2s...
+[2026-06-03 16:45:14] [ERROR] Phase 2C health check FAILED after 3 attempts
+[2026-06-03 16:45:14] [WARNING] Phase 2C unavailable, skipping trust score calculation
+[2026-06-03 16:45:14] [INFO] === MEMORY.md Auto-Update ===
+[2026-06-03 16:45:14] [INFO] Memory backup created: MEMORY_20260603_164501.md.bak
+[2026-06-03 16:45:14] [INFO] No entries eligible for merge (all below threshold or not ACCEPTED)
+[2026-06-03 16:45:14] [INFO] === Cron Cycle Complete ===
+[2026-06-03 16:45:14] [INFO] Cycle duration: 12206ms, activities logged: 0
+[2026-06-03 16:45:14] [INFO] ╔════════════════════════════════════════════════════════╗
+[2026-06-03 16:45:14] [INFO] ║  Cycle Complete — Check logs for details              ║
+[2026-06-03 16:45:14] [INFO] ║  Log file: /home/jeepney/.openclaw/workspace-dev/memory/logs/phase2d-cron-20260603.log              ║
+[2026-06-03 16:45:14] [INFO] ╚════════════════════════════════════════════════════════╝
+[2026-06-03 16:50:01] [INFO] ╔════════════════════════════════════════════════════════╗
+[2026-06-03 16:50:01] [INFO] ║  Phase 2D: Cron Integration — Full Cycle              ║
+[2026-06-03 16:50:01] [INFO] ║  Start: 2026-06-03 16:50:01 KST                    ║
+[2026-06-03 16:50:01] [INFO] ╚════════════════════════════════════════════════════════╝
+[2026-06-03 16:50:01] [INFO] === PHASE 2A: Message Collection ===
+[2026-06-03 16:50:01] [WARNING] Phase 2A health check failed (attempt 1/3), retrying in 2s...
+[2026-06-03 16:50:03] [WARNING] Phase 2A health check failed (attempt 2/3), retrying in 2s...
+[2026-06-03 16:50:05] [ERROR] Phase 2A health check FAILED after 3 attempts
+[2026-06-03 16:50:05] [WARNING] Phase 2A unavailable, skipping message collection
+[2026-06-03 16:50:05] [INFO] === PHASE 2B: Duplicate Detection ===
+[2026-06-03 16:50:05] [WARNING] Phase 2B health check failed (attempt 1/3), retrying in 2s...
+[2026-06-03 16:50:07] [WARNING] Phase 2B health check failed (attempt 2/3), retrying in 2s...
+[2026-06-03 16:50:09] [ERROR] Phase 2B health check FAILED after 3 attempts
+[2026-06-03 16:50:09] [WARNING] Phase 2B unavailable, skipping duplicate detection
+[2026-06-03 16:50:09] [INFO] === PHASE 2C: Trust Score Calculation ===
+[2026-06-03 16:50:09] [WARNING] Phase 2C health check failed (attempt 1/3), retrying in 2s...
+[2026-06-03 16:50:11] [WARNING] Phase 2C health check failed (attempt 2/3), retrying in 2s...
+[2026-06-03 16:50:13] [ERROR] Phase 2C health check FAILED after 3 attempts
+[2026-06-03 16:50:13] [WARNING] Phase 2C unavailable, skipping trust score calculation
+[2026-06-03 16:50:13] [INFO] === MEMORY.md Auto-Update ===
+[2026-06-03 16:50:13] [INFO] Memory backup created: MEMORY_20260603_165001.md.bak
+[2026-06-03 16:50:13] [INFO] No entries eligible for merge (all below threshold or not ACCEPTED)
+[2026-06-03 16:50:13] [INFO] === Cron Cycle Complete ===
+[2026-06-03 16:50:13] [INFO] Cycle duration: 12227ms, activities logged: 0
+[2026-06-03 16:50:13] [INFO] ╔════════════════════════════════════════════════════════╗
+[2026-06-03 16:50:13] [INFO] ║  Cycle Complete — Check logs for details              ║
+[2026-06-03 16:50:13] [INFO] ║  Log file: /home/jeepney/.openclaw/workspace-dev/memory/logs/phase2d-cron-20260603.log              ║
+[2026-06-03 16:50:13] [INFO] ╚════════════════════════════════════════════════════════╝

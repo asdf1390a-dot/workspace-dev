@@ -448,3 +448,11 @@
 [2026-06-03 16:40:01] 🔴 Trust score < 70% detected. Reason: Health score 0% < 70%
 [2026-06-03 16:40:01] Triggering P1 Auto-Improvement Agent spawn...
 [2026-06-03 16:40:01] ✅ P1 trigger logged. Parent agent should spawn evaluator.
+[2026-06-03 16:45:01] Current trust score: 0%
+[2026-06-03 16:45:01] 🔴 Trust score < 70% detected. Reason: Health score 0% < 70%
+[2026-06-03 16:45:01] Triggering P1 Auto-Improvement Agent spawn...
+[2026-06-03 16:45:02] ✅ P1 trigger logged. Parent agent should spawn evaluator.
+[2026-06-03 16:50:01] Current trust score: 0%
+[2026-06-03 16:50:01] 🔴 Trust score < 70% detected. Reason: Health score 0% < 70%
+[2026-06-03 16:50:01] Triggering P1 Auto-Improvement Agent spawn...
+[2026-06-03 16:50:01] ✅ P1 trigger logged. Parent agent should spawn evaluator.
