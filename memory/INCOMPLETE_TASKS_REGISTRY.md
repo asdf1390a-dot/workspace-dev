@@ -4,14 +4,14 @@ description: 진행 중 및 대기 중인 모든 작업 추적
 type: project
 ---
 
-# 미완료 작업 레지스트리 (2026-06-03 12:10 UTC 갱신)
+# 미완료 작업 레지스트리 (2026-06-04 01:45 KST 상태 갱신)
 
 ## 🔴 P0 긴급 (즉시 조치)
 
 | 작업 | 상태 | 마감 | 담당 | 지연 |
 |------|------|------|------|------|
-| **Vercel 배포 수정** (API routes lazy-load) | 🟡 Run 93 진행 중 | 긴급 | Claude | 수정 진행 |
-| **db/29a 적용** (Asset Master P2 RPC) | 🟡 Phase B 완료 대기 | 2026-06-03 18:30 | 자동화 | **+88분** |
+| **Vercel 배포 수정** (API routes lazy-load) | 🔴 BLOCKED_ON_EXTERNAL | 긴급 | Claude | GitHub Actions Run 93 완료 대기 |
+| **db/29a 적용** (Asset Master P2 RPC) | 🔴 BLOCKED_ON_EXTERNAL | 2026-06-03 18:30 | 자동화 | **+88분** (Phase B 대기) |
 
 ## 🟡 P1 진행 중
 
@@ -29,6 +29,30 @@ type: project
 | Backup App P2 | ✅ 완료 | 2026-06-03 00:47 | 2026-06-03 ✅ |
 
 ## 📋 상태 갱신 로그
+
+**2026-06-04 01:45 KST (Task State Machine Auto-Transition #001):**
+- 🔴 **State Transition Applied**: Rule 2 (Dependency Detection)
+  - Vercel 배포 수정: IN_PROGRESS → BLOCKED_ON_EXTERNAL
+    - 근거: GitHub Actions Run 93이 4시간 48분 진행 중 (2026-06-03 12:02:33Z 시작)
+    - 대기 대상: Run 93 완료 및 빌드 성공 확인
+    - Next Action: Run 93 상태 모니터링 필요
+  
+  - db/29a 적용: Phase B 완료 대기 → BLOCKED_ON_EXTERNAL (상태명 명확화)
+    - 근거: 마감 2026-06-03 18:30 UTC 대비 +88분 지연 (Phase B 규칙 준수 점검 중)
+    - 대기 대상: Phase B 완료 신호 및 Rule Compliance 검증
+    - 우선순위: P0 (지연 누적으로 승격)
+
+- ✅ **상태 미변경 (In Progress 유지)**:
+  - Team Dashboard P2: 65% (Web-Builder #2, 진행 중)
+  - Asset Master P1: 80% (자동화 + Evaluator, 진행 중)
+  
+- ✅ **Completed Tasks**: 3개 모두 검증 완료 및 적용됨
+
+- 📊 **시스템 상태**:
+  - PENDING → IN_PROGRESS: 0건 (모든 할당 작업 이미 진행 중)
+  - IN_PROGRESS → BLOCKED: 2건 (의존성 감지)
+  - BLOCKED → COMPLETED: 0건 (해제 신호 없음)
+  - 순환성 위험: 없음 (Vercel run은 독립적, db/29a는 자동화 규칙 대기)
 
 **2026-06-03 12:10 UTC (Session Checkpoint #325 - Rule Compliance Auto-fix):**
 - 🔴 **Rule 2 위반 자동수정**: Task Ownership 미완료 (Run 92 부분수정 후 중단)

@@ -9,6 +9,10 @@ import TravelChecklistTab from '@/components/travel/TravelChecklistTab';
 import TravelScheduleTab from '@/components/travel/TravelScheduleTab';
 import TravelDocumentsTab from '@/components/travel/TravelDocumentsTab';
 import TravelNotificationsTab from '@/components/travel/TravelNotificationsTab';
+import CostModal from '@/components/travel/CostModal';
+import EventModal from '@/components/travel/EventModal';
+import TravelEditModal from '@/components/travel/TravelEditModal';
+import MemberManagementModal from '@/components/travel/MemberManagementModal';
 import { TravelChecklistItem, TravelEvent, TravelDocument } from '@/types/travel';
 
 interface Travel {
@@ -60,6 +64,13 @@ export default function TravelDetailPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<'overview' | 'expenses' | 'documents' | 'events' | 'checklist' | 'notifications'>('overview');
+
+  // Modal states
+  const [costModalOpen, setCostModalOpen] = useState(false);
+  const [eventModalOpen, setEventModalOpen] = useState(false);
+  const [travelEditModalOpen, setTravelEditModalOpen] = useState(false);
+  const [memberModalOpen, setMemberModalOpen] = useState(false);
+  const [members, setMembers] = useState<any[]>([]);
 
   const refetchCosts = useCallback(async () => {
     try {
@@ -125,6 +136,21 @@ export default function TravelDetailPage() {
     // TravelNotificationsTab handles its own refresh internally via onRefresh prop
   }, [travelId]);
 
+  const refetchMembers = useCallback(async () => {
+    try {
+      const token = localStorage.getItem('access_token');
+      const membersRes = await fetch(`/api/travels/${travelId}/members`, {
+        headers: { 'Authorization': `Bearer ${token}` }
+      });
+      if (membersRes.ok) {
+        const membersData = await membersRes.json();
+        setMembers(membersData.data || []);
+      }
+    } catch (err) {
+      console.error('Failed to refetch members:', err);
+    }
+  }, [travelId]);
+
   useEffect(() => {
     if (!travelId) return;
     fetchTravelData();
@@ -135,7 +161,7 @@ export default function TravelDetailPage() {
       setLoading(true);
       const token = localStorage.getItem('access_token');
 
-      const [travelRes, eventsRes, costsRes, docsRes, checklistRes] = await Promise.all([
+      const [travelRes, eventsRes, costsRes, docsRes, checklistRes, membersRes] = await Promise.all([
         fetch(`/api/travels/${travelId}`, {
           headers: { 'Authorization': `Bearer ${token}` }
         }),
@@ -149,6 +175,9 @@ export default function TravelDetailPage() {
           headers: { 'Authorization': `Bearer ${token}` }
         }),
         fetch(`/api/travels/${travelId}/checklist`, {
+          headers: { 'Authorization': `Bearer ${token}` }
+        }),
+        fetch(`/api/travels/${travelId}/members`, {
           headers: { 'Authorization': `Bearer ${token}` }
         })
       ]);
@@ -176,6 +205,11 @@ export default function TravelDetailPage() {
       if (checklistRes.ok) {
         const checklistData = await checklistRes.json();
         setChecklistItems(checklistData.data || []);
+      }
+
+      if (membersRes.ok) {
+        const membersData = await membersRes.json();
+        setMembers(membersData.data || []);
       }
     } catch (err) {
       setError(err instanceof Error ? err.message : '알 수 없는 오류');
@@ -219,19 +253,33 @@ export default function TravelDetailPage() {
               <h1 className="text-4xl font-bold mb-2">{travel.name}</h1>
               <p className="text-gray-600 text-lg">{travel.location}</p>
             </div>
-            <span className="px-4 py-2 rounded-full text-sm font-semibold"
-              style={{
-                backgroundColor: travel.status === 'upcoming' ? '#dbeafe' :
-                                travel.status === 'ongoing' ? '#fef08a' :
-                                '#dcfce7',
-                color: travel.status === 'upcoming' ? '#0369a1' :
-                       travel.status === 'ongoing' ? '#854d0e' :
-                       '#166534'
-              }}>
-              {travel.status === 'upcoming' ? '대기 중' :
-               travel.status === 'ongoing' ? '진행 중' :
-               '완료'}
-            </span>
+            <div className="flex gap-3 items-start">
+              <button
+                onClick={() => setTravelEditModalOpen(true)}
+                className="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 text-sm font-medium"
+              >
+                여행 수정
+              </button>
+              <button
+                onClick={() => setMemberModalOpen(true)}
+                className="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 text-sm font-medium"
+              >
+                멤버 관리
+              </button>
+              <span className="px-4 py-2 rounded-full text-sm font-semibold"
+                style={{
+                  backgroundColor: travel.status === 'upcoming' ? '#dbeafe' :
+                                  travel.status === 'ongoing' ? '#fef08a' :
+                                  '#dcfce7',
+                  color: travel.status === 'upcoming' ? '#0369a1' :
+                         travel.status === 'ongoing' ? '#854d0e' :
+                         '#166534'
+                }}>
+                {travel.status === 'upcoming' ? '대기 중' :
+                 travel.status === 'ongoing' ? '진행 중' :
+                 '완료'}
+              </span>
+            </div>
           </div>
 
           {error && (
@@ -394,6 +442,15 @@ export default function TravelDetailPage() {
 
         {activeTab === 'expenses' && (
           <div>
+            <div className="mb-6">
+              <button
+                onClick={() => setCostModalOpen(true)}
+                className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+              >
+                + 비용 추가
+              </button>
+            </div>
+
             <TravelCostsTab
               travelId={travelId}
               costs={transformCosts(costs)}
@@ -415,11 +472,22 @@ export default function TravelDetailPage() {
         )}
 
         {activeTab === 'events' && (
-          <TravelScheduleTab
-            travelId={travelId}
-            events={events}
-            onRefresh={refetchEvents}
-          />
+          <div>
+            <div className="mb-6">
+              <button
+                onClick={() => setEventModalOpen(true)}
+                className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+              >
+                + 일정 추가
+              </button>
+            </div>
+
+            <TravelScheduleTab
+              travelId={travelId}
+              events={events}
+              onRefresh={refetchEvents}
+            />
+          </div>
         )}
 
         {activeTab === 'checklist' && (
@@ -437,6 +505,47 @@ export default function TravelDetailPage() {
           />
         )}
       </div>
+
+      {/* Modals */}
+      <CostModal
+        open={costModalOpen}
+        onOpenChange={setCostModalOpen}
+        travelId={travelId}
+        onSuccess={refetchCosts}
+      />
+
+      <EventModal
+        open={eventModalOpen}
+        onOpenChange={setEventModalOpen}
+        travelId={travelId}
+        onSuccess={refetchEvents}
+      />
+
+      <TravelEditModal
+        open={travelEditModalOpen}
+        onOpenChange={setTravelEditModalOpen}
+        travelId={travelId}
+        initialData={travel ? {
+          name: travel.name,
+          location: travel.location,
+          start_date: travel.start_date,
+          end_date: travel.end_date,
+          budget: travel.budget,
+          purpose: travel.purpose,
+          status: travel.status,
+        } : undefined}
+        onSuccess={() => {
+          fetchTravelData();
+        }}
+      />
+
+      <MemberManagementModal
+        open={memberModalOpen}
+        onOpenChange={setMemberModalOpen}
+        travelId={travelId}
+        members={members}
+        onSuccess={refetchMembers}
+      />
     </div>
   );
 }
