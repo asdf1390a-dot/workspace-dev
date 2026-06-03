@@ -46,7 +46,7 @@
 |----|------|--------|------|------|------|
 | 1 | **Discord Bot Item B (보안)** | 🔴 CRITICAL | 평가자 검증 진행 중 | 2026-06-05 18:00 | 평가자 AI |
 | 2 | **db/36 마이그레이션** | 🔴 CRITICAL | ⏳ 수동 실행 대기 | 2026-06-04 09:00 | CEO (Supabase) |
-| 3 | **Memory-P2 자동화 복구** | 🟡 HIGH | npm deps 실패 | TBD | 자동화 전문가 |
+| 3 | **Phase 2 Reliability** | ✅ VERIFIED | Services 2a/2b/2c running ✅ | 2026-06-04 18:00 | ✅ CEO (complete) |
 | 4 | **TRAVEL Day 2 시작** | 🟡 HIGH | 준비 완료 | 2026-06-13 | web-builder |
 
 ### 마감 임박 (우선순위)
@@ -64,7 +64,7 @@
 | **5분 폴링 (모니터링)** | 🟢 ACTIVE | Cycle 3 @ 00:42 | subagent 상태 추적 |
 | **npm build** | 🟢 SUCCESS | 2026-06-04 00:46 | 모든 페이지/API ✅, Discord WIP 정리 |
 | **Cron CTB 갱신** | 🟡 복구 중 | 2026-06-03 | 재활성화 필요 |
-| **Phase 2 자동화** | 🔴 OFFLINE | 2026-06-02 20:01 | npm deps 실패 (낮은 우선도) |
+| **Phase 2 자동화** | 🟢 ONLINE | 2026-06-04 01:20 | 2a/2b/2c services started + health ✅ |
 
 ---
 
