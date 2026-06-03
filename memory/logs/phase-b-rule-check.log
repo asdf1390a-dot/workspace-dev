@@ -76,3 +76,16 @@
 [2026-06-03 12:00:01] ✓ Schedule Discipline: OK
 [2026-06-03 12:00:01] === Phase B Rule Enforcement Check Completed ===
 [2026-06-03 12:00:01] Next check: 2026-06-03 16:00:01 KST
+[2026-06-03 16:00:01] === Phase B Rule Enforcement Check Started ===
+[2026-06-03 16:00:01] Checking last 4 hours for rule violations...
+/home/jeepney/.openclaw/workspace-dev/memory-automation/phase-b-rule-check.sh: line 37: [: 0
+0: integer expected
+[2026-06-03 16:00:01] ✓ Autonomous Proceed: OK
+[2026-06-03 16:00:01] Checking task completion status...
+[2026-06-03 16:00:01] ✓ Task Ownership: OK
+[2026-06-03 16:00:01] Checking schedule adherence...
+/home/jeepney/.openclaw/workspace-dev/memory-automation/phase-b-rule-check.sh: line 59: [: /home/jeepney/.claude/projects/-home-jeepney--openclaw-workspace-dev/memory/ACTIVE_WORK_STATUS_2026_06_03.md:0
+0: integer expected
+[2026-06-03 16:00:01] ✓ Schedule Discipline: OK
+[2026-06-03 16:00:01] === Phase B Rule Enforcement Check Completed ===
+[2026-06-03 16:00:01] Next check: 2026-06-03 20:00:01 KST

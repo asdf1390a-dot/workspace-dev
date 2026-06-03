@@ -1,21 +1,20 @@
-# 메모리 색인 (SSOT)
+# 메모리 색인 (SSOT) — 슬림 버전
 
-## 🟡 **IN RECOVERY (2026-06-03 08:06) — BM-P1 Phase 2 코드 완료 → H1/H2 평가자 검증 진행 중**
-- [🟡 **BM-P1 Phase 2 평가자 검증 진행**](DEPLOYMENT_CHECKPOINT_2026_06_03.md) — 코드 완성 ✅ (2026-06-02 18:27 KST) | Vercel 배포 LIVE | 4개 API 엔드포인트 ✅ | GitHub Secrets 설정 완료 ✅ | **H1/H2 새로운 평가자 시스템 검증 진행 중** (구체 평가자 완료 시간 대기)
+## 🟢 현재 상태 (2026-06-03 16:40 KST)
 
-## 🟢 실시간 상태 (최신 갱신 2026-06-03 08:06 KST)
-- [✅ **H1 & H2 배포 완료 (2026-06-03 02:37)**](DEPLOYMENT_CHECKPOINT_2026_06_03.md) — 🟢 모든 4개 Cron Job 활성화 ✅ | H1 모니터 매15분 주기 시작 | H2 평가자 자동 스폰 3개 스케줄됨 (06-09/14) | 마감 05:00 2h23m 앞서 완료
-- [✅ **GitHub Secrets 6개 설정 완료 (2026-06-02 19:55)**](GITHUB_SECRETS_ACTION_REQUIRED.md) — 모든 환경변수 설정 완료 ✅
-- [✅ API 엔드포인트 4/4 완성 (2026-06-02 19:15)](active_work_tracking.md) — 설정, 저장소, 지표, 알림 모두 구현 및 배포 완료
-- [🟡 BM-P1 Phase 2 검증 (2026-06-03 08:06 KST)](DEPLOYMENT_CHECKPOINT_2026_06_03.md) — 이전 Evaluator (ID: b47bca07) 통과 ✅ → H1/H2 새로운 시스템 평가자 검증 진행 중 | 마감 2026-06-02 18:00 (13h 6m 초과)
-- [🟢 Cron Cleanup — Phase 2A 중복 제거 (2026-06-02 18:13)](CRON_CLEANUP_2026_06_02.md) — 2개 중복 크론 disabled ✅, Express 서버 3/3 running ✅
-- [🔴 **BM-P1 Phase 2 최종 상태 (2026-06-02 17:49)](ORG_STATUS_2026_06_02_1749.md) — 마감 초과 분석 + 개선방안 기록
-- [⭐⭐⭐ 세션 체크포인트 #316 (2026-06-02 16:40)](SESSION_CHECKPOINT_2026_06_02_1640.md) — P0/P1 완료 ✅ | BM-P1 Phase 2 72%→진행중
-- [⭐⭐⭐ 메모리 감사 P0/P1 완료 (2026-06-02 16:38)](P1_CLEANUP_COMPLETION_2026_06_02.md) — P0: 파일 461→380 정리 ✅ | P1: Cron 중복 제거 + 마이크로서비스 검증 ✅
-- [⭐⭐⭐ 완전 자동화 P0/P1/P2/P3 시스템 활성화 (2026-06-02 16:25)](AUTOMATION_P0_P1_P2_P3_COMPLETE.md) — CEO 자율운영 모드 + 4-tier 자동화 + 15명 AI 팀원 개별 성장 추적 ✅
-- [⭐ 메모리 감사 완료](AUDIT_REPORT_2026_06_02.md) — 2026-06-02 02:45 KST, 중복규칙 3개 통합, 손상링크 10개 수정 ✅
-- [⭐ Post-Deployment Validation ✅](POST_DEPLOYMENT_VALIDATION_2026_06_01_1700.md) — 2026-06-01 16:44 KST 완료, 8/8 체크 PASS
-- [라이브 조직도 19:13](ORG_STATUS_2026_06_02_1913.md) — Phase 2F ✅완료, BM-P1 P1 ✅완료, BM-P1 P2 🟡진행중 (1h 13m 마감초과), Team Dashboard P2 🟡진행중 (60%, ETA 06-10), 팀 100% 활용화
+**진행 중:**
+- 🟡 Team Dashboard P2 (65%) — ETA 2026-06-17 18:00
+- 🟡 Asset Master P1 (진행중) — ETA 2026-06-15
+
+**완료:**
+- ✅ Backup App P2 (2026-06-03)
+- ✅ H1 & H2 배포 (2026-06-03 02:37)
+- ✅ Phase 2A-2F Memory Automation (2026-06-01)
+
+**시스템:**
+- GitHub Secrets: 8/8 ✅
+- 신뢰도: 99%
+- 블로킹: 0개
 
 ## 🎯 핵심 규칙
 - [자율운영](feedback_core_autonomous_operation.md) — ✅ 준수 (H1/H2 배포 자동 완료)
@@ -50,4 +49,4 @@
 
 ---
 
-**마지막 갱신:** 2026-06-03 08:06 KST (Memory & Rule Validation Cron #321, CTB 동기화) | **상태:** H1/H2 배포 ✅ 완료, BM-P1 P2 🟡 검증 진행 (마감초과 13h 6m), Team Dashboard P2 🟡 진행 중 (ETA 06-10 18:00), Asset Master 🟡 진행 (ETA 06-15) | **규칙:** 자율진행 ✅ / Task Ownership ✅ / 일정관리 🟡 (감시 중) | **신뢰도:** 99%, 블로킹: 0 | **H1 크론:** 🟢 ACTIVE (15분 주기) | **Phase 2A/2B/2C:** 3/3 RUNNING ✅ | **H2 스폰 예정:** 3개 (2026-06-09/14)
+**마지막 갱신:** 2026-06-03 14:00 KST (Planner Progress Snapshot #323 + CTB Update) | **상태:** Backup P2 ✅ COMPLETED (2026-06-03 00:47), BM-P1 P1 ✅ COMPLETED (2026-06-01 23:49), Team Dashboard P2 🟡 70% IN_PROGRESS (5h 경과, Day 1 진행, ETA 06-10 18:00), Asset Master P1 🟡 진행 (ETA 06-15, 플래너 리포트 미수신) | **규칙:** 자율진행 ✅ / Task Ownership ✅ / 일정관리 ✅ | **신뢰도:** 99%, 블로킹: 0 | **H1 크론:** 🟢 ACTIVE (15분 주기) | **Phase 2A/2B/2C:** 3/3 RUNNING ✅ | **H2 스폰 예정:** 3개 (2026-06-09/14)
