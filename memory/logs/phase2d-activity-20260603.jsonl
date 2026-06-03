@@ -953,3 +953,7 @@
 {"timestamp":"2026-06-03T07:50:13Z","phase":"PHASE2C","status":"SKIPPED_DOWN","duration_ms":0,"details":{"reason":"service_down"}}
 {"timestamp":"2026-06-03T07:50:13Z","phase":"MEMORY_UPDATE","status":"SKIPPED","duration_ms":0,"details":{"reason":"no_eligible_entries"}}
 {"timestamp":"2026-06-03T07:50:13Z","phase":"CYCLE_COMPLETE","status":"SUCCESS","duration_ms":12227,"details":{"cycle":"phase2d_full"}}
+{"timestamp":"2026-06-03T09:00:05Z","phase":"PHASE2A","status":"SKIPPED_DOWN","duration_ms":0,"details":{"reason":"service_down"}}
+{"timestamp":"2026-06-03T09:00:09Z","phase":"PHASE2B","status":"SKIPPED_DOWN","duration_ms":0,"details":{"reason":"service_down"}}
+{"timestamp":"2026-06-03T09:00:13Z","phase":"PHASE2C","status":"SKIPPED_DOWN","duration_ms":0,"details":{"reason":"service_down"}}
+{"timestamp":"2026-06-03T09:00:13Z","phase":"CYCLE_COMPLETE","status":"SUCCESS","duration_ms":12216,"details":{"cycle":"phase2d_full"}}
