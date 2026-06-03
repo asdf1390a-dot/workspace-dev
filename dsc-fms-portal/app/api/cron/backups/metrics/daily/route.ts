@@ -21,7 +21,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ aggregated: 0, status: 200 });
     }
 
-    const uniqueUserIds = Array.from(new Set(users.map(u => u.user_id)));
+    const uniqueUserIds = Array.from(new Set(users.map(u => (u as any).user_id))) as string[];
 
     const yesterday = new Date();
     yesterday.setDate(yesterday.getDate() - 1);
@@ -30,7 +30,7 @@ export async function POST(request: NextRequest) {
     let aggregated = 0;
     for (const userId of uniqueUserIds) {
       try {
-        await calculateMetrics(supabase, userId, metricDate);
+        await calculateMetrics(supabase, userId as string, metricDate);
         aggregated++;
       } catch (err) {
         console.error(`Error calculating metrics for ${userId}:`, err);
