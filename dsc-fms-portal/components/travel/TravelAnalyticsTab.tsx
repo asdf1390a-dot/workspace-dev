@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useEffect, useState } from 'react';
+import { useMemo, useEffect, useState, Suspense, lazy } from 'react';
 import {
   PieChart,
   Pie,
@@ -16,6 +16,85 @@ import {
   ResponsiveContainer,
   Cell,
 } from 'recharts';
+
+// Lazy-loaded chart components for performance
+const LazyPieChart = lazy(() => Promise.resolve({ default: ({ data }: any) => (
+  <ResponsiveContainer width="100%" height={300}>
+    <PieChart>
+      <Pie
+        data={data}
+        cx="50%"
+        cy="50%"
+        labelLine={false}
+        label={({ payload }) => `${payload.name} ${payload.percentage}%`}
+        outerRadius={80}
+        fill="#8884d8"
+        dataKey="value"
+      >
+        {data.map((entry: any, index: number) => (
+          <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+        ))}
+      </Pie>
+      <Tooltip formatter={(value) => `₹${value.toLocaleString()}`} />
+    </PieChart>
+  </ResponsiveContainer>
+) }));
+
+const LazyBarChart = lazy(() => Promise.resolve({ default: ({ data }: any) => (
+  <ResponsiveContainer width="100%" height={300}>
+    <BarChart data={data}>
+      <CartesianGrid strokeDasharray="3 3" />
+      <XAxis dataKey="name" angle={-45} textAnchor="end" height={80} />
+      <YAxis />
+      <Tooltip formatter={(value) => `₹${value.toLocaleString()}`} />
+      <Bar dataKey="value" fill="#3b82f6" name="지출액">
+        {data.map((entry: any, index: number) => (
+          <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+        ))}
+      </Bar>
+    </BarChart>
+  </ResponsiveContainer>
+) }));
+
+const LazyLineChart = lazy(() => Promise.resolve({ default: ({ data }: any) => (
+  <ResponsiveContainer width="100%" height={300}>
+    <LineChart data={data}>
+      <CartesianGrid strokeDasharray="3 3" />
+      <XAxis dataKey="date" />
+      <YAxis />
+      <Tooltip formatter={(value) => `₹${value.toLocaleString()}`} />
+      <Legend />
+      <Line
+        type="monotone"
+        dataKey="amount"
+        stroke="#3b82f6"
+        strokeWidth={2}
+        name="일일 지출"
+        dot={{ fill: '#3b82f6', r: 4 }}
+      />
+    </LineChart>
+  </ResponsiveContainer>
+) }));
+
+const LazyMemberBarChart = lazy(() => Promise.resolve({ default: ({ data, dataKey, name }: any) => (
+  <ResponsiveContainer width="100%" height={300}>
+    <BarChart data={data}>
+      <CartesianGrid strokeDasharray="3 3" />
+      <XAxis dataKey="memberName" angle={-45} textAnchor="end" height={80} />
+      <YAxis />
+      <Tooltip formatter={(value) => `₹${Number(value).toLocaleString()}`} />
+      <Bar dataKey={dataKey} fill="#3b82f6" name={name}>
+        {data.map((entry: any, index: number) => (
+          <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+        ))}
+      </Bar>
+    </BarChart>
+  </ResponsiveContainer>
+) }));
+
+const ChartSkeleton = () => (
+  <div className="w-full h-80 bg-gray-100 rounded animate-pulse" />
+);
 
 interface Cost {
   id: string;
@@ -87,7 +166,7 @@ export default function TravelAnalyticsTab({
     }
   }, [travelId]);
 
-  const simplifySettlement = (members: SettlementMember[]): SettlementTransaction[] => {
+  const simplifySettlement = useMemo(() => (members: SettlementMember[]): SettlementTransaction[] => {
     const debtors = members.filter((m) => m.balance < -0.01);
     const creditors = members.filter((m) => m.balance > 0.01);
     const transactions: SettlementTransaction[] = [];
@@ -112,7 +191,18 @@ export default function TravelAnalyticsTab({
     });
 
     return transactions;
-  };
+  }, []);
+
+  // Memoized member lookup map for O(1) access
+  const memberLookupMap = useMemo(() => {
+    const map = new Map<string, { name: string; email: string }>();
+    members.forEach(m => {
+      const name = m.user?.user_metadata?.name || m.user?.email || 'Unknown';
+      const email = m.user?.email || '';
+      map.set(m.user_id, { name, email });
+    });
+    return map;
+  }, [members]);
 
   const fetchMembersAndSettlement = async () => {
     if (!travelId) return;
@@ -203,15 +293,17 @@ export default function TravelAnalyticsTab({
         amount: Math.round(amount),
       }));
 
-    const memberData = settlement.map(member => ({
-      memberId: member.member_id,
-      userId: member.user_id,
-      paid: member.total_paid,
-      share: member.share,
-      balance: member.balance,
-      memberName: members.find(m => m.user_id === member.user_id)?.user?.user_metadata?.name ||
-                  members.find(m => m.user_id === member.user_id)?.user?.email || 'Unknown',
-    }));
+    const memberData = settlement.map(member => {
+      const memberInfo = memberLookupMap.get(member.user_id) || { name: 'Unknown', email: '' };
+      return {
+        memberId: member.member_id,
+        userId: member.user_id,
+        paid: member.total_paid,
+        share: member.share,
+        balance: member.balance,
+        memberName: memberInfo.name,
+      };
+    });
 
     const remaining = Math.max(0, budget - totalCost);
     const utilization = budget > 0 ? Math.round((totalCost / budget) * 100) : 0;
@@ -225,17 +317,17 @@ export default function TravelAnalyticsTab({
       utilization,
       costCount: filteredCosts.length,
     };
-  }, [costs, budget, settlement, members, dateRange, selectedCategories]);
+  }, [costs, budget, settlement, memberLookupMap, dateRange, selectedCategories]);
 
   // Get all available categories from costs
   const allCategories = Array.from(new Set(costs.map(c => c.category || 'Other'))).sort();
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-8" role="region" aria-label="여행 분석">
       {/* 필터 섹션 */}
       <div className="bg-white rounded-lg shadow p-6">
-        <h3 className="text-lg font-semibold mb-4">필터</h3>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <h3 className="text-lg font-semibold mb-4" id="filter-heading">필터</h3>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4" role="group" aria-labelledby="filter-heading">
           {/* 시작 날짜 */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">시작 날짜</label>
@@ -326,27 +418,27 @@ export default function TravelAnalyticsTab({
       </div>
 
       {/* 예산 요약 */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4" role="region" aria-label="예산 요약">
         <div className="bg-white rounded-lg shadow p-6">
-          <p className="text-sm text-gray-600 mb-2">전체 지출</p>
-          <p className="text-3xl font-bold text-gray-900">₹{analytics.totalCost.toLocaleString()}</p>
+          <p className="text-sm text-gray-600 mb-2" id="total-cost-label">전체 지출</p>
+          <p className="text-3xl font-bold text-gray-900" aria-labelledby="total-cost-label">₹{analytics.totalCost.toLocaleString()}</p>
           <p className="text-xs text-gray-500 mt-2">{analytics.costCount}개 항목</p>
         </div>
 
         <div className="bg-white rounded-lg shadow p-6">
-          <p className="text-sm text-gray-600 mb-2">남은 예산</p>
-          <p className={`text-3xl font-bold ${analytics.remaining >= 0 ? 'text-green-600' : 'text-red-600'}`}>
+          <p className="text-sm text-gray-600 mb-2" id="remaining-label">남은 예산</p>
+          <p className={`text-3xl font-bold ${analytics.remaining >= 0 ? 'text-green-600' : 'text-red-600'}`} aria-labelledby="remaining-label">
             ₹{analytics.remaining.toLocaleString()}
           </p>
           <p className="text-xs text-gray-500 mt-2">예산: ₹{budget.toLocaleString()}</p>
         </div>
 
         <div className="bg-white rounded-lg shadow p-6">
-          <p className="text-sm text-gray-600 mb-2">예산 사용률</p>
+          <p className="text-sm text-gray-600 mb-2" id="utilization-label">예산 사용률</p>
           <div className="flex items-end gap-2">
-            <p className="text-3xl font-bold text-blue-600">{analytics.utilization}%</p>
+            <p className="text-3xl font-bold text-blue-600" aria-labelledby="utilization-label">{analytics.utilization}%</p>
             <div className="flex-1">
-              <div className="w-full bg-gray-200 rounded-full h-2">
+              <div className="w-full bg-gray-200 rounded-full h-2" role="progressbar" aria-valuenow={analytics.utilization} aria-valuemin={0} aria-valuemax={100}>
                 <div
                   className={`h-2 rounded-full transition-all ${
                     analytics.utilization <= 80
@@ -364,30 +456,14 @@ export default function TravelAnalyticsTab({
       </div>
 
       {/* 차트 섹션 */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8" role="region" aria-label="분석 차트">
         {/* 카테고리별 지출 분석 */}
         <div className="bg-white rounded-lg shadow p-6">
-          <h3 className="text-lg font-semibold mb-4">카테고리별 지출</h3>
+          <h3 className="text-lg font-semibold mb-4" id="category-chart-heading">카테고리별 지출</h3>
           {analytics.categoryData.length > 0 ? (
-            <ResponsiveContainer width="100%" height={300}>
-              <PieChart>
-                <Pie
-                  data={analytics.categoryData}
-                  cx="50%"
-                  cy="50%"
-                  labelLine={false}
-                  label={({ payload }) => `${payload.name} ${payload.percentage}%`}
-                  outerRadius={80}
-                  fill="#8884d8"
-                  dataKey="value"
-                >
-                  {analytics.categoryData.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                  ))}
-                </Pie>
-                <Tooltip formatter={(value) => `₹${value.toLocaleString()}`} />
-              </PieChart>
-            </ResponsiveContainer>
+            <Suspense fallback={<ChartSkeleton />}>
+              <LazyPieChart data={analytics.categoryData} />
+            </Suspense>
           ) : (
             <p className="text-gray-500 text-center py-12">지출 데이터가 없습니다</p>
           )}
@@ -424,23 +500,9 @@ export default function TravelAnalyticsTab({
       {analytics.timelineData.length > 0 && (
         <div className="bg-white rounded-lg shadow p-6">
           <h3 className="text-lg font-semibold mb-4">지출 추이</h3>
-          <ResponsiveContainer width="100%" height={300}>
-            <LineChart data={analytics.timelineData}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="date" />
-              <YAxis />
-              <Tooltip formatter={(value) => `₹${value.toLocaleString()}`} />
-              <Legend />
-              <Line
-                type="monotone"
-                dataKey="amount"
-                stroke="#3b82f6"
-                strokeWidth={2}
-                name="일일 지출"
-                dot={{ fill: '#3b82f6', r: 4 }}
-              />
-            </LineChart>
-          </ResponsiveContainer>
+          <Suspense fallback={<ChartSkeleton />}>
+            <LazyLineChart data={analytics.timelineData} />
+          </Suspense>
         </div>
       )}
 
@@ -448,19 +510,9 @@ export default function TravelAnalyticsTab({
       {analytics.categoryData.length > 0 && (
         <div className="bg-white rounded-lg shadow p-6">
           <h3 className="text-lg font-semibold mb-4">카테고리별 비교</h3>
-          <ResponsiveContainer width="100%" height={300}>
-            <BarChart data={analytics.categoryData}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" angle={-45} textAnchor="end" height={80} />
-              <YAxis />
-              <Tooltip formatter={(value) => `₹${value.toLocaleString()}`} />
-              <Bar dataKey="value" fill="#3b82f6" name="지출액">
-                {analytics.categoryData.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                ))}
-              </Bar>
-            </BarChart>
-          </ResponsiveContainer>
+          <Suspense fallback={<ChartSkeleton />}>
+            <LazyBarChart data={analytics.categoryData} />
+          </Suspense>
         </div>
       )}
 
@@ -536,37 +588,17 @@ export default function TravelAnalyticsTab({
               {/* 멤버별 지불액 */}
               <div className="bg-white rounded-lg shadow p-6">
                 <h3 className="text-lg font-semibold mb-4">멤버별 지불액</h3>
-                <ResponsiveContainer width="100%" height={300}>
-                  <BarChart data={analytics.memberData}>
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="memberName" angle={-45} textAnchor="end" height={80} />
-                    <YAxis />
-                    <Tooltip formatter={(value) => `₹${Number(value).toLocaleString()}`} />
-                    <Bar dataKey="paid" fill="#3b82f6" name="지불액">
-                      {analytics.memberData.map((entry, index) => (
-                        <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                      ))}
-                    </Bar>
-                  </BarChart>
-                </ResponsiveContainer>
+                <Suspense fallback={<ChartSkeleton />}>
+                  <LazyMemberBarChart data={analytics.memberData} dataKey="paid" name="지불액" />
+                </Suspense>
               </div>
 
               {/* 멤버별 몫 */}
               <div className="bg-white rounded-lg shadow p-6">
                 <h3 className="text-lg font-semibold mb-4">멤버별 몫</h3>
-                <ResponsiveContainer width="100%" height={300}>
-                  <BarChart data={analytics.memberData}>
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="memberName" angle={-45} textAnchor="end" height={80} />
-                    <YAxis />
-                    <Tooltip formatter={(value) => `₹${Number(value).toLocaleString()}`} />
-                    <Bar dataKey="share" fill="#10b981" name="몫">
-                      {analytics.memberData.map((entry, index) => (
-                        <Cell key={`cell-${index}`} fill={COLORS[(index + 2) % COLORS.length]} />
-                      ))}
-                    </Bar>
-                  </BarChart>
-                </ResponsiveContainer>
+                <Suspense fallback={<ChartSkeleton />}>
+                  <LazyMemberBarChart data={analytics.memberData} dataKey="share" name="몫" />
+                </Suspense>
               </div>
             </div>
           )}
@@ -599,8 +631,8 @@ export default function TravelAnalyticsTab({
 
           {/* 정산 권고사항 */}
           {settlementTransactions.length > 0 && (
-            <div className="bg-gradient-to-r from-amber-50 to-orange-50 rounded-lg shadow p-6">
-              <h3 className="text-lg font-semibold mb-4 text-gray-900">정산 권고사항</h3>
+            <div className="bg-gradient-to-r from-amber-50 to-orange-50 rounded-lg shadow p-6" role="region" aria-label="정산 권고사항">
+              <h3 className="text-lg font-semibold mb-4 text-gray-900" id="settlement-heading">정산 권고사항</h3>
               <div className="space-y-3">
                 {settlementTransactions.map((transaction, index) => {
                   const fromMember = analytics.memberData.find(m => m.userId === transaction.from);
