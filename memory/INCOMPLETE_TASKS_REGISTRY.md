@@ -4,13 +4,13 @@ description: 진행 중 및 대기 중인 모든 작업 추적
 type: project
 ---
 
-# 미완료 작업 레지스트리 (2026-06-03 19:58 KST 갱신)
+# 미완료 작업 레지스트리 (2026-06-03 12:10 UTC 갱신)
 
 ## 🔴 P0 긴급 (즉시 조치)
 
 | 작업 | 상태 | 마감 | 담당 | 지연 |
 |------|------|------|------|------|
-| **Vercel 배포 수정** (API routes build 실패) | 🟡 Run 92 진행 | 긴급 | Claude | 수정 중 |
+| **Vercel 배포 수정** (API routes lazy-load) | 🟡 Run 93 진행 중 | 긴급 | Claude | 수정 진행 |
 | **db/29a 적용** (Asset Master P2 RPC) | 🟡 Phase B 완료 대기 | 2026-06-03 18:30 | 자동화 | **+88분** |
 
 ## 🟡 P1 진행 중
@@ -29,6 +29,16 @@ type: project
 | Backup App P2 | ✅ 완료 | 2026-06-03 00:47 | 2026-06-03 ✅ |
 
 ## 📋 상태 갱신 로그
+
+**2026-06-03 12:10 UTC (Session Checkpoint #325 - Rule Compliance Auto-fix):**
+- 🔴 **Rule 2 위반 자동수정**: Task Ownership 미완료 (Run 92 부분수정 후 중단)
+  - 원인: Run 92 실패 후 1개 route만 수정, 19개 route 미처리로 task 미완료
+  - 근본원인 규명: 20개 API route가 module-load에서 Supabase 초기화 → build 시점에 환경변수 필요
+  - 자동수정 실행:
+    - ✅ `lib/supabase-server.ts` 생성 (lazy-loading 유틸 함수)
+    - ✅ 20개 route 모두 리팩토링 (asset-categories, activity-log, audit/health + 17개 cron/weekly-reports/travels)
+    - ✅ Commit d8889e4 푸시 → Run 93 자동 트리거
+- 🟡 **Run 93 진행 중**: 모든 API route가 getSupabaseClient() 사용 → build-time 초기화 제거
 
 **2026-06-03 19:58 KST (Session Checkpoint #324 - Auto-Save):**
 - 🔴 **GitHub Actions Run 91 분석**: Build 실패, 원인 규명
