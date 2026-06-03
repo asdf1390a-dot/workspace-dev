@@ -518,6 +518,7 @@ export default function TravelDetailPage() {
 
         {activeTab === 'analytics' && (
           <TravelAnalyticsTab
+            travelId={travelId}
             costs={costs}
             budget={travel.budget || 0}
             startDate={travel.start_date}

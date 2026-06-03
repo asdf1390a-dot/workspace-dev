@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo } from 'react';
+import { useMemo, useEffect, useState } from 'react';
 import {
   PieChart,
   Pie,
@@ -23,6 +23,33 @@ interface Cost {
   category: string;
   amount: number;
   created_at: string;
+  payer_id?: string;
+}
+
+interface Member {
+  id: string;
+  user_id: string;
+  role: string;
+  user?: {
+    email: string;
+    user_metadata?: {
+      name?: string;
+    };
+  };
+}
+
+interface SettlementMember {
+  member_id: string;
+  user_id: string;
+  total_paid: number;
+  share: number;
+  balance: number;
+}
+
+interface SettlementTransaction {
+  from: string;
+  to: string;
+  amount: number;
 }
 
 interface TravelAnalyticsTabProps {
@@ -30,6 +57,7 @@ interface TravelAnalyticsTabProps {
   budget?: number;
   startDate?: string;
   endDate?: string;
+  travelId?: string;
 }
 
 const COLORS = ['#3b82f6', '#ef4444', '#10b981', '#f59e0b', '#8b5cf6', '#ec4899'];
@@ -39,10 +67,54 @@ export default function TravelAnalyticsTab({
   budget = 0,
   startDate,
   endDate,
+  travelId,
 }: TravelAnalyticsTabProps) {
+  const [members, setMembers] = useState<Member[]>([]);
+  const [settlement, setSettlement] = useState<SettlementMember[]>([]);
+  const [settlementTransactions, setSettlementTransactions] = useState<SettlementTransaction[]>([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (travelId) {
+      fetchMembersAndSettlement();
+    }
+  }, [travelId]);
+
+  const fetchMembersAndSettlement = async () => {
+    if (!travelId) return;
+    try {
+      setLoading(true);
+      const token = localStorage.getItem('access_token');
+
+      const [membersRes, settlementRes] = await Promise.all([
+        fetch(`/api/travels/${travelId}/members`, {
+          headers: { 'Authorization': `Bearer ${token}` }
+        }),
+        fetch(`/api/travels/${travelId}/settlement`, {
+          headers: { 'Authorization': `Bearer ${token}` }
+        })
+      ]);
+
+      if (membersRes.ok) {
+        const membersData = await membersRes.json();
+        setMembers(membersData.data || []);
+      }
+
+      if (settlementRes.ok) {
+        const settlementData = await settlementRes.json();
+        setSettlement(settlementData.data?.settlement || []);
+      }
+    } catch (err) {
+      console.error('Failed to fetch members/settlement:', err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const analytics = useMemo(() => {
     const categoryBreakdown: { [key: string]: number } = {};
     const dailyCosts: { [key: string]: number } = {};
+    const memberSpending: { [key: string]: number } = {};
     let totalCost = 0;
 
     costs.forEach(cost => {
@@ -53,6 +125,11 @@ export default function TravelAnalyticsTab({
 
       const date = new Date(cost.created_at).toISOString().split('T')[0];
       dailyCosts[date] = (dailyCosts[date] || 0) + cost.amount;
+
+      // Track member-wise spending (by payer)
+      if (cost.payer_id) {
+        memberSpending[cost.payer_id] = (memberSpending[cost.payer_id] || 0) + cost.amount;
+      }
     });
 
     const categoryData = Object.entries(categoryBreakdown)
@@ -70,18 +147,29 @@ export default function TravelAnalyticsTab({
         amount: Math.round(amount),
       }));
 
+    const memberData = settlement.map(member => ({
+      memberId: member.member_id,
+      userId: member.user_id,
+      paid: member.total_paid,
+      share: member.share,
+      balance: member.balance,
+      memberName: members.find(m => m.user_id === member.user_id)?.user?.user_metadata?.name ||
+                  members.find(m => m.user_id === member.user_id)?.user?.email || 'Unknown',
+    }));
+
     const remaining = Math.max(0, budget - totalCost);
     const utilization = budget > 0 ? Math.round((totalCost / budget) * 100) : 0;
 
     return {
       categoryData,
       timelineData,
+      memberData,
       totalCost: Math.round(totalCost),
       remaining,
       utilization,
       costCount: costs.length,
     };
-  }, [costs, budget]);
+  }, [costs, budget, settlement, members]);
 
   return (
     <div className="space-y-8">
@@ -250,6 +338,114 @@ export default function TravelAnalyticsTab({
           </div>
         </div>
       </div>
+
+      {/* 멤버별 참여 분석 (Day 11) */}
+      {analytics.memberData.length > 0 && (
+        <>
+          {/* 멤버별 정산 요약 */}
+          <div className="bg-white rounded-lg shadow p-6">
+            <h3 className="text-lg font-semibold mb-4">멤버별 정산 요약</h3>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead className="bg-gray-50 border-b">
+                  <tr>
+                    <th className="px-4 py-3 text-left font-semibold text-gray-700">멤버</th>
+                    <th className="px-4 py-3 text-right font-semibold text-gray-700">지불액</th>
+                    <th className="px-4 py-3 text-right font-semibold text-gray-700">몫</th>
+                    <th className="px-4 py-3 text-right font-semibold text-gray-700">잔액</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {analytics.memberData.map((member) => (
+                    <tr key={member.memberId} className="border-b hover:bg-gray-50">
+                      <td className="px-4 py-3 font-medium text-gray-900">{member.memberName}</td>
+                      <td className="px-4 py-3 text-right text-gray-700">₹{member.paid.toLocaleString()}</td>
+                      <td className="px-4 py-3 text-right text-gray-700">₹{member.share.toLocaleString()}</td>
+                      <td className={`px-4 py-3 text-right font-semibold ${
+                        member.balance > 0.01 ? 'text-green-600' :
+                        member.balance < -0.01 ? 'text-red-600' :
+                        'text-gray-600'
+                      }`}>
+                        ₹{member.balance > 0 ? '+' : ''}{member.balance.toLocaleString()}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="text-xs text-gray-500 mt-4">
+              * 잔액: 양수 = 받을 금액, 음수 = 낼 금액
+            </p>
+          </div>
+
+          {/* 멤버별 기여도 */}
+          {analytics.memberData.length > 1 && (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* 멤버별 지불액 */}
+              <div className="bg-white rounded-lg shadow p-6">
+                <h3 className="text-lg font-semibold mb-4">멤버별 지불액</h3>
+                <ResponsiveContainer width="100%" height={300}>
+                  <BarChart data={analytics.memberData}>
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="memberName" angle={-45} textAnchor="end" height={80} />
+                    <YAxis />
+                    <Tooltip formatter={(value) => `₹${Number(value).toLocaleString()}`} />
+                    <Bar dataKey="paid" fill="#3b82f6" name="지불액">
+                      {analytics.memberData.map((entry, index) => (
+                        <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                      ))}
+                    </Bar>
+                  </BarChart>
+                </ResponsiveContainer>
+              </div>
+
+              {/* 멤버별 몫 */}
+              <div className="bg-white rounded-lg shadow p-6">
+                <h3 className="text-lg font-semibold mb-4">멤버별 몫</h3>
+                <ResponsiveContainer width="100%" height={300}>
+                  <BarChart data={analytics.memberData}>
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="memberName" angle={-45} textAnchor="end" height={80} />
+                    <YAxis />
+                    <Tooltip formatter={(value) => `₹${Number(value).toLocaleString()}`} />
+                    <Bar dataKey="share" fill="#10b981" name="몫">
+                      {analytics.memberData.map((entry, index) => (
+                        <Cell key={`cell-${index}`} fill={COLORS[(index + 2) % COLORS.length]} />
+                      ))}
+                    </Bar>
+                  </BarChart>
+                </ResponsiveContainer>
+              </div>
+            </div>
+          )}
+
+          {/* 기여도 파이 차트 */}
+          {analytics.memberData.length > 1 && (
+            <div className="bg-white rounded-lg shadow p-6">
+              <h3 className="text-lg font-semibold mb-4">멤버별 기여도</h3>
+              <div className="space-y-2 max-h-80 overflow-y-auto">
+                {analytics.memberData.map((member, index) => (
+                  <div key={member.memberId} className="flex items-center justify-between p-3 bg-gray-50 rounded">
+                    <div className="flex items-center gap-3">
+                      <div
+                        className="w-3 h-3 rounded-full flex-shrink-0"
+                        style={{ backgroundColor: COLORS[index % COLORS.length] }}
+                      />
+                      <span className="text-sm font-medium text-gray-700">{member.memberName}</span>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-sm font-semibold text-gray-900">
+                        {Math.round((member.paid / analytics.totalCost) * 100)}%
+                      </p>
+                      <p className="text-xs text-gray-500">₹{member.paid.toLocaleString()}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </>
+      )}
     </div>
   );
 }
