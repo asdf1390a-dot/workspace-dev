@@ -1,8 +1,14 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
+import SettlementDisplay from '@/components/travel/SettlementDisplay';
+import TravelCostsTab from '@/components/travel/TravelCostsTab';
+import TravelChecklistTab from '@/components/travel/TravelChecklistTab';
+import TravelScheduleTab from '@/components/travel/TravelScheduleTab';
+import TravelDocumentsTab from '@/components/travel/TravelDocumentsTab';
+import { TravelChecklistItem, TravelEvent, TravelDocument } from '@/types/travel';
 
 interface Travel {
   id: string;
@@ -17,15 +23,6 @@ interface Travel {
   created_at: string;
 }
 
-interface TravelEvent {
-  id: string;
-  travel_id: string;
-  event_date: string;
-  event_type: string;
-  description: string;
-  created_at: string;
-}
-
 interface TravelCost {
   id: string;
   travel_id: string;
@@ -37,14 +34,17 @@ interface TravelCost {
   created_at: string;
 }
 
-interface TravelDocument {
+interface TransformedTravelCost {
   id: string;
-  travel_id: string;
-  file_name: string;
-  file_type: string;
-  document_type: string;
-  file_size: number;
-  uploaded_at: string;
+  title: string;
+  amount: number;
+  currency: string;
+  cost_type: string;
+  cost_date: string;
+  payer_id: string;
+  workflow_status?: 'request' | 'pending_approval' | 'approved' | 'reimbursed';
+  approved_by?: string;
+  approved_at?: string;
 }
 
 export default function TravelDetailPage() {
@@ -55,9 +55,70 @@ export default function TravelDetailPage() {
   const [events, setEvents] = useState<TravelEvent[]>([]);
   const [costs, setCosts] = useState<TravelCost[]>([]);
   const [documents, setDocuments] = useState<TravelDocument[]>([]);
+  const [checklistItems, setChecklistItems] = useState<TravelChecklistItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [activeTab, setActiveTab] = useState<'overview' | 'expenses' | 'documents' | 'events'>('overview');
+  const [activeTab, setActiveTab] = useState<'overview' | 'expenses' | 'documents' | 'events' | 'checklist'>('overview');
+
+  const refetchCosts = useCallback(async () => {
+    try {
+      const token = localStorage.getItem('access_token');
+      const costsRes = await fetch(`/api/travels/${travelId}/costs`, {
+        headers: { 'Authorization': `Bearer ${token}` }
+      });
+      if (costsRes.ok) {
+        const costsData = await costsRes.json();
+        setCosts(costsData.data || []);
+      }
+    } catch (err) {
+      console.error('Failed to refetch costs:', err);
+    }
+  }, [travelId]);
+
+  const refetchChecklist = useCallback(async () => {
+    try {
+      const token = localStorage.getItem('access_token');
+      const checklistRes = await fetch(`/api/travels/${travelId}/checklist`, {
+        headers: { 'Authorization': `Bearer ${token}` }
+      });
+      if (checklistRes.ok) {
+        const checklistData = await checklistRes.json();
+        setChecklistItems(checklistData.data || []);
+      }
+    } catch (err) {
+      console.error('Failed to refetch checklist:', err);
+    }
+  }, [travelId]);
+
+  const refetchEvents = useCallback(async () => {
+    try {
+      const token = localStorage.getItem('access_token');
+      const eventsRes = await fetch(`/api/travels/${travelId}/events`, {
+        headers: { 'Authorization': `Bearer ${token}` }
+      });
+      if (eventsRes.ok) {
+        const eventsData = await eventsRes.json();
+        setEvents(eventsData.data || []);
+      }
+    } catch (err) {
+      console.error('Failed to refetch events:', err);
+    }
+  }, [travelId]);
+
+  const refetchDocuments = useCallback(async () => {
+    try {
+      const token = localStorage.getItem('access_token');
+      const docsRes = await fetch(`/api/travels/${travelId}/documents`, {
+        headers: { 'Authorization': `Bearer ${token}` }
+      });
+      if (docsRes.ok) {
+        const docsData = await docsRes.json();
+        setDocuments(docsData.data || []);
+      }
+    } catch (err) {
+      console.error('Failed to refetch documents:', err);
+    }
+  }, [travelId]);
 
   useEffect(() => {
     if (!travelId) return;
@@ -69,7 +130,7 @@ export default function TravelDetailPage() {
       setLoading(true);
       const token = localStorage.getItem('access_token');
 
-      const [travelRes, eventsRes, costsRes, docsRes] = await Promise.all([
+      const [travelRes, eventsRes, costsRes, docsRes, checklistRes] = await Promise.all([
         fetch(`/api/travels/${travelId}`, {
           headers: { 'Authorization': `Bearer ${token}` }
         }),
@@ -80,6 +141,9 @@ export default function TravelDetailPage() {
           headers: { 'Authorization': `Bearer ${token}` }
         }),
         fetch(`/api/travels/${travelId}/documents`, {
+          headers: { 'Authorization': `Bearer ${token}` }
+        }),
+        fetch(`/api/travels/${travelId}/checklist`, {
           headers: { 'Authorization': `Bearer ${token}` }
         })
       ]);
@@ -103,6 +167,11 @@ export default function TravelDetailPage() {
         const docsData = await docsRes.json();
         setDocuments(docsData.data || []);
       }
+
+      if (checklistRes.ok) {
+        const checklistData = await checklistRes.json();
+        setChecklistItems(checklistData.data || []);
+      }
     } catch (err) {
       setError(err instanceof Error ? err.message : '알 수 없는 오류');
     } finally {
@@ -112,6 +181,18 @@ export default function TravelDetailPage() {
 
   const formatDate = (dateStr: string) => {
     return new Date(dateStr).toLocaleDateString('ko-KR');
+  };
+
+  const transformCosts = (rawCosts: TravelCost[]): TransformedTravelCost[] => {
+    return rawCosts.map(cost => ({
+      id: cost.id,
+      title: cost.item_name,
+      amount: cost.amount,
+      currency: 'INR',
+      cost_type: cost.category.toLowerCase().replace(/\s+/g, '_'),
+      cost_date: cost.created_at,
+      payer_id: cost.payer_id,
+    }));
   };
 
   const totalCost = costs.reduce((sum, cost) => sum + cost.amount, 0);
@@ -233,6 +314,16 @@ export default function TravelDetailPage() {
             >
               일정 ({events.length})
             </button>
+            <button
+              onClick={() => setActiveTab('checklist')}
+              className={`py-4 px-2 border-b-2 font-medium ${
+                activeTab === 'checklist'
+                  ? 'border-blue-600 text-blue-600'
+                  : 'border-transparent text-gray-600 hover:text-gray-900'
+              }`}
+            >
+              체크리스트 ({checklistItems.length})
+            </button>
           </div>
         </div>
       </div>
@@ -288,122 +379,40 @@ export default function TravelDetailPage() {
 
         {activeTab === 'expenses' && (
           <div>
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-2xl font-bold">지출 관리</h2>
-              <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-medium">
-                + 지출 추가
-              </button>
-            </div>
+            <TravelCostsTab
+              travelId={travelId}
+              costs={transformCosts(costs)}
+              onRefresh={refetchCosts}
+            />
 
-            {costs.length === 0 ? (
-              <div className="bg-white rounded-lg shadow p-8 text-center">
-                <p className="text-gray-600">등록된 지출이 없습니다</p>
-              </div>
-            ) : (
-              <div className="bg-white rounded-lg shadow overflow-hidden">
-                <table className="w-full">
-                  <thead className="bg-gray-50 border-b border-gray-200">
-                    <tr>
-                      <th className="px-6 py-3 text-left text-sm font-semibold text-gray-700">항목</th>
-                      <th className="px-6 py-3 text-left text-sm font-semibold text-gray-700">카테고리</th>
-                      <th className="px-6 py-3 text-left text-sm font-semibold text-gray-700">금액</th>
-                      <th className="px-6 py-3 text-left text-sm font-semibold text-gray-700">분담 방식</th>
-                      <th className="px-6 py-3 text-right text-sm font-semibold text-gray-700">작업</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-gray-200">
-                    {costs.map(cost => (
-                      <tr key={cost.id} className="hover:bg-gray-50">
-                        <td className="px-6 py-4 text-sm text-gray-900">{cost.item_name}</td>
-                        <td className="px-6 py-4 text-sm">
-                          <span className="px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
-                            {cost.category}
-                          </span>
-                        </td>
-                        <td className="px-6 py-4 text-sm font-medium">₹{cost.amount.toLocaleString()}</td>
-                        <td className="px-6 py-4 text-sm text-gray-600">{cost.split_type}</td>
-                        <td className="px-6 py-4 text-sm text-right">
-                          <button className="text-red-600 hover:text-red-800 font-medium">삭제</button>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                  <tfoot className="bg-gray-50 border-t-2 border-gray-200">
-                    <tr>
-                      <td colSpan={2} className="px-6 py-4 font-semibold">합계</td>
-                      <td className="px-6 py-4 font-bold text-lg">₹{totalCost.toLocaleString()}</td>
-                      <td colSpan={2}></td>
-                    </tr>
-                  </tfoot>
-                </table>
-              </div>
-            )}
+            <div className="mt-8">
+              <SettlementDisplay travelId={travelId} />
+            </div>
           </div>
         )}
 
         {activeTab === 'documents' && (
-          <div>
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-2xl font-bold">문서 관리</h2>
-              <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-medium">
-                + 파일 업로드
-              </button>
-            </div>
-
-            {documents.length === 0 ? (
-              <div className="bg-white rounded-lg shadow p-8 text-center">
-                <p className="text-gray-600">업로드된 문서가 없습니다</p>
-              </div>
-            ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {documents.map(doc => (
-                  <div key={doc.id} className="bg-white rounded-lg shadow p-6 flex items-start gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                        <span className="text-blue-600 font-bold text-xs uppercase">{doc.file_type}</span>
-                      </div>
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <h3 className="font-semibold text-gray-900 truncate">{doc.file_name}</h3>
-                      <p className="text-sm text-gray-600">{doc.document_type}</p>
-                      <p className="text-xs text-gray-500 mt-2">{(doc.file_size / 1024).toFixed(2)} KB</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
+          <TravelDocumentsTab
+            travelId={travelId}
+            documents={documents}
+            onRefresh={refetchDocuments}
+          />
         )}
 
         {activeTab === 'events' && (
-          <div>
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-2xl font-bold">여행 일정</h2>
-              <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-medium">
-                + 일정 추가
-              </button>
-            </div>
+          <TravelScheduleTab
+            travelId={travelId}
+            events={events}
+            onRefresh={refetchEvents}
+          />
+        )}
 
-            {events.length === 0 ? (
-              <div className="bg-white rounded-lg shadow p-8 text-center">
-                <p className="text-gray-600">등록된 일정이 없습니다</p>
-              </div>
-            ) : (
-              <div className="space-y-4">
-                {events.map(event => (
-                  <div key={event.id} className="bg-white rounded-lg shadow p-6">
-                    <div className="flex justify-between items-start mb-2">
-                      <div>
-                        <h3 className="font-semibold text-lg">{event.event_type}</h3>
-                        <p className="text-sm text-gray-600">{formatDate(event.event_date)}</p>
-                      </div>
-                    </div>
-                    <p className="text-gray-700 mt-2">{event.description}</p>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
+        {activeTab === 'checklist' && (
+          <TravelChecklistTab
+            travelId={travelId}
+            items={checklistItems}
+            onRefresh={refetchChecklist}
+          />
         )}
       </div>
     </div>

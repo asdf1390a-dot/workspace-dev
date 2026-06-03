@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useTravelContext } from '@/context/TravelContext';
 
 interface TravelCost {
   id: string;
@@ -10,6 +11,9 @@ interface TravelCost {
   cost_type?: string;
   cost_date: string;
   payer_id: string;
+  workflow_status?: 'request' | 'pending_approval' | 'approved' | 'reimbursed';
+  approved_by?: string;
+  approved_at?: string;
 }
 
 interface Props {
@@ -89,6 +93,63 @@ export default function TravelCostsTab({ travelId, costs: initialCosts, onRefres
         return '쇼핑';
       default:
         return '기타';
+    }
+  }
+
+  function getWorkflowStatusLabel(status?: string): string {
+    switch (status) {
+      case 'request':
+        return '요청';
+      case 'pending_approval':
+        return '승인 대기';
+      case 'approved':
+        return '승인됨';
+      case 'reimbursed':
+        return '정산됨';
+      default:
+        return '요청';
+    }
+  }
+
+  function getWorkflowStatusColor(status?: string): string {
+    switch (status) {
+      case 'request':
+        return 'bg-yellow-50 text-yellow-700 border-yellow-200';
+      case 'pending_approval':
+        return 'bg-blue-50 text-blue-700 border-blue-200';
+      case 'approved':
+        return 'bg-green-50 text-green-700 border-green-200';
+      case 'reimbursed':
+        return 'bg-gray-50 text-gray-700 border-gray-200';
+      default:
+        return 'bg-yellow-50 text-yellow-700 border-yellow-200';
+    }
+  }
+
+  async function handleApprovalClick(costId: string, action: 'approve' | 'reject') {
+    try {
+      setLoading(true);
+      const token = localStorage.getItem('sb-token');
+      if (!token) return;
+
+      const response = await fetch(`/api/travels/${travelId}/costs/${costId}/approve`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
+        body: JSON.stringify({ action }),
+      });
+
+      if (!response.ok) {
+        throw new Error('승인 처리 실패');
+      }
+
+      onRefresh();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : '알 수 없는 오류');
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -265,6 +326,8 @@ export default function TravelCostsTab({ travelId, costs: initialCosts, onRefres
                   <th className="px-6 py-3 text-left text-sm font-semibold text-gray-900">분류</th>
                   <th className="px-6 py-3 text-left text-sm font-semibold text-gray-900">금액</th>
                   <th className="px-6 py-3 text-left text-sm font-semibold text-gray-900">날짜</th>
+                  <th className="px-6 py-3 text-left text-sm font-semibold text-gray-900">상태</th>
+                  <th className="px-6 py-3 text-right text-sm font-semibold text-gray-900">작업</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
@@ -277,6 +340,39 @@ export default function TravelCostsTab({ travelId, costs: initialCosts, onRefres
                     </td>
                     <td className="px-6 py-4 text-sm text-gray-600">
                       {new Date(cost.cost_date).toLocaleDateString('ko-KR')}
+                    </td>
+                    <td className="px-6 py-4">
+                      <span className={`inline-block px-3 py-1 rounded-full text-xs font-medium border ${getWorkflowStatusColor(cost.workflow_status)}`}>
+                        {getWorkflowStatusLabel(cost.workflow_status)}
+                      </span>
+                    </td>
+                    <td className="px-6 py-4 text-right space-x-2">
+                      {cost.workflow_status === 'request' && (
+                        <>
+                          <button
+                            onClick={() => handleApprovalClick(cost.id, 'approve')}
+                            disabled={loading}
+                            className="text-green-600 hover:text-green-800 font-medium text-sm disabled:text-gray-400"
+                          >
+                            승인
+                          </button>
+                          <button
+                            onClick={() => handleApprovalClick(cost.id, 'reject')}
+                            disabled={loading}
+                            className="text-red-600 hover:text-red-800 font-medium text-sm disabled:text-gray-400"
+                          >
+                            거절
+                          </button>
+                        </>
+                      )}
+                      {cost.workflow_status === 'approved' && (
+                        <button
+                          disabled
+                          className="text-gray-400 font-medium text-sm"
+                        >
+                          정산 대기
+                        </button>
+                      )}
                     </td>
                   </tr>
                 ))}

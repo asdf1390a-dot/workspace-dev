@@ -1,18 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-
-interface TravelEvent {
-  id: string;
-  travel_id: string;
-  title: string;
-  event_type: string;
-  event_date: string;
-  event_time?: string;
-  location?: string;
-  description?: string;
-  status: string;
-}
+import { TravelEvent } from '@/types/travel';
 
 interface Props {
   travelId: string;
