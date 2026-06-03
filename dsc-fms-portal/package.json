@@ -21,6 +21,7 @@
     "dotenv": "^17.4.2",
     "exceljs": "^4.4.0",
     "formidable": "^3.5.4",
+    "isomorphic-dompurify": "^1.11.0",
     "jsonwebtoken": "^9.0.3",
     "jszip": "^3.10.1",
     "next": "14.0.0",
