@@ -6,7 +6,7 @@ date: 2026-05-16 20:40 KST
 status: 운영 중
 ---
 
-# 🎯 미완료 업무 레지스트리 (2026-06-01 20:35 KST SESSION CHECKPOINT #307 | STABLE: 12/13 완료, 1/13 진행중, 블로킹 0, 신뢰도 99.5%, 팀활용 86%)
+# 🎯 미완료 업무 레지스트리 (2026-06-03 11:56 KST SESSION CHECKPOINT #320 | STABLE: 13/14 완료, 1/14 진행중, 블로킹 0, 신뢰도 99%, 팀활용 100%)
 
 ## 📊 **DAILY STAND-UP REPORT (2026-06-01 20:35 KST)**
 
@@ -14,11 +14,11 @@ status: 운영 중
 
 | Status | Count | % | Projects |
 |--------|-------|---|----------|
-| ✅ **COMPLETED** | **12** | **92.3%** | Asset Master P2, Backup-P2, Travel-P2, Discord-P1, BM-P1, Phase 2F, +6 others |
-| 🟡 **IN_PROGRESS** | **1** | **7.7%** | Team Dashboard P2 UI (60%, ETA 2026-06-10 18:00) |
+| ✅ **COMPLETED** | **13** | **92.9%** | Backup-P2 (2026-06-03 00:47), BM-P1, Phase 2F, Discord-P1, Travel-P2, Asset Master P2, +7 others |
+| 🟡 **IN_PROGRESS** | **1** | **7.1%** | Team Dashboard P2 UI (65%, ETA 2026-06-10 18:00) |
 | 🔴 **BLOCKED** | **0** | **0%** | None |
 | ⚪ **PENDING** | **0** | **0%** | None |
-| **TOTAL** | **13** | **100%** | **Complete ecosystem** |
+| **TOTAL** | **14** | **100%** | **Complete ecosystem** |
 
 ---
 
@@ -26,8 +26,8 @@ status: 운영 중
 
 | Task | ETA | Status | Priority | Owner | Details |
 |------|-----|--------|----------|-------|---------|
-| **Phase 2F Post-Deployment Validation** | 2026-06-01 16:44 KST | ✅ **COMPLETE** | **P0** | DevOps (C#12) | 8/8 checks PASSED, system healthy |
-| **Team Dashboard P2 UI Finalization** | 2026-06-10 18:00 KST | 🟡 **60% IN_PROGRESS** | **P1** | Planner (C#11) | Design phase continuation, 9d 21h remaining |
+| **Team Dashboard P2 UI Finalization** | 2026-06-10 18:00 KST | 🟡 **65% IN_PROGRESS** | **P1** | Planner (C#11) + Web-Builder #2 | 배치 2026-06-03 03:00, 6d 18h remaining |
+| **Asset Master P1 (Background)** | 2026-06-15 | 🟡 **진행중** | **P2** | Team | 506개 자산, 일일 15:00 시작, db/29 마이그레이션 ✅ |
 
 ---
 
