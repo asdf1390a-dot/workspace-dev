@@ -1,7 +1,7 @@
-// pages/api/discord/processors/translator.ts
+// app/api/discord/processors/translator/route.ts
 // Handles: Korean ↔ English translation with tone adjustment
 
-import { NextApiRequest, NextApiResponse } from 'next';
+import { NextRequest, NextResponse } from 'next/server';
 
 interface ProcessorRequest {
   messageId: string;
@@ -27,15 +27,12 @@ interface ProcessorResponse {
   error?: string;
 }
 
-// Simple heuristic for language detection
 function isKorean(text: string): boolean {
   return /[가-힯]/.test(text);
 }
 
-// Mock translation function (in production, would call a translation API)
 function translateText(text: string, targetLang: 'en' | 'ko'): string {
   if (targetLang === 'en' && isKorean(text)) {
-    // Korean to English (mock)
     const translations: Record<string, string> = {
       '안녕': 'Hello',
       '감사합니다': 'Thank you',
@@ -51,7 +48,6 @@ function translateText(text: string, targetLang: 'en' | 'ko'): string {
     });
     return result || `[EN Translation needed for: ${text}]`;
   } else if (targetLang === 'ko' && !isKorean(text)) {
-    // English to Korean (mock)
     const translations: Record<string, string> = {
       'Hello': '안녕',
       'Thank you': '감사합니다',
@@ -71,26 +67,22 @@ function translateText(text: string, targetLang: 'en' | 'ko'): string {
   return text;
 }
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<ProcessorResponse>
-) {
-  if (req.method !== 'POST') {
-    return res.status(405).json({ success: false, error: 'Method not allowed' });
-  }
-
+export async function POST(req: NextRequest): Promise<NextResponse<ProcessorResponse>> {
   try {
-    const { userId, username, content, timestamp } = req.body as ProcessorRequest;
+    const { userId, username, content, timestamp } = (await req.json()) as ProcessorRequest;
 
     if (!userId || !content) {
-      return res.status(400).json({ success: false, error: 'Missing required fields' });
+      return NextResponse.json(
+        { success: false, error: 'Missing required fields' },
+        { status: 400 }
+      );
     }
 
     const sourceIsKorean = isKorean(content);
     const targetLang = sourceIsKorean ? 'en' : 'ko';
     const translated = translateText(content, targetLang);
 
-    return res.status(200).json({
+    return NextResponse.json({
       success: true,
       embed: {
         title: '🌐 번역',
@@ -119,7 +111,7 @@ export default async function handler(
     });
   } catch (e: any) {
     console.error('[translator]', e);
-    return res.status(200).json({
+    return NextResponse.json({
       success: false,
       error: `번역 오류: ${e.message}`,
     });

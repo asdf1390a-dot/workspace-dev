@@ -1,8 +1,8 @@
-// pages/api/discord/processors/planner.ts
+// app/api/discord/processors/planner/route.ts
 // Handles: design docs, roadmap updates, project planning, prioritization
 
-import { NextApiRequest, NextApiResponse } from 'next';
-import { supabaseAdmin } from '../../../../lib/supabase-admin';
+import { NextRequest, NextResponse } from 'next/server';
+import { supabaseAdmin } from '@/lib/supabase-admin';
 
 interface ProcessorRequest {
   messageId: string;
@@ -28,19 +28,15 @@ interface ProcessorResponse {
   error?: string;
 }
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<ProcessorResponse>
-) {
-  if (req.method !== 'POST') {
-    return res.status(405).json({ success: false, error: 'Method not allowed' });
-  }
-
+export async function POST(req: NextRequest): Promise<NextResponse<ProcessorResponse>> {
   try {
-    const { userId, username, content, timestamp } = req.body as ProcessorRequest;
+    const { userId, username, content, timestamp } = (await req.json()) as ProcessorRequest;
 
     if (!userId || !content) {
-      return res.status(400).json({ success: false, error: 'Missing required fields' });
+      return NextResponse.json(
+        { success: false, error: 'Missing required fields' },
+        { status: 400 }
+      );
     }
 
     const contentLower = content.toLowerCase();
@@ -119,7 +115,7 @@ export default async function handler(
           });
         }
 
-        return res.status(200).json({
+        return NextResponse.json({
           success: true,
           embed: {
             title: '🗺️ 프로젝트 로드맵',
@@ -131,7 +127,7 @@ export default async function handler(
           },
         });
       } catch (e: any) {
-        return res.status(200).json({
+        return NextResponse.json({
           success: false,
           error: `로드맵 조회 실패: ${e.message}`,
         });
@@ -140,7 +136,7 @@ export default async function handler(
 
     // Priority and prioritization guidance
     if (isPriorityQuery) {
-      return res.status(200).json({
+      return NextResponse.json({
         success: true,
         embed: {
           title: '⭐ 우선순위 결정 가이드',
@@ -175,7 +171,7 @@ export default async function handler(
     }
 
     // Design and architecture guidance (default)
-    return res.status(200).json({
+    return NextResponse.json({
       success: true,
       embed: {
         title: '🏗️ 플래너 도구 및 가이드',
@@ -209,7 +205,7 @@ export default async function handler(
     });
   } catch (e: any) {
     console.error('[planner]', e);
-    return res.status(200).json({
+    return NextResponse.json({
       success: false,
       error: `처리 오류: ${e.message}`,
     });

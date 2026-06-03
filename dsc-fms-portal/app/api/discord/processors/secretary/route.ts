@@ -1,8 +1,8 @@
-// pages/api/discord/processors/secretary.ts
+// app/api/discord/processors/secretary/route.ts
 // Handles: team schedule queries, task status, technical resource recommendations
 
-import { NextApiRequest, NextApiResponse } from 'next';
-import { supabaseAdmin } from '../../../../lib/supabase-admin';
+import { NextRequest, NextResponse } from 'next/server';
+import { supabaseAdmin } from '@/lib/supabase-admin';
 
 interface ProcessorRequest {
   messageId: string;
@@ -28,19 +28,15 @@ interface ProcessorResponse {
   error?: string;
 }
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<ProcessorResponse>
-) {
-  if (req.method !== 'POST') {
-    return res.status(405).json({ success: false, error: 'Method not allowed' });
-  }
-
+export async function POST(req: NextRequest): Promise<NextResponse<ProcessorResponse>> {
   try {
-    const { userId, username, content, timestamp } = req.body as ProcessorRequest;
+    const { userId, username, content, timestamp } = (await req.json()) as ProcessorRequest;
 
     if (!userId || !content) {
-      return res.status(400).json({ success: false, error: 'Missing required fields' });
+      return NextResponse.json(
+        { success: false, error: 'Missing required fields' },
+        { status: 400 }
+      );
     }
 
     const contentLower = content.toLowerCase();
@@ -75,7 +71,7 @@ export default async function handler(
           });
         }
 
-        return res.status(200).json({
+        return NextResponse.json({
           success: true,
           embed: {
             title: '📅 주간 일정 현황',
@@ -87,7 +83,7 @@ export default async function handler(
           },
         });
       } catch (e: any) {
-        return res.status(200).json({
+        return NextResponse.json({
           success: false,
           error: `일정 조회 실패: ${e.message}`,
         });
@@ -119,7 +115,7 @@ export default async function handler(
           });
         }
 
-        return res.status(200).json({
+        return NextResponse.json({
           success: true,
           embed: {
             title: '⚡ 진행 중인 작업 현황',
@@ -131,7 +127,7 @@ export default async function handler(
           },
         });
       } catch (e: any) {
-        return res.status(200).json({
+        return NextResponse.json({
           success: false,
           error: `작업 조회 실패: ${e.message}`,
         });
@@ -139,7 +135,7 @@ export default async function handler(
     }
 
     // Resource recommendation (fallback)
-    return res.status(200).json({
+    return NextResponse.json({
       success: true,
       embed: {
         title: '📚 비서 도움말',
@@ -168,7 +164,7 @@ export default async function handler(
     });
   } catch (e: any) {
     console.error('[secretary]', e);
-    return res.status(200).json({
+    return NextResponse.json({
       success: false,
       error: `처리 오류: ${e.message}`,
     });

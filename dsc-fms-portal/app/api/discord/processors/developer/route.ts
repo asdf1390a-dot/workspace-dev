@@ -1,7 +1,7 @@
-// pages/api/discord/processors/developer.ts
+// app/api/discord/processors/developer/route.ts
 // Handles: technical problem solving, code review guidance, debugging assistance
 
-import { NextApiRequest, NextApiResponse } from 'next';
+import { NextRequest, NextResponse } from 'next/server';
 
 interface ProcessorRequest {
   messageId: string;
@@ -27,19 +27,15 @@ interface ProcessorResponse {
   error?: string;
 }
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<ProcessorResponse>
-) {
-  if (req.method !== 'POST') {
-    return res.status(405).json({ success: false, error: 'Method not allowed' });
-  }
-
+export async function POST(req: NextRequest): Promise<NextResponse<ProcessorResponse>> {
   try {
-    const { userId, username, content, timestamp } = req.body as ProcessorRequest;
+    const { userId, username, content, timestamp } = (await req.json()) as ProcessorRequest;
 
     if (!userId || !content) {
-      return res.status(400).json({ success: false, error: 'Missing required fields' });
+      return NextResponse.json(
+        { success: false, error: 'Missing required fields' },
+        { status: 400 }
+      );
     }
 
     const contentLower = content.toLowerCase();
@@ -49,7 +45,7 @@ export default async function handler(
 
     // Error handling and troubleshooting
     if (isErrorQuery) {
-      return res.status(200).json({
+      return NextResponse.json({
         success: true,
         embed: {
           title: '🐛 오류 진단 가이드',
@@ -90,7 +86,7 @@ export default async function handler(
 
     // Code review guidance
     if (isReviewRequest) {
-      return res.status(200).json({
+      return NextResponse.json({
         success: true,
         embed: {
           title: '👨‍💻 코드 리뷰 체크리스트',
@@ -130,7 +126,7 @@ export default async function handler(
     }
 
     // Debugging guidance (default)
-    return res.status(200).json({
+    return NextResponse.json({
       success: true,
       embed: {
         title: '🛠️ 개발자 도구 및 가이드',
@@ -164,7 +160,7 @@ export default async function handler(
     });
   } catch (e: any) {
     console.error('[developer]', e);
-    return res.status(200).json({
+    return NextResponse.json({
       success: false,
       error: `처리 오류: ${e.message}`,
     });

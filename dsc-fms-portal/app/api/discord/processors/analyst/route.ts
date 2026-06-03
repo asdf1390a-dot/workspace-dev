@@ -1,8 +1,8 @@
-// pages/api/discord/processors/analyst.ts
+// app/api/discord/processors/analyst/route.ts
 // Handles: data queries - assets, breakdown management (BM), KPIs with statistics
 
-import { NextApiRequest, NextApiResponse } from 'next';
-import { supabaseAdmin } from '../../../../lib/supabase-admin';
+import { NextRequest, NextResponse } from 'next/server';
+import { supabaseAdmin } from '@/lib/supabase-admin';
 
 interface ProcessorRequest {
   messageId: string;
@@ -28,19 +28,15 @@ interface ProcessorResponse {
   error?: string;
 }
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<ProcessorResponse>
-) {
-  if (req.method !== 'POST') {
-    return res.status(405).json({ success: false, error: 'Method not allowed' });
-  }
-
+export async function POST(req: NextRequest): Promise<NextResponse<ProcessorResponse>> {
   try {
-    const { userId, username, content, timestamp } = req.body as ProcessorRequest;
+    const { userId, username, content, timestamp } = (await req.json()) as ProcessorRequest;
 
     if (!userId || !content) {
-      return res.status(400).json({ success: false, error: 'Missing required fields' });
+      return NextResponse.json(
+        { success: false, error: 'Missing required fields' },
+        { status: 400 }
+      );
     }
 
     const contentLower = content.toLowerCase();
@@ -61,7 +57,7 @@ export default async function handler(
         const totalAssets = assets?.length || 0;
         const activeAssets = assets?.filter((a: any) => a.status === 'active').length || 0;
 
-        return res.status(200).json({
+        return NextResponse.json({
           success: true,
           embed: {
             title: '📊 자산 통계',
@@ -89,7 +85,7 @@ export default async function handler(
           },
         });
       } catch (e: any) {
-        return res.status(200).json({
+        return NextResponse.json({
           success: false,
           error: `자산 조회 실패: ${e.message}`,
         });
@@ -118,7 +114,7 @@ export default async function handler(
           minor: breakdowns?.filter((b: any) => b.severity === 'minor').length || 0,
         };
 
-        return res.status(200).json({
+        return NextResponse.json({
           success: true,
           embed: {
             title: '🔧 생산 고장 현황 (BM)',
@@ -146,7 +142,7 @@ export default async function handler(
           },
         });
       } catch (e: any) {
-        return res.status(200).json({
+        return NextResponse.json({
           success: false,
           error: `고장 분석 실패: ${e.message}`,
         });
@@ -172,7 +168,7 @@ export default async function handler(
 
       const avgMTTR = mttrValues.length > 0 ? Math.round(mttrValues.reduce((a, b) => a + b) / mttrValues.length) : 0;
 
-      return res.status(200).json({
+      return NextResponse.json({
         success: true,
         embed: {
           title: '📈 KPI 지표',
@@ -201,14 +197,14 @@ export default async function handler(
       });
     } catch (e: any) {
       console.error('[analyst]', e);
-      return res.status(200).json({
+      return NextResponse.json({
         success: false,
         error: `KPI 계산 실패: ${e.message}`,
       });
     }
   } catch (e: any) {
     console.error('[analyst]', e);
-    return res.status(200).json({
+    return NextResponse.json({
       success: false,
       error: `처리 오류: ${e.message}`,
     });
