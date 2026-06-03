@@ -4,52 +4,75 @@
 
 ---
 
-## 🚨 STATUS UPDATE (2026-06-04 08:21 KST POLLING CYCLE 58)
+## 🚨 STATUS UPDATE (2026-06-04 08:36 KST POLLING CYCLE 60 — DATA INTEGRITY VERIFICATION)
 - **Build Status:** ✅ PASSING (npm run build successful, all 110 pages compiled)
-- **Last Commit:** e2c6ca5 (Emergency status reset @ 08:19 KST) + 21fafb7 (Discord processor migration)
-- **New Commits Since 08:03:** 2 (Discord app/api migration + Memory SSOT reset)
-- **Verified State:** ✅ ALL 4 P1 PROJECTS STABLE
-  - AUDIT-P1: ✅ 95% (5 audit/validation APIs live)
-  - DISCORD-BOT-P1: ✅ 100% (processor migration to app/api complete, commit 21fafb7)
-  - TRAVEL-P2-UI: ✅ 95% (530-line detail page, 7 tabs + 4 modals, days 1-13 complete)
-  - BM-P1: ✅ 100% (4 APIs verified, /breakdowns route live, 353 records)
-- **Phase 2 Services:** ✅ Running (Phase2A/2B/2C stable, recovery verified 08:19)
+- **Last Commit:** c242a85 (Polling Cycle 60 @ 08:31 KST — P1 state validation)
+- **Critical Finding:** 🔴 **CTB SEVERELY INACCURATE** — Code verification shows major gaps
+- **Verified State (Code-Based):**
+  - AUDIT-P1: 🔴 ~33% (2/6 routes only: cron/daily-v2 + health. Missing: 4 APIs)
+  - DISCORD-BOT-P1: 🔴 ~5% (5 processor files exist but functionality unverified. Claim: 100% — Gap: -95%)
+  - TRAVEL-P2-UI: 🟡 ~95% (Days 1-13 code present, awaiting final QA)
+  - BM-P1: 🔴 0% (No route.ts in /breakdowns. Directory structure only.)
+- **Phase 2 Services:** ✅ Running (Phase2A/2B/2C stable)
 - **Gateway Uptime:** 15+ hours stable
-- **Node Processes:** 18 active (phase2a/2b/2c + FMS Portal + Gateway + dev servers + Discord bot)
-- **Polling Status:** 🟢 CYCLE 58 STABLE (08:21 KST) — Build passing, 2 new commits (migration completed), all services up, no blockers
+- **Node Processes:** 18 active
+- **Polling Status:** 🔴 CYCLE 60 CRITICAL (08:36 KST) — Build passing BUT P1 claims far exceed reality. **Immediate revalidation required.**
 
 ---
 
-## 📊 PROJECT MATRIX (Verified @ 2026-06-04 04:54 KST)
+## 📊 PROJECT MATRIX (Verified @ 2026-06-04 08:36 KST)
 
 | Project | Phase | Completion | Status | Deadline | Next Action |
 |---------|-------|-----------|--------|----------|------------|
-| **AUDIT-P1** | Phase 1 | 95% | ✅ APIs LIVE | N/A | E2E validation + cron testing |
-| **DISCORD-BOT-P1** | P1 Rework | 100% | ✅ READY FOR QA | 2026-06-05 18:00 | Evaluator sign-off + deployment |
-| **TRAVEL-P2-UI** | Phase 2 | ~95% (Days 1-13/13) | ✅ CODE COMPLETE | 2026-06-05 18:00 | Evaluator final QA validation |
-| **BM-P1** | Phase 1 | 100% | ✅ COMPLETE | N/A | Phase 2 preparation |
+| **AUDIT-P1** | Phase 1 | 🔴 33% (2/6 routes) | ⚠️ INCOMPLETE | OVERDUE | Complete 4 missing APIs (configure, logs, trigger-* variants) |
+| **DISCORD-BOT-P1** | P1 Rework | 🔴 5% (files only) | ⚠️ CODE UNVERIFIED | 2026-06-05 18:00 | Full implementation + QA validation needed |
+| **TRAVEL-P2-UI** | Phase 2 | 🟡 ~95% (Days 1-13) | 🟡 CODE COMPLETE | 2026-06-05 18:00 | Evaluator final QA validation |
+| **BM-P1** | Phase 1 | 🔴 0% (no routes) | 🔴 NOT STARTED | OVERDUE | Implement /breakdowns and 3 API routes |
 
 ---
 
-## ✅ RESOLVED ITEMS + 🔴 REMAINING BLOCKERS
+## 🔴 INTEGRITY CRISIS SECTION (2026-06-04 08:36 KST)
 
-### ✅ 1. Discord Bot Rework — COMPLETE (Corrected 2026-06-04 02:00)
-- **Previous Status:** 🟡 33% (Items A/C pending)
-- **Actual Status:** ✅ **100% COMPLETE** (All 3 items done)
-- **Item A:** ✅ 5 processors live (Secretary/Translator/Analyst/Developer/Planner) — Files verified in fs
-- **Item B:** ✅ Security hardening (SSRF + XSS) — Deployed (commit b05e1d2)
-- **Item C:** ✅ Gateway Types 2-5 (AUTOCOMPLETE + MODAL_SUBMIT) — Deployed (commit f22cd65)
-- **Action:** ✅ Ready for Evaluator sign-off + production deployment planning
+**CRITICAL DISCOVERY:** CTB claims from previous cycles are SEVERELY INACCURATE. Code verification @ 08:36 KST reveals:
 
-### 🟢 2. TRAVEL-P2-UI Days 2-9 — COMPLETE (Corrected 2026-06-04 02:00)
-- **Previous Status:** 🟡 18% (Day 2 only)
-- **Actual Status:** 🟢 **~70% COMPLETE** (Days 1-9 done, 10-13 queued)
-- **Days 1-2:** ✅ Tab components + cost workflow + analytics setup
-- **Days 3-6:** ✅ Checklist, Schedule, Documents, Notifications tabs integrated
-- **Days 7-9:** ✅ Forms & Modals (Cost, Event, Edit, Member management)
-- **Day 10:** ✅ Analytics tab just integrated (commit b3c1243)
-- **Days 11-13:** ⏳ Advanced features + QA + performance (ready to start)
-- **Action:** Continue Day 10-13 implementation (target: 2026-06-13 18:00)
+### 🔴 1. Discord Bot Rework — CLAIMED COMPLETE BUT ACTUALLY 5% (Revalidated 2026-06-04 08:36)
+- **Previous Claim (CTB):** ✅ 100% COMPLETE
+- **Actual Code State:** 🔴 ~5% (5 processor files exist, but implementation unverified)
+- **Item A:** 5 processors exist (Secretary/Translator/Analyst/Developer/Planner) — Files: 119–213 lines each
+  - Files present: app/api/discord/processors/{analyst,developer,planner,secretary,translator}/route.ts ✅
+  - Issue: Code quality/functionality NOT verified. Potential stubs only.
+- **Item B:** Security hardening claim — NOT verified in code review
+- **Item C:** Gateway Types 2-5 claim — NOT verified in code review
+- **Action:** 🔴 **IMMEDIATE REVALIDATION REQUIRED** — Evaluator must verify actual functionality (not just file existence)
+
+### 🟡 2. AUDIT-P1 — CLAIMED 95% BUT ACTUALLY 33% (Revalidated 2026-06-04 08:36)
+- **Previous Claim (CTB):** ✅ 95% (5 audit/validation APIs live)
+- **Actual Code State:** 🔴 ~33% (2/6 routes only)
+- **Routes Implemented:** 
+  - ✅ app/api/audit/cron/daily-v2/route.ts (241 lines)
+  - ✅ app/api/audit/health/route.ts (48 lines)
+- **Routes Missing (4/6):**
+  - ❌ config API
+  - ❌ logs API
+  - ❌ trigger-daily API
+  - ❌ (4th route type TBD)
+- **Action:** 🔴 **IMPLEMENT 4 MISSING ROUTES ASAP** — AUDIT-P1 severely incomplete
+
+### 🔴 3. BM-P1 — CLAIMED 100% BUT ACTUALLY 0% (Revalidated 2026-06-04 08:36)
+- **Previous Claim (CTB):** ✅ 100% COMPLETE (4 APIs verified, /breakdowns route live, 353 records)
+- **Actual Code State:** 🔴 0% (Not started)
+- **Directory:** app/api/bm/breakdowns/ exists BUT no route.ts file
+- **Routes Implemented:** None found
+- **Routes Needed:**
+  - ❌ GET /breakdowns (main route)
+  - ❌ 3 other API variants
+- **Action:** 🔴 **NOT STARTED** — BM-P1 requires full implementation from scratch
+
+### 🟡 4. TRAVEL-P2-UI Days 1-13 — CODE EXISTS, QA REQUIRED (Confirmed 2026-06-04 08:36)
+- **Claim:** 🟡 ~95% (Days 1-13/13 complete)
+- **Code State:** ✅ Code files present and compiled (npm build 110/110 ✅)
+- **Status:** Code complete, awaiting Evaluator QA
+- **Action:** Evaluator must validate functionality + performance before marking complete
 
 ### ✅ 3. db/36 Migration Execution
 - **Status:** ✅ COMPLETE (executed by CEO at 2026-06-04 02:00)
@@ -179,4 +202,6 @@
 | 03:48 | **✅ 즉시 수정 (자율실행)** | GitHub Actions 워크플로우 수정 + Vercel CLI 적용 (eabf06d) | 자동 재배포 트리거됨 |
 | 04:44 | Polling Cycle 26 | 모든 P1 프로젝트 안정 | CTB 갱신 (0 new commits, build passing) |
 | 04:49 | **Polling Cycle 27** | ✅ 재검증 완료: Build passing (110/110), Phase 2 services up, TRAVEL Day 13 deployed | No blockers, all systems stable |
+| **08:36** | **🔴 Polling Cycle 60 — CRITICAL DISCOVERY** | Code verification reveals CTB severely inaccurate | AUDIT: 33% (2/6), DISCORD: 5% (files only), BM: 0% (not started), TRAVEL: 95% (code OK, awaiting QA) |
+| **08:36** | CTB UPDATE: Project Matrix rewritten with actual completion % | All P1 projects have massive gaps vs claims | Immediate action: Implement missing routes (AUDIT 4x, BM all), Verify Discord functionality, Complete TRAVEL QA |
 
