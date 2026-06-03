@@ -8,6 +8,7 @@ import TravelCostsTab from '@/components/travel/TravelCostsTab';
 import TravelChecklistTab from '@/components/travel/TravelChecklistTab';
 import TravelScheduleTab from '@/components/travel/TravelScheduleTab';
 import TravelDocumentsTab from '@/components/travel/TravelDocumentsTab';
+import TravelNotificationsTab from '@/components/travel/TravelNotificationsTab';
 import { TravelChecklistItem, TravelEvent, TravelDocument } from '@/types/travel';
 
 interface Travel {
@@ -58,7 +59,7 @@ export default function TravelDetailPage() {
   const [checklistItems, setChecklistItems] = useState<TravelChecklistItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [activeTab, setActiveTab] = useState<'overview' | 'expenses' | 'documents' | 'events' | 'checklist'>('overview');
+  const [activeTab, setActiveTab] = useState<'overview' | 'expenses' | 'documents' | 'events' | 'checklist' | 'notifications'>('overview');
 
   const refetchCosts = useCallback(async () => {
     try {
@@ -118,6 +119,10 @@ export default function TravelDetailPage() {
     } catch (err) {
       console.error('Failed to refetch documents:', err);
     }
+  }, [travelId]);
+
+  const refetchNotifications = useCallback(async () => {
+    // TravelNotificationsTab handles its own refresh internally via onRefresh prop
   }, [travelId]);
 
   useEffect(() => {
@@ -324,6 +329,16 @@ export default function TravelDetailPage() {
             >
               체크리스트 ({checklistItems.length})
             </button>
+            <button
+              onClick={() => setActiveTab('notifications')}
+              className={`py-4 px-2 border-b-2 font-medium ${
+                activeTab === 'notifications'
+                  ? 'border-blue-600 text-blue-600'
+                  : 'border-transparent text-gray-600 hover:text-gray-900'
+              }`}
+            >
+              알림
+            </button>
           </div>
         </div>
       </div>
@@ -412,6 +427,13 @@ export default function TravelDetailPage() {
             travelId={travelId}
             items={checklistItems}
             onRefresh={refetchChecklist}
+          />
+        )}
+
+        {activeTab === 'notifications' && (
+          <TravelNotificationsTab
+            travelId={travelId}
+            onRefresh={refetchNotifications}
           />
         )}
       </div>
