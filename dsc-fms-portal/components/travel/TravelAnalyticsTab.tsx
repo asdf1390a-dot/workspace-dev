@@ -60,6 +60,11 @@ interface TravelAnalyticsTabProps {
   travelId?: string;
 }
 
+interface DateRange {
+  from?: string;
+  to?: string;
+}
+
 const COLORS = ['#3b82f6', '#ef4444', '#10b981', '#f59e0b', '#8b5cf6', '#ec4899'];
 
 export default function TravelAnalyticsTab({
@@ -73,6 +78,8 @@ export default function TravelAnalyticsTab({
   const [settlement, setSettlement] = useState<SettlementMember[]>([]);
   const [settlementTransactions, setSettlementTransactions] = useState<SettlementTransaction[]>([]);
   const [loading, setLoading] = useState(false);
+  const [dateRange, setDateRange] = useState<DateRange>({ from: undefined, to: undefined });
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
 
   useEffect(() => {
     if (travelId) {
@@ -149,7 +156,24 @@ export default function TravelAnalyticsTab({
     const memberSpending: { [key: string]: number } = {};
     let totalCost = 0;
 
-    costs.forEach(cost => {
+    // Filter costs based on date range and category
+    const filteredCosts = costs.filter(cost => {
+      const costDate = cost.created_at.split('T')[0];
+
+      // Date range filter
+      if (dateRange.from && costDate < dateRange.from) return false;
+      if (dateRange.to && costDate > dateRange.to) return false;
+
+      // Category filter
+      if (selectedCategories.length > 0) {
+        const category = cost.category || 'Other';
+        return selectedCategories.includes(category);
+      }
+
+      return true;
+    });
+
+    filteredCosts.forEach(cost => {
       totalCost += cost.amount;
 
       const category = cost.category || 'Other';
@@ -199,12 +223,108 @@ export default function TravelAnalyticsTab({
       totalCost: Math.round(totalCost),
       remaining,
       utilization,
-      costCount: costs.length,
+      costCount: filteredCosts.length,
     };
-  }, [costs, budget, settlement, members]);
+  }, [costs, budget, settlement, members, dateRange, selectedCategories]);
+
+  // Get all available categories from costs
+  const allCategories = Array.from(new Set(costs.map(c => c.category || 'Other'))).sort();
 
   return (
     <div className="space-y-8">
+      {/* 필터 섹션 */}
+      <div className="bg-white rounded-lg shadow p-6">
+        <h3 className="text-lg font-semibold mb-4">필터</h3>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {/* 시작 날짜 */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">시작 날짜</label>
+            <input
+              type="date"
+              value={dateRange.from || ''}
+              onChange={(e) => setDateRange({ ...dateRange, from: e.target.value || undefined })}
+              className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+            />
+          </div>
+
+          {/* 종료 날짜 */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">종료 날짜</label>
+            <input
+              type="date"
+              value={dateRange.to || ''}
+              onChange={(e) => setDateRange({ ...dateRange, to: e.target.value || undefined })}
+              className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+            />
+          </div>
+
+          {/* 카테고리 필터 */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">카테고리</label>
+            <select
+              multiple
+              value={selectedCategories}
+              onChange={(e) => setSelectedCategories(Array.from(e.target.selectedOptions, option => option.value))}
+              className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+              size={Math.min(5, allCategories.length + 1)}
+            >
+              {allCategories.map(category => (
+                <option key={category} value={category}>{category}</option>
+              ))}
+            </select>
+            <p className="text-xs text-gray-500 mt-1">Ctrl/Cmd+Click으로 복수 선택</p>
+          </div>
+        </div>
+
+        {/* 필터 상태 표시 */}
+        {(dateRange.from || dateRange.to || selectedCategories.length > 0) && (
+          <div className="mt-4 flex flex-wrap gap-2">
+            {dateRange.from && (
+              <span className="inline-flex items-center gap-1 px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">
+                시작: {dateRange.from}
+                <button
+                  onClick={() => setDateRange({ ...dateRange, from: undefined })}
+                  className="ml-1 text-blue-600 hover:text-blue-900"
+                >
+                  ✕
+                </button>
+              </span>
+            )}
+            {dateRange.to && (
+              <span className="inline-flex items-center gap-1 px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">
+                종료: {dateRange.to}
+                <button
+                  onClick={() => setDateRange({ ...dateRange, to: undefined })}
+                  className="ml-1 text-blue-600 hover:text-blue-900"
+                >
+                  ✕
+                </button>
+              </span>
+            )}
+            {selectedCategories.map(cat => (
+              <span key={cat} className="inline-flex items-center gap-1 px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">
+                {cat}
+                <button
+                  onClick={() => setSelectedCategories(selectedCategories.filter(c => c !== cat))}
+                  className="ml-1 text-purple-600 hover:text-purple-900"
+                >
+                  ✕
+                </button>
+              </span>
+            ))}
+            <button
+              onClick={() => {
+                setDateRange({ from: undefined, to: undefined });
+                setSelectedCategories([]);
+              }}
+              className="px-3 py-1 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-full"
+            >
+              모두 지우기
+            </button>
+          </div>
+        )}
+      </div>
+
       {/* 예산 요약 */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div className="bg-white rounded-lg shadow p-6">
