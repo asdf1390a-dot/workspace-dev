@@ -80,6 +80,33 @@ export default function TravelAnalyticsTab({
     }
   }, [travelId]);
 
+  const simplifySettlement = (members: SettlementMember[]): SettlementTransaction[] => {
+    const debtors = members.filter((m) => m.balance < -0.01);
+    const creditors = members.filter((m) => m.balance > 0.01);
+    const transactions: SettlementTransaction[] = [];
+
+    debtors.forEach((debtor) => {
+      let owed = Math.abs(debtor.balance);
+
+      for (let creditor of creditors) {
+        if (creditor.balance < 0.01) continue;
+        if (owed < 0.01) break;
+
+        const payment = Math.min(owed, creditor.balance);
+        transactions.push({
+          from: debtor.user_id,
+          to: creditor.user_id,
+          amount: Math.round(payment * 100) / 100,
+        });
+
+        owed -= payment;
+        creditor.balance -= payment;
+      }
+    });
+
+    return transactions;
+  };
+
   const fetchMembersAndSettlement = async () => {
     if (!travelId) return;
     try {
@@ -102,7 +129,12 @@ export default function TravelAnalyticsTab({
 
       if (settlementRes.ok) {
         const settlementData = await settlementRes.json();
-        setSettlement(settlementData.data?.settlement || []);
+        const settlementList = settlementData.data?.settlement || [];
+        setSettlement(settlementList);
+
+        // Calculate simplified settlement
+        const transactions = simplifySettlement([...settlementList]);
+        setSettlementTransactions(transactions);
       }
     } catch (err) {
       console.error('Failed to fetch members/settlement:', err);
@@ -442,6 +474,36 @@ export default function TravelAnalyticsTab({
                   </div>
                 ))}
               </div>
+            </div>
+          )}
+
+          {/* 정산 권고사항 */}
+          {settlementTransactions.length > 0 && (
+            <div className="bg-gradient-to-r from-amber-50 to-orange-50 rounded-lg shadow p-6">
+              <h3 className="text-lg font-semibold mb-4 text-gray-900">정산 권고사항</h3>
+              <div className="space-y-3">
+                {settlementTransactions.map((transaction, index) => {
+                  const fromMember = analytics.memberData.find(m => m.userId === transaction.from);
+                  const toMember = analytics.memberData.find(m => m.userId === transaction.to);
+                  return (
+                    <div key={index} className="flex items-center justify-between p-4 bg-white rounded-lg border-l-4 border-amber-400">
+                      <div className="flex-1">
+                        <p className="text-sm text-gray-700">
+                          <span className="font-semibold text-gray-900">{fromMember?.memberName || 'Unknown'}</span>
+                          <span className="text-gray-500"> → </span>
+                          <span className="font-semibold text-gray-900">{toMember?.memberName || 'Unknown'}</span>
+                        </p>
+                      </div>
+                      <div className="text-right">
+                        <p className="text-lg font-bold text-amber-600">₹{transaction.amount.toLocaleString()}</p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+              <p className="text-xs text-gray-600 mt-4 p-3 bg-white rounded">
+                💡 위의 정산을 수행하면 모든 멤버의 잔액이 정산됩니다.
+              </p>
             </div>
           )}
         </>
