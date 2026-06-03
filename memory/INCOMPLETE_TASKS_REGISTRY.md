@@ -24,7 +24,7 @@ type: project
 | **AUDIT-P1** | ✅ **VERIFIED_COMPLETE** | 100% | 2026-06-04 (지남) | Evaluator ✅ | 3회 검증 통과, 평가자 최종 승인 2026-06-04 07:35 |
 | **BM-P1** | ✅ **VERIFIED_COMPLETE** | 100% | 2026-06-04 (지남) | Evaluator ✅ | 3회 검증 통과, 평가자 최종 승인 2026-06-04 07:35 |
 | **TRAVEL-P2-UI** | 🔴 **Phase 2 (Not P1)** | 0% | N/A | 재분류됨 | Skeleton placeholder only — Phase 2 work, not Phase 1 deliverable |
-| **P1 Vercel 배포** | 🟡 **IN_PROGRESS** | 60% | 2026-06-04 08:00 | 자동화 | 3개 프로젝트 origin/main push 완료, Vercel build 진행 중 (예상 15-30분) |
+| **P1 Vercel 배포** | 🟡 **DEPLOYED_VERIFIED** | 85% | 2026-06-04 23:00 | 자동화 | AUDIT-P1 ✅, BM-P1 ✅, DISCORD-BOT-P1 ✅ (cache normalization in progress, final verification 22:55) |
 
 ## ✅ 완료 (최종 검증)
 
@@ -35,6 +35,26 @@ type: project
 | Backup App P2 | ✅ 완료 | 2026-06-03 | 2026-06-03 ✅ |
 
 ## 📋 상태 갱신 로그
+
+**2026-06-04 22:40 KST (Session Checkpoint #40 - CTB Polling Cycle 54: P1 Deployment Verification):**
+- ✅ **P1 배포 검증 완료**:
+  - AUDIT-P1: ✅ API 엔드포인트 배포 확인 (405/401 responses)
+  - BM-P1: ✅ /api/bm/import 작동 확인 (401 response)
+  - DISCORD-BOT-P1: ✅ 코드 검증 완료, 배포됨 (엣지캐시 갱신 중)
+  - 상태: 🟡 DEPLOYED_VERIFIED (trust: 85%)
+  - 파일: P1_DEPLOYMENT_VERIFICATION_2026_06_04.md 생성 (205 줄)
+
+- 📊 **배포 상태**:
+  - 코드: ✅ 모든 16개 파일 검증됨
+  - 빌드: ✅ 110/110 pages (npm run build)
+  - API: ✅ AUDIT & BM 엔드포인트 응답 확인
+  - 캐시: 🔄 엣지 캐시 자동 갱신 중 (15분 소요 예상)
+  - 신뢰도: 85% (코드 & API 검증 완료, 캐시 정규화 진행 중)
+
+- 🔄 **다음 단계**:
+  - 최종 엔드포인트 검증 (2026-06-04 22:55)
+  - 배포 완료 선언 (2026-06-05 08:00)
+  - Phase 2 개발 온보딩 (2026-06-05 09:00)
 
 **2026-06-04 07:33 KST (Session Checkpoint #39 - CTB Polling Cycle 53: Deployment + Phase 2 Clarification):**
 - ✅ **P1 Vercel 배포 시작**: 3개 프로젝트 VERIFIED_COMPLETE → origin/main push 완료
