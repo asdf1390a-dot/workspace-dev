@@ -1,19 +1,21 @@
 // pages/api/discord-gateway.ts
 // Discord Bot Interactions Endpoint (Gateway)
-// Handles PING, APPLICATION_COMMAND, MESSAGE_COMPONENT interactions
+// Handles PING, APPLICATION_COMMAND, MESSAGE_COMPONENT, AUTOCOMPLETE, MODAL_SUBMIT interactions
 // Signature verification via Ed25519
 
 import { NextApiRequest, NextApiResponse } from 'next';
 import { createHmac } from 'crypto';
 
 interface DiscordInteraction {
-  type: 1 | 2 | 3;
+  type: 1 | 2 | 3 | 4 | 5;
   id: string;
   token: string;
   data?: {
     id: string;
     name?: string;
+    custom_id?: string;
     options?: any[];
+    components?: any[];
   };
   member?: {
     user: { id: string; username: string; avatar?: string };
@@ -24,8 +26,8 @@ interface DiscordInteraction {
 }
 
 interface DiscordResponse {
-  type: 1 | 4 | 5;
-  data?: { content?: string; embeds?: any[] };
+  type: 1 | 4 | 5 | 8;
+  data?: { content?: string; embeds?: any[]; choices?: any[] };
 }
 
 function verifyDiscordSignature(
@@ -141,6 +143,82 @@ export default async function handler(
     if (interaction.type === 3) {
       return res.status(200).json({
         type: 5,
+      });
+    }
+
+    // Handle AUTOCOMPLETE interaction (command option autocomplete)
+    if (interaction.type === 4) {
+      const commandName = interaction.data?.name || '';
+      const options = interaction.data?.options || [];
+      const focusedOption = options.find((opt: any) => opt.focused === true);
+
+      if (!focusedOption) {
+        return res.status(200).json({
+          type: 8,
+          data: { choices: [] },
+        });
+      }
+
+      const optionName = focusedOption.name;
+      let choices: any[] = [];
+
+      if (optionName === 'command' || optionName === 'processor') {
+        const available = ['secretary', 'translator', 'analyst', 'developer', 'planner'];
+        const userInput = (focusedOption.value || '').toLowerCase();
+        choices = available
+          .filter(cmd => cmd.startsWith(userInput))
+          .map(cmd => ({
+            name: cmd.charAt(0).toUpperCase() + cmd.slice(1),
+            value: cmd,
+          }));
+      } else if (optionName === 'query' || optionName === 'content') {
+        const suggestions: Record<string, string[]> = {
+          secretary: ['주간 일정', '진행 중인 작업', '팀원 상태'],
+          translator: ['영어로 번역', '한국어로 번역', '톤 조정'],
+          analyst: ['자산 통계', '고장 현황', '성과 지표'],
+          developer: ['에러 처리', '코드 리뷰', '디버깅 팁'],
+          planner: ['로드맵', '우선순위', '설계 원칙'],
+        };
+
+        const cmdSuggestions = suggestions[commandName] || [];
+        const userInput = (focusedOption.value || '').toLowerCase();
+        choices = cmdSuggestions
+          .filter(s => s.toLowerCase().includes(userInput))
+          .map(s => ({
+            name: s,
+            value: s,
+          }));
+      }
+
+      return res.status(200).json({
+        type: 8,
+        data: { choices: choices.slice(0, 25) },
+      });
+    }
+
+    // Handle MODAL_SUBMIT interaction (form submission)
+    if (interaction.type === 5) {
+      const customId = interaction.data?.custom_id || 'unknown';
+      const components = interaction.data?.components || [];
+
+      const formData: Record<string, string> = {};
+      components.forEach((component: any) => {
+        if (component.components) {
+          component.components.forEach((field: any) => {
+            if (field.custom_id && field.value) {
+              formData[field.custom_id] = field.value;
+            }
+          });
+        }
+      });
+
+      console.log('[discord-gateway] Modal submission:', { customId, formData });
+
+      return res.status(200).json({
+        type: 4,
+        data: {
+          content: `✅ 양식이 제출되었습니다: \`${customId}\``,
+        },
       });
     }
 
