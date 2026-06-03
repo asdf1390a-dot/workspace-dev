@@ -1,3 +1,15 @@
+# 🔴 CRON VALIDATION ALERT (2026-06-04 00:15 KST) — 3개 CRITICAL 규칙 위반 감지
+
+**[상세 보고서: cron_validation_report_2026_06_04_0015.md]**
+
+| 위반 사항 | 심각도 | 조치 |
+|---------|--------|------|
+| CTB 120+ 시간 미갱신 (허용: 3시간) | 🔴 CRITICAL | 1시간 내 복구 필수 |
+| 데이터 불일치 (Discord/Backup 상태 모순) | 🔴 CRITICAL | 재검증 필수 |
+| CTB 파일 위치 오류 (미커밋) | 🟡 MAJOR | 파일 이동 + 커밋 |
+
+---
+
 # 🟢 STATUS: 2026-06-03 23:56 KST — P0 RESOLVED, CRITICAL PATH READY (db/36 09:00, Phase 2 18:00)
 
 ## 📊 현재 상태 (2026-06-04 실행 준비 완료 — 모든 문서 커밋됨)
