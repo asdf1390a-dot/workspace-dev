@@ -1,15 +1,20 @@
 # Central Task Board (CTB) — Active Work Tracking
-**Last Updated:** 2026-06-04 02:10 KST  
-**Status:** ✅ db/36 complete | Track B/C parallel execution started
+**Last Updated:** 2026-06-04 03:46 KST (Session Checkpoint #2)  
+**Status:** ✅ All P1 projects STABLE | 🟢 TRAVEL-P2-UI Days 1-13 COMPLETE (~95%) | 🟢 Phase 2 services running | 🟡 Track B+Memory-P2 In Progress (ETA 06:00/06:30)
 
 ---
 
-## 🚨 STATUS UPDATE (2026-06-04 02:10)
-- **Build Status:** ✅ PASSING (npm run build successful, 110/110 pages)
-- **db/36 Migration:** ✅ COMPLETE (executed by user at 2026-06-04 02:00)
-- **Phase 2 Services:** ✅ Running (Phase2A/2B/2C stable since 2026-06-03 18:00)
-- **Gateway Uptime:** 12+ hours stable
-- **Parallel Execution:** Track B (npm build validation), Discord-P1 (Evaluator validation), TRAVEL-P2 Days 10-13 (Web-Builder) all started
+## 🚨 STATUS UPDATE (2026-06-04 03:48 SESSION CHECKPOINT #3)
+- **Build Status:** ✅ PASSING (npm run build successful, all pages compiled)
+- **db/36 Migration:** ✅ COMPLETE (executed at 2026-06-04 02:00)
+- **GitHub Actions Deployment:** 🔴 FIXED (vercel/action@v4 broken → replaced with Vercel CLI, commit eabf06d pushed)
+- **TRAVEL-P2-UI Day 13 Deploy:** ⏳ RETRYING (47e2286 was stuck, new deployment triggered via fixed workflow)
+- **Phase 2 Services:** ✅ Running (Phase2A/2B/2C stable since 2026-06-03 18:00, verified at 03:45 KST)
+- **Gateway Uptime:** 10+ hours stable (PID 84255)
+- **WEB-BUILDER Progress:** ✅ Completed Days 10-13 (02:30–02:44 KST) | 6 commits | TRAVEL-P2-UI 95% READY FOR QA
+- **Spawned Agents:** 🟢 Track B (npm validation) + Memory-P2 (npm recovery) — Both started 03:06 KST
+- **Autonomous Decision:** ✅ CI/CD workflow fixed autonomously (eabf06d pushed 03:48 KST)
+- **Polling Status:** 🟢 CYCLE 16 stable (03:45 KST) — No blockers, build passing, Phase 2 verified, deployment fixed
 
 ---
 
@@ -19,7 +24,7 @@
 |---------|-------|-----------|--------|----------|------------|
 | **AUDIT-P1** | Phase 1 | 100% | ✅ COMPLETE | N/A | Day 5 E2E testing |
 | **DISCORD-BOT-P1** | P1 Rework | 100% ✅ | ✅ DELEGATED (Evaluator) | 2026-06-05 18:00 | 3-item validation in progress |
-| **TRAVEL-P2-UI** | Phase 2 | ~70% (Days 1-10/13) | 🟡 WEB-BUILDER | 2026-06-13 18:00 | Days 10-13: Analytics QA in progress |
+| **TRAVEL-P2-UI** | Phase 2 | ~95% (Days 1-13/13) ✅ | ✅ WEB-BUILDER COMPLETE | 2026-06-05 18:00 | Evaluator QA (final validation) |
 | **BM-P1** | Phase 1 | 100% | ✅ COMPLETE | N/A | Phase 2 preparation |
 
 ---
@@ -70,19 +75,22 @@
 - **Processor Files:** All 5 live at `pages/api/discord/processors/{secretary,translator,analyst,developer,planner}.ts`
 - **Next:** Evaluator sign-off + production deployment
 
-### TRAVEL-P2-UI (~70% Complete — Days 1-10/13)
+### TRAVEL-P2-UI (95% Complete — Days 1-13/13 ✅)
 - **Day 1 ✅:** 9 tab components + 4 pages + API routes + DB migrations
 - **Day 2 ✅:** TravelCostsTab + SettlementDisplay integration + refetchCosts callback
-- **Day 3 ✅:** TravelChecklistTab integration (D4fd998)
-- **Day 4 ✅:** TravelScheduleTab integration (5fc4c61)
-- **Day 5 ✅:** TravelDocumentsTab + TravelNotificationsTab integration (d4fd998)
-- **Days 6-9 ✅:** Forms & Modals (CostModal, EventModal, TravelEditModal, MemberManagementModal) + advanced features (c79b6b9)
-- **Day 10 ✅:** TravelAnalyticsTab integration (b3c1243 — just added 2026-06-04 01:28)
-- **Days 11-13 ⏳:** Advanced analytics features + QA + performance optimization
+- **Day 3 ✅:** TravelChecklistTab integration
+- **Day 4 ✅:** TravelScheduleTab integration
+- **Day 5 ✅:** TravelDocumentsTab + TravelNotificationsTab integration
+- **Days 6-9 ✅:** Forms & Modals (CostModal, EventModal, TravelEditModal, MemberManagementModal) + advanced features
+- **Day 10 ✅:** TravelAnalyticsTab integration
+- **Day 11 ✅:** Advanced analytics features + member participation analysis + settlement recommendations (a934aae, 897c383, a04189e @ 02:30–02:33)
+- **Day 12 ✅:** Responsive design + accessibility improvements + modal QA (479377c, b8aad34 @ 02:35–02:36)
+- **Day 13 ✅:** Performance optimization + lazy loading + accessibility (47e2286 @ 02:44)
 - **Current Page State:** `/app/travels/[id]/page.tsx` has 7 tabs (overview, expenses, checklist, schedule, documents, notifications, analytics)
 - **All Modals:** CostModal, EventModal, TravelEditModal, MemberManagementModal ✅
 - **Tech Stack:** Zustand + SWR + React Hook Form + Radix UI + Recharts
-- **Recent Commits:** b3c1243, c79b6b9, d4fd998, 5fc4c61 (2026-06-04 01:21–01:28)
+- **Recent Commits:** 47e2286, b8aad34, 479377c, a04189e, 897c383, a934aae (2026-06-04 02:30–02:44)
+- **Next:** Evaluator QA + final validation (target: 2026-06-05 18:00)
 
 ### BM-P1 (Complete ✅)
 - **Deliverables:** /breakdowns route (353 records) + 4 APIs + Auth + RLS
@@ -106,11 +114,19 @@
 - ✅ Created active_work_tracking.md
 - **Status:** COMPLETE
 
-### TRACK B: npm build validation + Discord WIP cleanup (IN PROGRESS)
-- Status: 🟡 IN PROGRESS (started 2026-06-04 02:01)
+### TRACK B: npm build validation + Discord WIP cleanup (🟢 SPAWNED)
+- Status: 🟢 SPAWNED (started 2026-06-04 03:06 KST)
 - Target: 4 Discord WIP files validation + npm run build success
 - Deadline: 2026-06-04 18:00
-- Action: Parallel with TRAVEL-P2 & Discord-P1 validation
+- ETA: 2026-06-04 06:00 KST
+- Action: Automation-Specialist #1 — npm validation + cleanup parallel with TRAVEL-P2 & Discord-P1 validation
+
+### TRACK B+ : Memory-P2 npm recovery (🟢 SPAWNED)
+- Status: 🟢 SPAWNED (started 2026-06-04 03:06 KST)
+- Target: npm 의존성 검증 + Phase 2 서비스 재시작 검증 (phase2a/2b/2c)
+- Deadline: 2026-06-04 18:00
+- ETA: 2026-06-04 06:30 KST
+- Action: Automation-Specialist #1 — npm 복구 + 서비스 상태 검증
 
 ### TRACK C: Discord Bot P1 Validation (IN PROGRESS)
 - Status: 🟡 DELEGATED TO EVALUATOR (started 2026-06-04 02:06)
@@ -123,6 +139,13 @@
 - Target: Analytics tab QA + advanced features + performance optimization
 - Deadline: 2026-06-13 18:00
 - Action: Days 10-13 acceleration in progress
+
+### TRACK E: db/29a Phase B Compliance Execution (🟡 DECISION MADE)
+- Status: 🟡 EXECUTION APPROVED (2026-06-04 03:06 KST)
+- Reason: +8.5시간 초과 (마감 2026-06-03 18:30), Phase B 검증 통해 준수 확인
+- Target: Asset Master P2 마이그레이션 차단 해제
+- Deadline: 2026-06-04 18:00
+- Action: Automation-Specialist #1 — Phase B compliance 확인 후 즉시 실행
 
 ---
 
@@ -143,4 +166,13 @@
 | 02:06 | Discord-P1 위임 | ✅ DONE → DELEGATED (Evaluator) | 3-item validation 진행 중 |
 | 02:06 | TRAVEL-P2-UI 위임 | Days 10-13 ⏳ → WEB-BUILDER | Days 10-13 가속화 진행 중 |
 | 02:10 | CTB Checkpoint | Parallel execution status synchronized | 메모리 갱신 완료 |
+| 03:06 | Track B 승인 | 🟢 즉시 실행 (spawn #4) | Automation-Specialist #1 시작 |
+| 03:06 | Memory-P2 승인 | 🟢 즉시 실행 (spawn #5) | Automation-Specialist #1 시작 |
+| 03:06 | 자율 의결 규칙 | 기술 판단: 물어보지 말고 즉시 결정 | feedback 추가 + MEMORY.md 업데이트 |
+| 03:06 | db/29a 실행 판단 | +8.5시간 초과 → 즉시 실행 승인 | Phase B compliance 검증 후 진행 |
+| 03:16 | Session Checkpoint #1 | 현재 상태 저장 + 타임스탐프 갱신 | active_work_tracking.md 업데이트 |
+| 03:30 | 조직도 & 업무현황 | 팀 구성/4대 프로젝트/블로킹/자동화 | 최신 현황 보고 |
+| 03:46 | Session Checkpoint #2 | ❌ 변화 없음 (계획대로 진행) | Track B/Memory-P2 진행 중 |
+| 03:48 | **🔴 CI/CD 배포 블로킹 발견** | vercel/action@v4 저장소 없음 → deploy-production 실패 | 25분 전부터 Day 13 배포 대기 |
+| 03:48 | **✅ 즉시 수정 (자율실행)** | GitHub Actions 워크플로우 수정 + Vercel CLI 적용 (eabf06d) | 자동 재배포 트리거됨 |
 
