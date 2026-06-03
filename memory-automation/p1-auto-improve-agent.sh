@@ -27,15 +27,17 @@ check_trust_score() {
   # Calculate trust score (0-100)
   local score=$((($phase2a_ok + $phase2b_ok + $phase2c_ok) * 33))
 
-  # Check for recent errors
-  local recent_errors=$(tail -100 "$LOG_DIR/phase2d-cron-exec.log" 2>/dev/null | grep -i "error" | wc -l)
+  # Check for recent errors in today's logs only
+  local today=$(date +%Y%m%d)
+  local recent_errors=$(tail -100 "$LOG_DIR/phase2d-cron-${today}.log" 2>/dev/null | grep -iE "\[ERROR\]" | wc -l)
   if [[ $recent_errors -gt 5 ]]; then
     score=$((score - 20))
   fi
 
-  # Check memory file integrity
-  local memory_files_ok=$(find /home/jeepney/.openclaw/workspace-dev/memory -name "*.md" -mmin -60 | wc -l)
-  if [[ $memory_files_ok -lt 5 ]]; then
+  # Check memory file integrity (collected data or backups updated in last 60 min)
+  local memory_files_ok=$(find /home/jeepney/.openclaw/workspace-dev/memory/collected -type f -mmin -60 2>/dev/null | wc -l)
+  memory_files_ok=$((memory_files_ok + $(find /home/jeepney/.openclaw/workspace-dev/memory/backups -name "*.md.bak" -mmin -60 2>/dev/null | wc -l)))
+  if [[ $memory_files_ok -lt 2 ]]; then
     score=$((score - 15))
   fi
 

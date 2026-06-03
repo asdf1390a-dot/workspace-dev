@@ -1,14 +1,21 @@
 #!/bin/bash
 ################################################################################
-# Phase 2B Cron Job - Duplicate Detection (4시간 주기)
+# Phase 2B Cron Job - Duplicate Detection (DEPRECATED)
 # 주기: 02:00, 06:00, 10:00, 14:00, 18:00, 22:00 KST
-# 목적: 메모리 파일에서 중복 자동 감지 (3-layer: Pattern/Fuzzy/Semantic)
+# ⚠️ NOTE: This script is now SUPERSEDED by Phase 2D Cron (2026-06-01)
+# Phase 2D runs every 5 minutes and includes 2A/2B/2C functionality
 #
 # 작성: Automation Specialist
-# 버전: 1.0
-# 최종 수정: 2026-05-28
+# 버전: 1.0 (DEPRECATED 2026-06-01, marked 2026-06-03)
+# 최종 수정: 2026-06-03 (exit gracefully - all work in phase2d-cron.sh)
 ################################################################################
 
+# Phase 2B is now integrated into Phase 2D Cron - exit gracefully
+TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')
+echo "[$TIMESTAMP] [DEPRECATED] Phase 2B Cron: All functionality moved to phase2d-cron.sh" >&2
+exit 0
+
+# Original script below (kept for reference, disabled)
 set -euo pipefail
 
 # 설정값

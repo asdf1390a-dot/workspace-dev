@@ -1,0 +1,14 @@
+# H2 Evaluator Pre-Deadline Spawn Schedule (Generated 2026-06-03 02:30)
+# Each project spawns Evaluator 24 hours before deadline
+
+# Team Dashboard P2 Evaluator spawn
+# Deadline: 2026-06-10 18:00 → Spawn: 2026-06-09 18:00
+0 18 9 6 * /home/jeepney/.openclaw/workspace-dev/memory-automation/h2-trigger-evaluator-spawn.sh "Team Dashboard P2" "design-qa" 2>&1 | tee -a /home/jeepney/.openclaw/workspace-dev/memory/logs/h2-evaluator-cron.log
+
+# Asset Master P1 Evaluator spawn
+# Deadline: 2026-06-15 00:00 → Spawn: 2026-06-14 00:00
+0 0 14 6 * /home/jeepney/.openclaw/workspace-dev/memory-automation/h2-trigger-evaluator-spawn.sh "Asset Master P1" "data-analyst" 2>&1 | tee -a /home/jeepney/.openclaw/workspace-dev/memory/logs/h2-evaluator-cron.log
+
+# Phase 2E Memory Automation (if applicable)
+# Deadline: 2026-06-10 00:00 → Spawn: 2026-06-09 00:00
+0 0 9 6 * /home/jeepney/.openclaw/workspace-dev/memory-automation/h2-trigger-evaluator-spawn.sh "Phase 2E Memory Automation" "infrastructure-qa" 2>&1 | tee -a /home/jeepney/.openclaw/workspace-dev/memory/logs/h2-evaluator-cron.log

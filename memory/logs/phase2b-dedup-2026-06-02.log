@@ -85,3 +85,10 @@
 [2026-06-02T13:00:01.708Z] [INFO] Final: 453 unique messages (17.3% reduction)
 [2026-06-02T13:00:01.708Z] [INFO] Total runtime: 39ms
 [2026-06-02T13:00:01.708Z] [INFO] ========== Phase 2B Duplicate Detection Complete ==========
+[2026-06-02T17:00:02.017Z] [INFO] ========== Phase 2B Duplicate Detection Start (SIMPLIFIED) ==========
+[2026-06-02T17:00:02.020Z] [INFO] Input: /home/jeepney/.openclaw/workspace-dev/memory/messages.jsonl
+[2026-06-02T17:00:02.020Z] [INFO] Output: /home/jeepney/.openclaw/workspace-dev/memory/messages_deduplicated.jsonl
+[2026-06-02T17:00:02.020Z] [INFO] Step 1: Loading messages...
+[2026-06-02T17:00:02.020Z] [ERROR] Input file not found: /home/jeepney/.openclaw/workspace-dev/memory/messages.jsonl
+[2026-06-02T17:00:02.020Z] [INFO] Loaded 0 messages
+[2026-06-02T17:00:02.020Z] [WARN] No messages found

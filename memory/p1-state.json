@@ -1,7 +1,5 @@
 {
-    "trigger_time": "2026-06-02T14:35:01Z",
-    "trust_score": Health score 64% < 70%,
-    "reason": "Health score 64% < 70%",
-    "status": "pending_subagent_spawn",
-    "last_improvement": "2026-06-02T14:35:01Z"
+    "trust_score": 99,
+    "status": "healthy",
+    "last_check": "2026-06-02T23:45:01Z"
   }

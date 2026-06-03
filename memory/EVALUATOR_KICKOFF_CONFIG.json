@@ -1,0 +1,48 @@
+{
+  "evaluator_kickoff_config": {
+    "version": "1.0",
+    "enabled": true,
+    "created": "2026-06-03T02:30:00Z",
+    "projects": [
+      {
+        "name": "BM-P1 Phase 2",
+        "type": "backend-mobile",
+        "deadline": "2026-06-02 18:00",
+        "kickoff_hours_before": 24,
+        "evaluator_type": "QA",
+        "status": "completed",
+        "notes": "Past deadline - in validation recovery phase"
+      },
+      {
+        "name": "Team Dashboard P2",
+        "type": "web-dashboard",
+        "deadline": "2026-06-10 18:00",
+        "kickoff_hours_before": 24,
+        "evaluator_type": "design-qa",
+        "kickoff_scheduled_for": "2026-06-09 18:00",
+        "status": "pending",
+        "notes": "Config active - will auto-spawn Evaluator on 2026-06-09 18:00"
+      },
+      {
+        "name": "Asset Master P1",
+        "type": "data-intensive",
+        "deadline": "2026-06-15 00:00",
+        "kickoff_hours_before": 24,
+        "evaluator_type": "data-analyst",
+        "kickoff_scheduled_for": "2026-06-14 00:00",
+        "status": "pending",
+        "notes": "Config active - will auto-spawn Evaluator on 2026-06-14 00:00"
+      },
+      {
+        "name": "Phase 2E Memory Automation",
+        "type": "system-infrastructure",
+        "deadline": "2026-06-10 00:00",
+        "kickoff_hours_before": 24,
+        "evaluator_type": "infrastructure-qa",
+        "kickoff_scheduled_for": "2026-06-09 00:00",
+        "status": "pending",
+        "notes": "Config active - will auto-spawn Evaluator on 2026-06-09 00:00"
+      }
+    ]
+  }
+}

@@ -11,3 +11,5 @@
 [2026-05-28T21:23:08.473Z] Cannot set properties of undefined (setting '0')
 [2026-05-29 10:00:12] [ERROR] Phase 2B service not responding after 3 attempts
 [2026-05-29 10:00:12] [ERROR] Cannot proceed without Phase 2B service
+[2026-06-03 02:00:02] [ERROR] Output file not created: messages_deduplicated.jsonl
+[2026-06-03 02:00:02] [ERROR] Step 3: Result verification failed
