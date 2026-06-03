@@ -9,6 +9,7 @@ import TravelChecklistTab from '@/components/travel/TravelChecklistTab';
 import TravelScheduleTab from '@/components/travel/TravelScheduleTab';
 import TravelDocumentsTab from '@/components/travel/TravelDocumentsTab';
 import TravelNotificationsTab from '@/components/travel/TravelNotificationsTab';
+import TravelAnalyticsTab from '@/components/travel/TravelAnalyticsTab';
 import CostModal from '@/components/travel/CostModal';
 import EventModal from '@/components/travel/EventModal';
 import TravelEditModal from '@/components/travel/TravelEditModal';
@@ -63,7 +64,7 @@ export default function TravelDetailPage() {
   const [checklistItems, setChecklistItems] = useState<TravelChecklistItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [activeTab, setActiveTab] = useState<'overview' | 'expenses' | 'documents' | 'events' | 'checklist' | 'notifications'>('overview');
+  const [activeTab, setActiveTab] = useState<'overview' | 'expenses' | 'documents' | 'events' | 'checklist' | 'notifications' | 'analytics'>('overview');
 
   // Modal states
   const [costModalOpen, setCostModalOpen] = useState(false);
@@ -387,6 +388,16 @@ export default function TravelDetailPage() {
             >
               알림
             </button>
+            <button
+              onClick={() => setActiveTab('analytics')}
+              className={`py-4 px-2 border-b-2 font-medium ${
+                activeTab === 'analytics'
+                  ? 'border-blue-600 text-blue-600'
+                  : 'border-transparent text-gray-600 hover:text-gray-900'
+              }`}
+            >
+              분석
+            </button>
           </div>
         </div>
       </div>
@@ -502,6 +513,15 @@ export default function TravelDetailPage() {
           <TravelNotificationsTab
             travelId={travelId}
             onRefresh={refetchNotifications}
+          />
+        )}
+
+        {activeTab === 'analytics' && (
+          <TravelAnalyticsTab
+            costs={costs}
+            budget={travel.budget || 0}
+            startDate={travel.start_date}
+            endDate={travel.end_date}
           />
         )}
       </div>
