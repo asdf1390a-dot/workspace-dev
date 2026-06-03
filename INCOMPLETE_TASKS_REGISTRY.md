@@ -21,6 +21,11 @@ type: project
 ### Team Dashboard P2 Phase 2 UI/UX Implementation
 - **Status:** 🟡 65% (Web-Builder #2 assigned)
 - **Deadline:** 2026-06-10 18:00 KST
+- **Blocking:** db/36_team_dashboard_phase2.sql migration requires Supabase execution
+- **Subtasks:**
+  - [ ] Apply db/36 migration to Supabase SQL Editor (adds portfolio_items columns + milestones table)
+  - [ ] Implement Web-Builder UI components (Web-Builder #2 active)
+  - [ ] Integrate API endpoints for dashboard data
 
 ## ✅ Completed (2026-06-03)
 

@@ -3,10 +3,10 @@
 ## 📌 현재 상태 (3초 요약)
 | 항목 | 상태 |
 |------|------|
-| **Team Dashboard P2** | 🟡 65% (ETA 2026-06-10 18:00) |
+| **Team Dashboard P2** | 🟡 65% (🔴 db/36 마이그레이션 대기, ETA 2026-06-10 18:00) |
 | **Asset Master P1** | 🟡 Day 4 완료 (db/28 ✅, Day 3 API ✅, Day 4 UI ✅, ETA 2026-06-15) |
 | **Backup App P2** | ✅ 완료 (2026-06-03 00:47) |
-| **블로킹** | 0개 |
+| **블로킹** | 1개 (db/36 수동 실행 대기) |
 | **신뢰도** | 99% |
 
 ## 🎯 3대 핵심 규칙 (자율진행)
@@ -29,5 +29,6 @@
 
 ## 💡 기타
 - [❌ 미완료 작업](../INCOMPLETE_TASKS_REGISTRY.md) — Day 5 테스트/배포, Team Dashboard P2 UI 남음
+- [🔴 db/36 마이그레이션 상태](../projects/dsc-fms-portal/MIGRATION_STATUS.md) — Supabase SQL Editor 수동 실행 필요 (2026-06-03 17:38)
 - 팀 구조: [15명 통합](TEAM_STRUCTURE_UNIFIED_2026_05_26.md) (CEO+6기존+9신규)
 - 비즈니스: INR→KRW 15.5, 자산기준일 2026-03-15
