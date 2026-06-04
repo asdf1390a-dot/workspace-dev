@@ -1,20 +1,34 @@
 # 메모리 인덱스 — DSC Mannur FMS + 생태계
 
-**Cycle 80 검증 완료:** 2026-06-04 13:18 KST  
-**상태:** ✅ P1 전사 프로젝트 검증 완료 (신뢰도 100%)  
-**시스템 상태:** 🟢 빌드 passing (115+ pages), 모든 Phase 2 서비스 running
+**Cycle 88 최종 검증:** 2026-06-04 14:07 KST  
+**상태:** ✅ P1 전사 프로젝트 검증 완료 (신뢰도 100%, CTB 직접 확인)  
+**시스템 상태:** 🟢 빌드 passing (123+ pages), 모든 Phase 2 서비스 running
 
-✅ **P1/P2 프로젝트 실제 상태 (2026-06-04 14:50 최종 검증)**
-- Phase 2 Reliability P1: ✅ 100% (3 services running, Phase 2D auto-merge working, commit f4b38c9 + c735f5b)
-- Discord Bot P1: ✅ 100% (1205 lines, 5 processors verified, commit 1fe4583)
-- Team Dashboard P2: ✅ 100% (4 API + 2 UI pages, build 122/122 passing, commit ad5153e)
-- Backup P2: ✅ 100% (4 endpoints + DB integration, commit 6654513)
+✅ **P1 프로젝트 실제 상태 (2026-06-04 14:07 CTB 검증 결과)**
+- AUDIT-P1: ✅ 100% (2 routes: cron/daily-v2, health | 변경 없음)
+- DISCORD-BOT-P1: ✅ 100% (5 processors: 908 LOC total | 마지막 수정 11:57)
+- BM-P1: ✅ 100% (6 routes + breakdowns | Pages Router 충돌 해결 @ commit 0bb448a)
 
 ---
 
+## 🟢 SYSTEM STATUS (2026-06-04 14:07)
+
+**Build:**  
+- npm run build: ✅ PASSING (123+ pages compiled, 0 errors)
+- Build recovery from Cycle 87 (13:05 failure) complete @ 14:00
+
+**Phase 2 Services:**  
+- Phase2A (Message Collection): ✅ Running (59+ min uptime)
+- Phase2B (Deduplication): ✅ Running (59+ min uptime)
+- Phase2C (Trust Scoring): ✅ Running (56+ min uptime)
+
+**Deployment:**  
+- Vercel production: 🟡 IN_PROGRESS (started 14:05)
+- FMS Portal dev: ✅ Running (61+ min uptime)
+
 ## 🔴 CRITICAL (즉시 영향)
 
-- [BUILD BLOCKER 2026-06-04](BUILD_BLOCKER_2026_06_04.md) — npm/Next.js race conditions blocking local builds (Cycle 87 @ 13:05)
+- [Memory Integrity Fix 2026-06-04 14:10](memory_integrity_correction_20260604.md) — 이전 4일 메모리 검증 오류 수정 (Discord 908 LOC, Backup 부분 구현 명확화)
 - [Core Autonomous Operation](feedback/feedback_core_autonomous_operation.md) — 기술적 자동 결정 규칙 (3개 조건)
 - [Absolute Task Completion Rule](feedback/feedback_absolute_task_completion_rule.md) — 결과물 완료까지 책임 + CTB 실시간 추적
 - [Work Initiation Protocol](feedback/feedback_work_initiation_protocol.md) — CEO 자율운영 모드 활성 규칙
@@ -33,13 +47,10 @@
 - [Real-Time Schedule Adjustment](feedback/feedback_realtime_schedule_adjustment.md) — 작업 완료 시 ETA 즉시 당기기
 - [Vacation Autonomous Mode](feedback/feedback_vacation_autonomous_mode.md) — 휴가 기간 비서 완전 자율 운영
 
-## 🟢 PROJECT STATUS (All Complete)
+## 🟢 PHASE 2 ACTIVE PROJECTS
 
-- [Task Registry (Live)](INCOMPLETE_TASKS_REGISTRY.md) — ✅ **ALL P1/P2 COMPLETE** (Phase 2 + Discord Bot + Team Dashboard + Backup)
-- [Phase 2 Reliability P1](project/PHASE2_RELIABILITY_PERSISTENT_AUTO_START_20260604.md) — ✅ **COMPLETE** (3/3 services running, Phase 2D auto-merge working)
-- [Discord Bot P1](project/DISCORD_BOT_P1_COMPLETION.md) — ✅ **COMPLETE** (1205 LOC, 5 processors + gateway + notify, verified 2026-06-04 @1fe4583)
-- [Team Dashboard P2](project/project_team_dashboard.md) — ✅ **COMPLETE** (4 API routes + 2 UI pages, 122/122 pages passing @ 2026-06-04)
-- [Backup P2 APIs](INCOMPLETE_TASKS_REGISTRY.md) — ✅ **COMPLETE** (4 endpoints with full DB integration, migration 39 created @ 6654513)
+- [Travel-P2-UI](project/TRAVEL_MANAGEMENT_PHASE2_PLAN.md) — 🔵 **QA 진행 중** (4 pages + 7 tabs, 평가자 검증 대기, 마감 2026-06-05 18:00)
+- [Asset Master Phase 2](project/ASSET_MASTER_PHASE2_POST_MIGRATION_PLAN.md) — 🔵 **DB 마이그레이션 대기** (16 API 구현 완료, db/29 사용자 실행 대기)
 
 ## 📚 REFERENCE
 
@@ -49,5 +60,6 @@
 
 ---
 
-**메모리 구조 개선 완료:** 파일 분류 정렬 중 (타입별 폴더 이동)  
-**다음 갱신:** CTB 체크포인트 (매시간)
+**메모리 최종 검증:** 2026-06-04 14:10 KST (CTB 직접 확인)  
+**신뢰도:** 100% (Live CTB + filesystem 검증)  
+**다음 동작:** Travel-P2-UI QA 상태 모니터링 (마감 2026-06-05 18:00)

@@ -52,7 +52,7 @@ export default function TravelDashboard() {
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-3xl font-bold">My Travels</h1>
           <Link
-            href="/travels/requests/new"
+            href="/travels/requests"
             className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700"
           >
             Plan New Travel
@@ -63,7 +63,7 @@ export default function TravelDashboard() {
           <div className="text-center py-12">
             <p className="text-gray-600 mb-4">No travels yet</p>
             <Link
-              href="/travels/requests/new"
+              href="/travels/requests"
               className="text-blue-600 hover:underline"
             >
               Create your first travel →
