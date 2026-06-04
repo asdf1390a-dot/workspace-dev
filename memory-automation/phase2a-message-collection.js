@@ -177,6 +177,9 @@ app.post('/api/collect-memory', async (req, res) => {
       checksum: checksum,
       lastModified: stats.mtime.toISOString(),
       collectedAt: lastCollectionTime,
+      source: 'automated_collection',
+      frequency: 1,
+      timestamp: Date.now(),
     });
   } catch (error) {
     await logError(error, { endpoint: '/api/collect-memory', ...req.body });

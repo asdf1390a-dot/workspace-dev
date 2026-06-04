@@ -54,10 +54,19 @@ app.post('/api/calculate-trust-scores', (req, res) => {
           hasManualEdits: false,
         });
 
+        // Determine decision based on score thresholds (aligned with Phase 2D)
+        let decision = 'REJECT';
+        if (score.score >= 50) {
+          decision = 'ACCEPT';
+        } else if (score.score >= 40) {
+          decision = 'QUARANTINE';
+        }
+
         return {
           index: idx,
           filename: entry.filename,
           trustScore: score,
+          decision: decision,
           components: {
             ageDecay: trustCalc.ageDecay(timestamp),
             frequency: trustCalc.frequencyWeight(1),
@@ -75,10 +84,10 @@ app.post('/api/calculate-trust-scores', (req, res) => {
       }
     });
 
-    // Summary stats
-    const accepted = results.filter(r => r.trustScore >= 75).length;
-    const quarantined = results.filter(r => r.trustScore >= 50 && r.trustScore < 75).length;
-    const rejected = results.filter(r => r.trustScore < 50).length;
+    // Summary stats (aligned with Phase 2D threshold of 50 for acceptance)
+    const accepted = results.filter(r => r.trustScore.score >= 50).length;
+    const quarantined = results.filter(r => r.trustScore.score >= 40 && r.trustScore.score < 50).length;
+    const rejected = results.filter(r => r.trustScore.score < 40).length;
 
     res.json({
       success: true,
