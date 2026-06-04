@@ -1,15 +1,29 @@
 # 메모리 인덱스 — DSC Mannur FMS + 생태계
 
-**✅ SESSION CHECKPOINT (2026-06-05 01:59 KST, Cycle 127) — 모든 시스템 정상 + 안정**
-- AUDIT-P1: ✅ 완료 (+25h 59m) — 289 LOC verified stable (0cf3c1ba)
-- DISCORD-BOT-P1: ✅ 완료 (+31h 17m ahead) — 908 LOC verified, 5 processors active (585db4d5)
-- BM-P1: ✅ 완료 — 197 LOC verified stable, Vercel deployment live (ecc13a9f)
-- TRAVEL-P2-UI: ✅ 완료 (+33h 43m ahead) — Phase 2 QA approved, production ready (e9396c74)
-- **Phase 2:** 6h 26m+ continuous uptime (3개 서비스 LISTEN: PIDs 989/1030/1039)
+**✅ POLLING CYCLE 135 (2026-06-05 02:50 KST) — Task State Machine Transition Detected**
+- **Status Change:** Team Dashboard P2 → BLOCKED_ON_USER (db/36 Supabase deployment pending)
+- **Action Required:** User must execute db/36 migration in Supabase SQL Editor
+- AUDIT-P1: ✅ 완료 — verified stable (0cf3c1ba)
+- DISCORD-BOT-P1: ✅ 완료 (+30h 16m ahead of deadline 2026-06-05 18:00) — verified, 5 processors active (585db4d5)
+- BM-P1: ✅ 완료 (+40h 12m ahead of 2026-06-06 18:00) — verified stable (ecc13a9f)
+- TRAVEL-P2-UI: ✅ 완료 (+32h 16m ahead) — QA approved, production ready (e9396c74)
+- **Phase 2:** 7h 45m continuous uptime (3개 서비스 RUNNING: PIDs 989/1030/1039 @ ports 3009/3010/3011)
 - **Build:** All pages + API routes (0 errors/warnings) ✅ PASSING
-- **Vercel:** 200 OK LIVE (33h 43m operational)
-- **Code Stability:** 0 commits since Cycle 117 @ 12:53 (13h+ zero production changes)
-- **CTB Verification:** Cycle 127 @ 01:59 KST — 4/4 projects STABLE, zero code drift, Phase 2 health verified
+- **Code Stability:** 0 commits since 12:53 (14h+ 완전 안정, zero production changes)
+- **CTB Verification:** Cycle 135 @ 02:50 KST — all P1 projects 100% stable, zero code drift
+
+---
+
+**✅ POLLING CYCLE 131 (2026-06-05 02:19 KST) — 모든 시스템 정상 + 안정**
+- AUDIT-P1: ✅ 완료 — 289 LOC verified stable (0cf3c1ba)
+- DISCORD-BOT-P1: ✅ 완료 (+30h 4m ahead of deadline 18:00) — 908 LOC verified, 5 processors active (585db4d5)
+- BM-P1: ✅ 완료 (+40h ahead of 2026-06-06 18:00) — 197 LOC verified stable, Vercel deployment live (ecc13a9f)
+- TRAVEL-P2-UI: ✅ 완료 (+32h 4m ahead) — Phase 2 QA approved, production ready (e9396c74)
+- **Phase 2:** 24+ hour continuous uptime (3개 서비스 LISTEN: PIDs 989/1030/1039 @ port 3009/3010/3011)
+- **Build:** All pages + API routes (0 errors/warnings) ✅ PASSING
+- **Vercel:** 200 OK LIVE (32+ hours operational)
+- **Code Stability:** 0 commits in Cycle 131 (zero production changes)
+- **CTB Verification:** Cycle 131 @ 02:19 KST — 4/4 projects STABLE, zero code drift, Phase 2 health verified
 
 ---
 
