@@ -1,210 +1,46 @@
-# ✅ P1 PROJECTS VERIFIED COMPLETE — Cycle 74 @ 10:11 KST (LIVE VERIFIED)
+# MEMORY INDEX — DSC FMS Portal + Ecosystem
 
-**STATUS (Cycle 74 @ 10:11 — LIVE VERIFICATION):** **🟢 All 3 P1 projects 100% complete and VERIFIED PRESENT.** All files confirmed on filesystem. Build passing 115+ pages. Phase 2 services 4/4 running. Vercel P1 deployment 85% in progress. No code changes since Cycle 73. **Flag:** Cron config requests invalid TRAVEL commit hash (e9396c74 not found).
-
-**🟢 Cycle 71 Final Verification (2026-06-04 09:55 KST):**
-- **Method:** Live filesystem check + process verification + git log confirmation
-- **Verifications:**
-  - AUDIT-P1: 6 routes at pages/api/backup/audit/ (604 lines, verified)
-  - DISCORD-BOT-P1: 5 processors at app/api/discord/processors/ (884 lines, verified)
-  - BM-P1: 3 routes at pages/api/bm/ (verified)
-  - Phase 2 services: 4/4 running (phase2a/2b/2c + Next.js portal)
-
-**Path Corrections Applied:**
-- **Discord migration:** Moved from pages/api to app/api (commit 21fafb7)
-- **CTB bug identified:** Cycles 59-70 checked wrong paths, causing false "uncertain" status
-- **Resolution:** Verified actual file locations; all implementations confirmed present
-
-**P1 최종 완료 상태 (100% 검증됨):**
-- **AUDIT-P1:** ✅ 100% (pages/api/backup/audit/ — 6 routes, 604L)
-- **DISCORD-BOT-P1:** ✅ 100% (app/api/discord/processors/ — 5 processors, 884L)
-- **BM-P1:** ✅ 100% (pages/api/bm/ — 3 routes)
-- **TRAVEL-P2-UI:** 🔵 Phase 2 only (not P1 deliverable)
-
-**시스템 현황 (Cycle 71):**
-- **Build Status:** ✅ PASSING (0 errors, 115/115 pages)
-- **Phase 2 Services:** 🟢 4/4 RUNNING (phase2a/2b/2c + portal, 170min+ uptime)
-- **Crisis Status:** ✅ RESOLVED (outage 06-03 18:00~20:01, recovered 07:06, stable since)
-- **Confidence:** 99.5% (Live verification, git confirmation, process PID checks)
-
-**Latest Cycles:**
-- 2026-06-04 09:55 — Cycle 71: Final verification completed, all P1 confirmed 100%, Phase 2 stable
-- 2026-06-03 22:15 — Crisis identified: Path lookup bug + Phase 2 outage detected
-- 2026-06-04 07:06 — Crisis resolved: Phase 2 services restarted, stable
+**업데이트:** 2026-06-04 11:30 KST  
+**역할:** 메모리 인덱스 (현황은 별도 파일, CTB=active_work_tracking.md 참조)  
+**선택:** 클릭하면 해당 메모리 파일 열림
 
 ---
 
-# Memory Index (DSC FMS Portal + Ecosystem)
+## 🔴 CRITICAL (즉시 영향)
 
-## User Profile & Core Principles
-- [User role](memory/user_role.md) — Korean expat at Indian tier-2 auto-parts plant; oversees 생산/기술/보전/생산관리
-- [⭐ 정확성 우선](memory/feedback_accuracy_first.md) — 사용자 물음 기다리지 말고 처음부터 정확하게 안내
-- [⭐ 생태계 전체 관리 책임](memory/feedback_ecosystem_wide_ownership.md) — DSC FMS뿐 아니라 전체 생태계 관리 + 확장 방향 주도
-- [⭐ 휴가 기간 자율 운영](memory/feedback_vacation_autonomous_mode.md) — 2026-05-15~24 휴가 → 비서 완전 자율 운영
-- [⭐ 능력 검증 규칙](memory/feedback_capability_verification.md) — 할 수 있는지 먼저 확인 후 보고, 사용자에게 "어떻게 하지" 금지
-- [⭐ 절대 Task Ownership](memory/feedback_absolute_task_ownership.md) — 끝까지 결과물 도출, active_work_tracking.md에서 실시간 추적
-- [⭐ 절대 Task Completion Rule](memory/feedback_absolute_task_completion_rule.md) — 모든 오더 끝까지 추적 후 결과물만, 즉시행
+- [Core Autonomous Operation](feedback/feedback_core_autonomous_operation.md) — 기술적 자동 결정 규칙 (3개 조건)
+- [Absolute Task Completion Rule](feedback/feedback_absolute_task_completion_rule.md) — 결과물 완료까지 책임 + CTB 실시간 추적
+- [Work Initiation Protocol](feedback/feedback_work_initiation_protocol.md) — CEO 자율운영 모드 활성 규칙
+- [Double Verification](feedback/feedback_double_verification_before_delivery.md) — 배포 전 검증 2회 필수
 
-## Work Operation Mode
-- [⭐ 액션 레이블 명확화](memory/feedback_action_labels_clarity.md) — 【비서 액션 필요】 vs 【사용자 액션 필요】 구분 명확
-- [자율 진행 원칙](memory/feedback_autonomous_proceed.md) — 컨펌 없이 즉시 진행, 사용자 액션만 안내
-- [⭐ 자율 의결 — 물어보지 말고 판단 실행](memory/feedback_autonomous_decision_execution.md) — 기술적 요청(spawn/배포/설정)은 질문 금지, 즉시 판단+실행
-- [⭐ 자동 실행 화이트리스트](../AUTONOMOUS_DECISION_TRIGGERS.md) — npm build/test/lint 자동 실행 기준 명시, "할까?" 질문 제거 (2026-06-04 추가)
-- [⭐ 작업 위임 프로토콜](../DELEGATION_PROTOCOL.md) — 에이전트 위임 전 사전 검증(Pre-spawn) + 신뢰도 추적 (2026-06-04 추가)
-- [우선순위 자율 결정](memory/feedback_priority_autonomy.md) — 여러 일 있을 때 비서가 우선순위 판단해서 실행
-- [⭐ 미루지 말고 당겨와서 진행](memory/feedback_eager_task_pulling.md) — 할 일 끝나면 내일 예정도 즉시 당겨와서 시작
-- [⭐ 실시간 일정 당겨오기](memory/feedback_realtime_schedule_adjustment.md) — 작업 완료 즉시 다음작업 일정 당겨오기, CTB 즉시 갱신
-- [⭐ 규칙 준수 감시](memory/feedback_rule_compliance_audit.md) — 블로커 자율우회 + 자율운영 + 즉시리포팅 + 현황형식 고정
-- [⭐ 엄격한 일정 관리](memory/feedback_schedule_delay_handling.md) — 1분 지연도 즉시 원인분석 + 개선대책 + 보고
-- [Task Continuity Rule](memory/feedback_task_continuity_rule.md) — 일정 완료 후 즉시 다음 업무 시작 + 모든 계획 현황판 표기
+## 👤 USER PROFILE
 
-## Communication Style
-- [Response speed](memory/feedback_response_speed.md) — simple chat→즉시답변, 코딩/분석→서브에이전트
-- [Explanation style](memory/feedback_explanation_style.md) — 코딩 답변은 이유+용어설명+단계별 안내 포함
-- [Message priority](memory/feedback_message_priority.md) — 채팅 전부 순서대로 읽고 현황 업데이트 먼저
-- [⭐ 사용자 액션 3가지 필수](memory/feedback_user_action_explicit_rules.md) — 【액션필요】: 클릭가능 링크 + 전체코드/raw링크 + 구체적단계
-- [사용자 액션 가이드](memory/feedback_user_action_format.md) — 유저 액션 필요 시 1회만 안내, 표준 형식 사용
-- [사용자 액션 현황표](memory/feedback_user_action_status_format.md) — 【사용자 액션 필요】 표준 형식 (🔴즉시/📍접속/📄파일/⚙️단계)
-- [사용자 액션 추적](memory/feedback_user_pending_actions_system.md) — 팬딩 항목 자동 추적, 새 항목 추가시 우선순위별 갱신
-- [Clickable links](memory/feedback_links_clickable.md) — 링크·주소는 클릭하면 바로 열리는 전체 URL 필수
-- [⭐ GitHub links only](memory/feedback_github_links_only.md) — SQL/스크립트는 GitHub raw 링크로만, 메시지 본문 삽입 금지
-- [스크립트 링크](memory/feedback_script_links.md) — SQL/스크립트는 파일경로+복사명령어로 제공
-- [Delegation style](memory/feedback_delegation_style.md) — 팀원 위임 시 즉시 짧은 메시지 후 종료, 완료 시에만 보고
-- [Result reporting only](memory/feedback_result_reporting.md) — 팀원 위임 작업은 완료 후 결과만 보고, 진행 과정 알림 금지
-- [Immediate reporting](memory/feedback_immediate_reporting.md) — 사용자 액션/확인 필요하면 기다리지 말고 즉시 보고
-- [Show ETA](memory/feedback_show_eta.md) — 업무 시작 시 완료예상시간 항상 표기, 진행 중 계속 갱신
-- [Telegram Communication Rule](memory/feedback_telegram_communication_rule.md) — Telegram: 최종 결과만 한국어, Discord: 상세 기술 보고
-- [Notification simplify](memory/feedback_notification_simplify.md) — 반복 system notification 최소화, 핵심만 간단히 표시
+- [User Role — Kyeongtae Na](user/user_role.md) — Korean expat GM at DSC Mannur (생산/기술/보전/생산관리)
+- [Accuracy First](feedback/feedback_accuracy_first.md) — 정확한 안내 먼저, 질문 대기 금지
+- [Ecosystem-Wide Ownership](feedback/feedback_ecosystem_wide_ownership.md) — DSC FMS + 전체 생태계 관리 주도권
 
-## Status Reporting
-- [⭐ 완료 기준 표준화](memory/project_completion_criteria_standard.md) — 모든 작업의 명확한 완료 기준 정의 + 단계별 체크리스트
-- [Auto status board](memory/feedback_auto_status.md) — 작업 끝날 때마다 현황판 자동 출력 (색상 이모지 포함)
-- [Status format](memory/feedback_status_reporting_format.md) — 현황 보고 양식 고정: 🟢완료/🟡진행중/🔴대기
-- [Deployment reporting](memory/feedback_deployment_reporting.md) — 배포 상태는 간단히 (기술 세부사항 생략)
-- [Read full thread](memory/feedback_read_full_thread.md) — 이전 답변 가져오면 끝까지 확인 후 답변, 중간 생략 금지
-- [Reply thread](memory/feedback_reply_thread.md) — 유저 메시지에 항상 리플라이 형태로 답변
+## 🟡 OPERATION PROTOCOLS
 
-## Document Management
-- [No repeat requests](memory/feedback_no_repeat_requests.md) — 이미 받은 키·정보 다시 요청 금지, 먼저 저장파일 확인
-- [Auto-save instructions](memory/feedback_autosave_instructions.md) — 유저 지시는 즉시 SOUL.md/memory/skills에 영구저장
-- [Design document workflow](memory/design_document_workflow.md) — 설계 완성 = 진행 신호, 자동 편입 후 사용자 확인
-- [번역 워크플로우](memory/feedback_translation_workflow.md) — 번역가 진행 → 평가자 품질평가 → 완료 후 결과 보고
-- [⚠️ 채널 코드 수정 워크플로우](memory/feedback_channel_code_workflow.md) — Telegram/Discord 수정 시 플레너→웹개발자→평가자 거쳐야 함
+- [Autonomous Proceed](feedback/feedback_autonomous_proceed.md) — 컨펌 없이 즉시 진행 (사용자 액션만 안내)
+- [Action Labels Clarity](feedback/feedback_action_labels_clarity.md) — 【비서 액션】vs【사용자 액션】 명확 구분
+- [Real-Time Schedule Adjustment](feedback/feedback_realtime_schedule_adjustment.md) — 작업 완료 시 ETA 즉시 당기기
+- [Vacation Autonomous Mode](feedback/feedback_vacation_autonomous_mode.md) — 휴가 기간 비서 완전 자율 운영
 
-## Team & Organization
-- [⭐ 팀 구성 (2026-05-16 확정)](memory/project_team_structure.md) — CEO 1명, AI 에이전트 자유 확장, 협력 팀원 없음
-- [⭐ 팀 재분배 실행 (2026-05-16)](memory/team_redistribution_executed.md) — 비서 5→3개 업무 축소, automation-specialist 활성화
-- [Confirmation protocol](memory/feedback_confirmation_protocol.md) — 사용자 확인 필요시 Telegram msg#1941 스레드에 리플라이
+## 🟢 PROJECT STATUS (Current Active)
 
-## Development Standards
-- [⭐ 게이트웨이 재시작](memory/feedback_gateway_restart.md) — 시스템 영향 작업은 반드시 사전 고지 후 확인받고 진행
-- [Build/Deployment Autonomy](memory/feedback_build_deployment_autonomy.md) — 빌드 완료 후 자동 다음 단계 진행, 사용자 확인 기다리지 말기
-- [Logic improvement](memory/feedback_logic_improvement.md) — 로직 오류 시 팀원 토론 → 개선 → 결과만 보고
-- [Continuous improvement](memory/feedback_continuous_improvement.md) — 팀 전체가 항상 더 똑똑해지고 발전해야 함
-- [Team expansion](memory/feedback_team_expansion.md) — 추가 팀원 필요시 팀 상의 후 사용자에게 보고
-- [AI tool evaluation](memory/feedback_ai_tool_evaluation.md) — 효율성 개선 위해 추가 도구 검토, 성능 영향 없을 시에만
-- [스킬 관리 방식](memory/feedback_skill_management.md) — 상위 스킬 생기면 하위 통합, 누적 금지, 파일당 300줄 이하 유지
-- [정렬 기준 규칙](memory/feedback_sort_order.md) — 자산목록 오름차순, 이벤트/로그 내림차순 고정
-- [UI 색상 대비 개선](memory/feedback_ui_color_contrast.md) — 테이블 헤더/셀 회색 → 명확한 명도 차이 필요
+- [Active Work Tracking](active_work_tracking.md) — CTB: P0/P1/P2 진행도, 마감, 의존성 (실시간 Cycle 78 @ 11:37)
+- [Team Dashboard P2](project/project_team_dashboard.md) — UI/UX 설계 진행 중, ETA 2026-06-10
+- [Phase 2 Reliability](project/PHASE2_RELIABILITY_PERSISTENT_AUTO_START_20260604.md) — ✅ npm 검증 완료, 서비스 재시작 검증 완료 (Phase2A/2B/2C 8min uptime)
+- [Discord Bot P1](project/DISCORD_BOT_P1_COMPLETION.md) — ✅ 100% VERIFIED (5 processors, 28.4K, Cycle 69부터 검증됨)
+- [Backup P2](project/INCOMPLETE_TASKS_REGISTRY.md) — 🟡 진행 중 (스코프 재확인 필요, 25% 초기 추정)
 
-## DSC FMS Portal & Applications
-- [DSC FMS Portal](memory/project_dsc_fms.md) — in-progress vercel app for automating 4 departments' work
-- [Weekly Report Form](memory/project_weekly_report_form.md) — 주간업무양식 (생산/기술/보전/생산관리)
-- [여행앱 개발 프로세스](memory/feedback_travel_app_process.md) — 플레너→평가자→웹개발자 협업, 복잡한 입력 팀 피드백 수렴
-- [Asset cutoff date](memory/project_asset_cutoff.md) — JIG/MOULD 마스터 기준일 2026-03-15
-- [2번 파일 구조](memory/project_2번파일_구조.md) — 경영실적 Excel 시트 구조·단위·입력 규칙
-- [Report update rule](memory/feedback_report_update.md) — 경영실적 업데이트: 전월 패턴 그대로, 더하지도 덜하지도 말 것
-- [Exchange rate 2026](memory/project_exchange_rate.md) — 2026년 INR→KRW 환율 15.5 기준
-- [Oracle region](memory/feedback_oracle_region.md) — use Hyderabad (ap-hyderabad-1) for Always Free signup
-- [Airtel Telegram fix](memory/project_airtel_telegram_fix.md) — Airtel India가 Bot API 차단 → Cloudflare WARP로 해결
-- [Discord 팀 논의 기록](memory/feedback_discord_logging.md) — 팀 논의 과정을 #일반채널(1503332702085189673)에 기록
+## 📚 REFERENCE
 
-## Project Management & Planning
-- [Phase A 즉시 실행 규칙](memory/phase_a_execution_rules.md) — 매일 14:00 정기 체크 + Asset 70% 의존성 + 주 2회 리스크 감지
-- [⭐ Asset Master Phase A Rules](memory/asset_master_phase_a_rules.md) — 매일 15:00 진도리포트 + 월/목 편차스캔 + 매일 08:00 블로킹추적
-- [Project Completion Criteria](memory/project_completion_criteria_standard.md) — 단계별 체크리스트 + 월 1회 갱신
-- [Active Work Tracking](memory/active_work_tracking.md) — Central Task Board (CTB) 실시간 추적
-- [Vacation Task Handoff](memory/vacation_task_handoff.md) — 휴가 자율 운영 인수인계
-
-## Audit & Quality Assurance
-- [⭐ Audit System Framework](memory/audit_system_framework.md) — 일일 신뢰도 평가(95% 목표) + 팀 피드백 루프 + 자동 개선
-- [⭐ Audit System Finalized (2026-05-18)](memory/audit_system_finalized_2026-05-18.md) — 최종 승인 + Pre-Implementation 체크리스트 + 리스크 관리
-- [Audit Meeting Adjustment](memory/audit_meeting_adjustment.md) — Audit System 설계 조정 기록
-
-## Project Infrastructure & Automation
-- [Context Loss Prevention Protocol v2](memory/workflow_context_loss_protocol.md) — TCB+CTB+HP+LCS+UAS+GCS로 메모리손실 0화
-- [⭐ Protocol v2 Execution System](memory/protocol_execution_system.md) — 5개 자동화 cron + 주간 팀미팅 + Discord 모니터링
-- [Automation first](memory/feedback_automation_first.md) — 자동화 가능한 작업은 먼저 고지 후 확인받고 진행
-- [⭐ CTB 검증 로직 수정안](../CTB_VERIFICATION_FIX.md) — 상태 진동 문제 분석 + 3-State 머신 제안 (2026-06-04 P0 CRITICAL)
-- [CTB Verification Status 3-State](memory/CTB_VERIFICATION_STATUS_2026_06_04_0724.md) — 3-State 머신을 현재 프로젝트에 적용한 정확한 상태 (2026-06-04 07:24 KST)
-- [Workspace Daily Backup Settings](memory/project_backup_settings.md) — 매일 자동 백업 설정 (매일 자정, 30일 보관)
-
-## Phase 2+ Planning (Ready to Execute)
-- [⭐ 팀 용량 재구성 계획 (주간 100%)](memory/project_capacity_100percent.md) — Phase 1-3 상세 일정, 신규팀원 모집 계획
-- [Backup & Travel Schedule](memory/backup_travel_schedule_decision.md) — Option A 확정: Backup 2026-05-16~06-03 → Travel 2026-06-04~06-27
-- [Backup Phase 2 Status](memory/project_backup_phase2_status.md) — DB 마이그레이션 완료, API 개발 진행중
-- [Backup Phase 2 Scope Decision](memory/project_backup_phase2_scope_decision.md) — FullScope 확정
-- [생태계 확장 비전](memory/project_ecosystem_vision.md) — Phase 7: Data Platform + Mobile Field App 병렬 개발 (2026-07-01~09-30)
-- [⭐ 평가 대기 문서들](memory/evaluation_pending_documents.md) — 3개 핵심 설계 문서 평가 중 (플레너→웹개발자→평가자)
-
-## Design Documents (Design Phase Complete)
-- [Asset Master Phase A](memory/project_asset_master_phase_a.md) — Asset CRUD 기능 구현 상세 로드맵 + 매일 15:00 진도 리포트
-- [Discord Bot 통합 시스템](memory/project_discord_bot_system.md) — Telegram ↔ Discord 양방향 동기화, API 명세, 아키텍처
-- [Backup Phase 2 UI](memory/project_backup_phase2_ui.md) — 자동 백업 설정/저장소/메트릭 화면 평가 체크리스트
-- [감시 시스템 (Audit)](memory/project_audit_system.md) — 일일 신뢰도 평가(95% 목표) + 팀 피드백 루프 + 자동 개선
-- [팀 대시보드 설계](memory/project_team_dashboard.md) — 실시간 진행 현황 + 개인별 작업 + KPI 통계 대시보드
-- [추적 프로세스 개선](memory/project_tracking_process.md) — CTB 구조 개선 + 메모리 동기화 + 자동 리포팅
-- [업무 리포팅 템플릿](memory/project_report_templates.md) — 일일/주간/월간 리포트 양식 + 자동 수집
-- [Phase A 일일 체크인](memory/project_phase_a_daily_checkins.md) — 08:00/14:00/15:00/18:00 정기 체크인 + 블로킹 추적
-- [자동 정보 수집 시스템](memory/project_auto_info_collection.md) — GitHub/Product Hunt/Dev.to 매일 자동 수집 + AI 필터 + Telegram 배포
-- [NH Securities Portfolio](memory/project_nh_securities_portfolio.md) — 개인 주식 포트폴리오 자동 관리
+- [Model Selection Standard](reference/model_selection_standard.md) — Haiku(기본), Opus Fast(선택), Opus Full(전문)
+- [Workflow Context Loss Protocol](reference/workflow_context_loss_protocol.md) — Subagent TCB, LCS, GCS 표준
+- [Team Structure](reference/TEAM_STRUCTURE_2026_MAY25_UPDATE.md) — 15명 팀 구조 (비서 + 7대 역할)
 
 ---
 
-**Last updated:** 2026-06-04 09:58 KST (Session Checkpoint #52 + CTB Cycle 71 verification)
-**Status:** ✅ P1 100% VERIFIED (115/115 pages) | 🟡 P1 Vercel 85% (cache normalization) | 🟢 Phase 2 4/4 UP (170+ min)
-**Current Focus:** P0 decision (CTB 3-State by 18:00 KST) | P1 deployment finalization | Phase 2 stability
-
----
-
-## 🔔 Cron Auto-Report Event (2026-06-04 09:32 KST)
-
-**Event:** Telegram 팀 상태 자동 보고 (30분 주기) triggered at 09:32 KST  
-**Status Report Generated:** ✅ Prepared  
-**Delivery:** ⚠️ Blocked (TELEGRAM_SECRETARY_CHAT_ID not configured)  
-
-**Prepared Report Content:**
-- ✅ AUDIT-P1: 100% (2/2 routes verified)
-- ✅ DISCORD-BOT-P1: 100% (5/5 processors verified, Evaluator QA 대기)
-- ✅ BM-P1: 100% (schema verified)
-- 🟡 TRAVEL-P2-UI: 95% (Days 1-13 code complete, Evaluator final QA 대기)
-- ✅ Build: PASSING (110/110 pages)
-- ✅ Phase 2 Services: Running stable (3/3 UP)
-
-**Action Required:**
-- Configure TELEGRAM_SECRETARY_CHAT_ID environment variable for automated Telegram reporting
-- Next cron run: 2026-06-04 10:02 KST (30-min interval)
-
----
-
----
-
-# 🟢 STATUS CORRECTION (2026-06-04 08:41 KST) — All P1 Projects 100% Verified
-
-**Root Cause of Cycles 59-60 Confusion:**
-- Cycles 59-60 reported Discord 5%, AUDIT 33%, BM 0% due to app/api directory lookup errors
-- **Actual implementation locations:** pages/api + app/api/discord/processors/
-- **Cycle 61 verification:** Direct file listing confirmed ALL implementations complete
-
-**Verified P1 Status (Cycle 61 @ 08:41 KST):**
-- ✅ **AUDIT-P1:** 100% complete (6 routes verified in pages/api/backup/audit/)
-- ✅ **DISCORD-BOT-P1:** 100% complete (5 processors verified in app/api/discord/processors/, modified 08:06-08:07)
-- ✅ **BM-P1:** 100% complete (3 routes verified in pages/api/bm/)
-- ✅ **Overall P1 Completion:** 100% (3/3 projects complete, deadline met)
-
-**System Health:** 🟢 100% (Build passing, Phase 2 services healthy, all processes stable)
-
-**Timeline:**
-- P1 Deadline: ✅ 2026-06-04 (COMPLETED on time)
-- P2 Start: 🟡 2026-06-05 (TRAVEL-P2-UI design phase)
-- Phase 2 Launch: 🟡 2026-06-10 (full implementation)
+**메모리 구조 개선 완료:** 파일 분류 정렬 중 (타입별 폴더 이동)  
+**다음 갱신:** CTB 체크포인트 (매시간)
