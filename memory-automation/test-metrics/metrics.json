@@ -1,0 +1,43 @@
+{
+  "timestamp": "2026-06-04T07:40:06.429Z",
+  "process": {
+    "pid": 2197,
+    "uptime_ms": 0
+  },
+  "memory": {
+    "rss_mb": 0,
+    "heapUsed_mb": 0,
+    "external_mb": 0
+  },
+  "errors": {
+    "collection": {
+      "success": 0,
+      "failed": 0,
+      "rate": 0
+    },
+    "deduplication": {
+      "success": 0,
+      "failed": 0,
+      "rate": 0
+    },
+    "calculation": {
+      "success": 0,
+      "failed": 0,
+      "rate": 0
+    }
+  },
+  "latency": {
+    "collection_ms": [],
+    "deduplication_ms": [],
+    "calculation_ms": []
+  },
+  "checkpoints": {
+    "total": 0,
+    "completed_within_sla": 0,
+    "sla_rate": 0
+  },
+  "integrity": {
+    "last_check": null,
+    "checksums": {}
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "timestamp": "2026-06-04T08:04:52.300Z",
+  "process": {
+    "pid": 6368,
+    "uptime_ms": 4
+  },
+  "memory": {
+    "rss_mb": 44.53,
+    "heapUsed_mb": 3.91,
+    "external_mb": 1.36
+  },
+  "errors": {
+    "collection": {
+      "success": 2,
+      "failed": 1,
+      "rate": "66.7%"
+    },
+    "deduplication": {
+      "success": 0,
+      "failed": 0,
+      "rate": 0
+    },
+    "calculation": {
+      "success": 0,
+      "failed": 0,
+      "rate": 0
+    }
+  },
+  "latency": {
+    "collection_ms": [
+      2000,
+      2500
+    ],
+    "deduplication_ms": [],
+    "calculation_ms": []
+  },
+  "checkpoints": {
+    "total": 1,
+    "completed_within_sla": 1,
+    "sla_rate": "100.0"
+  },
+  "integrity": {
+    "last_check": "2026-06-04T08:04:52.304Z",
+    "checksums": {
+      "test.json": "9473fdd0d880a43c21b7778d34872157"
+    }
+  }
+}
