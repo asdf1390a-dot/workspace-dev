@@ -1,13 +1,13 @@
 {
-  "last_update": "2026-06-05T08:09:00+0900",
-  "last_polling_cycle": 253,
+  "last_update": "2026-06-05T08:19:44+0900",
+  "last_polling_cycle": 255,
   "system_health": "🟢 HEALTHY",
-  "uptime_since_deployment": "13h+ (since 2026-06-04 18:13 KST)",
+  "uptime_since_deployment": "13h 26m+ (since 2026-06-04 18:13 KST)",
   "projects": {
     "AUDIT-P1": {
       "status": "✅ COMPLETE",
       "completion": "100%",
-      "last_verified": "2026-06-05T08:09:00+0900",
+      "last_verified": "2026-06-05T08:14:44+0900",
       "code_drift": "ZERO",
       "loc_verified": 289,
       "routes": 2
@@ -15,7 +15,7 @@
     "DISCORD-BOT-P1": {
       "status": "✅ COMPLETE",
       "completion": "100%",
-      "last_verified": "2026-06-05T08:09:00+0900",
+      "last_verified": "2026-06-05T08:14:44+0900",
       "code_drift": "ZERO",
       "loc_verified": 908,
       "processors": 5,
@@ -24,7 +24,7 @@
     "BM-P1": {
       "status": "✅ COMPLETE",
       "completion": "100%",
-      "last_verified": "2026-06-05T08:09:00+0900",
+      "last_verified": "2026-06-05T08:14:44+0900",
       "code_drift": "ZERO",
       "loc_verified": 197,
       "routes": 1
@@ -32,9 +32,9 @@
     "TRAVEL-P2-UI": {
       "status": "✅ COMPLETE",
       "completion": "100%",
-      "last_verified": "2026-06-05T08:09:00+0900",
+      "last_verified": "2026-06-05T08:14:44+0900",
       "qa_approved": true,
-      "deployment_uptime": "13h 21m (since 2026-06-04 18:48 KST)"
+      "deployment_uptime": "13h 26m 31s (since 2026-06-04 18:48 KST)"
     }
   },
   "phase_2_services": {
@@ -42,24 +42,24 @@
       "pid": 989,
       "port": 3009,
       "status": "🟢 RUNNING",
-      "uptime": "13h+ (since 2026-06-04 18:13 KST)"
+      "uptime": "13h 26m+ (since 2026-06-04 18:13 KST)"
     },
     "2B_deduplication": {
       "pid": 1030,
       "port": 3010,
       "status": "🟢 RUNNING",
-      "uptime": "13h+ (since 2026-06-04 18:13 KST)"
+      "uptime": "13h 26m+ (since 2026-06-04 18:13 KST)"
     },
     "2C_trust_scoring": {
       "pid": 1039,
       "port": 3011,
       "status": "🟢 RUNNING",
-      "uptime": "13h+ (since 2026-06-04 18:13 KST)"
+      "uptime": "13h 26m+ (since 2026-06-04 18:13 KST)"
     }
   },
   "build_status": "✅ PASSING",
   "deployment_status": "✅ LIVE",
-  "next_polling_cycle_eta": "2026-06-05T08:14:00+0900",
+  "next_polling_cycle_eta": "2026-06-05T08:24:44+0900",
   "polling_frequency_minutes": 5,
   "cycle_253_verification": {
     "timestamp": "2026-06-05T08:09:00+0900",
