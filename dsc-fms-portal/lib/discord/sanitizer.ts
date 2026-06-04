@@ -16,20 +16,20 @@ export function sanitizeText(text: string | null | undefined): string {
   const cleaned = DOMPurify.sanitize(text, DISCORD_PURIFY_CONFIG);
 
   // Remove markdown-based XSS: [text](javascript:...), [text](data:...), etc.
-  // Matches: [anything](protocol:anything) where protocol is dangerous
-  const dangerousProtocols = ['javascript:', 'data:', 'vbscript:', 'file:', 'about:'];
+  // Discord interprets markdown links, so we must remove them entirely
   let result = cleaned;
 
-  // Remove markdown links with dangerous protocols
-  for (const protocol of dangerousProtocols) {
-    const escapedProtocol = protocol.replace(/:/g, '\\:').replace(/\./g, '\\.');
-    const markdownPattern = new RegExp(`\\[([^\\]\\n]*)\\]\\(\\s*${escapedProtocol}[^)]*\\)`, 'gi');
-    result = result.replace(markdownPattern, '');
-  }
+  // Remove markdown link patterns [text](url)
+  // This pattern looks for [anything] followed by (anything)
+  // It handles nested parentheses by matching content up to the last )
+  result = result.replace(/\[[^\]]*\]\s*\([^)]*\)/g, '');
 
-  // Remove any remaining markdown link syntax to prevent protocol-independent attacks
-  // This also strips legitimate markdown to ensure safety
-  result = result.replace(/\[[^\]]*\]\([^)]*\)/g, '');
+  // Remove any dangerous protocol schemes even if not in markdown context
+  const dangerousProtocols = ['javascript:', 'data:', 'vbscript:', 'file:', 'about:'];
+  for (const protocol of dangerousProtocols) {
+    const escapedProtocol = protocol.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    result = result.replace(new RegExp(escapedProtocol, 'gi'), '');
+  }
 
   // Additional safety: limit length and remove control characters
   return result
