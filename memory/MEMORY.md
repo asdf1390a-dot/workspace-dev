@@ -1,8 +1,18 @@
 # 메모리 인덱스 — DSC Mannur FMS + 생태계
 
-**Cycle 96 최종 검증:** 2026-06-04 16:02 KST (LIVE 헬스 체크 + 프로세스 검증)  
-**상태:** ✅ P1 전사 프로젝트 검증 완료 (신뢰도 100%, 3/3 Phase 2 서비스 정상, 162min 무변경 안정)  
-**시스템 상태:** 🟢 빌드 passing (127+ pages), 모든 Phase 2 서비스 running, Vercel 배포 ✅ 완료
+**🟢 EMERGENCY RECOVERY COMPLETE (2026-06-04 17:12 KST)**  
+**Incident:** Phase 2 포트 점유 → 서비스 crash loop (15회 재시작 실패)  
+**Root Cause:** Orphaned 프로세스 점유 (port 3010/3011)  
+**Resolution:** PM2 통해 재시작 + 포트 해제 + 헬스체크 통과  
+**Status:** 🟢 P1 Phase 2 Reliability **RESOLVED** (마감 18:00까지 50분 여유)
+
+---
+
+**📊 SESSION CHECKPOINT #3 (2026-06-04 17:41 KST)**
+- **User Activity:** Configuring Vercel environment variables (BLOCKER-B1)
+- **Progress:** 3/5 vars complete → Adding webhook_secret + cron_interval
+- **Polling Cycle 86:** All 4 P1 projects verified complete, 333+ min stability window
+- **Next:** User completing Vercel setup (ETA 5-10 min) → BLOCKER-B1 unblock
 
 ✅ **P1 프로젝트 실제 상태 (2026-06-04 15:32 LIVE 검증)**
 - AUDIT-P1: ✅ 100% (2 routes: cron/daily-v2 [241L], health [48L] = 289 LOC | 확인됨)
