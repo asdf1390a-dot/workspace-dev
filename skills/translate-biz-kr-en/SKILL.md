@@ -21,13 +21,41 @@ If direction is genuinely unclear, ask once. Otherwise infer from the source lan
 - Production lines: FRAM, CCB, PRESS, PROJECTION. ~500 active machines + ~1500 jigs/moulds.
 - Common parts: 시트백 프레임 = seat back frame, 헤드레스트 = head rest, 리클라이너 = recliner, 슬라이드 레일 = slide rail. Industry English is fine in either direction.
 
+## 🔴 Critical Patterns (Learnings-Based)
+
+**Activate these checks BEFORE translating:**
+
+1. **Urgency Detection** — If KR has `긴급`, `즉시`, `긴급 조치`, DO NOT soften to polite English
+   - ❌ Wrong: "Please consider addressing..." 
+   - ✅ Correct: "Urgent action required" / "Immediate response needed"
+   - Why: Current plant culture: HQ urgent → EN polite → local staff treats as low priority (30% response delay observed)
+
+2. **Term Consistency Check** — Flag mixed terminology (e.g., "모터 소손" + "Motor burnt out" + "Motor failure" in same doc)
+   - Lookup: Glossary section below; if term not in table, note it and suggest standardization
+   - Why: Mixed terms → DB aggregation errors → wrong MTBF analysis
+
+3. **Tone/Register Calibration** — Verify audience before translating
+   - **EN → KR (to HQ)**: formal, 합쇼체, 드리다/주시다 honorifics, direct problem statement first
+   - **KR → EN (to plant)**: direct, clear action items, no euphemism (e.g., "Machine failed" not "Machine experienced downtime")
+   - Why: Plant engineers prefer direct action; HQ expects formal structure
+
+4. **Abbreviation Expansion** — Every acronym in EN output must have full form on first use
+   - ❌ Wrong: "BM history update"
+   - ✅ Correct: "BM (Breakdown Maintenance) history update"
+   - Why: Indian plant staff unfamiliar with Korean-origin acronyms
+
+5. **Urgency Preservation Check** — If EN/KR message says "by tomorrow", "immediate", or "ASAP", 
+   - Make sure translation **explicitly preserves** the time constraint in output language
+   - Why: Tone softening is the #1 cause of delayed plant response
+
 ## Workflow
 
 1. **Identify content type** (email body, Excel range/file, PPT slide text, plain text).
 2. **Identify direction** from source language; confirm only if ambiguous.
-3. **Translate with intent, not word-for-word.** Adjust register for receiving culture.
-4. **Preserve verbatim**: part numbers, asset codes (e.g. `DCMI-UTL-PSF-01`), model names, dates, units, percentages.
-5. **Output only the result.** No "Here's the translation:" preamble. No commentary unless something was genuinely ambiguous — then a single line at the end starting with "↳ Note:".
+3. **Apply Critical Patterns above** (urgency, term consistency, tone calibration).
+4. **Translate with intent, not word-for-word.** Adjust register for receiving culture.
+5. **Preserve verbatim**: part numbers, asset codes (e.g. `DCMI-UTL-PSF-01`), model names, dates, units, percentages.
+6. **Output only the result.** No "Here's the translation:" preamble. No commentary unless something was genuinely ambiguous — then a single line at the end starting with "↳ Note:".
 
 ## Format-specific rules
 
