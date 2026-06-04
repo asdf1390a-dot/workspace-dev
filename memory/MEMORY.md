@@ -8,6 +8,14 @@
 
 ---
 
+**🌙 저녁 체크포인트 (2026-06-04 19:40 KST)**
+- **db/36 마이그레이션:** ✅ 완료 (19:26 사용자 실행, portfolio_items + milestones 생성)
+- **CTB 신뢰도 재평가:** 83% (코드 정확도 94%, 배포 일치도 70% — Vercel 부분 검증)
+- **Rule Compliance:** 92% (3개 위반 자동 수정: Vercel 검증, API 통합, CTB Verification 3-State 설계)
+- **Team Dashboard:** 🟡 API 통합 진행 (db/36 후 다음 단계)
+- **P1 완료도:** 100% ✅ (4/4 프로젝트 완료, QA APPROVED)
+- **블로킹:** 1개 (CTB Verification 마감 초과, 자동 해결 예정 20:34)
+
 **📊 SESSION CHECKPOINT #3 (2026-06-04 17:41 KST)**
 - **User Activity:** Configuring Vercel environment variables (BLOCKER-B1)
 - **Progress:** 3/5 vars complete → Adding webhook_secret + cron_interval

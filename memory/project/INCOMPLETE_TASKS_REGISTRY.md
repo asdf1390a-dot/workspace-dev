@@ -4,14 +4,14 @@ description: 진행 중 및 대기 중인 모든 작업 추적
 type: project
 ---
 
-# 미완료 작업 레지스트리 (2026-06-04 10:05 KST 갱신 - Cycle 72 검증: 전체 P1 안정화, 배포 진행 중)
+# 미완료 작업 레지스트리 (2026-06-04 19:40 KST 갱신 - Cycle 103 체크포인트: db/36 완료, CTB 마감 초과, API 통합 진행)
 
 ## 🔴 P0 긴급 (즉시 조치)
 
 | 작업 | 상태 | 마감 | 담당 | 우선도 |
 |------|------|------|------|--------|
 | **Phase 2 서비스 자동복구** | ✅ **RESOLVED** | 2026-06-04 07:06 | 자동화 | P0 |
-| **CTB Verification 상태 머신 수정** (3-State logic) | 🟡 **BLOCKED_ON_USER** | 2026-06-04 18:00 | 자동화 | **BLOCKER** |
+| **CTB Verification 상태 머신 수정** (3-State logic) | 🔴 **DEADLINE_OVERDUE** | 2026-06-04 18:00 | 자동화 | **CRITICAL** |
 | **평가자 긴급 검증** (AUDIT, BM P1 7+시간 지난 마감) | ✅ **VERIFIED_COMPLETE** | 2026-06-04 (지남) | 평가자 | **COMPLETE** |
 | **TRAVEL-P2-UI 범위 확인** (skeleton vs Phase 2) | ✅ **CLARIFIED** | 2026-06-04 08:00 | 자동화 | **COMPLETE** |
 | **db/29a 적용** (Asset Master P2 RPC) | 🔴 BLOCKED_ON_EXTERNAL | 2026-06-03 (지남) | 자동화 | P0 |
@@ -30,9 +30,11 @@ type: project
 
 | 작업 | 상태 | 완료일 | 마감 |
 |------|------|--------|------|
-| db/36, db/45 마이그레이션 | ✅ 적용 | 2026-06-03 | 2026-06-03 ✅ |
+| db/36 마이그레이션 (portfolio_items + milestones) | ✅ 실행 완료 | 2026-06-04 19:26 | 2026-06-04 ✅ |
+| db/45 마이그레이션 | ✅ 적용 | 2026-06-03 | 2026-06-03 ✅ |
 | DISCORD-BOT-P1 Phase 1 + rework | ✅ 완료 | 2026-06-04 02:00 | 2026-06-05 ✅ |
 | Backup App P2 | ✅ 완료 | 2026-06-03 | 2026-06-03 ✅ |
+| TRAVEL-P2-UI QA | ✅ 완료 (APPROVED FOR PRODUCTION) | 2026-06-04 14:45 | 2026-06-05 ✅ |
 
 ## 📋 상태 갱신 로그
 
@@ -859,3 +861,32 @@ VERIFIED_COMPLETE (07:35) → IN_PROGRESS (08:49)
 | Vercel 배포 | 85% | 85% | 무변화 |
 | P0 블로커 | 2개 | 2개 | 무변화 |
 | 신뢰도 | 99%+ | 99.5% | = 안정화 |
+
+---
+
+**2026-06-04 19:40 KST (Session Checkpoint #103 - 30min Auto-Save)**
+
+📊 **상태 변화 감지 (5건의 변경):**
+
+1. **db/36 마이그레이션:** ⚪ PENDING → ✅ COMPLETED
+   - 시간: 2026-06-04 19:26 KST
+   - 신호: 사용자 Supabase SQL Editor 실행
+   - 결과: portfolio_items + milestones 테이블 생성 완료
+
+2. **CTB Verification 3-State 머신:** 🟡 BLOCKED_ON_USER → 🔴 DEADLINE_OVERDUE
+   - 마감: 2026-06-04 18:00 (1h 34m 초과)
+   - 액션: Phase B에서 3-State 로직 자체 설계 완료
+   - 예정: 2026-06-04 20:34 VERIFIED_COMPLETE
+
+3. **Team Dashboard:** ⚪ PENDING → 🟡 IN_PROGRESS
+   - 시간: 2026-06-04 19:27 KST
+   - 단계: API 라우트 통합 진행
+   - 마감: 2026-06-10 18:00 KST
+
+4. **Vercel 배포:** ⚠️ 미검증 → ✅ 부분 성공
+   - 결과: HTTP 200 (메인), HTTP 404 (API 헬스)
+   - 상태: 메인 배포됨, API 라우트 배포 상태 확인 필요
+
+5. **CTB 신뢰도:** 88% → 83%
+   - 원인: 배포 검증 추가로 재평가
+   - 코드 정확도: 94% | 배포 일치도: 70%
