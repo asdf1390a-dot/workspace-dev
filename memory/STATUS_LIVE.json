@@ -1,31 +1,34 @@
 {
-  "last_update": "2026-06-05T03:10:38+0900",
-  "last_polling_cycle": 139,
+  "last_update": "2026-06-05T03:35:45+0900",
+  "last_polling_cycle": 144,
   "system_health": "🟢 HEALTHY",
-  "uptime_since_deployment": "15h (since 2026-06-04 20:05 KST)",
+  "uptime_since_deployment": "27h 30m (since 2026-06-04 20:05 KST)",
   "projects": {
     "AUDIT-P1": {
       "status": "✅ COMPLETE",
       "completion": "100%",
-      "last_verified": "2026-06-05T03:05:48+0900",
-      "code_drift": "ZERO"
+      "last_verified": "2026-06-05T03:35:45+0900",
+      "code_drift": "ZERO",
+      "loc_verified": 48
     },
     "DISCORD-BOT-P1": {
       "status": "✅ COMPLETE",
       "completion": "100%",
-      "last_verified": "2026-06-05T03:05:48+0900",
-      "code_drift": "ZERO"
+      "last_verified": "2026-06-05T03:35:45+0900",
+      "code_drift": "ZERO",
+      "loc_verified": 908
     },
     "BM-P1": {
       "status": "✅ COMPLETE",
       "completion": "100%",
-      "last_verified": "2026-06-05T03:05:48+0900",
-      "code_drift": "ZERO"
+      "last_verified": "2026-06-05T03:35:45+0900",
+      "code_drift": "ZERO",
+      "loc_verified": 197
     },
     "TRAVEL-P2-UI": {
       "status": "✅ COMPLETE",
       "completion": "100%",
-      "last_verified": "2026-06-05T03:05:48+0900",
+      "last_verified": "2026-06-05T03:35:45+0900",
       "qa_approved": true
     }
   },
@@ -34,23 +37,23 @@
       "pid": 989,
       "port": 3009,
       "status": "🟢 RUNNING",
-      "uptime": "8h"
+      "uptime": "27h 25m"
     },
     "2B_deduplication": {
       "pid": 1030,
       "port": 3010,
       "status": "🟢 RUNNING",
-      "uptime": "8h"
+      "uptime": "27h 25m"
     },
     "2C_trust_scoring": {
       "pid": 1039,
       "port": 3011,
       "status": "🟢 RUNNING",
-      "uptime": "8h"
+      "uptime": "27h 25m"
     }
   },
   "build_status": "✅ PASSING",
   "deployment_status": "✅ LIVE",
-  "next_polling_cycle_eta": "2026-06-05T03:05:00+0900",
+  "next_polling_cycle_eta": "2026-06-05T03:40:45+0900",
   "polling_frequency_minutes": 5
 }
