@@ -3,6 +3,7 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import { supabaseAdmin } from '@/lib/supabase-admin';
+import { sanitizeText } from '@/lib/discord/sanitizer';
 
 interface ProcessorRequest {
   messageId: string;
@@ -30,15 +31,20 @@ interface ProcessorResponse {
 
 export async function POST(req: NextRequest): Promise<NextResponse<ProcessorResponse>> {
   try {
-    const { userId, username, content, timestamp } = (await req.json()) as ProcessorRequest;
+    const raw = (await req.json()) as ProcessorRequest;
+    const userId = raw.userId;
+    const timestamp = raw.timestamp;
 
-    if (!userId || !content) {
+    if (!userId || !raw.content) {
       return NextResponse.json(
         { success: false, error: 'Missing required fields' },
         { status: 400 }
       );
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const username = sanitizeText(raw.username);
+    const content = sanitizeText(raw.content);
     const contentLower = content.toLowerCase();
     const isAssetQuery = contentLower.includes('자산') || contentLower.includes('장비') || contentLower.includes('에셋');
     const isBMQuery = contentLower.includes('breakdown') || contentLower.includes('고장') || contentLower.includes('정지');

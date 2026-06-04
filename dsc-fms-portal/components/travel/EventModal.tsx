@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -45,6 +45,8 @@ export default function EventModal({
   initialData,
   onSuccess,
 }: EventModalProps) {
+  const [submitError, setSubmitError] = useState<string | null>(null);
+
   const {
     register,
     handleSubmit,
@@ -64,6 +66,7 @@ export default function EventModal({
 
   useEffect(() => {
     if (open) {
+      setSubmitError(null);
       reset(initialData || {
         title: '',
         description: '',
@@ -76,6 +79,7 @@ export default function EventModal({
   }, [open, initialData, reset]);
 
   const onSubmit = async (data: EventFormData) => {
+    setSubmitError(null);
     try {
       const token = localStorage.getItem('access_token');
       const method = eventId ? 'PUT' : 'POST';
@@ -99,6 +103,8 @@ export default function EventModal({
       onSuccess();
       onOpenChange(false);
     } catch (error) {
+      const message = error instanceof Error ? error.message : '저장 실패했습니다';
+      setSubmitError(message);
       console.error('Event save error:', error);
     }
   };
@@ -116,6 +122,12 @@ export default function EventModal({
               <X size={20} />
             </Dialog.Close>
           </div>
+
+          {submitError && (
+            <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded text-red-700 text-sm">
+              {submitError}
+            </div>
+          )}
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             <div>

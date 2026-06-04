@@ -3,6 +3,7 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import { supabaseAdmin } from '@/lib/supabase-admin';
+import { sanitizeText } from '@/lib/discord/sanitizer';
 
 interface ProcessorRequest {
   messageId: string;
@@ -30,15 +31,17 @@ interface ProcessorResponse {
 
 export async function POST(req: NextRequest): Promise<NextResponse<ProcessorResponse>> {
   try {
-    const { userId, username, content, timestamp } = (await req.json()) as ProcessorRequest;
+    const { userId, username: rawUsername, content: rawContent, timestamp } = (await req.json()) as ProcessorRequest;
 
-    if (!userId || !content) {
+    if (!userId || !rawContent) {
       return NextResponse.json(
         { success: false, error: 'Missing required fields' },
         { status: 400 }
       );
     }
 
+    const username = sanitizeText(rawUsername);
+    const content = sanitizeText(rawContent);
     const contentLower = content.toLowerCase();
     const isRoadmapQuery = contentLower.includes('로드맵') || contentLower.includes('roadmap') || contentLower.includes('계획');
     const isPriorityQuery = contentLower.includes('우선순위') || contentLower.includes('priority') || contentLower.includes('중요');

@@ -38,6 +38,7 @@ export default function MemberManagementModal({
 }: MemberManagementModalProps) {
   const [localMembers, setLocalMembers] = useState<TravelMember[]>(members);
   const [isAdding, setIsAdding] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const {
     register,
@@ -64,6 +65,7 @@ export default function MemberManagementModal({
   }, [open, reset]);
 
   const onSubmit = async (data: MemberFormData) => {
+    setSubmitError(null);
     try {
       const token = localStorage.getItem('access_token');
       const response = await fetch(`/api/travels/${travelId}/members`, {
@@ -84,6 +86,8 @@ export default function MemberManagementModal({
       reset({ email: '', role: 'member' });
       setIsAdding(false);
     } catch (error) {
+      const message = error instanceof Error ? error.message : '멤버 추가 실패했습니다';
+      setSubmitError(message);
       console.error('Member add error:', error);
     }
   };
@@ -107,6 +111,8 @@ export default function MemberManagementModal({
       setLocalMembers(localMembers.filter(m => m.id !== memberId));
       onSuccess();
     } catch (error) {
+      const message = error instanceof Error ? error.message : '멤버 제거 실패했습니다';
+      setSubmitError(message);
       console.error('Member remove error:', error);
     }
   };
@@ -136,6 +142,12 @@ export default function MemberManagementModal({
               <X size={20} />
             </Dialog.Close>
           </div>
+
+          {submitError && (
+            <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded text-red-700 text-sm">
+              {submitError}
+            </div>
+          )}
 
           {/* 멤버 목록 */}
           <div className="mb-6 max-h-64 overflow-y-auto">

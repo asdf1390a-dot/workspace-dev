@@ -2,6 +2,7 @@
 // Handles: technical problem solving, code review guidance, debugging assistance
 
 import { NextRequest, NextResponse } from 'next/server';
+import { sanitizeText } from '@/lib/discord/sanitizer';
 
 interface ProcessorRequest {
   messageId: string;
@@ -29,15 +30,19 @@ interface ProcessorResponse {
 
 export async function POST(req: NextRequest): Promise<NextResponse<ProcessorResponse>> {
   try {
-    const { userId, username, content, timestamp } = (await req.json()) as ProcessorRequest;
+    const raw = (await req.json()) as ProcessorRequest;
+    const userId = raw.userId;
+    const timestamp = raw.timestamp;
 
-    if (!userId || !content) {
+    if (!userId || !raw.content) {
       return NextResponse.json(
         { success: false, error: 'Missing required fields' },
         { status: 400 }
       );
     }
 
+    const username = sanitizeText(raw.username);
+    const content = sanitizeText(raw.content);
     const contentLower = content.toLowerCase();
     const isErrorQuery = contentLower.includes('에러') || contentLower.includes('error') || contentLower.includes('bug');
     const isReviewRequest = contentLower.includes('리뷰') || contentLower.includes('review') || contentLower.includes('코드');

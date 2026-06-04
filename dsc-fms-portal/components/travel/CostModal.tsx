@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -43,6 +43,8 @@ export default function CostModal({
   initialData,
   onSuccess,
 }: CostModalProps) {
+  const [submitError, setSubmitError] = useState<string | null>(null);
+
   const {
     register,
     handleSubmit,
@@ -61,6 +63,7 @@ export default function CostModal({
 
   useEffect(() => {
     if (open) {
+      setSubmitError(null);
       reset(initialData || {
         item_name: '',
         category: '',
@@ -72,6 +75,7 @@ export default function CostModal({
   }, [open, initialData, reset]);
 
   const onSubmit = async (data: CostFormData) => {
+    setSubmitError(null);
     try {
       const token = localStorage.getItem('access_token');
       const method = costId ? 'PUT' : 'POST';
@@ -95,6 +99,8 @@ export default function CostModal({
       onSuccess();
       onOpenChange(false);
     } catch (error) {
+      const message = error instanceof Error ? error.message : '저장 실패했습니다';
+      setSubmitError(message);
       console.error('Cost save error:', error);
     }
   };
@@ -112,6 +118,12 @@ export default function CostModal({
               <X size={20} />
             </Dialog.Close>
           </div>
+
+          {submitError && (
+            <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded text-red-700 text-sm">
+              {submitError}
+            </div>
+          )}
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             <div>

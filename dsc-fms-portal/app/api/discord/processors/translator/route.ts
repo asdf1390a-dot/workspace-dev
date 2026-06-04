@@ -2,6 +2,7 @@
 // Handles: Korean ↔ English translation with tone adjustment
 
 import { NextRequest, NextResponse } from 'next/server';
+import { sanitizeText } from '@/lib/discord/sanitizer';
 
 interface ProcessorRequest {
   messageId: string;
@@ -69,18 +70,22 @@ function translateText(text: string, targetLang: 'en' | 'ko'): string {
 
 export async function POST(req: NextRequest): Promise<NextResponse<ProcessorResponse>> {
   try {
-    const { userId, username, content, timestamp } = (await req.json()) as ProcessorRequest;
+    const raw = (await req.json()) as ProcessorRequest;
+    const userId = raw.userId;
+    const timestamp = raw.timestamp;
 
-    if (!userId || !content) {
+    if (!userId || !raw.content) {
       return NextResponse.json(
         { success: false, error: 'Missing required fields' },
         { status: 400 }
       );
     }
 
+    const username = sanitizeText(raw.username);
+    const content = sanitizeText(raw.content);
     const sourceIsKorean = isKorean(content);
     const targetLang = sourceIsKorean ? 'en' : 'ko';
-    const translated = translateText(content, targetLang);
+    const translated = sanitizeText(translateText(content, targetLang));
 
     return NextResponse.json({
       success: true,

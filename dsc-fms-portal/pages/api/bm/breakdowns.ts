@@ -84,7 +84,10 @@ export default async function handler(
       const parsedLimit = Math.min(Math.max(1, parseInt(String(limit), 10) || 50), 500);
       const parsedOffset = Math.max(0, parseInt(String(offset), 10) || 0);
 
-      const sortCol = typeof sort_by === 'string' ? sort_by : 'reported_at';
+      const ALLOWED_SORT_FIELDS = ['reported_at', 'severity', 'status', 'duration_minutes'];
+      const sortCol = ALLOWED_SORT_FIELDS.includes(typeof sort_by === 'string' ? sort_by : '')
+        ? (sort_by as string)
+        : 'reported_at';
       const sortAsc = sort_dir === 'asc';
 
       query = query
