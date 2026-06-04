@@ -9,3 +9,4 @@ SIGTERM received, shutting down gracefully
 Phase 2B Duplicate Detection listening on port 3010
 Health check: http://localhost:3010/health
 API: http://localhost:3010/api/detect-duplicates
+SIGTERM received, shutting down gracefully
