@@ -17,7 +17,7 @@ const path = require('path');
 class Logger {
   constructor(logDir = './logs') {
     this.logDir = logDir;
-    this.debug = process.env.DEBUG === '1' || process.env.DEBUG === 'true';
+    this.debugEnabled = process.env.DEBUG === '1' || process.env.DEBUG === 'true';
     this.errorLogFile = path.join(logDir, `errors-${new Date().toISOString().split('T')[0]}.log`);
 
     // Ensure log directory exists
@@ -34,7 +34,7 @@ class Logger {
    * Debug level - only if DEBUG env var set
    */
   debug(message, data = null) {
-    if (!this.debug) return;
+    if (!this.debugEnabled) return;
     const timestamp = new Date().toISOString();
     const msg = data ? `${message} ${JSON.stringify(data)}` : message;
     console.log(`[${timestamp}] [DEBUG] ${msg}`);
