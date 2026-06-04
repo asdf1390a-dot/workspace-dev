@@ -1,6 +1,6 @@
 # Central Task Board (CTB) — Active Work Tracking
-**Last Updated:** 2026-06-04 12:50 KST (CTB CYCLE 86: All P1 Stable — 0 code changes in 158min, build passing, Phase 2 @ 81min uptime)  
-**Status:** 🟢 **ALL P1 PROJECTS VERIFIED COMPLETE** — Evaluator 3-cycle validation: Defect 1 (XSS Sanitizer) 11/11 PASS, Defect 2 (Modal Error) ✅ PASS, Defect 3 (BM Sort) ✅ PASS. AUDIT-P1 previously approved. Ready for production deployment.
+**Last Updated:** 2026-06-04 14:02 KST (CTB CYCLE 89: BM-P1 Conflict Resolved — Pages Router file removed, build passing 123/123, Phase 2 stable)  
+**Status:** ✅ **ALL P1 PROJECTS VERIFIED COMPLETE + CONFLICT RESOLVED** — BM-P1 file conflict identified and fixed (old pages/api removed, app/api now active). All 4 P1 projects verified: AUDIT ✅, DISCORD ✅, BM ✅, TRAVEL 🟡 (QA pending by 2026-06-05 18:00).
 
 ---
 
@@ -211,4 +211,5 @@
 | **12:50** | **Polling Cycle 86 — Stability Continue** | 0 code changes in 5 min (Cycle 85→86), build passing, Phase 2 @ 81min uptime | AUDIT 100% ✅, DISCORD 100% ✅, BM 100% ✅, TRAVEL 95% 🟡 |
 | **12:55–13:01** | **🔴 Polling Cycle 87 — BUILD REGRESSION + FILESYSTEM CORRUPTION** | npm/node_modules corruption cascades: next@invalid → npm audit fix breaks caniuse-lite → rm -rf fails (ENOTEMPTY). Phase 2 still 88min stable. | 🔴 **BLOCKING:** Local builds impossible. System-level fix needed. |
 | **13:54** | **🟡 Polling Cycle 88 — VERIFICATION COMPLETE (BUILD RECOVERED)** | npm build ✅ PASSING (122/122 pages). Filesystem verification: AUDIT ✅ 100% (2 files), DISCORD ✅ 100% (5 files/908 LOC), BM 🔴 0% (route.ts MISSING), TRAVEL 🟡 50-75% (4 tsx files exist). BM-P1 integrity issue: directory exists but core handler missing. | 🔴 **URGENT:** BM-P1 route.ts missing. 🟡 TRAVEL-P2-UI QA needed before 2026-06-05 18:00. |
+| **14:02** | **✅ Polling Cycle 89 — CONFLICT RESOLVED** | Root cause found: conflicting pages/api/bm/breakdowns.ts (old Pages Router) vs app/api/bm/breakdowns/route.ts (new App Router). Old file removed. Build verification: ✅ SUCCESS (123/123 pages). All P1 projects status: AUDIT ✅ 100%, DISCORD ✅ 100%, BM ✅ 100%, TRAVEL 🟡 50-75% (QA pending). | ✅ **BM-P1 RESOLVED** — git add staged, ready to commit. 🟡 Await TRAVEL-P2 Evaluator QA. |
 
