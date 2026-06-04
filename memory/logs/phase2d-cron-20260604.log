@@ -3559,3 +3559,78 @@
 [2026-06-04 13:45:02] [INFO] ║  Cycle Complete — Check logs for details              ║
 [2026-06-04 13:45:02] [INFO] ║  Log file: /home/jeepney/.openclaw/workspace-dev/memory/logs/phase2d-cron-20260604.log              ║
 [2026-06-04 13:45:02] [INFO] ╚════════════════════════════════════════════════════════╝
+[2026-06-04 13:50:01] [INFO] ╔════════════════════════════════════════════════════════╗
+[2026-06-04 13:50:01] [INFO] ║  Phase 2D: Cron Integration — Full Cycle              ║
+[2026-06-04 13:50:01] [INFO] ║  Start: 2026-06-04 13:50:01 KST                    ║
+[2026-06-04 13:50:01] [INFO] ╚════════════════════════════════════════════════════════╝
+[2026-06-04 13:50:01] [INFO] === PHASE 2A: Message Collection ===
+[2026-06-04 13:50:01] [INFO] Phase 2A health check PASSED
+[2026-06-04 13:50:01] [INFO] Phase 2A collected memory content (2397 bytes) in 48ms
+[2026-06-04 13:50:01] [INFO] Memory collection saved to: memory_20260604_135001.json
+[2026-06-04 13:50:01] [INFO] === PHASE 2B: Duplicate Detection ===
+[2026-06-04 13:50:01] [INFO] Phase 2B health check PASSED
+[2026-06-04 13:50:01] [INFO] Phase 2B processed 1 unique entries, 0 duplicates removed in 77ms
+[2026-06-04 13:50:01] [INFO] Duplicate detection result saved to: duplicates_20260604_135001.json
+[2026-06-04 13:50:01] [INFO] === PHASE 2C: Trust Score Calculation ===
+[2026-06-04 13:50:01] [INFO] Phase 2C health check PASSED
+[2026-06-04 13:50:02] [INFO] Phase 2C processed 1 entries in 100ms: 1 accepted, 0 quarantined, 0 rejected
+[2026-06-04 13:50:02] [INFO] Trust scores saved to: trust_scores_20260604_135001.json
+[2026-06-04 13:50:02] [INFO] === MEMORY.md Auto-Update ===
+[2026-06-04 13:50:02] [INFO] Memory backup created: MEMORY_20260604_135001.md.bak
+[2026-06-04 13:50:02] [INFO] MEMORY.md updated with 1 new entries
+[2026-06-04 13:50:02] [INFO] === Cron Cycle Complete ===
+[2026-06-04 13:50:02] [INFO] Cycle duration: 460ms, activities logged: 0
+[2026-06-04 13:50:02] [INFO] ╔════════════════════════════════════════════════════════╗
+[2026-06-04 13:50:02] [INFO] ║  Cycle Complete — Check logs for details              ║
+[2026-06-04 13:50:02] [INFO] ║  Log file: /home/jeepney/.openclaw/workspace-dev/memory/logs/phase2d-cron-20260604.log              ║
+[2026-06-04 13:50:02] [INFO] ╚════════════════════════════════════════════════════════╝
+[2026-06-04 13:55:01] [INFO] ╔════════════════════════════════════════════════════════╗
+[2026-06-04 13:55:01] [INFO] ║  Phase 2D: Cron Integration — Full Cycle              ║
+[2026-06-04 13:55:01] [INFO] ║  Start: 2026-06-04 13:55:01 KST                    ║
+[2026-06-04 13:55:01] [INFO] ╚════════════════════════════════════════════════════════╝
+[2026-06-04 13:55:01] [INFO] === PHASE 2A: Message Collection ===
+[2026-06-04 13:55:01] [INFO] Phase 2A health check PASSED
+[2026-06-04 13:55:01] [INFO] Phase 2A collected memory content (2397 bytes) in 45ms
+[2026-06-04 13:55:01] [INFO] Memory collection saved to: memory_20260604_135501.json
+[2026-06-04 13:55:01] [INFO] === PHASE 2B: Duplicate Detection ===
+[2026-06-04 13:55:01] [INFO] Phase 2B health check PASSED
+[2026-06-04 13:55:01] [INFO] Phase 2B processed 1 unique entries, 0 duplicates removed in 63ms
+[2026-06-04 13:55:01] [INFO] Duplicate detection result saved to: duplicates_20260604_135501.json
+[2026-06-04 13:55:01] [INFO] === PHASE 2C: Trust Score Calculation ===
+[2026-06-04 13:55:01] [INFO] Phase 2C health check PASSED
+[2026-06-04 13:55:02] [INFO] Phase 2C processed 1 entries in 102ms: 1 accepted, 0 quarantined, 0 rejected
+[2026-06-04 13:55:02] [INFO] Trust scores saved to: trust_scores_20260604_135501.json
+[2026-06-04 13:55:02] [INFO] === MEMORY.md Auto-Update ===
+[2026-06-04 13:55:02] [INFO] Memory backup created: MEMORY_20260604_135501.md.bak
+[2026-06-04 13:55:02] [INFO] MEMORY.md updated with 1 new entries
+[2026-06-04 13:55:02] [INFO] === Cron Cycle Complete ===
+[2026-06-04 13:55:02] [INFO] Cycle duration: 414ms, activities logged: 0
+[2026-06-04 13:55:02] [INFO] ╔════════════════════════════════════════════════════════╗
+[2026-06-04 13:55:02] [INFO] ║  Cycle Complete — Check logs for details              ║
+[2026-06-04 13:55:02] [INFO] ║  Log file: /home/jeepney/.openclaw/workspace-dev/memory/logs/phase2d-cron-20260604.log              ║
+[2026-06-04 13:55:02] [INFO] ╚════════════════════════════════════════════════════════╝
+[2026-06-04 14:00:01] [INFO] ╔════════════════════════════════════════════════════════╗
+[2026-06-04 14:00:01] [INFO] ║  Phase 2D: Cron Integration — Full Cycle              ║
+[2026-06-04 14:00:01] [INFO] ║  Start: 2026-06-04 14:00:01 KST                    ║
+[2026-06-04 14:00:01] [INFO] ╚════════════════════════════════════════════════════════╝
+[2026-06-04 14:00:01] [INFO] === PHASE 2A: Message Collection ===
+[2026-06-04 14:00:01] [INFO] Phase 2A health check PASSED
+[2026-06-04 14:00:01] [INFO] Phase 2A collected memory content (2397 bytes) in 81ms
+[2026-06-04 14:00:01] [INFO] Memory collection saved to: memory_20260604_140001.json
+[2026-06-04 14:00:01] [INFO] === PHASE 2B: Duplicate Detection ===
+[2026-06-04 14:00:01] [INFO] Phase 2B health check PASSED
+[2026-06-04 14:00:01] [INFO] Phase 2B processed 1 unique entries, 0 duplicates removed in 82ms
+[2026-06-04 14:00:01] [INFO] Duplicate detection result saved to: duplicates_20260604_140001.json
+[2026-06-04 14:00:01] [INFO] === PHASE 2C: Trust Score Calculation ===
+[2026-06-04 14:00:01] [INFO] Phase 2C health check PASSED
+[2026-06-04 14:00:01] [INFO] Phase 2C processed 1 entries in 138ms: 1 accepted, 0 quarantined, 0 rejected
+[2026-06-04 14:00:01] [INFO] Trust scores saved to: trust_scores_20260604_140001.json
+[2026-06-04 14:00:01] [INFO] === MEMORY.md Auto-Update ===
+[2026-06-04 14:00:01] [INFO] Memory backup created: MEMORY_20260604_140001.md.bak
+[2026-06-04 14:00:01] [INFO] MEMORY.md updated with 1 new entries
+[2026-06-04 14:00:01] [INFO] === Cron Cycle Complete ===
+[2026-06-04 14:00:01] [INFO] Cycle duration: 563ms, activities logged: 0
+[2026-06-04 14:00:01] [INFO] ╔════════════════════════════════════════════════════════╗
+[2026-06-04 14:00:01] [INFO] ║  Cycle Complete — Check logs for details              ║
+[2026-06-04 14:00:01] [INFO] ║  Log file: /home/jeepney/.openclaw/workspace-dev/memory/logs/phase2d-cron-20260604.log              ║
+[2026-06-04 14:00:01] [INFO] ╚════════════════════════════════════════════════════════╝
