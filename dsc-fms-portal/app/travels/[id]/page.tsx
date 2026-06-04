@@ -91,7 +91,7 @@ export default function TravelDetailPage() {
   const refetchChecklist = useCallback(async () => {
     try {
       const token = localStorage.getItem('access_token');
-      const checklistRes = await fetch(`/api/travels/${travelId}/checklist`, {
+      const checklistRes = await fetch(`/api/travels/${travelId}/checklists`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       if (checklistRes.ok) {
@@ -175,7 +175,7 @@ export default function TravelDetailPage() {
         fetch(`/api/travels/${travelId}/documents`, {
           headers: { 'Authorization': `Bearer ${token}` }
         }),
-        fetch(`/api/travels/${travelId}/checklist`, {
+        fetch(`/api/travels/${travelId}/checklists`, {
           headers: { 'Authorization': `Bearer ${token}` }
         }),
         fetch(`/api/travels/${travelId}/members`, {
