@@ -15,8 +15,24 @@ export function sanitizeText(text: string | null | undefined): string {
   // Remove any HTML/script tags
   const cleaned = DOMPurify.sanitize(text, DISCORD_PURIFY_CONFIG);
 
+  // Remove markdown-based XSS: [text](javascript:...), [text](data:...), etc.
+  // Matches: [anything](protocol:anything) where protocol is dangerous
+  const dangerousProtocols = ['javascript:', 'data:', 'vbscript:', 'file:', 'about:'];
+  let result = cleaned;
+
+  // Remove markdown links with dangerous protocols
+  for (const protocol of dangerousProtocols) {
+    const escapedProtocol = protocol.replace(/:/g, '\\:').replace(/\./g, '\\.');
+    const markdownPattern = new RegExp(`\\[([^\\]\\n]*)\\]\\(\\s*${escapedProtocol}[^)]*\\)`, 'gi');
+    result = result.replace(markdownPattern, '');
+  }
+
+  // Remove any remaining markdown link syntax to prevent protocol-independent attacks
+  // This also strips legitimate markdown to ensure safety
+  result = result.replace(/\[[^\]]*\]\([^)]*\)/g, '');
+
   // Additional safety: limit length and remove control characters
-  return cleaned
+  return result
     .substring(0, 4096) // Discord field limit
     .replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/g, '') // Remove control characters
     .trim();
