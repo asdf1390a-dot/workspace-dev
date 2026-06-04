@@ -8,6 +8,7 @@
 
 ## 🔴 CRITICAL (즉시 영향)
 
+- [BUILD BLOCKER 2026-06-04](BUILD_BLOCKER_2026_06_04.md) — npm/Next.js race conditions blocking local builds (Cycle 87 @ 13:05)
 - [Core Autonomous Operation](feedback/feedback_core_autonomous_operation.md) — 기술적 자동 결정 규칙 (3개 조건)
 - [Absolute Task Completion Rule](feedback/feedback_absolute_task_completion_rule.md) — 결과물 완료까지 책임 + CTB 실시간 추적
 - [Work Initiation Protocol](feedback/feedback_work_initiation_protocol.md) — CEO 자율운영 모드 활성 규칙
