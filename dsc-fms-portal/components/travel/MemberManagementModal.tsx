@@ -60,6 +60,7 @@ export default function MemberManagementModal({
   useEffect(() => {
     if (open) {
       reset({ email: '', role: 'member' });
+      setSubmitError(null);
       setIsAdding(false);
     }
   }, [open, reset]);
