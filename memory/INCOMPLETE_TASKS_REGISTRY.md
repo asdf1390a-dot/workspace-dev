@@ -1,8 +1,9 @@
 # Task Completion Registry — 2026-06-04
 
-**Checkpoint:** 2026-06-04 16:02 KST  
-**Status:** ✅ 모든 P1/P2 프로젝트 안정 (실시간 검증)  
-**Deadline:** 2026-06-04 18:00 KST (1h 58min 남음)
+**Checkpoint:** 2026-06-04 20:56 KST  
+**Status:** ✅ 모든 P1/P2 프로젝트 안정 + 개인 프로젝트 검증 완료  
+**Personal Projects:** ✅ Portfolio Career (배포됨), ✅ jeepney-personal (배포됨), 🔴 NH Securities (미시작)  
+**Deadline:** 2026-06-04 18:00 KST (✅ 이미 완료)
 
 ---
 
@@ -107,6 +108,7 @@
 [2026-06-04 13:11:00] Phase 2C restarted with decision field + threshold fixes
 [2026-06-04 13:10:12] Phase 2D cron execution with fixed score extraction
 [2026-06-04 16:02:00] SESSION CHECKPOINT: CTB Cycle 96 stable, Phase 2A/B/C 40+ min uptime, no code changes (162min sustained stability)
+[2026-06-04 20:56:00] PERSONAL PROJECTS VERIFICATION: Portfolio Career ✅ DEPLOYED (pages/career + components), jeepney-personal ✅ DEPLOYED (landing page), NH Securities 🔴 DEFERRED. MEMORY.md updated with personal projects section.
 ```
 
 ---

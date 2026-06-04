@@ -49,3 +49,6 @@ Node.js v22.22.2
 Phase 2B Duplicate Detection listening on port 3010
 Health check: http://localhost:3010/health
 API: http://localhost:3010/api/detect-duplicates
+Phase 2B Duplicate Detection listening on port 3010
+Health check: http://localhost:3010/health
+API: http://localhost:3010/api/detect-duplicates
