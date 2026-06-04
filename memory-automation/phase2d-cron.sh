@@ -44,7 +44,7 @@ CURL_TIMEOUT=10
 API_TIMEOUT=30000
 
 # Thresholds
-TRUST_SCORE_THRESHOLD=60  # Min score to accept entry
+TRUST_SCORE_THRESHOLD=50  # Min score to accept entry
 DUPLICATE_CONFIDENCE_THRESHOLD=0.80  # Min confidence to merge
 
 # File naming
@@ -425,16 +425,16 @@ update_memory_file() {
   local accepted_count=0
   local merge_entries=()
 
-  # Extract results array from JSON and process each result entry
+  # Extract entries array from JSON and process each entry
   # Simple approach: extract entries between [ and ] and split by },{
-  local results_section=$(sed -n '/"results":\[/,/\]/p' "$scores_file")
+  local results_section=$(sed -n '/"entries":\[/,/\]/p' "$scores_file")
 
   while IFS= read -r line; do
     [[ -z "$line" ]] && continue
 
     # Extract decision and trust score using grep
     local decision=$(echo "$line" | grep -o '"decision":"[^"]*"' | cut -d'"' -f4)
-    local score=$(echo "$line" | grep -o '"trustScore":[0-9.]*' | cut -d':' -f2)
+    local score=$(echo "$line" | grep -o '"score":[0-9]*' | head -1 | cut -d':' -f2)
 
     # Fallback defaults
     decision=${decision:-}
