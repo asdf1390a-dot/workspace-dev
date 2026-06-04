@@ -20,8 +20,9 @@ export function sanitizeText(text: string | null | undefined): string {
   let result = cleaned;
 
   // Remove markdown link patterns [text](url)
-  // Pattern matches nested parens within a single link: [text](url(nested)) but not across links
-  result = result.replace(/\[[^\]]*\]\s*\((?:[^()]|\([^)]*\))*\)/g, '');
+  // Pattern matches balanced nested parens within a single link: [text](url(nested(deeply)))
+  // Handles up to 2 levels of nesting: url(x(y))
+  result = result.replace(/\[[^\]]*\]\s*\((?:[^()]|\([^()]*(?:\([^()]*\)[^()]*)*\))*\)/g, '');
 
   // Remove any dangerous protocol schemes even if not in markdown context
   const dangerousProtocols = ['javascript:', 'data:', 'vbscript:', 'file:', 'about:'];
