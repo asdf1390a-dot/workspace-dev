@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
- * Phase 2B: Duplicate Detection Engine (SIMPLIFIED)
- * 입력: /memory/messages.jsonl
+ * Phase 2B: Duplicate Detection Engine (REFACTORED)
+ * 입력: queue/messages.jsonl (from phase2a via FileQueue)
  * 처리: 2-layer duplicate detection (Exact Hash + Fast Prefix Matching)
  * 출력: /memory/messages_deduplicated.jsonl
  */
@@ -9,34 +9,21 @@
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
+const { FileQueue } = require('./queue');
+const { Logger } = require('./logger');
 
 // ============================================================================
 // CONFIGURATION
 // ============================================================================
 
 const MEMORY_DIR = process.env.MEMORY_DIR || '/home/jeepney/.openclaw/workspace-dev/memory';
-const INPUT_FILE = path.join(MEMORY_DIR, 'messages.jsonl');
+const QUEUE_DIR = path.join(__dirname, 'queue');
 const OUTPUT_FILE = path.join(MEMORY_DIR, 'messages_deduplicated.jsonl');
 const LOG_DIR = path.join(MEMORY_DIR, 'logs');
-const LOG_FILE = path.join(LOG_DIR, `phase2b-dedup-${new Date().toISOString().split('T')[0]}.log`);
 
-// ============================================================================
-// LOGGER
-// ============================================================================
-
-function log(level, msg) {
-  const timestamp = new Date().toISOString();
-  const logMsg = `[${timestamp}] [${level}] ${msg}`;
-  console.log(logMsg);
-  try {
-    if (!fs.existsSync(LOG_DIR)) {
-      fs.mkdirSync(LOG_DIR, { recursive: true });
-    }
-    fs.appendFileSync(LOG_FILE, logMsg + '\n');
-  } catch (e) {
-    console.error('Failed to write log:', e.message);
-  }
-}
+// Initialize queue and logger
+const queue = new FileQueue(QUEUE_DIR);
+const logger = new Logger(LOG_DIR);
 
 // ============================================================================
 // DUPLICATE DETECTION ENGINE (MODULAR)
@@ -156,29 +143,17 @@ class DuplicateDetectionEngine {
 // ============================================================================
 
 function loadMessages() {
-  const messages = [];
+  // Load from queue instead of file
+  const queuedMessages = queue.dequeueAll();
 
-  try {
-    if (!fs.existsSync(INPUT_FILE)) {
-      log('ERROR', `Input file not found: ${INPUT_FILE}`);
-      return [];
-    }
-
-    const content = fs.readFileSync(INPUT_FILE, 'utf-8');
-    const lines = content.split('\n').filter(l => l.trim());
-
-    lines.forEach((line, idx) => {
-      try {
-        const msg = JSON.parse(line);
-        messages.push(msg);
-      } catch (e) {
-        log('WARN', `Failed to parse line ${idx}: ${e.message}`);
-      }
-    });
-  } catch (error) {
-    log('ERROR', `Failed to load messages: ${error.message}`);
-    throw error;
+  if (queuedMessages.length === 0) {
+    logger.warn('No messages in queue');
+    return [];
   }
+
+  // Extract actual message data from queue items
+  const messages = queuedMessages.map((item) => item.data || item);
+  logger.debug(`Loaded ${messages.length} messages from queue`);
 
   return messages;
 }
@@ -205,10 +180,10 @@ function saveDeduplicatedMessages(messages, metadata) {
     const metaFile = path.join(MEMORY_DIR, 'dedup_metadata.json');
     fs.writeFileSync(metaFile, JSON.stringify(metadata, null, 2));
 
-    log('INFO', `✓ Saved ${messages.length} deduplicated messages to ${OUTPUT_FILE}`);
-    log('INFO', `✓ Metadata saved to ${metaFile}`);
+    logger.debug(`Saved ${messages.length} deduplicated messages to ${OUTPUT_FILE}`);
+    logger.debug(`Metadata saved to ${metaFile}`);
   } catch (error) {
-    log('ERROR', `Failed to save messages: ${error.message}`);
+    logger.error(`Failed to save messages: ${error.message}`);
     throw error;
   }
 }
@@ -222,38 +197,37 @@ async function main() {
   const MASTER_TIMEOUT = 180000; // 3-minute master timeout
 
   const timeoutHandle = setTimeout(() => {
-    log('ERROR', 'MASTER TIMEOUT: Process exceeded 3 minutes, forcing exit');
+    logger.critical('MASTER TIMEOUT: Process exceeded 3 minutes, forcing exit');
     process.exit(1);
   }, MASTER_TIMEOUT);
 
-  log('INFO', '========== Phase 2B Duplicate Detection Start (SIMPLIFIED) ==========');
-  log('INFO', `Input: ${INPUT_FILE}`);
-  log('INFO', `Output: ${OUTPUT_FILE}`);
+  logger.debug('========== Phase 2B Duplicate Detection Start (Queue-based) ==========');
+  logger.debug(`Output: ${OUTPUT_FILE}`);
 
   try {
-    log('INFO', 'Step 1: Loading messages...');
+    logger.debug('Step 1: Loading messages from queue...');
     const messages = loadMessages();
-    log('INFO', `Loaded ${messages.length} messages`);
+    logger.debug(`Loaded ${messages.length} messages`);
 
     if (messages.length === 0) {
-      log('WARN', 'No messages found');
+      logger.warn('No messages in queue');
       clearTimeout(timeoutHandle);
       process.exit(0);
     }
 
-    log('INFO', 'Step 2: Running deduplication pipeline...');
+    logger.debug('Step 2: Running deduplication pipeline...');
     const engine = new DuplicateDetectionEngine(80);
     const result = engine.deduplicate(messages);
 
-    log('INFO', `Layer 1: ${result.layer1.count} unique, ${result.layer1.removed} exact duplicates`);
-    log('INFO', `Layer 2: ${result.layer2.count} unique, ${result.layer2.removed} prefix duplicates`);
+    logger.debug(`Layer 1: ${result.layer1.count} unique, ${result.layer1.removed} exact duplicates`);
+    logger.debug(`Layer 2: ${result.layer2.count} unique, ${result.layer2.removed} prefix duplicates`);
 
-    log('INFO', 'Step 3: Saving deduplicated messages...');
+    logger.debug('Step 3: Saving deduplicated messages...');
     const metadata = {
       timestamp: new Date().toISOString(),
       runtime_ms: Date.now() - startTime,
       input: {
-        file: INPUT_FILE,
+        source: 'queue',
         count: messages.length,
       },
       layer1: {
@@ -269,20 +243,21 @@ async function main() {
       },
       final: {
         unique: result.layer2.count,
-        reduction: ((messages.length - result.layer2.count) / messages.length * 100).toFixed(1) + '%',
+        reduction: messages.length > 0 ?
+          ((messages.length - result.layer2.count) / messages.length * 100).toFixed(1) + '%' : '0%',
       },
     };
 
     saveDeduplicatedMessages(result.layer2.unique, metadata);
 
-    log('INFO', `Final: ${result.layer2.count} unique messages (${metadata.final.reduction} reduction)`);
-    log('INFO', `Total runtime: ${metadata.runtime_ms}ms`);
-    log('INFO', '========== Phase 2B Duplicate Detection Complete ==========');
+    logger.debug(`Final: ${result.layer2.count} unique messages (${metadata.final.reduction} reduction)`);
+    logger.debug(`Total runtime: ${metadata.runtime_ms}ms`);
+    logger.debug('========== Phase 2B Duplicate Detection Complete ==========');
 
     clearTimeout(timeoutHandle);
     process.exit(0);
   } catch (error) {
-    log('ERROR', `Deduplication failed: ${error.message}`);
+    logger.error(`Deduplication failed: ${error.message}`);
     clearTimeout(timeoutHandle);
     process.exit(1);
   }

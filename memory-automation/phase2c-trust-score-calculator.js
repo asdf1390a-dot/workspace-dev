@@ -1,12 +1,17 @@
 /**
- * Phase 2C: Trust Score Calculator Engine
+ * Phase 2C: Trust Score Calculator Engine (REFACTORED)
  * Deterministic 4-component formula for memory trust scoring
- * Version: 1.0
+ * Version: 1.1 (with queue integration and simplified logging)
  * Created: 2026-05-27
  */
 
 const fs = require('fs');
 const path = require('path');
+const { Logger } = require('./logger');
+
+// Initialize logger
+const LOGS_DIR = process.env.LOGS_DIR || './logs';
+const logger = new Logger(LOGS_DIR);
 
 /**
  * Component 1: Age Decay (30% weight)
@@ -340,7 +345,7 @@ if (require.main === module) {
   const args = process.argv.slice(2);
 
   if (args[0] === '--test') {
-    console.log('Running basic smoke tests...');
+    logger.debug('Running basic smoke tests...');
 
     // Test 1: Fresh, unique, web, verified
     const result1 = calculateTrustScore({
@@ -349,7 +354,7 @@ if (require.main === module) {
       source: 'web',
       manual_status: 'manually_verified',
     });
-    console.log('✅ Test 1 (fresh, unique, web, verified):', result1.score, '≥ 70');
+    logger.debug(`Test 1 (fresh, unique, web, verified): ${result1.score} (≥ 70)`);
 
     // Test 2: 7 days old
     const result2 = calculateTrustScore({
@@ -358,7 +363,7 @@ if (require.main === module) {
       source: 'telegram',
       manual_status: null,
     });
-    console.log('✅ Test 2 (7 days old):', result2.score, '≈ 40-50');
+    logger.debug(`Test 2 (7 days old): ${result2.score} (≈ 40-50)`);
 
     // Test 3: Very old, unknown source
     const result3 = calculateTrustScore({
@@ -367,10 +372,10 @@ if (require.main === module) {
       source: 'unknown',
       manual_status: 'marked_unreliable',
     });
-    console.log('✅ Test 3 (30 days old, unknown):', result3.score, '≤ 10');
+    logger.debug(`Test 3 (30 days old, unknown): ${result3.score} (≤ 10)`);
 
-    console.log('\nSmoke tests complete!');
+    logger.debug('Smoke tests complete!');
   } else {
-    console.log('Usage: node phase2c-trust-score-calculator.js [--test]');
+    logger.warn('Usage: node phase2c-trust-score-calculator.js [--test]');
   }
 }

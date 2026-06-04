@@ -4,6 +4,7 @@ const express = require('express');
 const fs = require('fs').promises;
 const path = require('path');
 const crypto = require('crypto');
+const { FileQueue } = require('./queue');
 
 const app = express();
 const PORT = process.env.PORT || 3009;
@@ -14,6 +15,10 @@ const GATEWAY_TOKEN = process.env.GATEWAY_TOKEN || '';
 const DISCORD_WEBHOOK = process.env.DISCORD_WEBHOOK || '';
 const MEMORY_DIR = process.env.MEMORY_DIR || '/home/jeepney/.claude/projects/-home-jeepney--openclaw-workspace-dev/memory';
 const LOGS_DIR = path.join(__dirname, 'logs');
+const QUEUE_DIR = path.join(__dirname, 'queue');
+
+// Initialize queue
+const queue = new FileQueue(QUEUE_DIR);
 
 // Server state tracking
 const serverStartTime = Date.now();
@@ -21,6 +26,7 @@ let messagesCollected = 0;
 let memoryFilesRead = 0;
 let errorCount = 0;
 let lastCollectionTime = null;
+let messagesEnqueued = 0;
 
 // Middleware
 app.use(express.json());
@@ -122,12 +128,30 @@ app.post('/api/collect-messages', async (req, res) => {
       });
     }
 
+    // Enqueue messages to queue system
+    let enqueuedCount = 0;
+    for (const msg of formattedMessages) {
+      try {
+        queue.enqueue({
+          type: 'message',
+          data: msg,
+          source: 'session',
+          sessionKey,
+        });
+        enqueuedCount++;
+      } catch (queueError) {
+        await logError(queueError, { context: 'queue_enqueue', message: msg });
+      }
+    }
+
     messagesCollected += formattedMessages.length;
+    messagesEnqueued += enqueuedCount;
     lastCollectionTime = new Date().toISOString();
 
     res.json({
       success: true,
       count: formattedMessages.length,
+      enqueued: enqueuedCount,
       messages: formattedMessages,
       collectedAt: lastCollectionTime,
     });
@@ -164,10 +188,7 @@ app.post('/api/collect-memory', async (req, res) => {
     const contentLines = content.split('\n');
     const truncatedContent = contentLines.slice(0, lines).join('\n');
 
-    memoryFilesRead++;
-    lastCollectionTime = new Date().toISOString();
-
-    res.json({
+    const memoryItem = {
       success: true,
       filename: path.basename(resolvedPath),
       contentLength: content.length,
@@ -176,11 +197,28 @@ app.post('/api/collect-memory', async (req, res) => {
       content: truncatedContent,
       checksum: checksum,
       lastModified: stats.mtime.toISOString(),
-      collectedAt: lastCollectionTime,
+      collectedAt: new Date().toISOString(),
       source: 'automated_collection',
       frequency: 1,
       timestamp: Date.now(),
-    });
+    };
+
+    // Enqueue to queue system
+    try {
+      queue.enqueue({
+        type: 'memory',
+        data: memoryItem,
+        filename: path.basename(resolvedPath),
+      });
+      messagesEnqueued++;
+    } catch (queueError) {
+      await logError(queueError, { context: 'queue_enqueue', filename: filePath });
+    }
+
+    memoryFilesRead++;
+    lastCollectionTime = new Date().toISOString();
+
+    res.json(memoryItem);
   } catch (error) {
     await logError(error, { endpoint: '/api/collect-memory', ...req.body });
     const statusCode = error.code === 'ENOENT' ? 404 : 500;
@@ -278,12 +316,15 @@ app.post('/api/batch-collect', async (req, res) => {
 // GET /api/status
 app.get('/api/status', (req, res) => {
   const uptime = Math.floor((Date.now() - serverStartTime) / 1000);
+  const queueHealth = queue.health();
   res.json({
     uptime: uptime,
     messagesCollected: messagesCollected,
+    messagesEnqueued: messagesEnqueued,
     memoryFilesRead: memoryFilesRead,
     errors: errorCount,
     lastCollection: lastCollectionTime,
+    queue: queueHealth,
     timestamp: new Date().toISOString(),
   });
 });
