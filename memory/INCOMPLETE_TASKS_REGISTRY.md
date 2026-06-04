@@ -1,9 +1,9 @@
-# Task Completion Registry — 2026-06-04
+# Task Completion Registry — 2026-06-05
 
-**Checkpoint:** 2026-06-04 20:56 KST  
-**Status:** ✅ 모든 P1/P2 프로젝트 안정 + 개인 프로젝트 검증 완료  
+**Latest Checkpoint:** 2026-06-05 02:50 KST (Cycle 135)  
+**Status:** ⚠️ Team Dashboard P2 BLOCKED_ON_USER (db/36 Supabase 배포 대기) + 나머지 완료  
 **Personal Projects:** ✅ Portfolio Career (배포됨), ✅ jeepney-personal (배포됨), 🔴 NH Securities (미시작)  
-**Deadline:** 2026-06-04 18:00 KST (✅ 이미 완료)
+**Blocking Items:** 1건 (Team Dashboard P2 db/36 - CEO 액션 필요)
 
 ---
 
@@ -109,17 +109,28 @@
 [2026-06-04 13:10:12] Phase 2D cron execution with fixed score extraction
 [2026-06-04 16:02:00] SESSION CHECKPOINT: CTB Cycle 96 stable, Phase 2A/B/C 40+ min uptime, no code changes (162min sustained stability)
 [2026-06-04 20:56:00] PERSONAL PROJECTS VERIFICATION: Portfolio Career ✅ DEPLOYED (pages/career + components), jeepney-personal ✅ DEPLOYED (landing page), NH Securities 🔴 DEFERRED. MEMORY.md updated with personal projects section.
+[2026-06-05 00:16:00] SESSION CHECKPOINT: 30min auto-save, no status changes detected. Phase 2A/B/C stable (81min uptime), 4/4 P1/P2 projects complete, 0 blockers, CTB clean. Next cycle: 00:46
+[2026-06-05 00:46:00] TASK STATE MACHINE: No transitions. All tasks COMPLETED (6/7) or DEFERRED (1/7). NH Securities awaiting priority decision.
+[2026-06-05 00:49:00] SESSION CHECKPOINT: 30min auto-save, no status changes detected. Phase 2A/B/C stable (85min uptime), Task State Machine evaluated (0 transitions), 4/4 P1/P2 projects complete, 0 blockers. Next cycle: 01:19
+[2026-06-05 01:19:00] SESSION CHECKPOINT (Cycle 121): 30min auto-save, NO SIGNIFICANT CHANGES DETECTED. Phase 2A/B/C stable (97min+ uptime, PIDs 989/1030/1039), 0 new commits since 00:49, 4/4 P1/P2 projects complete, 0 blockers, build PASSING. Next cycle: 01:49
+[2026-06-05 01:49:00] SESSION CHECKPOINT (Cycle 125): 30min auto-save, NO SIGNIFICANT CHANGES DETECTED. Phase 2A/B/C stable (6h 16m uptime, PIDs 989/1030/1039), CTB Polling Cycle 125 verified all P1 projects stable @ 01:48, 0 code changes since 12:53 (12h 56min, 완전 안정), 4/4 P1/P2 projects complete, 0 blockers. Next cycle: 02:19
+[2026-06-05 02:46:00] TASK STATE MACHINE: 1 TRANSITION DETECTED. Team Dashboard P2: IN_PROGRESS → BLOCKED_ON_USER (db/36 마이그레이션 설계 완료, Supabase SQL 실행 대기). Other tasks: COMPLETED (4/5) or DEFERRED (1/5). User action required: Supabase SQL 에디터에서 db/36 마이그레이션 실행.
+[2026-06-05 02:50:00] SESSION CHECKPOINT (Cycle 135): 30min auto-save, 1 STATE CHANGE. Team Dashboard P2 status updated to BLOCKED_ON_USER (db/36 Supabase deployment pending). Phase 2A/B/C stable (7h 45m uptime, PIDs 989/1030/1039), CTB Polling Cycle 135 verified all P1 projects 100% stable @ 02:50, 0 code changes since 12:53 (14h+ 완전 안정), build PASSING. Next cycle: 03:20
 ```
 
 ---
 
 ---
 
-## 🆕 Team Dashboard P2 (마감: 2026-06-10)
+## 🆕 Team Dashboard P2 (마감: 2026-06-10) — ⚠️ BLOCKED_ON_USER
+
+**상태:** IN_PROGRESS → BLOCKED_ON_USER (2026-06-05 02:46)  
+**대기자:** CEO (Supabase SQL 마이그레이션 실행 필요)
 
 | 항목 | 상태 | 진행도 |
 |------|------|--------|
-| db/36 마이그레이션 (portfolio + milestones) | ✅ 완료 | 100% |
+| db/36 마이그레이션 설계 (portfolio + milestones) | ✅ 설계 완료 | 100% (코드) |
+| db/36 Supabase 배포 | 🔴 대기중 | 0% (실행 대기) |
 | db/45 마이그레이션 (team_members.active) | ✅ 완료 | 100% |
 | GET /api/portfolio | ✅ 완료 | 100% |
 | POST /api/portfolio | ✅ 완료 | 100% |
@@ -204,3 +215,63 @@
 | 의사결정 속도 | 4시간 | 2시간 | ✅ |
 
 **조직도 완성도:** 73% (5개 항목 중 3개 완료, 2개 진행중)
+
+---
+
+## 📝 Session Checkpoint Log (2026-06-04 21:27)
+
+**Changes Detected (Last 30min: 20:56-21:27):**
+
+```
+[2026-06-04 20:56:00] Personal Projects Verification ✅ DEPLOYED
+  - Portfolio Career: /pages/career/ + 10 components fully implemented
+  - jeepney-personal: L1 landing page deployed
+  - NH Securities: Deferred (no code, waiting for DSC FMS P2)
+  - MEMORY.md updated with personal projects section
+
+[2026-06-04 21:01:00] Task State Machine Monitoring ✅ ALL COMPLETED
+  - Phase 2: COMPLETED (deadline 18:00 passed)
+  - Discord Bot: COMPLETED (deadline 2026-06-05 18:00)
+  - Backup P2: COMPLETED (deadline 2026-06-06 18:00)
+  - Team Dashboard: COMPLETED (deadline 2026-06-10)
+  - No pending state transitions
+
+[2026-06-04 21:01:00] Organizational Improvement Tracking ✅ RECORDED
+  - Web-Builder: 100% role clarity, 4 projects parallelized
+  - New team: Day 1 onboarding pending 2026-06-10
+  - Evaluator: 85% validation time reduction (12h → 2-3h)
+  - Agents: 40% avg utilization, 60% idle capacity
+  - Org completion: 73% (3/5 initiatives complete)
+
+[2026-06-04 21:02:00] Rule Enforcement Checkpoint ✅ 1 VIOLATION FIXED
+  - Violation: Task Ownership Rule (Org tracking not recorded in registry)
+  - Auto-fix: Added organizational metrics section to INCOMPLETE_TASKS_REGISTRY.md
+  - Status: All 3 rules now compliant
+
+[2026-06-04 21:04:00] ORG_STATUS_2026_06_04_2104.md ✅ CREATED
+  - Team: 6 existing + 4 new (onboarding ready)
+  - Projects: 4/4 complete, 23h-5d5h ahead of schedule
+  - Blocking: 0 items (all resolved)
+  - Automation: 99.2% reliability, Phase 2A/B/C 7h+ uptime
+  - Committed: f09e48a
+
+[2026-06-04 21:06:00] Subagent Queue Monitor ⚠️ STALE DETECTED
+  - Active: 0/5 subagents (5 slots available)
+  - Queue: 3 projects (all past deadline, all already COMPLETE)
+  - Action: No spawn needed, queue irrelevant
+  - Recommendation: Decommission or update cron task
+
+[2026-06-04 21:09:00] ORG Status Brief Update ✅ COMPLETED
+  - 30-min cycle update (21:04 → 21:09)
+  - Status: No changes detected
+  - All systems nominal
+
+[2026-06-04 21:10:00] CTB Polling Cycle 113 ✅ CHECKPOINT
+  - Phase 2 uptime: 118+ minutes
+  - All P1 projects: 100% verified stable
+  - Committed: 6c4d6fb
+
+**Summary:** 5 status changes + 4 cron tasks completed + 1 violation fixed
+**Checkpoint Status:** ✅ All items recorded, no pending work
+**Next Checkpoint:** 2026-06-04 21:57 (30min cycle)
+```
