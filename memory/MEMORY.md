@@ -49,8 +49,8 @@
 
 ## 🟢 PHASE 2 ACTIVE PROJECTS
 
-- [Travel-P2-UI](project/TRAVEL_MANAGEMENT_PHASE2_PLAN.md) — 🔵 **QA 진행 중** (4 pages + 7 tabs, 평가자 검증 대기, 마감 2026-06-05 18:00)
-- [Asset Master Phase 2](project/ASSET_MASTER_PHASE2_POST_MIGRATION_PLAN.md) — 🔵 **DB 마이그레이션 대기** (16 API 구현 완료, db/29 사용자 실행 대기)
+- [Travel-P2-UI](TRAVEL_P2_QA_FINAL_REPORT.md) — ✅ **QA APPROVED** (3회 반복 검증 통과, 2 버그 fix 완료, 프로덕션 배포 준비됨, 마감 2026-06-05 18:00)
+- [Asset Master Phase 2](project/ASSET_MASTER_PHASE2_POST_MIGRATION_PLAN.md) — 🔵 **DB 마이그레이션 대기** (16 API 구현 완료, db/36 사용자 실행 대기)
 
 ## 📚 REFERENCE
 
@@ -60,6 +60,6 @@
 
 ---
 
-**메모리 최종 검증:** 2026-06-04 14:10 KST (CTB 직접 확인)  
-**신뢰도:** 100% (Live CTB + filesystem 검증)  
-**다음 동작:** Travel-P2-UI QA 상태 모니터링 (마감 2026-06-05 18:00)
+**메모리 최종 검증:** 2026-06-04 14:45 KST (Travel-P2-UI QA 완료, evaluator 승인)  
+**신뢰도:** 100% (Evaluator 3회 반복 검증)  
+**다음 동작:** Asset Master Phase 2 db/36 마이그레이션 사용자 실행 대기
