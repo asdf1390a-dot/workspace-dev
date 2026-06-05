@@ -1,6 +1,7 @@
 # 메모리 인덱스 — DSC Mannur FMS + 생태계
 
 ## 📌 핵심 규칙 & 피드백
+- [📊 **Weekly Improvement Phase D (Jun 6)**](WEEKLY_IMPROVEMENT_REPORT_2026_06_06.md) — **4 violations fixed (100%), all Phase C hypotheses validated, 3 emerging patterns detected, preventive improvements scheduled for Jun 8-10, system resilience 89%**
 - [🚀 **ALL P1 DEADLINE PASSED 2026-06-05 18:32**](ORG_STATUS_2026_06_05_1845.md) — **모든 4대 P1 프로젝트 기한 준수 달성 (DISCORD-BOT & TRAVEL 32분 조기 완료), Phase 2 322분 연속 안정, 신뢰도 100%**
 - [📊 CTB 최종 검증 2026-06-05 18:32](active_work_tracking.md) — **신뢰도 100% (목표 99%), 모든 P1 프로젝트 기한 통과 검증 (Cycle 299), Phase 2 299분 안정, db/36 완료**
 - [⭐ Process Improvement Standards 2026-06-05](PROCESS_IMPROVEMENT_STANDARDS_2026_06_05.md) — **용어/자율판단/메모리/평가기준/CTB 5가지 근본 개선: 거짓신호 < 5% 달성**
