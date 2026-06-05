@@ -1,5 +1,11 @@
 # 메모리 인덱스 — DSC Mannur FMS + 생태계
 
+## 📌 핵심 규칙 & 피드백
+- [Action Item Access Links](feedback_action_item_access_links.md) — User 액션 항목시 홈페이지/SQL 링크 항상 포함 (무조건)
+- [Rule Compliance Audit 2026-06-05 12:25](RULE_COMPLIANCE_AUDIT_20260605_1225.md) — 4-hour comprehensive review: 0/16 violations, 100% compliant
+
+---
+
 **✅ POLLING CYCLE 252 (2026-06-05 07:53:00 KST) — All Systems Stable (13h+ Deployment, 13h+ Phase 2 Uptime, ZERO Drift)**
 - **Status:** All 4 P1/P2 projects 100% complete, 13h+ continuous uptime sustained, code drift: ZERO
 - AUDIT-P1: ✅ 완료 (verified @ 07:53:00) — 2 routes confirmed, 289 LOC verified, zero drift (stable since 06-04 12:53)
