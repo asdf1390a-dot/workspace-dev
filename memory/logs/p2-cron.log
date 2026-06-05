@@ -32,3 +32,20 @@
 [2026-06-05 00:00:01]    Predicted memory need: 14287508KB in 24h
 [2026-06-05 00:00:01]    Predicted disk growth: 1954836KB in 24h
 [2026-06-05 00:00:01] 🎯 JARVIS daily analysis complete. Results saved to /home/jeepney/.openclaw/workspace-dev/memory/p2-jarvis-analysis-20260605.json
+[2026-06-06 00:00:01] 🤖 JARVIS: Starting daily risk analysis...
+{
+    "timestamp": "2026-06-05T15:00:01Z",
+    "risks": ["Memory file staleness detected: 396 hours old"],
+    "bottlenecks": [""],
+    "predictions": [""],
+    "health_score": 85,
+    "active_agents": 6
+  }
+[2026-06-06 00:00:01] ✅ Risk analysis complete
+[2026-06-06 00:00:01]    Risks detected: 1
+[2026-06-06 00:00:01]    Bottlenecks detected: 0
+[2026-06-06 00:00:01]    Recommendations: 0
+[2026-06-06 00:00:01] 📊 Predicting resource needs for next 24 hours...
+[2026-06-06 00:00:03]    Predicted memory need: 14125712KB in 24h
+[2026-06-06 00:00:03]    Predicted disk growth: 2115424KB in 24h
+[2026-06-06 00:00:03] 🎯 JARVIS daily analysis complete. Results saved to /home/jeepney/.openclaw/workspace-dev/memory/p2-jarvis-analysis-20260606.json
