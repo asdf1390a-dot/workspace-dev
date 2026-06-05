@@ -14,6 +14,22 @@
 
 ---
 
+## 🚨 **Deadline Monitor Report — 2026-06-06 08:00 KST**
+
+| Category | Count | Items | Status |
+|----------|-------|-------|--------|
+| 🔴 **OVERDUE** | 3 | Phase 2 Reliability, Discord Bot P1, Travel-P2-UI | ✅ ALL COMPLETE |
+| ⚠️ **URGENT** (< 6h) | 3 | db/36 (BLOCKING), BM P1, Backup P2 | 1 CRITICAL, 2 COMPLETE |
+| 🟡 **NORMAL** (≥ 6h) | 2 | Team Dashboard P2 (blocked), Memory Auto P2 | 1 PROGRESSING, 1 COMPLETE |
+
+**Critical Alert:** db/36 migration entered URGENT window (10h remaining, deadline 18:00 KST). This blocks Team Dashboard P2 UI completion.
+
+**State Transition:** db/36 transitioned from Normal → URGENT @ 08:00 KST
+
+**Required Action:** CEO must execute db/36 SQL migration by 18:00 KST to unblock Team Dashboard P2 (currently 65% complete, expected finish by 2026-06-10 18:00).
+
+---
+
 ## 📋 **갱신 로그 (Update Log)**
 
 | Timestamp | Change | Impact | Details |
