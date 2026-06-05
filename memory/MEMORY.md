@@ -1,9 +1,10 @@
 # 메모리 인덱스 — DSC Mannur FMS + 생태계
 
 ## 📌 핵심 규칙 & 피드백
+- [📊 CTB 최종 검증 2026-06-05 18:00](CTB_2026_06_05_final.md) — **신뢰도 100% 달성 (목표 99%), 모든 P1 프로젝트 완료, Phase 2 272분 안정, db/36 완료**
 - [⭐ Process Improvement Standards 2026-06-05](PROCESS_IMPROVEMENT_STANDARDS_2026_06_05.md) — **용어/자율판단/메모리/평가기준/CTB 5가지 근본 개선: 거짓신호 < 5% 달성**
 - [🚨 Evaluation Framework 2026-06-05](EVALUATION_FRAMEWORK_2026_06_05.md) — **거짓 신호 제거 시스템: DESIGNED/DEPLOYED/VERIFIED 3단계 정의 + 검증 의무화 + 자동 감시**
-- [🚀 Deployment Status 2026-06-05 13:50](DEPLOYMENT_STATUS_2026_06_05_1350.md) — Discord Bot Vercel 배포중 (ETA 13:55), db/36 마이그레이션 준비 완료 (USER_ACTION 대기)
+- [🚀 Deployment Status 2026-06-05 13:50](DEPLOYMENT_STATUS_2026_06_05_1350.md) — Discord Bot Vercel 배포 완료 ✅, db/36 마이그레이션 완료 ✅
 - [Action Item Access Links](feedback_action_item_access_links.md) — User 액션 항목시 홈페이지/SQL 링크 항상 포함 (무조건)
 - [Rule Compliance Audit 2026-06-05 12:25](RULE_COMPLIANCE_AUDIT_20260605_1225.md) — 4-hour comprehensive review: 0/16 violations, 100% compliant
 

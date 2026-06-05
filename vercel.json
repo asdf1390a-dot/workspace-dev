@@ -1,4 +1,7 @@
 {
+  "installCommand": "cd dsc-fms-portal && npm install",
+  "buildCommand": "cd dsc-fms-portal && npm run build",
+  "outputDirectory": "dsc-fms-portal/.next",
   "crons": [
     {
       "path": "/api/cron/auto-info-collection",
@@ -6,23 +9,19 @@
     },
     {
       "path": "/api/cron/checkpoints/08-00",
-      "schedule": "0 23 * * *",
-      "description": "Daily checkpoint 08:00 KST (CTB first update)"
+      "schedule": "0 23 * * *"
     },
     {
       "path": "/api/cron/checkpoints/14-00",
-      "schedule": "0 5 * * *",
-      "description": "Daily checkpoint 14:00 KST (team progress check)"
+      "schedule": "0 5 * * *"
     },
     {
       "path": "/api/cron/checkpoints/15-00",
-      "schedule": "0 6 * * *",
-      "description": "Daily checkpoint 15:00 KST (Asset Master P2 report)"
+      "schedule": "0 6 * * *"
     },
     {
       "path": "/api/cron/checkpoints/18-00",
-      "schedule": "0 9 * * *",
-      "description": "Daily checkpoint 18:00 KST (CTB final verification)"
+      "schedule": "0 9 * * *"
     }
   ]
 }
