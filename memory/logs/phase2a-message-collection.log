@@ -64,3 +64,11 @@ Node.js v22.22.2
   GATEWAY_URL: http://localhost:3000
   MEMORY_DIR: /home/jeepney/.claude/projects/-home-jeepney--openclaw-workspace-dev/memory
   Logs: /home/jeepney/.openclaw/workspace-dev/memory-automation/logs
+✓ Message Collection API listening on port 3009
+  GATEWAY_URL: http://localhost:3000
+  MEMORY_DIR: /home/jeepney/.claude/projects/-home-jeepney--openclaw-workspace-dev/memory
+  Logs: /home/jeepney/.openclaw/workspace-dev/memory-automation/logs
+✓ Message Collection API listening on port 3009
+  GATEWAY_URL: http://localhost:3000
+  MEMORY_DIR: /home/jeepney/.claude/projects/-home-jeepney--openclaw-workspace-dev/memory
+  Logs: /home/jeepney/.openclaw/workspace-dev/memory-automation/logs

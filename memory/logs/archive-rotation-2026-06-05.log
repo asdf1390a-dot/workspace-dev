@@ -1,0 +1,170 @@
+[2026-06-05T04:34:07.968Z] [INFO] === Memory Archive Rotation Started ===
+[2026-06-05T04:34:07.969Z] [INFO] Mode: DRY RUN
+[2026-06-05T04:34:07.969Z] [INFO] Retention: 14 days
+[2026-06-05T04:34:07.969Z] [INFO] [DRY RUN] Skipping Supabase verification
+[2026-06-05T04:34:07.970Z] [INFO] Parsing MEMORY.md...
+[2026-06-05T04:34:07.970Z] [INFO] Found 14 dated sections in MEMORY.md
+[2026-06-05T04:34:07.970Z] [INFO] Sections to archive: 0/14 (older than 14 days)
+[2026-06-05T04:34:07.970Z] [INFO] No sections older than retention period, nothing to archive
+[2026-06-05T04:34:13.689Z] [INFO] === Memory Archive Rotation Started ===
+[2026-06-05T04:34:13.690Z] [INFO] Mode: DRY RUN
+[2026-06-05T04:34:13.690Z] [INFO] Retention: 14 days
+[2026-06-05T04:34:13.690Z] [INFO] [DRY RUN] Skipping Supabase verification
+[2026-06-05T04:34:13.690Z] [INFO] Parsing MEMORY.md...
+[2026-06-05T04:34:13.690Z] [DEBUG] Found section: "**✅ POLLING CYCLE 252 (2026-06-05 07:53:00 KST) — All Systems Stable (13h+ Deplo" (age: -1 days)
+[2026-06-05T04:34:13.690Z] [DEBUG] Found section: "**✅ SESSION CHECKPOINT 265 (2026-06-05 11:25 KST) — No Significant Changes (ORG_" (age: -1 days)
+[2026-06-05T04:34:13.690Z] [DEBUG] Found section: "**✅ SESSION CHECKPOINT 264 (2026-06-05 10:26 KST) — No Significant Changes**" (age: -1 days)
+[2026-06-05T04:34:13.690Z] [DEBUG] Found section: "**✅ SESSION CHECKPOINT 263 (2026-06-05 09:56 KST) — No Significant Changes**" (age: -1 days)
+[2026-06-05T04:34:13.691Z] [DEBUG] Found section: "**✅ SESSION CHECKPOINT 262 (2026-06-05 09:26 KST) — No Significant Changes**" (age: -1 days)
+[2026-06-05T04:34:13.691Z] [DEBUG] Found section: "**✅ SESSION CHECKPOINT 261 (2026-06-05 08:55 KST) — No Significant Changes**" (age: -1 days)
+[2026-06-05T04:34:13.691Z] [DEBUG] Found section: "**✅ SESSION CHECKPOINT 260 (2026-06-05 08:25 KST) — No Significant Changes**" (age: -1 days)
+[2026-06-05T04:34:13.691Z] [DEBUG] Found section: "**✅ SESSION CHECKPOINT 255 (2026-06-05 07:54 KST) — No Significant Changes**" (age: -1 days)
+[2026-06-05T04:34:13.691Z] [DEBUG] Found section: "**✅ SESSION CHECKPOINT 145 (2026-06-05 03:51 KST) — No Significant Changes**" (age: 0 days)
+[2026-06-05T04:34:13.691Z] [DEBUG] Found section: "**✅ POLLING CYCLE 131 (2026-06-05 02:19 KST) — 모든 시스템 정상 + 안정**" (age: 0 days)
+[2026-06-05T04:34:13.691Z] [DEBUG] Found section: "**🟢 EMERGENCY RECOVERY COMPLETE (2026-06-04 17:12 KST)**  " (age: 0 days)
+[2026-06-05T04:34:13.691Z] [DEBUG] Found section: "**🌙 저녁 체크포인트 (2026-06-04 19:40 KST)**" (age: 0 days)
+[2026-06-05T04:34:13.691Z] [DEBUG] Found section: "**📊 SESSION CHECKPOINT #3 (2026-06-04 17:41 KST)**" (age: 0 days)
+[2026-06-05T04:34:13.691Z] [DEBUG] Found section: "**메모리 최종 검증:** 2026-06-04 14:45 KST (Travel-P2-UI QA 완료, evaluator 승인)  " (age: 0 days)
+[2026-06-05T04:34:13.691Z] [INFO] Found 14 dated sections in MEMORY.md
+[2026-06-05T04:34:13.691Z] [INFO] Sections to archive: 0/14 (older than 14 days)
+[2026-06-05T04:34:13.691Z] [INFO] No sections older than retention period, nothing to archive
+[2026-06-05T04:34:32.766Z] [INFO] === Memory Archive Rotation Started ===
+[2026-06-05T04:34:32.767Z] [INFO] Mode: DRY RUN
+[2026-06-05T04:34:32.767Z] [INFO] Retention: 14 days
+[2026-06-05T04:34:32.767Z] [INFO] [DRY RUN] Skipping Supabase verification
+[2026-06-05T04:34:32.767Z] [INFO] Parsing MEMORY.md...
+[2026-06-05T04:34:32.768Z] [DEBUG] Found section: "**✅ POLLING CYCLE 252 (2026-06-05 07:53:00 KST) — All Systems Stable (13h+ Deplo" (age: -1 days)
+[2026-06-05T04:34:32.768Z] [DEBUG] Found section: "**✅ SESSION CHECKPOINT 265 (2026-06-05 11:25 KST) — No Significant Changes (ORG_" (age: -1 days)
+[2026-06-05T04:34:32.768Z] [DEBUG] Found section: "**✅ SESSION CHECKPOINT 264 (2026-06-05 10:26 KST) — No Significant Changes**" (age: -1 days)
+[2026-06-05T04:34:32.768Z] [DEBUG] Found section: "**✅ SESSION CHECKPOINT 263 (2026-06-05 09:56 KST) — No Significant Changes**" (age: -1 days)
+[2026-06-05T04:34:32.768Z] [DEBUG] Found section: "**✅ SESSION CHECKPOINT 262 (2026-06-05 09:26 KST) — No Significant Changes**" (age: -1 days)
+[2026-06-05T04:34:32.768Z] [DEBUG] Found section: "**✅ SESSION CHECKPOINT 261 (2026-06-05 08:55 KST) — No Significant Changes**" (age: -1 days)
+[2026-06-05T04:34:32.768Z] [DEBUG] Found section: "**✅ SESSION CHECKPOINT 260 (2026-06-05 08:25 KST) — No Significant Changes**" (age: -1 days)
+[2026-06-05T04:34:32.768Z] [DEBUG] Found section: "**✅ SESSION CHECKPOINT 255 (2026-06-05 07:54 KST) — No Significant Changes**" (age: -1 days)
+[2026-06-05T04:34:32.768Z] [DEBUG] Found section: "**✅ SESSION CHECKPOINT 145 (2026-06-05 03:51 KST) — No Significant Changes**" (age: 0 days)
+[2026-06-05T04:34:32.768Z] [DEBUG] Found section: "**✅ POLLING CYCLE 131 (2026-06-05 02:19 KST) — 모든 시스템 정상 + 안정**" (age: 0 days)
+[2026-06-05T04:34:32.768Z] [DEBUG] Found section: "**🟢 EMERGENCY RECOVERY COMPLETE (2026-06-04 17:12 KST)**  " (age: 0 days)
+[2026-06-05T04:34:32.768Z] [DEBUG] Found section: "**🌙 저녁 체크포인트 (2026-06-04 19:40 KST)**" (age: 0 days)
+[2026-06-05T04:34:32.768Z] [DEBUG] Found section: "**📊 SESSION CHECKPOINT #3 (2026-06-04 17:41 KST)**" (age: 0 days)
+[2026-06-05T04:34:32.768Z] [DEBUG] Found section: "**메모리 최종 검증:** 2026-06-04 14:45 KST (Travel-P2-UI QA 완료, evaluator 승인)  " (age: 0 days)
+[2026-06-05T04:34:32.768Z] [INFO] Found 14 dated sections in MEMORY.md
+[2026-06-05T04:34:32.769Z] [INFO] Sections to archive: 0/14 (older than 14 days)
+[2026-06-05T04:34:32.769Z] [INFO] No sections older than retention period, nothing to archive
+[2026-06-05T04:35:53.515Z] [INFO] === Memory Archive Rotation Started ===
+[2026-06-05T04:35:53.517Z] [INFO] Mode: DRY RUN
+[2026-06-05T04:35:53.529Z] [INFO] Retention: 14 days
+[2026-06-05T04:35:53.529Z] [INFO] [DRY RUN] Skipping Supabase verification
+[2026-06-05T04:35:53.529Z] [INFO] Parsing MEMORY.md...
+[2026-06-05T04:35:53.530Z] [INFO] Found 14 dated sections in MEMORY.md
+[2026-06-05T04:35:53.530Z] [INFO] Sections to archive: 0/14 (older than 14 days)
+[2026-06-05T04:35:53.530Z] [INFO] No sections older than retention period, nothing to archive
+[2026-06-05T04:35:54.037Z] [INFO] === Memory Archive Rotation Started ===
+[2026-06-05T04:35:54.038Z] [INFO] Mode: DRY RUN
+[2026-06-05T04:35:54.038Z] [INFO] Retention: 14 days
+[2026-06-05T04:35:54.039Z] [INFO] [DRY RUN] Skipping Supabase verification
+[2026-06-05T04:35:54.039Z] [INFO] Parsing MEMORY.md...
+[2026-06-05T04:35:54.039Z] [DEBUG] Found section: "**✅ POLLING CYCLE 252 (2026-06-05 07:53:00 KST) — All Systems Stable (13h+ Deplo" (age: 0 days)
+[2026-06-05T04:35:54.039Z] [DEBUG] Found section: "**✅ SESSION CHECKPOINT 265 (2026-06-05 11:25 KST) — No Significant Changes (ORG_" (age: 0 days)
+[2026-06-05T04:35:54.039Z] [DEBUG] Found section: "**✅ SESSION CHECKPOINT 264 (2026-06-05 10:26 KST) — No Significant Changes**" (age: 0 days)
+[2026-06-05T04:35:54.039Z] [DEBUG] Found section: "**✅ SESSION CHECKPOINT 263 (2026-06-05 09:56 KST) — No Significant Changes**" (age: 0 days)
+[2026-06-05T04:35:54.040Z] [DEBUG] Found section: "**✅ SESSION CHECKPOINT 262 (2026-06-05 09:26 KST) — No Significant Changes**" (age: 0 days)
+[2026-06-05T04:35:54.040Z] [DEBUG] Found section: "**✅ SESSION CHECKPOINT 261 (2026-06-05 08:55 KST) — No Significant Changes**" (age: 0 days)
+[2026-06-05T04:35:54.040Z] [DEBUG] Found section: "**✅ SESSION CHECKPOINT 260 (2026-06-05 08:25 KST) — No Significant Changes**" (age: 0 days)
+[2026-06-05T04:35:54.040Z] [DEBUG] Found section: "**✅ SESSION CHECKPOINT 255 (2026-06-05 07:54 KST) — No Significant Changes**" (age: 0 days)
+[2026-06-05T04:35:54.040Z] [DEBUG] Found section: "**✅ SESSION CHECKPOINT 145 (2026-06-05 03:51 KST) — No Significant Changes**" (age: 0 days)
+[2026-06-05T04:35:54.040Z] [DEBUG] Found section: "**✅ POLLING CYCLE 131 (2026-06-05 02:19 KST) — 모든 시스템 정상 + 안정**" (age: 0 days)
+[2026-06-05T04:35:54.040Z] [DEBUG] Found section: "**🟢 EMERGENCY RECOVERY COMPLETE (2026-06-04 17:12 KST)**  " (age: 0 days)
+[2026-06-05T04:35:54.040Z] [DEBUG] Found section: "**🌙 저녁 체크포인트 (2026-06-04 19:40 KST)**" (age: 0 days)
+[2026-06-05T04:35:54.040Z] [DEBUG] Found section: "**📊 SESSION CHECKPOINT #3 (2026-06-04 17:41 KST)**" (age: 0 days)
+[2026-06-05T04:35:54.040Z] [DEBUG] Found section: "**메모리 최종 검증:** 2026-06-04 14:45 KST (Travel-P2-UI QA 완료, evaluator 승인)  " (age: 0 days)
+[2026-06-05T04:35:54.040Z] [INFO] Found 14 dated sections in MEMORY.md
+[2026-06-05T04:35:54.040Z] [INFO] Sections to archive: 0/14 (older than 14 days)
+[2026-06-05T04:35:54.040Z] [INFO] No sections older than retention period, nothing to archive
+[2026-06-05T04:35:59.581Z] [INFO] === Memory Archive Rotation Started ===
+[2026-06-05T04:35:59.582Z] [INFO] Mode: DRY RUN
+[2026-06-05T04:35:59.582Z] [INFO] Retention: 14 days
+[2026-06-05T04:35:59.582Z] [INFO] [DRY RUN] Skipping Supabase verification
+[2026-06-05T04:35:59.582Z] [INFO] Parsing MEMORY.md...
+[2026-06-05T04:35:59.582Z] [DEBUG] Found section: "**✅ POLLING CYCLE 252 (2026-06-05 07:53:00 KST) — All Systems Stable (13h+ Deplo" (age: 0 days)
+[2026-06-05T04:35:59.582Z] [DEBUG] Found section: "**✅ SESSION CHECKPOINT 265 (2026-06-05 11:25 KST) — No Significant Changes (ORG_" (age: 0 days)
+[2026-06-05T04:35:59.583Z] [DEBUG] Found section: "**✅ SESSION CHECKPOINT 264 (2026-06-05 10:26 KST) — No Significant Changes**" (age: 0 days)
+[2026-06-05T04:35:59.583Z] [DEBUG] Found section: "**✅ SESSION CHECKPOINT 263 (2026-06-05 09:56 KST) — No Significant Changes**" (age: 0 days)
+[2026-06-05T04:35:59.583Z] [DEBUG] Found section: "**✅ SESSION CHECKPOINT 262 (2026-06-05 09:26 KST) — No Significant Changes**" (age: 0 days)
+[2026-06-05T04:35:59.583Z] [DEBUG] Found section: "**✅ SESSION CHECKPOINT 261 (2026-06-05 08:55 KST) — No Significant Changes**" (age: 0 days)
+[2026-06-05T04:35:59.583Z] [DEBUG] Found section: "**✅ SESSION CHECKPOINT 260 (2026-06-05 08:25 KST) — No Significant Changes**" (age: 0 days)
+[2026-06-05T04:35:59.583Z] [DEBUG] Found section: "**✅ SESSION CHECKPOINT 255 (2026-06-05 07:54 KST) — No Significant Changes**" (age: 0 days)
+[2026-06-05T04:35:59.583Z] [DEBUG] Found section: "**✅ SESSION CHECKPOINT 145 (2026-06-05 03:51 KST) — No Significant Changes**" (age: 0 days)
+[2026-06-05T04:35:59.583Z] [DEBUG] Found section: "**✅ POLLING CYCLE 131 (2026-06-05 02:19 KST) — 모든 시스템 정상 + 안정**" (age: 0 days)
+[2026-06-05T04:35:59.583Z] [DEBUG] Found section: "**🟢 EMERGENCY RECOVERY COMPLETE (2026-06-04 17:12 KST)**  " (age: 0 days)
+[2026-06-05T04:35:59.583Z] [DEBUG] Found section: "**🌙 저녁 체크포인트 (2026-06-04 19:40 KST)**" (age: 0 days)
+[2026-06-05T04:35:59.583Z] [DEBUG] Found section: "**📊 SESSION CHECKPOINT #3 (2026-06-04 17:41 KST)**" (age: 0 days)
+[2026-06-05T04:35:59.583Z] [DEBUG] Found section: "**메모리 최종 검증:** 2026-06-04 14:45 KST (Travel-P2-UI QA 완료, evaluator 승인)  " (age: 0 days)
+[2026-06-05T04:35:59.583Z] [INFO] Found 14 dated sections in MEMORY.md
+[2026-06-05T04:35:59.583Z] [INFO] Sections to archive: 0/14 (older than 14 days)
+[2026-06-05T04:35:59.583Z] [INFO] No sections older than retention period, nothing to archive
+[2026-06-05T04:36:38.949Z] [INFO] === Memory Archive Rotation Started ===
+[2026-06-05T04:36:38.951Z] [INFO] Mode: DRY RUN
+[2026-06-05T04:36:38.951Z] [INFO] Retention: 14 days
+[2026-06-05T04:36:38.951Z] [INFO] [DRY RUN] Skipping Supabase verification
+[2026-06-05T04:36:38.951Z] [INFO] Parsing MEMORY.md...
+[2026-06-05T04:36:38.951Z] [DEBUG] Found section: "**✅ POLLING CYCLE 252 (2026-06-05 07:53:00 KST) — All Systems Stable (13h+ Deplo" (age: 0 days)
+[2026-06-05T04:36:38.951Z] [DEBUG] Found section: "**✅ SESSION CHECKPOINT 265 (2026-06-05 11:25 KST) — No Significant Changes (ORG_" (age: 0 days)
+[2026-06-05T04:36:38.951Z] [DEBUG] Found section: "**✅ SESSION CHECKPOINT 264 (2026-06-05 10:26 KST) — No Significant Changes**" (age: 0 days)
+[2026-06-05T04:36:38.951Z] [DEBUG] Found section: "**✅ SESSION CHECKPOINT 263 (2026-06-05 09:56 KST) — No Significant Changes**" (age: 0 days)
+[2026-06-05T04:36:38.952Z] [DEBUG] Found section: "**✅ SESSION CHECKPOINT 262 (2026-06-05 09:26 KST) — No Significant Changes**" (age: 0 days)
+[2026-06-05T04:36:38.952Z] [DEBUG] Found section: "**✅ SESSION CHECKPOINT 261 (2026-06-05 08:55 KST) — No Significant Changes**" (age: 0 days)
+[2026-06-05T04:36:38.952Z] [DEBUG] Found section: "**✅ SESSION CHECKPOINT 260 (2026-06-05 08:25 KST) — No Significant Changes**" (age: 0 days)
+[2026-06-05T04:36:38.952Z] [DEBUG] Found section: "**✅ SESSION CHECKPOINT 255 (2026-06-05 07:54 KST) — No Significant Changes**" (age: 0 days)
+[2026-06-05T04:36:38.952Z] [DEBUG] Found section: "**✅ SESSION CHECKPOINT 145 (2026-06-05 03:51 KST) — No Significant Changes**" (age: 0 days)
+[2026-06-05T04:36:38.952Z] [DEBUG] Found section: "**✅ POLLING CYCLE 131 (2026-06-05 02:19 KST) — 모든 시스템 정상 + 안정**" (age: 0 days)
+[2026-06-05T04:36:38.952Z] [DEBUG] Found section: "**🟢 EMERGENCY RECOVERY COMPLETE (2026-06-04 17:12 KST)**  " (age: 0 days)
+[2026-06-05T04:36:38.952Z] [DEBUG] Found section: "**🌙 저녁 체크포인트 (2026-06-04 19:40 KST)**" (age: 0 days)
+[2026-06-05T04:36:38.952Z] [DEBUG] Found section: "**📊 SESSION CHECKPOINT #3 (2026-06-04 17:41 KST)**" (age: 0 days)
+[2026-06-05T04:36:38.952Z] [DEBUG] Found section: "**메모리 최종 검증:** 2026-06-04 14:45 KST (Travel-P2-UI QA 완료, evaluator 승인)  " (age: 0 days)
+[2026-06-05T04:36:38.952Z] [INFO] Found 14 dated sections in MEMORY.md
+[2026-06-05T04:36:38.952Z] [INFO] Sections to archive: 0/14 (older than 14 days)
+[2026-06-05T04:36:38.952Z] [INFO] No sections older than retention period, nothing to archive
+[2026-06-05T04:36:39.218Z] [INFO] === Memory Archive Rotation Started ===
+[2026-06-05T04:36:39.219Z] [INFO] Mode: DRY RUN
+[2026-06-05T04:36:39.219Z] [INFO] Retention: 14 days
+[2026-06-05T04:36:39.219Z] [INFO] [DRY RUN] Skipping Supabase verification
+[2026-06-05T04:36:39.220Z] [INFO] Parsing MEMORY.md...
+[2026-06-05T04:36:39.220Z] [DEBUG] Found section: "**✅ POLLING CYCLE 252 (2026-06-05 07:53:00 KST) — All Systems Stable (13h+ Deplo" (age: 0 days)
+[2026-06-05T04:36:39.220Z] [DEBUG] Found section: "**✅ SESSION CHECKPOINT 265 (2026-06-05 11:25 KST) — No Significant Changes (ORG_" (age: 0 days)
+[2026-06-05T04:36:39.220Z] [DEBUG] Found section: "**✅ SESSION CHECKPOINT 264 (2026-06-05 10:26 KST) — No Significant Changes**" (age: 0 days)
+[2026-06-05T04:36:39.220Z] [DEBUG] Found section: "**✅ SESSION CHECKPOINT 263 (2026-06-05 09:56 KST) — No Significant Changes**" (age: 0 days)
+[2026-06-05T04:36:39.220Z] [DEBUG] Found section: "**✅ SESSION CHECKPOINT 262 (2026-06-05 09:26 KST) — No Significant Changes**" (age: 0 days)
+[2026-06-05T04:36:39.220Z] [DEBUG] Found section: "**✅ SESSION CHECKPOINT 261 (2026-06-05 08:55 KST) — No Significant Changes**" (age: 0 days)
+[2026-06-05T04:36:39.221Z] [DEBUG] Found section: "**✅ SESSION CHECKPOINT 260 (2026-06-05 08:25 KST) — No Significant Changes**" (age: 0 days)
+[2026-06-05T04:36:39.221Z] [DEBUG] Found section: "**✅ SESSION CHECKPOINT 255 (2026-06-05 07:54 KST) — No Significant Changes**" (age: 0 days)
+[2026-06-05T04:36:39.221Z] [DEBUG] Found section: "**✅ SESSION CHECKPOINT 145 (2026-06-05 03:51 KST) — No Significant Changes**" (age: 0 days)
+[2026-06-05T04:36:39.221Z] [DEBUG] Found section: "**✅ POLLING CYCLE 131 (2026-06-05 02:19 KST) — 모든 시스템 정상 + 안정**" (age: 0 days)
+[2026-06-05T04:36:39.221Z] [DEBUG] Found section: "**🟢 EMERGENCY RECOVERY COMPLETE (2026-06-04 17:12 KST)**  " (age: 0 days)
+[2026-06-05T04:36:39.221Z] [DEBUG] Found section: "**🌙 저녁 체크포인트 (2026-06-04 19:40 KST)**" (age: 0 days)
+[2026-06-05T04:36:39.221Z] [DEBUG] Found section: "**📊 SESSION CHECKPOINT #3 (2026-06-04 17:41 KST)**" (age: 0 days)
+[2026-06-05T04:36:39.221Z] [DEBUG] Found section: "**메모리 최종 검증:** 2026-06-04 14:45 KST (Travel-P2-UI QA 완료, evaluator 승인)  " (age: 0 days)
+[2026-06-05T04:36:39.221Z] [INFO] Found 14 dated sections in MEMORY.md
+[2026-06-05T04:36:39.221Z] [INFO] Sections to archive: 0/14 (older than 14 days)
+[2026-06-05T04:36:39.221Z] [INFO] No sections older than retention period, nothing to archive
+[2026-06-05T04:37:48.690Z] [INFO] === Memory Archive Rotation Started ===
+[2026-06-05T04:37:48.691Z] [INFO] Mode: DRY RUN
+[2026-06-05T04:37:48.691Z] [INFO] Retention: 14 days
+[2026-06-05T04:37:48.691Z] [INFO] [DRY RUN] Skipping Supabase verification
+[2026-06-05T04:37:48.692Z] [INFO] Parsing MEMORY.md...
+[2026-06-05T04:37:48.692Z] [DEBUG] Found section: "**✅ POLLING CYCLE 252 (2026-06-05 07:53:00 KST) — All Systems Stable (13h+ Deplo" (age: 0 days)
+[2026-06-05T04:37:48.692Z] [DEBUG] Found section: "**✅ SESSION CHECKPOINT 265 (2026-06-05 11:25 KST) — No Significant Changes (ORG_" (age: 0 days)
+[2026-06-05T04:37:48.692Z] [DEBUG] Found section: "**✅ SESSION CHECKPOINT 264 (2026-06-05 10:26 KST) — No Significant Changes**" (age: 0 days)
+[2026-06-05T04:37:48.692Z] [DEBUG] Found section: "**✅ SESSION CHECKPOINT 263 (2026-06-05 09:56 KST) — No Significant Changes**" (age: 0 days)
+[2026-06-05T04:37:48.692Z] [DEBUG] Found section: "**✅ SESSION CHECKPOINT 262 (2026-06-05 09:26 KST) — No Significant Changes**" (age: 0 days)
+[2026-06-05T04:37:48.692Z] [DEBUG] Found section: "**✅ SESSION CHECKPOINT 261 (2026-06-05 08:55 KST) — No Significant Changes**" (age: 0 days)
+[2026-06-05T04:37:48.693Z] [DEBUG] Found section: "**✅ SESSION CHECKPOINT 260 (2026-06-05 08:25 KST) — No Significant Changes**" (age: 0 days)
+[2026-06-05T04:37:48.693Z] [DEBUG] Found section: "**✅ SESSION CHECKPOINT 255 (2026-06-05 07:54 KST) — No Significant Changes**" (age: 0 days)
+[2026-06-05T04:37:48.693Z] [DEBUG] Found section: "**✅ SESSION CHECKPOINT 145 (2026-06-05 03:51 KST) — No Significant Changes**" (age: 0 days)
+[2026-06-05T04:37:48.693Z] [DEBUG] Found section: "**✅ POLLING CYCLE 131 (2026-06-05 02:19 KST) — 모든 시스템 정상 + 안정**" (age: 0 days)
+[2026-06-05T04:37:48.693Z] [DEBUG] Found section: "**🟢 EMERGENCY RECOVERY COMPLETE (2026-06-04 17:12 KST)**  " (age: 0 days)
+[2026-06-05T04:37:48.693Z] [DEBUG] Found section: "**🌙 저녁 체크포인트 (2026-06-04 19:40 KST)**" (age: 0 days)
+[2026-06-05T04:37:48.693Z] [DEBUG] Found section: "**📊 SESSION CHECKPOINT #3 (2026-06-04 17:41 KST)**" (age: 0 days)
+[2026-06-05T04:37:48.693Z] [DEBUG] Found section: "**메모리 최종 검증:** 2026-06-04 14:45 KST (Travel-P2-UI QA 완료, evaluator 승인)  " (age: 0 days)
+[2026-06-05T04:37:48.693Z] [INFO] Found 14 dated sections in MEMORY.md
+[2026-06-05T04:37:48.693Z] [INFO] Sections to archive: 0/14 (older than 14 days)
+[2026-06-05T04:37:48.693Z] [INFO] No sections older than retention period, nothing to archive
