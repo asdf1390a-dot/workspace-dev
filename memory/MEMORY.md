@@ -1,6 +1,7 @@
 # 메모리 인덱스 — DSC Mannur FMS + 생태계
 
 ## 📌 핵심 규칙 & 피드백
+- [🚨 Evaluation Framework 2026-06-05](EVALUATION_FRAMEWORK_2026_06_05.md) — **거짓 신호 제거 시스템: DESIGNED/DEPLOYED/VERIFIED 3단계 정의 + 검증 의무화 + 자동 감시**
 - [Action Item Access Links](feedback_action_item_access_links.md) — User 액션 항목시 홈페이지/SQL 링크 항상 포함 (무조건)
 - [Rule Compliance Audit 2026-06-05 12:25](RULE_COMPLIANCE_AUDIT_20260605_1225.md) — 4-hour comprehensive review: 0/16 violations, 100% compliant
 
