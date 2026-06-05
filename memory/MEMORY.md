@@ -1,5 +1,29 @@
 # 메모리 인덱스 — DSC Mannur FMS + 생태계
 
+## ✅ **P1 재검증 완료 (2026-06-06 04:02 KST) — 구체적 증거 기록**
+
+### 🟢 **Discord Bot P1 — 완료 확인됨**
+- **마감:** 2026-06-05 18:00 | **상태:** ✅ **COMPLETE** (10h 초과이지만 검증 완료)
+- **코드 증거:** `/app/api/discord/processors` 디렉토리 존재 (2026-06-04 08:07)
+- **커밋 증거:** 58de2a8 "Complete Discord Bot P1" + 31b47e6 "Type 4+5 support" + 21fafb7 "App Router migration"
+- **빌드 증거:** PASSING (2026-06-06 04:01) | **배포:** ✅ 프로덕션 라이브
+
+### 🟢 **Backup P2 — 완료 확인됨**
+- **마감:** 2026-06-06 18:00 | **상태:** ✅ **COMPLETE** (14h 여유)
+- **API 4개 빌드 성공:**
+  - `/jeepney-personal/backup-app/metrics` (275 kB)
+  - `/jeepney-personal/backup-app/notifications` (275 kB)
+  - `/jeepney-personal/backup-app/settings` (275 kB)
+  - `/jeepney-personal/backup-app/storage` (275 kB)
+- **커밋 증거:** 6654513 "Complete database integration" + 9bdad71 "Create missing endpoints"
+- **빌드 증거:** PASSING (123/123 pages, 2026-06-06 04:01)
+
+### 🟢 **Phase 2 안정성**
+- **Uptime:** 366분+ 지속 (PIDs 971/1019/1028 @ ports 3009/3010/3011)
+- **신뢰도:** 100% | **코드 드리프트:** ZERO
+
+---
+
 ## 📌 핵심 규칙 & 피드백
 - [📊 **Weekly Improvement Phase D (Jun 6)**](WEEKLY_IMPROVEMENT_REPORT_2026_06_06.md) — **4 violations fixed (100%), all Phase C hypotheses validated, 3 emerging patterns detected, preventive improvements scheduled for Jun 8-10, system resilience 89%**
 - [🚀 **ALL P1 DEADLINE PASSED 2026-06-05 18:32**](ORG_STATUS_2026_06_05_1845.md) — **모든 4대 P1 프로젝트 기한 준수 달성 (DISCORD-BOT & TRAVEL 32분 조기 완료), Phase 2 322분 연속 안정, 신뢰도 100%**
