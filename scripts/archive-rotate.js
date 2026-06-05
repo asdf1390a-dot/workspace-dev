@@ -144,7 +144,7 @@ function parseMemoryFile() {
   let match;
   while ((match = datePattern.exec(content)) !== null) {
     const [fullDate, year, month, day, hour, minute, second] = match;
-    const dateObj = new Date(`${year}-${month}-${day}T${hour}:${minute}:${second || '00'}Z`);
+    const dateObj = new Date(`${year}-${month}-${day}T${hour}:${minute}:${second || '00'}+09:00`);
     const ageMs = Date.now() - dateObj.getTime();
     const ageDays = Math.floor(ageMs / (1000 * 60 * 60 * 24));
 

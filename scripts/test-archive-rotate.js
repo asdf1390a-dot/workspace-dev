@@ -60,7 +60,7 @@ runner.test('Script file exists', () => {
  * Test 2: Validate database schema file exists
  */
 runner.test('Database schema file exists', () => {
-  const schemaPath = path.join(__dirname, '../db/40_memory_archive.sql');
+  const schemaPath = path.join(__dirname, '../db/44_memory_archive.sql');
   if (!fs.existsSync(schemaPath)) {
     throw new Error(`Schema file not found: ${schemaPath}`);
   }

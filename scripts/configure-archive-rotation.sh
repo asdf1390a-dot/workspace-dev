@@ -12,7 +12,7 @@ readonly SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 readonly PROJECT_ROOT="$(dirname "${SCRIPT_DIR}")"
 readonly ARCHIVE_SCRIPT="${SCRIPT_DIR}/archive-rotate.js"
 readonly CRON_SCRIPT="${SCRIPT_DIR}/archive-rotate-cron.sh"
-readonly DB_SCHEMA="${PROJECT_ROOT}/db/40_memory_archive.sql"
+readonly DB_SCHEMA="${PROJECT_ROOT}/db/44_memory_archive.sql"
 readonly SETUP_DOC="${PROJECT_ROOT}/ARCHIVE_ROTATION_SETUP.md"
 
 # Colors
@@ -72,9 +72,9 @@ check_files_exist() {
   fi
 
   if [[ -f "${DB_SCHEMA}" ]]; then
-    print_success "40_memory_archive.sql exists"
+    print_success "44_memory_archive.sql exists"
   else
-    print_error "40_memory_archive.sql not found"
+    print_error "44_memory_archive.sql not found"
     missing=$((missing + 1))
   fi
 
@@ -247,7 +247,7 @@ Option 2: Manual SQL Execution
 ───────────────────────────────
 1. Go to Supabase Dashboard → SQL Editor
 2. Create new query
-3. Copy contents of: db/40_memory_archive.sql
+3. Copy contents of: db/44_memory_archive.sql
 4. Execute
 
 The schema includes:
@@ -269,7 +269,7 @@ show_summary() {
   • scripts/archive-rotate.js (450 lines)
   • scripts/archive-rotate-cron.sh (wrapper)
   • scripts/test-archive-rotate.js (test suite)
-  • db/40_memory_archive.sql (schema)
+  • db/44_memory_archive.sql (schema)
   • ARCHIVE_ROTATION_SETUP.md (full documentation)
 
 🔧 Next Steps:
