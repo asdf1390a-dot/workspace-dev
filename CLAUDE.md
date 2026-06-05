@@ -1,7 +1,7 @@
 # 🎯 Team Skills Auto-Injection Framework — CLAUDE.md Root
 
-**Status:** Phase 3 Agent Integration Active (2026-06-05)  
-**Purpose:** Auto-activate learnings templates based on role + task type  
+**Status:** Phase 4.0 Agent Context Injection Active (2026-06-05)  
+**Purpose:** Auto-activate learnings templates based on role + task type via agent context loader  
 **Owner:** Team Lead (CTB)
 
 ---
@@ -41,11 +41,11 @@ Each level inherits + specializes parent rules. Start at root, then check folder
 | 역할 | 템플릿 경로 | 로드 시점 | 핵심 체크리스트 |
 |------|-----------|---------|----------------|
 | **웹개발자** | `skills/웹개발자-auto-injection.md` | API 개발, 컴포넌트 생성 | Supabase 클라이언트 분리, 환경변수 관리, Route 보호, 타입 안전성 |
-| **평가자** | `skills/평가자-spot-check-template.md` | QA 테스트, 배포 검증 | 10건 샘플 검증, 3개 엣지케이스 (네트워크/권한/경계값) |
-| **데이터분석가** | `skills/데이터분석가-validation-template.md` | API 검증, DB 마이그레이션 | 5단계 검증 (요구사항→응답→DB→로직→판정), SQL 템플릿 제공 |
-| **번역가** | `skills/translate-biz-kr-en/SKILL.md` | 한영 비즈니스 번역 | 5가지 Critical Patterns (긴급도 감지, 용어 일관성, 톤 조정) |
-| **비서** | `skills/비서-auto-checklist.md` | 월간 팀 조율, 배포 게이트 | Glossary 3층 일관성, BM 데이터 품질, 팀 우선순위 정렬 |
-| **플레너** | `skills/플레너-design-template.md` | UI/DB 설계, 아키텍처 | 설계 순서 강제 (용어→스키마→UI), CLAUDE.md 계층 구조, 데이터 흐름 시각화 |
+| **평가자** | `skills/평가자-auto-injection.md` | QA 테스트, 배포 검증 | 5영역 spot check (네트워크/권한/경계값/품질/에러), 3회 반복 검증 |
+| **데이터분석가** | `skills/데이터분석가-auto-injection.md` | API 검증, DB 마이그레이션 | 5단계 검증 (스키마→형식→엣지케이스→RLS→배포후), SQL 템플릿 제공 |
+| **번역가** | `skills/번역가-auto-injection.md` | 한영 비즈니스 번역 | 5가지 Critical Patterns (긴급도/용어/형식/약어/시간), GLOSSARY SSOT |
+| **비서** | `skills/비서-auto-injection.md` | 월간 팀 조율, 배포 게이트 | 5개 월간 체크포인트 (Glossary/BM품질/배포/우선순위/에스컬) |
+| **플레너** | `skills/플레너-auto-injection.md` | UI/DB 설계, 아키텍처 | 4단계 설계 순서 (용어→스키마→UI→API), CLAUDE.md 계층, Progressive Disclosure |
 
 ---
 
@@ -95,27 +95,145 @@ TASK: "Design new glossary + database schema for asset metadata"
 
 ---
 
-## 📊 Phase 3 Integration Status
+## 📊 Phase 4.0 Agent Context Injection Status
 
-### ✅ Completed (Phase 2)
-- [x] 웹개발자-auto-injection.md (1171 LOC)
-- [x] 평가자-spot-check-template.md (383 LOC)
-- [x] 데이터분석가-validation-template.md (442 LOC)
-- [x] translate-biz-kr-en/SKILL.md (107 LOC updated)
-- [x] 비서-auto-checklist.md (340 LOC)
-- [x] 플레너-design-template.md (428 LOC)
+### ✅ Completed (Phase 4.0 — 2026-06-05)
 
-### 🔄 In Progress (Phase 3)
-- [ ] Create `/skills/CLAUDE.md` — Template loading best practices
-- [ ] Create `/pages/CLAUDE.md` — UI page structure rules (derived from planner template)
-- [ ] Create `/pages/api/CLAUDE.md` — API route structure rules (derived from web-builder template)
-- [ ] Create `/components/CLAUDE.md` — Component dependency mapping (derived from planner template)
-- [ ] Update agent system instructions to reference this CLAUDE.md registry
+**6 Auto-Injection Templates (3,475 LOC):**
+- [x] 웹개발자-auto-injection.md (1,171 LOC) — Next.js, Supabase, TS types, error handling
+- [x] 평가자-auto-injection.md (383 LOC) — 5-area spot check: network/permission/data/quality/error
+- [x] 데이터분석가-auto-injection.md (442 LOC) — 5-step API validation + SQL templates
+- [x] 번역가-auto-injection.md (447 LOC) — 5 critical patterns: urgency/terminology/format/abbreviations/time
+- [x] 플레너-auto-injection.md (417 LOC) — 4-step design: glossary→schema→UI→API
+- [x] 비서-auto-injection.md (615 LOC) — 5 monthly checkpoints: glossary/BM/deployment/priority/escalation
 
-### 📋 Pending (Phase 3)
-- [ ] Auto-load mechanism: When agent invoked → search CLAUDE.md + load template
-- [ ] Feedback loop: Track template usage (which sections help most)
-- [ ] Monthly review: Update templates based on team feedback + lessons learned
+**Infrastructure & Documentation (1,200+ LOC):**
+- [x] skills/TASK_PATTERNS_REGISTRY.json — 6 task patterns + 2 multi-agent patterns
+- [x] skills/AGENT_SYSTEM_INSTRUCTIONS.json — 6 agent role definitions + injection hooks
+- [x] memory-automation/agent-context-loader.js — Pattern detection, caching, telemetry
+- [x] PHASE4_AUTO_INJECTION_SPEC.md — 50+ KB technical specification
+- [x] memory-automation/TEMPLATE_USAGE_METRICS.json — Telemetry tracking (auto-populated)
+- [x] skills/TEMPLATE_UPDATE_LOG.md — Change tracking + monthly review process
+
+### 🔄 In Progress (Phase 4.1 — Week 1-2)
+- [ ] Agent framework integration: Load AGENT_SYSTEM_INSTRUCTIONS.json on agent init
+- [ ] Injection hooks: Implement before_implementation, before_api_design, etc.
+- [ ] End-to-end testing: Task input → pattern detection → template load → agent execution
+- [ ] Update agent system prompts to reference TASK_PATTERNS_REGISTRY.json
+
+### 📋 Pending (Phase 4.2-4.4)
+
+**Phase 4.2 (Week 1-2): Test Suite**
+- [ ] Unit tests: Pattern detection confidence scoring (target: >90% accuracy)
+- [ ] Integration tests: Full activation flow (task → pattern → injection → agent)
+- [ ] Performance tests: Detection <100ms, template load <400ms, total <500ms
+- [ ] Real-world scenarios: 10 example tasks per agent role
+
+**Phase 4.3 (Week 2-3): Telemetry & Feedback**
+- [ ] Populate TEMPLATE_USAGE_METRICS.json from agent-context-loader activations
+- [ ] Secretary monthly review: Activation frequency, common sections, errors
+- [ ] Create TEMPLATE_IMPROVEMENT_REPORT.md (monthly recommendations)
+- [ ] Update templates based on feedback
+
+**Phase 4.4 (Week 3): Full Rollout**
+- [ ] Deploy agent-context-loader to production
+- [ ] Monitor activation rates (target: >80% of tasks)
+- [ ] Collect user feedback (effectiveness survey)
+- [ ] Iterate on templates based on telemetry data
+
+---
+
+---
+
+## 🔧 Phase 4 Agent Context Injection Architecture
+
+### System Overview
+
+**Goal:** Automatically load role templates into agent system prompts based on task type detection. Reduce manual pattern search (5-10 min → <30 sec per task).
+
+**3-Layer Architecture:**
+
+```
+Detection Layer (Task Parsing)
+  ↓ Task description input
+  ↓ Regex pattern matching + confidence scoring
+  ↓ Identifies task type (api-development, qa-verification, etc.)
+  
+Mapping Layer (Registry Lookup)
+  ↓ TASK_PATTERNS_REGISTRY.json
+  ↓ Maps: task pattern → agents → templates
+  ↓ Determines which templates to load
+  
+Injection Layer (Context Insertion)
+  ↓ Template loading from disk (with caching)
+  ↓ Section extraction (load relevant sections only)
+  ↓ Context insertion into agent system prompt
+  ↓ Agent executes with auto-loaded knowledge
+```
+
+### Core Components
+
+| Component | File | Purpose |
+|-----------|------|---------|
+| **Pattern Registry** | `skills/TASK_PATTERNS_REGISTRY.json` | Maps task descriptions to agents + templates |
+| **Agent Instructions** | `skills/AGENT_SYSTEM_INSTRUCTIONS.json` | Agent role definitions + injection hooks |
+| **Context Loader** | `memory-automation/agent-context-loader.js` | Runtime pattern detection + template loading + caching |
+| **6 Templates** | `skills/*-auto-injection.md` | Domain knowledge for each agent role |
+| **Telemetry** | `memory-automation/TEMPLATE_USAGE_METRICS.json` | Activation tracking (auto-populated) |
+
+### Task Pattern Matching
+
+**When you describe a task:**
+```
+Task: "Add new API endpoint for tracking BM events"
+
+Pattern Matching:
+  - Keywords detected: "API", "endpoint", "develop"
+  - Confidence score: 0.87 (threshold 0.80)
+  - Pattern matched: "api-development"
+  - Agents assigned: ["web-builder"]
+  - Templates loaded: ["웹개발자-auto-injection.md"]
+  
+Result: Agent system prompt auto-includes web-builder learnings
+```
+
+**Confidence Scoring (0.0-1.0):**
+- \>= 0.80: Auto-inject template (high confidence)
+- 0.60-0.80: Ask user confirmation before injecting
+- < 0.60: Use base learnings only (low confidence)
+
+### Injection Hooks (Execution Points)
+
+Templates auto-load at strategic points:
+
+| Hook | Timing | Purpose |
+|------|--------|---------|
+| `before_implementation` | Before agent starts coding | Load role-specific implementation patterns |
+| `before_api_design` | Before API route planning | Load API contract templates |
+| `before_database_migration` | Before schema changes | Load validation + RLS planning rules |
+| `before_commit` | Before git commit | Load commit message + code review guidelines |
+| `before_deployment` | Before production push | Load deployment checklist |
+
+### Multi-Agent Handoff Sequences
+
+**Sequential (fullstack-feature):**
+```
+User: "Design & implement travel module with data validation"
+  ↓ Planner agent (4-step design)
+  ↓ Web-builder agent (implementation)
+  ↓ Data-analyst agent (API validation)
+  ↓ Evaluator agent (QA spot check)
+  → Feature complete + signed off
+```
+
+**Parallel (deployment-gate):**
+```
+User: "Ready to deploy travel module?"
+  ↓ Data-analyst ────┐
+  ↓ Evaluator       ├─ All run simultaneously
+  ↓ Secretary       ─┘
+  → Deployment approved (if all sign-off)
+```
 
 ---
 
@@ -176,6 +294,6 @@ When you discover template gap or improvement:
 
 ---
 
-**Last Updated:** 2026-06-05 03:10 KST  
+**Last Updated:** 2026-06-05 11:45 KST  
 **Maintainer:** Claude (CTB)  
-**Version:** 3.0 (Phase 3 Integration Framework)
+**Version:** 4.0 (Phase 4.0 Agent Context Injection Framework)

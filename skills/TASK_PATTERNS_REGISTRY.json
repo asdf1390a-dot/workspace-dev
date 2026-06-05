@@ -1,0 +1,274 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2026-06-05T11:35:00+0900",
+  "description": "Task-type pattern registry for Phase 4 Agent Integration. Maps task descriptions to agent roles + learnings templates.",
+  "task_patterns": [
+    {
+      "id": "api-development",
+      "name": "API Route Development",
+      "description": "Creating new API endpoints, route handlers, middleware, or API schema changes",
+      "patterns": [
+        "(api|endpoint|route|handler).*develop",
+        "new.*api.*route",
+        "implement.*handler",
+        "(create|add).*api",
+        "api.*integration"
+      ],
+      "agents": ["web-builder"],
+      "templates": ["skills/웹개발자-auto-injection.md"],
+      "trigger_sections": [
+        "API Development — Route Protection + Type Safety",
+        "Supabase 클라이언트 분리",
+        "환경변수 관리"
+      ],
+      "activation_mode": "automatic",
+      "confidence_threshold": 0.85,
+      "examples": [
+        "Add POST /api/bm/events endpoint",
+        "Implement Supabase RLS for breakdowns route",
+        "Create new API middleware for auth"
+      ]
+    },
+    {
+      "id": "qa-verification",
+      "name": "QA Testing & Spot Check",
+      "description": "Testing features, validating behavior across edge cases, running spot checks",
+      "patterns": [
+        "(test|qa|verify|spot.check|validation)",
+        "evaluate.*feature",
+        "check.*functionality",
+        "validate.*behavior"
+      ],
+      "agents": ["evaluator"],
+      "templates": ["skills/평가자-auto-injection.md"],
+      "trigger_sections": [
+        "Spot Check 최소 기준",
+        "10-Sample Verification",
+        "엣지케이스 검증",
+        "BM 데이터 품질"
+      ],
+      "activation_mode": "automatic",
+      "confidence_threshold": 0.80,
+      "examples": [
+        "QA test new BM input form",
+        "Verify Travel module settlement logic",
+        "Run spot check on 10 sample records"
+      ]
+    },
+    {
+      "id": "data-validation",
+      "name": "API Response Validation & Data Migration",
+      "description": "Validating API contracts, checking data quality, running migration verification",
+      "patterns": [
+        "(validate|migration|verify).*api",
+        "data.*check",
+        "schema.*validation",
+        "api.*contract"
+      ],
+      "agents": ["data-analyst"],
+      "templates": ["skills/데이터분석가-auto-injection.md"],
+      "trigger_sections": [
+        "API 검증 5단계 체크리스트",
+        "SQL 템플릿 라이브러리",
+        "배포후 Spot Check"
+      ],
+      "activation_mode": "automatic",
+      "confidence_threshold": 0.82,
+      "examples": [
+        "Validate BM API response schema",
+        "Check data migration results",
+        "Run post-deployment spot check SQL"
+      ]
+    },
+    {
+      "id": "business-translation",
+      "name": "Korean ↔ English Business Documents",
+      "description": "Translating or polishing business emails, Excel files, PowerPoint, plain text between Korean and English",
+      "patterns": [
+        "(번역|translate|polish)",
+        "(한국|korean|영어|english|business)",
+        "(email|excel|powerpoint|문서|document)",
+        "(tone|어조|용어|terminology)"
+      ],
+      "agents": ["translator"],
+      "templates": ["skills/번역가-auto-injection.md"],
+      "trigger_sections": [
+        "Critical Patterns — 5가지 필수 확인",
+        "긴급도 톤 유지",
+        "용어 일관성",
+        "약어 처리"
+      ],
+      "activation_mode": "automatic",
+      "confidence_threshold": 0.75,
+      "examples": [
+        "Translate HQ email to India staff",
+        "Polish Korean document for English audience",
+        "Maintain terminology consistency in business document"
+      ]
+    },
+    {
+      "id": "ui-db-design",
+      "name": "UI/DB Schema & Architecture Design",
+      "description": "Designing page layouts, component structures, database schemas, system architecture",
+      "patterns": [
+        "(design|schema|architecture).*ui",
+        "(ui|database|component|page).*design",
+        "page.*structure",
+        "component.*hierarchy"
+      ],
+      "agents": ["planner"],
+      "templates": ["skills/플레너-auto-injection.md"],
+      "trigger_sections": [
+        "설계 우선순위 순서",
+        "용어→스키마→UI 순서",
+        "Glossary SSOT",
+        "Progressive Disclosure"
+      ],
+      "activation_mode": "automatic",
+      "confidence_threshold": 0.80,
+      "examples": [
+        "Design Travel module pages and tabs",
+        "Plan database schema for new feature",
+        "Define component hierarchy for dashboard"
+      ]
+    },
+    {
+      "id": "team-coordination",
+      "name": "Monthly Team Alignment & Cross-Layer Consistency",
+      "description": "Monthly audits, team coordination, glossary consistency checks, escalation decisions",
+      "patterns": [
+        "(team|coordination|alignment)",
+        "(glossary|consistency|review)",
+        "monthly.*check",
+        "(escalation|priority)"
+      ],
+      "agents": ["secretary"],
+      "templates": ["skills/비서-auto-injection.md"],
+      "trigger_sections": [
+        "Glossary 3층 일관성 검증",
+        "월간 5개 체크포인트",
+        "에스컬레이션 기준",
+        "우선순위 조정"
+      ],
+      "activation_mode": "scheduled_monthly",
+      "confidence_threshold": 0.85,
+      "examples": [
+        "Run monthly glossary consistency audit",
+        "Escalate priority conflict between teams",
+        "Align 3-layer glossary (global/page/API/component)"
+      ]
+    }
+  ],
+  "multi_agent_patterns": [
+    {
+      "id": "fullstack-feature",
+      "name": "Full-Stack Feature Development",
+      "description": "End-to-end feature delivery: design → API → validation → QA",
+      "primary_agent": "planner",
+      "secondary_agents": ["web-builder", "data-analyst", "evaluator"],
+      "execution_sequence": [
+        {
+          "phase": "1_design",
+          "agent": "planner",
+          "output": "Design Decision Memo (DDM) with glossary + schema"
+        },
+        {
+          "phase": "2_api",
+          "agent": "web-builder",
+          "input": "DDM from planner",
+          "output": "API routes + components + DB migration"
+        },
+        {
+          "phase": "3_validation",
+          "agent": "data-analyst",
+          "input": "API from web-builder",
+          "output": "Validation report + SQL test suite"
+        },
+        {
+          "phase": "4_qa",
+          "agent": "evaluator",
+          "input": "Validated API from data-analyst",
+          "output": "QA report with 10+ spot-check samples"
+        }
+      ],
+      "handoff_criteria": [
+        "phase_1: Schema normalized, glossary entries >= 3",
+        "phase_2: API tests pass, types validated, migration tested",
+        "phase_3: 5-step validation complete, zero data quality issues",
+        "phase_4: Zero blockers, spot checks pass"
+      ]
+    },
+    {
+      "id": "deployment-gate",
+      "name": "Pre-Deployment Quality Gate",
+      "description": "Multi-layer verification before production: QA + data validation + consistency check",
+      "primary_agent": "evaluator",
+      "secondary_agents": ["data-analyst", "secretary"],
+      "execution_sequence": [
+        {
+          "phase": "parallel_qa",
+          "agent": "evaluator",
+          "task": "Run QA spot-check on 10+ samples"
+        },
+        {
+          "phase": "parallel_validation",
+          "agent": "data-analyst",
+          "task": "Validate API contracts and data quality"
+        },
+        {
+          "phase": "parallel_consistency",
+          "agent": "secretary",
+          "task": "Check glossary alignment across 3 layers"
+        }
+      ],
+      "merge_criteria": "All 3 agents sign-off (QA passed, data valid, glossary aligned)",
+      "escalation_path": "If any agent blocks: escalate to secretary for priority decision"
+    }
+  ],
+  "detection_rules": {
+    "description": "Rules for pattern matching and confidence scoring",
+    "algorithm": "weighted_regex_matching",
+    "steps": [
+      "Extract task description from user input",
+      "Compare against all patterns in task_patterns[] using regex",
+      "Calculate confidence score: (matched_keywords / total_keywords) × pattern_weight",
+      "If multiple patterns match: return highest confidence >= confidence_threshold",
+      "If no pattern >= threshold: fallback to base learnings (no auto-injection)"
+    ],
+    "tie_breaking": [
+      "If confidence scores equal: prefer task_patterns[] order (more specific patterns listed first)",
+      "If still tied: ask user for clarification or load all matching templates"
+    ],
+    "false_positive_guards": [
+      "Require minimum 2 matching keywords (prevent accidental activation)",
+      "Context check: ensure task description has >= 5 words (spam prevention)",
+      "Require explicit agent match (don't auto-inject if agent keyword absent)"
+    ]
+  },
+  "fallback_behavior": {
+    "description": "What to do if pattern matching fails or has low confidence",
+    "low_confidence_threshold": 0.60,
+    "behavior": [
+      "If confidence < 0.60: Load base learnings (웹개발자-learnings.md equivalent)",
+      "If confidence 0.60-0.80: Load template + ask user for confirmation",
+      "If confidence >= 0.80: Auto-load template without confirmation"
+    ]
+  },
+  "telemetry_logging": {
+    "description": "What to log for feedback loop",
+    "log_fields": [
+      "timestamp: ISO 8601 format",
+      "task_id: unique identifier",
+      "task_description: original user input",
+      "detected_pattern: pattern ID that matched",
+      "confidence_score: 0.0-1.0",
+      "agent: which agent was activated",
+      "template: which template was loaded",
+      "sections_used: array of template sections referenced",
+      "time_to_complete: task execution duration",
+      "user_feedback: helpful/not helpful (explicit)",
+      "code_changes: number of files modified (implicit quality metric)",
+      "git_commit: reference for reproducibility"
+    ]
+  }
+}
