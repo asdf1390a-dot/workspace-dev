@@ -1,0 +1,62 @@
+{
+  "snapshot": {
+    "timestamp": "2026-06-06T09:57:24+09:00",
+    "epoch": 1780707444,
+    "location": "/home/jeepney/.openclaw/workspace-dev/memory"
+  },
+  "files": {
+    "total_count": 244,
+    "root_level_md": "counted",
+    "root_level_json": "counted",
+    "subdirs": ["backups", "collected", "logs"],
+    "total_size_mb": 45
+  },
+  "key_files": {
+    "MEMORY.md": {
+      "location": "/home/jeepney/.claude/projects/-home-jeepney--openclaw-workspace-dev/memory/MEMORY.md",
+      "size_kb": 8.3,
+      "status": "PRESENT"
+    },
+    "INCOMPLETE_TASKS_REGISTRY.md": {
+      "checksum": "426d8f8f04e46e99c309d2b18dc7424229ea08202cbdfb7cf4802499ffca6659",
+      "status": "PRESENT",
+      "last_update": "2026-06-06T09:27:00+09:00"
+    },
+    "MEMORY_DRIFT_LOG.md": {
+      "checksum": "17784fbc2ed9e012f602c8bba60a7b192a93d139cab84dc25f3b1380787a7420",
+      "status": "PRESENT",
+      "last_update": "checked"
+    },
+    "ORG_STATUS_2026_06_06_0930.md": {
+      "checksum": "4bf1bb77bef1ed18dafca3f5a38453b20132de96d2c5800e66df9516d0a7a8f9",
+      "status": "PRESENT"
+    }
+  },
+  "recent_files": {
+    "ORG_STATUS_2026_06_06_0918.md": "CREATED 2026-06-06 09:18",
+    "CTB_2026_06_06_CYCLE513.json": "CREATED 2026-06-06",
+    "DAILY_STATUS_2026_06_06_0310.md": "CREATED 2026-06-06"
+  },
+  "drift_analysis": {
+    "previous_snapshot": "NONE (baseline snapshot)",
+    "files_added": 0,
+    "files_deleted": 0,
+    "files_modified": 0,
+    "drift_percentage": 0,
+    "severity": "INFO"
+  },
+  "integrity": {
+    "critical_files_present": true,
+    "MEMORY_md_status": "PRESENT (8.3KB, last modified 2026-06-05 22:56)",
+    "registry_status": "PRESENT",
+    "drift_log_status": "PRESENT",
+    "org_status_current": "PRESENT (09:30)",
+    "overall_status": "✅ HEALTHY"
+  },
+  "recommendations": [
+    "Baseline snapshot created successfully",
+    "All critical memory files present",
+    "Memory system operational",
+    "Continue monitoring for changes"
+  ]
+}
