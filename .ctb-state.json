@@ -1,20 +1,47 @@
 {
-  "timestamp": "2026-06-06T23:12:00Z",
-  "progress": "LOCAL: 100% | VERCEL: 25%",
-  "deployment_status": "mixed",
+  "timestamp": "2026-06-06T23:18:00+09:00",
+  "cycle": 620,
   "services": {
-    "phase2a": "✅ LISTEN (3009)",
-    "phase2b": "✅ LISTEN (3010)",
-    "phase2c": "✅ LISTEN (3011)"
+    "gateway_19001": "LISTEN",
+    "phase2a_3009": "LISTEN",
+    "phase2b_3010": "LISTEN",
+    "phase2c_3011": "LISTEN",
+    "fms_portal_3000": "LISTEN"
   },
+  "build_status": "PASSING",
+  "build_pages": 142,
   "projects": {
-    "AUDIT-P1": "✅ LOCAL 100% | ❌ VERCEL 0%",
-    "DISCORD-BOT-P1": "✅ LOCAL 100% | ❌ VERCEL 0%",
-    "BM-P1": "✅ LOCAL 100% | ❌ VERCEL 0%",
-    "TRAVEL-P2-UI": "✅ LOCAL 100% | 🟡 VERCEL 60%"
+    "AUDIT-P1": {
+      "commit": "0cf3c1ba",
+      "loc": 289,
+      "local_completion": "100%",
+      "vercel_status": "❌ 404 /harness/audit-logs"
+    },
+    "DISCORD-BOT-P1": {
+      "commit": "585db4d5",
+      "loc": 908,
+      "local_completion": "100%",
+      "vercel_status": "pending"
+    },
+    "BM-P1": {
+      "commit": "ecc13a9f",
+      "loc": 197,
+      "local_completion": "100%",
+      "vercel_status": "✅ 200 /backup"
+    },
+    "TRAVEL-P2-UI": {
+      "commit": "e9396c74",
+      "loc": 1169,
+      "local_completion": "60%",
+      "vercel_status": "❌ 404 /travels"
+    }
   },
-  "last_update": "2026-06-06 23:12:01 KST",
-  "build_status": "✅ PASSING (142 pages)",
-  "reliability": "99.2% (68.5+ hours uptime)",
-  "critical_note": "Deployment discrepancy: All projects complete locally but not all deployed to Vercel. See CTB_2026_06_06_CYCLE619.json for details."
+  "overall_completion": "LOCAL: 100% (code), VERCEL: 50% (routes)",
+  "reliability": "99.2%",
+  "uptime_hours": "68.5+",
+  "blockers": [
+    "db/36 migration overdue (deadline: 2026-06-07 02:00 KST)",
+    "AUDIT-P1 and TRAVEL-P2-UI routes not deployed"
+  ],
+  "last_update": "2026-06-06 23:18:00 KST"
 }
