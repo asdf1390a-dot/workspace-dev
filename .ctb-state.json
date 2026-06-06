@@ -1,21 +1,40 @@
 {
-  "timestamp": "2026-06-06T10:10:00Z",
-  "cycle": 580,
-  "time_kst": "2026-06-06 19:10 KST",
-  "status": "🟢 OPERATIONAL",
+  "timestamp": "2026-06-06T10:15:00Z",
+  "cycle": 581,
+  "status": "OPERATIONAL",
+  "last_update": "2026-06-06 19:15:00 KST",
   "services": {
-    "phase2a_3009": "LISTEN",
-    "phase2b_3010": "LISTEN",
-    "phase2c_3011": "LISTEN"
+    "phase2a": "RUNNING (port 3009, PID healthy)",
+    "phase2b": "RUNNING (port 3010, PID healthy)",
+    "phase2c": "RUNNING (port 3011, PID healthy)"
   },
-  "build": "PASSING (123 pages)",
   "projects": {
-    "AUDIT_P1": "🟢 stable",
-    "DISCORD_BOT_P1": "🟢 stable",
-    "BM_P1": "🟢 stable",
-    "TRAVEL_P2_UI": "🟢 stable"
+    "AUDIT-P1": {
+      "commit": "0cf3c1ba",
+      "status": "✅ STABLE",
+      "completion": "100%"
+    },
+    "DISCORD-BOT-P1": {
+      "commit": "585db4d5",
+      "status": "✅ STABLE",
+      "completion": "100%"
+    },
+    "BM-P1": {
+      "commit": "ecc13a9f",
+      "status": "✅ STABLE",
+      "completion": "100%"
+    },
+    "TRAVEL-P2-UI": {
+      "commit": "e9396c74",
+      "status": "✅ STABLE",
+      "completion": "~60%"
+    }
   },
-  "code_changes": 0,
+  "build": {
+    "pages": 123,
+    "status": "PASSING"
+  },
   "reliability": "100%",
-  "last_update": "2026-06-06 19:10:00 KST"
+  "code_changes": 0,
+  "blockers": 0
 }
