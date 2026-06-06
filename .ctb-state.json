@@ -1,43 +1,21 @@
 {
-  "cycle": 589,
-  "timestamp": "2026-06-06T20:11:30Z",
-  "kst_time": "2026-06-06 20:11:30 KST",
+  "timestamp": "2026-06-06T11:16:29Z",
   "progress": 100,
-  "state": "all_stable",
   "services": {
-    "gateway_19001": "LISTEN",
-    "phase2a_3009": "ready",
-    "phase2b_3010": "ready",
-    "phase2c_3011": "ready",
-    "fms_portal_3000": "running"
+    "gateway": "LISTEN:19001",
+    "phase2a": "LISTEN:3009",
+    "phase2b": "LISTEN:3010",
+    "phase2c": "LISTEN:3011",
+    "fms_portal": "LISTEN:3000"
   },
   "projects": {
-    "AUDIT_P1": {
-      "commit": "0cf3c1ba",
-      "status": "complete",
-      "completion": 100
-    },
-    "DISCORD_BOT_P1": {
-      "commit": "585db4d5",
-      "status": "complete",
-      "completion": 100
-    },
-    "BM_P1": {
-      "commit": "ecc13a9f",
-      "status": "complete",
-      "completion": 100
-    },
-    "TRAVEL_P2_UI": {
-      "commit": "e9396c74",
-      "status": "complete",
-      "completion": 100
-    }
+    "audit_p1": "100%",
+    "discord_bot_p1": "100%",
+    "bm_p1": "100%",
+    "travel_p2_ui": "100%"
   },
-  "build": {
-    "status": "PASSING",
-    "pages": 123,
-    "errors": 0
-  },
-  "reliability": 100,
-  "last_update": "2026-06-06 20:11:30 KST"
+  "build_status": "PASSING (123 pages)",
+  "reliability": "100%",
+  "uptime_hours": 67,
+  "last_update": "2026-06-06 20:16:29"
 }
