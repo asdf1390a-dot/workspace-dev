@@ -1,22 +1,21 @@
 {
-  "polling_cycle": 579,
-  "timestamp": "2026-06-06T10:05:00Z",
-  "kst_time": "2026-06-06 19:05:00",
+  "timestamp": "2026-06-06T10:10:00Z",
+  "cycle": 580,
+  "time_kst": "2026-06-06 19:10 KST",
+  "status": "🟢 OPERATIONAL",
   "services": {
-    "portal_3000": "LISTEN",
     "phase2a_3009": "LISTEN",
     "phase2b_3010": "LISTEN",
     "phase2c_3011": "LISTEN"
   },
+  "build": "PASSING (123 pages)",
   "projects": {
-    "AUDIT-P1": "stable",
-    "DISCORD-BOT-P1": "stable",
-    "BM-P1": "stable",
-    "TRAVEL-P2-UI": "stable"
+    "AUDIT_P1": "🟢 stable",
+    "DISCORD_BOT_P1": "🟢 stable",
+    "BM_P1": "🟢 stable",
+    "TRAVEL_P2_UI": "🟢 stable"
   },
-  "build_status": "PASSING (123 pages)",
   "code_changes": 0,
-  "reliability_pct": 100,
-  "blockers": 0,
-  "last_update": "2026-06-06 19:05:00"
+  "reliability": "100%",
+  "last_update": "2026-06-06 19:10:00 KST"
 }
