@@ -1,32 +1,22 @@
 {
-  "timestamp": "2026-06-06T14:46:00Z",
-  "polling_cycle": 625,
-  "cycle_timestamp_kst": "2026-06-06 23:46 KST",
-  "progress": {
-    "local_completion": "100%",
-    "vercel_deployment": "25%",
-    "all_services_healthy": true
-  },
+  "timestamp": "2026-06-06T14:58:00Z",
+  "cycle": 626,
+  "timestamp_kst": "2026-06-06 23:58 KST",
+  "status": "🔴 CRITICAL — Deployment stuck at 37.5%, db/36 migration 2h 2min to 02:00 KST deadline",
+  "code_completion": "100% (4/4 P1 projects: AUDIT-289LOC, DISCORD-908LOC, BM-197LOC, TRAVEL-1169LOC)",
+  "vercel_deployment": "37.5% (2/6 routes: /backup ✅, /audit-logs ❌, /travels ❌, others ❌)",
   "services": {
-    "phase2a": "✅ LISTEN (3009, PID 112946)",
-    "phase2b": "✅ LISTEN (3010, PID 112960)",
-    "phase2c": "✅ LISTEN (3011, PID 112974)",
-    "gateway": "✅ LISTEN (19001, PID 112849)",
-    "fms_portal": "✅ RUNNING (3000, PID 72439)"
+    "phase2a": "✅ LISTEN:3009 (PID 112946)",
+    "phase2b": "✅ LISTEN:3010 (PID 112960)",
+    "phase2c": "✅ LISTEN:3011 (PID 112974)",
+    "gateway": "✅ LISTEN:19001 (PID 112849, status:live)",
+    "fms_portal": "✅ LISTEN:3000 (dev mode, build 142 pages)"
   },
-  "projects": {
-    "AUDIT-P1": {"status": "100% LOCAL", "deployment": "0%", "state_change": false},
-    "DISCORD-BOT-P1": {"status": "100% LOCAL", "deployment": "0%", "state_change": false},
-    "BM-P1": {"status": "100% LOCAL", "deployment": "0%", "state_change": false},
-    "TRAVEL-P2-UI": {"status": "100% LOCAL", "deployment": "60%", "state_change": false}
-  },
-  "critical_blockers": [
-    "Vercel deployment stuck (37.5%, manual rebuild 23:27 KST no progress)",
-    "db/36 migration OVERDUE (2h 14min to deadline 2026-06-07 02:00)"
-  ],
-  "last_update": "2026-06-06 23:46:00",
+  "build_status": "✅ PASSING (142 static pages + API routes)",
   "reliability": "99.2%",
-  "uptime_hours": "68.5+",
+  "uptime": "68.75+ hours",
   "consecutive_stable_cycles": 27,
-  "build_status": "✅ PASSING (142 pages, 0 errors)"
+  "critical_blocker": "db/36 migration — USER_ACTION_REQUIRED (deadline 2026-06-07 02:00 KST, 2h 2min remaining)",
+  "last_update": "2026-06-06 23:58:00 KST",
+  "data_source": "Direct system verification (port checks, service checks, build artifacts, git commits)"
 }
