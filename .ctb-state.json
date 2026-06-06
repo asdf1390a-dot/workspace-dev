@@ -1,27 +1,14 @@
 {
-  "timestamp": "2026-06-07T17:42:34Z",
-  "cycle": 651,
-  "cycle_time_kst": "2026-06-07 02:42:34",
+  "timestamp": "2026-06-07T02:47:00Z",
   "progress": 100,
-  "state_changes": 0,
-  "consecutive_stable_cycles": 15,
   "services": {
     "phase2a": "LISTEN",
     "phase2b": "LISTEN",
     "phase2c": "LISTEN"
   },
-  "vercel": {
-    "status": 200,
-    "portal": "https://dsc-fms-portal.vercel.app",
-    "last_check": "2026-06-07T17:42:34Z"
-  },
-  "projects": {
-    "AUDIT-P1": "100% production-ready",
-    "DISCORD-BOT-P1": "100% production-ready",
-    "TRAVEL-P2-UI": "100% production-ready",
-    "BM-P1": "100% production-ready"
-  },
-  "db_status": "db/36 COMPLETE",
-  "uptime_hours": 72,
-  "next_cycle": "Cycle 652 @ 02:47 KST"
+  "last_update": "2026-06-07 02:47:00",
+  "cycle": 652,
+  "state_changes": 0,
+  "consecutive_stable_cycles": 16,
+  "vercel_status": "200 OK"
 }
