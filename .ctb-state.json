@@ -1,73 +1,45 @@
 {
-  "timestamp": "2026-06-06T22:16:00Z",
-  "cycle": 609,
-  "cycle_time_kst": "2026-06-06 22:16 KST",
-  "progress": 100,
+  "cycle": 610,
+  "timestamp": "2026-06-06T13:21:00Z",
+  "kst_time": "2026-06-06 22:21 KST",
+  "status": "STABLE",
   "services": {
-    "gateway": {
-      "port": 19001,
-      "status": "running",
-      "uptime_hours": 67
-    },
-    "phase2a_message_collection": {
-      "port": 3009,
-      "status": "running",
-      "pid": 13254
-    },
-    "phase2b_duplicate_detection": {
-      "port": 3010,
-      "status": "running",
-      "pid": 13262
-    },
-    "phase2c_trust_score": {
-      "port": 3011,
-      "status": "running",
-      "pid": 13270
-    },
-    "fms_portal_dev": {
-      "port": 3000,
-      "status": "running",
-      "pid": 72439
-    }
+    "gateway_19001": "LISTEN",
+    "phase2a_3009": "LISTEN",
+    "phase2b_3010": "LISTEN",
+    "phase2c_3011": "LISTEN",
+    "fms_portal_3000": "LISTEN"
+  },
+  "build": {
+    "status": "PASSING",
+    "pages": 142,
+    "errors": 0
   },
   "projects": {
-    "audit_p1": {
-      "status": "code_complete",
-      "deployment": "integrated_in_fms_portal",
-      "vercel_status": "deployed",
-      "completion_percent": 100
+    "AUDIT": {
+      "status": "100% COMPLETE",
+      "deployed": false,
+      "code_status": "ready"
     },
-    "discord_bot_p1": {
-      "status": "code_complete",
-      "deployment": "integrated_in_fms_portal",
-      "vercel_status": "deployed",
-      "completion_percent": 100
+    "DISCORD_BOT": {
+      "status": "100% COMPLETE",
+      "deployed": false,
+      "code_status": "ready"
     },
-    "bm_p1": {
-      "status": "code_complete",
-      "deployment": "integrated_in_fms_portal",
-      "vercel_status": "deployed",
-      "completion_percent": 100
+    "BM": {
+      "status": "100% COMPLETE",
+      "deployed": false,
+      "code_status": "ready"
     },
-    "travel_ui_p2": {
-      "status": "code_complete",
-      "deployment": "integrated_in_fms_portal",
-      "vercel_status": "deployed",
-      "completion_percent": 100
+    "TRAVEL_UI": {
+      "status": "100% COMPLETE",
+      "deployed": false,
+      "code_status": "ready"
     }
   },
-  "build_status": {
-    "result": "success",
-    "pages_built": 142,
-    "pages_static": 142,
-    "typescript_errors": 0,
-    "vercel_url": "https://dsc-fms-portal.vercel.app",
-    "vercel_status_code": 200,
-    "cache_status": "HIT"
-  },
-  "deployment_summary": "All 4 projects (AUDIT/DISCORD-BOT/BM/TRAVEL-UI) deployed as integrated features within FMS Portal on Vercel. Build: 142 pages successful. All Phase 2 services stable (3009/3010/3011). Gateway healthy (19001).",
-  "reliability_score": 99.2,
-  "last_update": "2026-06-06 22:16:00 KST",
+  "reliability": "99.2%",
+  "uptime_hours": "67+",
   "consecutive_stable_cycles": 20,
-  "blockers": []
+  "blockers": 0,
+  "last_update": "2026-06-06 22:21:00 KST"
 }
