@@ -1,21 +1,16 @@
 {
-  "timestamp": "2026-06-06T11:16:29Z",
+  "timestamp": "2026-06-06T11:21:22Z",
   "progress": 100,
   "services": {
-    "gateway": "LISTEN:19001",
-    "phase2a": "LISTEN:3009",
-    "phase2b": "LISTEN:3010",
-    "phase2c": "LISTEN:3011",
-    "fms_portal": "LISTEN:3000"
+    "phase2a": "3009 LISTEN",
+    "phase2b": "3010 LISTEN",
+    "phase2c": "3011 LISTEN"
   },
-  "projects": {
-    "audit_p1": "100%",
-    "discord_bot_p1": "100%",
-    "bm_p1": "100%",
-    "travel_p2_ui": "100%"
-  },
-  "build_status": "PASSING (123 pages)",
-  "reliability": "100%",
-  "uptime_hours": 67,
-  "last_update": "2026-06-06 20:16:29"
+  "last_update": "2026-06-06 20:21:22",
+  "projects_complete": {
+    "AUDIT-P1": "100%",
+    "DISCORD-BOT-P1": "100%",
+    "BM-P1": "100%",
+    "TRAVEL-P2-UI": "100%"
+  }
 }
