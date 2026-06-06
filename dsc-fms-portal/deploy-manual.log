@@ -1,0 +1,16 @@
+file:///home/jeepney/.nvm/versions/node/v22.22.2/lib/node_modules/vercel/dist/chunks/chunk-H33IJ7OP.js:115
+                throw new ArgError(`option requires argument: ${originalArgName}${extended}`, "ARG_MISSING_REQUIRED_LONGARG");
+                      ^
+
+_ArgError: option requires argument: --token
+    at arg2 (file:///home/jeepney/.nvm/versions/node/v22.22.2/lib/node_modules/vercel/dist/chunks/chunk-H33IJ7OP.js:115:23)
+    at parseArguments (file:///home/jeepney/.nvm/versions/node/v22.22.2/lib/node_modules/vercel/dist/chunks/chunk-H33IJ7OP.js:505:61)
+    at getGlobalPathConfig2 (file:///home/jeepney/.nvm/versions/node/v22.22.2/lib/node_modules/vercel/dist/chunks/chunk-XPQUP4VC.js:727:16)
+    at file:///home/jeepney/.nvm/versions/node/v22.22.2/lib/node_modules/vercel/dist/chunks/chunk-XPQUP4VC.js:743:19
+    at ModuleJob.run (node:internal/modules/esm/module_job:343:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:665:26)
+    at async file:///home/jeepney/.nvm/versions/node/v22.22.2/lib/node_modules/vercel/dist/vc.js:36:1 {
+  code: 'ARG_MISSING_REQUIRED_LONGARG'
+}
+
+Node.js v22.22.2

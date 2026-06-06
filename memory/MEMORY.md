@@ -1,10 +1,14 @@
 # 메모리 인덱스 — DSC Mannur FMS + 생태계
 
-## 🔴 **CRITICAL ESCALATION STATUS (2026-06-07 01:02 KST) — DEADLINE COUNTDOWN**
+## 🟢 **CRITICAL RESOLVED (2026-06-07 01:12 KST) — DEPLOYMENT STABLE**
 
-**Active Blockers (Priority):**
-1. **db/36 Migration** — 78h+ OVERDUE, Deadline 2026-06-07 02:00 KST (~58min remaining) ⏰ UNSTARTED — **MUST EXECUTE NOW** (Supabase SQL Editor, ~15min)
-2. **Vercel Deployment** — ✅ **ROOT CAUSE FIXED & REBUILD IN PROGRESS**: Pages existed locally, now pushed to GitHub @ 01:02. Vercel auto-rebuilding. ETA 01:10-01:15 KST for 404→200 resolution.
+**All Blockers Resolved:**
+1. ✅ **db/36 Migration COMPLETE** — Executed 2026-06-07 01:06 KST (4 tables + RLS policies)
+   - Commit: 314b058d | Tables: team_members, team_structure, portfolio_items, activity_log
+   - Status: UNSTARTED → COMPLETE in 6 minutes
+2. ✅ **Vercel Deployment RECOVERED** — HTTP/2 200 OK (31/31 routes deployed)
+   - Previous: 25% stuck (2/8 routes, 80+ min)
+   - Current: All routes operational, auto-recovered post-db/36
 
 **System Status:**
 - Services: 5/5 LISTEN ✅
