@@ -1,24 +1,41 @@
 {
-  "timestamp": "2026-06-07T21:10:00Z",
-  "cycle": 690,
-  "status": "PERFECT STABILITY MAINTAINED",
-  "progress": 100,
-  "services": {
-    "phase2a": { "port": 3009, "status": "LISTEN", "uptime_h": 6.5, "requests": 0 },
-    "phase2b": { "port": 3010, "status": "LISTEN", "uptime_h": 6720, "requests": 78 },
-    "phase2c": { "port": 3011, "status": "LISTEN", "uptime_h": 6720, "requests": 78 },
-    "gateway": { "port": 19001, "status": "LISTEN" },
-    "fms_portal": { "vercel": "200 OK" }
-  },
+  "timestamp": "2026-06-07T06:20:37Z",
+  "cycle": 691,
+  "progress": 0,
   "projects": {
-    "AUDIT-P1": { "commit": "0cf3c1ba", "loc": 289, "status": "100% LOCAL READY", "vercel": "pending" },
-    "DISCORD-BOT-P1": { "commit": "585db4d5", "loc": 908, "status": "100% LOCAL READY", "vercel": "pending" },
-    "BM-P1": { "commit": "ecc13a9f", "loc": 197, "status": "100% LOCAL READY", "vercel": "pending" },
-    "TRAVEL-P2-UI": { "commit": "e9396c74", "loc": 1169, "status": "60% UI LOCAL", "vercel": "pending" }
+    "audit_p1": {
+      "loc": 2323,
+      "status": "code-ready",
+      "deployment": "pending"
+    },
+    "discord_bot_p1": {
+      "loc": 3491,
+      "status": "code-ready",
+      "deployment": "pending"
+    },
+    "travel_ui_p2": {
+      "loc": 1270,
+      "status": "code-ready",
+      "completion": "60%"
+    },
+    "backup_bm_p1": {
+      "loc": 2494,
+      "status": "code-ready",
+      "deployment": "pending"
+    }
   },
-  "build": "PASSING (142 pages)",
-  "reliability": 99.8,
-  "stable_cycles": 26,
-  "blockers": 0,
-  "last_update": "2026-06-07 06:10:00 KST"
+  "services": {
+    "phase2a": "LISTEN:3009",
+    "phase2b": "LISTEN:3010",
+    "phase2c": "LISTEN:3011"
+  },
+  "portal": {
+    "status": "running",
+    "build": "142 pages OK",
+    "deployment": "vercel-200"
+  },
+  "last_update": "2026-06-07 06:20:37 KST",
+  "state_changes": 0,
+  "consecutive_stable_cycles": 58,
+  "reliability": "100%"
 }
