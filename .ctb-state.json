@@ -1,50 +1,17 @@
 {
-  "timestamp": "2026-06-06T11:31:00Z",
-  "polling_cycle": 592,
-  "poll_time_kst": "2026-06-06 20:31:00",
+  "timestamp": "2026-06-06T11:36:00Z",
   "progress": 100,
   "services": {
-    "gateway": {
-      "port": 19001,
-      "status": "LISTEN",
-      "pid": 454,
-      "uptime_minutes": 548
-    },
-    "phase2a": {
-      "port": 3009,
-      "status": "LISTEN",
-      "pid": 13254,
-      "uptime_minutes": 529
-    },
-    "phase2b": {
-      "port": 3010,
-      "status": "LISTEN",
-      "pid": 13262,
-      "uptime_minutes": 529
-    },
-    "phase2c": {
-      "port": 3011,
-      "status": "LISTEN",
-      "pid": 13270,
-      "uptime_minutes": 529
-    },
-    "fms_portal": {
-      "port": 3000,
-      "status": "LISTEN",
-      "pid": 1403,
-      "uptime_minutes": 467
-    }
+    "phase2a": "LISTEN:3009",
+    "phase2b": "LISTEN:3010",
+    "phase2c": "LISTEN:3011"
   },
+  "last_update": "2026-06-06 20:36:00",
+  "polling_cycle": 593,
+  "gateway": "LISTEN:19001",
+  "portal": "LISTEN:3000",
   "build_status": "PASSING",
-  "build_pages": 123,
-  "projects": {
-    "audit_p1": "100%",
-    "discord_bot_p1": "100%",
-    "bm_p1": "100%",
-    "travel_p2_ui": "100%"
-  },
+  "projects_complete": 4,
   "reliability": "100%",
-  "uptime_hours": 67,
-  "blockers": 1,
-  "blocker_details": "Asset Master P2 awaiting db/36 SQL (76h+ pending)"
+  "active_processes": 23
 }
