@@ -1,88 +1,18 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Shield, Filter, Download } from 'lucide-react';
 
 interface AuditEntry {
   id: string;
-  timestamp: string;
-  action: string;
-  actor: string;
-  target: string;
-  targetType: 'member' | 'project' | 'allocation' | 'system';
-  changes: {
-    field: string;
-    before: string;
-    after: string;
-  }[];
-  status: 'success' | 'failed' | 'warning';
+  activityType: string;
+  actorName: string;
+  targetType: string;
+  targetName: string;
+  createdAt: string;
+  changes?: any[];
+  reason?: string;
 }
-
-const mockAuditLog: AuditEntry[] = [
-  {
-    id: '1',
-    timestamp: '2026-06-06 10:30 AM',
-    action: 'CREATED',
-    actor: 'System',
-    target: 'Phase 2B UI Foundation',
-    targetType: 'project',
-    changes: [
-      { field: 'status', before: 'draft', after: 'active' },
-      { field: 'completion', before: '0%', after: '100%' },
-    ],
-    status: 'success',
-  },
-  {
-    id: '2',
-    timestamp: '2026-06-06 09:15 AM',
-    action: 'UPDATED',
-    actor: 'Web-Builder #2',
-    target: 'Member Detail Page',
-    targetType: 'project',
-    changes: [
-      { field: 'implementation', before: 'pending', after: 'completed' },
-    ],
-    status: 'success',
-  },
-  {
-    id: '3',
-    timestamp: '2026-06-06 08:45 AM',
-    action: 'ALLOCATED',
-    actor: 'CEO',
-    target: 'John Doe - Team Dashboard P2',
-    targetType: 'allocation',
-    changes: [
-      { field: 'hours', before: '100h', after: '120h' },
-      { field: 'status', before: 'scheduled', after: 'active' },
-    ],
-    status: 'success',
-  },
-  {
-    id: '4',
-    timestamp: '2026-06-05 6:30 PM',
-    action: 'DELETED',
-    actor: 'System',
-    target: 'Deprecated API Endpoint',
-    targetType: 'system',
-    changes: [
-      { field: 'endpoint', before: '/api/v1/old', after: 'removed' },
-    ],
-    status: 'warning',
-  },
-  {
-    id: '5',
-    timestamp: '2026-06-05 4:00 PM',
-    action: 'FAILED',
-    actor: 'Auto-Backup',
-    target: 'Database Backup',
-    targetType: 'system',
-    changes: [
-      { field: 'status', before: 'initiated', after: 'failed' },
-      { field: 'error', before: 'none', after: 'Timeout after 5min' },
-    ],
-    status: 'failed',
-  },
-];
 
 function getActionColor(action: string, status: string) {
   if (status === 'failed') return 'bg-red-100 text-red-800';
@@ -131,13 +61,30 @@ function getTargetTypeColor(type: string) {
 }
 
 export default function AuditPage() {
+  const [logs, setLogs] = useState<AuditEntry[]>([]);
+  const [loading, setLoading] = useState(true);
   const [filterType, setFilterType] = useState<string>('all');
   const [filterAction, setFilterAction] = useState<string>('all');
   const [expandedId, setExpandedId] = useState<string | null>(null);
 
-  const filteredLog = mockAuditLog.filter((entry) => {
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch('/api/team/audit/logs?days=7&limit=50');
+        const data = await res.json();
+        setLogs(data.data || []);
+      } catch (error) {
+        console.error('Failed to fetch audit logs:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchData();
+  }, []);
+
+  const filteredLog = logs.filter((entry) => {
     if (filterType !== 'all' && entry.targetType !== filterType) return false;
-    if (filterAction !== 'all' && entry.action !== filterAction) return false;
+    if (filterAction !== 'all' && entry.activityType !== filterAction) return false;
     return true;
   });
 
@@ -196,7 +143,11 @@ export default function AuditPage() {
       </div>
 
       <div className="space-y-3">
-        {filteredLog.length === 0 ? (
+        {loading ? (
+          <div className="text-center py-12 bg-white rounded-lg">
+            <p className="text-gray-500">Loading audit logs...</p>
+          </div>
+        ) : filteredLog.length === 0 ? (
           <div className="text-center py-12 bg-white rounded-lg">
             <p className="text-gray-500">No audit entries found</p>
           </div>
@@ -210,40 +161,38 @@ export default function AuditPage() {
                 <div className="flex items-start justify-between">
                   <div className="flex-1">
                     <div className="flex items-center gap-3">
-                      <span className="text-lg font-bold text-gray-400">
-                        {getStatusIcon(entry.status)}
-                      </span>
+                      <span className="text-lg font-bold text-gray-400">•</span>
                       <div>
                         <div className="flex items-center gap-2">
-                          <span className={`inline-block px-3 py-1 rounded-full text-xs font-medium ${getActionColor(entry.action, entry.status)}`}>
-                            {entry.action}
+                          <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                            {entry.activityType}
                           </span>
-                          <span className={`inline-block px-2 py-1 rounded text-xs font-medium ${getTargetTypeColor(entry.targetType)}`}>
+                          <span className="inline-block px-2 py-1 rounded text-xs font-medium bg-gray-100 text-gray-800">
                             {entry.targetType}
                           </span>
                         </div>
-                        <h3 className="font-semibold text-gray-900 mt-1">{entry.target}</h3>
-                        <p className="text-sm text-gray-600 mt-1">by {entry.actor}</p>
+                        <h3 className="font-semibold text-gray-900 mt-1">{entry.targetName}</h3>
+                        <p className="text-sm text-gray-600 mt-1">by {entry.actorName}</p>
                       </div>
                     </div>
                   </div>
                   <div className="text-right ml-4 flex-shrink-0">
-                    <p className="text-xs text-gray-500">{entry.timestamp}</p>
+                    <p className="text-xs text-gray-500">{entry.createdAt}</p>
                   </div>
                 </div>
 
-                {expandedId === entry.id && entry.changes.length > 0 && (
+                {expandedId === entry.id && entry.changes && entry.changes.length > 0 && (
                   <div className="mt-4 pt-4 border-t border-gray-200">
                     <h4 className="font-semibold text-gray-900 text-sm mb-3">Changes:</h4>
                     <div className="space-y-2">
                       {entry.changes.map((change, idx) => (
                         <div key={idx} className="bg-gray-50 rounded p-3 text-sm">
                           <div className="flex items-center justify-between">
-                            <span className="font-medium text-gray-900">{change.field}</span>
+                            <span className="font-medium text-gray-900">{change.field || 'field'}</span>
                             <span className="text-gray-600">
-                              <span className="text-red-600">{change.before}</span>
+                              <span className="text-red-600">{change.before || '-'}</span>
                               <span className="mx-2 text-gray-400">→</span>
-                              <span className="text-green-600">{change.after}</span>
+                              <span className="text-green-600">{change.after || '-'}</span>
                             </span>
                           </div>
                         </div>
