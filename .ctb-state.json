@@ -1,14 +1,20 @@
 {
-  "timestamp": "2026-06-07T04:22:01Z",
+  "cycle": 671,
+  "timestamp": "2026-06-07T04:27:01Z",
   "progress": 0,
   "services": {
     "phase2a": "LISTEN",
     "phase2b": "LISTEN",
     "phase2c": "LISTEN"
   },
-  "last_update": "2026-06-07 04:22:01",
-  "cycle": 670,
-  "vercel_status": "200_OK",
-  "stability_cycles": 33,
-  "reliability_pct": 99.8
+  "last_update": "2026-06-07 04:27:01",
+  "projects": {
+    "audit": "100%",
+    "discord_bot": "100%",
+    "bm": "100%",
+    "travel": "100%"
+  },
+  "vercel": "200 OK",
+  "consecutive_stable_cycles": 34,
+  "uptime_minutes": 170
 }
