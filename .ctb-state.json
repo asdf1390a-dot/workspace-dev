@@ -1,52 +1,67 @@
 {
-  "timestamp": "2026-06-06T23:28:00Z",
-  "polling_cycle": 622,
-  "poll_time_kst": "2026-06-06 23:28:00",
-  "completion_status": {
-    "audit_p1": {
-      "commit": "0cf3c1ba",
-      "loc": 289,
-      "local_status": "✅ COMPLETE (100%)",
-      "vercel_status": "❌ NOT DEPLOYED (404)",
-      "route": "/harness/audit-logs"
+  "timestamp": "2026-06-06T14:33:00Z",
+  "polling_cycle": 623,
+  "cycle_time_kst": "2026-06-06 23:33 KST",
+  "progress_overall": 37.5,
+  "progress_code": 100,
+  "progress_deployment": 37.5,
+  "services": {
+    "phase2a": "LISTEN:3009",
+    "phase2b": "LISTEN:3010",
+    "phase2c": "LISTEN:3011",
+    "gateway": "LISTEN:19001",
+    "fms_portal": "LISTEN:3000"
+  },
+  "services_healthy": 5,
+  "services_total": 5,
+  "projects": {
+    "AUDIT_P1_0cf3c1ba": {
+      "code_completion": 100,
+      "deployment_completion": 0,
+      "status": "Code complete, Vercel deployment in progress",
+      "route": "/harness/audit-logs (404)",
+      "locs": 289
     },
-    "discord_bot_p1": {
-      "commit": "585db4d5",
-      "loc": 908,
-      "local_status": "✅ COMPLETE (100%)",
-      "vercel_status": "❌ NOT DEPLOYED (404)",
-      "processors": "secretary/translator/analyst/developer/planner (5/5)"
+    "DISCORD_BOT_P1_585db4d5": {
+      "code_completion": 100,
+      "deployment_completion": 100,
+      "status": "Complete",
+      "route": "Discord processors (5/5)",
+      "locs": 908
     },
-    "bm_p1": {
-      "commit": "ecc13a9f",
-      "loc": 197,
-      "local_status": "✅ COMPLETE (100%)",
-      "vercel_status": "❌ NOT DEPLOYED (404)",
-      "route": "/backup"
+    "BM_P1_ecc13a9f": {
+      "code_completion": 100,
+      "deployment_completion": 50,
+      "status": "Code complete, Vercel deployment partial",
+      "route": "/backup (partial 200)",
+      "locs": 197
     },
-    "travel_p2_ui": {
-      "commit": "e9396c74",
-      "loc": 1169,
-      "local_status": "✅ 60% UI COMPLETE",
-      "vercel_status": "❌ NOT DEPLOYED (404)",
-      "route": "/travels"
+    "TRAVEL_P2_UI_e9396c74": {
+      "code_completion": 100,
+      "deployment_completion": 0,
+      "status": "Code complete, Vercel deployment stuck",
+      "route": "/travels (404)",
+      "locs": 1169,
+      "ui_completion": 60
     }
   },
-  "services": {
-    "gateway_19001": "✅ RUNNING",
-    "phase2a_3009": "✅ RUNNING",
-    "phase2b_3010": "✅ RUNNING",
-    "phase2c_3011": "✅ RUNNING",
-    "fms_portal_3000": "✅ RUNNING"
+  "reliability": 99.2,
+  "consecutive_stable_cycles": 27,
+  "build_pages_passing": 142,
+  "uptime_hours": 68.5,
+  "critical_blockers": {
+    "db36_migration": {
+      "status": "OVERDUE",
+      "deadline_kst": "2026-06-07 02:00 KST",
+      "time_remaining_minutes": 150,
+      "overdue_hours": 78
+    },
+    "vercel_deployment": {
+      "status": "IN_PROGRESS",
+      "stuck_percentage": 33,
+      "routes_completed": "1.5/4",
+      "routes_pending": "/audit-logs, /travels"
+    }
   },
-  "build_status": "✅ PASSING (142 pages)",
-  "vercel_deployment": "33% (1/4 routes: /backup ✅, others ❌)",
-  "reliability": "99.2%",
-  "uptime_hours": 68.8,
-  "blockers": [
-    "🔴 CRITICAL: db/36 migration overdue (deadline 2026-06-07 02:00 KST, ~2h 32min remaining)",
-    "🔴 Vercel deployment stuck at 33% — auto-rebuild failed",
-    "🟡 TRAVEL-P2-UI incomplete (60% UI, 40% pending)"
-  ],
-  "notes": "All 4 P1 projects code-complete locally. Vercel deployment pipeline blocked. Manual rebuild required for /audit-logs, /travels routes. db/36 migration critical path."
+  "last_update_kst": "2026-06-06 23:33:00"
 }
