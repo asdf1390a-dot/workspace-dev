@@ -117,3 +117,37 @@ export interface ResourceAllocation {
   updated_at: string;
   created_by: string;
 }
+
+// Team Structure
+export interface TeamStructure {
+  id: string;
+  member_id: string;
+  reports_to_id?: string;
+  position_level: number;
+  created_at: string;
+  updated_at: string;
+}
+
+// Portfolio Items
+export interface PortfolioItem {
+  id: string;
+  member_id: string;
+  project_name: string;
+  description?: string;
+  role?: string;
+  start_date?: string;
+  end_date?: string;
+  status: 'in_progress' | 'completed' | 'archived';
+  image_url?: string;
+  created_at: string;
+}
+
+// Activity Log
+export interface ActivityLog {
+  id: string;
+  member_id: string;
+  activity_type: string;
+  activity_description?: string;
+  metadata?: Record<string, any>;
+  created_at: string;
+}
