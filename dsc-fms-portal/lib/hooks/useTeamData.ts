@@ -123,3 +123,29 @@ export function useActivityLog(memberId?: string) {
 
   return { data, loading, error };
 }
+
+export function useTeamMember(id: string) {
+  const [data, setData] = useState<TeamMember | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchMember = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch(`/api/team/members/${id}`);
+        if (!response.ok) throw new Error('Failed to fetch team member');
+        const result = await response.json();
+        setData(result.data);
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'Unknown error');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    if (id) fetchMember();
+  }, [id]);
+
+  return { data, loading, error };
+}
