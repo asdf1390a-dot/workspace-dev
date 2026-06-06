@@ -1,11 +1,11 @@
 /// <reference lib="dom" />
 import { createClient } from '@supabase/supabase-js';
-import jwt from 'jsonwebtoken';
+import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
+import { authenticateRequest } from '@/lib/team/auth';
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY || '';
-const jwtSecret = process.env.SUPABASE_JWT_SECRET || '';
 
 const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
@@ -18,33 +18,13 @@ const UpdateMemberSchema = z.object({
   avatar_url: z.string().url().optional().or(z.literal('')),
   bio: z.string().optional(),
   active: z.boolean().optional(),
+}).refine(obj => Object.keys(obj).length > 0, {
+  message: 'At least one field must be provided for update'
 });
-
-function jsonResponse(data: any, status: number = 200): Response {
-  return new Response(JSON.stringify(data), {
-    status,
-    headers: { 'content-type': 'application/json' },
-  });
-}
-
-function getCurrentUserId(request: Request): string | null {
-  const authHeader = request.headers.get('authorization');
-  if (!authHeader?.startsWith('Bearer ')) {
-    return null;
-  }
-
-  try {
-    const token = authHeader.substring(7);
-    const decoded = jwt.verify(token, jwtSecret) as any;
-    return decoded.sub || null;
-  } catch (error) {
-    return null;
-  }
-}
 
 // GET /api/team/members/[id] - Get a specific team member
 export async function GET(
-  request: Request,
+  request: NextRequest,
   { params }: { params: { id: string } }
 ) {
   try {
@@ -55,29 +35,35 @@ export async function GET(
       .single();
 
     if (error || !data) {
-      return jsonResponse({ error: 'Member not found' }, 404);
+      return NextResponse.json(
+        { success: false, error: 'Member not found' },
+        { status: 404 }
+      );
     }
 
-    return jsonResponse({ data });
+    return NextResponse.json({ success: true, data }, { status: 200 });
   } catch (error: any) {
-    return jsonResponse(
-      { error: error.message || 'Internal server error' },
-      500
+    return NextResponse.json(
+      { success: false, error: error.message || 'Internal server error' },
+      { status: 500 }
     );
   }
 }
 
 // PUT /api/team/members/[id] - Update a team member
 export async function PUT(
-  request: Request,
+  request: NextRequest,
   { params }: { params: { id: string } }
 ) {
-  try {
-    const userId = getCurrentUserId(request);
-    if (!userId) {
-      return jsonResponse({ error: 'Unauthorized' }, 401);
-    }
+  const auth = authenticateRequest(request);
+  if (!auth.ok) {
+    return NextResponse.json(
+      { success: false, error: auth.reason || 'unauthorized' },
+      { status: 401 }
+    );
+  }
 
+  try {
     // Verify member exists
     const { data: existing, error: checkError } = await supabase
       .from('team_members')
@@ -86,7 +72,10 @@ export async function PUT(
       .single();
 
     if (checkError || !existing) {
-      return jsonResponse({ error: 'Member not found' }, 404);
+      return NextResponse.json(
+        { success: false, error: 'Member not found' },
+        { status: 404 }
+      );
     }
 
     const body = await request.json();
@@ -104,66 +93,58 @@ export async function PUT(
       .select();
 
     if (error) {
-      return jsonResponse(
-        { error: error.message, code: error.code },
-        400
+      return NextResponse.json(
+        { success: false, error: error.message, code: error.code },
+        { status: 400 }
       );
     }
 
-    return jsonResponse({ data: data[0] });
+    return NextResponse.json({ success: true, data: data[0] }, { status: 200 });
   } catch (error: any) {
     if (error instanceof z.ZodError) {
-      return jsonResponse(
-        { error: 'Validation error', details: error.issues },
-        400
+      return NextResponse.json(
+        { success: false, error: 'Validation error', details: error.issues },
+        { status: 400 }
       );
     }
-    return jsonResponse(
-      { error: error.message || 'Internal server error' },
-      500
+    return NextResponse.json(
+      { success: false, error: error.message || 'Internal server error' },
+      { status: 500 }
     );
   }
 }
 
 // DELETE /api/team/members/[id] - Delete a team member
 export async function DELETE(
-  request: Request,
+  request: NextRequest,
   { params }: { params: { id: string } }
 ) {
+  const auth = authenticateRequest(request);
+  if (!auth.ok) {
+    return NextResponse.json(
+      { success: false, error: auth.reason || 'unauthorized' },
+      { status: 401 }
+    );
+  }
+
   try {
-    const userId = getCurrentUserId(request);
-    if (!userId) {
-      return jsonResponse({ error: 'Unauthorized' }, 401);
-    }
-
-    // Verify member exists
-    const { data: existing, error: checkError } = await supabase
-      .from('team_members')
-      .select('id')
-      .eq('id', params.id)
-      .single();
-
-    if (checkError || !existing) {
-      return jsonResponse({ error: 'Member not found' }, 404);
-    }
-
     const { error } = await supabase
       .from('team_members')
       .delete()
       .eq('id', params.id);
 
     if (error) {
-      return jsonResponse(
-        { error: error.message, code: error.code },
-        400
+      return NextResponse.json(
+        { success: false, error: error.message, code: error.code },
+        { status: 400 }
       );
     }
 
-    return jsonResponse({ success: true, message: 'Member deleted' });
+    return NextResponse.json({ success: true, data: { id: params.id } }, { status: 200 });
   } catch (error: any) {
-    return jsonResponse(
-      { error: error.message || 'Internal server error' },
-      500
+    return NextResponse.json(
+      { success: false, error: error.message || 'Internal server error' },
+      { status: 500 }
     );
   }
 }

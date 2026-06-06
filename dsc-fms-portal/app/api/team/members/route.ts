@@ -1,12 +1,12 @@
 /// <reference lib="dom" />
 import { createClient } from '@supabase/supabase-js';
-import jwt from 'jsonwebtoken';
+import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
+import { authenticateRequest } from '@/lib/team/auth';
 import { CreateTeamMemberRequest, UpdateTeamMemberRequest } from '@/lib/types/team-dashboard';
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY || '';
-const jwtSecret = process.env.SUPABASE_JWT_SECRET || '';
 
 const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
@@ -14,7 +14,7 @@ const supabase = createClient(supabaseUrl, supabaseServiceKey);
 const CreateMemberSchema = z.object({
   name: z.string().min(1, 'name is required'),
   email: z.string().email('Invalid email'),
-  role: z.string().min(1, 'role is required'),
+  role: z.string().min(1, 'role is required').optional(),
   department: z.string().optional(),
   phone: z.string().optional(),
   start_date: z.string().date().optional(),
@@ -24,38 +24,18 @@ const CreateMemberSchema = z.object({
 
 const UpdateMemberSchema = CreateMemberSchema.partial();
 
-function jsonResponse(data: any, status: number = 200): Response {
-  return new Response(JSON.stringify(data), {
-    status,
-    headers: { 'content-type': 'application/json' },
-  });
-}
-
-function getCurrentUserId(request: Request): string | null {
-  const authHeader = request.headers.get('authorization');
-  if (!authHeader?.startsWith('Bearer ')) {
-    return null;
-  }
-
-  try {
-    const token = authHeader.substring(7);
-    const decoded = jwt.verify(token, jwtSecret) as any;
-    return decoded.sub || null;
-  } catch (error) {
-    return null;
-  }
-}
-
 // GET /api/team/members - List all team members with filtering and pagination
-export async function GET(request: Request) {
+export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
+    const page = Math.max(1, parseInt(searchParams.get('page') || '1'));
+    const limit = Math.min(Math.max(1, parseInt(searchParams.get('limit') || '20')), 100);
+    const offset = (page - 1) * limit;
+
     const department = searchParams.get('department');
     const role = searchParams.get('role');
     const active = searchParams.get('active');
     const search = searchParams.get('search');
-    const limit = Math.min(parseInt(searchParams.get('limit') || '50'), 500);
-    const offset = parseInt(searchParams.get('offset') || '0');
 
     let query = supabase
       .from('team_members')
@@ -82,47 +62,41 @@ export async function GET(request: Request) {
       .range(offset, offset + limit - 1);
 
     if (error) {
-      return jsonResponse(
-        { error: error.message, code: error.code },
-        400
+      return NextResponse.json(
+        { success: false, error: error.message, code: error.code },
+        { status: 500 }
       );
     }
 
-    return jsonResponse({
+    const total = count || 0;
+    const totalPages = Math.ceil(total / limit);
+
+    return NextResponse.json({
+      success: true,
       data,
-      count,
-      limit,
-      offset,
-    });
+      pagination: { page, limit, total, totalPages },
+    }, { status: 200 });
   } catch (error: any) {
-    return jsonResponse(
-      { error: error.message || 'Internal server error' },
-      500
+    return NextResponse.json(
+      { success: false, error: error.message || 'Internal server error' },
+      { status: 500 }
     );
   }
 }
 
 // POST /api/team/members - Create a new team member
-export async function POST(request: Request) {
-  try {
-    const userId = getCurrentUserId(request);
-    if (!userId) {
-      return jsonResponse({ error: 'Unauthorized' }, 401);
-    }
+export async function POST(request: NextRequest) {
+  const auth = authenticateRequest(request);
+  if (!auth.ok) {
+    return NextResponse.json(
+      { success: false, error: auth.reason || 'unauthorized' },
+      { status: 401 }
+    );
+  }
 
+  try {
     const body = await request.json();
     const validated = CreateMemberSchema.parse(body);
-
-    // Check if email already exists
-    const { data: existing, error: checkError } = await supabase
-      .from('team_members')
-      .select('id')
-      .eq('email', validated.email)
-      .single();
-
-    if (!checkError && existing) {
-      return jsonResponse({ error: 'Email already exists' }, 409);
-    }
 
     const { data, error } = await supabase
       .from('team_members')
@@ -133,23 +107,24 @@ export async function POST(request: Request) {
       .select();
 
     if (error) {
-      return jsonResponse(
-        { error: error.message, code: error.code },
-        400
+      return NextResponse.json(
+        { success: false, error: error.message, code: error.code },
+        { status: 400 }
       );
     }
 
-    return jsonResponse({ data: data[0] }, 201);
+    const response = Array.isArray(data) ? data[0] : data;
+    return NextResponse.json({ success: true, data: response }, { status: 201 });
   } catch (error: any) {
     if (error instanceof z.ZodError) {
-      return jsonResponse(
-        { error: 'Validation error', details: error.issues },
-        400
+      return NextResponse.json(
+        { success: false, error: 'Validation error', details: error.issues },
+        { status: 400 }
       );
     }
-    return jsonResponse(
-      { error: error.message || 'Internal server error' },
-      500
+    return NextResponse.json(
+      { success: false, error: error.message || 'Internal server error' },
+      { status: 500 }
     );
   }
 }

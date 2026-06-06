@@ -1,74 +1,49 @@
 import { createClient } from '@supabase/supabase-js';
-import jwt from 'jsonwebtoken';
+import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
+import { authenticateRequest } from '@/lib/team/auth';
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY || '';
-const jwtSecret = process.env.SUPABASE_JWT_SECRET || '';
 
 const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
 const UpsertStructureSchema = z.object({
-  member_id: z.string().uuid(),
-  reports_to_id: z.string().uuid().optional().nullable(),
+  member_id: z.string().min(1, 'member_id is required'),
+  reports_to_id: z.string().optional().nullable(),
   position_level: z.number().int().min(0).optional(),
 });
 
-function jsonResponse(data: any, status: number = 200): Response {
-  return new Response(JSON.stringify(data), {
-    status,
-    headers: { 'content-type': 'application/json' },
-  });
-}
-
-function getCurrentUserId(request: Request): string | null {
-  const authHeader = request.headers.get('authorization');
-  if (!authHeader?.startsWith('Bearer ')) {
-    return null;
-  }
-
-  try {
-    const token = authHeader.substring(7);
-    const decoded = jwt.verify(token, jwtSecret) as any;
-    return decoded.sub || null;
-  } catch (error) {
-    return null;
-  }
-}
-
-export async function GET(request: Request) {
+export async function GET(_request: NextRequest) {
   try {
     const { data, error } = await supabase
       .from('team_structure')
       .select('*, team_members:member_id(id, name, email, role)');
 
-    if (error) {
-      return jsonResponse(
-        { error: error.message, code: error.code },
-        400
-      );
-    }
+    if (error) throw error;
 
-    // Build tree structure
     const flat = data || [];
     const tree = buildTree(flat);
 
-    return jsonResponse({ data: { tree, flat } });
-  } catch (error: any) {
-    return jsonResponse(
-      { error: error.message || 'Internal server error' },
-      500
+    return NextResponse.json({ success: true, data: { tree, flat } }, { status: 200 });
+  } catch (err: any) {
+    return NextResponse.json(
+      { success: false, error: err.message },
+      { status: 500 }
     );
   }
 }
 
-export async function POST(request: Request) {
-  try {
-    const userId = getCurrentUserId(request);
-    if (!userId) {
-      return jsonResponse({ error: 'Unauthorized' }, 401);
-    }
+export async function POST(request: NextRequest) {
+  const auth = authenticateRequest(request);
+  if (!auth.ok) {
+    return NextResponse.json(
+      { success: false, error: auth.reason || 'unauthorized' },
+      { status: 401 }
+    );
+  }
 
+  try {
     const body = await request.json();
     const validated = UpsertStructureSchema.parse(body);
 
@@ -81,24 +56,19 @@ export async function POST(request: Request) {
       }])
       .select();
 
-    if (error) {
-      return jsonResponse(
-        { error: error.message, code: error.code },
-        400
-      );
-    }
+    if (error) throw error;
 
-    return jsonResponse({ data: data[0] }, 201);
-  } catch (error: any) {
-    if (error instanceof z.ZodError) {
-      return jsonResponse(
-        { error: 'Validation error', details: error.issues },
-        400
+    return NextResponse.json({ success: true, data: data[0] }, { status: 201 });
+  } catch (err: any) {
+    if (err instanceof z.ZodError) {
+      return NextResponse.json(
+        { success: false, error: 'Validation error', details: err.issues },
+        { status: 400 }
       );
     }
-    return jsonResponse(
-      { error: error.message || 'Internal server error' },
-      500
+    return NextResponse.json(
+      { success: false, error: err.message },
+      { status: 500 }
     );
   }
 }
