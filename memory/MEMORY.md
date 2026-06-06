@@ -254,6 +254,7 @@
 - [Action Labels Clarity](feedback/feedback_action_labels_clarity.md) — 【비서 액션】vs【사용자 액션】 명확 구분
 - [Real-Time Schedule Adjustment](feedback/feedback_realtime_schedule_adjustment.md) — 작업 완료 시 ETA 즉시 당기기
 - [Vacation Autonomous Mode](feedback/feedback_vacation_autonomous_mode.md) — 휴가 기간 비서 완전 자율 운영
+- [Reply Context Mandatory](feedback_reply_context_mandatory.md) — 답장 시 무조건 상위 메시지 context 확인 (2026-06-06)
 
 ## 🟢 PHASE 2 ACTIVE PROJECTS
 
