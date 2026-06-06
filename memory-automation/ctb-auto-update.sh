@@ -15,16 +15,21 @@ log_event() {
 
 log_event "🔄 CTB Auto-Update 폴링 시작..."
 
-# Phase 2 서비스 상태 수집
-PHASE2A_HEALTH=$(curl -s --connect-timeout 2 http://127.0.0.1:3009/health 2>/dev/null | jq -r '.status // "DOWN"')
-PHASE2B_HEALTH=$(curl -s --connect-timeout 2 http://127.0.0.1:3010/health 2>/dev/null | jq -r '.status // "DOWN"')
-PHASE2C_HEALTH=$(curl -s --connect-timeout 2 http://127.0.0.1:3011/health 2>/dev/null | jq -r '.status // "DOWN"')
+# Phase 2 서비스 상태 수집 (jq 대신 python 사용)
+extract_status() {
+  local response="$1"
+  echo "$response" | python3 -c "import sys, json; print(json.load(sys.stdin).get('status', 'DOWN'))" 2>/dev/null || echo "DOWN"
+}
 
-# 진행도 계산
+PHASE2A_HEALTH=$(extract_status "$(curl -s --connect-timeout 2 http://127.0.0.1:3009/health 2>/dev/null)")
+PHASE2B_HEALTH=$(extract_status "$(curl -s --connect-timeout 2 http://127.0.0.1:3010/health 2>/dev/null)")
+PHASE2C_HEALTH=$(extract_status "$(curl -s --connect-timeout 2 http://127.0.0.1:3011/health 2>/dev/null)")
+
+# 진행도 계산 (ready/UP 모두 인식)
 SERVICES_OK=0
-[[ "$PHASE2A_HEALTH" == "UP" ]] && ((SERVICES_OK++))
-[[ "$PHASE2B_HEALTH" == "UP" ]] && ((SERVICES_OK++))
-[[ "$PHASE2C_HEALTH" == "UP" ]] && ((SERVICES_OK++))
+[[ "$PHASE2A_HEALTH" =~ ^(ready|UP)$ ]] && ((SERVICES_OK++))
+[[ "$PHASE2B_HEALTH" =~ ^(ready|UP)$ ]] && ((SERVICES_OK++))
+[[ "$PHASE2C_HEALTH" =~ ^(ready|UP)$ ]] && ((SERVICES_OK++))
 PROGRESS=$((SERVICES_OK * 100 / 3))
 
 # CTB 상태 파일 생성/업데이트
