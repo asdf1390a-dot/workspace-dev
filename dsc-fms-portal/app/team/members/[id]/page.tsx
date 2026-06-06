@@ -72,9 +72,12 @@ export default function MemberDetailPage({ params }: { params: { id: string } })
               </span>
             </div>
           </div>
-          <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+          <Link
+            href={`/team/members/${member.id}/edit`}
+            className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 inline-block"
+          >
             Edit Profile
-          </button>
+          </Link>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8 border-t pt-6">
