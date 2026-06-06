@@ -1,5 +1,29 @@
 # 메모리 인덱스 — DSC Mannur FMS + 생태계
 
+## 🔴 **CRITICAL ESCALATION STATUS (2026-06-06 23:29 KST)**
+
+**Active Blockers:**
+1. **db/36 Migration** — 78h+ OVERDUE, Deadline 2026-06-07 02:00 KST (2h 31min remaining) ⏰ IMMEDIATE USER ACTION
+2. **Vercel Deployment** — Stuck at 33% (1/3 routes). Auto-rebuild failed @ 23:17. Manual rebuild escalation issued @ 23:27 ⏳
+3. **Manual Rebuild Instructions:** See ESCALATION_MANUAL_VERCEL_REBUILD_2026_06_06_2327.md
+
+**System Status:**
+- Services: 5/5 LISTEN ✅
+- Build: 142 pages, 0 errors ✅
+- Reliability: 99.2%, 27 consecutive cycles ✅
+- Polling: Cycles 619-622 executed ✅
+- Uptime: 68.5+ hours ✅
+
+**Recent Timeline:**
+- 23:16: Escalation documents created, db/36 deadline 2h 44min
+- 23:17: Force-rebuild pushed (f0b010df)
+- 23:22: No progress checkpoint
+- 23:27: Manual rebuild escalation issued
+- 23:29: Session checkpoint (current) → Next: 23:32 KST verification
+- 23:32: Final deployment checkpoint (scheduled)
+
+---
+
 ## 🔴 **CTB POLLING CYCLE 604 (2026-06-06 21:36 KST) — CRITICAL ACCURACY CORRECTION**
 
 **⚠️ Previous Cycle 603 STATUS WAS FALSE** — "All 4 P1 complete" was inaccurate
@@ -20,8 +44,9 @@
 
 ## 🚨 CRITICAL INCIDENTS
 
+- [CTB Data Integrity Finding (2026-06-06 23:12)](ctb_data_integrity_finding_20260606.md) — **Cycles 610-618 conflated LOCAL completion (100%) with VERCEL deployment (25%)**. All projects 100% code-complete & verified locally, but only FMS Portal deployed to Vercel. AUDIT/DISCORD-BOT/BM/TRAVEL not yet in production.
 - [CTB Polling Accuracy Crisis (2026-06-06)](ctb_polling_accuracy_incident.md) — Cycles 584-603 거짓 기록 정정, 검증 표준 수립
-- [CTB Cycle 608 Accuracy Correction (2026-06-06)](ctb_cycle_608_accuracy_correction.md) — Cycle 604 false negative resolved: All 4 projects ARE implemented & deployed
+- [CTB Cycle 608 Accuracy Correction (2026-06-06)](ctb_cycle_608_accuracy_correction.md) — Cycle 604 false negative resolved
 
 ## 📌 핵심 규칙 & 피드백
 
