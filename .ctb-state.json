@@ -1,41 +1,51 @@
 {
-  "timestamp": "2026-06-07T06:20:37Z",
-  "cycle": 691,
-  "progress": 0,
+  "cycle": 692,
+  "timestamp": "2026-06-07T06:26:29+09:00",
+  "status": "PERFECT_STABILITY_SUSTAINED",
   "projects": {
-    "audit_p1": {
+    "AUDIT-P1": {
+      "commit": "0cf3c1ba",
       "loc": 2323,
-      "status": "code-ready",
-      "deployment": "pending"
+      "status": "100% code-ready",
+      "vercel": "❌ not deployed"
     },
-    "discord_bot_p1": {
+    "DISCORD-BOT-P1": {
+      "commit": "585db4d5",
       "loc": 3491,
-      "status": "code-ready",
-      "deployment": "pending"
+      "status": "100% code-ready",
+      "vercel": "❌ not deployed"
     },
-    "travel_ui_p2": {
-      "loc": 1270,
-      "status": "code-ready",
-      "completion": "60%"
-    },
-    "backup_bm_p1": {
+    "BM-P1": {
+      "commit": "ecc13a9f",
       "loc": 2494,
-      "status": "code-ready",
-      "deployment": "pending"
+      "status": "100% code-ready",
+      "vercel": "❌ not deployed"
+    },
+    "TRAVEL-P2-UI": {
+      "commit": "e9396c74",
+      "loc": 1270,
+      "status": "60% UI WIP",
+      "vercel": "❌ not deployed"
     }
   },
+  "build": {
+    "status": "✓ PASSING",
+    "pages": "142/142",
+    "errors": 0,
+    "warnings": 1
+  },
   "services": {
-    "phase2a": "LISTEN:3009",
-    "phase2b": "LISTEN:3010",
-    "phase2c": "LISTEN:3011"
+    "phase2a": "3009 LISTEN",
+    "phase2b": "3010 LISTEN",
+    "phase2c": "3011 LISTEN",
+    "gateway": "19001 LISTEN",
+    "vercel": "200 OK (FMS Portal only)"
   },
-  "portal": {
-    "status": "running",
-    "build": "142 pages OK",
-    "deployment": "vercel-200"
-  },
-  "last_update": "2026-06-07 06:20:37 KST",
   "state_changes": 0,
-  "consecutive_stable_cycles": 58,
-  "reliability": "100%"
+  "consecutive_stable_cycles": 59,
+  "stable_duration_minutes": 295,
+  "reliability": "100%",
+  "blockers": 0,
+  "last_update": "2026-06-07 06:26:29 KST",
+  "next_cycle": "Cycle 693 @ 06:31 KST"
 }
