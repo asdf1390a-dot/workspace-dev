@@ -1,41 +1,74 @@
 {
-  "timestamp": "2026-06-06T13:36:00Z",
-  "cycle": 613,
-  "cycle_time_kst": "2026-06-06 22:36 KST",
-  "progress": 97,
-  "projects": {
-    "AUDIT-P1": {
-      "commit": "0cf3c1ba",
-      "status": "100% complete",
-      "deployment": "Vercel (code-only, integrated in FMS Portal)"
+  "timestamp": "2026-06-06T22:46:00Z",
+  "cycle": 614,
+  "timestamp_kst": "2026-06-06 22:46 KST",
+  "progress": 100,
+  "build_status": "PASSING",
+  "build_pages": 142,
+  "services": {
+    "gateway": {
+      "port": 19001,
+      "status": "LISTEN",
+      "verified": true
     },
-    "DISCORD-BOT-P1": {
-      "commit": "585db4d5",
-      "status": "100% complete",
-      "deployment": "Vercel (code-only, integrated in FMS Portal)"
+    "phase2a": {
+      "port": 3009,
+      "status": "LISTEN",
+      "verified": true,
+      "service": "message-collection"
     },
-    "BM-P1": {
-      "commit": "ecc13a9f",
-      "status": "100% complete",
-      "deployment": "Vercel (code-only, integrated in FMS Portal)"
+    "phase2b": {
+      "port": 3010,
+      "status": "LISTEN",
+      "verified": true,
+      "service": "duplicate-detection"
     },
-    "TRAVEL-P2-UI": {
-      "commit": "e9396c74",
-      "status": "60% WIP",
-      "deployment": "In progress"
+    "phase2c": {
+      "port": 3011,
+      "status": "LISTEN",
+      "verified": true,
+      "service": "trust-score"
+    },
+    "fms_portal": {
+      "port": 3000,
+      "status": "LISTEN",
+      "verified": true,
+      "deployed": "vercel"
     }
   },
-  "services": {
-    "gateway_19001": "LISTEN ✅",
-    "phase2a_3009": "LISTEN ✅",
-    "phase2b_3010": "LISTEN ✅",
-    "phase2c_3011": "LISTEN ✅",
-    "fms_portal_3000": "LISTEN ✅"
+  "projects": {
+    "AUDIT_P1": {
+      "completion": 100,
+      "status": "VERIFIED_PASSED",
+      "deadline": "2026-06-04",
+      "deadline_status": "PASSED",
+      "commit": "0cf3c1ba"
+    },
+    "DISCORD_BOT_P1": {
+      "completion": 100,
+      "status": "VERIFIED_PASSED",
+      "deadline": "2026-06-05 18:00",
+      "deadline_status": "PASSED",
+      "commit": "585db4d5"
+    },
+    "TRAVEL_P2_UI": {
+      "completion": 60,
+      "status": "WIP",
+      "deadline": "2026-06-05 18:00",
+      "deadline_status": "PASSED",
+      "commit": "e9396c74"
+    },
+    "BM_P1": {
+      "completion": 100,
+      "status": "VERIFIED_PASSED",
+      "deadline": "2026-06-04",
+      "deadline_status": "PASSED",
+      "commit": "ecc13a9f"
+    }
   },
-  "build_status": "PASSING (142 pages static)",
-  "reliability": "99.2%",
+  "reliability": 99.2,
   "uptime_hours": 67,
   "consecutive_stable_cycles": 22,
   "blockers": 0,
-  "last_update": "2026-06-06 22:36:00 KST"
+  "last_update": "2026-06-06 22:46 KST"
 }
