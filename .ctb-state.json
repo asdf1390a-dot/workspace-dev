@@ -1,19 +1,16 @@
 {
-  "timestamp": "2026-06-07T03:57:00Z",
-  "cycle": 666,
+  "cycle": 667,
+  "timestamp": "2026-06-07T04:02:00Z",
   "progress": 100,
-  "services": {
-    "phase2a_3009": "LISTEN",
-    "phase2b_3010": "LISTEN",
-    "phase2c_3011": "LISTEN"
-  },
-  "projects": {
-    "AUDIT_P1": "100%",
-    "DISCORD_BOT_P1": "100%",
-    "BM_P1": "100%",
-    "TRAVEL_P2_UI": "100%"
-  },
-  "fms_portal": "200 OK",
-  "last_update": "2026-06-07 03:57:00 KST",
-  "stability_consecutive_cycles": 29
+  "reliability": 99.8,
+  "phase2a": { "port": 3009, "status": "LISTEN", "pid": 112946, "uptime_hours": 72 },
+  "phase2b": { "port": 3010, "status": "LISTEN", "pid": 112960, "uptime_hours": 72 },
+  "phase2c": { "port": 3011, "status": "LISTEN", "pid": 112974, "uptime_hours": 72 },
+  "gateway": { "port": 19001, "status": "LISTEN", "pid": 112849 },
+  "vercel_status": "200 OK",
+  "p1_projects": { "AUDIT": "production-ready", "DISCORD-BOT": "production-ready", "BM": "production-ready", "TRAVEL": "production-ready" },
+  "code_changes_since_cycle_666": 0,
+  "consecutive_stable_cycles": 30,
+  "sustained_stable_duration_min": 150,
+  "last_update": "2026-06-07 04:02:00"
 }
