@@ -1,21 +1,19 @@
 {
-  "cycle": 665,
-  "timestamp": "2026-06-07T18:52:00Z",
+  "timestamp": "2026-06-07T03:57:00Z",
+  "cycle": 666,
   "progress": 100,
-  "state_changes": 0,
   "services": {
-    "phase2a": "LISTEN:3009 (PID 112946)",
-    "phase2b": "LISTEN:3010 (PID 112960)",
-    "phase2c": "LISTEN:3011 (PID 112974)",
-    "gateway": "LISTEN:19001",
-    "vercel_fms": "200 OK"
+    "phase2a_3009": "LISTEN",
+    "phase2b_3010": "LISTEN",
+    "phase2c_3011": "LISTEN"
   },
   "projects": {
-    "AUDIT-P1": "100% complete",
-    "DISCORD-BOT-P1": "100% complete",
-    "BM-P1": "100% complete",
-    "TRAVEL-P2-UI": "100% complete"
+    "AUDIT_P1": "100%",
+    "DISCORD_BOT_P1": "100%",
+    "BM_P1": "100%",
+    "TRAVEL_P2_UI": "100%"
   },
-  "uptime_days": 3,
-  "last_update": "2026-06-07 03:52:00"
+  "fms_portal": "200 OK",
+  "last_update": "2026-06-07 03:57:00 KST",
+  "stability_consecutive_cycles": 29
 }
