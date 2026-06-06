@@ -1,45 +1,34 @@
 {
-  "cycle": 610,
-  "timestamp": "2026-06-06T13:21:00Z",
-  "kst_time": "2026-06-06 22:21 KST",
+  "cycle": 611,
+  "timestamp": "2026-06-06T13:27:08Z",
+  "timestamp_kst": "2026-06-06 22:27:08 KST",
   "status": "STABLE",
   "services": {
-    "gateway_19001": "LISTEN",
-    "phase2a_3009": "LISTEN",
-    "phase2b_3010": "LISTEN",
-    "phase2c_3011": "LISTEN",
-    "fms_portal_3000": "LISTEN"
+    "gateway": "LISTEN:19001 (PID 454, uptime 6h27m)",
+    "phase2a": "LISTEN:3009 (PID 13254, uptime 4h05m)",
+    "phase2b": "LISTEN:3010 (PID 13262, uptime 4h05m)",
+    "phase2c": "LISTEN:3011 (PID 13270, uptime 4h05m)",
+    "fms_portal_dev": "LISTEN:3000 (PID 72428, uptime 39m)",
+    "vercel_deploy": "IN_PROGRESS (PID 81759, 22m elapsed)"
   },
   "build": {
     "status": "PASSING",
     "pages": 142,
-    "errors": 0
+    "static": true
   },
   "projects": {
-    "AUDIT": {
-      "status": "100% COMPLETE",
-      "deployed": false,
-      "code_status": "ready"
-    },
-    "DISCORD_BOT": {
-      "status": "100% COMPLETE",
-      "deployed": false,
-      "code_status": "ready"
-    },
-    "BM": {
-      "status": "100% COMPLETE",
-      "deployed": false,
-      "code_status": "ready"
-    },
-    "TRAVEL_UI": {
-      "status": "100% COMPLETE",
-      "deployed": false,
-      "code_status": "ready"
-    }
+    "AUDIT_P1": "100% complete (code)",
+    "DISCORD_BOT_P1": "100% complete (code)",
+    "BM_P1": "100% complete (code)",
+    "TRAVEL_P2_UI": "60% complete (UI design)"
+  },
+  "deployment": {
+    "fms_portal": "vercel deploy in progress",
+    "other_projects": "integrated as features"
   },
   "reliability": "99.2%",
-  "uptime_hours": "67+",
-  "consecutive_stable_cycles": 20,
+  "uptime_hours": 67,
+  "consecutive_stable_cycles": 21,
   "blockers": 0,
-  "last_update": "2026-06-06 22:21:00 KST"
+  "last_commit": "591f8e38 (Cycle 610 @ 22:21 KST)"
 }
