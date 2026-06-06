@@ -1,17 +1,47 @@
 {
-  "timestamp": "2026-06-07T08:27:30Z",
+  "cycle": 719,
+  "timestamp": "2026-06-07T08:32:00Z",
+  "timestamp_kst": "2026-06-07 08:32:00 KST",
   "progress": 100,
-  "services": {
-    "phase2a": "ready",
-    "phase2b": "ready",
-    "phase2c": "ready"
+  "projects": {
+    "AUDIT-P1": {
+      "status": "code-ready",
+      "lines": 2323,
+      "completion": 100
+    },
+    "DISCORD-BOT-P1": {
+      "status": "code-ready",
+      "lines": 3491,
+      "completion": 100
+    },
+    "BM-P1": {
+      "status": "code-ready",
+      "lines": 2494,
+      "completion": 100
+    },
+    "TRAVEL-UI-P2": {
+      "status": "code-ready",
+      "lines": 1270,
+      "completion": 60
+    }
   },
-  "last_update": "2026-06-07 08:27:30",
-  "cycle": 718,
-  "state_changes": 0,
-  "stability_cycles": 77,
-  "build_status": "PASSING",
-  "pages_rendered": 142,
-  "reliability": "100%",
-  "blockers": 0
+  "services": {
+    "phase2a": "LISTEN-3009",
+    "phase2b": "LISTEN-3010",
+    "phase2c": "LISTEN-3011",
+    "gateway": "OK-19001"
+  },
+  "build": {
+    "status": "PASSING",
+    "pages": 142,
+    "errors": 0
+  },
+  "stability": {
+    "consecutive_cycles": 77,
+    "state_changes": 0,
+    "duration_minutes": 385
+  },
+  "reliability": 100,
+  "blockers": 0,
+  "next_cycle": "Cycle 720 @ 08:37 KST"
 }
