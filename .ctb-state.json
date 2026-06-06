@@ -1,15 +1,15 @@
 {
   "polling_cycle": 606,
-  "timestamp_utc": "2026-06-06T12:46:00Z",
-  "timestamp_kst": "2026-06-06 21:46 KST",
-  "status": "🟡 SERVICES STABLE (FMS Portal recovering)",
+  "timestamp_utc": "2026-06-06T12:51:00Z",
+  "timestamp_kst": "2026-06-06 21:51 KST",
+  "status": "✅ ALL SERVICES OPERATIONAL",
   "services": {
-    "gateway_19001": "✅ LISTEN",
+    "gateway_19001": "✅ LISTEN + OK",
     "phase_2a_3009": "✅ HEALTHY",
     "phase_2b_3010": "✅ LISTEN",
     "phase_2c_3011": "✅ LISTEN",
-    "fms_portal_3000": "🟡 RECOVERING"
+    "fms_portal_3000": "✅ RECOVERED + SERVING (KPI dashboard 200 OK)"
   },
   "build_status": "✅ PASSING (123 pages)",
-  "last_update": "2026-06-06 21:46:00"
+  "last_update": "2026-06-06 21:51:00"
 }
