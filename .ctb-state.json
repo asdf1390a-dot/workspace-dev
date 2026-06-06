@@ -1,25 +1,21 @@
 {
-  "cycle": 684,
-  "timestamp": "2026-06-06T20:29:43Z",
-  "kst_time": "2026-06-07 05:29:43",
+  "timestamp": "2026-06-07T20:33:01Z",
+  "cycle": 685,
   "progress": 100,
   "state_changes": 0,
-  "consecutive_stable_cycles": 52,
-  "sustained_stable_minutes": 260,
+  "sustained_cycles": 53,
+  "sustained_minutes": 265,
   "services": {
-    "phase2a_3009": "code-ready (stopped)",
-    "phase2b_3010": "code-ready (stopped)",
-    "phase2c_3011": "code-ready (stopped)"
+    "phase2a": "LISTEN:3009",
+    "phase2b": "LISTEN:3010",
+    "phase2c": "LISTEN:3011"
   },
-  "projects_p1": {
-    "AUDIT": "100% production-ready",
-    "DISCORD_BOT": "100% production-ready",
-    "BM": "100% production-ready",
-    "TRAVEL": "100% production-ready"
+  "p1_projects": {
+    "audit": "100%",
+    "discord_bot": "100%",
+    "bm_backup": "100%",
+    "travel": "100%"
   },
-  "build_status": "✅ PASSING (123+ pages)",
-  "vercel_status": "200 OK",
   "reliability": "100%",
-  "code_changes_detected": false,
-  "next_cycle_eta": "2026-06-07 05:33:43 KST"
+  "last_update": "2026-06-07 05:33:01"
 }
