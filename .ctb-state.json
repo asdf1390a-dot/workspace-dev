@@ -1,43 +1,26 @@
 {
-  "timestamp": "2026-06-06T10:31:00Z",
-  "cycle": 584,
-  "kst_time": "2026-06-06 19:31:00",
+  "cycle": 585,
+  "timestamp": "2026-06-06T10:41:23Z",
+  "status": "all_operational",
   "services": {
-    "gateway": "LISTEN:19001",
-    "phase2a": "LISTEN:3009",
-    "phase2b": "LISTEN:3010",
-    "phase2c": "LISTEN:3011",
-    "nextjs": "LISTEN:3000"
+    "phase2a": "running_3009",
+    "phase2b": "running_3010",
+    "phase2c": "running_3011",
+    "gateway": "running_19001",
+    "nextjs": "running_3000"
   },
-  "build_status": "PASSING",
-  "build_pages": 123,
-  "projects": [
-    {
-      "name": "AUDIT-P1",
-      "status": "OPERATIONAL",
-      "completion": 100,
-      "last_commit": "23f4f3c6"
-    },
-    {
-      "name": "DISCORD-BOT-P1",
-      "status": "OPERATIONAL",
-      "completion": 100,
-      "last_commit": "23f4f3c6"
-    },
-    {
-      "name": "BM-P1",
-      "status": "OPERATIONAL",
-      "completion": 100,
-      "last_commit": "23f4f3c6"
-    },
-    {
-      "name": "TRAVEL-P2-UI",
-      "status": "OPERATIONAL",
-      "completion": 60,
-      "last_commit": "64ff82e2"
-    }
-  ],
-  "code_changes": false,
+  "build": {
+    "status": "passing",
+    "pages": 123,
+    "errors": 0
+  },
+  "projects": {
+    "audit": "stable",
+    "discord_bot": "stable",
+    "bm": "stable",
+    "travel": "stable"
+  },
+  "code_changes": 0,
   "reliability": "100%",
-  "last_update": "2026-06-06 19:31:00"
+  "last_update": "2026-06-06 19:41:23"
 }
