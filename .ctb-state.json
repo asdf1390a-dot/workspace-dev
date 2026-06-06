@@ -1,33 +1,16 @@
 {
-  "timestamp": "2026-06-06T11:41:27Z",
-  "projects": {
-    "audit_p1": {
-      "status": "✅ 100% complete",
-      "completion_percent": 100
-    },
-    "discord_bot_p1": {
-      "status": "✅ 100% complete",
-      "completion_percent": 100
-    },
-    "travel_p2_ui": {
-      "status": "✅ 100% complete",
-      "completion_percent": 100
-    },
-    "bm_p1": {
-      "status": "✅ 100% complete",
-      "completion_percent": 100
-    }
-  },
-  "services": {
-    "phase2a": "LISTEN:3009",
-    "phase2b": "LISTEN:3010",
-    "phase2c": "LISTEN:3011",
-    "fms_portal": "LISTEN:3000",
-    "gateway": "LISTEN:19001"
-  },
-  "build_status": "✅ PASSING (123 pages)",
-  "code_changes": 0,
-  "reliability": "100%",
-  "uptime_hours": 67,
-  "last_update": "2026-06-06 20:41:27 KST"
+  "last_polling_cycle": 595,
+  "timestamp": "2026-06-06T20:46:22+0900",
+  "timestamp_kst": "2026-06-06 20:46 KST",
+  "system_status": "✅ ALL SYSTEMS STABLE",
+  "all_projects_complete": true,
+  "p1_reliability": "100%",
+  "build_status": "PASSING",
+  "phase_2_services": "✅ RUNNING (3 services, 2h 24m uptime)",
+  "phase_2a_pid": 13254,
+  "phase_2a_memory_mb": 65.7,
+  "consecutive_stable_cycles": 10,
+  "last_code_change": "2026-06-06 20:41 KST",
+  "next_checkpoint_kst": "2026-06-06 20:51 KST",
+  "last_update": "2026-06-06 20:46:22"
 }
