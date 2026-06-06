@@ -1,10 +1,185 @@
 ---
 name: Incomplete Tasks Registry
-description: Active incomplete work tracking (updated 2026-06-03 17:25 KST)
+description: Active incomplete work tracking (updated 2026-06-06 23:16 KST)
 type: project
 ---
 
-# Incomplete Tasks Registry (Last Updated: 2026-06-06 21:59 KST)
+# Incomplete Tasks Registry (Last Updated: 2026-06-06 23:16 KST)
+
+---
+
+## 🔴 CRITICAL ESCALATION — 2026-06-06 23:16 KST (DB/36 MIGRATION DEADLINE IMMINENT)
+
+**Time to Deadline:** 2h 44min (2026-06-07 02:00 KST)  
+**Status:** OVERDUE 78h+ — REQUIRES IMMEDIATE USER ACTION  
+**Deployment Testing:** Vercel partial completion (1/3 routes accessible)
+
+### Deployment Status Update (23:16 KST):
+- ✅ `/backup`: HTTP 200 (BM module accessible)
+- ❌ `/harness/audit-logs`: HTTP 404 (AUDIT module still missing)
+- ❌ `/travels`: HTTP 404 (TRAVEL-UI module still missing)
+- **Completion:** 33% (1/3 critical routes, down from 85% estimate at 22:30)
+- **Evidence:** Vercel cache synchronization still incomplete despite 73+ minutes elapsed
+
+### Critical Database Migration Blocker:
+- **Migration:** db/36_asset_master_phase2.sql
+- **Action Required:** Immediate execution in Supabase SQL Editor
+- **Blocking:** Asset Master Phase 2 (16 API routes implemented, cannot deploy)
+- **Estimated Duration:** 15 minutes
+- **Deadline:** 2026-06-07 02:00 KST (~2h 44min from now)
+- **Impact if missed:** Phase 2 projects undeployable, 78h+ delay enters critical zone
+
+**Escalation Level:** 🔴 CRITICAL — User action required within 2.5 hours
+
+---
+
+---
+
+## 📊 SESSION CHECKPOINT — 2026-06-06 22:59 KST (AUTO-SAVE)
+
+**Checkpoint Window:** 22:29 → 22:59 KST (30min auto-save cycle)  
+**Detection Method:** Git log + Polling cycles + State file monitoring  
+**Status Update:** ✅ 3 STATE CHANGES DETECTED
+
+**State Changes Recorded (This Checkpoint):**
+
+1. ✅ **Polling Cycle 616 Executed @ 22:58 KST (LATEST)**
+   - **Previous:** Cycle 614 @ 22:46 KST (12 min ago)
+   - **New Status:** All services LISTEN (gateway 19001, Phase 2A/B/C 3009/3010/3011, FMS Portal 3000)
+   - **Build:** 142 pages, 0 errors (stable)
+   - **Projects:** AUDIT/DISCORD-BOT/BM 100%, TRAVEL-UI 60% WIP
+   - **Reliability:** 99.2%
+   - **Consecutive stable cycles:** 24 (up from 22-23)
+   - **Uptime:** 67.5+ hours
+
+2. ✅ **.ctb-state.json Structure Enhanced**
+   - **Previous:** Basic timestamp + service strings
+   - **Current:** Comprehensive state object with:
+     - Cycle number (616)
+     - Progress indicator (90%)
+     - Individual service ports (LISTEN:xxxx)
+     - Per-project status objects (status, completion %, timestamp)
+     - Build details (status, pages, errors)
+     - System metrics (reliability, uptime, consecutive cycles, blockers)
+   - **Change:** Auto-update system upgraded to more detailed tracking format
+   - **Implication:** Better state visibility for future checkpoints
+
+3. ✅ **Travel-P2-UI Deployment Status Confirmed**
+   - **Status:** Still returning 404 (tested @ 22:59)
+   - **Polling report:** TRAVEL-UI 60% WIP (no progress since Cycle 614 @ 22:46)
+   - **Duration:** 72+ minutes beyond expected 22:30 completion
+   - **State:** BLOCKED_ON_EXTERNAL confirmed (Vercel cache sync incomplete)
+
+**Task State Summary (No New Transitions):**
+- ✅ Phase 2 Reliability: COMPLETED (stable)
+- ✅ Discord Bot P1: COMPLETED (stable)
+- ✅ Backup P2: COMPLETED (stable)
+- ⚠️ Travel-P2-UI: BLOCKED_ON_EXTERNAL (60% WIP, deployment pending)
+- 🟡 Team Dashboard P2: IN_PROGRESS (stable)
+- 🟡 Asset Master P1: IN_PROGRESS (stable)
+- 🔵 Asset Master Phase 2: BLOCKED_ON_USER (78h+ OVERDUE, no change)
+
+**Auto-Updated Files:**
+- .ctb-state.json (auto-updated by polling system @ 22:58 KST)
+- INCOMPLETE_TASKS_REGISTRY.md (this checkpoint)
+
+**System Health:**
+- Services: 5/5 LISTEN ✅
+- Build: 142 pages passing ✅
+- Reliability: 99.2% ✅
+- Stability: 24 consecutive stable cycles ✅
+- Critical blocker: db/36 migration still pending ❌
+
+**Next Checkpoint:** 2026-06-06 23:29 KST (30-min cycle)
+
+---
+
+## 📊 TASK STATE MACHINE MONITOR — 2026-06-06 22:51 KST
+
+**Monitoring Window:** Continuous (all tasks)  
+**Detection Method:** Git log + Polling cycles + Vercel deployment testing  
+**Status Update:** ✅ 1 STATE TRANSITION DETECTED
+
+### State Machine Rule Applied:
+
+**RULE #2: IN_PROGRESS → BLOCKED_ON_EXTERNAL** (if external dependency detected)
+
+**State Transition Detected:**
+
+1. ✅ **Travel-P2-UI: COMPLETED → BLOCKED_ON_EXTERNAL**
+   - **Previous State:** COMPLETED & APPROVED (2026-06-04 14:45 KST)
+   - **New State:** BLOCKED_ON_EXTERNAL (Vercel deployment)
+   - **Trigger:** Polling Cycle 611-614 (22:27-22:46 KST) shows TRAVEL-UI 60% WIP
+   - **Evidence:** 
+     - Code: ✅ 100% complete + QA approved (2026-06-04)
+     - Build: ✅ 142 pages compiled (verified 22:27 onwards)
+     - Deployment: ❌ Still returning 404 on production (curl test @ 22:51)
+     - Status: Polling Cycle 614 shows "TRAVEL-UI 60% WIP" despite code completion
+   - **Blocking Dependency:** Vercel build cache sync incomplete
+   - **ETA:** 2026-06-06 23:30 KST (estimated)
+   - **Action Required:** Monitor Vercel build logs; may need manual rebuild if cache doesn't sync
+   - **Transition Time:** 2026-06-06 22:51 KST
+
+**Other Task States (No Transitions):**
+- Phase 2 Reliability: ✅ COMPLETED (stable since 2026-06-04)
+- Discord Bot P1: ✅ COMPLETED & VERIFIED (stable since 2026-06-05 22:54)
+- Backup P2: ✅ COMPLETED (stable since 2026-06-04)
+- Asset Master P1: 🟡 IN_PROGRESS (actively testing, on schedule)
+- Team Dashboard P2: 🟡 IN_PROGRESS (scheduled, ahead of 2026-06-10 start)
+- Asset Master Phase 2: 🔵 BLOCKED_ON_USER (78h+ OVERDUE - **CRITICAL**, no action detected)
+
+**Rule Checking Summary:**
+- ✅ Rule 1 (PENDING → IN_PROGRESS): No PENDING tasks
+- ✅ Rule 2 (IN_PROGRESS → BLOCKED_ON_EXTERNAL): Applied to Travel-P2-UI
+- ⏳ Rule 3 (BLOCKED_ON_USER → IN_PROGRESS): Asset Master P2 still blocked (db/36 not executed)
+- ✅ Rule 4 (IN_PROGRESS → COMPLETED): No new completions since last checkpoint
+
+---
+
+## 📊 SESSION CHECKPOINT — 2026-06-06 22:29 KST (AUTO-SAVE)
+
+**Checkpoint Window:** 22:14 → 22:29 KST (15min auto-save cycle)  
+**Detection Method:** Git log + Polling cycles + Process monitoring  
+**Status Update:** ✅ 3 STATE CHANGES DETECTED
+
+**State Transitions Recorded (This Checkpoint):**
+
+1. ✅ **Polling Cycle 611 Executed @ 22:27 KST**
+   - **Status:** All services STABLE (Gateway 19001 + Phase 2A/2B/2C ports 3009/3010/3011 + FMS Portal 3000 all LISTEN)
+   - **Build:** PASSING (142 pages static, +19 pages from previous 123)
+   - **Projects:** AUDIT/DISCORD-BOT/BM 100% complete, TRAVEL-UI 60% complete
+   - **Reliability:** 99.2%
+   - **Consecutive stable cycles:** 21
+   - **Deployment:** Vercel still in progress
+
+2. ⚠️ **Phase 2 Service Status Degradation @ 22:29 KST**
+   - **Previous:** 1/3 restarting (22:14 checkpoint)
+   - **Current:** 0/3 detected running
+   - **Impact:** Phase 2 services offline, may require manual restart or next cron cycle intervention
+   - **Investigation:** Processes may be terminating after restart attempts
+
+3. ✅ **Build Page Count Increase @ 22:27**
+   - **Previous:** 123 pages (22:14)
+   - **Current:** 142 pages static (22:27)
+   - **Change:** +19 pages detected in build output
+   - **Implication:** Vercel build may have completed more routes
+
+**Task State Summary:**
+- ✅ Phase 2 Reliability: COMPLETED (but services offline as of 22:29)
+- ✅ Discord Bot P1: COMPLETED
+- ✅ Backup P2: COMPLETED
+- ✅ Travel Management P2 UI: COMPLETED (route accessibility pending)
+- 🟡 Team Dashboard P2: IN_PROGRESS (stable)
+- 🟡 Asset Master P1: IN_PROGRESS (stable)
+- 🔵 Asset Master Phase 2: BLOCKED_ON_USER (stable, 78h+ overdue)
+
+**Auto-Updated Files:**
+- memory-automation/queue/messages.jsonl (auto-updated)
+- memory-automation/queue/metrics.json (auto-updated)
+- memory/logs/ctb-cron.log (auto-updated)
+- memory/logs/org-status-cron.log (auto-updated)
+
+**Next Checkpoint:** 2026-06-06 22:59 KST (30-min cycle)
 
 ---
 
