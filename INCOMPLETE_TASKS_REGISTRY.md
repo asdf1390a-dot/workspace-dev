@@ -4,7 +4,95 @@ description: Active incomplete work tracking (updated 2026-06-03 17:25 KST)
 type: project
 ---
 
-# Incomplete Tasks Registry (Last Updated: 2026-06-06 01:57 KST)
+# Incomplete Tasks Registry (Last Updated: 2026-06-06 21:59 KST)
+
+---
+
+## 📊 SESSION CHECKPOINT — 2026-06-06 21:59 KST (AUTO-SAVE)
+
+**Checkpoint Window:** 21:30 → 21:59 KST (30min auto-save cycle)  
+**Detection Method:** Git log + Polling cycles + State machine monitoring  
+**Status Update:** ✅ 2 NEW STATE CHANGES DETECTED
+
+**State Transitions Recorded (This Checkpoint):**
+
+1. ✅ **Git Push Executed @ 21:55 KST**
+   - **Trigger:** User directive "전부다배포해" (Deploy all)
+   - **Action:** `git push origin main` (12 commits from 21:30→21:55)
+   - **Commits Pushed:** 6ffbd59b...100853e2 (all 4 projects integrated)
+   - **Result:** GitHub updated, Vercel auto-deploy triggered
+   - **New State:** DEPLOYMENT_IN_PROGRESS
+
+2. ✅ **Deployment Status Clarified @ 21:57 KST (Polling Cycle 608)**
+   - **Previous Status:** "Only FMS Portal deployed (Cycle 606-607)"
+   - **Current Status:** "All projects deployed as integrated features within FMS Portal (Cycle 608 CORRECTED)"
+   - **Root Cause:** Earlier cycles incorrectly reported deployment scope
+   - **Clarification:** AUDIT/DISCORD-BOT/BM/TRAVEL-UI are code-only but integrated into FMS Portal
+   - **ETA:** Vercel deployment completion 21:57-22:00 KST (~5 min from push)
+
+**Task State Summary (No Changes to Task States):**
+- ✅ Phase 2 Reliability: COMPLETED (stable)
+- ✅ Discord Bot P1: COMPLETED (stable)
+- ✅ Backup P2: COMPLETED (stable)
+- ✅ Travel Management P2 UI: COMPLETED (awaiting Vercel rebuild)
+- 🟡 Team Dashboard P2: IN_PROGRESS (stable)
+- 🟡 Asset Master P1: IN_PROGRESS (stable)
+- 🔵 Asset Master Phase 2: BLOCKED_ON_USER (stable, 77h+ overdue)
+
+**Deployment Pipeline Events (NEW):**
+- 📝 21:55 KST: Code pushed to origin/main
+- ⏳ 21:55-22:00 KST: Vercel build in progress (expected 2-3 min)
+- 🟡 Expected @ 22:00 KST: All 4 pages live on Vercel
+  - https://dsc-fms-portal.vercel.app/harness/audit-logs → AUDIT
+  - https://dsc-fms-portal.vercel.app/backup → BM
+  - https://dsc-fms-portal.vercel.app/travels → TRAVEL-UI
+
+**Blockers (Status Unchanged):**
+- 🔴 Asset Master Phase 2 db/36 (77h 59m overdue)
+- 🟡 BLOCKER-B1: 3/5 Vercel env vars (2 pending)
+- 🟡 BLOCKER-B3: Deferred until B1 complete
+
+**Next Checkpoint:** 2026-06-06 22:29 KST (30-min cycle)
+
+---
+
+## ⚠️ DEPLOYMENT STATUS — Partial Route Access Issue (2026-06-06 22:10 KST)
+
+**Issue Summary:** Vercel deployment incomplete — some routes accessible, others return 404
+
+**Routes Working (200 OK):**
+- ✅ `/` — Main portal
+- ✅ `/backup` — BM Management 
+- ✅ `/reports` — Reports
+- ✅ `/ceo-dashboard` — CEO Dashboard
+- ✅ `/vendors`, `/kpi` — Other modules
+
+**Routes Returning 404:**
+- ❌ `/harness` & children (`/harness/audit-logs`, `/harness/conflicts`, etc.) — AUDIT project
+- ❌ `/travels` & children (`/travels/requests`, `/travels/approvals`) — TRAVEL-UI project
+- ❌ `/dashboard` & children (`/dashboard/portfolio`, `/dashboard/team-status`)
+- ❌ `/team` & children
+
+**Root Cause:** 
+- Code is complete and committed ✅
+- Routes build locally ✅ (verified in .next output)
+- Vercel deployment appears to be using stale/incomplete build
+- Last known error: TypeScript type inference in cron route (now fixed)
+
+**Actions Taken:**
+1. Fixed TypeScript error in `/api/cron/checkpoints/14-00/route.ts` (commit cbd65df6)
+2. Forced rebuild with minor change to layout.tsx (commit d702b86d)
+3. Verified local build includes all routes
+4. Confirmed all files properly committed to git
+
+**Next Steps Needed:**
+- [ ] Monitor Vercel deployment completion (check build history)
+- [ ] If routes still missing: Request manual Vercel rebuild or deployment
+- [ ] Consider if route structure needs adjustment for Vercel compatibility
+
+**Status:** PARTIAL_DEPLOYMENT — FMS Portal core operational, but 4 project modules inaccessible on Vercel
+
+---
 
 ## ✅ RESOLVED — BUILD BLOCKER (P0)
 
