@@ -1,40 +1,44 @@
 {
-  "timestamp": "2026-06-06T10:15:00Z",
-  "cycle": 581,
-  "status": "OPERATIONAL",
-  "last_update": "2026-06-06 19:15:00 KST",
+  "timestamp": "2026-06-06T19:20:00Z",
+  "cycle": 582,
+  "kst_time": "2026-06-06 19:20 KST",
+  "status": "ALL_OPERATIONAL",
+  "progress": 100,
   "services": {
-    "phase2a": "RUNNING (port 3009, PID healthy)",
-    "phase2b": "RUNNING (port 3010, PID healthy)",
-    "phase2c": "RUNNING (port 3011, PID healthy)"
-  },
-  "projects": {
-    "AUDIT-P1": {
-      "commit": "0cf3c1ba",
-      "status": "✅ STABLE",
-      "completion": "100%"
+    "phase2a_3009": {
+      "status": "LISTEN",
+      "pid": 13254,
+      "name": "message-collection",
+      "uptime_minutes": 1847
     },
-    "DISCORD-BOT-P1": {
-      "commit": "585db4d5",
-      "status": "✅ STABLE",
-      "completion": "100%"
+    "phase2b_3010": {
+      "status": "LISTEN",
+      "pid": 13262,
+      "name": "duplicate-detection",
+      "uptime_minutes": 1847
     },
-    "BM-P1": {
-      "commit": "ecc13a9f",
-      "status": "✅ STABLE",
-      "completion": "100%"
+    "phase2c_3011": {
+      "status": "LISTEN",
+      "pid": 13270,
+      "name": "trust-score",
+      "uptime_minutes": 1847
     },
-    "TRAVEL-P2-UI": {
-      "commit": "e9396c74",
-      "status": "✅ STABLE",
-      "completion": "~60%"
+    "portal_3000": {
+      "status": "LISTEN",
+      "pid": 1403,
+      "name": "next-server",
+      "pages_total": 123
     }
   },
-  "build": {
-    "pages": 123,
-    "status": "PASSING"
-  },
-  "reliability": "100%",
+  "build_status": "PASSING",
+  "pages_successful": 123,
   "code_changes": 0,
-  "blockers": 0
+  "projects": {
+    "AUDIT-P1": "✅ STABLE",
+    "DISCORD-BOT-P1": "✅ STABLE",
+    "BM-P1": "✅ STABLE",
+    "TRAVEL-P2-UI": "✅ STABLE"
+  },
+  "reliability_score": 100,
+  "last_verified": "2026-06-06T19:20:00Z"
 }
