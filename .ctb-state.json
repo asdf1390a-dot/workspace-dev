@@ -1,50 +1,66 @@
 {
-  "timestamp": "2026-06-06T21:51:00Z",
-  "polling_cycle": 607,
-  "status": "STABLE",
-  "services": {
-    "gateway_19001": "LISTEN",
-    "phase2a_3009": "LISTEN",
-    "phase2b_3010": "LISTEN",
-    "phase2c_3011": "LISTEN",
-    "fms_portal_3000": "LISTEN"
-  },
+  "timestamp": "2026-06-06T12:57:08Z",
+  "cycle": 608,
+  "time_kst": "2026-06-06 21:57:08",
   "build_status": "PASSING",
   "build_pages": 123,
-  "projects": {
-    "AUDIT_P1": {
-      "status": "COMPLETE",
-      "completion": 100,
-      "deployed": false
+  "services": {
+    "gateway": {
+      "port": 19001,
+      "status": "LISTEN",
+      "uptime_hours": 67
     },
-    "DISCORD_BOT_P1": {
-      "status": "COMPLETE",
-      "completion": 100,
-      "deployed": false
+    "phase2a": {
+      "port": 3009,
+      "status": "LISTEN",
+      "service": "message-collection"
     },
-    "BM_P1": {
-      "status": "COMPLETE",
-      "completion": 100,
-      "deployed": false
+    "phase2b": {
+      "port": 3010,
+      "status": "LISTEN",
+      "service": "duplicate-detection"
     },
-    "TRAVEL_P2_UI": {
-      "status": "IN_PROGRESS",
-      "completion": 60,
-      "deployed": false
+    "phase2c": {
+      "port": 3011,
+      "status": "LISTEN",
+      "service": "trust-score"
+    },
+    "fms_portal": {
+      "port": 3000,
+      "status": "LISTEN",
+      "deployment": "vercel"
     }
   },
-  "deployment_status": {
-    "FMS_Portal_Vercel": "DEPLOYED",
-    "AUDIT": "CODE_ONLY",
-    "DISCORD_BOT": "CODE_ONLY",
-    "BM": "CODE_ONLY",
-    "TRAVEL_UI": "CODE_ONLY",
-    "Phase2_Services": "LOCAL_ONLY"
+  "projects": {
+    "audit_p1": {
+      "completion": 100,
+      "status": "COMPLETE",
+      "deployment": "code-only"
+    },
+    "discord_bot_p1": {
+      "completion": 100,
+      "status": "COMPLETE",
+      "deployment": "code-only"
+    },
+    "bm_p1": {
+      "completion": 100,
+      "status": "COMPLETE",
+      "deployment": "code-only"
+    },
+    "travel_ui_p2": {
+      "completion": 60,
+      "status": "IN_PROGRESS",
+      "deployment": "code-only"
+    }
   },
-  "reliability": "100%",
-  "uptime_hours": 67,
-  "consecutive_stable_cycles": 18,
-  "blockers": 0,
-  "last_update": "2026-06-06 21:51:00 KST",
-  "notes": "CTB Polling Cycle 607: All services stable and responding. Build passing with 123 pages. Deployment accuracy verified: only FMS Portal deployed to Vercel; AUDIT/DISCORD-BOT/BM/TRAVEL-UI are code-only (not deployed). Phase 2 services (3009/3010/3011) running locally. Zero critical blockers."
+  "reliability": {
+    "score": 100,
+    "consecutive_stable_cycles": 19,
+    "blockers": 0
+  },
+  "deployment_accuracy": {
+    "verified_deployed": "FMS Portal (Vercel only)",
+    "code_only": ["AUDIT", "DISCORD-BOT", "BM", "TRAVEL-UI"],
+    "note": "Deployment status corrected in Cycle 606"
+  }
 }
