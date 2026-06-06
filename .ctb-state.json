@@ -1,16 +1,50 @@
 {
-  "timestamp": "2026-06-06T11:21:22Z",
+  "timestamp": "2026-06-06T11:31:00Z",
+  "polling_cycle": 592,
+  "poll_time_kst": "2026-06-06 20:31:00",
   "progress": 100,
   "services": {
-    "phase2a": "3009 LISTEN",
-    "phase2b": "3010 LISTEN",
-    "phase2c": "3011 LISTEN"
+    "gateway": {
+      "port": 19001,
+      "status": "LISTEN",
+      "pid": 454,
+      "uptime_minutes": 548
+    },
+    "phase2a": {
+      "port": 3009,
+      "status": "LISTEN",
+      "pid": 13254,
+      "uptime_minutes": 529
+    },
+    "phase2b": {
+      "port": 3010,
+      "status": "LISTEN",
+      "pid": 13262,
+      "uptime_minutes": 529
+    },
+    "phase2c": {
+      "port": 3011,
+      "status": "LISTEN",
+      "pid": 13270,
+      "uptime_minutes": 529
+    },
+    "fms_portal": {
+      "port": 3000,
+      "status": "LISTEN",
+      "pid": 1403,
+      "uptime_minutes": 467
+    }
   },
-  "last_update": "2026-06-06 20:21:22",
-  "projects_complete": {
-    "AUDIT-P1": "100%",
-    "DISCORD-BOT-P1": "100%",
-    "BM-P1": "100%",
-    "TRAVEL-P2-UI": "100%"
-  }
+  "build_status": "PASSING",
+  "build_pages": 123,
+  "projects": {
+    "audit_p1": "100%",
+    "discord_bot_p1": "100%",
+    "bm_p1": "100%",
+    "travel_p2_ui": "100%"
+  },
+  "reliability": "100%",
+  "uptime_hours": 67,
+  "blockers": 1,
+  "blocker_details": "Asset Master P2 awaiting db/36 SQL (76h+ pending)"
 }
