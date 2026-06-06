@@ -1,25 +1,41 @@
 {
-  "timestamp": "2026-06-06T13:31:00Z",
-  "cycle": 612,
-  "cycle_time_kst": "2026-06-06 22:31 KST",
-  "progress": 100,
+  "timestamp": "2026-06-06T13:36:00Z",
+  "cycle": 613,
+  "cycle_time_kst": "2026-06-06 22:36 KST",
+  "progress": 97,
   "projects": {
-    "audit_p1": { "status": "100%", "loc": 48, "verified": true },
-    "discord_bot_p1": { "status": "100%", "processors": 5, "verified": true },
-    "bm_p1": { "status": "100%", "loc": 197, "verified": true },
-    "travel_p2_ui": { "status": "60%", "files": 12, "verified": true }
+    "AUDIT-P1": {
+      "commit": "0cf3c1ba",
+      "status": "100% complete",
+      "deployment": "Vercel (code-only, integrated in FMS Portal)"
+    },
+    "DISCORD-BOT-P1": {
+      "commit": "585db4d5",
+      "status": "100% complete",
+      "deployment": "Vercel (code-only, integrated in FMS Portal)"
+    },
+    "BM-P1": {
+      "commit": "ecc13a9f",
+      "status": "100% complete",
+      "deployment": "Vercel (code-only, integrated in FMS Portal)"
+    },
+    "TRAVEL-P2-UI": {
+      "commit": "e9396c74",
+      "status": "60% WIP",
+      "deployment": "In progress"
+    }
   },
   "services": {
-    "phase2a": "LISTEN:3009",
-    "phase2b": "LISTEN:3010",
-    "phase2c": "LISTEN:3011",
-    "portal": "LISTEN:3000",
-    "gateway": "LISTEN:19001"
+    "gateway_19001": "LISTEN ✅",
+    "phase2a_3009": "LISTEN ✅",
+    "phase2b_3010": "LISTEN ✅",
+    "phase2c_3011": "LISTEN ✅",
+    "fms_portal_3000": "LISTEN ✅"
   },
   "build_status": "PASSING (142 pages static)",
-  "code_changes": 0,
-  "blockers": 0,
   "reliability": "99.2%",
-  "uptime_hours": "67+",
-  "last_update": "2026-06-06 22:31:00"
+  "uptime_hours": 67,
+  "consecutive_stable_cycles": 22,
+  "blockers": 0,
+  "last_update": "2026-06-06 22:36:00 KST"
 }
