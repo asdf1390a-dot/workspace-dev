@@ -1,44 +1,27 @@
 {
-  "timestamp": "2026-06-06T19:20:00Z",
-  "cycle": 582,
-  "kst_time": "2026-06-06 19:20 KST",
-  "status": "ALL_OPERATIONAL",
+  "timestamp": "2026-06-06T10:26:00Z",
+  "cycle": 583,
+  "polling_time": "2026-06-06 19:25 KST",
   "progress": 100,
   "services": {
-    "phase2a_3009": {
-      "status": "LISTEN",
-      "pid": 13254,
-      "name": "message-collection",
-      "uptime_minutes": 1847
-    },
-    "phase2b_3010": {
-      "status": "LISTEN",
-      "pid": 13262,
-      "name": "duplicate-detection",
-      "uptime_minutes": 1847
-    },
-    "phase2c_3011": {
-      "status": "LISTEN",
-      "pid": 13270,
-      "name": "trust-score",
-      "uptime_minutes": 1847
-    },
-    "portal_3000": {
-      "status": "LISTEN",
-      "pid": 1403,
-      "name": "next-server",
-      "pages_total": 123
-    }
+    "phase2a_3009": "LISTEN ✅",
+    "phase2b_3010": "LISTEN ✅",
+    "phase2c_3011": "LISTEN ✅",
+    "gateway_19001": "LISTEN ✅",
+    "portal_3000": "LISTEN ✅"
   },
-  "build_status": "PASSING",
-  "pages_successful": 123,
-  "code_changes": 0,
   "projects": {
-    "AUDIT-P1": "✅ STABLE",
-    "DISCORD-BOT-P1": "✅ STABLE",
-    "BM-P1": "✅ STABLE",
-    "TRAVEL-P2-UI": "✅ STABLE"
+    "audit_p1": "✅ stable (0cf3c1ba)",
+    "discord_bot_p1": "✅ stable (585db4d5)",
+    "bm_p1": "✅ stable (ecc13a9f)",
+    "travel_p2_ui": "✅ stable (e9396c74)"
   },
-  "reliability_score": 100,
-  "last_verified": "2026-06-06T19:20:00Z"
+  "build": {
+    "status": "✅ PASSING",
+    "pages": 123,
+    "errors": 0
+  },
+  "reliability": "100%",
+  "code_changes": 0,
+  "last_update": "2026-06-06 19:25:00"
 }
