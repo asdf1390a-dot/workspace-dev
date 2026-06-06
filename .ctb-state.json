@@ -1,74 +1,27 @@
 {
-  "timestamp": "2026-06-06T22:46:00Z",
-  "cycle": 614,
-  "timestamp_kst": "2026-06-06 22:46 KST",
-  "progress": 100,
-  "build_status": "PASSING",
-  "build_pages": 142,
+  "timestamp": "2026-06-06T13:52:01Z",
+  "cycle": 615,
+  "cycle_time": "22:52 KST",
+  "progress": 0,
   "services": {
-    "gateway": {
-      "port": 19001,
-      "status": "LISTEN",
-      "verified": true
-    },
-    "phase2a": {
-      "port": 3009,
-      "status": "LISTEN",
-      "verified": true,
-      "service": "message-collection"
-    },
-    "phase2b": {
-      "port": 3010,
-      "status": "LISTEN",
-      "verified": true,
-      "service": "duplicate-detection"
-    },
-    "phase2c": {
-      "port": 3011,
-      "status": "LISTEN",
-      "verified": true,
-      "service": "trust-score"
-    },
-    "fms_portal": {
-      "port": 3000,
-      "status": "LISTEN",
-      "verified": true,
-      "deployed": "vercel"
-    }
+    "gateway": "LISTEN:19001",
+    "phase2a": "LISTEN:3009",
+    "phase2b": "LISTEN:3010",
+    "phase2c": "LISTEN:3011",
+    "fms_portal_dev": "LISTEN:3000",
+    "fms_portal_vercel": "RESPONDING"
   },
-  "projects": {
-    "AUDIT_P1": {
-      "completion": 100,
-      "status": "VERIFIED_PASSED",
-      "deadline": "2026-06-04",
-      "deadline_status": "PASSED",
-      "commit": "0cf3c1ba"
-    },
-    "DISCORD_BOT_P1": {
-      "completion": 100,
-      "status": "VERIFIED_PASSED",
-      "deadline": "2026-06-05 18:00",
-      "deadline_status": "PASSED",
-      "commit": "585db4d5"
-    },
-    "TRAVEL_P2_UI": {
-      "completion": 60,
-      "status": "WIP",
-      "deadline": "2026-06-05 18:00",
-      "deadline_status": "PASSED",
-      "commit": "e9396c74"
-    },
-    "BM_P1": {
-      "completion": 100,
-      "status": "VERIFIED_PASSED",
-      "deadline": "2026-06-04",
-      "deadline_status": "PASSED",
-      "commit": "ecc13a9f"
-    }
-  },
-  "reliability": 99.2,
+  "build_status": "PASSING (142 pages)",
+  "reliability": "99.2%",
   "uptime_hours": 67,
-  "consecutive_stable_cycles": 22,
+  "consecutive_stable_cycles": 23,
   "blockers": 0,
-  "last_update": "2026-06-06 22:46 KST"
+  "projects": {
+    "audit": "100%",
+    "discord_bot": "100%",
+    "bm": "100%",
+    "travel_ui": "60% (WIP)"
+  },
+  "deployment_status": "FMS Portal deployed (Vercel), Others code-only",
+  "last_update": "2026-06-06 22:52:01"
 }
