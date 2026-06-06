@@ -1,43 +1,27 @@
 {
-  "cycle": 649,
-  "timestamp": "2026-06-07T02:32:00Z",
-  "timestamp_kst": "2026-06-07 02:32 KST",
+  "timestamp": "2026-06-07T17:42:34Z",
+  "cycle": 651,
+  "cycle_time_kst": "2026-06-07 02:42:34",
   "progress": 100,
-  "phase2_services": {
-    "phase2a": "LISTEN (72h+ uptime)",
-    "phase2b": "LISTEN (72h+ uptime)",
-    "phase2c": "LISTEN (72h+ uptime)"
+  "state_changes": 0,
+  "consecutive_stable_cycles": 15,
+  "services": {
+    "phase2a": "LISTEN",
+    "phase2b": "LISTEN",
+    "phase2c": "LISTEN"
+  },
+  "vercel": {
+    "status": 200,
+    "portal": "https://dsc-fms-portal.vercel.app",
+    "last_check": "2026-06-07T17:42:34Z"
   },
   "projects": {
-    "AUDIT-P1": {
-      "commit": "0cf3c1ba",
-      "status": "100% production-ready",
-      "completion": 100,
-      "last_change": "2026-06-05"
-    },
-    "DISCORD-BOT-P1": {
-      "commit": "585db4d5",
-      "status": "100% production-ready",
-      "completion": 100,
-      "last_change": "2026-06-05"
-    },
-    "TRAVEL-P2-UI": {
-      "commit": "e9396c74",
-      "status": "100% production-ready",
-      "completion": 100,
-      "last_change": "2026-06-06"
-    },
-    "BM-P1": {
-      "commit": "ecc13a9f",
-      "status": "100% production-ready",
-      "completion": 100,
-      "last_change": "2026-06-05"
-    }
+    "AUDIT-P1": "100% production-ready",
+    "DISCORD-BOT-P1": "100% production-ready",
+    "TRAVEL-P2-UI": "100% production-ready",
+    "BM-P1": "100% production-ready"
   },
-  "vercel": "200 OK",
-  "state_changes": 0,
-  "consecutive_stable_cycles": 13,
-  "sustained_stability_minutes": 65,
-  "db_status": "db/36 COMPLETE (resolved 01:06 KST, deadline 02:00, +56min buffer)",
-  "last_update": "2026-06-07 02:32:01"
+  "db_status": "db/36 COMPLETE",
+  "uptime_hours": 72,
+  "next_cycle": "Cycle 652 @ 02:47 KST"
 }
