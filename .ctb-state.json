@@ -1,24 +1,23 @@
 {
-  "timestamp": "2026-06-06T21:16:00Z",
-  "timestamp_kst": "2026-06-06 21:16 KST",
-  "cycle": 600,
-  "progress": "100%",
+  "timestamp": "2026-06-06T21:21:00+09:00",
+  "cycle": 601,
   "services": {
-    "gateway": "19001_LISTEN",
-    "phase2a": "3009_LISTEN",
-    "phase2b": "3010_LISTEN",
-    "phase2c": "3011_LISTEN",
-    "fms_portal": "3000_LISTEN"
+    "gateway": "LISTEN:19001",
+    "portal": "LISTEN:3000",
+    "phase2a": "LISTEN:3009",
+    "phase2b": "LISTEN:3010",
+    "phase2c": "LISTEN:3011"
   },
+  "build": "PASSING (123 pages)",
   "projects": {
-    "AUDIT": "100%_LIVE",
-    "DISCORD-BOT": "100%_LIVE",
-    "BM": "100%_LIVE",
-    "TRAVEL": "100%_LIVE"
+    "AUDIT": "100%",
+    "DISCORD-BOT": "100%",
+    "BM": "100%",
+    "TRAVEL": "100%"
   },
-  "build": "PASSING_123pages",
   "reliability": "100%",
-  "uptime_hours": 67,
-  "consecutive_stable_cycles": 13,
-  "last_update": "2026-06-06 21:16 KST"
+  "uptime_hours": "67+",
+  "consecutive_stable_cycles": 14,
+  "last_update": "2026-06-06T21:21:00+09:00",
+  "status": "ALL_SERVICES_STABLE"
 }
