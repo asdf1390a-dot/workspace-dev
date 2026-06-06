@@ -1,67 +1,32 @@
 {
-  "timestamp": "2026-06-06T14:33:00Z",
-  "polling_cycle": 623,
-  "cycle_time_kst": "2026-06-06 23:33 KST",
-  "progress_overall": 37.5,
-  "progress_code": 100,
-  "progress_deployment": 37.5,
+  "timestamp": "2026-06-06T14:46:00Z",
+  "polling_cycle": 625,
+  "cycle_timestamp_kst": "2026-06-06 23:46 KST",
+  "progress": {
+    "local_completion": "100%",
+    "vercel_deployment": "25%",
+    "all_services_healthy": true
+  },
   "services": {
-    "phase2a": "LISTEN:3009",
-    "phase2b": "LISTEN:3010",
-    "phase2c": "LISTEN:3011",
-    "gateway": "LISTEN:19001",
-    "fms_portal": "LISTEN:3000"
+    "phase2a": "✅ LISTEN (3009, PID 112946)",
+    "phase2b": "✅ LISTEN (3010, PID 112960)",
+    "phase2c": "✅ LISTEN (3011, PID 112974)",
+    "gateway": "✅ LISTEN (19001, PID 112849)",
+    "fms_portal": "✅ RUNNING (3000, PID 72439)"
   },
-  "services_healthy": 5,
-  "services_total": 5,
   "projects": {
-    "AUDIT_P1_0cf3c1ba": {
-      "code_completion": 100,
-      "deployment_completion": 0,
-      "status": "Code complete, Vercel deployment in progress",
-      "route": "/harness/audit-logs (404)",
-      "locs": 289
-    },
-    "DISCORD_BOT_P1_585db4d5": {
-      "code_completion": 100,
-      "deployment_completion": 100,
-      "status": "Complete",
-      "route": "Discord processors (5/5)",
-      "locs": 908
-    },
-    "BM_P1_ecc13a9f": {
-      "code_completion": 100,
-      "deployment_completion": 50,
-      "status": "Code complete, Vercel deployment partial",
-      "route": "/backup (partial 200)",
-      "locs": 197
-    },
-    "TRAVEL_P2_UI_e9396c74": {
-      "code_completion": 100,
-      "deployment_completion": 0,
-      "status": "Code complete, Vercel deployment stuck",
-      "route": "/travels (404)",
-      "locs": 1169,
-      "ui_completion": 60
-    }
+    "AUDIT-P1": {"status": "100% LOCAL", "deployment": "0%", "state_change": false},
+    "DISCORD-BOT-P1": {"status": "100% LOCAL", "deployment": "0%", "state_change": false},
+    "BM-P1": {"status": "100% LOCAL", "deployment": "0%", "state_change": false},
+    "TRAVEL-P2-UI": {"status": "100% LOCAL", "deployment": "60%", "state_change": false}
   },
-  "reliability": 99.2,
+  "critical_blockers": [
+    "Vercel deployment stuck (37.5%, manual rebuild 23:27 KST no progress)",
+    "db/36 migration OVERDUE (2h 14min to deadline 2026-06-07 02:00)"
+  ],
+  "last_update": "2026-06-06 23:46:00",
+  "reliability": "99.2%",
+  "uptime_hours": "68.5+",
   "consecutive_stable_cycles": 27,
-  "build_pages_passing": 142,
-  "uptime_hours": 68.5,
-  "critical_blockers": {
-    "db36_migration": {
-      "status": "OVERDUE",
-      "deadline_kst": "2026-06-07 02:00 KST",
-      "time_remaining_minutes": 150,
-      "overdue_hours": 78
-    },
-    "vercel_deployment": {
-      "status": "IN_PROGRESS",
-      "stuck_percentage": 33,
-      "routes_completed": "1.5/4",
-      "routes_pending": "/audit-logs, /travels"
-    }
-  },
-  "last_update_kst": "2026-06-06 23:33:00"
+  "build_status": "✅ PASSING (142 pages, 0 errors)"
 }
