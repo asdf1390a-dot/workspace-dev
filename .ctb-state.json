@@ -1,17 +1,33 @@
 {
-  "timestamp": "2026-06-06T11:36:00Z",
-  "progress": 100,
+  "timestamp": "2026-06-06T11:41:27Z",
+  "projects": {
+    "audit_p1": {
+      "status": "✅ 100% complete",
+      "completion_percent": 100
+    },
+    "discord_bot_p1": {
+      "status": "✅ 100% complete",
+      "completion_percent": 100
+    },
+    "travel_p2_ui": {
+      "status": "✅ 100% complete",
+      "completion_percent": 100
+    },
+    "bm_p1": {
+      "status": "✅ 100% complete",
+      "completion_percent": 100
+    }
+  },
   "services": {
     "phase2a": "LISTEN:3009",
     "phase2b": "LISTEN:3010",
-    "phase2c": "LISTEN:3011"
+    "phase2c": "LISTEN:3011",
+    "fms_portal": "LISTEN:3000",
+    "gateway": "LISTEN:19001"
   },
-  "last_update": "2026-06-06 20:36:00",
-  "polling_cycle": 593,
-  "gateway": "LISTEN:19001",
-  "portal": "LISTEN:3000",
-  "build_status": "PASSING",
-  "projects_complete": 4,
+  "build_status": "✅ PASSING (123 pages)",
+  "code_changes": 0,
   "reliability": "100%",
-  "active_processes": 23
+  "uptime_hours": 67,
+  "last_update": "2026-06-06 20:41:27 KST"
 }
