@@ -1,15 +1,14 @@
 {
-  "timestamp": "2026-06-07T07:37:00Z",
-  "cycle": 707,
+  "timestamp": "2026-06-07T22:47:00Z",
   "progress": 100,
   "services": {
     "phase2a": "LISTEN:3009",
     "phase2b": "LISTEN:3010",
     "phase2c": "LISTEN:3011"
   },
+  "last_update": "2026-06-07 07:47:00",
+  "cycle": 710,
   "state_changes": 0,
-  "consecutive_stable_cycles": 73,
   "reliability": "100%",
-  "blockers": 0,
-  "last_update": "2026-06-07 07:37:00"
+  "blockers": 0
 }
