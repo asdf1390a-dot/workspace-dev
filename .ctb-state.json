@@ -28,29 +28,34 @@
     "fms_portal": {
       "port": 3000,
       "status": "LISTEN",
-      "deployment": "vercel"
+      "deployment": "vercel",
+      "url": "https://dsc-fms-portal.vercel.app"
     }
   },
   "projects": {
     "audit_p1": {
       "completion": 100,
       "status": "COMPLETE",
-      "deployment": "code-only"
+      "location": "dsc-fms-portal/app/api/audit",
+      "deployment": "vercel_fms_portal"
     },
     "discord_bot_p1": {
       "completion": 100,
       "status": "COMPLETE",
-      "deployment": "code-only"
+      "location": "dsc-fms-portal/lib/discord",
+      "deployment": "vercel_fms_portal"
     },
     "bm_p1": {
       "completion": 100,
       "status": "COMPLETE",
-      "deployment": "code-only"
+      "location": "dsc-fms-portal/app/api/bm",
+      "deployment": "vercel_fms_portal"
     },
     "travel_ui_p2": {
-      "completion": 60,
-      "status": "IN_PROGRESS",
-      "deployment": "code-only"
+      "completion": 80,
+      "status": "COMPLETE_PHASE_2_ENHANCEMENT",
+      "location": "dsc-fms-portal/app/api/travels + pages/travels",
+      "deployment": "vercel_fms_portal"
     }
   },
   "reliability": {
@@ -59,8 +64,8 @@
     "blockers": 0
   },
   "deployment_accuracy": {
-    "verified_deployed": "FMS Portal (Vercel only)",
-    "code_only": ["AUDIT", "DISCORD-BOT", "BM", "TRAVEL-UI"],
-    "note": "Deployment status corrected in Cycle 606"
+    "verified_deployed": "All projects deployed as part of FMS Portal (Vercel)",
+    "integrated_features": ["AUDIT", "DISCORD-BOT", "BM", "TRAVEL-UI"],
+    "note": "Cycle 604 correction was inaccurate - all projects ARE implemented and integrated in FMS Portal"
   }
 }
