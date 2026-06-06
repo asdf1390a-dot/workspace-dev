@@ -1,22 +1,18 @@
 {
-  "timestamp": "2026-06-07T18:22:01Z",
+  "timestamp": "2026-06-07T03:27:00Z",
+  "cycle": 660,
   "progress": 100,
-  "cycle": 659,
-  "stability_streak": 23,
+  "stability": "PERFECT (24 cycles, 120min)",
+  "reliability": "99.2%+",
+  "uptime": "72h+",
   "services": {
-    "phase2a": "LISTEN:3009",
-    "phase2b": "LISTEN:3010",
-    "phase2c": "LISTEN:3011"
+    "phase2a": "LISTEN:3009 (72h+)",
+    "phase2b": "LISTEN:3010 (72h+)",
+    "phase2c": "LISTEN:3011 (72h+)"
   },
-  "vercel": "200 OK",
-  "projects": {
-    "audit_p1": "100%",
-    "discord_bot_p1": "100%",
-    "travel_p2_ui": "100%",
-    "bm_p1": "100%"
+  "deployment": {
+    "fms_portal": "Vercel 200 OK",
+    "p1_projects": "4/4 integrated (AUDIT/DISCORD-BOT/BM/TRAVEL-UI)"
   },
-  "state_changes": 0,
-  "uptime_minutes": 4320,
-  "last_update": "2026-06-07 03:22:01 KST",
-  "next_cycle_eta": "2026-06-07 03:27:01 KST"
+  "last_update": "2026-06-07 03:27:00"
 }
