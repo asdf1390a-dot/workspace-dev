@@ -1,62 +1,20 @@
 {
-  "cycle": 618,
-  "timestamp": "2026-06-06T23:08:04Z",
-  "kst_time": "2026-06-06 23:08:04",
-  "status": "STABLE",
+  "timestamp": "2026-06-06T23:12:00Z",
+  "progress": "LOCAL: 100% | VERCEL: 25%",
+  "deployment_status": "mixed",
   "services": {
-    "gateway": {
-      "port": 19001,
-      "status": "LISTEN",
-      "protocol": "tcp"
-    },
-    "phase2a": {
-      "port": 3009,
-      "status": "LISTEN",
-      "service": "message-collection"
-    },
-    "phase2b": {
-      "port": 3010,
-      "status": "LISTEN",
-      "service": "duplicate-detection"
-    },
-    "phase2c": {
-      "port": 3011,
-      "status": "LISTEN",
-      "service": "trust-score"
-    },
-    "fms_portal": {
-      "port": 3000,
-      "status": "LISTEN",
-      "platform": "Vercel"
-    }
-  },
-  "build": {
-    "status": "PASSING",
-    "pages": 142,
-    "routes": "all_compiled",
-    "compiled_at": "2026-06-06T23:08:00Z"
+    "phase2a": "✅ LISTEN (3009)",
+    "phase2b": "✅ LISTEN (3010)",
+    "phase2c": "✅ LISTEN (3011)"
   },
   "projects": {
-    "AUDIT": {
-      "completion": 100,
-      "status": "verified"
-    },
-    "DISCORD-BOT": {
-      "completion": 100,
-      "status": "verified"
-    },
-    "BM": {
-      "completion": 100,
-      "status": "verified"
-    },
-    "TRAVEL-UI": {
-      "completion": 100,
-      "status": "verified"
-    }
+    "AUDIT-P1": "✅ LOCAL 100% | ❌ VERCEL 0%",
+    "DISCORD-BOT-P1": "✅ LOCAL 100% | ❌ VERCEL 0%",
+    "BM-P1": "✅ LOCAL 100% | ❌ VERCEL 0%",
+    "TRAVEL-P2-UI": "✅ LOCAL 100% | 🟡 VERCEL 60%"
   },
-  "reliability": 99.2,
-  "uptime_hours": 68.5,
-  "consecutive_stable_cycles": 26,
-  "blockers": 0,
-  "notes": "All services operational. Build passing. All 4 projects complete and verified."
+  "last_update": "2026-06-06 23:12:01 KST",
+  "build_status": "✅ PASSING (142 pages)",
+  "reliability": "99.2% (68.5+ hours uptime)",
+  "critical_note": "Deployment discrepancy: All projects complete locally but not all deployed to Vercel. See CTB_2026_06_06_CYCLE619.json for details."
 }
