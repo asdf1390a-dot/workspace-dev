@@ -1,10 +1,23 @@
 {
-  "timestamp": "2026-06-06T20:40:01Z",
-  "progress": 0,
+  "timestamp": "2026-06-07T05:46:00Z",
+  "cycle": 687,
+  "state_changes": 0,
+  "consecutive_stable_cycles": 55,
+  "stable_duration_minutes": 275,
+  "progress": 100,
   "services": {
-    "phase2a": "",
-    "phase2b": "",
-    "phase2c": ""
+    "phase2a": "LISTEN:3009",
+    "phase2b": "LISTEN:3010",
+    "phase2c": "LISTEN:3011"
   },
-  "last_update": "2026-06-07 05:40:01"
+  "projects": {
+    "audit_p1": "100%",
+    "discord_bot_p1": "100%",
+    "bm_p1": "100%",
+    "travel_p2": "진행중"
+  },
+  "vercel_status": "200 OK",
+  "reliability": "100%",
+  "last_update": "2026-06-07 05:46:00",
+  "next_cycle": "05:51"
 }
