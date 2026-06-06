@@ -1,6 +1,7 @@
 {
-  "timestamp": "2026-06-06T23:18:00+09:00",
-  "cycle": 620,
+  "timestamp": "2026-06-06T23:23:00Z",
+  "cycle": 621,
+  "status": "HEALTHY",
   "services": {
     "gateway_19001": "LISTEN",
     "phase2a_3009": "LISTEN",
@@ -8,40 +9,35 @@
     "phase2c_3011": "LISTEN",
     "fms_portal_3000": "LISTEN"
   },
-  "build_status": "PASSING",
-  "build_pages": 142,
   "projects": {
-    "AUDIT-P1": {
+    "AUDIT_P1": {
       "commit": "0cf3c1ba",
-      "loc": 289,
-      "local_completion": "100%",
-      "vercel_status": "❌ 404 /harness/audit-logs"
+      "status": "100% (Local)",
+      "vercel_status": "❌ 404",
+      "deployment_blocker": "Vercel route not live"
     },
-    "DISCORD-BOT-P1": {
+    "DISCORD_BOT_P1": {
       "commit": "585db4d5",
-      "loc": 908,
-      "local_completion": "100%",
-      "vercel_status": "pending"
+      "status": "100% (Local)",
+      "vercel_status": "❌ 404",
+      "deployment_blocker": "Vercel route not live"
     },
-    "BM-P1": {
+    "BM_P1": {
       "commit": "ecc13a9f",
-      "loc": 197,
-      "local_completion": "100%",
-      "vercel_status": "✅ 200 /backup"
+      "status": "100% (Local)",
+      "vercel_status": "✅ 200 /backup",
+      "deployment_blocker": "None (deployed)"
     },
-    "TRAVEL-P2-UI": {
+    "TRAVEL_P2_UI": {
       "commit": "e9396c74",
-      "loc": 1169,
-      "local_completion": "60%",
-      "vercel_status": "❌ 404 /travels"
+      "status": "60% UI WIP",
+      "vercel_status": "❌ 404",
+      "deployment_blocker": "Vercel route not live"
     }
   },
-  "overall_completion": "LOCAL: 100% (code), VERCEL: 50% (routes)",
+  "build": "PASSING (142 pages)",
   "reliability": "99.2%",
   "uptime_hours": "68.5+",
-  "blockers": [
-    "db/36 migration overdue (deadline: 2026-06-07 02:00 KST)",
-    "AUDIT-P1 and TRAVEL-P2-UI routes not deployed"
-  ],
-  "last_update": "2026-06-06 23:18:00 KST"
+  "critical_blocker": "db/36 migration overdue — deadline 2026-06-07 02:00 KST (1h 37min remaining)",
+  "last_update": "2026-06-06 23:23:00"
 }
