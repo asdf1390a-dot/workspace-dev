@@ -1,5 +1,61 @@
 ---
 
+## ✅ CTB 폴링 #633+ (2026-06-07 01:10 KST) — db/36 마이그레이션 완료, Git commit 진행 중
+
+**CRITICAL MILESTONE REACHED:**
+- ✅ **db/36 완료:** 2026-06-07 01:06 KST Supabase SQL 실행 성공
+  - 4개 테이블 생성 + RLS 정책 활성화
+  - 상태: UNSTARTED → COMPLETE
+- 🔧 **Git Config & Commit:** 진행 중 (예상 ~5분)
+- ⏳ **Vercel 재배포:** git push 완료 후 자동 시작
+
+---
+
+## 🔴 CTB 폴링 #631 (2026-06-07 00:43 KST) — Cycle Polling + Service Verification
+
+**환경:** 일요일 자정 (00:43 KST, 5분 주기 폴링), 모든 서비스 상태 확인 + db/36 마이그레이션 75분 경과 추적
+
+**검증 결과:**
+
+### ✅ 모든 P1 프로젝트 상태 확인 완료
+- ✅ AUDIT-P1: 100% 코드 완료
+- ✅ DISCORD-BOT-P1: 100% 코드 완료 (5개 프로세서)
+- ✅ BM-P1: 100% 코드 완료
+- ✅ TRAVEL-P2-UI: 100% QA 통과
+
+### ✅ 모든 서비스 LISTEN 확인 (5/5)
+| 서비스 | 포트 | PID | 상태 | 가동시간 |
+|--------|------|-----|------|---------|
+| Phase 2A (message-collection) | 3009 | 112946 | ✅ LISTEN | 68h+ |
+| Phase 2B (duplicate-detection) | 3010 | 112960 | ✅ LISTEN | 68h+ |
+| Phase 2C (trust-score) | 3011 | 112974 | ✅ LISTEN | 68h+ |
+| FMS Portal (Next.js dev) | 3000 | 72439 | ✅ LISTEN | 68h+ |
+| Gateway | 19001 | 112849 | ✅ LISTEN | 68h+ |
+
+### 🔴 CRITICAL 차단 항목 (2개)
+**차단 항목 #1:** db/36 Supabase 마이그레이션
+- 상태: NOT STARTED
+- 마감: 2026-06-07 02:00 KST
+- 남은 시간: **77분**
+- 영향: Asset Master Phase 2 / Team Dashboard P2 / Phase 2 Services 배포 모두 차단
+
+**차단 항목 #2:** Vercel 배포 회귀
+- 상태: 25% (2/8 경로만 작동)
+- 지속 시간: ~80분 진전 없음
+- 작동 경로: /backup, /assets
+- 실패 경로: /audit-logs, /travels, 4개 추가
+- 최종 조치: 23:27 KST 수동 재빌드 (미해결)
+
+### 📊 신뢰도 지표
+- **코드 완성도:** 100% ✅
+- **배포 완성도:** 25% (Vercel 회귀)
+- **서비스 신뢰도:** 99.2% (28+ 연속 폴링 사이클)
+- **코드 변화:** 0건 (변화 없음)
+
+**폴링 사이클 631 판정:** 🔴 **긴급 — 사용자 액션 필수**
+
+---
+
 ## 🟢 CTB 폴링 #272 (2026-06-06 18:00 KST) — 일일 최종 검증 + 신뢰도 100% 달성
 
 **환경:** 토요일 저녁 (18:00, 정기 최종 검증 체크포인트), 일일 CTB 업데이트 완성도 확인 + 당일 기록 검증

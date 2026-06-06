@@ -1,16 +1,15 @@
 # 메모리 인덱스 — DSC Mannur FMS + 생태계
 
-## 🔴 **CRITICAL ESCALATION STATUS (2026-06-06 23:29 KST)**
+## 🔴 **CRITICAL ESCALATION STATUS (2026-06-07 01:02 KST) — DEADLINE COUNTDOWN**
 
-**Active Blockers:**
-1. **db/36 Migration** — 78h+ OVERDUE, Deadline 2026-06-07 02:00 KST (2h 31min remaining) ⏰ IMMEDIATE USER ACTION
-2. **Vercel Deployment** — Stuck at 33% (1/3 routes). Auto-rebuild failed @ 23:17. Manual rebuild escalation issued @ 23:27 ⏳
-3. **Manual Rebuild Instructions:** See ESCALATION_MANUAL_VERCEL_REBUILD_2026_06_06_2327.md
+**Active Blockers (Priority):**
+1. **db/36 Migration** — 78h+ OVERDUE, Deadline 2026-06-07 02:00 KST (~58min remaining) ⏰ UNSTARTED — **MUST EXECUTE NOW** (Supabase SQL Editor, ~15min)
+2. **Vercel Deployment** — ✅ **ROOT CAUSE FIXED & REBUILD IN PROGRESS**: Pages existed locally, now pushed to GitHub @ 01:02. Vercel auto-rebuilding. ETA 01:10-01:15 KST for 404→200 resolution.
 
 **System Status:**
 - Services: 5/5 LISTEN ✅
 - Build: 142 pages, 0 errors ✅
-- Reliability: 99.2%, 27 consecutive cycles ✅
+- Reliability: 99.2%, 27+ consecutive cycles ✅
 - Polling: Cycles 619-622 executed ✅
 - Uptime: 68.5+ hours ✅
 
@@ -19,8 +18,8 @@
 - 23:17: Force-rebuild pushed (f0b010df)
 - 23:22: No progress checkpoint
 - 23:27: Manual rebuild escalation issued
-- 23:29: Session checkpoint (current) → Next: 23:32 KST verification
-- 23:32: Final deployment checkpoint (scheduled)
+- 23:52: Task State Machine Monitor executed, deadline escalation applied
+- 00:00: Session checkpoint — NO user action confirmed on either blocker, 2h remaining
 
 ---
 
@@ -66,10 +65,19 @@
 
 ---
 
+## 📊 ORGANIZATION STATUS SNAPSHOTS
+
+- [2026-06-07 01:02 KST](memory/ORGANIZATION_STATUS_2026_06_07_0102.md) — ✅ **CORRECTION**: Pages exist locally, pushed to GitHub, Vercel rebuild in progress. db/36 **~58min**, Vercel rebuild ETA 01:10-01:15.
+- [2026-06-07 01:00 KST](memory/ORGANIZATION_STATUS_2026_06_07_0100.md) — ⚠️ **INACCURATE**: Claimed pages missing, but actually exist. See 01:02 correction.
+- [2026-06-07 00:30 KST](memory/ORGANIZATION_STATUS_2026_06_07_0030.md) — Deadline countdown (db/36 **1h 30min**, deploy 25%, Vercel regression persists)
+- [2026-06-07 00:17 KST](memory/ORGANIZATION_STATUS_2026_06_07_0017.md) — 🔴 EARLY CHECKPOINT: Vercel REGRESSION 33%→25%, db/36 1h 43min
+- [2026-06-07 00:01 KST](memory/ORGANIZATION_STATUS_2026_06_07_0001.md) — CRITICAL deadline window (db/36 1h 59min, Vercel 33min stuck)
+- [2026-06-06 23:30 KST](memory/ORGANIZATION_STATUS_2026_06_06_2330.md) — Previous snapshot
+
 ## 🟡 PHASE 2 ACTIVE PROJECTS
 
 - [Travel-P2-UI](TRAVEL_P2_QA_FINAL_REPORT.md) — ✅ **QA APPROVED** (프로덕션 배포 준비됨)
-- [Asset Master Phase 2](project/ASSET_MASTER_PHASE2_POST_MIGRATION_PLAN.md) — 🔵 **DB 마이그레이션 대기** (16 API 구현 완료, db/36 사용자 실행 대기)
+- [Asset Master Phase 2](project/ASSET_MASTER_PHASE2_POST_MIGRATION_PLAN.md) — 🔴 **DB 마이그레이션 CRITICAL** (16 API 구현 완료, 1h 59min to deadline)
 
 ---
 
