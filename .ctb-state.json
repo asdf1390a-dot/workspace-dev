@@ -1,57 +1,22 @@
 {
-  "polling_cycle": 578,
-  "timestamp": "2026-06-06T09:59:00Z",
-  "timestamp_kst": "2026-06-06 18:59 KST",
-  "projects": {
-    "AUDIT-P1": {
-      "status": "OPERATIONAL",
-      "completion": 100,
-      "last_check": "2026-06-06T09:59:00Z"
-    },
-    "DISCORD-BOT-P1": {
-      "status": "OPERATIONAL",
-      "completion": 100,
-      "last_check": "2026-06-06T09:59:00Z"
-    },
-    "TRAVEL-P2-UI": {
-      "status": "OPERATIONAL",
-      "completion": 85,
-      "last_check": "2026-06-06T09:59:00Z"
-    },
-    "BM-P1": {
-      "status": "OPERATIONAL",
-      "completion": 100,
-      "last_check": "2026-06-06T09:59:00Z"
-    }
-  },
+  "polling_cycle": 579,
+  "timestamp": "2026-06-06T10:05:00Z",
+  "kst_time": "2026-06-06 19:05:00",
   "services": {
-    "phase2a": {
-      "port": 3009,
-      "pid": 13254,
-      "status": "LISTEN"
-    },
-    "phase2b": {
-      "port": 3010,
-      "pid": 13262,
-      "status": "LISTEN"
-    },
-    "phase2c": {
-      "port": 3011,
-      "pid": 13270,
-      "status": "LISTEN"
-    },
-    "portal": {
-      "port": 3000,
-      "pid": 1403,
-      "status": "LISTEN"
-    }
+    "portal_3000": "LISTEN",
+    "phase2a_3009": "LISTEN",
+    "phase2b_3010": "LISTEN",
+    "phase2c_3011": "LISTEN"
   },
-  "build": {
-    "status": "PASSING",
-    "pages": 123,
-    "errors": 0
+  "projects": {
+    "AUDIT-P1": "stable",
+    "DISCORD-BOT-P1": "stable",
+    "BM-P1": "stable",
+    "TRAVEL-P2-UI": "stable"
   },
+  "build_status": "PASSING (123 pages)",
   "code_changes": 0,
-  "reliability": 100,
-  "last_update": "2026-06-06T09:59:00Z"
+  "reliability_pct": 100,
+  "blockers": 0,
+  "last_update": "2026-06-06 19:05:00"
 }
