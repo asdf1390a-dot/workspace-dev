@@ -12,6 +12,8 @@ const PORT = process.env.PORT || 3009;
 // Load environment
 const GATEWAY_URL = process.env.GATEWAY_URL || 'http://localhost:3000';
 const GATEWAY_TOKEN = process.env.GATEWAY_TOKEN || '';
+const GATEWAY_PATH = process.env.GATEWAY_PATH || '/mcp/sessions_history';
+const PHASE2A_TEST_MODE = String(process.env.PHASE2A_TEST_MODE || '').toLowerCase() === 'true';
 const DISCORD_WEBHOOK = process.env.DISCORD_WEBHOOK || '';
 const MEMORY_DIR = process.env.MEMORY_DIR || '/home/jeepney/.claude/projects/-home-jeepney--openclaw-workspace-dev/memory';
 const LOGS_DIR = path.join(__dirname, 'logs');
@@ -36,19 +38,47 @@ async function calculateChecksum(content) {
   return crypto.createHash('md5').update(content).digest('hex');
 }
 
-// Helper: Log errors to file
+// Helper: Log errors to file (with rotation: 10MB max, monthly archive)
+const LOG_ROTATE_MAX_BYTES = 10 * 1024 * 1024; // 10MB
+async function rotateLogIfNeeded(logPath) {
+  try {
+    const stats = await fs.stat(logPath).catch(() => null);
+    if (!stats) return;
+
+    const now = new Date();
+    const ym = `${now.getFullYear()}${String(now.getMonth() + 1).padStart(2, '0')}`;
+    const archivePath = `${logPath}.${ym}.archive`;
+
+    // Size-based rotation OR monthly archive (whichever first)
+    const lastModified = stats.mtime;
+    const isNewMonth =
+      lastModified.getFullYear() !== now.getFullYear() ||
+      lastModified.getMonth() !== now.getMonth();
+
+    if (stats.size > LOG_ROTATE_MAX_BYTES || isNewMonth) {
+      // Append to monthly archive then truncate
+      const content = await fs.readFile(logPath, 'utf8').catch(() => '');
+      if (content) {
+        await fs.appendFile(archivePath, content);
+      }
+      await fs.writeFile(logPath, '');
+    }
+  } catch (_) {
+    // Silent fail — never block error logging on rotation
+  }
+}
+
 async function logError(error, context = {}) {
   try {
+    const logPath = path.join(LOGS_DIR, 'phase2a-errors.log');
+    await rotateLogIfNeeded(logPath);
     const logEntry = {
       timestamp: new Date().toISOString(),
       error: error.message || String(error),
       stack: error.stack,
       context,
     };
-    await fs.appendFile(
-      path.join(LOGS_DIR, 'phase2a-errors.log'),
-      JSON.stringify(logEntry) + '\n'
-    );
+    await fs.appendFile(logPath, JSON.stringify(logEntry) + '\n');
     errorCount++;
   } catch (e) {
     console.error('Failed to log error:', e);
@@ -57,9 +87,27 @@ async function logError(error, context = {}) {
 
 // Helper: Fetch messages from gateway
 async function fetchMessagesFromGateway(sessionKey, limit = 100, offset = 0, retries = 3) {
+  // Test mode: return deterministic mock data, skip network entirely
+  if (PHASE2A_TEST_MODE) {
+    const mockCount = Math.min(limit, 3);
+    const out = [];
+    for (let i = 0; i < mockCount; i++) {
+      out.push({
+        id: `mock-${sessionKey || 'test'}-${offset + i}`,
+        timestamp: new Date().toISOString(),
+        author: 'test-user',
+        role: i % 2 === 0 ? 'user' : 'assistant',
+        content: `[TEST MODE] Mock message ${offset + i} for session ${sessionKey || 'test'}`,
+        toolCalls: [],
+        tokens: 10,
+      });
+    }
+    return out;
+  }
+
   for (let attempt = 0; attempt < retries; attempt++) {
     try {
-      const url = new URL('/mcp/sessions_history', GATEWAY_URL);
+      const url = new URL(GATEWAY_PATH, GATEWAY_URL);
       url.searchParams.append('sessionKey', sessionKey);
       url.searchParams.append('limit', limit);
       url.searchParams.append('offset', offset);
@@ -342,7 +390,8 @@ app.use((err, req, res, next) => {
 // Start server
 app.listen(PORT, () => {
   console.log(`✓ Message Collection API listening on port ${PORT}`);
-  console.log(`  GATEWAY_URL: ${GATEWAY_URL}`);
+  console.log(`  GATEWAY_URL: ${GATEWAY_URL}${GATEWAY_PATH}`);
+  console.log(`  TEST_MODE: ${PHASE2A_TEST_MODE}`);
   console.log(`  MEMORY_DIR: ${MEMORY_DIR}`);
   console.log(`  Logs: ${LOGS_DIR}`);
 });

@@ -1,0 +1,175 @@
+{
+  "name": "Auto-Improvement Rules Engine",
+  "version": "1.0",
+  "effective_from": "2026-06-06T18:39:00+09:00",
+  "rules": [
+    {
+      "id": "RULE-001-STALENESS",
+      "name": "Information Staleness Detection",
+      "problem": "CTB/active_work_tracking 12시간 이상 갱신 안 됨",
+      "detection": {
+        "signal": "ctb_last_update_minutes > 120",
+        "check_interval": "5 minutes"
+      },
+      "auto_action": {
+        "action": "force_ctb_refresh",
+        "details": "CTB 강제 갱신 + git status + Phase 2 health check",
+        "timeout": "30s"
+      },
+      "verification": {
+        "success_criteria": "ctb_last_update_minutes < 5",
+        "rollback": "restore previous CTB snapshot if refresh fails"
+      },
+      "learning": {
+        "pattern": "Information staleness",
+        "repeat_count": "track weekly occurrences",
+        "threshold_for_escalation": 3
+      }
+    },
+    {
+      "id": "RULE-002-CODE-DEPLOYMENT-MISMATCH",
+      "name": "Code vs Deployment Mismatch Detection",
+      "problem": "코드는 Pages Router에만 있는데 App Router 완료로 표시됨",
+      "detection": {
+        "signal": [
+          "code_exists_in_pages_api AND NOT code_exists_in_app_api",
+          "status_marked_complete AND deployment_verification_missing"
+        ],
+        "check_interval": "10 minutes"
+      },
+      "auto_action": {
+        "action": "migrate_or_alert",
+        "details": "Option A: 자동 마이그레이션 (Pages→App) + 테스트 / Option B: 경고 생성 + 마이그레이션 제안",
+        "default": "Option B (alert + suggest)",
+        "require_approval": true
+      },
+      "verification": {
+        "success_criteria": [
+          "code_exists_in_app_api = true",
+          "npm run build = success",
+          "endpoint_http_200 = true"
+        ]
+      },
+      "learning": {
+        "pattern": "Architecture transition confusion",
+        "repeat_count": "3 instances in last 7 days",
+        "threshold_for_escalation": 5
+      }
+    },
+    {
+      "id": "RULE-003-STATUS-ACCURACY",
+      "name": "Status Color Accuracy Check",
+      "problem": "표시된 상태(✅ 100% COMPLETE)와 실제 코드 상태 불일치",
+      "detection": {
+        "signal": [
+          "status_marked_complete AND code_review_shows_incomplete",
+          "status_marked_complete AND deployment_test_fails"
+        ],
+        "check_interval": "15 minutes"
+      },
+      "auto_action": {
+        "action": "correction_and_alert",
+        "details": "CTB 상태 자동 수정 (✅ → 🟡 검증 대기) + 이유 기록 + 알림",
+        "timeout": "20s"
+      },
+      "verification": {
+        "success_criteria": "status_matches_actual_code_state = true",
+        "audit_trail": "log all corrections with timestamp + reason"
+      },
+      "learning": {
+        "pattern": "Status-reality mismatch",
+        "repeat_count": "3 instances in last 7 days",
+        "threshold_for_escalation": 5
+      }
+    },
+    {
+      "id": "RULE-004-VERIFICATION-RIGOR",
+      "name": "Deployment Verification Enforcement",
+      "problem": "코드 파일 존재 확인만 하고 실제 배포 검증 없음",
+      "detection": {
+        "signal": "completion_checklist_step2_missing OR verification_log_age > 24h",
+        "check_interval": "30 minutes"
+      },
+      "auto_action": {
+        "action": "enforce_verification",
+        "details": "COMPLETION_VERIFICATION_CHECKLIST STEP 2 자동 실행",
+        "endpoints_to_test": "all_api_routes_in_project",
+        "timeout": "60s"
+      },
+      "verification": {
+        "success_criteria": [
+          "all_endpoints_http_200 = true",
+          "verification_log_recorded = true",
+          "timestamp_recent = < 1 hour"
+        ]
+      },
+      "learning": {
+        "pattern": "Incomplete verification",
+        "metric": "blocks false completions",
+        "target": "0 code-deployment mismatches in next 7 days"
+      }
+    },
+    {
+      "id": "RULE-005-PATTERN-LEARNING",
+      "name": "Pattern Repetition Detection & Escalation",
+      "problem": "같은 문제가 반복되어도 시스템이 학습하지 않음",
+      "detection": {
+        "signal": "same_violation_detected_after_fix_applied",
+        "check_interval": "daily",
+        "learning_window": "7 days"
+      },
+      "auto_action": {
+        "action": "escalate_and_harden",
+        "details": [
+          "1차 위반: 자동 수정 + 기록",
+          "2차 위반 (같은 문제): 더 엄격한 자동 수정 + 경고",
+          "3차 위반 (같은 문제): 강제 차단 + 수동 승인 필요"
+        ]
+      },
+      "verification": {
+        "success_criteria": "pattern_repeat_rate < 10% week-over-week"
+      },
+      "learning": {
+        "metric": "system becomes progressively smarter",
+        "goal": "eliminate recurring violations by reinforcement"
+      }
+    }
+  ],
+  "execution_schedule": {
+    "5_minute_cycle": [
+      "RULE-002-CODE-DEPLOYMENT-MISMATCH",
+      "RULE-003-STATUS-ACCURACY"
+    ],
+    "10_minute_cycle": [
+      "RULE-001-STALENESS"
+    ],
+    "30_minute_cycle": [
+      "RULE-004-VERIFICATION-RIGOR"
+    ],
+    "daily_cycle": [
+      "RULE-005-PATTERN-LEARNING"
+    ]
+  },
+  "learning_log": {
+    "file": "./.auto-improvement-learning-log.json",
+    "tracks": [
+      "rule_id",
+      "detection_count",
+      "auto_action_count",
+      "success_rate",
+      "escalation_triggers",
+      "pattern_improvements"
+    ]
+  },
+  "audit_trail": {
+    "file": "./.auto-improvement-audit.json",
+    "records_per_action": [
+      "timestamp",
+      "rule_triggered",
+      "detection_reason",
+      "auto_action_taken",
+      "success_or_failure",
+      "evidence"
+    ]
+  }
+}

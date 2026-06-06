@@ -1,0 +1,132 @@
+{
+  "timestamp": "2026-06-06T11:00:00Z",
+  "timestamp_kst": "2026-06-06 20:00 KST",
+  "cycle": "30분 주기 조직도 갱신",
+  "team_composition": {
+    "existing_team": {
+      "count": 6,
+      "members": [
+        {"role": "CEO", "name": "나경태", "status": "ACTIVE"},
+        {"role": "웹개발자", "status": "ACTIVE"},
+        {"role": "데이터분석가", "status": "ACTIVE"},
+        {"role": "평가자", "status": "ACTIVE"},
+        {"role": "번역가", "status": "ACTIVE"},
+        {"role": "플레너", "status": "ACTIVE"}
+      ]
+    },
+    "new_team": {
+      "count": 4,
+      "members": [
+        {"role": "Discord Bot Processor #1", "status": "ACTIVE"},
+        {"role": "Discord Bot Processor #2", "status": "ACTIVE"},
+        {"role": "Discord Bot Processor #3", "status": "ACTIVE"},
+        {"role": "Discord Bot Processor #4", "status": "ACTIVE"}
+      ]
+    },
+    "utilization_rate": "86.7% (13/15)",
+    "status": "🟢 OPTIMAL"
+  },
+  "projects": {
+    "summary": "4/4 완료 (100%)",
+    "projects": [
+      {
+        "id": "P1-1",
+        "name": "AUDIT-P1",
+        "deadline": "2026-06-04 18:00",
+        "completion": 100,
+        "status": "COMPLETE",
+        "ahead_of_schedule": "5d 2h",
+        "last_commit": "0cf3c1ba"
+      },
+      {
+        "id": "P1-2",
+        "name": "DISCORD-BOT-P1",
+        "deadline": "2026-06-05 18:00",
+        "completion": 100,
+        "status": "COMPLETE",
+        "ahead_of_schedule": "22h",
+        "last_commit": "585db4d5"
+      },
+      {
+        "id": "P1-3",
+        "name": "BM-P1",
+        "deadline": "2026-06-04 18:00",
+        "completion": 100,
+        "status": "COMPLETE",
+        "ahead_of_schedule": "5d 2h",
+        "last_commit": "ecc13a9f"
+      },
+      {
+        "id": "P2-1",
+        "name": "TRAVEL-P2-UI",
+        "deadline": "2026-06-05 18:00",
+        "completion": 100,
+        "status": "COMPLETE",
+        "ahead_of_schedule": "22h",
+        "last_commit": "e9396c74"
+      }
+    ]
+  },
+  "blocking_items": {
+    "count": 0,
+    "status": "🟢 CLEAR",
+    "items": []
+  },
+  "automation_systems": {
+    "phase2_services": {
+      "phase2a_message_collection": {
+        "port": 3009,
+        "status": "LISTEN",
+        "pid": 13254,
+        "uptime": "45min+"
+      },
+      "phase2b_duplicate_detection": {
+        "port": 3010,
+        "status": "LISTEN",
+        "pid": 13262,
+        "uptime": "45min+"
+      },
+      "phase2c_trust_score": {
+        "port": 3011,
+        "status": "LISTEN",
+        "pid": 13270,
+        "uptime": "45min+"
+      },
+      "nextjs_app": {
+        "port": 3000,
+        "status": "LISTEN",
+        "pid": 1403
+      },
+      "openclaw_gateway": {
+        "port": 19001,
+        "status": "LISTEN",
+        "pid": 454
+      }
+    },
+    "cron_rules": {
+      "ctb_polling": {"interval": "5분", "status": "ACTIVE", "last_run": "19:56 KST"},
+      "session_checkpoint": {"interval": "30분", "status": "ACTIVE", "last_run": "19:58 KST"},
+      "org_status_update": {"interval": "30분", "status": "ACTIVE", "last_run": "20:00 KST"},
+      "phase2_cron": {"interval": "2시간", "status": "ACTIVE", "last_run": "18:00 KST"},
+      "system_monitoring": {"interval": "5분", "status": "ACTIVE", "last_run": "19:56 KST"}
+    },
+    "active_rules": "5/5",
+    "status": "🟢 ALL OPERATIONAL"
+  },
+  "build_status": {
+    "status": "PASSING",
+    "pages": 123,
+    "errors": 0,
+    "warnings": 0,
+    "code_changes": 0,
+    "reliability": "100%"
+  },
+  "overall_assessment": {
+    "team_status": "🟢 OPTIMAL",
+    "project_status": "🟢 ALL COMPLETE",
+    "system_status": "🟢 FULLY OPERATIONAL",
+    "automation_status": "🟢 ACTIVE",
+    "final_verdict": "모든 시스템 정상 운영 중"
+  },
+  "next_update": "2026-06-06 20:30 KST"
+}

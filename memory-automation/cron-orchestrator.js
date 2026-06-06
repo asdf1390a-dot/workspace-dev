@@ -31,15 +31,54 @@ const { spawn } = require('child_process');
 const fs = require('fs');
 const path = require('path');
 
+// Service endpoints (configurable via env)
+const PHASE2A_URL = process.env.PHASE2A_URL || 'http://localhost:3009';
+const PHASE2B_URL = process.env.PHASE2B_URL || 'http://localhost:3010';
+const PHASE2C_URL = process.env.PHASE2C_URL || 'http://localhost:3011';
+// Default cycle: 2 hours
+const CYCLE_INTERVAL_MS = parseInt(process.env.CYCLE_INTERVAL_MS || (2 * 60 * 60 * 1000), 10);
+
+// Test-mode session keys (used when PHASE2A_TEST_MODE=true is set on the phase2a service)
+const DEFAULT_SESSION_KEYS = (process.env.SESSION_KEYS || 'default').split(',').map((s) => s.trim()).filter(Boolean);
+
+async function httpJson(method, url, body, timeoutMs = 60000) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    const res = await fetch(url, {
+      method,
+      headers: { 'Content-Type': 'application/json' },
+      body: body ? JSON.stringify(body) : undefined,
+      signal: controller.signal,
+    });
+    const text = await res.text();
+    let json = null;
+    try { json = text ? JSON.parse(text) : null; } catch (_) { json = { raw: text }; }
+    if (!res.ok) {
+      const err = new Error(`HTTP ${res.status} ${url}: ${text.slice(0, 200)}`);
+      err.status = res.status;
+      err.body = json;
+      throw err;
+    }
+    return json;
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 class CronOrchestrator {
   constructor(config = {}) {
     this.workspaceDir = config.workspaceDir || '/home/jeepney/.openclaw/workspace-dev';
     this.memoryDir = config.memoryDir ||
       '/home/jeepney/.claude/projects/-home-jeepney--openclaw-workspace-dev/memory';
     this.scriptDir = config.scriptDir || path.join(this.workspaceDir, 'memory-automation');
-    this.logDir = config.logDir || path.join(this.memoryDir, 'logs');
+    // Daemon log: write to memory-automation/logs/cron-daemon.log (spec requirement)
+    this.logDir = config.logDir || path.join(this.scriptDir, 'logs');
+    this.daemonLogFile = path.join(this.logDir, 'cron-daemon.log');
     this.schedules = [];
     this.running = false;
+    this.daemonTimer = null;
+    this.cycleCount = 0;
 
     // Ensure log directory
     try {
@@ -80,16 +119,19 @@ class CronOrchestrator {
    */
   log(level, message) {
     const timestamp = new Date().toISOString();
-    const logFile = path.join(this.logDir, `cron-orchestrator-${new Date().toISOString().split('T')[0]}.log`);
+    const dailyLog = path.join(this.logDir, `cron-orchestrator-${new Date().toISOString().split('T')[0]}.log`);
     const logMsg = `[${timestamp}] [${level}] ${message}`;
 
     console.log(logMsg);
 
     try {
-      fs.appendFileSync(logFile, logMsg + '\n');
-    } catch (e) {
-      // Silently fail
-    }
+      fs.appendFileSync(dailyLog, logMsg + '\n');
+    } catch (e) { /* silent */ }
+
+    // Also append to canonical daemon log file (spec requirement)
+    try {
+      fs.appendFileSync(this.daemonLogFile, logMsg + '\n');
+    } catch (e) { /* silent */ }
   }
 
   /**
@@ -130,16 +172,37 @@ class CronOrchestrator {
 
   /**
    * Run collection cycle (phase2a → queue)
+   * Calls POST /api/collect-messages for each configured session key.
    */
   async runCollectionCycle() {
     this.log('INFO', 'Starting collection cycle (phase2a)');
     const startTime = Date.now();
 
     try {
-      // Call phase2a API to collect messages
-      // In practice, this would be an HTTP request
-      this.log('INFO', 'Collection cycle completed in ' + (Date.now() - startTime) + 'ms');
-      return { success: true, duration: Date.now() - startTime };
+      let totalCollected = 0;
+      let totalEnqueued = 0;
+      const failures = [];
+
+      for (const sessionKey of DEFAULT_SESSION_KEYS) {
+        try {
+          const r = await httpJson('POST', `${PHASE2A_URL}/api/collect-messages`, {
+            sessionKey,
+            limit: 100,
+            offset: 0,
+            includeTools: true,
+          });
+          totalCollected += r.count || 0;
+          totalEnqueued += r.enqueued || 0;
+          this.log('INFO', `[2A] session=${sessionKey} collected=${r.count || 0} enqueued=${r.enqueued || 0}`);
+        } catch (err) {
+          failures.push({ sessionKey, error: err.message });
+          this.log('WARN', `[2A] session=${sessionKey} failed: ${err.message}`);
+        }
+      }
+
+      const duration = Date.now() - startTime;
+      this.log('INFO', `Collection cycle completed in ${duration}ms (collected=${totalCollected}, enqueued=${totalEnqueued}, failures=${failures.length})`);
+      return { success: failures.length < DEFAULT_SESSION_KEYS.length, duration, totalCollected, totalEnqueued, failures };
     } catch (error) {
       this.log('ERROR', `Collection cycle failed: ${error.message}`);
       return { success: false, error: error.message };
@@ -148,16 +211,25 @@ class CronOrchestrator {
 
   /**
    * Run deduplication (phase2b: queue → deduplicated)
+   * Asks phase2b wrapper to dequeue and write messages_deduplicated.jsonl.
    */
   async runDeduplicationCycle() {
     this.log('INFO', 'Starting deduplication cycle (phase2b)');
     const startTime = Date.now();
 
     try {
-      const dedup = require('./phase2b-duplicate-detection.js');
-      await dedup.main();
-      this.log('INFO', 'Deduplication completed in ' + (Date.now() - startTime) + 'ms');
-      return { success: true, duration: Date.now() - startTime };
+      const r = await httpJson('POST', `${PHASE2B_URL}/api/detect-duplicates`, {
+        source: 'queue',
+        writeOutput: true,
+      }, 120000);
+
+      const duration = Date.now() - startTime;
+      this.log(
+        'INFO',
+        `[2B] queueDrained=${r.queueDrained} unique=${r.count} removed=${r.removed} outputFile=${r.outputFile}`
+      );
+      this.log('INFO', `Deduplication completed in ${duration}ms`);
+      return { success: true, duration, ...r };
     } catch (error) {
       this.log('ERROR', `Deduplication failed: ${error.message}`);
       return { success: false, error: error.message };
@@ -166,19 +238,77 @@ class CronOrchestrator {
 
   /**
    * Run trust score calculation (phase2c)
+   * Reads messages_deduplicated.jsonl and writes messages_with_scores.jsonl.
    */
   async runCalculationCycle() {
     this.log('INFO', 'Starting calculation cycle (phase2c)');
     const startTime = Date.now();
 
     try {
-      // Phase2c processes deduplicated messages
-      this.log('INFO', 'Calculation completed in ' + (Date.now() - startTime) + 'ms');
-      return { success: true, duration: Date.now() - startTime };
+      const r = await httpJson('POST', `${PHASE2C_URL}/api/calculate-trust-scores`, {
+        source: 'file',
+        writeOutput: true,
+      }, 120000);
+
+      const duration = Date.now() - startTime;
+      this.log(
+        'INFO',
+        `[2C] processed=${r.processed} accepted=${r.accepted} quarantined=${r.quarantined} rejected=${r.rejected} outputFile=${r.outputFile}`
+      );
+      this.log('INFO', `Calculation completed in ${duration}ms`);
+      return { success: true, duration, ...r };
     } catch (error) {
       this.log('ERROR', `Calculation failed: ${error.message}`);
       return { success: false, error: error.message };
     }
+  }
+
+  /**
+   * Run full pipeline: A → B → C → checkpoint
+   */
+  async runFullPipeline() {
+    this.cycleCount++;
+    this.log('INFO', `=== Full pipeline cycle #${this.cycleCount} starting ===`);
+    const startTime = Date.now();
+
+    const collection = await this.runCollectionCycle();
+    const dedup = await this.runDeduplicationCycle();
+    const calc = await this.runCalculationCycle();
+    const checkpoint = await this.runCheckpoint();
+
+    const duration = Date.now() - startTime;
+    this.log('INFO', `=== Full pipeline cycle #${this.cycleCount} done in ${duration}ms ===`);
+    return { cycle: this.cycleCount, duration, collection, dedup, calc, checkpoint };
+  }
+
+  /**
+   * Start daemon: run pipeline every CYCLE_INTERVAL_MS
+   */
+  startDaemon() {
+    if (this.running) {
+      this.log('WARN', 'Daemon already running');
+      return;
+    }
+    this.running = true;
+    this.log('INFO', `Daemon starting (interval=${CYCLE_INTERVAL_MS}ms, ~${Math.round(CYCLE_INTERVAL_MS / 60000)}min)`);
+    this.log('INFO', `Endpoints: 2A=${PHASE2A_URL} 2B=${PHASE2B_URL} 2C=${PHASE2C_URL}`);
+
+    // Kick off first cycle immediately
+    this.runFullPipeline().catch((err) => this.log('ERROR', `First cycle error: ${err.message}`));
+
+    this.daemonTimer = setInterval(() => {
+      this.runFullPipeline().catch((err) => this.log('ERROR', `Cycle error: ${err.message}`));
+    }, CYCLE_INTERVAL_MS);
+
+    // Signal handlers for graceful shutdown
+    const shutdown = (sig) => {
+      this.log('INFO', `${sig} received, shutting down daemon (cycles completed=${this.cycleCount})`);
+      if (this.daemonTimer) clearInterval(this.daemonTimer);
+      this.running = false;
+      process.exit(0);
+    };
+    process.on('SIGTERM', () => shutdown('SIGTERM'));
+    process.on('SIGINT', () => shutdown('SIGINT'));
   }
 
   /**
@@ -326,7 +456,19 @@ if (require.main === module) {
       console.log('Audit result:', JSON.stringify(result, null, 2));
       process.exit(result.success ? 0 : 1);
     });
+  } else if (cmd === 'pipeline') {
+    // One-shot end-to-end run (A → B → C → checkpoint)
+    orchestrator.runFullPipeline().then((result) => {
+      console.log(JSON.stringify(result, null, 2));
+      process.exit(0);
+    }).catch((err) => {
+      console.error('Pipeline failed:', err.message);
+      process.exit(1);
+    });
+  } else if (cmd === '--daemon' || cmd === 'daemon') {
+    orchestrator.startDaemon();
+    // Keep alive
   } else {
-    console.log('Usage: node cron-orchestrator.js [status|backup|checkpoint|audit]');
+    console.log('Usage: node cron-orchestrator.js [status|backup|checkpoint|audit|pipeline|--daemon]');
   }
 }

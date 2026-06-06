@@ -7,11 +7,27 @@
 
 const express = require('express');
 const crypto = require('crypto');
+const fs = require('fs');
+const path = require('path');
+const { FileQueue } = require('./queue');
 
 const app = express();
 const PORT = process.env.PORT || 3010;
 
-app.use(express.json());
+// Memory output directory (where pipeline files live)
+const MEMORY_DIR = process.env.MEMORY_DIR ||
+  '/home/jeepney/.claude/projects/-home-jeepney--openclaw-workspace-dev/memory';
+const QUEUE_DIR = process.env.QUEUE_DIR || path.join(__dirname, 'queue');
+const DEDUP_OUTPUT = path.join(MEMORY_DIR, 'messages_deduplicated.jsonl');
+
+// Lazy queue init
+let queue = null;
+function getQueue() {
+  if (!queue) queue = new FileQueue(QUEUE_DIR);
+  return queue;
+}
+
+app.use(express.json({ limit: '50mb' }));
 
 // State tracking
 let startTime = Date.now();
@@ -104,21 +120,62 @@ app.get('/health', (req, res) => {
 });
 
 // API: Detect duplicates
+// Body options:
+//   { entries: [...] }                              — explicit entries (legacy)
+//   { source: 'queue' }                             — auto-read from FileQueue (dequeueAll)
+//   { writeOutput: true }                           — write deduped entries to MEMORY_DIR/messages_deduplicated.jsonl
 app.post('/api/detect-duplicates', (req, res) => {
   requestCount++;
   try {
-    const { entries = [] } = req.body;
+    let { entries = [], source, writeOutput = false } = req.body || {};
+
+    // Auto-read from queue if requested
+    let queueDrained = 0;
+    if (source === 'queue') {
+      const q = getQueue();
+      const queued = q.dequeueAll();
+      queueDrained = queued.length;
+      // Flatten queue envelope: { id, timestamp, data: { type, data: {...}, filename } }
+      // Surface 'content' for hashing: use inner data.content or stringified inner data
+      entries = queued.map((m) => {
+        const inner = m && m.data ? m.data : m;
+        const payload = inner && inner.data ? inner.data : inner;
+        const content =
+          (payload && payload.content) ||
+          (typeof inner.content === 'string' ? inner.content : '') ||
+          JSON.stringify(payload || inner);
+        return {
+          ...payload,
+          _queueId: m.id,
+          _queueTimestamp: m.timestamp,
+          _envelopeType: inner.type,
+          filename: payload && payload.filename ? payload.filename : (inner && inner.filename) || undefined,
+          content,
+        };
+      });
+    }
+
     if (!Array.isArray(entries)) {
       return res.status(400).json({ error: 'entries must be an array' });
     }
 
     if (entries.length === 0) {
+      // Still write an empty file if requested (so downstream sees zero)
+      if (writeOutput) {
+        try {
+          if (!fs.existsSync(MEMORY_DIR)) fs.mkdirSync(MEMORY_DIR, { recursive: true });
+          fs.writeFileSync(DEDUP_OUTPUT, '');
+        } catch (_) {}
+      }
       return res.json({
         success: true,
         unique: [],
         duplicates: [],
+        deduped_entries: [],
         count: 0,
         removed: 0,
+        queueDrained,
+        outputFile: writeOutput ? DEDUP_OUTPUT : null,
         timestamp: new Date().toISOString(),
       });
     }
@@ -138,12 +195,33 @@ app.post('/api/detect-duplicates', (req, res) => {
       });
     });
 
+    const dedupedEntries = layer2Result.unique;
+
+    // Optional file output for downstream Phase 2C
+    let outputFile = null;
+    if (writeOutput) {
+      try {
+        if (!fs.existsSync(MEMORY_DIR)) fs.mkdirSync(MEMORY_DIR, { recursive: true });
+        const lines = dedupedEntries.map((e) => JSON.stringify(e)).join('\n') + (dedupedEntries.length ? '\n' : '');
+        fs.writeFileSync(DEDUP_OUTPUT, lines);
+        outputFile = DEDUP_OUTPUT;
+      } catch (err) {
+        return res.status(500).json({
+          success: false,
+          error: 'Failed to write output file: ' + err.message,
+        });
+      }
+    }
+
     res.json({
       success: true,
-      unique: layer2Result.unique,
+      unique: dedupedEntries,
+      deduped_entries: dedupedEntries,
       duplicates: allDuplicates,
       count: layer2Result.count,
       removed: layer1Result.removed + layer2Result.removed,
+      queueDrained,
+      outputFile,
       layer1: {
         unique: layer1Result.count,
         duplicates: layer1Result.removed,
