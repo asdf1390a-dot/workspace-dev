@@ -21,6 +21,7 @@
 ## 🚨 CRITICAL INCIDENTS
 
 - [CTB Polling Accuracy Crisis (2026-06-06)](ctb_polling_accuracy_incident.md) — Cycles 584-603 거짓 기록 정정, 검증 표준 수립
+- [CTB Cycle 608 Accuracy Correction (2026-06-06)](ctb_cycle_608_accuracy_correction.md) — Cycle 604 false negative resolved: All 4 projects ARE implemented & deployed
 
 ## 📌 핵심 규칙 & 피드백
 
