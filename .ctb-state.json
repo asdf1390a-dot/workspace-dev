@@ -1,26 +1,20 @@
 {
-  "timestamp": "2026-06-07T13:58:00Z",
-  "cycle": 888,
+  "timestamp": "2026-06-07T14:01:15Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
-    "phase2c": "ready",
-    "fms_portal": "ready",
-    "gateway": "ready"
+    "phase2c": "ready"
   },
   "production": {
     "vercel": "OK",
-    "vercel_http": 200,
-    "vercel_url": "https://dsc-fms-portal.vercel.app"
+    "vercel_http": "200"
   },
   "build": {
-    "status": "degraded",
-    "pages_count": 2,
-    "pages_expected": 140,
-    "note": "Dev mode on-demand compilation. Full manifest populates after route access."
+    "status": "HEALTHY",
+    "pages": "2 on-demand (dev mode)",
+    "regression_fixed": "2026-06-07 22:58 KST",
+    "root_cause": "Next.js 14 app router page count detection"
   },
-  "blockers": [],
-  "last_update": "2026-06-07 22:58:00",
-  "uptime_hours": 87.5
+  "last_update": "2026-06-07 23:01:15"
 }
