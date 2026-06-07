@@ -1,23 +1,44 @@
 {
-  "timestamp": "2026-06-07T03:07:45Z",
+  "timestamp": "2026-06-07T03:12:00Z",
   "progress": 100,
+  "cycle": 781,
+  "cycle_time": "12:12 KST",
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
-    "phase2c": "ready"
+    "phase2c": "ready",
+    "gateway": "ready"
   },
-  "last_update": "2026-06-07 12:07:45",
-  "cycle": 780,
-  "consecutive_stable_cycles": 103,
-  "stable_duration_minutes": 515,
-  "projects": {
-    "audit_p1": {"loc": 2323, "status": "code-ready", "completion": 100},
-    "discord_bot_p1": {"loc": 3491, "status": "code-ready", "completion": 100},
-    "bm_p1": {"loc": 2494, "status": "code-ready", "completion": 100},
-    "travel_ui_p2": {"loc": 1270, "status": "code-ready", "completion": 100}
-  },
-  "build_status": "PASSING",
+  "build_status": "passing",
   "build_pages": 143,
+  "stability": {
+    "consecutive_stable_cycles": 104,
+    "minutes_stable": 520,
+    "state_changes": 0
+  },
+  "projects": {
+    "AUDIT-P1": {
+      "status": "code-ready",
+      "completion": 100,
+      "loc": 2323
+    },
+    "DISCORD-BOT-P1": {
+      "status": "code-ready",
+      "completion": 100,
+      "loc": 3491
+    },
+    "BM-P1": {
+      "status": "code-ready",
+      "completion": 100,
+      "loc": 2494
+    },
+    "TRAVEL-P2-UI": {
+      "status": "code-ready",
+      "completion": 100,
+      "loc": 1270
+    }
+  },
+  "reliability": 100,
   "blockers": 0,
-  "reliability": "100%"
+  "last_update": "2026-06-07 12:12:00"
 }
