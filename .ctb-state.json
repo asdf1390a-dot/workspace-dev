@@ -1,17 +1,18 @@
 {
-  "timestamp": "2026-06-08T16:13:00Z",
+  "timestamp": "2026-06-07T16:19:13Z",
   "progress": 100,
   "services": {
-    "fms_portal": "LISTEN:3000",
-    "phase2a": "LISTEN:3009",
-    "phase2b": "LISTEN:3010",
-    "phase2c": "LISTEN:3011",
-    "gateway": "LISTEN:19001"
+    "phase2a": "ready",
+    "phase2b": "ready",
+    "phase2c": "ready",
+    "fms": "listening:3000",
+    "gateway": "listening:19001"
   },
   "production": {
     "vercel": "OK",
     "vercel_http": "200"
   },
-  "cycle": 912,
-  "last_update": "2026-06-08 01:13:00"
+  "last_update": "2026-06-08 01:19:13",
+  "cycle": 913,
+  "uptime_hours": "89.0"
 }
