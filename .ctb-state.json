@@ -1,23 +1,14 @@
 {
-  "timestamp": "2026-06-07T05:05:32Z",
+  "timestamp": "2026-06-07T05:10:02Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
-    "phase2c": "ready",
-    "fms_portal": "ready",
-    "gateway": "ready"
+    "phase2c": "ready"
   },
-  "last_update": "2026-06-07 14:05:32",
-  "polling_cycle_798_kst_14_04": {
-    "services_verified": "5/5_all_listen",
-    "audit_p1": "100%",
-    "discord_bot_p1": "100%",
-    "bm_p1": "100%",
-    "travel_p2_ui": "60%",
-    "vercel_deployment": "http_200",
-    "build_pages": "143",
-    "reliability": "100%",
-    "blockers": 0
-  }
+  "production": {
+    "vercel": "OK",
+    "vercel_http": "200"
+  },
+  "last_update": "2026-06-07 14:10:02"
 }
