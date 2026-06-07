@@ -1,10 +1,34 @@
 ---
 name: Incomplete Tasks Registry
-description: Active incomplete work tracking (updated 2026-06-07 15:26 KST) — ✅ ALL SYSTEMS OPERATIONAL + WEB-BUILDER CONCURRENT DEVELOPMENT REPORT ISSUED
+description: Active incomplete work tracking (updated 2026-06-07 17:26 KST) — ✅ ASSET MASTER P1 PHASE 2 API COMPLETE
 type: project
 ---
 
-# Incomplete Tasks Registry (Last Updated: 2026-06-07 15:26 KST - Session Checkpoint)
+# Incomplete Tasks Registry (Last Updated: 2026-06-07 17:26 KST - Session Checkpoint)
+
+## ✅ ASSET MASTER P1 PHASE 2 API — COMPLETED @ 17:04 KST
+
+**Status Change:** IN_PROGRESS → COMPLETED  
+**Commit:** 0e252343  
+**Time:** 2026-06-07 17:04 KST  
+**Remaining Work:** Phase 3-6 (UI/tests/glossary/deployment) — scheduled for separate sessions
+
+| Component | Status | Details |
+|-----------|--------|---------|
+| POST /batches | ✅ | Create batch with file validation |
+| GET /batches | ✅ | List batches for org (paginated) |
+| GET /batches/[id] | ✅ | Get batch detail + item stats |
+| GET /batches/[id]/items | ✅ | List items with error filter |
+| DELETE /batches/[id] | ✅ | Soft-cancel batch |
+| POST /batches/[id]/execute | ✅ | Trigger RPC bulk_insert_assets |
+| GET /preview | ✅ | Re-export of /validate |
+| Build | ✅ | 140 pages, zero errors |
+
+**Blockers for Phase 3-6:**
+- db/29 SQL not yet applied to Supabase (asset_import_batches/items tables not created)
+- Phase 3-6 scope: 4 UI pages, 13 test cases, i18n updates, deployment
+
+---
 
 ## ✅ CRITICAL STATUS UPDATE @ 13:35 KST — REMEDIATION COMPLETE
 

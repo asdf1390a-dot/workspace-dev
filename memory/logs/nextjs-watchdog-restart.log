@@ -44370,3 +44370,14 @@ Require stack:
     '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/start-server.js'
   ]
 }
+
+> dsc-fms-portal@1.0.0 dev
+> next dev
+
+   ▲ Next.js 14.0.0
+   - Local:        http://localhost:3000
+   - Environments: .env.local
+
+ ✓ Ready in 1330ms
+ ○ Compiling /page ...
+ ✓ Compiled /page in 1512ms (426 modules)
