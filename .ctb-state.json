@@ -1,70 +1,14 @@
 {
-  "cycle": 869,
-  "timestamp": "2026-06-07T20:38:12Z",
-  "poll_time_kst": "2026-06-07 20:43 KST",
-  "status": "ALL_SYSTEMS_STABLE",
-  "build": {
-    "pages": 143,
-    "status": "PASSING",
-    "errors": 0
-  },
+  "timestamp": "2026-06-07T11:45:01Z",
+  "progress": 100,
   "services": {
-    "fms_portal": {
-      "port": 3000,
-      "status": "LISTEN",
-      "pid": 452425
-    },
-    "phase2a": {
-      "port": 3009,
-      "status": "LISTEN",
-      "pid": 331382
-    },
-    "phase2b": {
-      "port": 3010,
-      "status": "LISTEN",
-      "pid": 271569
-    },
-    "phase2c": {
-      "port": 3011,
-      "status": "LISTEN",
-      "pid": 271583
-    },
-    "gateway": {
-      "port": 19001,
-      "status": "LISTEN",
-      "pid": 452077
-    }
+    "phase2a": "ready",
+    "phase2b": "ready",
+    "phase2c": "ready"
   },
-  "projects": {
-    "AUDIT_P1": {
-      "status": "COMPLETE",
-      "progress": 100,
-      "hash": "0cf3c1ba"
-    },
-    "DISCORD_BOT_P1": {
-      "status": "COMPLETE",
-      "progress": 100,
-      "hash": "585db4d5"
-    },
-    "BM_P1": {
-      "status": "COMPLETE",
-      "progress": 100,
-      "hash": "ecc13a9f"
-    },
-    "TRAVEL_P2_UI": {
-      "status": "COMPLETE",
-      "progress": 100,
-      "hash": "e9396c74"
-    }
+  "production": {
+    "vercel": "OK",
+    "vercel_http": "200"
   },
-  "reliability": {
-    "percentage": 100,
-    "blockers": 0,
-    "uptime_hours": 85.5
-  },
-  "verification": {
-    "processes_running": 19,
-    "ports_open": 5,
-    "build_success": true
-  }
+  "last_update": "2026-06-07 20:45:01"
 }
