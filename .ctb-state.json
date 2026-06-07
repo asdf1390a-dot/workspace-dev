@@ -1,30 +1,70 @@
 {
-  "timestamp": "2026-06-07T11:32:30Z",
-  "progress": 100,
-  "cycle": 868,
-  "services": {
-    "phase2a": "ready",
-    "phase2b": "ready",
-    "phase2c": "ready",
-    "fms": "ready",
-    "gateway": "ready"
-  },
-  "production": {
-    "vercel": "OK",
-    "vercel_http": "200"
-  },
-  "projects": {
-    "audit": "0cf3c1ba",
-    "discord-bot": "585db4d5",
-    "bm": "ecc13a9f",
-    "travel": "e9396c74"
-  },
+  "cycle": 869,
+  "timestamp": "2026-06-07T20:38:12Z",
+  "poll_time_kst": "2026-06-07 20:43 KST",
+  "status": "ALL_SYSTEMS_STABLE",
   "build": {
     "pages": 143,
-    "status": "PASSING"
+    "status": "PASSING",
+    "errors": 0
   },
-  "reliability": 100,
-  "blockers": 0,
-  "uptime_hours": 85.5,
-  "last_update": "2026-06-07 20:32:30"
+  "services": {
+    "fms_portal": {
+      "port": 3000,
+      "status": "LISTEN",
+      "pid": 452425
+    },
+    "phase2a": {
+      "port": 3009,
+      "status": "LISTEN",
+      "pid": 331382
+    },
+    "phase2b": {
+      "port": 3010,
+      "status": "LISTEN",
+      "pid": 271569
+    },
+    "phase2c": {
+      "port": 3011,
+      "status": "LISTEN",
+      "pid": 271583
+    },
+    "gateway": {
+      "port": 19001,
+      "status": "LISTEN",
+      "pid": 452077
+    }
+  },
+  "projects": {
+    "AUDIT_P1": {
+      "status": "COMPLETE",
+      "progress": 100,
+      "hash": "0cf3c1ba"
+    },
+    "DISCORD_BOT_P1": {
+      "status": "COMPLETE",
+      "progress": 100,
+      "hash": "585db4d5"
+    },
+    "BM_P1": {
+      "status": "COMPLETE",
+      "progress": 100,
+      "hash": "ecc13a9f"
+    },
+    "TRAVEL_P2_UI": {
+      "status": "COMPLETE",
+      "progress": 100,
+      "hash": "e9396c74"
+    }
+  },
+  "reliability": {
+    "percentage": 100,
+    "blockers": 0,
+    "uptime_hours": 85.5
+  },
+  "verification": {
+    "processes_running": 19,
+    "ports_open": 5,
+    "build_success": true
+  }
 }
