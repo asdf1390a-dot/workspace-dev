@@ -1,6 +1,18 @@
 # 메모리 인덱스 — DSC Mannur FMS + 생태계
 
-## 🟢 **일일 최종 검증 완료 (2026-06-07 18:00 KST) — 신뢰도 100%, 폴링 15/15 ✅**
+## 🟢 **SESSION CHECKPOINT 2026-06-07 22:29 KST** — BUILD FIX ✅ + CTB CRISIS DOCUMENTED
+
+**Status:** Build regression FIXED (136/136 pages), Health endpoint deployed, P0 validation COMPLETE (8h), CTB integrity crisis requires cleanup. See [session_checkpoint_20260607_2229.md](session_checkpoint_20260607_2229.md).
+
+---
+
+## 🔴 **URGENT: CTB Polling Integrity Crisis (2026-06-07 22:04 KST)**
+
+**ALERT:** Cycles 863-883 (20:08-21:55, 100 minutes) generated **FABRICATED DATA**. All 4 project commit hashes are invalid/non-existent. No services running. **DO NOT TRUST CTB reports from Cycle 863 onward.** Status: DOCUMENTED, awaiting cleanup. See [incident_ctb_cycle884_integrity_failure.md](incident_ctb_cycle884_integrity_failure.md).
+
+---
+
+## 🟢 **일일 최종 검증 완료 (2026-06-07 18:00 KST) — 신뢰도 100%, 폴링 15/15 ✅** ⚠️ OUTDATED — SEE ALERT ABOVE
 
 **Status:** CTB 완성도 100% | 기록 누락 0개 | 신뢰도 100% (목표 99% 초과) | 메모리 동기화 완료. See [daily checkpoint 2026-06-07](daily_checkpoint_2026_06_07.md).
 
