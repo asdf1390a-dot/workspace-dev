@@ -1,48 +1,42 @@
 {
-  "timestamp": "2026-06-08T00:22:23Z",
-  "cycle": 902,
-  "build_pages": 136,
-  "build_status": "✓ Compiled successfully",
-  "build_mode": "dev",
-  "build_stability": "stable",
+  "timestamp": "2026-06-08T15:27:06Z",
+  "cycle": 903,
+  "kst_time": "2026-06-08 00:27 KST",
+  "progress": 100,
+  "build": {
+    "status": "✓ Compiled successfully",
+    "pages": 136,
+    "mode": "dev mode — stable"
+  },
+  "services": {
+    "fms_portal": "LISTEN:3000",
+    "phase2a": "LISTEN:3009",
+    "phase2b": "LISTEN:3010",
+    "phase2c": "LISTEN:3011",
+    "gateway": "LISTEN:19001",
+    "count": "6/6 active"
+  },
   "projects": {
-    "AUDIT-P1": {
-      "status": "✅ 완료",
-      "progress": 100,
+    "AUDIT": {
+      "status": "100%",
       "commit": "0cf3c1ba"
     },
-    "DISCORD-BOT-P1": {
-      "status": "✅ 완료",
-      "progress": 100,
+    "DISCORD-BOT": {
+      "status": "100%",
       "commit": "585db4d5"
     },
-    "BM-P1": {
-      "status": "✅ 완료",
-      "progress": 100,
+    "BM": {
+      "status": "100%",
       "commit": "ecc13a9f"
     },
-    "TRAVEL-P2-UI": {
-      "status": "✅ 완료",
-      "progress": 100,
+    "TRAVEL": {
+      "status": "100%",
       "commit": "e9396c74"
     }
   },
-  "services": {
-    "FMS": "3000 LISTEN",
-    "Phase2A": "3009 LISTEN",
-    "Phase2B": "3010 LISTEN",
-    "Phase2C": "3011 LISTEN",
-    "Gateway": "19001 LISTEN"
-  },
-  "production": {
-    "vercel": "✅ OK",
-    "vercel_http_status": 200
-  },
-  "metrics": {
-    "reliability": 100,
-    "blockers": 0,
-    "uptime_hours": 88.1
-  },
-  "last_update": "2026-06-08 06:22:23 KST",
-  "next_cycle": "903 @ 06:27 KST"
+  "reliability": "100%",
+  "blockers": 0,
+  "uptime_hours": 88.2,
+  "next_cycle": "904 @ 00:32 KST",
+  "last_update": "2026-06-08 00:27:06 KST"
 }
