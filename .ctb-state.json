@@ -1,17 +1,14 @@
 {
-  "timestamp": "2026-06-08T03:11:00Z",
+  "timestamp": "2026-06-07T15:15:02Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
-    "phase2c": "ready",
-    "fms_portal": "ready",
-    "gateway": "ready"
+    "phase2c": "ready"
   },
   "production": {
     "vercel": "OK",
     "vercel_http": "200"
   },
-  "last_update": "2026-06-08 12:11:00 KST",
-  "cycle": 900
+  "last_update": "2026-06-08 00:15:02"
 }
