@@ -1,0 +1,205 @@
+{
+  "timestamp": "2026-06-07T06:34:00Z",
+  "snapshot_time": "2026-06-07 15:34 KST",
+  "organization": {
+    "team": {
+      "total": 15,
+      "active": 15,
+      "capacity_utilization": "100%",
+      "core_team": {
+        "count": 6,
+        "composition": "CEO (autonomous), Web-Developer, Data-Analyst, Translator, Secretary, Planner"
+      },
+      "extended_team": {
+        "count": 4,
+        "composition": "Evaluator, QA-Reviewer, DevOps, Platform-Engineer"
+      },
+      "specialized_agents": {
+        "count": 5,
+        "composition": "CTB-Polling, Phase2-Monitor, Task-StateM, Session-Checkpoint, Rule-Compliance"
+      }
+    }
+  },
+  "projects": {
+    "p1_projects": {
+      "total": 4,
+      "completed": 4,
+      "in_progress": 0,
+      "blocked": 0,
+      "projects": [
+        {
+          "name": "AUDIT",
+          "status": "✅ COMPLETED",
+          "progress": "100%",
+          "commit": "0cf3c1ba",
+          "deployment": "FMS Portal",
+          "verified": true
+        },
+        {
+          "name": "DISCORD-BOT",
+          "status": "✅ COMPLETED",
+          "progress": "100%",
+          "commit": "585db4d5",
+          "processors": 5,
+          "verified": true
+        },
+        {
+          "name": "BM-P1",
+          "status": "✅ COMPLETED",
+          "progress": "100%",
+          "commit": "ecc13a9f",
+          "transitioned": "2026-06-07 14:55 KST",
+          "verified": true
+        },
+        {
+          "name": "TRAVEL",
+          "status": "✅ COMPLETED",
+          "progress": "100%",
+          "commit": "e9396c74",
+          "qa_status": "QA Approved",
+          "verified": true
+        }
+      ]
+    },
+    "p2_projects": {
+      "total": 3,
+      "completed": 0,
+      "in_progress": 2,
+      "blocked": 1,
+      "projects": [
+        {
+          "name": "Asset Master Phase 2",
+          "status": "🟡 IN_PROGRESS",
+          "progress": "85% integration",
+          "api_complete": true,
+          "testing": "88.2%",
+          "pr_eta": "2026-06-08 12:00 KST",
+          "blocker": "none"
+        },
+        {
+          "name": "Team Dashboard Phase 2",
+          "status": "🟡 IN_PROGRESS",
+          "progress": "70% design",
+          "design_freeze_eta": "2026-06-08 10:00 KST",
+          "css_implementation": "waiting",
+          "pr_eta": "2026-06-09 08:00 KST",
+          "blocker": "none"
+        },
+        {
+          "name": "Travel-P2-UI",
+          "status": "🔴 BLOCKED_ON_EXTERNAL",
+          "progress": "100% code",
+          "qa_status": "QA Approved",
+          "blocker": "Vercel cache issue (26h+ sustained)",
+          "escalation": "DevOps manual rebuild recommended",
+          "escalation_time": "2026-06-07 18:00 KST"
+        }
+      ]
+    }
+  },
+  "system": {
+    "services": {
+      "fms_portal": {
+        "status": "LISTEN",
+        "port": 3000,
+        "health": "OK"
+      },
+      "phase2a": {
+        "status": "LISTEN",
+        "port": 3009,
+        "service": "message-collection",
+        "health": "OK"
+      },
+      "phase2b": {
+        "status": "LISTEN",
+        "port": 3010,
+        "service": "duplicate-detection",
+        "health": "OK"
+      },
+      "phase2c": {
+        "status": "LISTEN",
+        "port": 3011,
+        "service": "trust-score",
+        "health": "OK"
+      },
+      "gateway": {
+        "status": "LISTEN",
+        "port": 19001,
+        "health": "OK"
+      }
+    },
+    "build": {
+      "status": "PASSING",
+      "pages": 143,
+      "errors": 0,
+      "type_errors": 0
+    },
+    "production": {
+      "vercel": "OK",
+      "http_status": "200",
+      "recovery_time": "13:35 KST",
+      "uptime_since_recovery": "2h 59m"
+    },
+    "automation": {
+      "ctb_polling": {
+        "status": "ACTIVE",
+        "cycles_executed": "815+",
+        "cadence": "5-minute",
+        "last_cycle": "Cycle 815 @ 15:33 KST",
+        "next_cycle": "Cycle 816 @ 15:38 KST"
+      },
+      "p0_monitoring": {
+        "status": "DEPLOYED",
+        "operational_time": "87 minutes",
+        "test_scenario": "Scenario 1 (passive monitoring)",
+        "test_deadline": "2026-06-08 14:08 KST"
+      },
+      "session_checkpoints": {
+        "status": "ACTIVE",
+        "frequency": "30-minute",
+        "last_checkpoint": "2026-06-07 15:26 KST",
+        "last_commit": "cdcc1ae4"
+      },
+      "automation_compliance": "100%"
+    },
+    "reliability": {
+      "uptime_hours": "504+",
+      "reliability_percentage": "99.8%+",
+      "zero_change_cycles": "110+",
+      "critical_blockers": 0
+    }
+  },
+  "blockers": [
+    {
+      "id": "TRAVEL-P2-VERCEL",
+      "severity": "🔴 HIGH",
+      "item": "Travel-P2-UI Vercel cache issue",
+      "status": "BLOCKED_ON_EXTERNAL",
+      "duration": "26+ hours",
+      "impact": "Deployment blocked, code 100% complete, QA approved",
+      "escalation": "DevOps manual rebuild recommended",
+      "escalation_target": "2026-06-07 18:00 KST",
+      "risk_level": "Medium if resolved before 2026-06-09 16:03"
+    }
+  ],
+  "critical_path": {
+    "p2_deadline": "2026-06-09 16:03 KST",
+    "time_remaining": "31h 29m",
+    "status": "ON SCHEDULE",
+    "asset_master_pr": {
+      "eta": "2026-06-08 12:00 KST",
+      "time_remaining": "20h 26m",
+      "status": "ON TRACK"
+    },
+    "team_dashboard_freeze": {
+      "eta": "2026-06-08 10:00 KST",
+      "time_remaining": "18h 26m",
+      "status": "ON TRACK"
+    },
+    "p0_validation": {
+      "deadline": "2026-06-08 14:08 KST",
+      "time_remaining": "22h 34m",
+      "status": "ON SCHEDULE"
+    }
+  }
+}
