@@ -1,30 +1,30 @@
 {
-  "timestamp": "2026-06-07T09:09:47Z",
-  "cycle": 844,
+  "timestamp": "2026-06-07T09:15:01Z",
+  "cycle": 845,
   "progress": 100,
   "services": {
-    "phase2a": "ready",
-    "phase2b": "ready",
-    "phase2c": "ready",
-    "fms": "listen:3000",
-    "gateway": "listen:19001"
+    "fms": "LISTEN:3000",
+    "phase2a": "LISTEN:3009",
+    "phase2b": "LISTEN:3010",
+    "phase2c": "LISTEN:3011",
+    "gateway": "LISTEN:19001"
   },
   "projects": {
-    "AUDIT": {"commit": "0cf3c1ba", "progress": 100},
-    "DISCORD-BOT": {"commit": "585db4d5", "progress": 100},
-    "BM": {"commit": "ecc13a9f", "progress": 100},
-    "TRAVEL": {"commit": "e9396c74", "progress": 100}
+    "audit_p1": "100%",
+    "discord_bot_p1": "100%",
+    "bm_p1": "100%",
+    "travel_p2_ui": "100%"
+  },
+  "build": {
+    "status": "PASSING",
+    "pages": 143
   },
   "production": {
     "vercel": "OK",
-    "vercel_http": "200",
-    "build_pages": "143",
-    "build_status": "PASSING"
+    "vercel_http": "200"
   },
-  "reliability": {
-    "uptime_hours": 82.15,
-    "blockers": 0,
-    "reliability_percent": 100
-  },
-  "last_update": "2026-06-07 18:09:47"
+  "reliability": "100%",
+  "blockers": 0,
+  "uptime_hours": 82,
+  "last_update": "2026-06-07 18:15:01"
 }
