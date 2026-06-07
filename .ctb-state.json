@@ -1,44 +1,13 @@
 {
-  "timestamp": "2026-06-07T03:12:00Z",
+  "timestamp": "2026-06-07T03:17:00Z",
   "progress": 100,
-  "cycle": 781,
-  "cycle_time": "12:12 KST",
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
-    "phase2c": "ready",
-    "gateway": "ready"
+    "phase2c": "ready"
   },
-  "build_status": "passing",
-  "build_pages": 143,
-  "stability": {
-    "consecutive_stable_cycles": 104,
-    "minutes_stable": 520,
-    "state_changes": 0
-  },
-  "projects": {
-    "AUDIT-P1": {
-      "status": "code-ready",
-      "completion": 100,
-      "loc": 2323
-    },
-    "DISCORD-BOT-P1": {
-      "status": "code-ready",
-      "completion": 100,
-      "loc": 3491
-    },
-    "BM-P1": {
-      "status": "code-ready",
-      "completion": 100,
-      "loc": 2494
-    },
-    "TRAVEL-P2-UI": {
-      "status": "code-ready",
-      "completion": 100,
-      "loc": 1270
-    }
-  },
-  "reliability": 100,
-  "blockers": 0,
-  "last_update": "2026-06-07 12:12:00"
+  "last_update": "2026-06-07 12:17:01",
+  "cycle": 782,
+  "stability_streak": 105,
+  "uptime_minutes": 525
 }
