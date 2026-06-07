@@ -1,27 +1,16 @@
 {
-  "timestamp": "2026-06-07T14:56:00Z",
+  "timestamp": "2026-06-08T00:02:33Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
-    "phase2c": "ready",
-    "fms": "ready",
-    "gateway": "ready"
+    "phase2c": "ready"
   },
   "production": {
     "vercel": "OK",
     "vercel_http": "200"
   },
-  "build": {
-    "pages": 145,
-    "status": "compiled",
-    "mode": "dev"
-  },
-  "reliability": "100%",
-  "uptime_hours": 87.6,
-  "blockers": 0,
-  "projects_verified": 4,
-  "last_update": "2026-06-07 23:56:00",
-  "cycle": 897
-}
+  "build_pages": 136,
+  "last_update": "2026-06-08 00:02:33",
+  "cycle": 898
 }
