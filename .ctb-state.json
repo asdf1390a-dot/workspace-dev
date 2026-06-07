@@ -1,31 +1,36 @@
 {
-  "timestamp": "2026-06-08T17:11:00Z",
-  "cycle": 923,
+  "cycle": 924,
+  "timestamp": "2026-06-08T02:16:00Z",
+  "timestamp_kst": "2026-06-08 02:16 KST",
   "progress": 100,
   "services": {
-    "phase2a": "ready",
-    "phase2b": "ready",
-    "phase2c": "ready",
-    "fms": "ready",
-    "gateway": "ready"
-  },
-  "production": {
-    "vercel": "OK",
-    "vercel_http": "200"
-  },
-  "projects": {
-    "audit": "100%",
-    "discord_bot": "100%",
-    "bm": "100%",
-    "travel": "100%"
+    "fms_portal_3000": {
+      "status": "🔴 RESPONDING WITH 500",
+      "expected": "200 OK",
+      "port": 3000,
+      "alert": true
+    },
+    "phase2a_3009": "🟡 RUNNING",
+    "phase2b_3010": "🟡 RUNNING",
+    "phase2c_3011": "🟡 RUNNING",
+    "gateway_19001": "🟡 RUNNING"
   },
   "build": {
     "pages": 136,
-    "status": "success",
-    "mode": "dev"
+    "status": "✅ COMPILED",
+    "note": "Regression from 143→140→136 pages (monitoring)"
   },
-  "reliability": 100,
-  "blockers": 0,
-  "uptime_hours": 89.6,
-  "last_update": "2026-06-08 02:11:00"
+  "projects": {
+    "AUDIT_P1": "✅ 100% (0cf3c1ba)",
+    "DISCORD_BOT_P1": "✅ 100% (585db4d5)",
+    "BM_P1": "✅ 100% (ecc13a9f)",
+    "TRAVEL_P2_UI": "✅ 100% (e9396c74)"
+  },
+  "production": {
+    "vercel": "⏳ CHECKING",
+    "vercel_http": "PENDING"
+  },
+  "last_update": "2026-06-08 02:16:00 KST",
+  "blockers": 1,
+  "alert": "FMS portal HTTP 500 — requires immediate investigation"
 }
