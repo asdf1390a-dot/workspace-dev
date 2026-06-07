@@ -1,5 +1,11 @@
 # 메모리 인덱스 — DSC Mannur FMS + 생태계
 
+## 🟡 **CTB CYCLE 812 STATUS CORRECTION (2026-06-07 15:17 KST) — CODE 100% / VERCEL 25% (db/36 BLOCKED)**
+
+**Accurate Status:** Code complete 100% (4/4 projects locked). Vercel deployment BLOCKED by db/36 migration (NOT STARTED, 13h overdue). Services last verified 12:15 KST. See [detailed CTB cycle 812](ctb_cycle_812_status_correction.md).
+
+---
+
 ## 🟢 **CURRENT SESSION — CRITICAL INCIDENT REMEDIATION + P0 MONITORING FIX (2026-06-07 14:56 KST)**
 
 **Session Status:** ✅ ACTIVE — Vercel incident resolved (13:35), P0 health check deployed (14:08), 24h stress test active
