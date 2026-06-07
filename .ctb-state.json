@@ -1,14 +1,18 @@
 {
-  "timestamp": "2026-06-07T12:20:01Z",
+  "timestamp": "2026-06-07T12:30:15Z",
   "progress": 100,
+  "cycle": 878,
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
-    "phase2c": "ready"
+    "phase2c": "ready",
+    "fms": "listen"
   },
   "production": {
     "vercel": "OK",
     "vercel_http": "200"
   },
-  "last_update": "2026-06-07 21:20:01"
+  "last_update": "2026-06-07 21:30:15",
+  "reliability": "100%",
+  "uptime_hours": 85.7
 }
