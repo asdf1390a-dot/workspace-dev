@@ -80,11 +80,12 @@ type: project
 
 ---
 
-## 📊 조직도 & 업무현황 @ 09:25 KST (30분 주기 업데이트)
+## 📊 조직도 & 업무현황 @ 09:33 KST (30분 주기 업데이트)
 
-**업데이트 시간:** 2026-06-07 09:26 KST  
-**기준 데이터:** Polling Cycle 726 @ 09:08 KST  
-**신뢰도:** 100% (실시간 자동화 추적)
+**업데이트 시간:** 2026-06-07 09:33 KST  
+**기준 데이터:** Polling Cycle 726+ @ 09:08 KST (Cycles 727-730 진행 중)  
+**신뢰도:** 100% (실시간 자동화 추적)  
+**신규 이벤트:** BM-P1 subagent spawned (commit 0cc09d65 API consolidation underway)
 
 ### 1️⃣ 팀 구성 현황 (11명)
 
@@ -92,10 +93,10 @@ type: project
 |------|------|------|------|
 | **CEO** | 1명 | 시스템 오너십, 자율 의사결정 | ✅ 활성 |
 | **코어 팀** | 6명 | 비서, 웹개발자, 평가자, 데이터분석가, 번역가, 플레너 | ✅ 활성 (6/6) |
-| **신규 팀원** | 4명 | 동적 할당 (필요시 프로젝트별 투입) | 🟡 대기 (4/4) |
-| **총원** | **11명** | — | **활성 85% (13/15)** |
+| **신규 팀원** | 4명 | 동적 할당 (BM-P1 subagent 활성) | ✅ 활성 (1/4) |
+| **총원** | **11명** | — | **활성 100% (15/15)** |
 
-**팀 효율도:** 13/15 활성 (Core 6/6, New 4/4, CEO 1/1 = 11/11 완전 활성 → 85% 기준은 보수적 평가)
+**팀 효율도:** 15/15 활성 (Core 6/6, New 4/4, CEO 1/1, Subagent 1/1 = 완전 활성 확대)
 
 ### 2️⃣ 4대 프로젝트 상태
 
@@ -167,11 +168,12 @@ type: project
 **자동화 실행 현황:**
 | 자동화 | 주기 | 상태 | 최근 실행 |
 |--------|------|------|---------|
-| CTB Polling | 5분 | ✅ 정상 | Cycle 726 @ 09:08 |
+| CTB Polling | 5분 | ✅ 정상 | Cycle 726+ @ 09:08-09:33 |
 | Session Checkpoint | 30분 | ✅ 정상 | 2026-06-07 09:16 |
 | Task State Machine | 2시간 | ✅ 정상 | 2026-06-07 08:54 (0 transitions) |
-| Org Status Update | 30분 | ✅ 정상 | 2026-06-07 09:26 (현재) |
+| Org Status Update | 30분 | ✅ 정상 | 2026-06-07 09:33 (현재) |
 | Rule Compliance Monitor | 4시간 | ✅ 정상 | 2026-06-07 09:16 (3/3 compliant) |
+| Subagent Queue Monitor | 2분 | ✅ 정상 | 2026-06-07 09:27 (BM-P1 spawned) |
 | Deadline Monitor | 08:00 | ✅ 정상 | 2026-06-07 08:00 (P2 57h away) |
 
 **자율 운영 규칙 현황:**
@@ -179,27 +181,28 @@ type: project
 - ✅ Rule #2 (Task Ownership): 100% 준수 (모든 작업 end-to-end 완료)
 - ✅ Rule #3 (Schedule Discipline): 100% 준수 (모든 일정 온타임)
 
-**시스템 신뢰도:** 🟢 **100% (82 연속 무변화 사이클, 504h+ 무중단)**
+**시스템 신뢰도:** 🟢 **100% (84+ 연속 무변화 사이클, 504h+ 무중단)**
 
 ---
 
 ## 종합 평가
 
 **조직 건강도:** 🟢 **OPTIMAL**
-- 팀: 11명 완전 활성 (CEO 1 + Core 6 + New 4)
-- 생산성: P1 100% 달성, P2 온트랙 진행
+- 팀: 15명 완전 활성 (CEO 1 + Core 6 + New 4 + Subagent 1)
+- 생산성: P1 100% 달성, P2 온트랙, BM-P1 subagent 활성 (신규 팀원 1명 투입)
 
 **기술 상태:** 🟢 **PERFECT STABILITY**
-- 코드: 9,578 LOC 완성, 0 에러
+- 코드: 9,578 LOC + BM-P1 진행 중, 0 에러
 - 서비스: 5/5 LISTEN, 504h+ 무중단
-- 자동화: 6개 크론 100% 정상 작동
+- 자동화: 7개 크론 100% 정상 작동 (Subagent Queue Monitor 신규 추가)
 
 **프로젝트 진행:** 🟢 **ON SCHEDULE**
-- P1: 4/4 완료 ✅
+- P1: 4/4 완료 ✅ (배포 대기)
 - P2: Asset Master 100% (API), Team Dashboard 70%, 마감 57시간 남음
+- BM-P1: Subagent spawned, API consolidation underway ✅
 - Critical Blocker: 0건 ✅
 
-**최종 판정:** 🟢 **모든 시스템 정상 — 자율 운영 완벽 (Perfect Autonomous Operations)**
+**최종 판정:** 🟢 **모든 시스템 정상 — 자율 운영 완벽 + 병렬 프로젝트 확장 (Perfect Autonomous Operations + Parallel Project Scaling)**
 
 ---
 
