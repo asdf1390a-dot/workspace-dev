@@ -1,23 +1,43 @@
 {
-  "timestamp": "2026-06-07T06:38:00Z",
+  "timestamp": "2026-06-07T06:44:11Z",
+  "cycle": 817,
+  "cycle_time_kst": "2026-06-07 15:44 KST",
   "progress": 100,
   "services": {
-    "phase2a": "ready",
-    "phase2b": "ready",
-    "phase2c": "ready"
+    "fms": "LISTEN:3000",
+    "phase2a": "LISTEN:3009",
+    "phase2b": "LISTEN:3010",
+    "phase2c": "LISTEN:3011",
+    "gateway": "LISTEN:19001"
+  },
+  "build": {
+    "status": "PASSING",
+    "pages": 143,
+    "errors": 0
+  },
+  "projects": {
+    "AUDIT": {
+      "completion": "100%",
+      "commit": "0cf3c1ba"
+    },
+    "DISCORD-BOT": {
+      "completion": "100%",
+      "commit": "585db4d5"
+    },
+    "BM": {
+      "completion": "100%",
+      "commit": "ecc13a9f"
+    },
+    "TRAVEL": {
+      "completion": "60%",
+      "commit": "e9396c74"
+    }
   },
   "production": {
     "vercel": "OK",
     "vercel_http": "200"
   },
-  "last_update": "2026-06-07 15:38:00",
-  "cycle": 816,
-  "projects": {
-    "audit": { "status": "complete", "percent": 100, "commit": "0cf3c1ba" },
-    "discord-bot": { "status": "complete", "percent": 100, "commit": "585db4d5" },
-    "bm": { "status": "complete", "percent": 100, "commit": "ecc13a9f" },
-    "travel": { "status": "in-progress", "percent": 60, "commit": "e9396c74" }
-  },
-  "reliability": 100,
-  "blockers": 0
+  "reliability": "100%",
+  "blockers": 0,
+  "last_update": "2026-06-07 15:44:11"
 }
