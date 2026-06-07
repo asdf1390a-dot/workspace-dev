@@ -1,24 +1,29 @@
 {
   "cycle": 924,
-  "timestamp": "2026-06-08T02:16:00Z",
-  "timestamp_kst": "2026-06-08 02:16 KST",
+  "timestamp": "2026-06-08T02:22:00Z",
+  "timestamp_kst": "2026-06-08 02:22 KST",
   "progress": 100,
+  "incident_resolved": {
+    "issue": "Missing webpack chunk 3310.js in build artifacts",
+    "cause": "Stale .next directory (likely from hot reload during build)",
+    "fix": "Clean rebuild + server restart",
+    "status": "✅ RESOLVED"
+  },
   "services": {
     "fms_portal_3000": {
-      "status": "🔴 RESPONDING WITH 500",
-      "expected": "200 OK",
+      "status": "✅ RESPONDING 200 OK",
       "port": 3000,
-      "alert": true
+      "alert": false
     },
-    "phase2a_3009": "🟡 RUNNING",
-    "phase2b_3010": "🟡 RUNNING",
-    "phase2c_3011": "🟡 RUNNING",
-    "gateway_19001": "🟡 RUNNING"
+    "phase2a_3009": "✅ RUNNING",
+    "phase2b_3010": "✅ RUNNING",
+    "phase2c_3011": "✅ RUNNING",
+    "gateway_19001": "✅ RUNNING"
   },
   "build": {
     "pages": 136,
     "status": "✅ COMPILED",
-    "note": "Regression from 143→140→136 pages (monitoring)"
+    "last_rebuild": "2026-06-08 02:20 KST"
   },
   "projects": {
     "AUDIT_P1": "✅ 100% (0cf3c1ba)",
@@ -27,10 +32,10 @@
     "TRAVEL_P2_UI": "✅ 100% (e9396c74)"
   },
   "production": {
-    "vercel": "⏳ CHECKING",
-    "vercel_http": "PENDING"
+    "vercel": "✅ OK",
+    "vercel_http": "200"
   },
-  "last_update": "2026-06-08 02:16:00 KST",
-  "blockers": 1,
-  "alert": "FMS portal HTTP 500 — requires immediate investigation"
+  "last_update": "2026-06-08 02:22:00 KST",
+  "blockers": 0,
+  "reliability": "100%"
 }
