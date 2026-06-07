@@ -1,28 +1,36 @@
 {
-  "timestamp": "2026-06-08T00:38:57Z",
-  "cycle": 905,
+  "timestamp": "2026-06-08T15:43:00Z",
+  "cycle": 906,
   "progress": 100,
+  "build_pages": 136,
   "services": {
-    "fms": "listening:3000",
-    "phase2a": "listening:3009",
-    "phase2b": "listening:3010",
-    "phase2c": "listening:3011",
-    "gateway": "listening:19001"
-  },
-  "build": {
-    "status": "success",
-    "pages": 136,
-    "mode": "dev",
-    "errors": 0
+    "fms": "3000",
+    "phase2a": "3009",
+    "phase2b": "3010",
+    "phase2c": "3011",
+    "gateway": "19001",
+    "status": "all_listen"
   },
   "projects": {
-    "audit": { "hash": "0cf3c1ba", "status": "100%" },
-    "discord_bot": { "hash": "585db4d5", "status": "100%" },
-    "bm": { "hash": "ecc13a9f", "status": "100%" },
-    "travel": { "hash": "e9396c74", "status": "100%" }
+    "audit": {
+      "status": "100%",
+      "commit": "0cf3c1ba"
+    },
+    "discord_bot": {
+      "status": "100%",
+      "commit": "585db4d5"
+    },
+    "bm": {
+      "status": "100%",
+      "commit": "ecc13a9f"
+    },
+    "travel": {
+      "status": "100%",
+      "commit": "e9396c74"
+    }
   },
-  "reliability": 100,
+  "reliability": "100%",
   "blockers": 0,
-  "uptime_hours": 88.3,
-  "last_update": "2026-06-08 00:38:57"
+  "uptime_hours": 88.4,
+  "last_update": "2026-06-08 00:43:00"
 }
