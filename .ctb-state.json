@@ -1,14 +1,20 @@
 {
-  "timestamp": "2026-06-07T05:55:01Z",
+  "timestamp": "2026-06-07T15:03:32Z",
+  "cycle": 810,
   "progress": 100,
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
-    "phase2c": "ready"
+    "phase2c": "ready",
+    "fms_portal": "ready",
+    "gateway": "ready"
   },
+  "reliability": 100,
+  "blockers": 0,
   "production": {
     "vercel": "OK",
     "vercel_http": "200"
   },
-  "last_update": "2026-06-07 14:55:01"
+  "check_type": "P0-AutoRecover-Hourly",
+  "last_update": "2026-06-07 15:03:32"
 }
