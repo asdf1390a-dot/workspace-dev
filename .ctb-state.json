@@ -1,40 +1,39 @@
 {
-  "timestamp": "2026-06-07T20:08:15Z",
-  "cycle": 863,
-  "cycle_time_kst": "2026-06-07 20:08 KST",
+  "timestamp": "2026-06-07T20:11:00Z",
+  "cycle": 864,
+  "status": "STABLE",
   "progress": 100,
-  "build_pages": 140,
-  "build_status": "PASSING",
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
     "phase2c": "ready",
-    "fms_portal": "ready"
+    "fms_portal": "ready",
+    "gateway": "ready"
   },
-  "production": {
-    "vercel": "OK",
-    "vercel_http": "200"
+  "ports": {
+    "3000": "LISTEN (FMS Portal)",
+    "3009": "LISTEN (Phase2A)",
+    "3010": "LISTEN (Phase2B)",
+    "3011": "LISTEN (Phase2C)",
+    "19001": "LISTEN (Gateway)"
   },
-  "projects": {
-    "AUDIT": {
-      "status": "complete",
-      "last_verified": "2026-06-07T20:08:15Z"
-    },
-    "DISCORD-BOT": {
-      "status": "complete",
-      "last_verified": "2026-06-07T20:08:15Z"
-    },
-    "BM": {
-      "status": "complete",
-      "last_verified": "2026-06-07T20:08:15Z"
-    },
-    "TRAVEL": {
-      "status": "complete",
-      "last_verified": "2026-06-07T20:08:15Z"
-    }
+  "build": {
+    "total_pages": 140,
+    "compiled": 140,
+    "status": "SUCCESS"
   },
-  "reliability": 100,
-  "blockers": 0,
+  "deployment": {
+    "vercel_fms_portal": "✅ DEPLOYED",
+    "vercel_audit": "⏳ LOCAL ONLY",
+    "vercel_discord_bot": "⏳ LOCAL ONLY",
+    "vercel_bm": "⏳ LOCAL ONLY",
+    "vercel_travel": "⏳ LOCAL ONLY",
+    "phase2_dashboard": "⏳ LOCAL ONLY (3009/3010/3011)",
+    "gateway": "⏳ LOCAL ONLY (19001)"
+  },
   "uptime_hours": 85,
-  "last_update": "2026-06-07 20:08:15"
+  "blockers": 0,
+  "reliability": "100%",
+  "next_cycle": "865 @ 20:16 KST",
+  "last_update": "2026-06-07 20:11:00 KST"
 }
