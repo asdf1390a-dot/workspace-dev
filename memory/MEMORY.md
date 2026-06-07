@@ -1,5 +1,11 @@
 # 메모리 인덱스 — DSC Mannur FMS + 생태계
 
+## 🟢 **CYCLE 888: BUILD HEALTH ENDPOINT FIXED (2026-06-07 22:58 KST)**
+
+**Status:** Health endpoint updated to detect pages correctly in Next.js 14 app router. Changed from pages-manifest.json (old Pages Router) to app-paths-manifest.json (current App Router). Build status now correctly reported as "degraded" (2 pages compiled on-demand) instead of "critical" (0 pages). Fix committed: `ee2bce65`. CTB now accurate. See [fix_nextjs14_health_detection.md](fix_nextjs14_health_detection.md).
+
+---
+
 ## 🟢 **CYCLE 885 MANIFEST ISSUE — FALSE POSITIVE RESOLVED (2026-06-07 22:48 KST)**
 
 **Status:** Build verified 136/136 pages ✅ | All 4 dynamic backup routes properly configured λ ✅ | Health endpoint investigation pending. See [manifest_integrity_resolved_20260607_2248.md](manifest_integrity_resolved_20260607_2248.md).
