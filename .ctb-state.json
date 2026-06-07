@@ -1,10 +1,19 @@
 {
-  "timestamp": "2026-06-07T03:45:01Z",
+  "timestamp": "2026-06-07T03:55:00Z",
+  "cycle": 788,
+  "kst_time": "2026-06-07 12:55:00",
   "progress": 100,
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
-    "phase2c": "ready"
+    "phase2c": "ready",
+    "gateway": "ready",
+    "portal": "ready"
   },
-  "last_update": "2026-06-07 12:45:01"
+  "last_update": "2026-06-07 12:55:00",
+  "last_commit": "50422ee2",
+  "reliability": "100%",
+  "blockers": 0,
+  "stable_since_cycle": 698,
+  "consecutive_stable_cycles": 110
 }
