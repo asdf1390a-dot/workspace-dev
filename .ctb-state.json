@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-08T02:43:00Z",
+  "timestamp": "2026-06-08T17:48:00Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
@@ -10,11 +10,36 @@
     "vercel": "OK",
     "vercel_http": "200"
   },
-  "last_update": "2026-06-08 02:43:00",
-  "polling_cycle": 929,
-  "build_status": "PASS (136 pages)",
-  "all_projects_verified": "AUDIT(0cf3c1ba), DISCORD-BOT(585db4d5), BM(ecc13a9f), TRAVEL(e9396c74)",
-  "reliability": "100%",
+  "last_update": "2026-06-08 02:48:00",
+  "cycle": 930,
+  "projects": {
+    "AUDIT": {
+      "commit": "0cf3c1ba",
+      "completion": 100,
+      "status": "complete"
+    },
+    "DISCORD-BOT": {
+      "commit": "585db4d5",
+      "completion": 100,
+      "status": "complete"
+    },
+    "BM": {
+      "commit": "ecc13a9f",
+      "completion": 100,
+      "status": "complete"
+    },
+    "TRAVEL": {
+      "commit": "e9396c74",
+      "completion": 100,
+      "status": "complete"
+    }
+  },
+  "build": {
+    "status": "success",
+    "pages": 136,
+    "errors": 0
+  },
+  "reliability": 100,
   "blockers": 0,
-  "uptime_hours": 90.0
+  "uptime_hours": 90.2
 }
