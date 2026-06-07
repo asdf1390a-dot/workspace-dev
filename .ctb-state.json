@@ -1,66 +1,14 @@
 {
-  "cycle": 908,
-  "timestamp": "2026-06-07T15:53:45Z",
-  "timestamp_seoul": "2026-06-08 00:53:45",
-  "status": "ALL SYSTEMS NORMAL",
+  "timestamp": "2026-06-07T15:58:00Z",
   "progress": 100,
-  "build": {
-    "pages": 136,
-    "mode": "dev",
-    "status": "success",
-    "note": "Compiled successfully (stable)"
-  },
   "services": {
-    "fms": {
-      "port": 3000,
-      "status": "LISTEN"
-    },
-    "phase2a": {
-      "port": 3009,
-      "status": "LISTEN"
-    },
-    "phase2b": {
-      "port": 3010,
-      "status": "LISTEN"
-    },
-    "phase2c": {
-      "port": 3011,
-      "status": "LISTEN"
-    },
-    "gateway": {
-      "port": 19001,
-      "status": "LISTEN"
-    }
+    "phase2a": "ready",
+    "phase2b": "ready",
+    "phase2c": "ready"
   },
-  "projects": {
-    "audit": {
-      "commit": "0cf3c1ba",
-      "completion": 100,
-      "status": "verified"
-    },
-    "discord_bot": {
-      "commit": "585db4d5",
-      "completion": 100,
-      "status": "verified"
-    },
-    "bm": {
-      "commit": "ecc13a9f",
-      "completion": 100,
-      "status": "verified"
-    },
-    "travel": {
-      "commit": "e9396c74",
-      "completion": 100,
-      "status": "verified"
-    }
+  "production": {
+    "vercel": "OK",
+    "vercel_http": "200"
   },
-  "metrics": {
-    "reliability": 100,
-    "blockers": 0,
-    "uptime_hours": 88.58
-  },
-  "next_cycle": {
-    "number": 909,
-    "scheduled_time": "2026-06-08 00:58 KST"
-  }
+  "last_update": "2026-06-08 00:58:00"
 }
