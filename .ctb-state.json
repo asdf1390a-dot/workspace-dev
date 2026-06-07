@@ -1,13 +1,16 @@
 {
-  "timestamp": "2026-06-07T03:17:00Z",
+  "timestamp": "2026-06-07T03:25:41Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
     "phase2c": "ready"
   },
-  "last_update": "2026-06-07 12:17:01",
-  "cycle": 782,
-  "stability_streak": 105,
-  "uptime_minutes": 525
+  "last_update": "2026-06-07 12:25:41",
+  "cycle": 783,
+  "state_changes": 0,
+  "consecutive_stable_cycles": 106,
+  "build_pages": 143,
+  "reliability": "100%",
+  "blockers": 0
 }
