@@ -1,22 +1,27 @@
 {
-  "timestamp": "2026-06-07T14:31:15Z",
+  "timestamp": "2026-06-07T14:56:00Z",
   "progress": 100,
-  "build_pages": 145,
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
     "phase2c": "ready",
-    "fms": "running:3000"
+    "fms": "ready",
+    "gateway": "ready"
   },
   "production": {
     "vercel": "OK",
     "vercel_http": "200"
   },
-  "projects": {
-    "AUDIT": "100% (0cf3c1ba)",
-    "DISCORD-BOT": "100% (585db4d5)",
-    "BM": "100% (ecc13a9f)",
-    "TRAVEL": "100% (e9396c74)"
+  "build": {
+    "pages": 145,
+    "status": "compiled",
+    "mode": "dev"
   },
-  "last_update": "2026-06-07 23:31:15"
+  "reliability": "100%",
+  "uptime_hours": 87.6,
+  "blockers": 0,
+  "projects_verified": 4,
+  "last_update": "2026-06-07 23:56:00",
+  "cycle": 897
+}
 }
