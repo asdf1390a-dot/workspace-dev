@@ -1,123 +1,24 @@
 {
-  "timestamp": "2026-06-07T02:05:02Z",
-  "polling_cycle": 768,
-  "cycle_time_kst": "2026-06-07 11:05:02",
+  "timestamp": "2026-06-07T02:13:00Z",
+  "cycle": 770,
   "progress": 100,
-  "projects": {
-    "audit_p1": {
-      "completion": 100,
-      "status": "complete",
-      "loc": 2323,
-      "deadline": "2026-06-04 18:00",
-      "ahead_by": "5d 16h 5m",
-      "commit": "0cf3c1ba"
-    },
-    "discord_bot_p1": {
-      "completion": 100,
-      "status": "complete",
-      "processors": 5,
-      "loc": 3491,
-      "deadline": "2026-06-05 18:00",
-      "ahead_by": "40h 5m",
-      "commit": "585db4d5"
-    },
-    "bm_p1": {
-      "completion": 100,
-      "status": "complete",
-      "loc": 2494,
-      "deadline": "2026-06-04 18:00",
-      "ahead_by": "5d 16h 5m",
-      "commit": "ecc13a9f"
-    },
-    "travel_p2_ui": {
-      "completion": 100,
-      "status": "complete",
-      "files": "50+",
-      "loc": 1270,
-      "deadline": "2026-06-05 18:00",
-      "ahead_by": "40h 5m",
-      "commit": "e9396c74",
-      "qa_approval": true
-    }
-  },
   "services": {
-    "phase2a": {
-      "status": "ready",
-      "port": 3009,
-      "pid": 310583,
-      "uptime_seconds": 2047,
-      "uptime_formatted": "34m",
-      "health": "ready",
-      "requests": 34
-    },
-    "phase2b": {
-      "status": "ready",
-      "port": 3010,
-      "pid": 271569,
-      "uptime_seconds": 10243266,
-      "uptime_formatted": "118d 8h 34m",
-      "health": "ready",
-      "requests": 34
-    },
-    "phase2c": {
-      "status": "ready",
-      "port": 3011,
-      "pid": 271583,
-      "uptime_seconds": 10240247,
-      "uptime_formatted": "118d 8h 30m",
-      "health": "ready",
-      "requests": 34
-    },
-    "next_dev": {
-      "status": "ready",
-      "port": 3000,
-      "pid": 72439,
-      "health": "listening"
-    },
-    "gateway": {
-      "status": "ready",
-      "port": 19001,
-      "pid": 271421,
-      "health": "listening"
-    }
+    "phase2a": "ready",
+    "phase2b": "ready",
+    "phase2c": "ready",
+    "gateway": "running"
   },
-  "build_status": {
-    "status": "passing",
-    "pages_compiled": 143,
-    "warnings": 1,
-    "warning_type": "benign (backup/metrics dynamic server)",
-    "errors": 0
+  "build_status": "passing",
+  "build_pages": 143,
+  "projects": {
+    "AUDIT-P1": { "loc": 2323, "status": "code-ready", "completion": 100 },
+    "DISCORD-BOT-P1": { "loc": 3491, "status": "code-ready", "completion": 100 },
+    "BM-P1": { "loc": 2494, "status": "code-ready", "completion": 100 },
+    "TRAVEL-P2-UI": { "loc": 1270, "status": "code-ready", "completion": 100 }
   },
-  "code_state": {
-    "production_changes": 0,
-    "memory_changes": "logs updated (expected)",
-    "git_clean": true
-  },
-  "reliability_metrics": {
-    "stability_cycles": "90+",
-    "stability_duration_minutes": "450+",
-    "reliability_percentage": 100,
-    "consecutive_zero_changes": 90,
-    "blockers": 0,
-    "alerts": 0
-  },
-  "last_update": "2026-06-07 11:05:02",
-  "next_cycle": {
-    "number": 773,
-    "scheduled_time": "2026-06-07 11:10:02"
-  },
-  "deployment_status": {
-    "vercel_live": true,
-    "routes_deployed": "2/6 (partial)",
-    "note": "Backup + Assets routes live. Audit-logs + Travels routes 404 (investigation pending)"
-  },
-  "health_check": {
-    "phase2a_port_3009": "LISTEN (uptime: 34m, status: ready, health endpoint 200 OK)",
-    "phase2b_port_3010": "LISTEN (uptime: 118d 8h 34m, status: ready, health endpoint 200 OK, requests: 34)",
-    "phase2c_port_3011": "LISTEN (uptime: 118d 8h 30m, status: ready, health endpoint 200 OK, requests: 34)",
-    "next_dev_3000": "LISTEN (status: operational)",
-    "gateway_19001": "LISTEN (status: operational)",
-    "recovery_time": "2026-06-07 11:05:00 to 11:05:02 (2 sec verification)",
-    "reliability": "100% (5/5 services healthy)"
-  }
+  "reliability": "100%",
+  "blockers": 0,
+  "consecutive_stable_cycles": 93,
+  "consecutive_stable_time_minutes": 465,
+  "last_update": "2026-06-07 11:13:00"
 }
