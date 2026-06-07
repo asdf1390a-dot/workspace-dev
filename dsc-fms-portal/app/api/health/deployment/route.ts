@@ -36,12 +36,41 @@ interface HealthCheckResult {
 
 async function getPageCount(): Promise<number> {
   try {
-    const manifestPath = join(process.cwd(), '.next/server/pages-manifest.json');
-    const content = readFileSync(manifestPath, 'utf-8');
+    // Next.js 14 app router - count routes from app-paths-manifest
+    const appPathsPath = join(process.cwd(), '.next/server/app-paths-manifest.json');
+    const content = readFileSync(appPathsPath, 'utf-8');
     const manifest = JSON.parse(content);
-    return Object.keys(manifest).length;
+    // Count non-layout routes
+    const routes = Object.keys(manifest).filter(
+      (key) => !key.endsWith('/layout') && !key.endsWith('/_not-found')
+    );
+    return routes.length || 0;
   } catch {
-    return 0;
+    // Fallback: count app directory entries
+    try {
+      const appDirPath = join(process.cwd(), 'app');
+      const { readdirSync } = require('fs');
+      const countDirs = (dir: string): number => {
+        let count = 0;
+        try {
+          const entries = readdirSync(dir, { withFileTypes: true });
+          for (const entry of entries) {
+            if (entry.isDirectory() && !entry.name.startsWith('_')) {
+              count++;
+              count += countDirs(join(dir, entry.name));
+            } else if (entry.isFile() && entry.name === 'page.tsx') {
+              count++;
+            }
+          }
+        } catch {
+          // ignore
+        }
+        return count;
+      };
+      return Math.max(1, countDirs(appDirPath));
+    } catch {
+      return 0;
+    }
   }
 }
 
