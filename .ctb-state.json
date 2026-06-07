@@ -1,40 +1,14 @@
 {
-  "cycle": 842,
-  "timestamp": "2026-06-07T08:52:00Z",
-  "timestamp_kst": "2026-06-07 17:52:00",
+  "timestamp": "2026-06-07T08:55:01Z",
   "progress": 100,
   "services": {
-    "fms_portal": "LISTEN:3000",
-    "phase2a": "LISTEN:3009",
-    "phase2b": "LISTEN:3010",
-    "phase2c": "LISTEN:3011",
-    "gateway": "LISTEN:19001"
+    "phase2a": "ready",
+    "phase2b": "ready",
+    "phase2c": "ready"
   },
   "production": {
     "vercel": "OK",
     "vercel_http": "200"
   },
-  "projects": {
-    "audit_p1": {
-      "status": "100%",
-      "commit": "0cf3c1ba"
-    },
-    "discord_bot_p1": {
-      "status": "100%",
-      "commit": "585db4d5"
-    },
-    "bm_p1": {
-      "status": "100%",
-      "commit": "ecc13a9f"
-    },
-    "travel_p2_ui": {
-      "status": "100%",
-      "commit": "e9396c74"
-    }
-  },
-  "uptime_hours": 82,
-  "reliability": "100%",
-  "blockers": 0,
-  "last_update": "2026-06-07 17:52:00",
-  "next_cycle": "2026-06-07 17:57:00"
+  "last_update": "2026-06-07 17:55:01"
 }

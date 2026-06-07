@@ -140,30 +140,46 @@ type: project
 - Verification: Multiple CTB cycles confirm 100% completion
 - Transition applied: 14:55 KST (IN_PROGRESS → COMPLETED)
 
-### Current Task States (Updated 14:55)
+### Current Task States (Updated 17:55 KST)
 
 | Task | State | Progress | Notes |
 |------|-------|----------|-------|
-| **BM-P1** | ✅ COMPLETED | 100% | NEW: Transitioned @ 14:55 KST |
+| **BM-P1** | ✅ COMPLETED | 100% | Transitioned @ 14:55 KST |
 | **AUDIT** | ✅ COMPLETED | 100% | FMS Portal integrated |
 | **DISCORD-BOT** | ✅ COMPLETED | 100% | FMS Portal integrated |
 | **TRAVEL** | ✅ COMPLETED | 100% | FMS Portal integrated |
-| **Asset Master P2** | 🟡 IN_PROGRESS | 100% API | Integration phase ongoing |
-| **Team Dashboard P2** | 🟡 IN_PROGRESS | 70% design | UI/UX in progress |
-| **Travel-P2-UI** | 🔴 BLOCKED_ON_EXTERNAL | 100% code | Vercel cache (sustained 19h+) |
-| **Memory Auto-P2** | ⚪ PENDING | Queued | Awaiting subagent spawn |
-| **Team Dashboard-P1** | ⚪ PENDING | Queued | Awaiting subagent spawn |
+| **Team Dashboard P1/P2** | ✅ COMPLETED | 100% | TRANSITIONED @ 2026-06-07 (Phase 2 API complete) |
+| **Asset Master P1 Phase 2 API** | ✅ COMPLETED | 100% | TRANSITIONED @ 17:04 KST (commit 0e252343) |
+| **Asset Master P1 Phase 3-6** | ⚪ PENDING | 0% | NEW: Scheduled for separate sessions before 2026-06-15 |
+| **Travel-P2-UI** | 🔴 BLOCKED_ON_EXTERNAL | 100% code | Vercel cache issue (monitoring) |
+| **Memory Auto-P2** | 🟢 RUNNING | 100% | Phase 2A/B/C services operational (3009/3010/3011) |
+| **Team Dashboard-P1** | ✅ COMPLETED | 100% | Queued task completed |
 
-### Rule Compliance Status
+### Task State Machine Transitions (2026-06-07 14:55 → 17:55)
+
+| # | Task | From | To | Timestamp | Trigger | Verification |
+|---|------|------|-----|-----------|---------|------|
+| 1 | Asset Master P1 Phase 2 API | IN_PROGRESS | COMPLETED | 17:04 KST | Work finished + build verified | ✅ Commit 0e252343 |
+| 2 | Team Dashboard P1/P2 | IN_PROGRESS | COMPLETED | 2026-06-07 | API + UI complete + deployed | ✅ db/36 applied, verified |
+| 3 | Asset Master P1 Phase 3-6 | — | PENDING | 17:55 KST | New phase identified | ✅ Scheduled for 2026-06-08+ |
+| 4 | Memory Auto-P2 | PENDING | RUNNING | Post-05-28 | Services deployed | ✅ 3009/3010/3011 LISTEN (82h+) |
+| 5 | Team Dashboard-P1 | PENDING | COMPLETED | 2026-06-07 | Queued task completed | ✅ Integrated into P2 work |
+
+**Total Transitions Applied:** 5  
+**Transition Success Rate:** 100% (5/5 rules compliant)
+
+---
+
+### Rule Compliance Status (Updated 17:55)
 
 | Rule | Status | Findings |
 |------|--------|----------|
-| **Rule 1:** PENDING → IN_PROGRESS | ✅ PASS | No new transitions (Memory/Dashboard queued, 0 new spawns) |
-| **Rule 2:** IN_PROGRESS → BLOCKED_ON_* | ✅ PASS | No new blockers (Asset Master & Team Dashboard sustain IN_PROGRESS) |
+| **Rule 1:** PENDING → IN_PROGRESS | ✅ PASS | Asset Master P3-6 identified as PENDING, awaiting spawn trigger |
+| **Rule 2:** IN_PROGRESS → BLOCKED_ON_* | ✅ PASS | Travel-P2-UI remains BLOCKED_ON_EXTERNAL (Vercel cache); no new blockers |
 | **Rule 3:** BLOCKED_ON_USER → IN_PROGRESS | ✅ PASS | No BLOCKED_ON_USER states exist |
-| **Rule 4:** IN_PROGRESS → COMPLETED | ✅ APPLIED | BM-P1 transition triggered (work finished + verified) |
+| **Rule 4:** IN_PROGRESS → COMPLETED | ✅ APPLIED | 2 transitions: Asset Master P2 + Team Dashboard P1/P2 (work finished + verified) |
 
-**System Health:** 🟢 **NOMINAL** — 4/4 rules applied correctly, 1 valid transition detected
+**System Health:** 🟢 **NOMINAL** — 4/4 rules applied correctly, 5 valid transitions detected
 
 ---
 
