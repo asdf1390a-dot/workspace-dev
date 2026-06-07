@@ -1,20 +1,29 @@
 {
-  "timestamp": "2026-06-07T14:01:15Z",
+  "timestamp": "2026-06-07T14:06:30Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
-    "phase2c": "ready"
+    "phase2c": "ready",
+    "gateway": "ready",
+    "fms_portal": "ready"
   },
   "production": {
     "vercel": "OK",
     "vercel_http": "200"
   },
   "build": {
-    "status": "HEALTHY",
-    "pages": "2 on-demand (dev mode)",
-    "regression_fixed": "2026-06-07 22:58 KST",
-    "root_cause": "Next.js 14 app router page count detection"
+    "status": "success",
+    "compiled": true,
+    "dev_mode": true
   },
-  "last_update": "2026-06-07 23:01:15"
+  "projects": {
+    "audit_p1": "100% (0cf3c1ba)",
+    "discord_bot_p1": "100% (585db4d5)",
+    "bm_p1": "100% (ecc13a9f)",
+    "travel_p2_ui": "100% (e9396c74)"
+  },
+  "reliability": 100,
+  "blockers": 0,
+  "last_update": "2026-06-07 23:06:30"
 }
