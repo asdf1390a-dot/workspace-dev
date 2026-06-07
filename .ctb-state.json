@@ -1,23 +1,14 @@
 {
-  "cycle": 859,
-  "timestamp": "2026-06-07T19:46:00+09:00",
-  "timestamp_kst": "2026-06-07 19:46 KST",
-  "status": "ALL_SYSTEMS_OPERATIONAL",
+  "timestamp": "2026-06-07T10:50:02Z",
+  "progress": 100,
   "services": {
-    "fms_portal": {"port": 3000, "status": "LISTEN", "pid": 452425, "uptime_hours": 84.5},
-    "phase2a": {"port": 3009, "status": "LISTEN", "pid": 331382},
-    "phase2b": {"port": 3010, "status": "LISTEN", "pid": 271569},
-    "phase2c": {"port": 3011, "status": "LISTEN", "pid": 271583},
-    "gateway": {"port": 19001, "status": "LISTEN", "pid": 452077}
+    "phase2a": "ready",
+    "phase2b": "ready",
+    "phase2c": "ready"
   },
-  "build": {"status": "PASSING", "pages": 143, "errors": 0},
-  "projects": {
-    "audit_p1": {"commit": "0cf3c1ba", "completion": "100%", "status": "COMPLETE"},
-    "discord_bot_p1": {"commit": "585db4d5", "completion": "100%", "status": "COMPLETE"},
-    "bm_p1": {"commit": "ecc13a9f", "completion": "100%", "status": "COMPLETE"},
-    "travel_p2_ui": {"commit": "e9396c74", "completion": "100%", "status": "COMPLETE"}
+  "production": {
+    "vercel": "OK",
+    "vercel_http": "200"
   },
-  "reliability": "100%",
-  "blockers": 0,
-  "next_cycle": "860 @ 19:51 KST"
+  "last_update": "2026-06-07 19:50:02"
 }
