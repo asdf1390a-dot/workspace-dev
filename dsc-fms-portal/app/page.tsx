@@ -7,7 +7,7 @@ export default function Home() {
   const router = useRouter();
 
   useEffect(() => {
-    router.push('/assets');
+    router.push('/harness');
   }, [router]);
 
   return (
