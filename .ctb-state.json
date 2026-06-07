@@ -1,14 +1,27 @@
 {
-  "timestamp": "2026-06-07T05:45:01Z",
+  "timestamp": "2026-06-07T05:49:26Z",
+  "timestamp_kst": "2026-06-07 14:49 KST",
+  "cycle": 806,
   "progress": 100,
   "services": {
-    "phase2a": "ready",
-    "phase2b": "ready",
-    "phase2c": "ready"
+    "fms_3000": "LISTEN",
+    "phase2a_3009": "LISTEN",
+    "phase2b_3010": "LISTEN",
+    "phase2c_3011": "LISTEN",
+    "gateway_19001": "LISTEN"
   },
   "production": {
     "vercel": "OK",
     "vercel_http": "200"
   },
-  "last_update": "2026-06-07 14:45:01"
+  "projects": {
+    "AUDIT-P1": "100%",
+    "DISCORD-BOT-P1": "100%",
+    "BM-P1": "100%",
+    "TRAVEL-P2-UI": "60%"
+  },
+  "reliability": "100%",
+  "blockers": 0,
+  "modified_files": 71,
+  "last_update": "2026-06-07 14:49:26 KST"
 }
