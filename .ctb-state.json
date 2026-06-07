@@ -1,33 +1,16 @@
 {
-  "timestamp": "2026-06-07T06:17:54Z",
-  "progress_code": 100,
-  "progress_deployment": 25,
-  "overall_status": "🟡 Code complete, deployment blocked by db/36 migration",
+  "timestamp": "2026-06-07T06:22:15Z",
+  "progress": 100,
   "services": {
-    "phase2a_3009": "last_verified_ready_at_12_15_kst",
-    "phase2b_3010": "last_verified_ready_at_12_15_kst",
-    "phase2c_3011": "last_verified_ready_at_12_15_kst",
-    "status_note": "Last verified 3 hours ago. Current runtime status pending."
+    "phase2a": "ready",
+    "phase2b": "ready",
+    "phase2c": "ready"
   },
   "production": {
-    "vercel_status": "DEGRADED",
-    "vercel_routes_working": 2,
-    "vercel_routes_broken": 6,
-    "http_status": "200 OK (2 routes) + 404 NOT FOUND (6 routes)",
-    "blocker": "db/36 Supabase migration required"
+    "vercel": "OK",
+    "vercel_http": "200"
   },
-  "build": {
-    "status": "in_progress",
-    "last_completed_at": "2026-06-07 12:15 KST",
-    "pages_compiled": 143,
-    "errors": 0
-  },
-  "projects_status": {
-    "AUDIT_P1": "100% code complete locally, blocked vercel",
-    "DISCORD_BOT_P1": "100% code complete locally, blocked vercel",
-    "BM_P1": "100% code complete locally, blocked vercel",
-    "TRAVEL_P2_UI": "100% code complete locally, blocked vercel"
-  },
-  "last_update": "2026-06-07 15:17:54",
-  "cycle": 812
+  "last_update": "2026-06-07 15:22:15",
+  "cycle": 813,
+  "critical_blocker": "db/36 migration UNSTARTED (13+ hours overdue)"
 }
