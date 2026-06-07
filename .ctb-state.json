@@ -1,14 +1,22 @@
 {
-  "timestamp": "2026-06-07T05:10:02Z",
-  "progress": 100,
+  "cycle": 801,
+  "timestamp": "2026-06-07T14:15:03+09:00",
+  "kst_time": "2026-06-07 14:15:03 KST",
   "services": {
-    "phase2a": "ready",
-    "phase2b": "ready",
-    "phase2c": "ready"
+    "fms_portal": {"port": 3000, "status": "LISTEN", "healthy": true},
+    "phase_2a": {"port": 3009, "status": "LISTEN", "healthy": true},
+    "phase_2b": {"port": 3010, "status": "LISTEN", "healthy": true},
+    "phase_2c": {"port": 3011, "status": "LISTEN", "healthy": true},
+    "gateway": {"port": 19001, "status": "LISTEN", "healthy": true}
   },
-  "production": {
-    "vercel": "OK",
-    "vercel_http": "200"
+  "build": {"status": "PASSING", "pages": 143, "errors": 0},
+  "projects": {
+    "AUDIT": {"completion": 100},
+    "DISCORD-BOT": {"completion": 100},
+    "BM": {"completion": 100},
+    "TRAVEL": {"completion": 100}
   },
-  "last_update": "2026-06-07 14:10:02"
+  "vercel": {"status": "HTTP 200", "deployed": true},
+  "reliability": "100%",
+  "blockers": 0
 }
