@@ -1,50 +1,24 @@
 {
-  "timestamp": "2026-06-08T18:33:00Z",
-  "cycle": 939,
+  "timestamp": "2026-06-08T03:38:24Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
     "phase2c": "ready"
   },
-  "projects": {
-    "audit": {
-      "commit": "0cf3c1ba",
-      "status": "complete",
-      "completion": 100,
-      "verified": "2026-06-08T18:33:00Z"
-    },
-    "discord_bot": {
-      "commit": "585db4d5",
-      "status": "complete",
-      "completion": 100,
-      "verified": "2026-06-08T18:33:00Z"
-    },
-    "bm": {
-      "commit": "ecc13a9f",
-      "status": "complete",
-      "completion": 100,
-      "verified": "2026-06-08T18:33:00Z"
-    },
-    "travel": {
-      "commit": "e9396c74",
-      "status": "complete",
-      "completion": 100,
-      "verified": "2026-06-08T18:33:00Z"
-    }
-  },
-  "build": {
-    "pages": 136,
-    "status": "success",
-    "mode": "dev",
-    "stability": "stable"
-  },
   "production": {
     "vercel": "OK",
     "vercel_http": "200"
   },
-  "reliability": 100,
+  "last_update": "2026-06-08 03:38:24",
+  "projects_verified": {
+    "AUDIT": "100%",
+    "DISCORD-BOT": "100%",
+    "BM": "100%",
+    "TRAVEL": "100%"
+  },
+  "build_status": "✓ Compiled (136 pages, dev mode stable)",
+  "reliability": "100%",
   "blockers": 0,
-  "uptime_hours": 90.55,
-  "last_update": "2026-06-08 03:33:00"
+  "uptime_hours": 90.6
 }
