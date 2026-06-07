@@ -1,33 +1,19 @@
 {
-  "cycle": 894,
-  "timestamp": "2026-06-07T14:21:00Z",
-  "time_kst": "2026-06-07 23:21:00",
+  "timestamp": "2026-06-07T14:26:00Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
-    "phase2c": "ready",
-    "gateway": "ready",
-    "fms_portal": "ready"
+    "phase2c": "ready"
   },
   "production": {
     "vercel": "OK",
     "vercel_http": "200"
   },
-  "projects": {
-    "AUDIT": "100% (0cf3c1ba)",
-    "DISCORD-BOT": "100% (585db4d5)",
-    "BM": "100% (ecc13a9f)",
-    "TRAVEL": "100% (e9396c74)"
-  },
-  "build": {
-    "status": "success",
-    "pages": 136,
-    "mode": "dev",
-    "errors": 0
-  },
-  "uptime_hours": 87.6,
-  "reliability": "100%",
+  "last_update": "2026-06-07 23:26:00",
+  "cycle": 895,
+  "build_pages": 136,
+  "reliability": 100,
   "blockers": 0,
-  "last_update": "2026-06-07 23:21:00"
+  "uptime_hours": 87.6
 }
