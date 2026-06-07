@@ -1,36 +1,14 @@
 {
-  "timestamp": "2026-06-08T15:43:00Z",
-  "cycle": 906,
+  "timestamp": "2026-06-08T15:48:00Z",
   "progress": 100,
-  "build_pages": 136,
   "services": {
-    "fms": "3000",
-    "phase2a": "3009",
-    "phase2b": "3010",
-    "phase2c": "3011",
-    "gateway": "19001",
-    "status": "all_listen"
+    "phase2a": "ready",
+    "phase2b": "ready",
+    "phase2c": "ready"
   },
-  "projects": {
-    "audit": {
-      "status": "100%",
-      "commit": "0cf3c1ba"
-    },
-    "discord_bot": {
-      "status": "100%",
-      "commit": "585db4d5"
-    },
-    "bm": {
-      "status": "100%",
-      "commit": "ecc13a9f"
-    },
-    "travel": {
-      "status": "100%",
-      "commit": "e9396c74"
-    }
+  "production": {
+    "vercel": "OK",
+    "vercel_http": "200"
   },
-  "reliability": "100%",
-  "blockers": 0,
-  "uptime_hours": 88.4,
-  "last_update": "2026-06-08 00:43:00"
+  "last_update": "2026-06-08 00:48:00"
 }
