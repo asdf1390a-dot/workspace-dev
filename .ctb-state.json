@@ -1,14 +1,22 @@
 {
-  "timestamp": "2026-06-07T07:05:01Z",
+  "timestamp": "2026-06-07T07:13:00Z",
   "progress": 100,
+  "polling_cycle": 823,
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
-    "phase2c": "ready"
+    "phase2c": "ready",
+    "fms_portal": "recovered"
   },
   "production": {
     "vercel": "OK",
     "vercel_http": "200"
   },
-  "last_update": "2026-06-07 16:05:01"
+  "last_update": "2026-06-07 16:13:00",
+  "recovery": {
+    "action": "FMS Portal webpack cache cleared + dev server restarted",
+    "issue": "Missing webpack chunk ./3310.js (500 error)",
+    "resolved": "2026-06-07T16:13:00Z",
+    "status": "HTTP 200 confirmed"
+  }
 }
