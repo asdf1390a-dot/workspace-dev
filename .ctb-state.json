@@ -1,22 +1,26 @@
 {
-  "timestamp": "2026-06-07T04:53:00Z",
-  "progress": 100,
+  "timestamp": "2026-06-07T04:58:00Z",
+  "cycle": 797,
   "services": {
-    "fms_portal": "ready",
-    "phase2a": "ready",
-    "phase2b": "ready",
-    "phase2c": "ready",
-    "gateway": "ready"
+    "fms_portal": { "port": 3000, "status": "running" },
+    "phase2a": { "port": 3009, "status": "listen" },
+    "phase2b": { "port": 3010, "status": "listen" },
+    "phase2c": { "port": 3011, "status": "listen" },
+    "gateway": { "port": 19001, "status": "running" }
   },
-  "last_update": "2026-06-07 13:53:00",
-  "cycle": 796,
+  "build": {
+    "pages": 143,
+    "status": "passing",
+    "errors": 0
+  },
   "projects": {
-    "audit_p1": "100%",
-    "discord_bot_p1": "100%",
-    "bm_p1": "100%",
-    "travel_p2_ui": "60%"
+    "AUDIT": { "progress": 100, "status": "completed" },
+    "DISCORD-BOT": { "progress": 100, "status": "completed" },
+    "BM": { "progress": 100, "status": "completed" },
+    "TRAVEL": { "progress": 60, "status": "in_progress" }
   },
-  "build_status": "PASSING (143 pages)",
-  "reliability": "100%",
-  "blockers": 0
+  "reliability": 100,
+  "blockers": 0,
+  "last_update": "2026-06-07 13:58:00 KST",
+  "next_cycle": "2026-06-07 14:03 KST"
 }
