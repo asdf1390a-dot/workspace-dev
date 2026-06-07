@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-06-07T06:44:11Z",
-  "cycle": 817,
-  "cycle_time_kst": "2026-06-07 15:44 KST",
+  "timestamp": "2026-06-07T06:49:02Z",
+  "cycle": 818,
+  "local_time": "2026-06-07 15:49:02",
   "progress": 100,
   "services": {
     "fms": "LISTEN:3000",
@@ -10,34 +10,29 @@
     "phase2c": "LISTEN:3011",
     "gateway": "LISTEN:19001"
   },
-  "build": {
-    "status": "PASSING",
-    "pages": 143,
-    "errors": 0
-  },
-  "projects": {
-    "AUDIT": {
-      "completion": "100%",
-      "commit": "0cf3c1ba"
-    },
-    "DISCORD-BOT": {
-      "completion": "100%",
-      "commit": "585db4d5"
-    },
-    "BM": {
-      "completion": "100%",
-      "commit": "ecc13a9f"
-    },
-    "TRAVEL": {
-      "completion": "60%",
-      "commit": "e9396c74"
-    }
-  },
   "production": {
     "vercel": "OK",
     "vercel_http": "200"
   },
-  "reliability": "100%",
+  "projects": {
+    "audit": {
+      "completion": 100,
+      "commit": "0cf3c1ba"
+    },
+    "discord_bot": {
+      "completion": 100,
+      "commit": "585db4d5"
+    },
+    "bm": {
+      "completion": 100,
+      "commit": "ecc13a9f"
+    },
+    "travel": {
+      "completion": 60,
+      "commit": "e9396c74"
+    }
+  },
+  "reliability": 100,
   "blockers": 0,
-  "last_update": "2026-06-07 15:44:11"
+  "last_update": "2026-06-07 15:49:02"
 }
