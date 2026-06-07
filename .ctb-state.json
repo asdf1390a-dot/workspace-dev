@@ -1,32 +1,31 @@
 {
-  "timestamp": "2026-06-08T17:06:00Z",
-  "cycle": 922,
+  "timestamp": "2026-06-08T17:11:00Z",
+  "cycle": 923,
   "progress": 100,
-  "build": {
-    "pages": 136,
-    "status": "success",
-    "warnings": 1
-  },
   "services": {
-    "fms": "LISTEN:3000",
-    "phase2a": "LISTEN:3009",
-    "phase2b": "LISTEN:3010",
-    "phase2c": "LISTEN:3011",
-    "gateway": "LISTEN:19001"
-  },
-  "projects": {
-    "audit": { "status": "100%", "hash": "0cf3c1ba" },
-    "discord_bot": { "status": "100%", "hash": "585db4d5" },
-    "bm": { "status": "100%", "hash": "ecc13a9f" },
-    "travel": { "status": "100%", "hash": "e9396c74" }
+    "phase2a": "ready",
+    "phase2b": "ready",
+    "phase2c": "ready",
+    "fms": "ready",
+    "gateway": "ready"
   },
   "production": {
     "vercel": "OK",
     "vercel_http": "200"
   },
-  "reliability": "100%",
+  "projects": {
+    "audit": "100%",
+    "discord_bot": "100%",
+    "bm": "100%",
+    "travel": "100%"
+  },
+  "build": {
+    "pages": 136,
+    "status": "success",
+    "mode": "dev"
+  },
+  "reliability": 100,
   "blockers": 0,
-  "uptime_hours": 89.65,
-  "last_update": "2026-06-08 02:06:00",
-  "next_cycle": "Cycle 923 @ 02:11 KST"
+  "uptime_hours": 89.6,
+  "last_update": "2026-06-08 02:11:00"
 }
