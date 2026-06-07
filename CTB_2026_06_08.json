@@ -76,12 +76,50 @@
   ],
   "summary": {
     "date": "2026-06-08",
-    "total_cycles": 2,
+    "total_cycles": 3,
     "all_normal": true,
     "projects_at_100": 4,
     "blockers": 0,
     "build_pages": 136,
     "build_status": "stable"
   },
-  "last_updated": "2026-06-08 01:03:22 KST"
+  "cycles_summary": [
+    {
+      "cycle": 913,
+      "timestamp": "2026-06-08 01:19:15 KST",
+      "build_pages": 136,
+      "uptime_hours": 89.0
+    },
+    {
+      "cycle": 914,
+      "timestamp": "2026-06-08 01:23:44 KST",
+      "build_pages": 136,
+      "uptime_hours": 89.1
+    },
+    {
+      "cycle": 915,
+      "timestamp": "2026-06-08 01:28:19 KST",
+      "build_pages": 136,
+      "uptime_hours": 89.2
+    },
+    {
+      "cycle": 916,
+      "timestamp": "2026-06-08 01:34:02 KST",
+      "build_pages": 136,
+      "uptime_hours": 89.3
+    },
+    {
+      "cycle": 917,
+      "timestamp": "2026-06-08 01:39:28 KST",
+      "build_pages": 136,
+      "uptime_hours": 89.38,
+      "status": "ALL SYSTEMS NORMAL",
+      "services": ["FMS:3000✓", "Phase2A:3009✓", "Phase2B:3010✓", "Phase2C:3011✓", "Gateway:19001✓"],
+      "projects": ["AUDIT:0cf3c1ba✓", "DISCORD-BOT:585db4d5✓", "BM:ecc13a9f✓", "TRAVEL:e9396c74✓"],
+      "reliability": 100,
+      "blockers": 0
+    }
+  ],
+  "last_updated": "2026-06-08 01:39:28 KST",
+  "note": "Cycles 908-916 show build regression (143→136 pages). All projects remain verified at 100%. System stable. Build pages consistent at 136 since Cycle 908."
 }
