@@ -1,21 +1,17 @@
 {
-  "cycle": 773,
-  "timestamp": "2026-06-07T02:29:47Z",
-  "timestamp_kst": "2026-06-07 11:29:47",
-  "projects": {
-    "AUDIT-P1": {"status": "ready", "completion": 100, "loc": 2323},
-    "DISCORD-BOT-P1": {"status": "ready", "completion": 100, "loc": 3491},
-    "BM-P1": {"status": "ready", "completion": 100, "loc": 2494},
-    "TRAVEL-P2-UI": {"status": "ready", "completion": 100, "loc": 1270}
+  "timestamp": "2026-06-07T02:39:00Z",
+  "progress": 100,
+  "services": {
+    "phase2a": "ready",
+    "phase2b": "ready",
+    "phase2c": "ready"
   },
-  "phase2": {
-    "2a": "listen:3009",
-    "2b": "listen:3010",
-    "2c": "listen:3011"
-  },
-  "build": "passing:143pages",
-  "state_changes": 0,
-  "consecutive_stable_cycles": 96,
-  "reliability": "100%",
-  "blockers": 0
+  "last_update": "2026-06-07 11:39:00",
+  "cycle": 775,
+  "stability": {
+    "consecutive_zero_change_cycles": 98,
+    "stable_minutes": 490,
+    "reliability_percent": 100,
+    "blockers": 0
+  }
 }
