@@ -1,29 +1,30 @@
 {
-  "timestamp": "2026-06-07T13:33:22Z",
-  "progress": 100,
-  "projects": {
-    "audit_p1": "100% (0cf3c1ba)",
-    "discord_bot_p1": "100% (585db4d5)",
-    "travel_p2_ui": "100% (e9396c74)",
-    "bm_p1": "100% (ecc13a9f)"
+  "cycle": 885,
+  "timestamp": "2026-06-07T13:38:58Z",
+  "status": "degraded",
+  "health_check": {
+    "build_status": "degraded",
+    "pages_count": 3,
+    "pages_expected": 140,
+    "pages_source_count": 141,
+    "manifest_issue": "app-paths-manifest.json incomplete: 3 routes vs 141 in source",
+    "build_time": "2026-06-07 22:38:38.949777581 +0900"
   },
   "services": {
-    "fms": "200 OK",
-    "phase2a": "LISTEN",
-    "phase2b": "LISTEN",
-    "phase2c": "LISTEN",
-    "gateway": "LISTEN"
+    "fms_portal": "running",
+    "phase2a": "running",
+    "phase2b": "running",
+    "phase2c": "running",
+    "gateway": "running"
   },
-  "build": {
-    "status": "PASS",
-    "pages": 136
+  "vercel": {
+    "reachable": true,
+    "http_status": 200
   },
-  "production": {
-    "vercel": "OK",
-    "vercel_http": "200"
-  },
-  "uptime_hours": 87.5,
-  "reliability": "100%",
-  "blockers": 0,
-  "last_update": "2026-06-07 22:33:22"
+  "alerts": [
+    "CRITICAL: app-paths-manifest.json incomplete (3/140 routes)",
+    "Source has 141 routes but .next/server/app manifest only recognizes 3",
+    "Immediate rebuild recommended"
+  ],
+  "last_update": "2026-06-07 22:38:58"
 }
