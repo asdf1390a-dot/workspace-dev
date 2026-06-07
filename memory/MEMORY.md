@@ -14,8 +14,10 @@
 
 ---
 
-## 🟢 **RECENT FIXES**
+## 🟢 **RECENT UPDATES**
 
+- [주간 개선 분석 (2026-06-08 02:31)](WEEKLY_IMPROVEMENT_REPORT_2026_06_08.md) — CTB 무결성 위기 분석 & 3대 개선안 (신뢰도 92%)
+- [조직도 & 업무현황 (2026-06-08 02:31)](ORG_STATUS_2026_06_08_0231.md) — 팀 11명, P1 4/4 완료, 자동화 100%
 - [CYCLE 888: Build Health Fixed (2026-06-07 22:58)](fix_nextjs14_health_detection.md) — App Router manifest detection
 - [CYCLE 885: Manifest Integrity (2026-06-07 22:48)](manifest_integrity_resolved_20260607_2248.md) — 136/136 pages verified ✅
 - [Weekly Improvement Analysis (2026-06-07 22:31)](WEEKLY_IMPROVEMENT_REPORT_20260607.md) — 5 violations → 3 improvements
