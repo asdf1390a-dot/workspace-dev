@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-06-08T17:01:00Z",
-  "cycle": 921,
+  "timestamp": "2026-06-08T17:06:00Z",
+  "cycle": 922,
   "progress": 100,
   "build": {
     "pages": 136,
@@ -26,7 +26,7 @@
   },
   "reliability": "100%",
   "blockers": 0,
-  "uptime_hours": 89.4,
-  "last_update": "2026-06-08 02:01:00",
-  "next_cycle": "Cycle 922 @ 02:06 KST"
+  "uptime_hours": 89.65,
+  "last_update": "2026-06-08 02:06:00",
+  "next_cycle": "Cycle 923 @ 02:11 KST"
 }
