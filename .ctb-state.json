@@ -1,29 +1,6 @@
 {
-  "timestamp": "2026-06-08T17:33:00Z",
-  "cycle": 927,
+  "timestamp": "2026-06-07T17:38:00Z",
   "progress": 100,
-  "build": {
-    "pages": 136,
-    "status": "✓ Compiled successfully"
-  },
-  "projects": {
-    "audit": {
-      "completion": "100%",
-      "hash": "0cf3c1ba"
-    },
-    "discord_bot": {
-      "completion": "100%",
-      "hash": "585db4d5"
-    },
-    "bm": {
-      "completion": "100%",
-      "hash": "ecc13a9f"
-    },
-    "travel": {
-      "completion": "100%",
-      "hash": "e9396c74"
-    }
-  },
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
@@ -33,9 +10,19 @@
     "vercel": "OK",
     "vercel_http": "200"
   },
-  "reliability": "100%",
+  "last_update": "2026-06-08 02:38:00",
+  "cycle": 928,
+  "projects": {
+    "AUDIT": {"status": "100%", "commit": "0cf3c1ba"},
+    "DISCORD-BOT": {"status": "100%", "commit": "585db4d5"},
+    "BM": {"status": "100%", "commit": "ecc13a9f"},
+    "TRAVEL": {"status": "100%", "commit": "e9396c74"}
+  },
+  "build": {
+    "pages": 136,
+    "status": "success",
+    "reliability": "100%"
+  },
   "blockers": 0,
-  "uptime": "89.9h+",
-  "last_update": "2026-06-08 02:33:00",
-  "next_cycle": "928 @ 02:38 KST"
+  "uptime_hours": 90.0
 }
