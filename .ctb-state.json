@@ -1,19 +1,22 @@
 {
-  "timestamp": "2026-06-07T03:55:00Z",
-  "cycle": 788,
-  "kst_time": "2026-06-07 12:55:00",
+  "timestamp": "2026-06-07T04:10:00Z",
+  "cycle": 789,
   "progress": 100,
   "services": {
-    "phase2a": "ready",
-    "phase2b": "ready",
-    "phase2c": "ready",
-    "gateway": "ready",
-    "portal": "ready"
+    "fms_portal": "running:3000",
+    "phase2a": "running:3009",
+    "phase2b": "running:3010",
+    "phase2c": "running:3011",
+    "gateway": "running:19001"
   },
-  "last_update": "2026-06-07 12:55:00",
-  "last_commit": "50422ee2",
+  "build_status": "✅ PASS (143 pages)",
+  "last_update": "2026-06-07 13:10:00 KST",
+  "projects": {
+    "AUDIT-P1": "✅ 100%",
+    "DISCORD-BOT-P1": "✅ 100%",
+    "TRAVEL-P2-UI": "🟡 60%",
+    "BM-P1": "✅ 100%"
+  },
   "reliability": "100%",
-  "blockers": 0,
-  "stable_since_cycle": 698,
-  "consecutive_stable_cycles": 110
+  "blockers": 0
 }
