@@ -1,65 +1,23 @@
 {
-  "cycle": 815,
-  "timestamp": "2026-06-07T06:33:00Z",
-  "timestamp_kst": "2026-06-07 15:33:00",
-  "progress": 92.5,
-  "projects": {
-    "AUDIT_P1": {
-      "status": "complete",
-      "completion": 100,
-      "commit": "0cf3c1ba",
-      "deadline": "2026-06-04"
-    },
-    "DISCORD_BOT_P1": {
-      "status": "complete",
-      "completion": 100,
-      "commit": "585db4d5",
-      "deadline": "2026-06-05"
-    },
-    "BM_P1": {
-      "status": "complete",
-      "completion": 100,
-      "commit": "ecc13a9f",
-      "deadline": "2026-06-04"
-    },
-    "TRAVEL_P2_UI": {
-      "status": "in_progress",
-      "completion": 60,
-      "commit": "e9396c74",
-      "deadline": "2026-06-10"
-    }
-  },
+  "timestamp": "2026-06-07T06:38:00Z",
+  "progress": 100,
   "services": {
-    "fms_portal": {
-      "port": 3000,
-      "status": "listening"
-    },
-    "phase2a": {
-      "port": 3009,
-      "status": "listening"
-    },
-    "phase2b": {
-      "port": 3010,
-      "status": "listening"
-    },
-    "phase2c": {
-      "port": 3011,
-      "status": "listening"
-    },
-    "gateway": {
-      "port": 19001,
-      "status": "listening"
-    }
-  },
-  "build": {
-    "status": "passing",
-    "pages": 143
+    "phase2a": "ready",
+    "phase2b": "ready",
+    "phase2c": "ready"
   },
   "production": {
     "vercel": "OK",
-    "vercel_http": 200
+    "vercel_http": "200"
   },
-  "reliability": "100%",
-  "blockers": 0,
-  "last_update": "2026-06-07 15:33:00"
+  "last_update": "2026-06-07 15:38:00",
+  "cycle": 816,
+  "projects": {
+    "audit": { "status": "complete", "percent": 100, "commit": "0cf3c1ba" },
+    "discord-bot": { "status": "complete", "percent": 100, "commit": "585db4d5" },
+    "bm": { "status": "complete", "percent": 100, "commit": "ecc13a9f" },
+    "travel": { "status": "in-progress", "percent": 60, "commit": "e9396c74" }
+  },
+  "reliability": 100,
+  "blockers": 0
 }
