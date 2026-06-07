@@ -1,48 +1,14 @@
 {
-  "timestamp": "2026-06-07T07:28:00Z",
-  "cycle": 826,
+  "timestamp": "2026-06-07T07:35:01Z",
   "progress": 100,
   "services": {
-    "fms_3000": "LISTEN",
-    "phase2a_3009": "LISTEN",
-    "phase2b_3010": "LISTEN",
-    "phase2c_3011": "LISTEN",
-    "gateway_19001": "LISTEN"
-  },
-  "projects": {
-    "AUDIT_P1": {
-      "commit": "0cf3c1ba",
-      "completion": 100,
-      "status": "COMPLETE"
-    },
-    "DISCORD_BOT_P1": {
-      "commit": "585db4d5",
-      "completion": 100,
-      "status": "COMPLETE"
-    },
-    "BM_P1": {
-      "commit": "ecc13a9f",
-      "completion": 100,
-      "status": "COMPLETE"
-    },
-    "TRAVEL_P2_UI": {
-      "commit": "e9396c74",
-      "completion": 60,
-      "status": "IN_PROGRESS"
-    }
-  },
-  "build": {
-    "pages": 143,
-    "status": "PASSING",
-    "errors": 0
+    "phase2a": "ready",
+    "phase2b": "ready",
+    "phase2c": "ready"
   },
   "production": {
     "vercel": "OK",
-    "vercel_http": 200
+    "vercel_http": "200"
   },
-  "reliability": 100,
-  "blockers": 0,
-  "uptime_hours": 36,
-  "last_update_local": "2026-06-07 16:28:00 KST",
-  "next_cycle": "16:33 KST"
+  "last_update": "2026-06-07 16:35:01"
 }
