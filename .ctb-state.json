@@ -1,30 +1,14 @@
 {
-  "timestamp": "2026-06-07T09:15:01Z",
-  "cycle": 845,
+  "timestamp": "2026-06-07T09:25:01Z",
   "progress": 100,
   "services": {
-    "fms": "LISTEN:3000",
-    "phase2a": "LISTEN:3009",
-    "phase2b": "LISTEN:3010",
-    "phase2c": "LISTEN:3011",
-    "gateway": "LISTEN:19001"
-  },
-  "projects": {
-    "audit_p1": "100%",
-    "discord_bot_p1": "100%",
-    "bm_p1": "100%",
-    "travel_p2_ui": "100%"
-  },
-  "build": {
-    "status": "PASSING",
-    "pages": 143
+    "phase2a": "ready",
+    "phase2b": "ready",
+    "phase2c": "ready"
   },
   "production": {
     "vercel": "OK",
     "vercel_http": "200"
   },
-  "reliability": "100%",
-  "blockers": 0,
-  "uptime_hours": 82,
-  "last_update": "2026-06-07 18:15:01"
+  "last_update": "2026-06-07 18:25:01"
 }
