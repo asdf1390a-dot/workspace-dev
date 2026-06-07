@@ -25,6 +25,15 @@ PHASE2A_HEALTH=$(extract_status "$(curl -s --connect-timeout 2 http://127.0.0.1:
 PHASE2B_HEALTH=$(extract_status "$(curl -s --connect-timeout 2 http://127.0.0.1:3010/health 2>/dev/null)")
 PHASE2C_HEALTH=$(extract_status "$(curl -s --connect-timeout 2 http://127.0.0.1:3011/health 2>/dev/null)")
 
+# Vercel 프로덕션 배포 상태 확인 [NEW: P0 Monitoring Gap Fix @ 14:05 KST]
+VERCEL_HTTP=$(curl -s -o /dev/null -w "%{http_code}" --connect-timeout 3 https://dsc-fms-portal.vercel.app 2>/dev/null)
+if [[ "$VERCEL_HTTP" == "200" ]]; then
+  VERCEL_HEALTH="OK"
+else
+  VERCEL_HEALTH="BROKEN (HTTP $VERCEL_HTTP)"
+  log_event "🚨 CRITICAL: Vercel deployment health check failed — HTTP $VERCEL_HTTP (expected 200)"
+fi
+
 # 진행도 계산 (ready/UP 모두 인식)
 SERVICES_OK=0
 [[ "$PHASE2A_HEALTH" =~ ^(ready|UP)$ ]] && ((SERVICES_OK++))
@@ -32,7 +41,7 @@ SERVICES_OK=0
 [[ "$PHASE2C_HEALTH" =~ ^(ready|UP)$ ]] && ((SERVICES_OK++))
 PROGRESS=$((SERVICES_OK * 100 / 3))
 
-# CTB 상태 파일 생성/업데이트
+# CTB 상태 파일 생성/업데이트 (Vercel 상태 추가 @ P0 fix)
 cat > "$CTB_STATE.tmp" << EOF
 {
   "timestamp": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
@@ -41,6 +50,10 @@ cat > "$CTB_STATE.tmp" << EOF
     "phase2a": "$PHASE2A_HEALTH",
     "phase2b": "$PHASE2B_HEALTH",
     "phase2c": "$PHASE2C_HEALTH"
+  },
+  "production": {
+    "vercel": "$VERCEL_HEALTH",
+    "vercel_http": "$VERCEL_HTTP"
   },
   "last_update": "$(date '+%Y-%m-%d %H:%M:%S')"
 }
@@ -52,8 +65,8 @@ mv "$CTB_STATE.tmp" "$CTB_STATE" 2>/dev/null || {
   exit 1
 }
 
-# 로그 기록
-log_event "✅ CTB updated: $PROGRESS% (Phase2A: $PHASE2A_HEALTH | Phase2B: $PHASE2B_HEALTH | Phase2C: $PHASE2C_HEALTH)"
+# 로그 기록 (Vercel 상태 포함 @ P0 fix)
+log_event "✅ CTB updated: $PROGRESS% | Local: Phase2A=$PHASE2A_HEALTH | Phase2B=$PHASE2B_HEALTH | Phase2C=$PHASE2C_HEALTH | Production: Vercel=$VERCEL_HEALTH"
 
 # 진행도 부족 알림
 if [[ $PROGRESS -lt 100 ]]; then
