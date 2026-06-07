@@ -1,0 +1,124 @@
+{
+  "timestamp": "2026-06-07T01:38:42.767Z",
+  "baseUrl": "http://localhost:3000",
+  "summary": {
+    "passed": 15,
+    "failed": 2,
+    "total": 17,
+    "successRate": "88.2%"
+  },
+  "sections": [
+    {
+      "title": "API Connectivity",
+      "tests": [
+        {
+          "name": "Server responds to API requests",
+          "status": "pass",
+          "details": "HTTP 200"
+        }
+      ]
+    },
+    {
+      "title": "Public Endpoints (No Auth Required)",
+      "tests": [
+        {
+          "name": "List members",
+          "status": "pass",
+          "details": "200 OK, 10 items"
+        },
+        {
+          "name": "List members with search",
+          "status": "pass",
+          "details": "200 OK, 0 items"
+        },
+        {
+          "name": "Get team structure",
+          "status": "pass",
+          "details": "200 OK, undefined items"
+        },
+        {
+          "name": "List portfolio items",
+          "status": "pass",
+          "details": "200 OK, 0 items"
+        },
+        {
+          "name": "List activity log",
+          "status": "pass",
+          "details": "200 OK, 0 items"
+        }
+      ]
+    },
+    {
+      "title": "Authentication & Authorization",
+      "tests": [
+        {
+          "name": "POST /api/team/members without auth",
+          "status": "pass",
+          "details": "HTTP 401"
+        },
+        {
+          "name": "POST /api/team/members with auth (invalid body)",
+          "status": "pass",
+          "details": "HTTP 400"
+        },
+        {
+          "name": "POST /api/team/members with valid auth",
+          "status": "pass",
+          "details": "HTTP 201"
+        }
+      ]
+    },
+    {
+      "title": "Data Integration Points",
+      "tests": [
+        {
+          "name": "Create member",
+          "status": "pass",
+          "details": "Member ID: 81003bfb..."
+        },
+        {
+          "name": "Retrieve created member in list",
+          "status": "pass",
+          "details": "Member found in subsequent query"
+        },
+        {
+          "name": "Add portfolio item",
+          "status": "fail",
+          "error": "HTTP 500",
+          "details": "Could not find the 'image_url' column of 'portfolio_items' in the schema cache"
+        },
+        {
+          "name": "Log activity",
+          "status": "fail",
+          "error": "HTTP 400",
+          "details": "Could not find the 'activity_type' column of 'activity_log' in the schema cache"
+        }
+      ]
+    },
+    {
+      "title": "Error Handling & Edge Cases",
+      "tests": [
+        {
+          "name": "Invalid pagination (negative page)",
+          "status": "pass",
+          "details": "HTTP 200 (as expected)"
+        },
+        {
+          "name": "Excessive pagination limit",
+          "status": "pass",
+          "details": "HTTP 200 (as expected)"
+        },
+        {
+          "name": "Nonexistent member",
+          "status": "pass",
+          "details": "HTTP 404 (as expected)"
+        },
+        {
+          "name": "Malformed request body",
+          "status": "pass",
+          "details": "HTTP 401 (as expected)"
+        }
+      ]
+    }
+  ]
+}
