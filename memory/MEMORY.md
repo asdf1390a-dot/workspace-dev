@@ -76,6 +76,12 @@
 
 ---
 
+## 【팀 온보딩】
+
+- [Monthly Audit Baseline (2026-06-07)](ONBOARDING_AUDIT_BASELINE_2026_06_07.md) — 10개 에이전트 + 21개 스킬 스냅샷 (NO CHANGES)
+
+---
+
 ## 👤 USER PROFILE
 
 - [Kyeongtae Na](user/user_role.md) — Korean expat GM at DSC Mannur (생산/기술/보전/생산관리)
