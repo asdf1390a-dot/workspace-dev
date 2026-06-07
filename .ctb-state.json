@@ -1,18 +1,20 @@
 {
-  "timestamp": "2026-06-07T16:19:13Z",
+  "timestamp": "2026-06-08T01:23:00Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
     "phase2c": "ready",
-    "fms": "listening:3000",
-    "gateway": "listening:19001"
+    "gateway": "ready"
   },
   "production": {
     "vercel": "OK",
     "vercel_http": "200"
   },
-  "last_update": "2026-06-08 01:19:13",
-  "cycle": 913,
-  "uptime_hours": "89.0"
+  "build": {
+    "status": "compiled",
+    "pages": 136,
+    "errors": 0
+  },
+  "last_update": "2026-06-08 01:23:00"
 }
