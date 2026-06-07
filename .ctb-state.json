@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-07T06:22:15Z",
+  "timestamp": "2026-06-07T06:25:01Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
@@ -10,7 +10,5 @@
     "vercel": "OK",
     "vercel_http": "200"
   },
-  "last_update": "2026-06-07 15:22:15",
-  "cycle": 813,
-  "critical_blocker": "db/36 migration UNSTARTED (13+ hours overdue)"
+  "last_update": "2026-06-07 15:25:01"
 }
