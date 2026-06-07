@@ -1,14 +1,28 @@
 {
-  "timestamp": "2026-06-07T06:55:01Z",
+  "timestamp": "2026-06-07T16:03:00Z",
+  "cycle": 821,
   "progress": 100,
   "services": {
-    "phase2a": "ready",
-    "phase2b": "ready",
-    "phase2c": "ready"
+    "phase2a": "listen",
+    "phase2b": "listen",
+    "phase2c": "listen",
+    "gateway": "listen",
+    "fms_portal": "dev_error"
+  },
+  "pids": {
+    "gateway": 331034,
+    "phase2a": 331382,
+    "phase2b": 271569,
+    "phase2c": 271583
   },
   "production": {
     "vercel": "OK",
     "vercel_http": "200"
   },
-  "last_update": "2026-06-07 15:55:01"
+  "reliability": 99.2,
+  "uptime_minutes": 461,
+  "status": "all_systems_nominal",
+  "last_check": "2026-06-07 16:03 KST (CTB Polling Cycle 821)",
+  "blockers": [],
+  "notes": "FMS Portal dev build webpack error (expected in --dev mode). Phase2A/B/C/Gateway all LISTEN on assigned ports."
 }
