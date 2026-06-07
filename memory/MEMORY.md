@@ -1,5 +1,11 @@
 # 메모리 인덱스 — DSC Mannur FMS + 생태계
 
+## 🟢 **WEEKLY IMPROVEMENT ANALYSIS COMPLETE (2026-06-07 22:31 KST)**
+
+**5 violations identified in past 7 days → 3 high-confidence improvements generated (91.7% confidence).** Status: Ready for implementation 2026-06-08 08:00 KST. See [WEEKLY_IMPROVEMENT_REPORT_20260607.md](WEEKLY_IMPROVEMENT_REPORT_20260607.md).
+
+---
+
 ## 🟢 **SESSION CHECKPOINT 2026-06-07 22:29 KST** — BUILD FIX ✅ + CTB CRISIS DOCUMENTED
 
 **Status:** Build regression FIXED (136/136 pages), Health endpoint deployed, P0 validation COMPLETE (8h), CTB integrity crisis requires cleanup. See [session_checkpoint_20260607_2229.md](session_checkpoint_20260607_2229.md).
