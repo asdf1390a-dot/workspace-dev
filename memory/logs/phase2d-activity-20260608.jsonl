@@ -1133,3 +1133,13 @@
 {"timestamp":"2026-06-08T10:40:01Z","phase":"PHASE2C","status":"SUCCESS","duration_ms":69,"details":{"accepted":1,"quarantined":0,"rejected":0,"total":1}}
 {"timestamp":"2026-06-08T10:40:01Z","phase":"MEMORY_UPDATE","status":"SUCCESS","duration_ms":0,"details":{"entries_added":1,"accepted":1}}
 {"timestamp":"2026-06-08T10:40:01Z","phase":"CYCLE_COMPLETE","status":"SUCCESS","duration_ms":270,"details":{"cycle":"phase2d_full"}}
+{"timestamp":"2026-06-08T10:45:01Z","phase":"PHASE2A","status":"SUCCESS","duration_ms":27,"details":{"content_size":10791}}
+{"timestamp":"2026-06-08T10:45:01Z","phase":"PHASE2B","status":"SUCCESS","duration_ms":34,"details":{"unique_count":1,"duplicates_removed":0}}
+{"timestamp":"2026-06-08T10:45:01Z","phase":"PHASE2C","status":"SUCCESS","duration_ms":66,"details":{"accepted":1,"quarantined":0,"rejected":0,"total":1}}
+{"timestamp":"2026-06-08T10:45:02Z","phase":"MEMORY_UPDATE","status":"SUCCESS","duration_ms":0,"details":{"entries_added":1,"accepted":1}}
+{"timestamp":"2026-06-08T10:45:02Z","phase":"CYCLE_COMPLETE","status":"SUCCESS","duration_ms":265,"details":{"cycle":"phase2d_full"}}
+{"timestamp":"2026-06-08T10:50:01Z","phase":"PHASE2A","status":"SUCCESS","duration_ms":32,"details":{"content_size":10791}}
+{"timestamp":"2026-06-08T10:50:02Z","phase":"PHASE2B","status":"SUCCESS","duration_ms":45,"details":{"unique_count":1,"duplicates_removed":0}}
+{"timestamp":"2026-06-08T10:50:02Z","phase":"PHASE2C","status":"SUCCESS","duration_ms":78,"details":{"accepted":1,"quarantined":0,"rejected":0,"total":1}}
+{"timestamp":"2026-06-08T10:50:02Z","phase":"MEMORY_UPDATE","status":"SUCCESS","duration_ms":0,"details":{"entries_added":1,"accepted":1}}
+{"timestamp":"2026-06-08T10:50:02Z","phase":"CYCLE_COMPLETE","status":"SUCCESS","duration_ms":315,"details":{"cycle":"phase2d_full"}}
