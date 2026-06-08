@@ -1,6 +1,5 @@
 {
-  "timestamp": "2026-06-08T09:51:00Z",
-  "cycle": 975,
+  "timestamp": "2026-06-08T10:03:32Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
@@ -11,14 +10,16 @@
     "vercel": "OK",
     "vercel_http": "200"
   },
+  "last_update": "2026-06-08 19:03:32",
+  "cycle": 976,
+  "build_pages": 141,
   "projects": {
-    "audit": "0cf3c1ba",
-    "discord_bot": "585db4d5",
-    "bm": "ecc13a9f",
-    "travel": "e9396c74"
+    "AUDIT": { "status": "100%", "commit": "0cf3c1ba" },
+    "DISCORD-BOT": { "status": "100%", "commit": "585db4d5" },
+    "BM": { "status": "100%", "commit": "ecc13a9f" },
+    "TRAVEL": { "status": "100%", "commit": "e9396c74" }
   },
-  "build": "141 pages",
-  "reliability": "100%",
+  "reliability": 100,
   "blockers": 0,
-  "last_update": "2026-06-08 18:51:00"
+  "uptime_hours": "93.75h+"
 }
