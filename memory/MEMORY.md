@@ -1,16 +1,17 @@
 # 메모리 인덱스 — DSC Mannur FMS + 생태계
 
-**마지막 갱신:** 2026-06-08 03:23 KST | **크기:** 145줄 (제한: 200줄) | **여유:** 55줄
+**마지막 갱신:** 2026-06-08 16:12 KST | **크기:** 145줄 (제한: 200줄) | **여유:** 55줄
 
 ---
 
-## 🟢 **LATEST STATUS — CYCLE 937 (2026-06-08 03:23 KST)**
+## 🟢 **LATEST STATUS — CYCLE 952 (2026-06-08 16:17 KST)**
 
 **ALL SYSTEMS NORMAL:**
-- Build: ✓ 136 pages compiled (dev mode — stable)
+- Build: ✓ 139 pages compiled (dev mode — no build errors)
 - Services: FMS:3000, Phase2A/B/C:3009/3010/3011, Gateway:19001 (all LISTEN)
 - Projects: AUDIT/DISCORD-BOT/BM/TRAVEL 100% (4/4 deployed) + Team Dashboard P2 100% (API/UI complete)
-- Reliability: 100% | Blockers: 0 | Uptime: 90.3h+
+- **Git Commit:** ✅ 74c5daae (Cycle 952) @ 16:17 KST | Vercel deployment live
+- Reliability: 100% | Blockers: 0 | Uptime: 91.98h+
 
 ---
 

@@ -1,7 +1,5 @@
 {
-  "cycle": 954,
-  "timestamp": "2026-06-08T07:28:00Z",
-  "kst_time": "2026-06-08 16:28 KST",
+  "timestamp": "2026-06-08T07:30:02Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
@@ -12,32 +10,5 @@
     "vercel": "OK",
     "vercel_http": "200"
   },
-  "projects_verified": {
-    "audit_p1": {
-      "hash": "0cf3c1ba",
-      "completion": "100%",
-      "timestamp": "2026-06-08 16:28 KST"
-    },
-    "discord_bot_p1": {
-      "hash": "585db4d5",
-      "completion": "100%",
-      "timestamp": "2026-06-08 16:28 KST"
-    },
-    "bm_p1": {
-      "hash": "ecc13a9f",
-      "completion": "100%",
-      "timestamp": "2026-06-08 16:28 KST"
-    },
-    "travel_p2_ui": {
-      "hash": "e9396c74",
-      "completion": "100%",
-      "timestamp": "2026-06-08 16:28 KST"
-    }
-  },
-  "build_status": "✓ Compiled successfully (139 pages, dev mode)",
-  "reliability": 100,
-  "blockers": 0,
-  "uptime_hours": 92.13,
-  "last_update": "2026-06-08 16:28:00",
-  "next_cycle": "Cycle 955 @ 16:33 KST"
+  "last_update": "2026-06-08 16:30:02"
 }
