@@ -33,6 +33,7 @@
 
 ## 📌 **CORE RULES** (필독)
 
+- [🔴 배포 검증 규칙](feedback_deployment_verification.md) — HTTP 200 + 라우트 검증까지 필수
 - [🚀 CEO Autonomous Mode](feedback_work_initiation_protocol.md) — 기술적 자동 결정
 - [⭐ Core Autonomous Operation](feedback_core_autonomous_operation.md) — 즉시 실행, 카펌 불필요
 - [📊 Absolute Task Completion](feedback_absolute_task_completion_rule.md) — 결과물 책임 + CTB 추적
