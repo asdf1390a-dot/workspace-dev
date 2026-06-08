@@ -1,7 +1,5 @@
 {
-  "timestamp": "2026-06-08T10:17:00Z",
-  "timestamp_kst": "2026-06-08 19:17 KST",
-  "polling_cycle": 979,
+  "timestamp": "2026-06-08T10:28:28Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
@@ -12,19 +10,10 @@
     "vercel": "OK",
     "vercel_http": "200"
   },
-  "build": {
-    "pages": 141,
-    "errors": 0,
-    "status": "PASSING"
-  },
-  "projects": {
-    "AUDIT-P1": "✅ 0cf3c1ba",
-    "DISCORD-BOT-P1": "✅ 585db4d5",
-    "BM-P1": "✅ ecc13a9f",
-    "TRAVEL-P2-UI": "✅ e9396c74"
-  },
+  "last_update": "2026-06-08 19:28:28",
+  "polling_cycle": 980,
+  "build_pages": 141,
   "reliability": "100%",
   "blockers": 0,
-  "uptime_hours": 93.8,
-  "last_update": "2026-06-08 19:17:01"
+  "uptime_hours": 93.8
 }
