@@ -1,7 +1,9 @@
 {
-  "installCommand": "cd dsc-fms-portal && npm install",
-  "buildCommand": "cd dsc-fms-portal && npm run build",
+  "buildCommand": "cd dsc-fms-portal && rm -rf .next node_modules && npm install && npm run build",
   "outputDirectory": "dsc-fms-portal/.next",
+  "env": {
+    "NODE_ENV": "production"
+  },
   "crons": [
     {
       "path": "/api/cron/auto-info-collection",
