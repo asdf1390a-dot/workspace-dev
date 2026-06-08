@@ -27,8 +27,8 @@ export default function TeamDashboard() {
     try {
       setLoading(true);
       const [portfolioRes, milestonesRes] = await Promise.all([
-        fetch('/api/portfolio'),
-        fetch('/api/milestones'),
+        fetch('/api/team-dashboard/portfolio'),
+        fetch('/api/team-dashboard/milestones'),
       ]);
 
       if (portfolioRes.ok) {
@@ -56,7 +56,7 @@ export default function TeamDashboard() {
     }
 
     try {
-      const res = await fetch('/api/portfolio', {
+      const res = await fetch('/api/team-dashboard/portfolio', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
