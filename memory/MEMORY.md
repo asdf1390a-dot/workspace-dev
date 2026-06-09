@@ -1,8 +1,8 @@
-**마지막 갱신:** 2026-06-10 02:11 KST | **크기:** 업데이트 중 | **상태:** ⚠️ RECURRING_TRANSIENT (자동복구 중) — escalation 필요
+**마지막 갱신:** 2026-06-10 02:19 KST | **크기:** CTB_2026_06_10.json | **상태:** 🔴 RECURRING_TRANSIENT_404 4차 발생 (02:14) — Vercel escalation 필수
 
 ---
 
-## ⚠️ **ONGOING — Vercel RECURRING_TRANSIENT_404 (2026-06-10 01:31-02:11 KST)**
+## 🔴 **ONGOING — Vercel RECURRING_TRANSIENT_404 (2026-06-10 01:31-02:19 KST, 4회 반복)**
 
 ## ✅ **PARTIAL RESOLUTION — /assets 캐시 헤더 적용 (2026-06-10 12:56 KST)**
 
