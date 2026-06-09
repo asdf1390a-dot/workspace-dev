@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-10T16:42:47Z",
+  "timestamp": "2026-06-09T16:52:00Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
@@ -7,12 +7,9 @@
     "phase2c": "ready"
   },
   "production": {
-    "vercel": "DEPLOYMENT_NOT_FOUND",
-    "vercel_http": "404",
-    "status_detail": "Critical: deployment unreachable on Vercel",
-    "last_check": "2026-06-10 01:42:47 KST",
-    "previous_status": "HTTP 200 (01:36)",
-    "incident_window": "6 minutes (01:36→01:42)"
+    "vercel": "DEGRADED",
+    "vercel_http": "404"
   },
-  "last_update": "2026-06-10 01:42:47"
+  "last_update": "2026-06-10 01:52:00",
+  "alert": "RECURRING_TRANSIENT_404 - pattern: 01:31-01:36, 01:42-01:48, 01:52 (5-6min cycles)"
 }
