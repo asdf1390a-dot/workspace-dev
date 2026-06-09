@@ -69,6 +69,11 @@ const UPDATABLE_FIELDS = [
   'status',
   'remark',
   'photos',
+  'disposal_reason',
+  'disposal_price',
+  'buyer_name',
+  'buyer_contact',
+  'disposed_at',
 ] as const;
 
 const VALID_STATUSES = ['active', 'idle', 'maintenance', 'sold', 'scrapped'];

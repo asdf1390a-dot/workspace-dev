@@ -121,3 +121,28 @@ export interface AssetStats {
   by_category: Record<string, number>;
   last_updated: string;
 }
+
+export interface AssetDocument {
+  id: string;
+  asset_id: string;
+  document_type: 'photo' | 'proof' | 'invoice' | 'other';
+  filename: string;
+  file_url: string;
+  file_size: number;
+  mime_type: string;
+  uploaded_at: string;
+  uploaded_by?: string;
+  created_at: string;
+}
+
+export interface AssetDisposalHistory {
+  id: string;
+  asset_id: string;
+  disposal_reason: string;
+  disposal_price?: number;
+  buyer_name?: string;
+  buyer_contact?: string;
+  disposal_date: string;
+  disposal_by?: string;
+  created_at: string;
+}

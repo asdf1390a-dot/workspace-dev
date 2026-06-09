@@ -74,12 +74,12 @@ export async function POST(
 
     // FormData에서 파일과 document_type 추출
     const formData = await request.formData();
-    const file = formData.get('file') as File | null;
+    const files = formData.getAll('files') as File[];
     const documentType = formData.get('document_type') as string | null;
 
-    if (!file || !documentType) {
+    if (!files || files.length === 0 || !documentType) {
       return NextResponse.json(
-        { error: 'File and document_type are required' },
+        { error: 'Files and document_type are required' },
         { status: 400 }
       );
     }
@@ -94,13 +94,6 @@ export async function POST(
     }
 
     const maxSize = 10 * 1024 * 1024; // 10 MB
-    if (file.size > maxSize) {
-      return NextResponse.json(
-        { error: 'File size exceeds 10 MB limit' },
-        { status: 400 }
-      );
-    }
-
     const allowedMimes = [
       'image/jpeg',
       'image/png',
@@ -108,74 +101,101 @@ export async function POST(
       'application/msword',
       'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
     ];
-    if (!allowedMimes.includes(file.type)) {
-      return NextResponse.json(
-        { error: 'File type not allowed' },
-        { status: 400 }
-      );
+
+    // 모든 파일 검증
+    for (const file of files) {
+      if (file.size > maxSize) {
+        return NextResponse.json(
+          { error: `File ${file.name} exceeds 10 MB limit` },
+          { status: 400 }
+        );
+      }
+
+      if (!allowedMimes.includes(file.type)) {
+        return NextResponse.json(
+          { error: `File type ${file.type} not allowed` },
+          { status: 400 }
+        );
+      }
     }
 
-    // 파일 업로드 (Supabase Storage)
-    const timestamp = Date.now();
-    const sanitizedName = file.name.replace(/[^a-zA-Z0-9.-]/g, '_');
-    const storagePath = `assets/${params.assetId}/${documentType}/${timestamp}_${sanitizedName}`;
+    // 모든 파일 업로드
+    const uploadedDocuments: any[] = [];
+    const uploadedPaths: string[] = [];
 
-    const arrayBuffer = await file.arrayBuffer();
-    const buffer = Buffer.from(arrayBuffer);
+    for (const file of files) {
+      try {
+        // 파일 업로드 (Supabase Storage)
+        const timestamp = Date.now();
+        const randomStr = Math.random().toString(36).substring(7);
+        const sanitizedName = file.name.replace(/[^a-zA-Z0-9.-]/g, '_');
+        const storagePath = `assets/${params.assetId}/${documentType}/${timestamp}_${randomStr}_${sanitizedName}`;
 
-    const { data: uploadData, error: uploadError } = await supabase.storage
-      .from('dsc-fms-portal')
-      .upload(storagePath, buffer, {
-        contentType: file.type,
-        upsert: false,
-      });
+        const arrayBuffer = await file.arrayBuffer();
+        const buffer = Buffer.from(arrayBuffer);
 
-    if (uploadError) {
-      console.error('Upload error:', uploadError);
-      return NextResponse.json(
-        { error: 'File upload failed' },
-        { status: 500 }
-      );
+        const { error: uploadError } = await supabase.storage
+          .from('dsc-fms-portal')
+          .upload(storagePath, buffer, {
+            contentType: file.type,
+            upsert: false,
+          });
+
+        if (uploadError) {
+          throw new Error(`Upload failed for ${file.name}`);
+        }
+
+        // 파일 URL 생성
+        const {
+          data: { publicUrl },
+        } = supabase.storage
+          .from('dsc-fms-portal')
+          .getPublicUrl(storagePath);
+
+        // 메타데이터 저장
+        const { data: document, error: dbError } = await supabase
+          .from('asset_documents')
+          .insert([
+            {
+              asset_id: params.assetId,
+              document_type: documentType,
+              filename: file.name,
+              file_url: publicUrl,
+              file_size: file.size,
+              mime_type: file.type,
+              uploaded_by: user.id,
+            },
+          ])
+          .select()
+          .single();
+
+        if (dbError) {
+          // 업로드된 파일 삭제 (rollback)
+          await supabase.storage
+            .from('dsc-fms-portal')
+            .remove([storagePath]);
+          throw new Error('Failed to save document metadata');
+        }
+
+        uploadedDocuments.push(document);
+        uploadedPaths.push(storagePath);
+      } catch (error) {
+        // 성공한 파일들 롤백
+        for (const path of uploadedPaths) {
+          await supabase.storage
+            .from('dsc-fms-portal')
+            .remove([path]);
+        }
+
+        console.error('Upload error:', error);
+        return NextResponse.json(
+          { error: error instanceof Error ? error.message : 'File upload failed' },
+          { status: 500 }
+        );
+      }
     }
 
-    // 파일 URL 생성
-    const {
-      data: { publicUrl },
-    } = supabase.storage
-      .from('dsc-fms-portal')
-      .getPublicUrl(storagePath);
-
-    // 메타데이터 저장 (asset_documents)
-    const { data: document, error: dbError } = await supabase
-      .from('asset_documents')
-      .insert([
-        {
-          asset_id: params.assetId,
-          document_type: documentType,
-          filename: file.name,
-          file_url: publicUrl,
-          file_size: file.size,
-          mime_type: file.type,
-          uploaded_by: user.id,
-        },
-      ])
-      .select()
-      .single();
-
-    if (dbError) {
-      // 업로드된 파일 삭제 (rollback)
-      await supabase.storage
-        .from('dsc-fms-portal')
-        .remove([storagePath]);
-
-      console.error('Document insert error:', dbError);
-      return NextResponse.json(
-        { error: 'Failed to save document metadata' },
-        { status: 500 }
-      );
-    }
-
-    return NextResponse.json(document, { status: 201 });
+    return NextResponse.json({ data: uploadedDocuments }, { status: 201 });
   } catch (error) {
     console.error('Upload error:', error);
     return NextResponse.json(
