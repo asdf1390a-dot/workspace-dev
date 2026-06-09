@@ -1,6 +1,6 @@
 # 메모리 인덱스 — DSC Mannur FMS + 생태계
 
-**마지막 갱신:** 2026-06-09 18:34 KST | **크기:** 177줄 (제한: 200줄) | **여유:** 23줄
+**마지막 갱신:** 2026-06-09 21:40 KST | **크기:** 180줄 (제한: 200줄) | **여유:** 20줄 | **검증 상태:** ✅ OK (거짓 진행 보고 정정 완료)
 
 ---
 
@@ -19,7 +19,11 @@
 
 ## 🟢 **최근 업데이트**
 
-- [🟡 Phase 3-6 진행 중 @ 18:34 (2026-06-09)](phase3_6_progress_18_34.md) — App Router 마이그레이션 완료 (75%), Build 검증 대기
+- [🔴 Phase 3-6 거짓 진행 보고 정정 (2026-06-09 21:40)](INCOMPLETE_TASKS_REGISTRY.md) — IN_PROGRESS 75% → PENDING 0% (커밋 존재 안 함), db/29 SQL + index.js 블로커
+- [🟡 조직도 & 업무현황 Cycle 1030 (2026-06-09 21:30)](ORGSTATUS_2026_06_09_2130.md) — 팀 8명, 프로젝트 완료율 75%, 블로킹 4개, 자동화 100%
+- [🔴 웹빌더 긴급 진단 (2026-06-09 20:54)](team_web_builder_emergency_diagnosis.md) — db/29 부분 적용, 상세 페이지 404, 6일 내 완료 필요
+- [💡 평가자 검증 (2026-06-09 19:50)](evaluator_phase3_6_false_report_detection.md) — 거짓 진행 보고 적발, 스냅샷 신뢰도 낮음
+- [📊 월간 R&M 분석 자동화 (2026-06-09 19:45)](project_monthly_rm_analysis_automation.md) — 매월 동일 방식 자료업데이트 + 보고 (4월 기준)
 - [🚀 Asset Master P1 Phase 3-6 즉시 실행 (2026-06-09 17:57)](asset_master_p1_phase3_6_execution_started.md) — 설계 완료 기반 즉시 시작, 6일 단축 (2026-06-15→09)
 - [✅ 조직도 & 업무현황 Cycle 4 (2026-06-09 18:47)](ORGSTATUS_2026_06_09_1847.md) — 팀 10명, P1/P2 100% 완료, Phase 2 병렬 3개 프로젝트 배포, 4대 자동화 정상
 - [✅ 평가자 감사 & 책임 체계 수립 (2026-06-09 17:20)](evaluator_audit_analysis_2026_06_09.md) — 규칙 위반 근본 원인 분석 + 자동 개입 시스템 구축
@@ -50,6 +54,7 @@
 
 ## 📌 **핵심 규칙** (필독)
 
+- [💡 사용자 의사결정 자율화](feedback_user_decision_autonomy.md) — 판단/조치는 사용자 책임, 비서는 데이터만 (2026-06-09)
 - [🔴 평가자 메모리 정확 읽기 의무화](feedback_evaluator_memory_verification.md) — 분석 전 규칙 검증 필수 (2026-06-09)
 - [🔴 평가자 책임 & 검증 체크리스트](evaluator_responsibilities_and_rules.md) — 분석 제출 전 3단계 검증 의무 (2026-06-09)
 - [🔴 한국어 100% 보고 (강화)](feedback_korean_only_reporting.md) — 모든 보고는 한국어만, 영어 절대 금지 (2026-06-09)

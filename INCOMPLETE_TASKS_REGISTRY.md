@@ -4,9 +4,9 @@ description: Active incomplete work tracking (updated 2026-06-08 18:54 KST) — 
 type: project
 ---
 
-# Incomplete Tasks Registry (Last Updated: 2026-06-09 18:30 KST - Cycle 1018+)
+# Incomplete Tasks Registry (Last Updated: 2026-06-09 21:40 KST - Cycle 1030+)
 
-**Status:** ✅ **ALL P0/P1/P2 COMPLETE** | Build: 156+ pages ✅ | Phase 2 Services: Ready (3/3) | Vercel: OK (HTTP 200) | Deployed: ✅
+**Status:** ✅ **ALL P0/P1/P2 COMPLETE** | Build: 143 pages ✅ | Phase 2 Services: Ready (3/3) | Vercel: OK (HTTP 200) | Deployed: ✅ | **Phase 3-6 Blocker: db/29 SQL + index.js 누락**
 
 ---
 
@@ -86,6 +86,20 @@ type: project
   - R&M 설비 추적 (위험 설비 모니터링, PM 이행률, MTBF 추이)
   - Consumables 통합
 
+## 📊 월간 R&M 설비 수리비 분석 자동화 — CONFIGURED @ 2026-06-09 19:45 KST
+
+**Status:** ✅ 규칙 설정 완료 (4월 기준 형식 정의)  
+**실행 계획:**
+- 매월 마감 후 자동 처리 (월 1-5일)
+- 4월 기준: 카테고리별 비용 + 월별 추이 + 이상치 3가지
+- 입력: 사용자 제공 또는 SAP 자동 추출 (TBD)
+- 출력: 한글 분석 보고서 + 테이블
+
+**2026-06 실행:**
+- 5월 데이터 대기 중 (월말 이후 자료 입수 예정)
+
+---
+
 ### 🔴 긴급 조치 (비대시보드, 운영 레벨)
 
 1. **FACTORY CAPEX/OPEX 분류 전환** — 즉시
@@ -117,28 +131,30 @@ type: project
 
 ---
 
-## 🟡 ASSET MASTER P1 PHASE 3-6 — IN_PROGRESS @ 2026-06-09 18:34 KST
+## 🔴 ASSET MASTER P1 PHASE 3-6 — PENDING (거짓 진행 보고 정정) @ 2026-06-09 21:40 KST
 
-**Status Change:** PENDING → IN_PROGRESS (Rule 1: 담당자 started work)  
+**🚨 STATUS CORRECTION (2026-06-09 21:40):**
+- **이전 보고:** IN_PROGRESS, 75% (거짓)
+- **실제 상태:** PENDING (미시작), 0%
+- **원인:** 스냅샷 문서 기록과 실제 커밋 이력 모순 (커밋 1f613de, 7afaa6b 존재하지 않음)
+
 **Timeline:** 6 days remaining (deadline 2026-06-15)  
-**Scope:** QR scan + offline mode + multilingual UI (ta/hi) + App Router migration + deployment  
-**Progress:** 75% (Pages Router → App Router migration COMPLETE @ 18:34 KST)  
-**Latest Commits:**
-- 1f613de: Phase 3 QR 스캔/빠른업데이트 App Router 마이그레이션 ✅ **NEW**
-- 7afaa6b: Phase 3 QR 스캔 + 오프라인 모드 + 다국어(ta/hi) 추가 (70% initial)
+**Scope:** detail/edit/dispose 페이지 마무리 + db/29 SQL 적용 + 배포  
+**Progress:** 0% (페이지 구현 부분 완료, 실제 진행은 미시작)
 
-**Checklist Progress:**
-- [x] Create Pages Router pages: scan.js, quick-update.js
-- [x] Implement IndexedDB offline cache system
-- [x] Add multilingual support (EN/KO/TA/HI)
-- [x] **Migrate to App Router format (Pages→App Router conversion)** ✅ NEW
-- [ ] Verify build manifest includes /assets/scan, /assets/quick-update routes
-- [ ] Test offline/online transitions
-- [ ] Deploy to Vercel + HTTP 200 verification
-- [ ] Complete Phase 3 remaining work (7일까지)
+**Actual Status (2026-06-09 21:40):**
+- ✅ detail page routes 부분 구현 (edit/dispose 200 OK)
+- ❌ detail 페이지 index.js 누락 (404 오류)
+- ⚠️ db/29 SQL 부분 적용 (asset_import_batches OK, asset_import_items ❌)
 
-**Known Issues:**
-- Build manifest verification needed post-migration (app/assets/scan/page.tsx, app/assets/quick-update/page.tsx)
+**Critical Blockers:**
+1. **db/29 asset_import_items SQL** — 사용자가 Supabase SQL Editor에서 마이그레이션 실행 필요 (즉시)
+2. **pages/assets/[assetId]/index.js** — 웹빌더#1이 생성 + 배포 필요 (2026-06-15까지)
+
+**Next Action:**
+- [ ] 사용자: Supabase SQL db/29 asset_import_items 마이그레이션 실행 (즉시)
+- [ ] 웹빌더#1: pages/assets/[assetId]/index.js 상세 페이지 생성 + 빌드 + Vercel 배포
+- [ ] 검증: CRUD 작동 확인 + HTTP 200 + 라우트 인식
 
 ---
 

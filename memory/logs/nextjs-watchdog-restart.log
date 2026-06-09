@@ -3195,3 +3195,79 @@ Error: You cannot use different slug names for the same dynamic path ('memberId'
  ✓ Compiled in 44ms (226 modules)
  ✓ Compiled in 95ms (240 modules)
  ✓ Compiled in 46ms (226 modules)
+ ✓ Compiled / in 102ms (226 modules)
+ GET / 200 in 166ms
+ GET / 200 in 22ms
+ GET / 200 in 29ms
+ GET / 200 in 32ms
+ GET / 200 in 29ms
+ GET / 200 in 25ms
+ GET / 200 in 27ms
+ GET / 200 in 28ms
+ GET / 200 in 27ms
+ GET / 200 in 27ms
+ GET / 200 in 31ms
+ GET / 200 in 26ms
+ GET / 200 in 31ms
+ GET / 200 in 28ms
+ GET / 200 in 37ms
+ GET / 200 in 27ms
+ GET / 200 in 38ms
+ GET / 200 in 42ms
+ GET / 200 in 26ms
+ GET / 200 in 27ms
+ GET / 200 in 24ms
+ GET / 200 in 23ms
+ GET / 200 in 31ms
+ GET / 200 in 26ms
+ GET / 200 in 28ms
+ GET / 200 in 34ms
+ GET / 200 in 35ms
+ GET / 200 in 32ms
+ GET / 200 in 26ms
+ GET / 200 in 44ms
+ GET / 200 in 27ms
+ GET / 200 in 30ms
+ GET / 200 in 27ms
+ GET / 200 in 23ms
+ GET / 200 in 36ms
+ GET / 200 in 23ms
+ GET / 200 in 24ms
+ GET / 200 in 24ms
+ GET / 200 in 24ms
+ GET / 200 in 23ms
+ GET / 200 in 24ms
+ GET / 200 in 24ms
+ GET / 200 in 24ms
+ GET / 200 in 26ms
+ GET / 200 in 27ms
+ GET / 200 in 28ms
+
+> dsc-fms-portal@1.0.0 dev
+> next dev
+
+  ▲ Next.js 14.2.35
+  - Local:        http://localhost:3000
+  - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 1482ms
+ ○ Compiling / ...
+ ✓ Compiled / in 571ms (452 modules)
+ GET / 200 in 745ms
+ ✓ Compiled in 151ms (226 modules)
+ ✓ Compiled in 26ms (226 modules)
+ GET / 200 in 37ms
+ GET / 200 in 37ms
+ GET / 200 in 27ms
+ GET / 200 in 34ms
+ GET / 200 in 37ms
+ GET / 200 in 32ms
+ GET / 200 in 26ms
+ GET / 200 in 36ms
+ GET / 200 in 30ms
+ GET / 200 in 21ms
+ GET / 200 in 27ms
+ GET / 200 in 33ms
+ GET / 200 in 27ms
+ GET / 200 in 23ms
