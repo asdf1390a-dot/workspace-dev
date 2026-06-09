@@ -154,3 +154,11 @@
 [2026-06-08 17:53:40] ✅ phase2b (3010) — READY
 [2026-06-08 17:53:40] ✅ phase2c (3011) — READY
 [2026-06-08 17:53:40] ✅ All Phase 2 services started successfully
+[2026-06-09 18:20:14] Phase 2 Services Auto-Start Initiated
+[2026-06-09 18:20:16] Starting Phase 2A (Message Collection)
+[2026-06-09 18:20:17] Starting Phase 2B (Duplicate Detection)
+[2026-06-09 18:20:18] Starting Phase 2C (Trust Score Calculator)
+[2026-06-09 18:20:20] ✅ phase2a (3009) — READY
+[2026-06-09 18:20:20] ✅ phase2b (3010) — READY
+[2026-06-09 18:20:20] ✅ phase2c (3011) — READY
+[2026-06-09 18:20:20] ✅ All Phase 2 services started successfully

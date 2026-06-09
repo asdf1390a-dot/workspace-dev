@@ -3088,3 +3088,49 @@ Require stack:
  GET / 200 in 62ms
  GET / 200 in 45ms
  GET / 200 in 44ms
+ GET / 200 in 107ms
+ GET / 200 in 129ms
+ GET / 200 in 132ms
+ GET / 200 in 129ms
+ GET / 200 in 117ms
+ GET / 200 in 102ms
+ GET / 200 in 120ms
+ GET / 200 in 170ms
+ GET / 200 in 124ms
+ GET / 200 in 131ms
+ GET / 200 in 130ms
+ GET / 200 in 132ms
+ GET / 200 in 125ms
+ GET / 200 in 106ms
+ GET / 200 in 119ms
+ GET / 200 in 129ms
+ GET / 200 in 115ms
+
+> dsc-fms-portal@1.0.0 dev
+> next dev
+
+  ▲ Next.js 14.2.35
+  - Local:        http://localhost:3000
+  - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 1719ms
+ ○ Compiling / ...
+ ✓ Compiled / in 1496ms (452 modules)
+ GET / 200 in 1663ms
+ ✓ Compiled in 127ms (226 modules)
+ GET / 200 in 44ms
+ GET / 200 in 29ms
+ GET / 200 in 30ms
+ GET / 200 in 27ms
+ GET / 200 in 29ms
+ GET / 200 in 27ms
+ GET / 200 in 26ms
+ GET / 200 in 27ms
+ GET / 200 in 33ms
+ GET / 200 in 27ms
+ GET / 200 in 27ms
+ GET / 200 in 31ms
+ GET / 200 in 26ms
+ GET / 200 in 30ms
+ GET / 200 in 29ms

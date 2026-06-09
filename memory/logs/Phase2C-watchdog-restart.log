@@ -15,3 +15,4 @@ API: http://localhost:3011/api/calculate-trust-scores
 Phase 2C Trust Score Calculator listening on port 3011
 Health check: http://localhost:3011/health
 API: http://localhost:3011/api/calculate-trust-scores
+SIGTERM received, shutting down gracefully

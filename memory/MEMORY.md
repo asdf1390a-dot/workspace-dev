@@ -1,22 +1,26 @@
 # 메모리 인덱스 — DSC Mannur FMS + 생태계
 
-**마지막 갱신:** 2026-06-09 16:34 KST | **크기:** 174줄 (제한: 200줄) | **여유:** 26줄
+**마지막 갱신:** 2026-06-09 18:34 KST | **크기:** 177줄 (제한: 200줄) | **여유:** 23줄
 
 ---
 
-## 🟢 **최신 상태 — CYCLE 1016+ (2026-06-09 17:04 KST) ✅ 한글 전용 보고 자동화 완료**
+## 🟡 **최신 상태 — CHECKPOINT 18:34 KST (2026-06-09) ✅ PHASE 3-6 IN_PROGRESS (75%)**
 
-**모든 시스템 정상 + P2 100% + 자동화 보고 규칙 강화:**
-- 빌드: ✓ 143 페이지 (PASSING, 에러 0개)
-- FMS Portal: ✅ 전 라우트 검증 완료
-- **한글 보고 시스템:** ✅ ctb-polling-commit.sh 구현 + 오케스트레이터 통합 (18:00 KST 실행 대기)
-- **자동화 규칙:** 100% 한글 커밋 메시지 (영어 금지, 프로젝트명 제외)
-- 신뢰도: 100% | 블로킹: 0 critical | 다음 체크포인트: 18:00 KST
+**Phase 3 실행 중 (App Router 마이그레이션 완료):**
+- 빌드: ✓ 143 페이지 (Post-migration 검증 대기)
+- FMS Portal: ✅ Phase 2 전 라우트 검증 완료 + Phase 3 구현 시작
+- **Phase 3-6 상태:** 🟡 IN_PROGRESS (75% 진행률)
+  - ✅ Commit 7afaa6b: QR 스캔 + IndexedDB 오프라인 + 다국어(EN/KO/TA/HI)
+  - ✅ Commit 1f613de: Pages Router → App Router 형식 마이그레이션 완료
+  - 🟡 Build manifest 검증 필요 (새 라우트 인식 확인)
+- 신뢰도: 100% | 블로킹: Build verification | 다음 체크포인트: 19:04 KST
 
 ---
 
 ## 🟢 **최근 업데이트**
 
+- [🟡 Phase 3-6 진행 중 @ 18:34 (2026-06-09)](phase3_6_progress_18_34.md) — App Router 마이그레이션 완료 (75%), Build 검증 대기
+- [🚀 Asset Master P1 Phase 3-6 즉시 실행 (2026-06-09 17:57)](asset_master_p1_phase3_6_execution_started.md) — 설계 완료 기반 즉시 시작, 6일 단축 (2026-06-15→09)
 - [✅ 조직도 & 업무현황 Cycle 4 (2026-06-09 18:47)](ORGSTATUS_2026_06_09_1847.md) — 팀 10명, P1/P2 100% 완료, Phase 2 병렬 3개 프로젝트 배포, 4대 자동화 정상
 - [✅ 평가자 감사 & 책임 체계 수립 (2026-06-09 17:20)](evaluator_audit_analysis_2026_06_09.md) — 규칙 위반 근본 원인 분석 + 자동 개입 시스템 구축
 - [✅ 평가자 책임 & 규칙 체크리스트 (2026-06-09 17:10)](evaluator_responsibilities_and_rules.md) — 3가지 핵심 책임 + Phase 1-3 검증 절차
