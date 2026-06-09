@@ -1,14 +1,17 @@
 {
-  "timestamp": "2026-06-09T23:10:01Z",
-  "progress": 100,
+  "timestamp": "2026-06-10T08:15:30Z",
+  "progress": 92,
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
     "phase2c": "ready"
   },
   "production": {
-    "vercel": "OK",
-    "vercel_http": "200"
+    "vercel": "DEGRADED",
+    "vercel_http": "404",
+    "issue": "/assets & /api/assets returning HTTP 404",
+    "regression_detected": "2026-06-10 08:15:30 KST",
+    "status": "회귀 재발생 - 배포 프로세스 결함 의심"
   },
-  "last_update": "2026-06-10 08:10:01"
+  "last_update": "2026-06-10 08:15:30"
 }
