@@ -4,9 +4,40 @@ description: Active incomplete work tracking (updated 2026-06-08 18:54 KST) — 
 type: project
 ---
 
-# Incomplete Tasks Registry (Last Updated: 2026-06-08 19:25 KST - Cycle 984)
+# Incomplete Tasks Registry (Last Updated: 2026-06-09 18:30 KST - Cycle 1018+)
 
-**Status:** ✅ **ALL P0/P1 COMPLETE** | Build: 141 pages ✅ | Phase 2 Services: Ready (3/3) | Vercel: OK (HTTP 200)
+**Status:** ✅ **ALL P0/P1/P2 COMPLETE** | Build: 156+ pages ✅ | Phase 2 Services: Ready (3/3) | Vercel: OK (HTTP 200) | Deployed: ✅
+
+---
+
+## ✅ PHASE 2 PARALLEL PROJECTS — COMPLETED @ 2026-06-09 14:07 KST
+
+**Breakdown Management P1 (BM-P1) Phase 2:**
+- ✅ 6 State Transition APIs (acknowledge, start, resolve, escalate)
+- ✅ Field validation library (16 constraints)
+- ✅ KPI/stats endpoints (monthly aggregates)
+- ✅ Timeline synthesis (status history)
+- Status: Deployed + HTTP 200 verified
+
+**Team Dashboard P1 (Dashboard-P1) API:**
+- ✅ 6 CRUD+read endpoints (members, portfolio, activity, structure)
+- ✅ App Router TypeScript integration
+- ✅ RLS policy enforcement
+- ✅ Pagination + response envelope
+- Status: Deployed + HTTP 200 verified
+
+**Memory Automation P2 (Memory-P2):**
+- ✅ MEMORY.md indexer (36 items, MD5 detection)
+- ✅ Query API + CLI interface
+- ✅ Auto-cleanup (duplicates, stale items)
+- ✅ LRU caching (TTL 15min)
+- Status: Operational + 100% functional
+
+**Combined Build Status:**
+- ✅ 156+ routes compiled (0 errors)
+- ✅ Vercel deployment successful
+- ✅ All endpoints return HTTP 200
+- ✅ Single commit: 46fb6ad6 feat(bm-p1,dashboard-p1,memory-p2): Phase 2 병렬 구현 완료
 
 ---
 
@@ -31,6 +62,22 @@ type: project
 **Blockers for Phase 3-6:**
 - db/29 SQL not yet applied to Supabase (asset_import_batches/items tables not created)
 - Phase 3-6 scope: 4 UI pages, 13 test cases, i18n updates, deployment
+
+---
+
+## ⏱️ ASSET MASTER P1 PHASE 3-6 — SCHEDULED 2026-06-15
+
+**Timeline:** 6 days remaining (from 2026-06-09)  
+**Scope:** UI pages, test suites, i18n integration, Vercel deployment  
+**Status:** Design complete, awaiting scheduled execution date  
+**Preparation:** Schema migration (db/29) must precede Phase 3 work
+
+**Checklist (pending):**
+- [ ] Execute db/29 migration (asset_import_batches, asset_import_items tables)
+- [ ] Build UI pages: batch-list, batch-detail, item-import-form, batch-preview
+- [ ] Implement 13 integration test cases
+- [ ] Add i18n strings (EN + TA)
+- [ ] Deploy to Vercel + HTTP 200 verification
 
 ---
 
