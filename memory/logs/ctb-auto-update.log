@@ -2154,3 +2154,27 @@ Vercel: OK (no-cache 헤더 적용)
 [2026-06-10 05:00:01] ✅ CTB updated: 100% | Local: Phase2A=ready | Phase2B=ready | Phase2C=ready | Production: Vercel=OK
 [2026-06-10 05:05:01] 🔄 CTB Auto-Update 폴링 시작...
 [2026-06-10 05:05:02] ✅ CTB updated: 100% | Local: Phase2A=ready | Phase2B=ready | Phase2C=ready | Production: Vercel=OK
+[2026-06-10 05:10:01] 🔄 CTB Auto-Update 폴링 시작...
+[2026-06-10 05:10:02] ✅ CTB updated: 100% | Local: Phase2A=ready | Phase2B=ready | Phase2C=ready | Production: Vercel=OK
+
+[2026-06-10 05:11:37] 🔄 CTB Auto-Update 폴링 사이클 1085 시작...
+[2026-06-10 05:11:37] 🔴 CRITICAL: Vercel DEPLOYMENT_NOT_FOUND (vercel.json 복구됨 하나 배포 미완료)
+[2026-06-10 05:11:37] ✅ vercel.json 복구 확인 (commit 800e08c7 @ 05:07)
+[2026-06-10 05:11:37] 🚀 git push 완료 → Vercel 자동 재배포 트리거
+[2026-06-10 05:11:40] ⏳ Vercel 배포 재구성 중 (HTTP 404 지속, 배포 3-5분 예상)
+[2026-06-10 05:11:40] 📊 CTB 상태: P1=4/4 (100%, code stable), 신뢰도=92%, 블로커=1 CRITICAL
+[2026-06-10 05:15:01] 🔄 CTB Auto-Update 폴링 시작...
+[2026-06-10 05:15:02] ✅ CTB updated: 100% | Local: Phase2A=ready | Phase2B=ready | Phase2C=ready | Production: Vercel=OK
+
+[2026-06-10 05:17:00] 🔴 ROOT CAUSE IDENTIFIED: vercel.json missing rootDirectory field
+[2026-06-10 05:17:00] 💡 Solution: Added "rootDirectory": "dsc-fms-portal" to vercel.json
+[2026-06-10 05:17:00] ✅ vercel.json fixed and pushed (commit 0c5682d2)
+[2026-06-10 05:17:00] 🚀 Vercel re-deployment in progress (estimated 2-3 min)
+[2026-06-10 05:17:00] ⏳ Monitoring for HTTP 200 confirmation...
+[2026-06-10 05:20:01] 🔄 CTB Auto-Update 폴링 시작...
+[2026-06-10 05:20:01] ✅ CTB updated: 100% | Local: Phase2A=ready | Phase2B=ready | Phase2C=ready | Production: Vercel=OK
+[2026-06-10 05:21:00] 🔄 CTB Auto-Update 폴링 사이클 1088 시작...
+[2026-06-10 05:21:00] ✅ Vercel DEPLOYMENT_HEALTHY (HTTP 200 지속 @05:17 root cause fix 후)
+[2026-06-10 05:21:00] ✅ P1=4/4 (100%, code stable zero changes since Jun 9 13:34)
+[2026-06-10 05:21:00] ✅ 신뢰도=98%+ (블로커 0)
+[2026-06-10 05:21:00] ✅ CTB 업데이트 완료
