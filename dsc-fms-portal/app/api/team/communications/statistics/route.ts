@@ -13,28 +13,41 @@ export async function GET(req: Request) {
     const startDate = new Date();
     startDate.setDate(startDate.getDate() - days);
 
-    const { data, error } = await supabase
-      .from('message_logs')
-      .select('channel, created_at')
-      .gte('created_at', startDate.toISOString());
+    let query = supabase
+      .from('team_activity_logs')
+      .select('channel, actor_name, created_at');
 
-    if (error) throw error;
+    const { data, error } = await query.gte('created_at', startDate.toISOString());
+
+    if (error) {
+      console.error('Communications query error:', error);
+      throw error;
+    }
 
     const channels = ['slack', 'discord', 'telegram'] as const;
-    const stats = channels.map(channel => ({
-      channel,
-      name: `#${channel}`,
-      messageCount: data?.filter(d => d.channel === channel).length || 0,
-      participantCount: 12,
-      mostActiveTime: '14:00-16:00',
-      topParticipants: [{ name: 'Team Lead', messageCount: 35 }],
-    }));
+    const allData = data || [];
+
+    const stats = channels.map(channel => {
+      const channelData = allData.filter(d => d.channel === channel);
+      const uniqueActors = new Set(channelData.map(d => d.actor_name).filter(Boolean));
+
+      return {
+        channel,
+        name: `#${channel}`,
+        messageCount: channelData.length,
+        participantCount: uniqueActors.size,
+        mostActiveTime: '14:00-16:00',
+        topParticipants: [{ name: 'Team Lead', messageCount: 35 }],
+      };
+    });
+
+    const allParticipants = new Set(allData.map(d => d.actor_name).filter(Boolean));
 
     return Response.json({
       period: `${days}_days`,
       channels: stats,
-      totalMessages: data?.length || 0,
-      totalParticipants: 15,
+      totalMessages: allData.length,
+      totalParticipants: allParticipants.size,
     });
   } catch (error) {
     return Response.json({

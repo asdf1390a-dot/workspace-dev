@@ -17,11 +17,14 @@ export async function GET(req: Request) {
 
     const { data: allocations, error } = await supabase
       .from('resource_allocations')
-      .select('member_id, allocated_hours, estimated_hours')
+      .select('member_id, allocated_hours')
       .gte('start_date', monthStart)
-      .lt('end_date', monthEnd);
+      .lte('end_date', monthEnd);
 
-    if (error) throw error;
+    if (error) {
+      console.error('Availability query error:', error);
+      throw error;
+    }
 
     return Response.json({
       month,
