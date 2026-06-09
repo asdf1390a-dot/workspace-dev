@@ -1,6 +1,7 @@
 {
-  "buildCommand": "cd dsc-fms-portal && npm ci && npm run build",
-  "outputDirectory": "dsc-fms-portal/.next",
+  "rootDirectory": "dsc-fms-portal",
+  "buildCommand": "npm ci && npm run build",
+  "outputDirectory": ".next",
   "env": {
     "NODE_ENV": "production"
   },
