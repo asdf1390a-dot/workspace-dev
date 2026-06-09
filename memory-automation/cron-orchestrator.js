@@ -364,6 +364,18 @@ class CronOrchestrator {
       };
       fs.writeFileSync(ctbFile, JSON.stringify(ctb, null, 2));
 
+      // 한글 CTB 폴링 커밋 생성 (2026-06-09 규칙: 100% 한글 커밋)
+      this.log('INFO', 'Executing Korean CTB polling commit generator (ctb-polling-commit.sh)');
+      try {
+        const ctbCommitResult = await this.executeCommand('bash', [
+          path.join(this.scriptDir, 'ctb-polling-commit.sh')
+        ]);
+        this.log('INFO', 'CTB polling commit succeeded (Korean message template applied)');
+      } catch (ctbErr) {
+        // 실패해도 다른 작업은 계속 진행
+        this.log('WARN', `CTB polling commit failed: ${ctbErr.message}`);
+      }
+
       this.log('INFO', `Checkpoint completed in ${Date.now() - startTime}ms`);
       return { success: true, duration: Date.now() - startTime };
     } catch (error) {
