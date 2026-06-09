@@ -444,11 +444,14 @@ echo "  3️⃣  Schedule Discipline: 일정 준수, 지연 보고"
 
 ### 🔍 통합 검증 체크리스트
 
-- [✅] rule-reminder.sh 스크립트 존재 및 실행 가능
-- [✅] session-checkpoint-autofix.sh 스크립트 존재 및 실행 가능
-- [✅] ctb-polling-commit.sh 규칙 호출 추가
-- [✅] cron-orchestrator.js runFullPipeline 규칙 호출 추가
-- [✅] cron-orchestrator.js runCheckpoint 세션 자동완료 추가
-- [✅] Git commit 기록 (87a07e0a)
+- [✅] rule-reminder.sh 스크립트 존재 및 실행 가능 (테스트 완료 07:53)
+- [✅] session-checkpoint-autofix.sh 스크립트 존재 및 실행 가능 (테스트 완료 07:53)
+- [✅] auto-fix-protocol.sh 스크립트 존재 및 실행 가능
+- [✅] ctb-polling-commit.sh 규칙 호출 추가 (라인 110)
+- [✅] cron-orchestrator.js runFullPipeline 규칙 호출 추가 (라인 277-289)
+- [✅] cron-orchestrator.js runCheckpoint 세션 자동완료 추가 (라인 402-410)
+- [✅] session-checkpoint-autofix.sh sed 이스케이프 처리 개선 (f487ae4b)
+- [✅] Git commit 기록 (87a07e0a, 6d67a907, f487ae4b)
+- [✅] 수동 테스트 실행 및 검증 완료 (07:53)
 - [⏳] 실제 cron 실행 대기 (다음 폴링 사이클)
 - [ ] 7일 모니터링 완료 (2026-06-17)
