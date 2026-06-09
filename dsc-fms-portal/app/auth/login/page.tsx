@@ -112,3 +112,4 @@ export default function LoginPage() {
     </div>
   );
 }
+// Final auth/login deployment attempt Tue Jun  9 13:58:35 KST 2026
