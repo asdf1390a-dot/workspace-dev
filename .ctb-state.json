@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-09T15:20:02Z",
+  "timestamp": "2026-06-10T00:26:28Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
@@ -7,8 +7,10 @@
     "phase2c": "ready"
   },
   "production": {
-    "vercel": "OK",
-    "vercel_http": "200"
+    "vercel": "BROKEN",
+    "vercel_http": "404"
   },
-  "last_update": "2026-06-10 00:20:02"
+  "last_update": "2026-06-10 00:26:28",
+  "regression_cycle": 6,
+  "regression_pattern": "25-26min intervals"
 }
