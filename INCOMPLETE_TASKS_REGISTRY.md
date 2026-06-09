@@ -48,6 +48,58 @@ type: project
 **Time:** 2026-06-07 17:04 KST  
 **Remaining Work:** Phase 3-6 (UI/tests/glossary/deployment) — scheduled for separate sessions
 
+---
+
+## 📊 비용 관리 시스템 구축 — IN PROGRESS
+
+**Status:** Design Phase (Sub-Material P1 설계 완료 + R&M 분석 완료, 평가자 검토 대기)  
+**Updated:** 2026-06-09 19:38 KST
+
+### ✅ 완료 항목
+
+**Sub-Material Dashboard P1 Design (SUB_MATERIAL_DASHBOARD_P1_DESIGN.md)**
+- ✅ 5 DB 테이블 설계 (monthly_material_summary, daily_material_consumption, material_cost_settings, file_metadata, material_user_invites)
+- ✅ 5 UI 페이지 설계 (Dashboard, File Management, Detailed Analysis, User Management, Settings)
+- ✅ 5 API 엔드포인트 설계 (/upload, /dashboard, /detail, /inviteUser, /revokeAccess)
+- ✅ 파일 업로드 워크플로우 (검증 + 이상치 탐지)
+- ✅ 비용 절감 제안 분석 엔진
+- 예상 구현 기간: 3-4일
+- **상태:** 평가자(evaluator) 검토 대기 중
+
+**R&M 설비 수리비 종합 분석 (2026년 1-4월 YTD)**
+- ✅ 7개 파일 통합 분석 완료 (MAINTENANCE, JIG, MOULD, FABRICATION, OTHER_TEAM, FACTORY, STP)
+- ✅ Rs 1,61,68,999 (Rs 1.62크로) 규모 파악
+- ✅ 월별 추이 분석 (2월 급등 +24%, 3월 안정 -50%, 4월 재상승 +54%)
+- ✅ TOP 10 수리 항목 + 설비 신뢰도 지표 (MTBF, 수리 빈도)
+- ✅ 이전 경비 분석과 교차 검증 (STP Rs 1.5만 단독 vs 전체 R&M Rs 1.62크로)
+- ✅ 2025 vs 2026 비교 (MAINTENANCE -11.7% 개선, FACTORY +155% 공사 증가, MOULD +95% 파손 증가)
+- ✅ 6대 제언 도출 (FACTORY 분류 전환, 프레스 C4 PM 강화, 컴프레서 교체 검토 등)
+
+### 🔄 진행 중
+
+**경비 분석 자료 검수 및 대시보드 통합 설계 (대기 중)**
+- 평가자(evaluator) Sub-Material P1 설계 검토 결과 대기
+- 검토 완료 후: Planner 에이전트에 통합 비용 관리 대시보드 설계 위임 예정
+- **통합 범위 (예상):**
+  - Sub-material (월별 + 일일 추적)
+  - Power/Utility (월별 + 단가 최적화)
+  - R&M 설비 추적 (위험 설비 모니터링, PM 이행률, MTBF 추이)
+  - Consumables 통합
+
+### 🔴 긴급 조치 (비대시보드, 운영 레벨)
+
+1. **FACTORY CAPEX/OPEX 분류 전환** — 즉시
+   - BC4I 신규 공장 공사 Rs 30라크 → CAPEX로 이관 필요
+   - 현재 R&M OPEX에 혼입되어 있음
+
+2. **프레스 C4 (DCMI-PRS-PNU-30) PM 강화** — 다음주
+   - MTBF 약 24일 (위험 수준)
+   - 월 1회 → 격주 점검 강화 필요
+
+3. **컴프레서 03호기 교체 ROI 분석** — 1주 내
+   - 4월 에어엔드 킷 전면 교체 Rs 4.2라크
+   - FY2026 예상 유지비 vs 신품 비용 비교
+
 | Component | Status | Details |
 |-----------|--------|---------|
 | POST /batches | ✅ | Create batch with file validation |
@@ -4621,3 +4673,41 @@ Full details: P2_DEADLINE_ESCALATION_2026_06_09_1220.md
 ```
 
 ---
+
+
+## 🟡 SUB-MATERIAL DASHBOARD P1 — DESIGN COMPLETE @ 2026-06-09 19:12 KST
+
+**Status Change:** PENDING → DESIGN_REVIEW (Rule 1: 설계 완료 → 평가자 검토 대기)
+**Timeline:** Awaiting evaluator approval for implementation (3-4 days post-approval)
+**Scope:** Monthly sub-material file upload + cost analysis + cost reduction suggestions + CEO-only access
+**Design Document:** `/home/jeepney/.openclaw/workspace-dev/SUB_MATERIAL_DASHBOARD_P1_DESIGN.md`
+
+| Component | Status | Details |
+|-----------|--------|---------|
+| Data structure (5 tables) | ✅ | monthly_material_summary, daily_consumption, cost_settings, file_metadata, user_invites |
+| UI pages (5 pages) | ✅ | Dashboard, File Management, Analysis, User Management, Settings |
+| API endpoints (5 endpoints) | ✅ | POST /upload, GET /dashboard, GET /detail, POST /inviteUser, DELETE /revokeAccess |
+| File upload workflow | ✅ | Excel parsing + validation + anomaly detection |
+| Analysis engine | ✅ | Anomaly detection + cost reduction suggestions |
+| RLS & permissions | ✅ | CEO-only access + invitable viewers/editors |
+
+**Next Step:** Evaluator review → Implementation approval (2026-06-15 estimated)
+
+---
+
+## 🟡 INTEGRATED EXPENSE MANAGEMENT P1 — ANALYSIS COMPLETE @ 2026-06-09 19:25 KST
+
+**Status Change:** PENDING → DESIGN_PHASE (Rule 1: 분석 완료 → 설계 진행)
+**Timeline:** Design → Implementation (4-5 days)
+**Scope:** Unified expense dashboard (Power + 6 sub-materials + R&M + Consumables)
+
+### YTD Summary (1-4월)
+- Total: Rs 3,235만 (USD 385,200)
+- Power: 52.9% | Coil: 25.1% | Others: 22%
+- Annual Forecast: Rs 9.71억
+
+### Cost Anomalies Detected
+- Grease +138% (Apr), Coil +41% (Mar), Wind power ZERO (Apr)
+
+**Next Step:** Design document → Evaluator review → Implementation (2026-06-18 estimated)
+
