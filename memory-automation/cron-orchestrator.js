@@ -271,6 +271,17 @@ class CronOrchestrator {
     this.log('INFO', `=== Full pipeline cycle #${this.cycleCount} starting ===`);
     const startTime = Date.now();
 
+    // Phase 1 Integration: Rule reminder before pipeline (2026-06-10)
+    this.log('INFO', 'Phase 1: Running rule reminder (Autonomous Proceed, Task Ownership, Schedule Discipline)');
+    try {
+      await this.executeCommand('bash', [
+        path.join(this.scriptDir, 'rule-reminder.sh')
+      ]);
+      this.log('INFO', 'Rule reminder completed — Autonomous Proceed rule enforced');
+    } catch (ruleErr) {
+      this.log('WARN', `Rule reminder failed: ${ruleErr.message} (continuing pipeline)`);
+    }
+
     const collection = await this.runCollectionCycle();
     const dedup = await this.runDeduplicationCycle();
     const calc = await this.runCalculationCycle();
@@ -385,6 +396,17 @@ class CronOrchestrator {
         this.log('INFO', 'Evaluator auto-remediation check completed');
       } catch (remErr) {
         this.log('WARN', `Evaluator auto-remediation check failed: ${remErr.message}`);
+      }
+
+      // Phase 1 Integration: Session Checkpoint Auto-Fix (2026-06-10 신규)
+      this.log('INFO', 'Phase 1: Executing session checkpoint auto-fix (session-checkpoint-autofix.sh)');
+      try {
+        const checkpointAutoFixResult = await this.executeCommand('bash', [
+          path.join(this.scriptDir, 'session-checkpoint-autofix.sh')
+        ]);
+        this.log('INFO', 'Session checkpoint auto-fix completed (Autonomous Proceed rule enforced)');
+      } catch (checkpointErr) {
+        this.log('WARN', `Session checkpoint auto-fix check failed: ${checkpointErr.message}`);
       }
 
       this.log('INFO', `Checkpoint completed in ${Date.now() - startTime}ms`);

@@ -105,6 +105,12 @@ commit_ctb_status() {
 main() {
   log "🔄 CTB 폴링 커밋 생성 시작..."
 
+  # Phase 1: 규칙 상기 (Autonomous Proceed Rule 준수)
+  log "📋 규칙 점검 실행 중..."
+  bash "$WORKSPACE_DIR/memory-automation/rule-reminder.sh" >> "$LOG_FILE" 2>&1 || {
+    log "⚠️  규칙 점검 실패 (계속 진행)"
+  }
+
   # CTB 상태 읽기
   ctb_data=$(read_ctb_state) || {
     log "❌ CTB 상태 읽기 실패"
