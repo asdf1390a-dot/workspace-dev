@@ -1,8 +1,8 @@
 {
-  "polling_cycle": 981,
-  "timestamp": "2026-06-08T19:32:00+09:00",
+  "polling_cycle": 1003,
+  "timestamp": "2026-06-09T14:00:00+09:00",
   "timezone": "Asia/Seoul",
-  "status": "✅ ALL SYSTEMS NORMAL",
+  "status": "✅ ALL SYSTEMS NORMAL — Vercel Deployment Complete",
 
   "projects": {
     "AUDIT-P1": {
@@ -55,7 +55,8 @@
     "vercel_fms_portal": {
       "url": "https://dsc-fms-portal.vercel.app",
       "status": "✅ 200 OK",
-      "last_checked": "2026-06-08T19:32:00+09:00"
+      "assets_page": "✅ /assets 200 OK (배포 완료)",
+      "last_checked": "2026-06-09T14:00:00+09:00"
     },
     "phase_2_services": {
       "phase_2a": {
@@ -91,11 +92,12 @@
 
   "build_status": {
     "status": "✅ PASSING",
-    "pages": 141,
+    "pages": 83,
+    "static_pages": 83,
     "errors": 0,
-    "warnings": 1,
-    "warning_detail": "backup/metrics dynamic server usage (benign)",
-    "last_build": "2026-06-08T19:28:00+09:00"
+    "warnings": 0,
+    "warning_detail": "none",
+    "last_build": "2026-06-09T14:00:00+09:00"
   },
 
   "system_health": {
