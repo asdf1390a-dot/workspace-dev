@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-09T03:57:00Z",
+  "timestamp": "2026-06-09T04:00:02Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
@@ -10,12 +10,5 @@
     "vercel": "OK",
     "vercel_http": "200"
   },
-  "last_update": "2026-06-09 12:57:00",
-  "cycle": 1006,
-  "projects": {
-    "audit_p1": "100% stable",
-    "discord_bot_p1": "100% stable",
-    "travel_p2_ui": "100% stable",
-    "bm_p1": "100% stable"
-  }
+  "last_update": "2026-06-09 13:00:02"
 }
