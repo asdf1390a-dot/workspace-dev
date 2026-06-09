@@ -1,3 +1,9 @@
+# Automation artifacts - exclude from git
+memory/backups/*.md.bak
+memory/collected/*.json
+memory/logs/CTB_*.json
+memory/logs/*-activity-*.jsonl
+memory/logs/*-cron-*.log
 .vercel
 .env*.local
 BACKUPS/
