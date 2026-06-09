@@ -376,6 +376,17 @@ class CronOrchestrator {
         this.log('WARN', `CTB polling commit failed: ${ctbErr.message}`);
       }
 
+      // 평가자 자동 개입 & 규칙 위반 감시 (2026-06-09 신규)
+      this.log('INFO', 'Executing evaluator auto-remediation system (evaluator-auto-remediation.js)');
+      try {
+        const remediationResult = await this.executeCommand('node', [
+          path.join(this.scriptDir, 'evaluator-auto-remediation.js')
+        ]);
+        this.log('INFO', 'Evaluator auto-remediation check completed');
+      } catch (remErr) {
+        this.log('WARN', `Evaluator auto-remediation check failed: ${remErr.message}`);
+      }
+
       this.log('INFO', `Checkpoint completed in ${Date.now() - startTime}ms`);
       return { success: true, duration: Date.now() - startTime };
     } catch (error) {
@@ -418,6 +429,17 @@ class CronOrchestrator {
             error: e.message,
           };
         }
+      }
+
+      // 평가자 규칙 알림 실행 (2026-06-09 신규)
+      this.log('INFO', 'Running evaluator rule notifier');
+      try {
+        const notifierResult = await this.executeCommand('node', [
+          path.join(this.scriptDir, 'evaluator-rule-notifier.js')
+        ]);
+        this.log('INFO', 'Evaluator rule notifier completed');
+      } catch (notifierErr) {
+        this.log('WARN', `Evaluator rule notifier failed: ${notifierErr.message}`);
       }
 
       this.log('INFO', `Integrity audit completed in ${Date.now() - startTime}ms`);

@@ -17,6 +17,8 @@
 
 ## 🟢 **최근 업데이트**
 
+- [✅ 평가자 감사 & 책임 체계 수립 (2026-06-09 17:20)](evaluator_audit_analysis_2026_06_09.md) — 규칙 위반 근본 원인 분석 + 자동 개입 시스템 구축
+- [✅ 평가자 책임 & 규칙 체크리스트 (2026-06-09 17:10)](evaluator_responsibilities_and_rules.md) — 3가지 핵심 책임 + Phase 1-3 검증 절차
 - [✅ 한글 전용 보고 시스템 배포 (2026-06-09 17:04)](feedback_korean_only_reporting.md) — ctb-polling-commit.sh 구현, 오케스트레이터 통합, 자동화 활성화
 - [🚀 Asset Master P1 + Team Dashboard P1 병렬 진행 (2026-06-09 16:34)](../INCOMPLETE_TASKS_REGISTRY.md) — Web-Builder bg + migration SQL
 - [✅ DISCORD-BOT-P0 완전 설계 완료 (2026-06-09 16:35)](../../DISCORD_BOT_P0_DESIGN.md) — 2739줄 3문서
@@ -43,6 +45,8 @@
 
 ## 📌 **핵심 규칙** (필독)
 
+- [🔴 평가자 메모리 정확 읽기 의무화](feedback_evaluator_memory_verification.md) — 분석 전 규칙 검증 필수 (2026-06-09)
+- [🔴 평가자 책임 & 검증 체크리스트](evaluator_responsibilities_and_rules.md) — 분석 제출 전 3단계 검증 의무 (2026-06-09)
 - [🔴 한국어 100% 보고 (강화)](feedback_korean_only_reporting.md) — 모든 보고는 한국어만, 영어 절대 금지 (2026-06-09)
 - [🔴 자동 평가자 오류 감지](feedback_auto_evaluator_error_detection.md) — 규칙 위반 또는 반복 오류 시 평가자 자동 개입 + 개선
 - [🔴 배포 검증 규칙](feedback_deployment_verification.md) — HTTP 200 + 라우트 검증까지 필수
