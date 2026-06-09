@@ -1,0 +1,42 @@
+[2026-06-09T08:10:20.443Z] [INFO] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-06-09T08:10:20.459Z] [INFO] 평가자 규칙 알림 시스템 시작
+[2026-06-09T08:10:20.459Z] [INFO] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-06-09T08:10:20.475Z] [INFO] 이전 검사: 1970. 1. 1. AM 9:00:00
+[2026-06-09T08:10:20.475Z] [INFO] 현재 규칙: 32개
+[2026-06-09T08:10:20.475Z] [INFO] 이전 규칙: 0개
+[2026-06-09T08:10:20.475Z] [WARN] 🚨 새로운 규칙 32개 감지됨:
+[2026-06-09T08:10:20.475Z] [WARN]   [1] ✅ 한글 전용 보고 시스템 배포 (2026-06-09 17:04) — feedback_korean_only_reporting.md
+[2026-06-09T08:10:20.476Z] [WARN]   [2] 🚀 Asset Master P1 + Team Dashboard P1 병렬 진행 (2026-06-09 16:34) — ../INCOMPLETE_TASKS_REGISTRY.md
+[2026-06-09T08:10:20.477Z] [WARN]   [3] ✅ DISCORD-BOT-P0 완전 설계 완료 (2026-06-09 16:35) — ../../DISCORD_BOT_P0_DESIGN.md
+[2026-06-09T08:10:20.477Z] [WARN]   [4] ✅ 세션 체크포인트 @ 16:04 KST (2026-06-09) — session_checkpoint_2026_06_09_1604.md
+[2026-06-09T08:10:20.477Z] [WARN]   [5] ✅ 조직도 업무현황 Cycle 3 (2026-06-09 16:00) — ORGSTATUS_2026_06_09_1600.md
+[2026-06-09T08:10:20.477Z] [WARN]   [6] ✅ 조직도 업무현황 Cycle 2 (2026-06-09 15:40) — ORGSTATUS_2026_06_09_1540.md
+[2026-06-09T08:10:20.477Z] [WARN]   [7] ✅ Asset Master Phase 3-6 설계 확인 (2026-06-09 14:22) — asset_master_phase3_6_design_confirmed.md
+[2026-06-09T08:10:20.477Z] [WARN]   [8] 🚨 설계-구현 미스매치 분석 (2026-06-09 14:22) — design_implementation_gap_analysis_2026_06_09.md
+[2026-06-09T08:10:20.477Z] [WARN]   [9] 주간 개선 분석 (2026-06-08 02:31) — WEEKLY_IMPROVEMENT_REPORT_2026_06_08.md
+[2026-06-09T08:10:20.477Z] [WARN]   [10] 조직도 & 업무현황 (2026-06-08 02:31) — ORG_STATUS_2026_06_08_0231.md
+[2026-06-09T08:10:20.477Z] [WARN]   [11] 사이클 888: 빌드 헬스 복구 (2026-06-07 22:58) — fix_nextjs14_health_detection.md
+[2026-06-09T08:10:20.477Z] [WARN]   [12] 사이클 885: Manifest 무결성 (2026-06-07 22:48) — manifest_integrity_resolved_20260607_2248.md
+[2026-06-09T08:10:20.478Z] [WARN]   [13] CTB Polling Integrity Crisis (2026-06-07 22:04) — incident_ctb_cycle884_integrity_failure.md
+[2026-06-09T08:10:20.478Z] [WARN]   [14] 🔴 한국어 100% 보고 (강화) — feedback_korean_only_reporting.md
+[2026-06-09T08:10:20.478Z] [WARN]   [15] 🔴 자동 평가자 오류 감지 — feedback_auto_evaluator_error_detection.md
+[2026-06-09T08:10:20.478Z] [WARN]   [16] 🔴 배포 검증 규칙 — feedback_deployment_verification.md
+[2026-06-09T08:10:20.478Z] [WARN]   [17] 🚀 CEO Autonomous Mode — feedback_work_initiation_protocol.md
+[2026-06-09T08:10:20.478Z] [WARN]   [18] ⭐ Core Autonomous Operation — feedback_core_autonomous_operation.md
+[2026-06-09T08:10:20.478Z] [WARN]   [19] 🤖 자율 실행 — 의사결정 자동화 — feedback_autonomous_execution_no_asking.md
+[2026-06-09T08:10:20.478Z] [WARN]   [20] 📊 Absolute Task Completion — feedback_absolute_task_completion_rule.md
+[2026-06-09T08:10:20.478Z] [WARN]   [21] 🔐 Double Verification — feedback_double_verification_before_delivery.md
+[2026-06-09T08:10:20.478Z] [WARN]   [22] CTB Data Integrity (2026-06-06 23:12) — ctb_data_integrity_finding_20260606.md
+[2026-06-09T08:10:20.478Z] [WARN]   [23] CTB Polling Accuracy Crisis — ctb_polling_accuracy_incident.md
+[2026-06-09T08:10:20.478Z] [WARN]   [24] CTB Cycle 608 Correction — ctb_cycle_608_accuracy_correction.md
+[2026-06-09T08:10:20.478Z] [WARN]   [25] Kyeongtae Na — user/user_role.md
+[2026-06-09T08:10:20.478Z] [WARN]   [26] Team Structure (2026-05-25) — reference/TEAM_STRUCTURE_2026_MAY25_UPDATE.md
+[2026-06-09T08:10:20.478Z] [WARN]   [27] Model Selection — reference/model_selection_standard.md
+[2026-06-09T08:10:20.478Z] [WARN]   [28] Workflow Context Loss v2 — reference/workflow_context_loss_protocol.md
+[2026-06-09T08:10:20.478Z] [WARN]   [29] Build Onboarding (2026-06-07) — ONBOARDING_AUDIT_BASELINE_2026_06_07.md
+[2026-06-09T08:10:20.478Z] [WARN]   [30] Historical Cycles 604-662 — archive/cycles_604_to_662_historical.md
+[2026-06-09T08:10:20.478Z] [WARN]   [31] Org Status Snapshots — archive/org_status_snapshots_archive.md
+[2026-06-09T08:10:20.478Z] [WARN]   [32] Phase 2 Project History — archive/phase2_projects_history.md
+[2026-06-09T08:10:20.478Z] [WARN] ❌ ACTION: 평가자는 분석 전 반드시 새로운 규칙을 읽어야 합니다!
+[2026-06-09T08:10:20.479Z] [INFO] 평가자 알림 문서 생성: /home/jeepney/.openclaw/workspace-dev/memory/alerts/evaluator-alert-new-rules.md
+[2026-06-09T08:10:20.479Z] [INFO] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

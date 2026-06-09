@@ -1,0 +1,199 @@
+{
+  "lastCheck": "2026-06-09T08:10:20.478Z",
+  "knownRules": [
+    {
+      "title": "✅ 한글 전용 보고 시스템 배포 (2026-06-09 17:04)",
+      "filename": "feedback_korean_only_reporting.md",
+      "url": "feedback_korean_only_reporting.md"
+    },
+    {
+      "title": "🚀 Asset Master P1 + Team Dashboard P1 병렬 진행 (2026-06-09 16:34)",
+      "filename": "../INCOMPLETE_TASKS_REGISTRY.md",
+      "url": "../INCOMPLETE_TASKS_REGISTRY.md"
+    },
+    {
+      "title": "✅ DISCORD-BOT-P0 완전 설계 완료 (2026-06-09 16:35)",
+      "filename": "../../DISCORD_BOT_P0_DESIGN.md",
+      "url": "../../DISCORD_BOT_P0_DESIGN.md"
+    },
+    {
+      "title": "✅ 세션 체크포인트 @ 16:04 KST (2026-06-09)",
+      "filename": "session_checkpoint_2026_06_09_1604.md",
+      "url": "session_checkpoint_2026_06_09_1604.md"
+    },
+    {
+      "title": "✅ 조직도 업무현황 Cycle 3 (2026-06-09 16:00)",
+      "filename": "ORGSTATUS_2026_06_09_1600.md",
+      "url": "ORGSTATUS_2026_06_09_1600.md"
+    },
+    {
+      "title": "✅ 조직도 업무현황 Cycle 2 (2026-06-09 15:40)",
+      "filename": "ORGSTATUS_2026_06_09_1540.md",
+      "url": "ORGSTATUS_2026_06_09_1540.md"
+    },
+    {
+      "title": "✅ Asset Master Phase 3-6 설계 확인 (2026-06-09 14:22)",
+      "filename": "asset_master_phase3_6_design_confirmed.md",
+      "url": "asset_master_phase3_6_design_confirmed.md"
+    },
+    {
+      "title": "🚨 설계-구현 미스매치 분석 (2026-06-09 14:22)",
+      "filename": "design_implementation_gap_analysis_2026_06_09.md",
+      "url": "design_implementation_gap_analysis_2026_06_09.md"
+    },
+    {
+      "title": "주간 개선 분석 (2026-06-08 02:31)",
+      "filename": "WEEKLY_IMPROVEMENT_REPORT_2026_06_08.md",
+      "url": "WEEKLY_IMPROVEMENT_REPORT_2026_06_08.md"
+    },
+    {
+      "title": "조직도 & 업무현황 (2026-06-08 02:31)",
+      "filename": "ORG_STATUS_2026_06_08_0231.md",
+      "url": "ORG_STATUS_2026_06_08_0231.md"
+    },
+    {
+      "title": "사이클 888: 빌드 헬스 복구 (2026-06-07 22:58)",
+      "filename": "fix_nextjs14_health_detection.md",
+      "url": "fix_nextjs14_health_detection.md"
+    },
+    {
+      "title": "사이클 885: Manifest 무결성 (2026-06-07 22:48)",
+      "filename": "manifest_integrity_resolved_20260607_2248.md",
+      "url": "manifest_integrity_resolved_20260607_2248.md"
+    },
+    {
+      "title": "CTB Polling Integrity Crisis (2026-06-07 22:04)",
+      "filename": "incident_ctb_cycle884_integrity_failure.md",
+      "url": "incident_ctb_cycle884_integrity_failure.md"
+    },
+    {
+      "title": "🔴 한국어 100% 보고 (강화)",
+      "filename": "feedback_korean_only_reporting.md",
+      "url": "feedback_korean_only_reporting.md"
+    },
+    {
+      "title": "🔴 자동 평가자 오류 감지",
+      "filename": "feedback_auto_evaluator_error_detection.md",
+      "url": "feedback_auto_evaluator_error_detection.md"
+    },
+    {
+      "title": "🔴 배포 검증 규칙",
+      "filename": "feedback_deployment_verification.md",
+      "url": "feedback_deployment_verification.md"
+    },
+    {
+      "title": "🚀 CEO Autonomous Mode",
+      "filename": "feedback_work_initiation_protocol.md",
+      "url": "feedback_work_initiation_protocol.md"
+    },
+    {
+      "title": "⭐ Core Autonomous Operation",
+      "filename": "feedback_core_autonomous_operation.md",
+      "url": "feedback_core_autonomous_operation.md"
+    },
+    {
+      "title": "🤖 자율 실행 — 의사결정 자동화",
+      "filename": "feedback_autonomous_execution_no_asking.md",
+      "url": "feedback_autonomous_execution_no_asking.md"
+    },
+    {
+      "title": "📊 Absolute Task Completion",
+      "filename": "feedback_absolute_task_completion_rule.md",
+      "url": "feedback_absolute_task_completion_rule.md"
+    },
+    {
+      "title": "🔐 Double Verification",
+      "filename": "feedback_double_verification_before_delivery.md",
+      "url": "feedback_double_verification_before_delivery.md"
+    },
+    {
+      "title": "CTB Data Integrity (2026-06-06 23:12)",
+      "filename": "ctb_data_integrity_finding_20260606.md",
+      "url": "ctb_data_integrity_finding_20260606.md"
+    },
+    {
+      "title": "CTB Polling Accuracy Crisis",
+      "filename": "ctb_polling_accuracy_incident.md",
+      "url": "ctb_polling_accuracy_incident.md"
+    },
+    {
+      "title": "CTB Cycle 608 Correction",
+      "filename": "ctb_cycle_608_accuracy_correction.md",
+      "url": "ctb_cycle_608_accuracy_correction.md"
+    },
+    {
+      "title": "Kyeongtae Na",
+      "filename": "user/user_role.md",
+      "url": "user/user_role.md"
+    },
+    {
+      "title": "Team Structure (2026-05-25)",
+      "filename": "reference/TEAM_STRUCTURE_2026_MAY25_UPDATE.md",
+      "url": "reference/TEAM_STRUCTURE_2026_MAY25_UPDATE.md"
+    },
+    {
+      "title": "Model Selection",
+      "filename": "reference/model_selection_standard.md",
+      "url": "reference/model_selection_standard.md"
+    },
+    {
+      "title": "Workflow Context Loss v2",
+      "filename": "reference/workflow_context_loss_protocol.md",
+      "url": "reference/workflow_context_loss_protocol.md"
+    },
+    {
+      "title": "Build Onboarding (2026-06-07)",
+      "filename": "ONBOARDING_AUDIT_BASELINE_2026_06_07.md",
+      "url": "ONBOARDING_AUDIT_BASELINE_2026_06_07.md"
+    },
+    {
+      "title": "Historical Cycles 604-662",
+      "filename": "archive/cycles_604_to_662_historical.md",
+      "url": "archive/cycles_604_to_662_historical.md"
+    },
+    {
+      "title": "Org Status Snapshots",
+      "filename": "archive/org_status_snapshots_archive.md",
+      "url": "archive/org_status_snapshots_archive.md"
+    },
+    {
+      "title": "Phase 2 Project History",
+      "filename": "archive/phase2_projects_history.md",
+      "url": "archive/phase2_projects_history.md"
+    }
+  ],
+  "notifiedRules": [
+    "feedback_korean_only_reporting.md",
+    "../INCOMPLETE_TASKS_REGISTRY.md",
+    "../../DISCORD_BOT_P0_DESIGN.md",
+    "session_checkpoint_2026_06_09_1604.md",
+    "ORGSTATUS_2026_06_09_1600.md",
+    "ORGSTATUS_2026_06_09_1540.md",
+    "asset_master_phase3_6_design_confirmed.md",
+    "design_implementation_gap_analysis_2026_06_09.md",
+    "WEEKLY_IMPROVEMENT_REPORT_2026_06_08.md",
+    "ORG_STATUS_2026_06_08_0231.md",
+    "fix_nextjs14_health_detection.md",
+    "manifest_integrity_resolved_20260607_2248.md",
+    "incident_ctb_cycle884_integrity_failure.md",
+    "feedback_korean_only_reporting.md",
+    "feedback_auto_evaluator_error_detection.md",
+    "feedback_deployment_verification.md",
+    "feedback_work_initiation_protocol.md",
+    "feedback_core_autonomous_operation.md",
+    "feedback_autonomous_execution_no_asking.md",
+    "feedback_absolute_task_completion_rule.md",
+    "feedback_double_verification_before_delivery.md",
+    "ctb_data_integrity_finding_20260606.md",
+    "ctb_polling_accuracy_incident.md",
+    "ctb_cycle_608_accuracy_correction.md",
+    "user/user_role.md",
+    "reference/TEAM_STRUCTURE_2026_MAY25_UPDATE.md",
+    "reference/model_selection_standard.md",
+    "reference/workflow_context_loss_protocol.md",
+    "ONBOARDING_AUDIT_BASELINE_2026_06_07.md",
+    "archive/cycles_604_to_662_historical.md",
+    "archive/org_status_snapshots_archive.md",
+    "archive/phase2_projects_history.md"
+  ]
+}

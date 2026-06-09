@@ -1642,3 +1642,97 @@
 [2026-06-09 14:38:01] ✓ Watchdog cycle complete
 [2026-06-09 14:40:01] ✓ Watchdog cycle complete
 [2026-06-09 14:42:04] ✓ Watchdog cycle complete
+[2026-06-09 14:44:01] ✓ Watchdog cycle complete
+[2026-06-09 14:46:01] ✓ Watchdog cycle complete
+[2026-06-09 14:48:01] ✓ Watchdog cycle complete
+[2026-06-09 14:50:01] ✓ Watchdog cycle complete
+[2026-06-09 14:52:01] ✓ Watchdog cycle complete
+[2026-06-09 14:54:01] ✓ Watchdog cycle complete
+[2026-06-09 14:56:01] ✓ Watchdog cycle complete
+[2026-06-09 14:58:01] ✓ Watchdog cycle complete
+[2026-06-09 15:00:01] ✓ Watchdog cycle complete
+[2026-06-09 15:02:01] ✓ Watchdog cycle complete
+[2026-06-09 15:04:01] ✓ Watchdog cycle complete
+[2026-06-09 15:06:01] ✓ Watchdog cycle complete
+[2026-06-09 15:08:01] ✓ Watchdog cycle complete
+[2026-06-09 15:10:01] ⚠️  Phase2A (3009) DOWN — Restarting...
+[2026-06-09 15:10:04] ✅ Phase2A (3009) RESTARTED successfully
+[2026-06-09 15:10:04] ⚠️  Phase2B (3010) DOWN — Restarting...
+[2026-06-09 15:10:08] ✅ Phase2B (3010) RESTARTED successfully
+[2026-06-09 15:10:08] ⚠️  Phase2C (3011) DOWN — Restarting...
+[2026-06-09 15:10:11] ✅ Phase2C (3011) RESTARTED successfully
+[2026-06-09 15:10:12] ✓ Watchdog cycle complete
+[2026-06-09 15:12:01] ⚠️  Phase2A (3009) DOWN — Restarting...
+[2026-06-09 15:12:04] ✅ Phase2A (3009) RESTARTED successfully
+[2026-06-09 15:12:04] ⚠️  Phase2B (3010) DOWN — Restarting...
+[2026-06-09 15:12:07] ✅ Phase2B (3010) RESTARTED successfully
+[2026-06-09 15:12:07] ⚠️  Phase2C (3011) DOWN — Restarting...
+[2026-06-09 15:12:10] ✅ Phase2C (3011) RESTARTED successfully
+[2026-06-09 15:12:10] ⚠️  Next.js FMS Portal (3000) DOWN — Restarting...
+[2026-06-09 15:12:18] ✅ Next.js FMS Portal (3000) RESTARTED successfully
+[2026-06-09 15:12:18] ✓ Watchdog cycle complete
+[2026-06-09 15:14:03] ✓ Watchdog cycle complete
+[2026-06-09 15:16:01] ✓ Watchdog cycle complete
+[2026-06-09 15:18:01] ✓ Watchdog cycle complete
+[2026-06-09 15:20:01] ✓ Watchdog cycle complete
+[2026-06-09 15:22:01] ⚠️  Next.js FMS Portal (3000) DOWN — Restarting...
+[2026-06-09 15:22:09] ✅ Next.js FMS Portal (3000) RESTARTED successfully
+[2026-06-09 15:22:09] ✓ Watchdog cycle complete
+[2026-06-09 15:24:01] ✓ Watchdog cycle complete
+[2026-06-09 15:26:01] ✓ Watchdog cycle complete
+[2026-06-09 15:28:01] ✓ Watchdog cycle complete
+[2026-06-09 15:30:01] ✓ Watchdog cycle complete
+[2026-06-09 15:32:01] ✓ Watchdog cycle complete
+[2026-06-09 15:34:01] ✓ Watchdog cycle complete
+[2026-06-09 15:36:02] ✓ Watchdog cycle complete
+[2026-06-09 15:38:01] ✓ Watchdog cycle complete
+[2026-06-09 15:40:01] ✓ Watchdog cycle complete
+[2026-06-09 15:42:01] ✓ Watchdog cycle complete
+[2026-06-09 15:44:01] ✓ Watchdog cycle complete
+[2026-06-09 15:46:01] ✓ Watchdog cycle complete
+[2026-06-09 15:48:01] ✓ Watchdog cycle complete
+[2026-06-09 15:50:01] ✓ Watchdog cycle complete
+[2026-06-09 15:52:01] ✓ Watchdog cycle complete
+[2026-06-09 15:54:01] ✓ Watchdog cycle complete
+[2026-06-09 15:56:01] ✓ Watchdog cycle complete
+[2026-06-09 15:58:01] ✓ Watchdog cycle complete
+[2026-06-09 16:00:02] ✓ Watchdog cycle complete
+[2026-06-09 16:02:01] ✓ Watchdog cycle complete
+[2026-06-09 16:04:01] ✓ Watchdog cycle complete
+[2026-06-09 16:06:01] ✓ Watchdog cycle complete
+[2026-06-09 16:08:01] ✓ Watchdog cycle complete
+[2026-06-09 16:10:01] ✓ Watchdog cycle complete
+[2026-06-09 16:12:01] ✓ Watchdog cycle complete
+[2026-06-09 16:14:01] ✓ Watchdog cycle complete
+[2026-06-09 16:16:01] ✓ Watchdog cycle complete
+[2026-06-09 16:18:01] ✓ Watchdog cycle complete
+[2026-06-09 16:20:01] ✓ Watchdog cycle complete
+[2026-06-09 16:22:01] ✓ Watchdog cycle complete
+[2026-06-09 16:24:01] ✓ Watchdog cycle complete
+[2026-06-09 16:26:01] ✓ Watchdog cycle complete
+[2026-06-09 16:28:01] ✓ Watchdog cycle complete
+[2026-06-09 16:30:01] ✓ Watchdog cycle complete
+[2026-06-09 16:32:01] ✓ Watchdog cycle complete
+[2026-06-09 16:34:01] ✓ Watchdog cycle complete
+[2026-06-09 16:36:02] ✓ Watchdog cycle complete
+[2026-06-09 16:38:02] ✓ Watchdog cycle complete
+[2026-06-09 16:40:02] ✓ Watchdog cycle complete
+[2026-06-09 16:42:01] ✓ Watchdog cycle complete
+[2026-06-09 16:44:01] ✓ Watchdog cycle complete
+[2026-06-09 16:46:01] ✓ Watchdog cycle complete
+[2026-06-09 16:48:01] ✓ Watchdog cycle complete
+[2026-06-09 16:50:01] ✓ Watchdog cycle complete
+[2026-06-09 16:52:02] ✓ Watchdog cycle complete
+[2026-06-09 16:54:01] ✓ Watchdog cycle complete
+[2026-06-09 16:56:01] ✓ Watchdog cycle complete
+[2026-06-09 16:58:01] ✓ Watchdog cycle complete
+[2026-06-09 17:00:01] ✓ Watchdog cycle complete
+[2026-06-09 17:02:01] ✓ Watchdog cycle complete
+[2026-06-09 17:04:02] ✓ Watchdog cycle complete
+[2026-06-09 17:06:03] ✓ Watchdog cycle complete
+[2026-06-09 17:08:01] ✓ Watchdog cycle complete
+[2026-06-09 17:10:01] ✓ Watchdog cycle complete
+[2026-06-09 17:12:01] ✓ Watchdog cycle complete
+[2026-06-09 17:14:01] ✓ Watchdog cycle complete
+[2026-06-09 17:16:01] ✓ Watchdog cycle complete
+[2026-06-09 17:18:01] ✓ Watchdog cycle complete
