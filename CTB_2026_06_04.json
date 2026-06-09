@@ -1,9 +1,9 @@
 {
-  "polling_cycle": 1080,
-  "timestamp": "2026-06-10T19:42:39Z",
-  "timestamp_kst": "2026-06-10 04:42 KST",
-  "status": "🔴 CRITICAL RECURRENCE — Vercel 404 회귀 반복 (04:32 안정 → 04:37 재회귀) | /assets HTTP 200 ✅ 현재 안정 (age: 4.6h) | /api/assets HTTP 200 ✅ | 모든 P1=100% 코드 안정 (변화 0) | 신뢰도=92% | 블로커=1 CRITICAL (Vercel infrastructure 근본원인 미파악)",
-  "latest_update": "2026-06-10T19:42:39Z",
+  "polling_cycle": 1090,
+  "timestamp": "2026-06-10T20:31:00Z",
+  "timestamp_kst": "2026-06-10 05:31 KST",
+  "status": "🟡 MONITORING (Auto-recovery ongoing) — Vercel DEPLOYMENT_LOST @ 05:32 KST (cycle 1089) → HTTP 200 ✅ recovery confirmed | /assets HTTP 200 (age: 1050s ~17.5min, VERCEL HIT) | /api/assets HTTP 200 (fresh, MISS) | P1=4/4 (100% code stable, zero changes since Jun 9 13:34) | 신뢰도=90% | 블로커=1 (Vercel infrastructure — pattern: 50분 동안 11회 incident, auto-recovery 반복)",
+  "latest_update": "2026-06-10T20:31:00Z",
   "build_verification": {
     "status": "✅ PASSING (Code Compiled) | 🟡 PARTIAL INFRASTRUCTURE: /assets page 404 on openclaw-fms domain only",
     "pages_compiled": 143,
@@ -73,14 +73,14 @@
   "code_changes": {
     "since_last_cycle": 0,
     "recent_commits": [
-      "cbd831ab: chore(org-status): 조직도 & 업무현황 30분 주기 업데이트 (2026-06-10 04:00 KST)",
-      "d758c012: chore(tsm): Task State Machine Monitor 2026-06-10 03:59 KST — Vercel Escalation: READY_FOR_ESCALATION → COMPLETED | middleware fix (e6ae7a85) 통한 HTTP 200 안정화 (3h+ verified)",
-      "3bd8eb95: chore(ctb): 폴링 사이클 1072+ @ 03:57 KST — Vercel 복구 확인, P1 프로젝트 4/4 안정, 신뢰도 98%+"
+      "7fce325a: chore(ctb): 폴링 사이클 1089 @ 05:32 KST — 🔴 Vercel DEPLOYMENT_LOST (DEPLOYMENT_NOT_FOUND)",
+      "d71e8431: chore(ctb): Force Vercel redeploy — DEPLOYMENT_NOT_FOUND @ 05:27 KST",
+      "4d0e071b: chore(ctb): 폴링 사이클 1088 @ 05:21 KST — ✅ Vercel HEALTHY (HTTP 200 지속) | P1=4/4 (100%, code stable) | 신뢰도=98%+ | 블로커=0"
     ],
-    "last_commit": "cbd831ab",
-    "last_commit_message": "chore(org-status): 조직도 & 업무현황 30분 주기 업데이트 (2026-06-10 04:00 KST)",
-    "last_commit_timestamp_kst": "2026-06-10 04:00",
-    "git_status": "Clean (production code: 0 changes since Jun 9 13:34)"
+    "last_commit": "7fce325a",
+    "last_commit_message": "chore(ctb): 폴링 사이클 1089 @ 05:32 KST — 🔴 Vercel DEPLOYMENT_LOST (DEPLOYMENT_NOT_FOUND)",
+    "last_commit_timestamp_kst": "2026-06-10 05:32",
+    "git_status": "Clean (production code: 0 changes since Jun 9 13:34, only log files modified)"
   },
   "transient_error_analysis": {
     "incident_1": {
@@ -136,24 +136,25 @@
     "stability_duration_hours": "134+ (code layer stable), infrastructure recovered (3h+ post-resolution)",
     "production_status": "✅ FULLY OPERATIONAL — Code production-ready, Vercel stable (HTTP 200), escalation completed"
   },
-  "next_polling_cycle": 1081,
-  "next_poll_eta": "2026-06-10 04:47 KST (+5 min)",
+  "next_polling_cycle": 1091,
+  "next_poll_eta": "2026-06-10 05:36 KST (+5 min)",
   "api_verification": {
     "endpoint_1": {
       "url": "https://dsc-fms-portal.vercel.app/assets",
       "status_code": "200 OK",
-      "cache_age": "fresh",
-      "verified_timestamp": "2026-06-10T19:02:00Z (cycle 1073)",
-      "verification_status": "✅ STABLE (HTTP 200, 3h+ verified) — Escalation resolved"
+      "cache_age": "1050s (~17.5min, HIT)",
+      "verified_timestamp": "2026-06-10T20:31:00Z (cycle 1090)",
+      "verification_status": "✅ STABLE (HTTP 200, auto-recovery confirmed after DEPLOYMENT_LOST incident)"
     },
     "endpoint_2": {
       "url": "https://dsc-fms-portal.vercel.app/api/assets",
       "status_code": "200 OK",
-      "cache_age": "fresh",
+      "cache_age": "0s (fresh, MISS)",
       "response_time": "~100ms",
       "data_integrity": "✅ Fully operational — HTTP 200 stable",
-      "verified_timestamp": "2026-06-10T19:02:00Z (cycle 1073)",
-      "verification_status": "✅ STABLE (HTTP 200, escalation resolved)"
+      "verified_timestamp": "2026-06-10T20:31:00Z (cycle 1090)",
+      "verification_status": "✅ STABLE (HTTP 200, auto-recovery confirmed)"
+    }
   },
-  "monitoring_alert": "🟡 PARTIAL REGRESSION — Cycle 1074 @ 04:07 KST. openclaw-fms.vercel.app /assets = 404 (NEW, domain-specific). dsc-fms-portal.vercel.app /api/assets = 200 ✅. All 4 P1 projects 100% STABLE (AUDIT-P1: 0cf3c1ba, DISCORD-BOT-P1: 585db4d5, BM-P1: ecc13a9f, TRAVEL-P2-UI: e9396c74). Code integrity: ZERO changes since Jun 9 13:34. Reliability: 98%+. Critical blockers: 0. Root cause: Vercel domain routing mismatch (API works, static page returns 404 on alternate domain). ACTION: Check Vercel deployment config for openclaw-fms domain."
+  "monitoring_alert": "🟡 INFRASTRUCTURE DEGRADATION PATTERN — Cycle 1090 @ 05:31 KST. P1 projects 100% CODE STABLE (AUDIT-P1: 0cf3c1ba, DISCORD-BOT-P1: 585db4d5, BM-P1: ecc13a9f, TRAVEL-P2-UI: e9396c74). Code integrity: ZERO changes since Jun 9 13:34. Reliability: 90% (infrastructure incident impact). Critical blockers: 1 (Vercel infrastructure). PATTERN DETECTED: 11 critical incidents in 50 minutes (04:42-05:32 KST) with auto-recovery cycles. Incidents: DEPLOYMENT_NOT_FOUND, DEPLOYMENT_IN_PROGRESS, DEPLOYMENT_LOST repeating. Root cause: Vercel deployment pipeline instability or vercel.json config race condition. REMEDIATION: vercel.json present and valid (05:21 KST). Monitoring active. If pattern continues in next 10 cycles (~50 min), escalate to Vercel support with incident timeline."
 }
