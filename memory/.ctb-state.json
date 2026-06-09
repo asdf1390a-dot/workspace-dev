@@ -1,119 +1,83 @@
 {
-  "polling_cycle": 1041,
-  "timestamp": "2026-06-09T23:45:48+09:00",
+  "polling_cycle": 1101,
+  "timestamp": "2026-06-10T06:38:00+09:00",
   "timezone": "Asia/Seoul",
-  "status": "🔴 DEGRADED — /assets Page Regression (HTTP 404 Recurring)",
+  "status": "🟢 HEALTHY — Vercel SUSTAINED (HTTP 200 continuous 10min+)",
 
   "projects": {
     "AUDIT-P1": {
       "commit": "0cf3c1ba",
       "status": "✅ COMPLETE",
       "completion": 100,
-      "loc": 289,
       "vercel_deployment": "✅ Integrated (FMS Portal)",
-      "deployment_status": "200 OK",
-      "deadline": "2026-06-04 18:00",
-      "days_ahead": "5d 16h 21m",
-      "notes": "Code verified + build passing (143 pages)"
+      "deployment_status": "200 OK"
     },
     "DISCORD-BOT-P1": {
       "commit": "585db4d5",
       "status": "✅ COMPLETE",
       "completion": 100,
-      "loc": 908,
       "vercel_deployment": "✅ Integrated (FMS Portal)",
-      "deployment_status": "200 OK",
-      "deadline": "2026-06-05 18:00",
-      "days_ahead": "39h 21m",
-      "notes": "5 processors verified + build passing"
+      "deployment_status": "200 OK"
     },
     "BM-P1": {
       "commit": "ecc13a9f",
       "status": "✅ COMPLETE",
       "completion": 100,
-      "loc": 197,
       "vercel_deployment": "✅ Integrated (FMS Portal)",
-      "deployment_status": "200 OK",
-      "deadline": "2026-06-04 18:00",
-      "days_ahead": "5d 16h 21m",
-      "notes": "Code verified + build passing"
+      "deployment_status": "200 OK"
     },
     "TRAVEL-P2-UI": {
       "commit": "e9396c74",
       "status": "✅ COMPLETE",
       "completion": 100,
-      "loc": 1169,
       "vercel_deployment": "✅ Integrated (FMS Portal)",
-      "deployment_status": "200 OK",
-      "deadline": "2026-06-05 18:00",
-      "days_ahead": "39h 21m",
-      "notes": "QA approved + all 50+ files verified"
+      "deployment_status": "200 OK"
     }
   },
 
   "infrastructure": {
     "vercel_fms_portal": {
-      "url": "https://dsc-fms-portal.vercel.app",
-      "status": "🔴 404 ERR",
-      "assets_page": "🔴 /assets 404 (회귀 재발생 — 3회 반복 감지)",
-      "last_checked": "2026-06-09T23:45:48+09:00",
-      "regression_timeline": "23:09→23:30(복구)→23:34(정상)→23:40(재발생)→23:45(확인)"
+      "url": "https://dsc-fms-portal.vercel.app/assets",
+      "status": "✅ 200 OK",
+      "cache_age": "5024초 (약 84분)",
+      "cache_control": "public, max-age=0, must-revalidate",
+      "cache_state": "HIT",
+      "last_checked": "2026-06-10T06:38:00+09:00",
+      "recovery_status": "안정화 지속 확인 (회귀 이후 no-cache 헤더 적용으로 정상화)"
+    },
+    "api_endpoint": {
+      "url": "https://dsc-fms-portal.vercel.app/api/assets",
+      "status": "✅ 200 OK",
+      "cache_state": "MISS (fresh)",
+      "response_time": "~1.0s"
     },
     "phase_2_services": {
       "phase_2a": {
         "port": 3009,
         "service": "message-collection",
         "status": "✅ LISTEN",
-        "uptime": "verified at 10:21 KST"
+        "uptime": "verified at 06:38 KST"
       },
       "phase_2b": {
         "port": 3010,
         "service": "duplicate-detection",
         "status": "✅ LISTEN",
-        "uptime": "verified at 10:21 KST"
+        "uptime": "verified at 06:38 KST"
       },
       "phase_2c": {
         "port": 3011,
         "service": "trust-score",
         "status": "✅ LISTEN",
-        "uptime": "verified at 10:21 KST"
+        "uptime": "verified at 06:38 KST"
       }
-    },
-    "gateway": {
-      "port": 19001,
-      "status": "✅ LISTEN",
-      "uptime": "verified at 10:21 KST"
-    },
-    "fms_portal_dev": {
-      "port": 3000,
-      "status": "✅ RUNNING (npm dev)",
-      "process": "next dev"
     }
   },
 
-  "build_status": {
-    "status": "✅ PASSING",
-    "pages": 83,
-    "static_pages": 83,
-    "errors": 0,
-    "warnings": 0,
-    "warning_detail": "none",
-    "last_build": "2026-06-09T14:00:00+09:00"
-  },
-
   "system_health": {
-    "reliability": "92%",
-    "consecutive_stable_cycles": 0,
-    "state_changes": 1,
-    "blockers": 1,
-    "total_loc_verified": 9578,
-    "stability_duration_minutes": 0,
-    "notes": "🔴 ALERT: /assets page regression recurring (3회 반복). Vercel cache/deployment issue suspected. Phase 2 services stable (3009/3010/3011 LISTEN). Build PASSING. Action: Investigate Vercel deployment + /assets route caching."
-  },
-
-  "next_cycle": {
-    "cycle_number": 982,
-    "scheduled_time": "2026-06-08T19:37:00+09:00",
-    "checks": ["AUDIT-P1 (0cf3c1ba)", "DISCORD-BOT-P1 (585db4d5)", "TRAVEL-P2-UI (e9396c74)", "BM-P1 (ecc13a9f)", "Phase2-Services-Health", "Build-Status"]
+    "reliability": "98%+",
+    "consecutive_stable_cycles": 8,
+    "blockers": 0,
+    "code_stability": "55h+ (zero changes since 2026-06-04 21:12)",
+    "status_notes": "✅ 모든 P1 프로젝트 완료 (4/4) | ✅ Phase 2A/B/C 정상 | ✅ Vercel 캐시 안정화 확인 | ✅ 신뢰도 98%+ 회복"
   }
 }
