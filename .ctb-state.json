@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-10T07:29:00+0900",
+  "timestamp": "2026-06-09T22:55:01Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
@@ -8,12 +8,7 @@
   },
   "production": {
     "vercel": "OK",
-    "vercel_http": "200",
-    "assets": "✅ HEALTHY",
-    "api_assets": "✅ HEALTHY"
+    "vercel_http": "200"
   },
-  "last_update": "2026-06-10 07:29:00",
-  "polling_cycle": 1109,
-  "reliability": "98.5%",
-  "blockers": 0
+  "last_update": "2026-06-10 07:55:01"
 }
