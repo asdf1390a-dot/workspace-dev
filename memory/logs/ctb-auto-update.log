@@ -1908,3 +1908,35 @@ CTB_2026_06_09.json — 생성 ✅
 [2026-06-09 22:55:01] ✅ CTB updated: 100% | Local: Phase2A=ready | Phase2B=ready | Phase2C=ready | Production: Vercel=OK
 [2026-06-09 23:00:01] 🔄 CTB Auto-Update 폴링 시작...
 [2026-06-09 23:00:01] ✅ CTB updated: 100% | Local: Phase2A=ready | Phase2B=ready | Phase2C=ready | Production: Vercel=OK
+[2026-06-09 23:05:01] 🔄 CTB Auto-Update 폴링 시작...
+[2026-06-09 23:05:01] ✅ CTB updated: 100% | Local: Phase2A=ready | Phase2B=ready | Phase2C=ready | Production: Vercel=OK
+[2026-06-09 23:10:01] 🔄 CTB Auto-Update 폴링 시작...
+[2026-06-09 23:10:01] ✅ CTB updated: 100% | Local: Phase2A=ready | Phase2B=ready | Phase2C=ready | Production: Vercel=OK
+[2026-06-09 23:10:00 GMT+9] CHECKPOINT #335 (Cron 30min auto-save) — Status Change Detected
+⚠️  CRITICAL: /assets page regression (HTTP 200 → 404 at 23:09 KST)
+   Vercel status: OK → DEGRADED
+   Reliability: 100% → 92%
+   Blocker count: 0 → 1
+   P1 Projects: All 100% complete (no change)
+   Root Cause: Unknown (Vercel deploy/build issue suspected)
+   Action: Investigate Vercel logs, consider rollback/re-deploy
+🔧 Memory Updated: MEMORY.md, INCOMPLETE_TASKS_REGISTRY.md
+✅ Checkpoint saved
+[2026-06-09 23:15:01] 🔄 CTB Auto-Update 폴링 시작...
+[2026-06-09 23:15:01] ✅ CTB updated: 100% | Local: Phase2A=ready | Phase2B=ready | Phase2C=ready | Production: Vercel=OK
+[2026-06-09 23:19:30] 🔄 CTB Auto-Update 폴링 시작 (사이클 1036)...
+[2026-06-09 23:19:30] 🔴 상태변화 감지: /assets 404 지속 (23:09 KST 이후)
+[2026-06-09 23:19:30] ✅ 프로젝트 확인 완료:
+  - AUDIT-P1: 100% (0cf3c1ba)
+  - DISCORD-BOT-P1: 100% (585db4d5)
+  - BM-P1: 100% (ecc13a9f)
+  - TRAVEL-P2-UI: 100% (e9396c74)
+[2026-06-09 23:19:30] 📊 시스템 상태:
+  - Phase2A: ready
+  - Phase2B: ready
+  - Phase2C: ready
+  - Vercel: DEGRADED (HTTP 404 /assets)
+  - Reliability: 92% (블로커 1: /assets 404)
+[2026-06-09 23:19:30] ⚠️  경고: Vercel 배포 상태 악화 — /assets 엔드포인트 404 회귀 지속 중
+[2026-06-09 23:19:30] 🔧 조치 대기: Vercel 배포 상태 복구 필요 (원인 분석 진행 중)
+

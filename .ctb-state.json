@@ -1,17 +1,19 @@
 {
-  "timestamp": "2026-06-09T14:09:00Z",
-  "progress": 100,
+  "timestamp": "2026-06-09T14:19:30Z",
+  "progress": 92,
   "services": {
-    "phase2a": "offline",
-    "phase2b": "offline",
-    "phase2c": "offline"
+    "phase2a": "ready",
+    "phase2b": "ready",
+    "phase2c": "ready"
   },
   "production": {
     "vercel": "DEGRADED",
-    "vercel_http": "404"
+    "vercel_http": "404",
+    "affected_endpoint": "/assets",
+    "status_change_detected": "2026-06-09 23:09 KST"
   },
-  "last_update": "2026-06-09 23:09:00",
-  "state_change_detected": true,
-  "change_type": "VERCEL_ASSETS_404",
-  "polling_cycle": 1034
+  "reliability": 92,
+  "blockers": 1,
+  "last_update": "2026-06-09 23:19:30",
+  "note": "Vercel /assets 404 회귀 감지 (23:09 KST 이후 지속) — 신뢰도 100% → 92% ⬇️"
 }
