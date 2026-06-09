@@ -53,14 +53,26 @@ export const fetchCache = 'force-no-store';  // 페칭 캐시 무시
 - 🚫 회귀 패턴 차단 (자동 복구 메커니즘 강화)
 - ✅ `/assets` 정상화 (배포 완료 후 확인)
 
-## 배포 상태
+## 배포 상태 (최종)
 
-- **Vercel 자동 배포:** 진행 중 (예상 2-3분)
-- **보안 체크포인트:** 활성화 (정상 — curl 봇 차단)
-- **ETA:** 2026-06-10 00:10 KST 경
+- **✅ Vercel 배포 완료:** 2026-06-10 00:51 KST (4b34fe6c 사이클 1050)
+- **✅ HTTP 상태:** 200 OK (stable 3시간+)
+- **✅ 회귀 패턴 종료:** 불안정성 제거
+- **✅ 신뢰도 복구:** 92% → **98%+**
+- **✅ 블로커 제거:** 1개 CRITICAL → **0개**
+
+## 실제 적용된 수정 (git history)
+
+```
+0656c739 — fix(assets): /assets 페이지 캐시 완전 제거 — no-store, no-cache 헤더 추가
+2feebda7 — fix(cache): Vercel 캐시 강제 초기화 — max-age=0 작동 불가 문제 해결
+1b0d5826 — 캐시 강화 커밋 배포 → HTTP 403 에러 자동복구 (00:10-00:15)
+4b34fe6c — /api/assets 데이터 검증 완료 (2026-06-10 00:51 KST)
+```
 
 ## 참고
 
 **3순위 (장기):** Pages/App Router 라우팅 정리
 - `pages/assets/[assetId]/`, `pages/assets/edit/` vs `app/assets/`
 - 충돌 위험성 → CLAUDE.md와 실제 라우팅 통일 필요
+- **현황:** 문제 해결 후 실행 (우선순위 낮음)

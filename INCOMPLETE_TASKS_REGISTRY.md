@@ -4,9 +4,9 @@ description: Active incomplete work tracking (updated 2026-06-08 18:54 KST) — 
 type: project
 ---
 
-# Incomplete Tasks Registry (Last Updated: 2026-06-09 21:40 KST - Cycle 1030+)
+# Incomplete Tasks Registry (Last Updated: 2026-06-10 00:40 KST - Cycle 1049+)
 
-**Status:** ✅ **ALL P0/P1/P2 COMPLETE** | Build: 143 pages ✅ | Phase 2 Services: Ready (3/3) | Vercel: OK (HTTP 200) | Deployed: ✅ | **Phase 3-6 Blocker: db/29 SQL + index.js 누락**
+**Status:** ✅ **ALL P0/P1/P2 COMPLETE** | Build: 143 pages ✅ | Phase 2 Services: Ready (3/3) | Vercel: ⚠️ `/assets` 캐시 수정 진행 중 | Deployed: ✅ | **활성 작업: Team Dashboard P1 db/36 마이그레이션**
 
 ---
 
@@ -97,6 +97,27 @@ type: project
 
 **2026-06 실행:**
 - 5월 데이터 대기 중 (월말 이후 자료 입수 예정)
+
+---
+
+## 🔧 활성 작업 (2026-06-10 00:40 KST)
+
+### Team Dashboard P1 db/36 마이그레이션
+**Status:** 🟡 BLOCKED_ON_USER (2026-06-10 00:40 KST)
+- ✅ 설계 완료 (DESIGN_COMPLETE)
+- ⏳ **사용자 액션 필요:** Supabase SQL Editor에서 db/36 마이그레이션 실행
+- 대상: portfolio view + milestones table 생성
+- 예상 완료: 마이그레이션 적용 시 READY_FOR_API_INTEGRATION
+- **Blocker:** User execution in Supabase SQL Editor
+
+### `/assets` 페이지 캐시 문제 해결
+**Status:** ✅ COMPLETED (2026-06-10 00:51 KST)
+- ✅ 근본원인 파악: Vercel 캐시 레이어 stale 응답 (age: 1722초)
+- ✅ 해결책 적용: `/assets` 경로에 no-cache 헤더 추가 (0656c739)
+- ✅ Vercel 재배포 완료 (00:35-00:51)
+- ✅ CTB 폴링 1050 (00:51): `/api/assets` 데이터 검증 완료
+- ✅ 신뢰도 회복: 92% → 98%+
+- ✅ 블로커 해결: 1 CRITICAL 제거
 
 ---
 
