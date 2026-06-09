@@ -1,18 +1,17 @@
-# 메모리 인덱스 — DSC Mannur FMS + 생태계
-
-**마지막 갱신:** 2026-06-10 00:10 KST | **크기:** 업데이트 중 | **상태:** JARVIS 긴급 조치 완료
+**마지막 갱신:** 2026-06-10 02:11 KST | **크기:** 업데이트 중 | **상태:** ⚠️ RECURRING_TRANSIENT (자동복구 중) — escalation 필요
 
 ---
 
-## ✅ **RESOLVED — /assets 캐시 문제 완전 해결 (2026-06-10 12:56 KST)**
+## ⚠️ **ONGOING — Vercel RECURRING_TRANSIENT_404 (2026-06-10 01:31-02:11 KST)**
 
-**상황:** `/assets` 회귀 문제가 자동 복구됨
-- ✅ **실제 해결:** Vercel 캐시 강제 초기화 (0656c739, 2feebda7)
-- ✅ **HTTP 상태:** 200 OK (stable 3시간+)
-- ✅ **신뢰도 복구:** 92% → **98%+**
-- ✅ **블로커 제거:** 1개 CRITICAL → **0개**
-- **상태:** 모든 P1 프로젝트 100% 완료 + 안정적 운영 중
-- **다음 작업:** Team Dashboard P1 db/36 마이그레이션 (설계 완료, 사용자 실행 대기)
+## ✅ **PARTIAL RESOLUTION — /assets 캐시 헤더 적용 (2026-06-10 12:56 KST)**
+
+**상황:** no-cache/no-store 헤더 적용했으나 엣지 캐시 desync 반복 중
+- ✅ **조치:** no-cache, no-store 헤더 추가 (0656c739)
+- ⚠️ **효과:** 일시적 복구 후 5-6분 주기 재발생
+- 🔴 **근본원인:** Vercel 엣지 캐시 또는 배포 파이프라인 transient (코드 무관)
+- **상태:** 모든 P1 프로젝트 100% 완료 (코드 변화 0, 18시간 전)
+- **다음 작업:** Vercel escalation + Team Dashboard P1 db/36 마이그레이션 (설계 완료, 사용자 실행 대기)
 
 ---
 

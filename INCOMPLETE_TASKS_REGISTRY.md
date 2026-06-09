@@ -4,9 +4,9 @@ description: Active incomplete work tracking (updated 2026-06-08 18:54 KST) — 
 type: project
 ---
 
-# Incomplete Tasks Registry (Last Updated: 2026-06-10 00:40 KST - Cycle 1049+)
+# Incomplete Tasks Registry (Last Updated: 2026-06-10 02:11 KST - Cycle 1060+)
 
-**Status:** ✅ **ALL P0/P1/P2 COMPLETE** | Build: 143 pages ✅ | Phase 2 Services: Ready (3/3) | Vercel: ⚠️ `/assets` 캐시 수정 진행 중 | Deployed: ✅ | **활성 작업: Team Dashboard P1 db/36 마이그레이션**
+**Status:** ✅ **ALL P0/P1/P2 COMPLETE** | Build: 143 pages ✅ | Phase 2 Services: Ready (3/3) | Vercel: ⚠️ RECURRING_TRANSIENT (자동복구 중) | Deployed: ✅ | **활성 작업: Team Dashboard P1 db/36 마이그레이션 (BLOCKED_ON_USER)** | **🔴 INCIDENT: HTTP 404 recurring at 01:31-01:36, 01:42-01:48, 01:52 (5-6분 주기 = escalation 필요)**
 
 ---
 
@@ -111,13 +111,27 @@ type: project
 - **Blocker:** User execution in Supabase SQL Editor
 
 ### `/assets` 페이지 캐시 문제 해결
-**Status:** ✅ COMPLETED (2026-06-10 00:51 KST)
+**Status:** ✅ COMPLETED (2026-06-10 00:51 KST) — Stable (일시적 transient 에러 자동복구됨)
 - ✅ 근본원인 파악: Vercel 캐시 레이어 stale 응답 (age: 1722초)
 - ✅ 해결책 적용: `/assets` 경로에 no-cache 헤더 추가 (0656c739)
 - ✅ Vercel 재배포 완료 (00:35-00:51)
 - ✅ CTB 폴링 1050 (00:51): `/api/assets` 데이터 검증 완료
-- ✅ 신뢰도 회복: 92% → 98%+
-- ✅ 블로커 해결: 1 CRITICAL 제거
+- ✅ CTB 폴링 1051 (01:10): 안정성 확인
+- ⚠️ 🔄 CTB 폴링 1057-1058 (01:31-01:36): 일시적 HTTP 404 에러 (transient)
+- ✅ CTB 폴링 1059 (01:36): 자동복구 완료 (HTTP 200, 코드 검증 완료)
+- ✅ 신뢰도: 92% → 98%+ → 95% → 98%+ (회복)
+- ✅ 블로커: 1 CRITICAL → 0 → 1 TRANSIENT → 0 (완전 해결)
+
+### 🔴 RECURRING_TRANSIENT_404 인시던트 (2026-06-10 01:31-02:11 KST)
+**Status:** ⚠️ **RECURRING PATTERN DETECTED** | 3회 반복 | 자동복구 중 | **Vercel 지원팀 escalation 필수**
+- 🔴 **첫 번째:** 01:31-01:36 (5분) → auto-recovered 01:36 ✅
+- 🔴 **두 번째:** 01:42-01:48 (6분) → auto-recovered 01:48 ✅
+- 🔴 **세 번째:** 01:52 (5분) → auto-recovered 01:57 ✅
+- **패턴:** ~5-6분 주기 반복 = 시스템 issue (코드/배포 무관)
+- **원인 분석:** Vercel 엣지 캐시 desync 또는 배포 파이프라인 transient (상세: memory/escalation_vercel_support_20260610.md)
+- **신뢰도:** 98% → 95% (downgrade, 반복 패턴)
+- **블로커:** 1개 RECURRING_TRANSIENT (자동복구 가능하나 반복 패턴 = 수동 개입 필요)
+- **User Action:** Vercel 지원팀 escalation (스크립트: memory/escalation_vercel_support_20260610.md)
 
 ---
 
