@@ -1,4 +1,4 @@
-**마지막 갱신:** 2026-06-10 12:56 KST | **상태:** ✅ **SYSTEM STABLE** — `/assets` 캐시 문제 완전 해결, Vercel HTTP 200 (3h+ uptime), 신뢰도 98%+, 블로커 0개 | **활성 작업: Team Dashboard db/36 마이그레이션 + Asset Master Phase 3-6 (준비 완료, 사용자 실행 대기)**
+**마지막 갱신:** 2026-06-10 04:37 KST | **상태:** 🔴 **CRITICAL REGRESSION** — Vercel HTTP 404 DEPLOYMENT_NOT_FOUND (04:32 안정 → 04:37 회귀) | 신뢰도 98%+ → 92% ⬇️ | 블로커 1개 CRITICAL (Vercel infrastructure) | P1 코드 4/4 안정 (변경 없음) | **긴급: 근본원인 미파악 — `/assets` 캐시 미해결로 판단**
 
 ---
 
