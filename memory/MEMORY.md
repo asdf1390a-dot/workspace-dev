@@ -60,6 +60,7 @@
 - [🤖 자율 실행 — 의사결정 자동화](feedback_autonomous_execution_no_asking.md) — 여러 작업 대기 시 자율 판단 + 실행, 질문 금지
 - [📊 Absolute Task Completion](feedback_absolute_task_completion_rule.md) — 결과물 책임 + CTB 추적
 - [🔐 Double Verification](feedback_double_verification_before_delivery.md) — 배포 전 2회 검증
+- [🔐 Excel 파일 구조 변경 금지](feedback_excel_no_structural_changes.md) — 양식 그대로 유지, 셀 값만 수정
 
 ---
 
