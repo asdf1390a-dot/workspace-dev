@@ -2178,3 +2178,7 @@ Vercel: OK (no-cache 헤더 적용)
 [2026-06-10 05:21:00] ✅ P1=4/4 (100%, code stable zero changes since Jun 9 13:34)
 [2026-06-10 05:21:00] ✅ 신뢰도=98%+ (블로커 0)
 [2026-06-10 05:21:00] ✅ CTB 업데이트 완료
+[2026-06-10 05:25:01] 🔄 CTB Auto-Update 폴링 시작...
+[2026-06-10 05:25:02] ✅ CTB updated: 100% | Local: Phase2A=ready | Phase2B=ready | Phase2C=ready | Production: Vercel=OK
+[2026-06-10 05:30:01] 🔄 CTB Auto-Update 폴링 시작...
+[2026-06-10 05:30:01] ✅ CTB updated: 100% | Local: Phase2A=ready | Phase2B=ready | Phase2C=ready | Production: Vercel=OK

@@ -1,27 +1,20 @@
 {
-  "timestamp": "2026-06-10T20:21:00Z",
-  "cycle": 1088,
+  "timestamp": "2026-06-10T20:32:00Z",
   "progress": 100,
-  "p1_projects": {
-    "audit_p1": "100%",
-    "discord_bot_p1": "100%",
-    "bm_p1": "100%",
-    "travel_p2_ui": "100%"
-  },
-  "code_stability": "zero changes since 2026-06-09 13:34 KST",
+  "reliability": 92,
+  "cycle": 1089,
+  "blocker": "🔴 CRITICAL: Vercel DEPLOYMENT_NOT_FOUND",
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
     "phase2c": "ready"
   },
   "production": {
-    "vercel": "OK",
-    "vercel_http": "200",
-    "deployment_status": "HEALTHY",
-    "rootDirectory": "dsc-fms-portal (fixed @ 05:17)",
-    "last_redeploy": "2026-06-10 05:17:00 KST"
+    "vercel": "DEPLOYMENT_LOST",
+    "vercel_http": "404",
+    "vercel_error": "DEPLOYMENT_NOT_FOUND"
   },
-  "reliability": "98%+",
-  "blockers": "0",
-  "last_update": "2026-06-10 05:21:00 KST"
+  "code_status": "stable (P1 4/4 = 100%)",
+  "last_update": "2026-06-10 05:32:00",
+  "user_action_required": "Vercel dashboard reconnect / manual redeploy"
 }
