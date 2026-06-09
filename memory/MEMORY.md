@@ -19,6 +19,7 @@
 
 ## 🟢 **최근 업데이트**
 
+- [🔴 CTB 폴링 사이클 1042 — /assets 회귀 지속 (2026-06-09 23:57)](ctb_regression_assets_20260609_2340.md) — HTTP 404 지속 (4회 반복), Vercel=DEGRADED, 신뢰도=92%, 블로커=1
 - [🔴 Phase 3-6 거짓 진행 보고 정정 (2026-06-09 21:40)](INCOMPLETE_TASKS_REGISTRY.md) — IN_PROGRESS 75% → PENDING 0% (커밋 존재 안 함), db/29 SQL + index.js 블로커
 - [🟡 조직도 & 업무현황 Cycle 1030 (2026-06-09 21:30)](ORGSTATUS_2026_06_09_2130.md) — 팀 8명, 프로젝트 완료율 75%, 블로킹 4개, 자동화 100%
 - [🔴 웹빌더 긴급 진단 (2026-06-09 20:54)](team_web_builder_emergency_diagnosis.md) — db/29 부분 적용, 상세 페이지 404, 6일 내 완료 필요
