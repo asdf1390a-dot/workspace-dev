@@ -1,7 +1,6 @@
 {
-  "timestamp": "2026-06-09T13:14:22Z",
+  "timestamp": "2026-06-09T13:19:29Z",
   "progress": 100,
-  "cycle": 1036,
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
@@ -11,11 +10,5 @@
     "vercel": "OK",
     "vercel_http": "200"
   },
-  "projects": {
-    "audit_p1": "100%",
-    "discord_bot_p1": "100%",
-    "bm_p1": "100%",
-    "travel_p2_ui": "100%"
-  },
-  "last_update": "2026-06-09 22:14:22"
+  "last_update": "2026-06-09 22:19:29"
 }
