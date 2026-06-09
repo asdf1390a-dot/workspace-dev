@@ -4,9 +4,9 @@ description: Active incomplete work tracking (updated 2026-06-08 18:54 KST) — 
 type: project
 ---
 
-# Incomplete Tasks Registry (Last Updated: 2026-06-10 03:23 KST - Cycle 1070+)
+# Incomplete Tasks Registry (Last Updated: 2026-06-10 03:53 KST - Cycle 1071+)
 
-**Status:** ✅ **ALL P0/P1/P2 COMPLETE** | Build: 143 pages ✅ | Phase 2 Services: Ready (3/3) | Vercel: ⚠️ RECURRING_TRANSIENT (자동복구 중) | Deployed: ✅ | **활성 작업: Team Dashboard P1 db/36 마이그레이션 (BLOCKED_ON_USER)** | **🔴 INCIDENT: HTTP 404 recurring at 01:31-01:36, 01:42-01:48, 01:52, 02:14 (5-6분 주기, 4회 반복 = Vercel escalation 필수)**
+**Status:** ✅ **ALL P0/P1/P2 COMPLETE** | Build: 143 pages ✅ | Phase 2 Services: Ready (3/3) | Vercel: 🔴 **451 DEPLOYMENT_DISABLED** (escalated from 404) | **활성 작업: Team Dashboard P1 db/36 마이그레이션 (BLOCKED_ON_USER)** | **🔴 CRITICAL: Vercel 451 DEPLOYMENT_DISABLED — middleware 배포 완료, 인프라팀 대기 중 (escalation 진행 중)**
 
 ---
 

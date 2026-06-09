@@ -1,4 +1,4 @@
-**마지막 갱신:** 2026-06-10 03:44 KST | **상태:** 🟡 자동화 개선 중 + 인프라 안정화 필요 — 규칙 위반 자동 감지/수정 + `/assets` 라우팅 불안정
+**마지막 갱신:** 2026-06-10 03:53 KST | **상태:** 🔴 **Vercel 451 DEPLOYMENT_DISABLED** (escalated from RECURRING_404) — middleware 배포 완료, 인프라팀 조사 진행 중
 
 ---
 
