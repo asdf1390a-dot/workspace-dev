@@ -86,7 +86,7 @@ export async function GET(
     }
 
     const { data: row, error } = await supabase
-      .from('bm_events')
+      .from('breakdown_reports')
       .select('*, assets(machine_asset_number, name_en)')
       .eq('id', id)
       .maybeSingle();
@@ -147,7 +147,7 @@ export async function PATCH(
     }
 
     const { data: rows, error } = await supabase
-      .from('bm_events')
+      .from('breakdown_reports')
       .update(updates)
       .eq('id', id)
       .select('*, assets(machine_asset_number, name_en)');
@@ -177,7 +177,7 @@ export async function DELETE(
     }
 
     const { error } = await supabase
-      .from('bm_events')
+      .from('breakdown_reports')
       .delete()
       .eq('id', id);
 

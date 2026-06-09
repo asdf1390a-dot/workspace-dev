@@ -102,7 +102,7 @@ export async function POST(req: NextRequest): Promise<NextResponse<ProcessorResp
     if (isBMQuery) {
       try {
         const { data: breakdowns, error: bmError } = await supabaseAdmin
-          .from('bm_events')
+          .from('breakdown_reports')
           .select('id, status, severity, reported_at')
           .order('reported_at', { ascending: false })
           .limit(50);
@@ -158,7 +158,7 @@ export async function POST(req: NextRequest): Promise<NextResponse<ProcessorResp
     // KPI metrics query (default)
     try {
       const { data: breakdowns, error: bmError } = await supabaseAdmin
-        .from('bm_events')
+        .from('breakdown_reports')
         .select('resolved_at, reported_at, severity')
         .not('resolved_at', 'is', null);
 

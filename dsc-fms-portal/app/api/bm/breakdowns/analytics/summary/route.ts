@@ -66,7 +66,7 @@ export async function GET(request: NextRequest) {
     const offset = searchParams.get('offset') || '0';
 
     let query = supabase
-      .from('bm_events')
+      .from('breakdown_reports')
       .select('id, asset_id, status, severity, reported_at, resolved_at, assets(machine_asset_number, name_en)');
 
     if (asset_id) {

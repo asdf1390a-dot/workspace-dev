@@ -158,11 +158,11 @@ async function safeFetch<T>(url: string, init?: RequestInit): Promise<T> {
   return body as T;
 }
 
-// Fallback: read directly from Supabase bm_events table if the new
+// Fallback: read directly from Supabase breakdown_reports table if the new
 // /api/bm/breakdowns endpoint is not yet deployed (M1 still in flight).
 async function fallbackListFromSupabase(filters: ListFilters) {
   let q = supabase
-    .from('bm_events')
+    .from('breakdown_reports')
     .select(
       'id, asset_id, status, severity, symptom, reported_at, resolved_at, reporter_name, ' +
         'assets(machine_asset_number, name_en)',
@@ -283,9 +283,9 @@ export function useBreakdownById(id: string | undefined) {
           setData(res);
         } catch (e: any) {
           if (e?.status === 404 || e?.status === 501 || !e?.status) {
-            // Fall back to direct Supabase read on bm_events table.
+            // Fall back to direct Supabase read on breakdown_reports table.
             const { data: row, error: sbErr } = await supabase
-              .from('bm_events')
+              .from('breakdown_reports')
               .select('*, assets(machine_asset_number, name_en, location)')
               .eq('id', id)
               .maybeSingle();
@@ -414,7 +414,7 @@ async function fallbackAnalytics(params: {
   reported_to?: string;
 }) {
   let q = supabase
-    .from('bm_events')
+    .from('breakdown_reports')
     .select('id, asset_id, status, severity, reported_at, resolved_at, assets(machine_asset_number, name_en)')
     .limit(2000);
   if (params.asset_id) q = q.eq('asset_id', params.asset_id);

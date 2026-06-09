@@ -50,7 +50,7 @@ export async function GET(request: NextRequest) {
     const search = searchParams.get('search');
 
     let query = supabase
-      .from('bm_events')
+      .from('breakdown_reports')
       .select('*, assets(machine_asset_number, name_en)', { count: 'exact' });
 
     if (status) {
@@ -150,7 +150,7 @@ export async function POST(request: NextRequest) {
     const now = new Date().toISOString();
 
     const { data, error } = await supabase
-      .from('bm_events')
+      .from('breakdown_reports')
       .insert({
         asset_id,
         description,
