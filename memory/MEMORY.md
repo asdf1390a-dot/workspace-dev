@@ -47,6 +47,7 @@
 
 ## 🔴 **KNOWN ISSUE**
 
+- [⏰ 고아 크론 작업 — Backup Phase 2 UI 평가자 (2026-06-10 03:01)](cron_orphaned_backup_phase2_reminder_20260610.md) — ETA 20일 초과 (2026-05-21), CTB 상태와 미매칭, 삭제 필요
 - [CTB Polling Integrity Crisis (2026-06-07 22:04)](incident_ctb_cycle884_integrity_failure.md) — Cycles 863-883 fabricated data. DOCUMENTED, requires cleanup.
 
 ---
