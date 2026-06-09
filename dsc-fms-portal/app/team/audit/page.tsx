@@ -89,109 +89,111 @@ export default function AuditPage() {
   });
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 p-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900 flex items-center gap-2">
+          <h1 className="text-3xl font-bold text-slate-900 flex items-center gap-2">
             <Shield className="w-8 h-8 text-orange-600" />
-            Audit Log
+            감시 로그
           </h1>
-          <p className="text-gray-600 mt-1">System activity and change tracking</p>
+          <p className="text-slate-600 mt-1">시스템 활동 및 변경 이력 추적</p>
         </div>
-        <button className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+        <button className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium">
           <Download className="w-4 h-4" />
-          Export
+          내보내기
         </button>
       </div>
 
       <div className="flex gap-4">
         <div className="flex-1">
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-sm font-medium text-slate-700 mb-2">
             <Filter className="w-4 h-4 inline mr-2" />
-            Filter by Type
+            대상 유형
           </label>
           <select
             value={filterType}
             onChange={(e) => setFilterType(e.target.value)}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           >
-            <option value="all">All Types</option>
-            <option value="member">Member</option>
-            <option value="project">Project</option>
-            <option value="allocation">Allocation</option>
-            <option value="system">System</option>
+            <option value="all">모든 유형</option>
+            <option value="member">팀원</option>
+            <option value="project">프로젝트</option>
+            <option value="allocation">배분</option>
+            <option value="system">시스템</option>
           </select>
         </div>
 
         <div className="flex-1">
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            Filter by Action
+          <label className="block text-sm font-medium text-slate-700 mb-2">
+            활동 유형
           </label>
           <select
             value={filterAction}
             onChange={(e) => setFilterAction(e.target.value)}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           >
-            <option value="all">All Actions</option>
-            <option value="CREATED">Created</option>
-            <option value="UPDATED">Updated</option>
-            <option value="DELETED">Deleted</option>
-            <option value="ALLOCATED">Allocated</option>
-            <option value="FAILED">Failed</option>
+            <option value="all">모든 활동</option>
+            <option value="CREATED">생성</option>
+            <option value="UPDATED">수정</option>
+            <option value="DELETED">삭제</option>
+            <option value="ALLOCATED">배분</option>
+            <option value="FAILED">실패</option>
           </select>
         </div>
       </div>
 
       <div className="space-y-3">
         {loading ? (
-          <div className="text-center py-12 bg-white rounded-lg">
-            <p className="text-gray-500">Loading audit logs...</p>
+          <div className="space-y-2">
+            {[1, 2, 3, 4, 5].map((i) => (
+              <div key={i} className="bg-slate-200 rounded-lg h-20 animate-pulse" />
+            ))}
           </div>
         ) : filteredLog.length === 0 ? (
-          <div className="text-center py-12 bg-white rounded-lg">
-            <p className="text-gray-500">No audit entries found</p>
+          <div className="text-center py-12 bg-white rounded-lg border border-slate-200">
+            <p className="text-slate-500">감시 로그 데이터 없음</p>
           </div>
         ) : (
           filteredLog.map((entry) => (
-            <div key={entry.id} className="bg-white rounded-lg shadow hover:shadow-md transition-shadow">
+            <div key={entry.id} className="bg-white rounded-lg border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
               <button
                 onClick={() => setExpandedId(expandedId === entry.id ? null : entry.id)}
-                className="w-full text-left p-6"
+                className="w-full text-left p-5"
               >
                 <div className="flex items-start justify-between">
                   <div className="flex-1">
                     <div className="flex items-center gap-3">
-                      <span className="text-lg font-bold text-gray-400">•</span>
+                      <span className="text-lg font-bold text-slate-300">•</span>
                       <div>
-                        <div className="flex items-center gap-2">
-                          <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                        <div className="flex items-center gap-2 mb-1">
+                          <span className={`inline-block px-3 py-1 rounded-full text-xs font-medium ${getActionColor(entry.activityType, 'success')}`}>
                             {entry.activityType}
                           </span>
-                          <span className="inline-block px-2 py-1 rounded text-xs font-medium bg-gray-100 text-gray-800">
+                          <span className={`inline-block px-2 py-1 rounded text-xs font-medium ${getTargetTypeColor(entry.targetType)}`}>
                             {entry.targetType}
                           </span>
                         </div>
-                        <h3 className="font-semibold text-gray-900 mt-1">{entry.targetName}</h3>
-                        <p className="text-sm text-gray-600 mt-1">by {entry.actorName}</p>
+                        <h3 className="font-semibold text-slate-900">{entry.targetName}</h3>
+                        <p className="text-sm text-slate-600 mt-1">{entry.actorName}</p>
                       </div>
                     </div>
                   </div>
                   <div className="text-right ml-4 flex-shrink-0">
-                    <p className="text-xs text-gray-500">{entry.createdAt}</p>
+                    <p className="text-xs text-slate-500">{new Date(entry.createdAt).toLocaleDateString('ko-KR')}</p>
                   </div>
                 </div>
 
                 {expandedId === entry.id && entry.changes && entry.changes.length > 0 && (
-                  <div className="mt-4 pt-4 border-t border-gray-200">
-                    <h4 className="font-semibold text-gray-900 text-sm mb-3">Changes:</h4>
+                  <div className="mt-4 pt-4 border-t border-slate-200">
+                    <h4 className="font-semibold text-slate-900 text-sm mb-3">변경 사항:</h4>
                     <div className="space-y-2">
                       {entry.changes.map((change, idx) => (
-                        <div key={idx} className="bg-gray-50 rounded p-3 text-sm">
+                        <div key={idx} className="bg-slate-50 rounded p-3 text-sm border border-slate-100">
                           <div className="flex items-center justify-between">
-                            <span className="font-medium text-gray-900">{change.field || 'field'}</span>
-                            <span className="text-gray-600">
+                            <span className="font-medium text-slate-900">{change.field || '필드'}</span>
+                            <span className="text-slate-600">
                               <span className="text-red-600">{change.before || '-'}</span>
-                              <span className="mx-2 text-gray-400">→</span>
+                              <span className="mx-2 text-slate-400">→</span>
                               <span className="text-green-600">{change.after || '-'}</span>
                             </span>
                           </div>

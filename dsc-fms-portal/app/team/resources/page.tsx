@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { PieChart, BarChart3 } from 'lucide-react';
+import { BarChart3, Users, Clock, AlertCircle } from 'lucide-react';
 
 interface AllocationData {
   memberId: string;
@@ -82,91 +82,103 @@ export default function ResourcesPage() {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 p-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900 flex items-center gap-2">
+          <h1 className="text-3xl font-bold text-slate-900 flex items-center gap-2">
             <BarChart3 className="w-8 h-8 text-green-600" />
-            Resource Capacity
+            리소스 관리
           </h1>
-          <p className="text-gray-600 mt-1">Manage team capacity and resource allocation</p>
+          <p className="text-slate-600 mt-1">팀 역량 및 자원 배분 현황</p>
         </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-white rounded-lg shadow p-6">
-          <p className="text-sm text-gray-600 uppercase tracking-wide">Total Team Members</p>
-          <p className="text-3xl font-bold text-gray-900 mt-2">{totalMembers}</p>
+        <div className="bg-white rounded-lg border border-slate-200 shadow-sm p-6">
+          <p className="text-xs text-slate-600 mb-2">팀원 수</p>
+          <div className="flex items-baseline justify-between">
+            <span className="text-2xl font-bold text-slate-900">{totalMembers}</span>
+            <Users className="w-5 h-5 text-slate-400" />
+          </div>
         </div>
-        <div className="bg-white rounded-lg shadow p-6">
-          <p className="text-sm text-gray-600 uppercase tracking-wide">Total Capacity</p>
-          <p className="text-3xl font-bold text-blue-600 mt-2">{totalCapacity}h</p>
+        <div className="bg-white rounded-lg border border-slate-200 shadow-sm p-6">
+          <p className="text-xs text-slate-600 mb-2">전체 역량</p>
+          <div className="flex items-baseline justify-between">
+            <span className="text-2xl font-bold text-blue-600">{totalCapacity}h</span>
+            <Clock className="w-5 h-5 text-slate-400" />
+          </div>
         </div>
-        <div className="bg-white rounded-lg shadow p-6">
-          <p className="text-sm text-gray-600 uppercase tracking-wide">Allocated Hours</p>
-          <p className="text-3xl font-bold text-purple-600 mt-2">{totalAllocated}h</p>
+        <div className="bg-white rounded-lg border border-slate-200 shadow-sm p-6">
+          <p className="text-xs text-slate-600 mb-2">배분된 시간</p>
+          <div className="flex items-baseline justify-between">
+            <span className="text-2xl font-bold text-purple-600">{totalAllocated}h</span>
+            <AlertCircle className="w-5 h-5 text-slate-400" />
+          </div>
         </div>
-        <div className="bg-white rounded-lg shadow p-6">
-          <p className="text-sm text-gray-600 uppercase tracking-wide">Available Hours</p>
-          <p className="text-3xl font-bold text-green-600 mt-2">{totalAvailable}h</p>
+        <div className="bg-white rounded-lg border border-slate-200 shadow-sm p-6">
+          <p className="text-xs text-slate-600 mb-2">가용 시간</p>
+          <div className="flex items-baseline justify-between">
+            <span className="text-2xl font-bold text-green-600">{totalAvailable}h</span>
+            <Clock className="w-5 h-5 text-slate-400" />
+          </div>
         </div>
       </div>
 
-      <div className="bg-white rounded-lg shadow p-6">
-        <h2 className="text-xl font-semibold text-gray-900 mb-6">Current Allocation Overview</h2>
-        <div className="border border-gray-200 rounded-lg p-4">
-          <div className="flex justify-between items-center mb-3">
-            <h3 className="font-semibold text-gray-900">June 2026</h3>
+      <div className="bg-white rounded-lg border border-slate-200 shadow-sm p-6">
+        <h2 className="text-lg font-semibold text-slate-900 mb-6">배분 현황 (2026년 6월)</h2>
+        <div className="space-y-3">
+          <div className="flex justify-between items-center">
+            <span className="text-sm font-medium text-slate-700">전체 배분율</span>
             <span className="text-2xl font-bold text-blue-600">{allocationPercentage}%</span>
           </div>
-          <div className="w-full bg-gray-200 rounded-full h-3">
+          <div className="w-full bg-slate-200 rounded-full h-3">
             <div
               className="h-3 rounded-full bg-blue-600 transition-all"
-              style={{ width: `${allocationPercentage}%` }}
+              style={{ width: `${Math.min(allocationPercentage, 100)}%` }}
             />
           </div>
-          <div className="flex justify-between mt-2 text-xs text-gray-600">
-            <span>{totalAllocated}h allocated</span>
-            <span>{totalAvailable}h available</span>
+          <div className="flex justify-between mt-2 text-xs text-slate-600">
+            <span>{totalAllocated}h 배분</span>
+            <span>{totalAvailable}h 가용</span>
           </div>
         </div>
       </div>
 
-      <div className="bg-white rounded-lg shadow p-6">
-        <h2 className="text-xl font-semibold text-gray-900 mb-6">Active Allocations</h2>
+      <div className="bg-white rounded-lg border border-slate-200 shadow-sm p-6">
+        <h2 className="text-lg font-semibold text-slate-900 mb-6">활성 배분</h2>
         <div className="space-y-3">
           {allocations.length === 0 ? (
-            <div className="text-center py-8 text-gray-500">
-              No allocations found
+            <div className="text-center py-8 text-slate-500">
+              배분 데이터 없음
             </div>
           ) : (
             allocations.map((allocation) => (
               <div
                 key={allocation.id}
-                className="border rounded-lg p-4 border-l-4 border-l-gray-500"
+                className={`border rounded-lg p-4 ${getPriorityColor(allocation.priority)} bg-white hover:shadow-sm transition-shadow`}
               >
                 <div className="flex items-start justify-between mb-3">
                   <div>
-                    <h4 className="font-semibold text-gray-900">Allocation {allocation.id}</h4>
-                    <p className="text-sm text-gray-600">Member: {allocation.member_id}</p>
+                    <h4 className="font-semibold text-slate-900">{allocation.project_id || `배분 ${allocation.id}`}</h4>
+                    <p className="text-sm text-slate-600">담당자: {allocation.member_id}</p>
                   </div>
-                  <span className="px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
-                    Active
+                  <span className={`px-3 py-1 rounded-full text-xs font-medium ${getStatusColor(allocation.status)}`}>
+                    {allocation.status === 'active' ? '진행중' : allocation.status === 'completed' ? '완료' : allocation.status === 'scheduled' ? '예정' : '일시중지'}
                   </span>
                 </div>
 
                 <div className="grid grid-cols-3 gap-4 text-sm">
                   <div>
-                    <p className="text-gray-600">Start Date</p>
-                    <p className="font-semibold text-gray-900">{allocation.start_date}</p>
+                    <p className="text-slate-600">시작일</p>
+                    <p className="font-semibold text-slate-900">{new Date(allocation.start_date).toLocaleDateString('ko-KR')}</p>
                   </div>
                   <div>
-                    <p className="text-gray-600">End Date</p>
-                    <p className="font-semibold text-gray-900">{allocation.end_date}</p>
+                    <p className="text-slate-600">종료일</p>
+                    <p className="font-semibold text-slate-900">{new Date(allocation.end_date).toLocaleDateString('ko-KR')}</p>
                   </div>
                   <div>
-                    <p className="text-gray-600">Allocated Hours</p>
-                    <p className="font-semibold text-gray-900">{allocation.allocated_hours}h</p>
+                    <p className="text-slate-600">배분 시간</p>
+                    <p className="font-semibold text-slate-900">{allocation.allocated_hours}h</p>
                   </div>
                 </div>
               </div>
