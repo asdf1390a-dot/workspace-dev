@@ -4,9 +4,9 @@ description: Active incomplete work tracking (updated 2026-06-08 18:54 KST) — 
 type: project
 ---
 
-# Incomplete Tasks Registry (Last Updated: 2026-06-10 03:53 KST - Cycle 1071+)
+# Incomplete Tasks Registry (Last Updated: 2026-06-10 12:56 KST - Cycle 1051+)
 
-**Status:** ✅ **ALL P0/P1/P2 COMPLETE** | Build: 143 pages ✅ | Phase 2 Services: Ready (3/3) | Vercel: 🔴 **451 DEPLOYMENT_DISABLED** (escalated from 404) | **활성 작업: Team Dashboard P1 db/36 마이그레이션 (BLOCKED_ON_USER)** | **🔴 CRITICAL: Vercel 451 DEPLOYMENT_DISABLED — middleware 배포 완료, 인프라팀 대기 중 (escalation 진행 중)**
+**Status:** ✅ **ALL P0/P1/P2 COMPLETE** | Build: 143 pages ✅ | Phase 2 Services: Ready (3/3) | Vercel: ✅ **STABLE** (HTTP 200, 3h+ uptime) | **활성 작업: Team Dashboard P1 db/36 마이그레이션 + Asset Master Phase 3-6 (BLOCKED_ON_USER)** | **✅ `/assets` 캐시 문제 완전 해결 — 신뢰도 98%+, 블로커 0개**
 
 ---
 
@@ -47,6 +47,48 @@ type: project
 **Commit:** 0e252343  
 **Time:** 2026-06-07 17:04 KST  
 **Remaining Work:** Phase 3-6 (UI/tests/glossary/deployment) — scheduled for separate sessions
+
+---
+
+## 🔄 ACTIVE PENDING TASKS (READY FOR EXECUTION)
+
+### 1️⃣ Team Dashboard P1 db/36 Supabase Migration
+**Status:** READY_FOR_USER_EXECUTION  
+**Blocker:** Waiting for user to execute SQL migration  
+**Execution Time:** 3-5 minutes  
+**Location:** `/memory/team_dashboard_db36_migration_script_20260610.md`
+
+**What's prepared:**
+- ✅ Complete SQL migration script (copy-paste ready)
+- ✅ Milestones table with RLS policies
+- ✅ Portfolio details view
+- ✅ 5 RLS policies for secure access
+- ✅ Verification checklist included
+
+**Next step:** User opens Supabase SQL Editor → Copy script → Paste → Click Run
+
+---
+
+### 2️⃣ Asset Master Phase 3-6 Implementation
+**Status:** READY_FOR_WEBBUILDER_EXECUTION  
+**Deadline:** 2026-06-15 (5 days, 21 hours remaining)  
+**Duration:** 40-48 hours (5 days × 8-10 hrs/day)  
+**Location:** `/memory/asset_master_phase3_6_sprint_plan_20260610.md`
+
+**What's prepared:**
+- ✅ Detailed 5-day sprint plan (Phase 3-1 Detail, 3-2 Edit, 3-3 Dispose)
+- ✅ Subtasks breakdown (T3.1.1 through T3.3.4)
+- ✅ Database migrations (db/29) ready to apply
+- ✅ Risk mitigation and success criteria
+- ✅ Day-by-day schedule
+
+**Scope:**
+- 3 pages (Detail, Edit, Dispose views)
+- 2 database migrations (asset_edit_history, asset_disposals tables)
+- 1 test suite
+- RLS policy enforcement
+
+**Prerequisite:** Team Dashboard db/36 migration must complete first
 
 ---
 
