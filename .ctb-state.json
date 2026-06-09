@@ -1,45 +1,17 @@
 {
-  "timestamp": "2026-06-09T19:52:47Z",
-  "cycle": 1082,
-  "cycle_time_kst": "2026-06-10 04:52 KST",
+  "timestamp": "2026-06-09T19:57:43Z",
   "progress": 100,
-  "p1_projects": {
-    "AUDIT-P1": {
-      "commit": "0cf3c1ba",
-      "status": "100% ✅",
-      "changes_since_last_update": 0
-    },
-    "DISCORD-BOT-P1": {
-      "commit": "585db4d5",
-      "status": "100% ✅",
-      "changes_since_last_update": 0
-    },
-    "BM-P1": {
-      "commit": "ecc13a9f",
-      "status": "100% ✅",
-      "changes_since_last_update": 0
-    },
-    "TRAVEL-P2-UI": {
-      "commit": "e9396c74",
-      "status": "100% ✅",
-      "changes_since_last_update": 0
-    }
-  },
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
     "phase2c": "ready"
   },
   "production": {
-    "vercel": "MONITORING",
-    "vercel_http": "200",
-    "note": "Vercel infrastructure regression pattern monitoring (5분 주기 회귀 패턴)"
+    "vercel": "DEGRADED",
+    "vercel_http": "404",
+    "error": "DEPLOYMENT_NOT_FOUND"
   },
-  "reliability": "92%",
-  "blockers": 1,
-  "blocker_type": "CRITICAL",
-  "blocker_description": "Vercel infrastructure recurring regression - root cause analysis pending",
-  "code_stable": true,
-  "code_stable_since": "2026-06-09 13:34 KST",
-  "last_update": "2026-06-10 04:52:47 UTC"
+  "last_update": "2026-06-10 04:57:43",
+  "cycle": 1083,
+  "reliability": "92%"
 }
