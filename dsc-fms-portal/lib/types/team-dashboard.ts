@@ -139,7 +139,10 @@ export interface PortfolioItem {
   end_date?: string;
   status: 'in_progress' | 'completed' | 'archived';
   image_url?: string;
+  skills_used?: string[];
+  impact?: string;
   created_at: string;
+  updated_at?: string;
 }
 
 // Activity Log

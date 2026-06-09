@@ -107,6 +107,24 @@ export default function PortfolioPage() {
                 </div>
               )}
             </div>
+            {selectedItem.skills_used && Array.isArray(selectedItem.skills_used) && selectedItem.skills_used.length > 0 && (
+              <div>
+                <h4 className="font-semibold text-gray-900">Skills Used</h4>
+                <div className="flex flex-wrap gap-2 mt-2">
+                  {selectedItem.skills_used.map((skill, idx) => (
+                    <span key={idx} className="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+            {selectedItem.impact && (
+              <div>
+                <h4 className="font-semibold text-gray-900">Impact</h4>
+                <p className="text-gray-600 mt-1">{selectedItem.impact}</p>
+              </div>
+            )}
             <div>
               <h4 className="font-semibold text-gray-900">Status</h4>
               <span
