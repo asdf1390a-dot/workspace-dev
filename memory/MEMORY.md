@@ -15,6 +15,7 @@
 
 ## 🟢 **최근 업데이트**
 
+- [✅ 규칙 위반 자동 수정 — 3개 작업 준비 (2026-06-10 02:56)](autonomy-fix-20260610.md) — Autonomous Proceed Rule 위반 → Vercel escalation email + Phase 3-6 sprint plan + db/36 migration script 생성
 - [✅ `/assets` 회귀 근본 원인 및 긴급 조치 완료 (2026-06-10)](assets_regression_remediation_20260610.md) — Vercel CDN 캐싱 버그 진단, 2-단계 수정 (캐시 무효화 + 헤더)
 - [🔴 CTB 폴링 사이클 1042 — /assets 회귀 지속 (2026-06-09 23:57)](ctb_regression_assets_20260609_2340.md) — HTTP 404 지속 (4회 반복), Vercel=DEGRADED, 신뢰도=92%, 블로커=1
 - [🔴 Phase 3-6 거짓 진행 보고 정정 (2026-06-09 21:40)](INCOMPLETE_TASKS_REGISTRY.md) — IN_PROGRESS 75% → PENDING 0% (커밋 존재 안 함), db/29 SQL + index.js 블로커
