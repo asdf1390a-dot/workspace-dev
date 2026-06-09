@@ -1,14 +1,43 @@
-**마지막 갱신:** 2026-06-10 05:11 KST | **상태:** 🔴 **CRITICAL DEPLOYMENT PENDING** — vercel.json 복구 완료 (commit 800e08c7 @ 05:07) | Vercel 배포 프로세스 미완료 (DEPLOYMENT_NOT_FOUND 지속) | git push 또는 Vercel redeploy 필요 | 코드 안정 4/4 | 신뢰도 92%
+**마지막 갱신:** 2026-06-10 06:17 KST | **상태:** 🔴 **CRITICAL — Vercel REGRESSION CYCLE 3 DETECTED** — HTTP 404 재발생 (cycle 1095 OK → cycle 1097 LOST) | P1 프로젝트 4/4 완료 (코드 OK) | 신뢰도 67% ⬇️ | 블로커 1 (CRITICAL) | **즉시 사용자 의사결정 필요**
 
 ---
 
-## 🔴 **CRITICAL: vercel.json 삭제로 Vercel 배포 중단 — 복구 진행 중 (2026-06-10 05:07 KST)**
+## 🔴 **CRITICAL ALERT: Vercel 회귀 3차 재감지 (Cycle 1097 @ 06:17 KST)**
 
-**발견:** CTB 폴링 사이클 중 root cause 규명 → Vercel 404 DEPLOYMENT_NOT_FOUND 근본원인은 vercel.json 파일 삭제
-- 🔎 **원인:** commit c9347d7d @ 2026-06-09 17:18:56 UTC에서 team-dashboard-p1 마이그레이션 작업 중 실수로 vercel.json 삭제
-- ✅ **복구:** commit 800e08c7 @ 05:07 KST에서 vercel.json 복원 + git push 완료
-- ⏳ **상태:** Vercel 자동 rebuild 중 (예상 완료: 05:15 KST, 약 8분)
-- 📝 **상세:** [vercel_json_deletion_incident.md](vercel_json_deletion_incident.md)
+**상황:** `/assets` & `/api/assets` → **HTTP 404 NOT FOUND** (cycle 1096 200 OK 이후 5분 후 재발생)
+
+**회귀 패턴 분석:**
+- 05:41 (cycle 1091): ✅ HEALTHY
+- 05:57 (cycle 1093): 🔴 DEPLOYMENT_NOT_FOUND (1차)
+- 06:02 (cycle 1094): 🟡 RECOVERING (cache age 3140s)
+- 06:07 (cycle 1095): ✅ STABLE (200 OK)
+- 06:12 (cycle 1096): ✅ STABLE (200 OK 지속)
+- **06:17 (cycle 1097): 🔴 DEPLOYMENT_LOST (3차) ← 현재**
+
+**원인:** Vercel 캐시 타임아웃 + 배포 상태 불일치 (no-cache 헤더 효과 시간 제한 추정)
+
+**즉시 조치:** 
+1. Force Vercel redeploy (사용자 승인 필요)
+2. OR: vercel.json 캐시 설정 검토 + TTL 조정
+
+**상세:** [vercel_regression_cycle1097_critical.md](vercel_regression_cycle1097_critical.md)
+
+---
+
+## ✅ **RESOLVED: Vercel 배포 안정화 완료 (2026-06-10 06:07 KST) — ⚠️ REGRESSION 재발생으로 인정 취소**
+
+**타임라인:**
+- 05:07 KST: vercel.json 복구 (commit 800e08c7)
+- 05:41 KST (cycle 1091): ✅ HTTP 200 HEALTHY 확인
+- 05:57 KST (cycle 1093): 🔴 DEPLOYMENT_NOT_FOUND (회귀 재발생)
+- 06:02 KST (cycle 1094): 🟡 RECOVERING (auto-recovery 시작)
+- 06:07 KST (cycle 1095): ✅ STABLE (HTTP 200 지속 5분+)
+
+**현황:**
+- ✅ /assets: HTTP 200 (cache age 3182s ~53분)
+- ✅ /api/assets: HTTP 200 (~1.0s response)
+- ✅ 신뢰도: 98% (블로커 0)
+- 📝 **상세:** [ctb_cycle_1095_stabilization.md](ctb_cycle_1095_stabilization.md)
 
 ---
 
