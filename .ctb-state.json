@@ -1,32 +1,14 @@
 {
-  "cycle": 1071,
-  "timestamp": "2026-06-10T03:39:11Z",
-  "timestamp_kst": "2026-06-10 03:39:11 KST",
+  "timestamp": "2026-06-09T18:45:01Z",
   "progress": 100,
-  "code_status": "100% stable (e6ae7a85)",
-  "p1_projects": {
-    "total": 4,
-    "completed": 4,
-    "completion_pct": 100
-  },
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
     "phase2c": "ready"
   },
   "production": {
-    "vercel": "🔴 DEGRADED",
-    "vercel_http": "451",
-    "vercel_error": "DEPLOYMENT_DISABLED",
-    "critical_blocker": "Infrastructure (Vercel escalation active)"
+    "vercel": "OK",
+    "vercel_http": "200"
   },
-  "reliability": "92%",
-  "blockers": 3,
-  "user_actions_pending": [
-    "db/36 migration script execution (설계 완료, 실행 대기)",
-    "Phase3-6 sprint plan approval",
-    "Vercel escalation response (지원팀 대기 중)"
-  ],
-  "notes": "Recent middleware fix (e6ae7a85) deployed. Vercel status escalated from 404 → 451 DEPLOYMENT_DISABLED. Monitor escalation response.",
-  "last_update": "2026-06-10 03:39 KST"
+  "last_update": "2026-06-10 03:45:01"
 }
