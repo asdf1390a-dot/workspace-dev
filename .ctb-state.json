@@ -1,6 +1,34 @@
 {
-  "timestamp": "2026-06-09T04:00:02Z",
+  "timestamp": "2026-06-09T04:09:31Z",
   "progress": 100,
+  "projects": {
+    "audit_p1": {
+      "status": "stable",
+      "commit": "0cf3c1ba",
+      "completion": "100%"
+    },
+    "discord_bot_p1": {
+      "status": "stable",
+      "commit": "585db4d5",
+      "completion": "100%"
+    },
+    "bm_p1": {
+      "status": "stable",
+      "commit": "ecc13a9f",
+      "completion": "100%"
+    },
+    "travel_p2_ui": {
+      "status": "stable",
+      "commit": "e9396c74",
+      "completion": "100%"
+    }
+  },
+  "build": {
+    "status": "success",
+    "pages": 143,
+    "routes_total": 295,
+    "errors": 0
+  },
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
@@ -8,7 +36,12 @@
   },
   "production": {
     "vercel": "OK",
-    "vercel_http": "200"
+    "vercel_http": "200",
+    "vercel_status": "healthy"
   },
-  "last_update": "2026-06-09 13:00:02"
+  "reliability": "100%",
+  "blockers": 0,
+  "uptime_hours": 102.7,
+  "last_update": "2026-06-09 13:09:31 KST",
+  "cycle": 1008
 }
