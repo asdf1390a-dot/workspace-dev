@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-10T07:23:00Z",
+  "timestamp": "2026-06-10T07:29:00+0900",
   "progress": 100,
   "services": {
     "phase2a": "ready",
@@ -8,14 +8,12 @@
   },
   "production": {
     "vercel": "OK",
-    "vercel_http": "200"
+    "vercel_http": "200",
+    "assets": "✅ HEALTHY",
+    "api_assets": "✅ HEALTHY"
   },
-  "last_update": "2026-06-10 07:23:00",
-  "cycle": 1108,
-  "reliability": "98%+",
-  "blockers": 0,
-  "status": "stable",
-  "assets_status": "HTTP 200 OK",
-  "api_assets_status": "HTTP 200 OK",
-  "vercel_uptime": "6.25h continuous"
+  "last_update": "2026-06-10 07:29:00",
+  "polling_cycle": 1109,
+  "reliability": "98.5%",
+  "blockers": 0
 }
