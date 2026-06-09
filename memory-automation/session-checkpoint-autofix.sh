@@ -107,7 +107,8 @@ if grep -q "갱신 로그 (Update Log)" "$INCOMPLETE_TASKS"; then
   LOG_SECTION_LINE=$(grep -n "갱신 로그 (Update Log)" "$INCOMPLETE_TASKS" | cut -d: -f1)
   if [[ ! -z "$LOG_SECTION_LINE" ]]; then
     NEXT_LINE=$((LOG_SECTION_LINE + 2))
-    sed -i "${NEXT_LINE}i $AUTOFIX_ENTRY" "$INCOMPLETE_TASKS"
+    ESCAPED_ENTRY=$(echo "$AUTOFIX_ENTRY" | sed 's/[\/&]/\\&/g')
+    sed -i "${NEXT_LINE}i $ESCAPED_ENTRY" "$INCOMPLETE_TASKS"
     log_success "갱신 로그에 자동완료 항목 추가"
   fi
 fi
