@@ -1,4 +1,6 @@
 {
+  "buildCommand": "npm ci && npm run build",
+  "outputDirectory": ".next",
   "functions": {
     "app/api/reports/quality/generate/route.js": {
       "maxDuration": 120,
