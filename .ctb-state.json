@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-09T19:27:41Z",
+  "timestamp": "2026-06-10T04:32:00Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
@@ -10,15 +10,5 @@
     "vercel": "OK",
     "vercel_http": "200"
   },
-  "last_update": "2026-06-10 04:27:41",
-  "polling_cycle": 1077,
-  "p1_projects": {
-    "audit_p1": "stable (code committed)",
-    "discord_bot_p1": "stable (code committed)",
-    "travel_p2_ui": "stable (code committed)",
-    "bm_p1": "stable (code committed)"
-  },
-  "reliability": "98%+",
-  "blockers": 0,
-  "notes": "Zero code changes since Jun 9 13:34 KST; Vercel partial regression detected (/assets domain routing issue, /api/assets 200 OK)"
+  "last_update": "2026-06-10 04:32:00"
 }
