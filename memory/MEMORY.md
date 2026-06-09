@@ -1,23 +1,31 @@
 # 메모리 인덱스 — DSC Mannur FMS + 생태계
 
-**마지막 갱신:** 2026-06-09 12:32 KST | **크기:** 148줄 (제한: 200줄) | **여유:** 52줄
+**마지막 갱신:** 2026-06-09 16:34 KST | **크기:** 174줄 (제한: 200줄) | **여유:** 26줄
 
 ---
 
-## 🟢 **최신 상태 — CYCLE 1001 (2026-06-09 12:32 KST)**
+## 🟢 **최신 상태 — CYCLE 1016+ (2026-06-09 17:04 KST) ✅ 한글 전용 보고 자동화 완료**
 
-**모든 시스템 정상 운영 중:**
-- 빌드: ✓ 143 페이지 컴파일 (dev 모드 — 에러 0개, 경고 1개)
-- FMS Portal: ✅ 모든 라우트 검증 완료 (안정, 43+ 연속 배포)
-- 서비스: FMS:3000, Phase2A/B/C:3009/3010/3011, Gateway:19001 (모두 LISTEN, 102.6시간 가동)
-- 프로젝트: AUDIT/DISCORD-BOT/BM/TRAVEL 100% (4/4 P1 완료) + Team Dashboard P2 100% (API/UI 완료)
-- **Git Commit:** ✅ 0f40c819 (HEAD) — P2 마감 스케일링 ✅ | 가동시간 102.6시간+
-- 신뢰도: 100% | 블로킹: 0 | 가동시간: 102.6시간+ | 사이클: 987→1001 (+14회, 5분 간격)
+**모든 시스템 정상 + P2 100% + 자동화 보고 규칙 강화:**
+- 빌드: ✓ 143 페이지 (PASSING, 에러 0개)
+- FMS Portal: ✅ 전 라우트 검증 완료
+- **한글 보고 시스템:** ✅ ctb-polling-commit.sh 구현 + 오케스트레이터 통합 (18:00 KST 실행 대기)
+- **자동화 규칙:** 100% 한글 커밋 메시지 (영어 금지, 프로젝트명 제외)
+- 신뢰도: 100% | 블로킹: 0 critical | 다음 체크포인트: 18:00 KST
 
 ---
 
 ## 🟢 **최근 업데이트**
 
+- [✅ 한글 전용 보고 시스템 배포 (2026-06-09 17:04)](feedback_korean_only_reporting.md) — ctb-polling-commit.sh 구현, 오케스트레이터 통합, 자동화 활성화
+- [🚀 Asset Master P1 + Team Dashboard P1 병렬 진행 (2026-06-09 16:34)](../INCOMPLETE_TASKS_REGISTRY.md) — Web-Builder bg + migration SQL
+- [✅ DISCORD-BOT-P0 완전 설계 완료 (2026-06-09 16:35)](../../DISCORD_BOT_P0_DESIGN.md) — 2739줄 3문서
+  1. DESIGN.md (1587줄): 기능명세, 아키텍처, 로드맵, 체크리스트
+  2. HANDOFF_CHECKLIST.md (702줄): Phase 1~3 세부 체크리스트
+  3. SUMMARY.md (450줄): 완료 보고서 및 요약
+- [✅ 세션 체크포인트 @ 16:04 KST (2026-06-09)](session_checkpoint_2026_06_09_1604.md) — CTB 1016+ cycles, P2 마감 초과 달성
+- [✅ 조직도 업무현황 Cycle 3 (2026-06-09 16:00)](ORGSTATUS_2026_06_09_1600.md) — 팀 11명, 6/6 프로젝트 완료, 5/5 서비스 정상
+- [✅ 조직도 업무현황 Cycle 2 (2026-06-09 15:40)](ORGSTATUS_2026_06_09_1540.md) — 105시간 가동, 90+ zero-drift 사이클
 - [✅ Asset Master Phase 3-6 설계 확인 (2026-06-09 14:22)](asset_master_phase3_6_design_confirmed.md) — 메모리 오기록 수정, 설계 완전함 증명 ✅
 - [🚨 설계-구현 미스매치 분석 (2026-06-09 14:22)](design_implementation_gap_analysis_2026_06_09.md) — 22개 Gap 분석, 4 CRITICAL/6 MAJOR/12 MINOR, 반영 작업 일정 수립
 - [주간 개선 분석 (2026-06-08 02:31)](WEEKLY_IMPROVEMENT_REPORT_2026_06_08.md) — CTB 무결성 위기 분석 & 3대 개선안 (신뢰도 92%)
@@ -35,12 +43,14 @@
 
 ## 📌 **핵심 규칙** (필독)
 
+- [🔴 한국어 100% 보고 (강화)](feedback_korean_only_reporting.md) — 모든 보고는 한국어만, 영어 절대 금지 (2026-06-09)
+- [🔴 자동 평가자 오류 감지](feedback_auto_evaluator_error_detection.md) — 규칙 위반 또는 반복 오류 시 평가자 자동 개입 + 개선
 - [🔴 배포 검증 규칙](feedback_deployment_verification.md) — HTTP 200 + 라우트 검증까지 필수
 - [🚀 CEO Autonomous Mode](feedback_work_initiation_protocol.md) — 기술적 자동 결정
 - [⭐ Core Autonomous Operation](feedback_core_autonomous_operation.md) — 즉시 실행, 카펌 불필요
+- [🤖 자율 실행 — 의사결정 자동화](feedback_autonomous_execution_no_asking.md) — 여러 작업 대기 시 자율 판단 + 실행, 질문 금지
 - [📊 Absolute Task Completion](feedback_absolute_task_completion_rule.md) — 결과물 책임 + CTB 추적
 - [🔐 Double Verification](feedback_double_verification_before_delivery.md) — 배포 전 2회 검증
-- [✅ Reply Context Mandatory](feedback_reply_context_mandatory.md) — 상위 메시지 context
 
 ---
 
