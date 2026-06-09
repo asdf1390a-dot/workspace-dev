@@ -1,8 +1,8 @@
 {
-  "polling_cycle": 1003,
-  "timestamp": "2026-06-09T14:00:00+09:00",
+  "polling_cycle": 1041,
+  "timestamp": "2026-06-09T23:45:48+09:00",
   "timezone": "Asia/Seoul",
-  "status": "✅ ALL SYSTEMS NORMAL — Vercel Deployment Complete",
+  "status": "🔴 DEGRADED — /assets Page Regression (HTTP 404 Recurring)",
 
   "projects": {
     "AUDIT-P1": {
@@ -54,9 +54,10 @@
   "infrastructure": {
     "vercel_fms_portal": {
       "url": "https://dsc-fms-portal.vercel.app",
-      "status": "✅ 200 OK",
-      "assets_page": "✅ /assets 200 OK (배포 완료)",
-      "last_checked": "2026-06-09T14:00:00+09:00"
+      "status": "🔴 404 ERR",
+      "assets_page": "🔴 /assets 404 (회귀 재발생 — 3회 반복 감지)",
+      "last_checked": "2026-06-09T23:45:48+09:00",
+      "regression_timeline": "23:09→23:30(복구)→23:34(정상)→23:40(재발생)→23:45(확인)"
     },
     "phase_2_services": {
       "phase_2a": {
@@ -101,13 +102,13 @@
   },
 
   "system_health": {
-    "reliability": "100%",
-    "consecutive_stable_cycles": 221,
-    "state_changes": 0,
-    "blockers": 0,
+    "reliability": "92%",
+    "consecutive_stable_cycles": 0,
+    "state_changes": 1,
+    "blockers": 1,
     "total_loc_verified": 9578,
-    "stability_duration_minutes": 1105,
-    "notes": "All 4 P1 projects at 100% code-ready (9,578 LOC). All deadlines PASSED (avg 89h+ ahead). Phase 2 services all LISTEN verified (3009/3010/3011/19001). Build PASSING (141 pages). Zero state changes in 221 consecutive cycles (1105 min = 18.4h continuous perfect stability). Vercel deployment stable (200 OK)."
+    "stability_duration_minutes": 0,
+    "notes": "🔴 ALERT: /assets page regression recurring (3회 반복). Vercel cache/deployment issue suspected. Phase 2 services stable (3009/3010/3011 LISTEN). Build PASSING. Action: Investigate Vercel deployment + /assets route caching."
   },
 
   "next_cycle": {
