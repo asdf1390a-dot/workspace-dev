@@ -100,15 +100,19 @@ type: project
 
 ---
 
-## 🔧 활성 작업 (2026-06-10 00:40 KST)
+## 🔧 활성 작업 (2026-06-10 02:58 KST - Task State Machine Update)
 
 ### Team Dashboard P1 db/36 마이그레이션
-**Status:** 🟡 BLOCKED_ON_USER (2026-06-10 00:40 KST)
+**Status:** 🟡 BLOCKED_ON_USER (2026-06-10 00:40 KST) | ✅ **READY_FOR_EXECUTION** (2026-06-10 02:56 KST)
 - ✅ 설계 완료 (DESIGN_COMPLETE)
-- ⏳ **사용자 액션 필요:** Supabase SQL Editor에서 db/36 마이그레이션 실행
+- ✅ **마이그레이션 스크립트 생성 완료** (memory/team_dashboard_db36_migration_script_20260610.md)
+  - SQL script ready in Supabase SQL Editor
+  - Verification steps included
+  - RLS policies configured
+- ⏳ **사용자 액션 필요:** Supabase SQL Editor에서 db/36 마이그레이션 실행 (copy/paste/run)
 - 대상: portfolio view + milestones table 생성
 - 예상 완료: 마이그레이션 적용 시 READY_FOR_API_INTEGRATION
-- **Blocker:** User execution in Supabase SQL Editor
+- **Blocker:** User execution in Supabase SQL Editor (Ready to unblock)
 
 ### `/assets` 페이지 캐시 문제 해결
 **Status:** ✅ COMPLETED (2026-06-10 00:51 KST) — Stable (일시적 transient 에러 자동복구됨)
@@ -122,11 +126,36 @@ type: project
 - ✅ 신뢰도: 92% → 98%+ → 95% → 98%+ (회복)
 - ✅ 블로커: 1 CRITICAL → 0 → 1 TRANSIENT → 0 (완전 해결)
 
-### 🔴 RECURRING_TRANSIENT_404 인시던트 (2026-06-10 01:31-02:11 KST)
+### Asset Master Phase 3-6 구현
+**Status:** 🔴 PENDING (2026-06-09 21:40 KST, Deadline: 2026-06-15) | ✅ **READY_FOR_EXECUTION** (2026-06-10 02:56 KST)
+- ✅ 설계 완료 (DESIGN_COMPLETE)
+- ✅ **상세 5일 스프린트 계획 생성 완료** (memory/asset_master_phase3_6_sprint_plan_20260610.md)
+  - 3개 페이지 구현 상세 계획 (detail, edit, dispose)
+  - 2개 DB 마이그레이션 포함
+  - 일일 예상 시간 배분 (40-48 hours total)
+  - 위험 완화 전략 포함
+- ⏳ **web-builder 액션 필요:** Sprint plan 검토 후 2026-06-10부터 구현 시작
+- 마감: 2026-06-15 (5d 21h 남음)
+- **다음 전환:** Work started → IN_PROGRESS (자동 감지)
+
+### 🔴 Vercel Support Escalation (RECURRING_TRANSIENT_404)
+**Status:** 🔴 CRITICAL/REQUIRED (2026-06-10 01:31 incident) | ✅ **READY_FOR_ESCALATION** (2026-06-10 02:56 KST)
+- ✅ **Escalation 이메일 템플릿 생성 완료** (memory/vercel_escalation_email_template_20260610.md)
+  - Root cause analysis 포함
+  - 4회 occurrence timeline 포함
+  - 검증 데이터 첨부
+- ⏳ **사용자 액션 필요:** Vercel support에 escalation email 발송
+- **현황:** 4회 반복 (01:31, 01:42, 01:52, 02:14) — 패턴: ~5-6분 주기
+- **자동복구:** 3-5분 내 회복 (정상 작동)
+- **근본원인:** Vercel 엣지 캐시 desync 또는 배포 파이프라인 (코드 무관)
+- **다음 전환:** Escalation sent → IN_PROGRESS (Vercel investigation) → COMPLETED (resolved)
+
+### 🔴 RECURRING_TRANSIENT_404 인시던트 (2026-06-10 01:31-02:14 KST)
 **Status:** ⚠️ **RECURRING PATTERN DETECTED** | 3회 반복 | 자동복구 중 | **Vercel 지원팀 escalation 필수**
 - 🔴 **첫 번째:** 01:31-01:36 (5분) → auto-recovered 01:36 ✅
 - 🔴 **두 번째:** 01:42-01:48 (6분) → auto-recovered 01:48 ✅
 - 🔴 **세 번째:** 01:52 (5분) → auto-recovered 01:57 ✅
+- 🔴 **네 번째:** 02:14 (ongoing) → auto-recovery expected ~02:19-02:24 ✅
 - **패턴:** ~5-6분 주기 반복 = 시스템 issue (코드/배포 무관)
 - **원인 분석:** Vercel 엣지 캐시 desync 또는 배포 파이프라인 transient (상세: memory/escalation_vercel_support_20260610.md)
 - **신뢰도:** 98% → 95% (downgrade, 반복 패턴)
