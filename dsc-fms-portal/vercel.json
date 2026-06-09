@@ -1,5 +1,5 @@
 {
-  "buildCommand": "npm ci && npm run build",
+  "buildCommand": "rm -rf node_modules package-lock.json && npm install && npm run build",
   "outputDirectory": ".next",
   "functions": {
     "app/api/reports/quality/generate/route.js": {
