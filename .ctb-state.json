@@ -1,37 +1,7 @@
 {
-  "cycle": 1003,
-  "timestamp": "2026-06-09T03:42:00Z",
-  "cycle_time_kst": "2026-06-09 12:42 KST",
+  "timestamp": "2026-06-09T03:47:00Z",
+  "cycle": 1004,
   "progress": 100,
-  "completion_pct": 100,
-  "build": {
-    "pages": 143,
-    "status": "✓ Compiled successfully",
-    "mode": "dev",
-    "errors": 0
-  },
-  "projects": {
-    "AUDIT_P1": {
-      "status": "100% stable",
-      "commit": "0cf3c1ba",
-      "reliability": "100%"
-    },
-    "DISCORD_BOT_P1": {
-      "status": "100% stable",
-      "commit": "585db4d5",
-      "reliability": "100%"
-    },
-    "BM_P1": {
-      "status": "100% stable",
-      "commit": "ecc13a9f",
-      "reliability": "100%"
-    },
-    "TRAVEL_P2_UI": {
-      "status": "100% stable",
-      "commit": "e9396c74",
-      "reliability": "100%"
-    }
-  },
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
@@ -41,11 +11,35 @@
     "vercel": "OK",
     "vercel_http": "200"
   },
-  "health": {
-    "reliability": "100%",
-    "blockers": 0,
-    "uptime_hours": 102.6
+  "projects": {
+    "AUDIT-P1": {
+      "commit": "0cf3c1ba",
+      "status": "stable",
+      "completion": 100
+    },
+    "DISCORD-BOT-P1": {
+      "commit": "585db4d5",
+      "status": "stable",
+      "completion": 100
+    },
+    "BM-P1": {
+      "commit": "ecc13a9f",
+      "status": "stable",
+      "completion": 100
+    },
+    "TRAVEL-P2-UI": {
+      "commit": "e9396c74",
+      "status": "stable",
+      "completion": 100
+    }
   },
-  "last_update": "2026-06-09 12:42:00",
-  "next_cycle": "1004 @ 12:47 KST"
+  "build": {
+    "pages": 143,
+    "status": "compiled",
+    "errors": 0
+  },
+  "reliability": 100,
+  "blockers": 0,
+  "uptime_hours": 102.7,
+  "last_update": "2026-06-09 12:47:00"
 }
