@@ -1,9 +1,9 @@
 {
-  "polling_cycle": 1074,
-  "timestamp": "2026-06-10T19:07:39Z",
-  "timestamp_kst": "2026-06-10 04:07 KST",
-  "status": "🟡 PARTIAL REGRESSION — /assets 404 on openclaw-fms.vercel.app (NEW) | /api/assets HTTP 200 ✅ on dsc-fms-portal.vercel.app | 모든 P1=100% 코드 안정 (변화 0) | 신뢰도=98%+ | 블로커=0 (도메인 라우팅 이슈 확인 필요)",
-  "latest_update": "2026-06-10T19:02:00Z",
+  "polling_cycle": 1080,
+  "timestamp": "2026-06-10T19:42:39Z",
+  "timestamp_kst": "2026-06-10 04:42 KST",
+  "status": "🔴 CRITICAL RECURRENCE — Vercel 404 회귀 반복 (04:32 안정 → 04:37 재회귀) | /assets HTTP 200 ✅ 현재 안정 (age: 4.6h) | /api/assets HTTP 200 ✅ | 모든 P1=100% 코드 안정 (변화 0) | 신뢰도=92% | 블로커=1 CRITICAL (Vercel infrastructure 근본원인 미파악)",
+  "latest_update": "2026-06-10T19:42:39Z",
   "build_verification": {
     "status": "✅ PASSING (Code Compiled) | 🟡 PARTIAL INFRASTRUCTURE: /assets page 404 on openclaw-fms domain only",
     "pages_compiled": 143,
@@ -136,8 +136,8 @@
     "stability_duration_hours": "134+ (code layer stable), infrastructure recovered (3h+ post-resolution)",
     "production_status": "✅ FULLY OPERATIONAL — Code production-ready, Vercel stable (HTTP 200), escalation completed"
   },
-  "next_polling_cycle": 1075,
-  "next_poll_eta": "2026-06-10 04:12 KST (+5 min)",
+  "next_polling_cycle": 1081,
+  "next_poll_eta": "2026-06-10 04:47 KST (+5 min)",
   "api_verification": {
     "endpoint_1": {
       "url": "https://dsc-fms-portal.vercel.app/assets",
