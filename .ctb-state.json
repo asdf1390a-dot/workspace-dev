@@ -1,7 +1,6 @@
 {
-  "timestamp": "2026-06-09T07:58:09Z",
+  "timestamp": "2026-06-09T08:00:01Z",
   "progress": 100,
-  "cycle": 1016,
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
@@ -11,15 +10,5 @@
     "vercel": "OK",
     "vercel_http": "200"
   },
-  "projects": {
-    "audit_p1": "stable_100%",
-    "discord_bot_p1": "stable_100%",
-    "bm_p1": "stable_100%",
-    "travel_p2_ui": "stable_100%"
-  },
-  "last_update": "2026-06-09 16:58:09",
-  "uptime_hours": 103,
-  "reliability": "100%",
-  "blockers": 0,
-  "changes_detected": false
+  "last_update": "2026-06-09 17:00:01"
 }
