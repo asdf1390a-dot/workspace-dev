@@ -1,14 +1,14 @@
 {
   "functions": {
-    "pages/api/reports/quality/generate.js": {
+    "app/api/reports/quality/generate/route.js": {
       "maxDuration": 120,
       "memory": 1024
     },
-    "pages/api/bm/import.js": {
+    "app/api/bm/import/route.js": {
       "maxDuration": 120,
       "memory": 1024
     },
-    "pages/api/photos/upload.js": {
+    "app/api/photos/upload/route.js": {
       "maxDuration": 60,
       "memory": 1024
     }
