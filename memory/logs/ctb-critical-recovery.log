@@ -1,0 +1,11 @@
+[2026-06-10 05:06:00] 🔴 CTB Polling Cycle - CRITICAL ROOT CAUSE IDENTIFIED
+[2026-06-10 05:06:15] 📍 Issue: Vercel 404 DEPLOYMENT_NOT_FOUND (20분+ 지속)
+[2026-06-10 05:06:20] 🔎 Investigation: curl -I https://dsm-fms.vercel.app/ → HTTP/2 404
+[2026-06-10 05:06:30] 🚨 ROOT CAUSE: vercel.json 파일이 존재하지 않음 (deleted in commit c9347d7d)
+[2026-06-10 05:06:40] 📋 Commit: c9347d7d @ 2026-06-09 17:18:56 UTC "chore(team-dashboard-p1): db/36 마이그레이션 적용 완료"
+[2026-06-10 05:06:45] 💡 Explanation: Vercel lost build configuration when vercel.json was deleted. No buildCommand or outputDirectory available.
+[2026-06-10 05:06:50] ✅ RECOVERY ACTION: Restored vercel.json from previous commit (aac21273)
+[2026-06-10 05:07:05] ✅ Commit: 800e08c7 "fix: Restore vercel.json deleted in c9347d7d"
+[2026-06-10 05:07:15] ✅ Push: 17af10c7..800e08c7 main → origin/main
+[2026-06-10 05:07:20] ⏳ Waiting for Vercel rebuild to trigger...
+[2026-06-10 05:07:44] ✅ CTB state updated: REBUILDING (expecting recovery in ~8 minutes)

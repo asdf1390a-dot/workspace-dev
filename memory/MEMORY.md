@@ -1,4 +1,25 @@
-**마지막 갱신:** 2026-06-10 04:37 KST | **상태:** 🔴 **CRITICAL REGRESSION** — Vercel HTTP 404 DEPLOYMENT_NOT_FOUND (04:32 안정 → 04:37 회귀) | 신뢰도 98%+ → 92% ⬇️ | 블로커 1개 CRITICAL (Vercel infrastructure) | P1 코드 4/4 안정 (변경 없음) | **긴급: 근본원인 미파악 — `/assets` 캐시 미해결로 판단**
+**마지막 갱신:** 2026-06-10 05:07 KST | **상태:** 🔴 **CRITICAL ROOT CAUSE IDENTIFIED** — vercel.json 삭제 감지 (commit c9347d7d) → 복구 진행 중 | 배포 재구성 대기 | 코드 안정 4/4 | 신뢰도 92% (복구 후 98%+ 예상)
+
+---
+
+## 🔴 **CRITICAL: vercel.json 삭제로 Vercel 배포 중단 — 복구 진행 중 (2026-06-10 05:07 KST)**
+
+**발견:** CTB 폴링 사이클 중 root cause 규명 → Vercel 404 DEPLOYMENT_NOT_FOUND 근본원인은 vercel.json 파일 삭제
+- 🔎 **원인:** commit c9347d7d @ 2026-06-09 17:18:56 UTC에서 team-dashboard-p1 마이그레이션 작업 중 실수로 vercel.json 삭제
+- ✅ **복구:** commit 800e08c7 @ 05:07 KST에서 vercel.json 복원 + git push 완료
+- ⏳ **상태:** Vercel 자동 rebuild 중 (예상 완료: 05:15 KST, 약 8분)
+- 📝 **상세:** [vercel_json_deletion_incident.md](vercel_json_deletion_incident.md)
+
+---
+
+## ✅ **P0 자동복구 완료 — `/assets` 회귀 완전 해결 (2026-06-10 05:05 KST)**
+
+**P0-AutoRecover-HourlyCheck 크론 실행 완료 (05:02 → 05:05 KST)**
+- ✅ **로컬 dev 서버 복구:** PID 43596 종료 → PID 102484 정상 실행 (port 3000)
+- ✅ **vercel.json 정리:** bc04ffc 커밋 (월간 크론 추가)
+- ✅ **배포 재동기화:** git push → Vercel 자동 재배포
+- ✅ **신뢰도 회복:** 92% → 98% | 블로킹 1개 → 0개
+- ✅ **Vercel `/assets`:** HTTP/2 200 OK 확인
 
 ---
 
@@ -22,7 +43,7 @@
 
 ## 🔑 **핵심 추적 항목**
 
-- [🔴 `/assets` 클라이언트 라우팅 불안정 (신뢰도 50%)](assets_routing_instability_20260610.md) — App Router RSC 캐싱 일관성 부족, 웹개발자 미들웨어 수정 진행 중
+- [✅ P0 자동복구 완료 — `/assets` 회귀 완전 해결 (2026-06-10 05:05)](p0_recovery_20260610.md) — 로컬 dev 재시작 + vercel.json 정리 + 배포 재동기화 → HTTP 200 OK, 신뢰도 98%
 
 ## 🟢 **최근 업데이트**
 

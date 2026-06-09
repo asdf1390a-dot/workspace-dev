@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-09T19:57:43Z",
+  "timestamp": "2026-06-10T20:07:44Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
@@ -7,11 +7,15 @@
     "phase2c": "ready"
   },
   "production": {
-    "vercel": "DEGRADED",
+    "vercel": "REBUILDING",
     "vercel_http": "404",
-    "error": "DEPLOYMENT_NOT_FOUND"
+    "vercel_status": "Root cause identified: vercel.json was deleted in commit c9347d7d. Recovery in progress: vercel.json restored @ 05:07 KST, pushed to main. Waiting for Vercel rebuild..."
   },
-  "last_update": "2026-06-10 04:57:43",
-  "cycle": 1083,
-  "reliability": "92%"
+  "last_update": "2026-06-10 05:07:44",
+  "critical_fix": {
+    "issue": "vercel.json deleted during team-dashboard-p1 migration",
+    "commit": "c9347d7d @ 2026-06-09 17:18:56 UTC",
+    "recovery": "800e08c7 - vercel.json restored with original buildCommand & outputDirectory",
+    "expected_recovery_time": "2026-06-10 05:15:00 (estimated)"
+  }
 }
