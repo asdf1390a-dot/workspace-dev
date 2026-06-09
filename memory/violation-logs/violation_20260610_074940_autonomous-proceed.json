@@ -3,7 +3,7 @@
   "timestamp_kst": "2026-06-10 07:49:40 KST",
   "violation_type": "autonomous-proceed",
   "details": "Test violation detection",
-  "status": "DETECTED",
+  "status": "FIXED", "commit_hash": "035ecabd",
   "auto_fix_attempted": true,
   "recovery_successful": true
 }
