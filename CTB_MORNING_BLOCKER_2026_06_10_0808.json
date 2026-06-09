@@ -1,0 +1,45 @@
+{
+  "timestamp": "2026-06-10T08:08:00Z",
+  "cycle_kst": "08:08 KST",
+  "check_type": "morning_blocker_check",
+  "results": {
+    "p1_projects_total": 4,
+    "p1_projects_complete": 4,
+    "active_blockers": 0,
+    "blocking_items": []
+  },
+  "projects": {
+    "AUDIT-P1": {
+      "status": "COMPLETE",
+      "blocker": "NONE",
+      "loc": 289,
+      "verified_live": true
+    },
+    "DISCORD-BOT-P1": {
+      "status": "COMPLETE",
+      "blocker": "NONE",
+      "loc": 908,
+      "processors": 5,
+      "verified_live": true
+    },
+    "TRAVEL-P2-UI": {
+      "status": "COMPLETE",
+      "blocker": "NONE",
+      "verified_live": true
+    },
+    "BM-P1": {
+      "status": "COMPLETE",
+      "blocker": "NONE",
+      "loc": 197,
+      "verified_live": true
+    }
+  },
+  "system_health": {
+    "build_status": "143/143 PASSING",
+    "phase2_uptime_hours": 110,
+    "vercel_status": "200 OK",
+    "ctb_uptime_continuous": true
+  },
+  "action_required": "NONE",
+  "next_check_kst": "08:30 KST"
+}
