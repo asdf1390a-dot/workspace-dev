@@ -56,6 +56,7 @@ ALTER TABLE dashboard_widgets ENABLE ROW LEVEL SECURITY;
 ALTER TABLE dashboard_permissions ENABLE ROW LEVEL SECURITY;
 
 -- 5. RLS 정책: 대시보드
+DROP POLICY IF EXISTS "Users can view shared dashboards or own dashboards" ON team_dashboards;
 CREATE POLICY "Users can view shared dashboards or own dashboards" ON team_dashboards
   FOR SELECT USING (
     is_shared = true
@@ -67,13 +68,16 @@ CREATE POLICY "Users can view shared dashboards or own dashboards" ON team_dashb
     )
   );
 
+DROP POLICY IF EXISTS "Users can insert own dashboards" ON team_dashboards;
 CREATE POLICY "Users can insert own dashboards" ON team_dashboards
   FOR INSERT WITH CHECK (owner_id = auth.uid());
 
+DROP POLICY IF EXISTS "Users can update own dashboards" ON team_dashboards;
 CREATE POLICY "Users can update own dashboards" ON team_dashboards
   FOR UPDATE USING (owner_id = auth.uid());
 
 -- 6. RLS 정책: 위젯
+DROP POLICY IF EXISTS "Users can view widgets from accessible dashboards" ON dashboard_widgets;
 CREATE POLICY "Users can view widgets from accessible dashboards" ON dashboard_widgets
   FOR SELECT USING (
     EXISTS (
@@ -91,6 +95,7 @@ CREATE POLICY "Users can view widgets from accessible dashboards" ON dashboard_w
     )
   );
 
+DROP POLICY IF EXISTS "Users can manage widgets in own dashboards" ON dashboard_widgets;
 CREATE POLICY "Users can manage widgets in own dashboards" ON dashboard_widgets
   FOR ALL USING (
     EXISTS (
@@ -101,6 +106,7 @@ CREATE POLICY "Users can manage widgets in own dashboards" ON dashboard_widgets
   );
 
 -- 7. RLS 정책: 권한
+DROP POLICY IF EXISTS "Users can view permissions for dashboards they own" ON dashboard_permissions;
 CREATE POLICY "Users can view permissions for dashboards they own" ON dashboard_permissions
   FOR SELECT USING (
     EXISTS (
@@ -110,6 +116,7 @@ CREATE POLICY "Users can view permissions for dashboards they own" ON dashboard_
     )
   );
 
+DROP POLICY IF EXISTS "Users can manage permissions for dashboards they own" ON dashboard_permissions;
 CREATE POLICY "Users can manage permissions for dashboards they own" ON dashboard_permissions
   FOR ALL USING (
     EXISTS (
