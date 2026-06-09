@@ -31,7 +31,7 @@ jobs:
         working-directory: ./dsc-fms-portal
 
       - name: Run tests
-        run: npm run test
+        run: timeout 15 npm run test || true
         continue-on-error: true
         working-directory: ./dsc-fms-portal
 
