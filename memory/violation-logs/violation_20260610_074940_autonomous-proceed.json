@@ -1,0 +1,9 @@
+{
+  "timestamp": "2026-06-09T22:49:40Z",
+  "timestamp_kst": "2026-06-10 07:49:40 KST",
+  "violation_type": "autonomous-proceed",
+  "details": "Test violation detection",
+  "status": "DETECTED",
+  "auto_fix_attempted": true,
+  "recovery_successful": true
+}
