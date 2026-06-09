@@ -6,7 +6,6 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import dotenv from 'dotenv';
 
-// Load environment variables
 dotenv.config({ path: '.env.local' });
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -24,43 +23,38 @@ const supabase = createClient(url, sr, {
 
 async function applyMigration() {
   try {
-    console.log('📦 Loading Phase 2 migration...');
-    const migrationPath = path.join(__dirname, '../db/23_backup_module_phase2.sql');
+    console.log('📦 Applying Phase 2C Migration...');
+    const migrationPath = path.join(__dirname, '../db/47_team_dashboard_phase2c.sql');
     const migrationSQL = fs.readFileSync(migrationPath, 'utf8');
 
-    // Remove comments and split into statements
-    const statements = migrationSQL
-      .split(';')
-      .map(stmt => stmt.trim())
-      .filter(stmt => stmt && !stmt.startsWith('--'));
+    // Execute the entire migration as a single statement
+    const { data, error } = await supabase.rpc('exec_sql', { sql: migrationSQL });
 
-    console.log(`📋 Found ${statements.length} SQL statements`);
+    if (error) {
+      console.error('❌ Migration failed:', error.message);
+      process.exit(1);
+    }
 
-    // Execute statements sequentially
-    for (let i = 0; i < statements.length; i++) {
-      const stmt = statements[i];
-      console.log(`⏳ Executing statement ${i + 1}/${statements.length}...`);
-
-      try {
-        const { data, error } = await supabase.rpc('exec', { query: stmt });
-
-        if (error && !error.message?.includes('not a function')) {
-          console.error(`  ❌ Error in statement ${i + 1}:`, error.message);
-          // Continue with next statement even if this one fails
-        } else {
-          console.log(`  ✅ Statement ${i + 1} executed`);
-        }
-      } catch (err) {
-        // If RPC not available, try raw query via extension
-        console.log(`  ℹ️  Using Postgres extension...`);
+    console.log('✅ Migration applied successfully');
+    
+    // Verify tables were created
+    const tables = ['team_performance_metrics', 'resource_allocations', 'team_activity_logs'];
+    for (const table of tables) {
+      const { data: tableData, error: tableError } = await supabase
+        .from(table)
+        .select('count')
+        .limit(1);
+      
+      if (!tableError) {
+        console.log(`✅ Table '${table}' exists`);
+      } else {
+        console.log(`⚠️  Table '${table}' verification: ${tableError.message}`);
       }
     }
 
-    // Alternative: Use postgres-js if available
-    console.log('\n✅ Migration completed');
     process.exit(0);
   } catch (err) {
-    console.error('❌ Migration error:', err.message);
+    console.error('❌ Error:', err.message);
     process.exit(1);
   }
 }
