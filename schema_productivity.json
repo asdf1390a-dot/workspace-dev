@@ -1,0 +1,284 @@
+{
+  "생산성 집계": {
+    "columns": [
+      "🎯 DSC 만누르공장 생산성 관리 대시보드 (2026년 4월)",
+      "column_2",
+      "column_3",
+      "column_4",
+      "column_5",
+      "column_6",
+      "column_7",
+      "column_8",
+      "column_9",
+      "column_10"
+    ],
+    "sample_rows": [
+      [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "📊 A. 투입 현황 (Manpower & Hours)",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "total_rows": 41,
+    "total_cols": 10
+  },
+  "투입시간": {
+    "columns": [
+      "투입시간 (Investment Hours) - HR팀 급여 환산용",
+      "column_2",
+      "column_3",
+      "column_4",
+      "column_5",
+      "column_6"
+    ],
+    "sample_rows": [
+      [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "날짜",
+        "팀",
+        "투입시간(h)",
+        "작업내용",
+        "리더",
+        "확인자"
+      ]
+    ],
+    "total_rows": 6,
+    "total_cols": 6
+  },
+  "02-IDLE": {
+    "columns": [
+      "비가동시간 (IDLE Time) - 생산력 분석용",
+      "column_2",
+      "column_3",
+      "column_4",
+      "column_5",
+      "column_6",
+      "column_7"
+    ],
+    "sample_rows": [
+      [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "날짜",
+        "구분",
+        "IDLE시간(h)",
+        "사유",
+        "팀",
+        "영향도",
+        "해결방안"
+      ]
+    ],
+    "total_rows": 5,
+    "total_cols": 7
+  },
+  "MANPOWER": {
+    "columns": [
+      "MANPOWER - 기술팀 인원투입현황 점검용",
+      "column_2",
+      "column_3",
+      "column_4",
+      "column_5",
+      "column_6",
+      "column_7",
+      "column_8"
+    ],
+    "sample_rows": [
+      [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "날짜",
+        "팀",
+        "투입인원",
+        "부서",
+        "역할",
+        "경력(년)",
+        "생산성인수",
+        "확인"
+      ]
+    ],
+    "total_rows": 4,
+    "total_cols": 8
+  },
+  "MAN": {
+    "columns": [
+      "MAN - 생산팀 인원투입 현황",
+      "column_2",
+      "column_3",
+      "column_4",
+      "column_5",
+      "column_6",
+      "column_7"
+    ],
+    "sample_rows": [
+      [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "날짜",
+        "팀",
+        "인원수",
+        "직급대",
+        "경력(년)",
+        "생산성인수",
+        "배치부서"
+      ]
+    ],
+    "total_rows": 4,
+    "total_cols": 7
+  },
+  "PRODUCTIVITY": {
+    "columns": [
+      "PRODUCTIVITY - 생산팀 생산성 환산",
+      "column_2",
+      "column_3",
+      "column_4",
+      "column_5",
+      "column_6",
+      "column_7",
+      "column_8",
+      "column_9",
+      "column_10",
+      "column_11"
+    ],
+    "sample_rows": [
+      [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "날짜",
+        "팀",
+        "생산량",
+        "단가",
+        "생산액",
+        "투입시간",
+        "기본생산성",
+        "조정율",
+        "최종생산성",
+        "목표",
+        "달성율"
+      ]
+    ],
+    "total_rows": 3,
+    "total_cols": 11
+  },
+  "CT기준정보": {
+    "columns": [
+      "CT기준정보 - 표준시간 정의 (기술팀)",
+      "column_2",
+      "column_3",
+      "column_4",
+      "column_5",
+      "column_6",
+      "column_7"
+    ],
+    "sample_rows": [
+      [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "공정명",
+        "부품명",
+        "표준시간(h)",
+        "난이도",
+        "검사기준",
+        "검사비용(원)",
+        "비고"
+      ]
+    ],
+    "total_rows": 5,
+    "total_cols": 7
+  },
+  "검수수불": {
+    "columns": [
+      "검수수불 (Invoice & QC) - 영업팀 검증용",
+      "column_2",
+      "column_3",
+      "column_4",
+      "column_5",
+      "column_6"
+    ],
+    "sample_rows": [
+      [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "항목",
+        "생산데이터",
+        "영업데이터",
+        "차이율(%)",
+        "검증상태",
+        "담당"
+      ]
+    ],
+    "total_rows": 6,
+    "total_cols": 6
+  }
+}

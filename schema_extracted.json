@@ -1,0 +1,239 @@
+{
+  "생산성 집계": {
+    "table_name": "생산성 집계",
+    "headers": [
+      "항목",
+      "생산팀",
+      "기술팀",
+      "전체",
+      "목표",
+      "달성율"
+    ],
+    "types": [
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT"
+    ],
+    "header_row": 5,
+    "data_start": 6,
+    "data_end": 42,
+    "col_count": 6
+  },
+  "투입시간": {
+    "table_name": "투입시간",
+    "headers": [
+      "날짜",
+      "팀",
+      "투입시간h",
+      "작업내용",
+      "리더",
+      "확인자"
+    ],
+    "types": [
+      "DATE",
+      "TEXT",
+      "NUMERIC",
+      "TEXT",
+      "TEXT",
+      "TEXT"
+    ],
+    "header_row": 3,
+    "data_start": 4,
+    "data_end": 7,
+    "col_count": 6
+  },
+  "02-IDLE": {
+    "table_name": "02_idle",
+    "headers": [
+      "날짜",
+      "구분",
+      "idle시간h",
+      "사유",
+      "팀",
+      "영향도",
+      "해결방안"
+    ],
+    "types": [
+      "DATE",
+      "TEXT",
+      "NUMERIC",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT"
+    ],
+    "header_row": 3,
+    "data_start": 4,
+    "data_end": 6,
+    "col_count": 7
+  },
+  "MANPOWER": {
+    "table_name": "manpower",
+    "headers": [
+      "날짜",
+      "팀",
+      "투입인원",
+      "부서",
+      "역할",
+      "경력년",
+      "생산성인수",
+      "확인"
+    ],
+    "types": [
+      "DATE",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "BIGINT",
+      "TEXT",
+      "TEXT"
+    ],
+    "header_row": 3,
+    "data_start": 4,
+    "data_end": 5,
+    "col_count": 8
+  },
+  "MAN": {
+    "table_name": "man",
+    "headers": [
+      "날짜",
+      "팀",
+      "인원수",
+      "직급대",
+      "경력년",
+      "생산성인수",
+      "배치부서"
+    ],
+    "types": [
+      "DATE",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "BIGINT",
+      "TEXT",
+      "TEXT"
+    ],
+    "header_row": 3,
+    "data_start": 4,
+    "data_end": 5,
+    "col_count": 7
+  },
+  "PRODUCTIVITY": {
+    "table_name": "productivity",
+    "headers": [
+      "날짜",
+      "팀",
+      "생산량",
+      "단가",
+      "생산액",
+      "투입시간",
+      "기본생산성",
+      "조정율",
+      "최종생산성",
+      "목표",
+      "달성율"
+    ],
+    "types": [
+      "DATE",
+      "TEXT",
+      "TEXT",
+      "BIGINT",
+      "TEXT",
+      "TEXT",
+      "BIGINT",
+      "NUMERIC",
+      "BIGINT",
+      "BIGINT",
+      "TEXT"
+    ],
+    "header_row": 3,
+    "data_start": 4,
+    "data_end": 4,
+    "col_count": 11
+  },
+  "CT기준정보": {
+    "table_name": "ct기준정보",
+    "headers": [
+      "공정명",
+      "부품명",
+      "표준시간h",
+      "난이도",
+      "검사기준",
+      "검사비용원",
+      "비고"
+    ],
+    "types": [
+      "TEXT",
+      "TEXT",
+      "NUMERIC",
+      "TEXT",
+      "TEXT",
+      "BIGINT",
+      "TEXT"
+    ],
+    "header_row": 3,
+    "data_start": 4,
+    "data_end": 6,
+    "col_count": 7
+  },
+  "검수수불": {
+    "table_name": "검수수불",
+    "headers": [
+      "항목",
+      "생산데이터",
+      "영업데이터",
+      "차이율",
+      "검증상태",
+      "담당"
+    ],
+    "types": [
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT"
+    ],
+    "header_row": 3,
+    "data_start": 4,
+    "data_end": 7,
+    "col_count": 6
+  },
+  "경비": {
+    "table_name": "cost_budget",
+    "headers": [
+      "금액",
+      "column",
+      "금액",
+      "column",
+      "증가액",
+      "증가율",
+      "1월",
+      "2월",
+      "3월",
+      "4월",
+      "5월"
+    ],
+    "types": [
+      "NUMERIC",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "TEXT",
+      "NUMERIC",
+      "NUMERIC",
+      "NUMERIC",
+      "NUMERIC",
+      "NUMERIC"
+    ],
+    "header_row": 4,
+    "data_start": 5,
+    "data_end": 85,
+    "col_count": 11
+  }
+}

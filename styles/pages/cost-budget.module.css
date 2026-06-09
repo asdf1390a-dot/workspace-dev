@@ -1,0 +1,268 @@
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header {
+  margin-bottom: 30px;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 20px;
+}
+
+.header h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  color: #1f2937;
+}
+
+.header p {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 0;
+}
+
+.controls {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.filterGroup {
+  display: flex;
+  gap: 8px;
+  flex: 1;
+  min-width: 300px;
+}
+
+.filterGroup input,
+.filterGroup select {
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.filterGroup input {
+  flex: 2;
+  min-width: 150px;
+}
+
+.filterGroup select {
+  flex: 1;
+  min-width: 150px;
+  cursor: pointer;
+}
+
+.filterGroup input:focus,
+.filterGroup select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.actionGroup {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.actionGroup select {
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.actionGroup select:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+
+.sortControls {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.sortControls select {
+  min-width: 120px;
+}
+
+.sortControls button {
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  background: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.sortControls button:hover {
+  background: #f9fafb;
+}
+
+.downloadBtn {
+  padding: 10px 16px;
+  border: none;
+  background: #10b981;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.downloadBtn:hover {
+  background: #059669;
+}
+
+.tableWrapper {
+  overflow-x: auto;
+  margin-bottom: 20px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.table thead {
+  background: #f9fafb;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.table th {
+  padding: 12px;
+  text-align: left;
+  font-weight: 600;
+  color: #374151;
+  white-space: nowrap;
+}
+
+.table td {
+  padding: 12px;
+  border-bottom: 1px solid #f3f4f6;
+  color: #1f2937;
+  text-align: right;
+}
+
+.table td:first-child {
+  text-align: left;
+}
+
+.table tbody tr:hover {
+  background: #f9fafb;
+}
+
+.sumRow {
+  background: #fef3c7;
+  border-top: 2px solid #fcd34d;
+  font-weight: 600;
+}
+
+.sumCell {
+  color: #92400e !important;
+  background: #fef3c7;
+}
+
+.loading {
+  text-align: center;
+  padding: 40px;
+  color: #6b7280;
+  font-size: 16px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.pagination button {
+  padding: 8px 16px;
+  border: 1px solid #d1d5db;
+  background: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.pagination button:hover:not(:disabled) {
+  background: #f3f4f6;
+  border-color: #9ca3af;
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pagination span {
+  font-size: 14px;
+  color: #6b7280;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 12px;
+  }
+
+  .header h1 {
+    font-size: 20px;
+  }
+
+  .controls {
+    flex-direction: column;
+  }
+
+  .filterGroup {
+    width: 100%;
+    min-width: auto;
+  }
+
+  .filterGroup input,
+  .filterGroup select {
+    flex: 1;
+  }
+
+  .actionGroup {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .sortControls {
+    flex: 1;
+  }
+
+  .sortControls select {
+    min-width: 100px;
+  }
+
+  .table {
+    font-size: 12px;
+  }
+
+  .table th,
+  .table td {
+    padding: 8px;
+  }
+
+  .table td {
+    text-align: left;
+  }
+}
