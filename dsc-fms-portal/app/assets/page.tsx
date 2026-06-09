@@ -1,5 +1,6 @@
 'use client';
 
+// Force dynamic rendering for real-time asset data
 export const dynamic = 'force-dynamic';
 
 import { useEffect, useState, useCallback } from 'react';
