@@ -1,0 +1,414 @@
+{
+  "categories": {
+    "user": [
+      29,
+      30
+    ],
+    "feedback": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25
+    ],
+    "project": [
+      1,
+      2
+    ],
+    "reference": [
+      31,
+      32,
+      33
+    ],
+    "incident": [
+      10,
+      11,
+      12,
+      13,
+      14,
+      26,
+      27,
+      28
+    ],
+    "archive": [
+      34,
+      35,
+      36
+    ]
+  },
+  "entries": [
+    {
+      "id": 1,
+      "title": "✅ 평가자 감사 & 책임 체계 수립 (2026-06-09 17:20)",
+      "link": "evaluator_audit_analysis_2026_06_09.md",
+      "category": "project",
+      "timestamp": "2026-06-09 17:20",
+      "lineNumber": 20,
+      "preview": "- [✅ 평가자 감사 & 책임 체계 수립 (2026-06-09 17:20)](evaluator_audit_analysis_2026_06_09.md) — 규칙 위반 근본 원인 분석",
+      "hash": "a4c884ad0ca582b6e9e54a92668c50e9"
+    },
+    {
+      "id": 2,
+      "title": "✅ 평가자 책임 & 규칙 체크리스트 (2026-06-09 17:10)",
+      "link": "evaluator_responsibilities_and_rules.md",
+      "category": "project",
+      "timestamp": "2026-06-09 17:10",
+      "lineNumber": 21,
+      "preview": "- [✅ 평가자 책임 & 규칙 체크리스트 (2026-06-09 17:10)](evaluator_responsibilities_and_rules.md) — 3가지 핵심 책임 + Ph",
+      "hash": "fa748f1d791805b442a5a0276dc78ad9"
+    },
+    {
+      "id": 3,
+      "title": "✅ 한글 전용 보고 시스템 배포 (2026-06-09 17:04)",
+      "link": "feedback_korean_only_reporting.md",
+      "category": "feedback",
+      "timestamp": "2026-06-09 17:04",
+      "lineNumber": 22,
+      "preview": "- [✅ 한글 전용 보고 시스템 배포 (2026-06-09 17:04)](feedback_korean_only_reporting.md) — ctb-polling-commit.sh",
+      "hash": "d21c335348417cd75900d0cd2fc7ee1b"
+    },
+    {
+      "id": 4,
+      "title": "🚀 Asset Master P1 + Team Dashboard P1 병렬 진행 (2026-06-09 16:34)",
+      "link": "../INCOMPLETE_TASKS_REGISTRY.md",
+      "category": "feedback",
+      "timestamp": "2026-06-09 16:34",
+      "lineNumber": 23,
+      "preview": "- [🚀 Asset Master P1 + Team Dashboard P1 병렬 진행 (2026-06-09 16:34)](../INCOMPLETE_TASKS_REGISTRY.md)",
+      "hash": "7de4a644db81faa738303ab8b5b767dc"
+    },
+    {
+      "id": 5,
+      "title": "✅ DISCORD-BOT-P0 완전 설계 완료 (2026-06-09 16:35)",
+      "link": "../../DISCORD_BOT_P0_DESIGN.md",
+      "category": "feedback",
+      "timestamp": "2026-06-09 16:35",
+      "lineNumber": 24,
+      "preview": "- [✅ DISCORD-BOT-P0 완전 설계 완료 (2026-06-09 16:35)](../../DISCORD_BOT_P0_DESIGN.md) — 2739줄 3문서",
+      "hash": "d3c2e17aa982c50d1553f047fb58fe09"
+    },
+    {
+      "id": 6,
+      "title": "✅ 세션 체크포인트 @ 16:04 KST (2026-06-09)",
+      "link": "session_checkpoint_2026_06_09_1604.md",
+      "category": "feedback",
+      "timestamp": "2026-06-09",
+      "lineNumber": 28,
+      "preview": "- [✅ 세션 체크포인트 @ 16:04 KST (2026-06-09)](session_checkpoint_2026_06_09_1604.md) — CTB 1016+ cycles, P",
+      "hash": "884ba984bf9670c8550ea944b87127ea"
+    },
+    {
+      "id": 7,
+      "title": "✅ 조직도 업무현황 Cycle 3 (2026-06-09 16:00)",
+      "link": "ORGSTATUS_2026_06_09_1600.md",
+      "category": "feedback",
+      "timestamp": "2026-06-09 16:00",
+      "lineNumber": 29,
+      "preview": "- [✅ 조직도 업무현황 Cycle 3 (2026-06-09 16:00)](ORGSTATUS_2026_06_09_1600.md) — 팀 11명, 6/6 프로젝트 완료, 5/5 서비",
+      "hash": "90d7c028f44eab6ae8d4a936a4627ba5"
+    },
+    {
+      "id": 8,
+      "title": "✅ 조직도 업무현황 Cycle 2 (2026-06-09 15:40)",
+      "link": "ORGSTATUS_2026_06_09_1540.md",
+      "category": "feedback",
+      "timestamp": "2026-06-09 15:40",
+      "lineNumber": 30,
+      "preview": "- [✅ 조직도 업무현황 Cycle 2 (2026-06-09 15:40)](ORGSTATUS_2026_06_09_1540.md) — 105시간 가동, 90+ zero-drift 사",
+      "hash": "24ed7a4f2c79a751ad8563190c2d2c1e"
+    },
+    {
+      "id": 9,
+      "title": "✅ Asset Master Phase 3-6 설계 확인 (2026-06-09 14:22)",
+      "link": "asset_master_phase3_6_design_confirmed.md",
+      "category": "feedback",
+      "timestamp": "2026-06-09 14:22",
+      "lineNumber": 31,
+      "preview": "- [✅ Asset Master Phase 3-6 설계 확인 (2026-06-09 14:22)](asset_master_phase3_6_design_confirmed.md) — 메",
+      "hash": "7af559464f2bb875328b2ba53206cf53"
+    },
+    {
+      "id": 10,
+      "title": "🚨 설계-구현 미스매치 분석 (2026-06-09 14:22)",
+      "link": "design_implementation_gap_analysis_2026_06_09.md",
+      "category": "incident",
+      "timestamp": "2026-06-09 14:22",
+      "lineNumber": 32,
+      "preview": "- [🚨 설계-구현 미스매치 분석 (2026-06-09 14:22)](design_implementation_gap_analysis_2026_06_09.md) — 22개 Gap",
+      "hash": "0546d8c76b048a4f9aa8d9f61852b880"
+    },
+    {
+      "id": 11,
+      "title": "주간 개선 분석 (2026-06-08 02:31)",
+      "link": "WEEKLY_IMPROVEMENT_REPORT_2026_06_08.md",
+      "category": "incident",
+      "timestamp": "2026-06-08 02:31",
+      "lineNumber": 33,
+      "preview": "- [주간 개선 분석 (2026-06-08 02:31)](WEEKLY_IMPROVEMENT_REPORT_2026_06_08.md) — CTB 무결성 위기 분석 & 3대 개선안 (신",
+      "hash": "9419fe5dec8d37da1f10c306aca70683"
+    },
+    {
+      "id": 12,
+      "title": "조직도 & 업무현황 (2026-06-08 02:31)",
+      "link": "ORG_STATUS_2026_06_08_0231.md",
+      "category": "incident",
+      "timestamp": "2026-06-08 02:31",
+      "lineNumber": 34,
+      "preview": "- [조직도 & 업무현황 (2026-06-08 02:31)](ORG_STATUS_2026_06_08_0231.md) — 팀 11명, P1 4/4 완료, 자동화 100%",
+      "hash": "7457e0c27f3fccf4632c74911e55a8d4"
+    },
+    {
+      "id": 13,
+      "title": "사이클 888: 빌드 헬스 복구 (2026-06-07 22:58)",
+      "link": "fix_nextjs14_health_detection.md",
+      "category": "incident",
+      "timestamp": "2026-06-07 22:58",
+      "lineNumber": 35,
+      "preview": "- [사이클 888: 빌드 헬스 복구 (2026-06-07 22:58)](fix_nextjs14_health_detection.md) — App Router manifest 감지",
+      "hash": "b3aeca91880eb45a6dfd201dbf1e66b3"
+    },
+    {
+      "id": 14,
+      "title": "사이클 885: Manifest 무결성 (2026-06-07 22:48)",
+      "link": "manifest_integrity_resolved_20260607_2248.md",
+      "category": "incident",
+      "timestamp": "2026-06-07 22:48",
+      "lineNumber": 36,
+      "preview": "- [사이클 885: Manifest 무결성 (2026-06-07 22:48)](manifest_integrity_resolved_20260607_2248.md) — 136/136",
+      "hash": "f272b829850a77f6ebde196a41024109"
+    },
+    {
+      "id": 15,
+      "title": "CTB Polling Integrity Crisis (2026-06-07 22:04)",
+      "link": "incident_ctb_cycle884_integrity_failure.md",
+      "category": "feedback",
+      "timestamp": "2026-06-07 22:04",
+      "lineNumber": 42,
+      "preview": "- [CTB Polling Integrity Crisis (2026-06-07 22:04)](incident_ctb_cycle884_integrity_failure.md) — Cy",
+      "hash": "b62aa3636d3b65ad10750fb4161a7495"
+    },
+    {
+      "id": 16,
+      "title": "🔴 평가자 메모리 정확 읽기 의무화",
+      "link": "feedback_evaluator_memory_verification.md",
+      "category": "feedback",
+      "timestamp": "2026-06-09",
+      "lineNumber": 48,
+      "preview": "- [🔴 평가자 메모리 정확 읽기 의무화](feedback_evaluator_memory_verification.md) — 분석 전 규칙 검증 필수 (2026-06-09)",
+      "hash": "f06c0e89dc7484b9a8dcab49c6255148"
+    },
+    {
+      "id": 17,
+      "title": "🔴 평가자 책임 & 검증 체크리스트",
+      "link": "evaluator_responsibilities_and_rules.md",
+      "category": "feedback",
+      "timestamp": "2026-06-09",
+      "lineNumber": 49,
+      "preview": "- [🔴 평가자 책임 & 검증 체크리스트](evaluator_responsibilities_and_rules.md) — 분석 제출 전 3단계 검증 의무 (2026-06-09)",
+      "hash": "0c7ba60f48b129d5e59baef79ad50ed3"
+    },
+    {
+      "id": 18,
+      "title": "🔴 한국어 100% 보고 (강화)",
+      "link": "feedback_korean_only_reporting.md",
+      "category": "feedback",
+      "timestamp": "2026-06-09",
+      "lineNumber": 50,
+      "preview": "- [🔴 한국어 100% 보고 (강화)](feedback_korean_only_reporting.md) — 모든 보고는 한국어만, 영어 절대 금지 (2026-06-09)",
+      "hash": "d7b55743bd85da347138356cb3d5543f"
+    },
+    {
+      "id": 19,
+      "title": "🔴 자동 평가자 오류 감지",
+      "link": "feedback_auto_evaluator_error_detection.md",
+      "category": "feedback",
+      "timestamp": null,
+      "lineNumber": 51,
+      "preview": "- [🔴 자동 평가자 오류 감지](feedback_auto_evaluator_error_detection.md) — 규칙 위반 또는 반복 오류 시 평가자 자동 개입 + 개선",
+      "hash": "5e38a7abe8be98337a155adbe62f53e5"
+    },
+    {
+      "id": 20,
+      "title": "🔴 배포 검증 규칙",
+      "link": "feedback_deployment_verification.md",
+      "category": "feedback",
+      "timestamp": null,
+      "lineNumber": 52,
+      "preview": "- [🔴 배포 검증 규칙](feedback_deployment_verification.md) — HTTP 200 + 라우트 검증까지 필수",
+      "hash": "b3163245b66f6f5a423dfab0e0bef182"
+    },
+    {
+      "id": 21,
+      "title": "🚀 CEO Autonomous Mode",
+      "link": "feedback_work_initiation_protocol.md",
+      "category": "feedback",
+      "timestamp": null,
+      "lineNumber": 53,
+      "preview": "- [🚀 CEO Autonomous Mode](feedback_work_initiation_protocol.md) — 기술적 자동 결정",
+      "hash": "c558a583f72d0788e47d4636a3c8d03f"
+    },
+    {
+      "id": 22,
+      "title": "⭐ Core Autonomous Operation",
+      "link": "feedback_core_autonomous_operation.md",
+      "category": "feedback",
+      "timestamp": null,
+      "lineNumber": 54,
+      "preview": "- [⭐ Core Autonomous Operation](feedback_core_autonomous_operation.md) — 즉시 실행, 카펌 불필요",
+      "hash": "fd5811bf50d6b5a69cb761be1e1ec366"
+    },
+    {
+      "id": 23,
+      "title": "🤖 자율 실행 — 의사결정 자동화",
+      "link": "feedback_autonomous_execution_no_asking.md",
+      "category": "feedback",
+      "timestamp": null,
+      "lineNumber": 55,
+      "preview": "- [🤖 자율 실행 — 의사결정 자동화](feedback_autonomous_execution_no_asking.md) — 여러 작업 대기 시 자율 판단 + 실행, 질문 금지",
+      "hash": "e13b938d9d8a6caba473961210506664"
+    },
+    {
+      "id": 24,
+      "title": "📊 Absolute Task Completion",
+      "link": "feedback_absolute_task_completion_rule.md",
+      "category": "feedback",
+      "timestamp": null,
+      "lineNumber": 56,
+      "preview": "- [📊 Absolute Task Completion](feedback_absolute_task_completion_rule.md) — 결과물 책임 + CTB 추적",
+      "hash": "b979cbe41eea6e7010270a2505884bce"
+    },
+    {
+      "id": 25,
+      "title": "🔐 Double Verification",
+      "link": "feedback_double_verification_before_delivery.md",
+      "category": "feedback",
+      "timestamp": null,
+      "lineNumber": 57,
+      "preview": "- [🔐 Double Verification](feedback_double_verification_before_delivery.md) — 배포 전 2회 검증",
+      "hash": "58a63639e3c2556015543dc71b186f6a"
+    },
+    {
+      "id": 26,
+      "title": "CTB Data Integrity (2026-06-06 23:12)",
+      "link": "ctb_data_integrity_finding_20260606.md",
+      "category": "incident",
+      "timestamp": "2026-06-06 23:12",
+      "lineNumber": 63,
+      "preview": "- [CTB Data Integrity (2026-06-06 23:12)](ctb_data_integrity_finding_20260606.md) — Local 100% vs Ve",
+      "hash": "bc5f1b9d35d68974ef85252140591a88"
+    },
+    {
+      "id": 27,
+      "title": "CTB Polling Accuracy Crisis",
+      "link": "ctb_polling_accuracy_incident.md",
+      "category": "incident",
+      "timestamp": null,
+      "lineNumber": 64,
+      "preview": "- [CTB Polling Accuracy Crisis](ctb_polling_accuracy_incident.md) — Cycles 584-603 거짓 기록 정정",
+      "hash": "d6e2dfa5ad70498a4f9a952eb54460d4"
+    },
+    {
+      "id": 28,
+      "title": "CTB Cycle 608 Correction",
+      "link": "ctb_cycle_608_accuracy_correction.md",
+      "category": "incident",
+      "timestamp": null,
+      "lineNumber": 65,
+      "preview": "- [CTB Cycle 608 Correction](ctb_cycle_608_accuracy_correction.md) — 검증 표준 수립",
+      "hash": "9c01d614b915c19e112965329a154b8d"
+    },
+    {
+      "id": 29,
+      "title": "Kyeongtae Na",
+      "link": "user/user_role.md",
+      "category": "user",
+      "timestamp": null,
+      "lineNumber": 71,
+      "preview": "- [Kyeongtae Na](user/user_role.md) — Korean expat GM, DSC Mannur 생산/기술/보전/생산관리",
+      "hash": "a9b5f162986c70bf2f00383bf4a3666a"
+    },
+    {
+      "id": 30,
+      "title": "Team Structure (2026-05-25)",
+      "link": "reference/TEAM_STRUCTURE_2026_MAY25_UPDATE.md",
+      "category": "user",
+      "timestamp": "2026-05-25",
+      "lineNumber": 72,
+      "preview": "- [Team Structure (2026-05-25)](reference/TEAM_STRUCTURE_2026_MAY25_UPDATE.md) — 16명 AI 에이전트 팀",
+      "hash": "b03ff1e2f16e86fdca66281509b003fa"
+    },
+    {
+      "id": 31,
+      "title": "Model Selection",
+      "link": "reference/model_selection_standard.md",
+      "category": "reference",
+      "timestamp": null,
+      "lineNumber": 78,
+      "preview": "- [Model Selection](reference/model_selection_standard.md) — Haiku(기본) | Opus Fast(선택) | Opus Full(전",
+      "hash": "cc1f6d74dab101916c0f950e37d7e16b"
+    },
+    {
+      "id": 32,
+      "title": "Workflow Context Loss v2",
+      "link": "reference/workflow_context_loss_protocol.md",
+      "category": "reference",
+      "timestamp": null,
+      "lineNumber": 79,
+      "preview": "- [Workflow Context Loss v2](reference/workflow_context_loss_protocol.md) — Subagent TCB/LCS/GCS",
+      "hash": "ae05e966dfc92347e48408faf18f0847"
+    },
+    {
+      "id": 33,
+      "title": "Build Onboarding (2026-06-07)",
+      "link": "ONBOARDING_AUDIT_BASELINE_2026_06_07.md",
+      "category": "reference",
+      "timestamp": "2026-06-07",
+      "lineNumber": 80,
+      "preview": "- [Build Onboarding (2026-06-07)](ONBOARDING_AUDIT_BASELINE_2026_06_07.md) — 10개 에이전트 + 21개 스킬",
+      "hash": "58c6332c1221311df280155e24f52669"
+    },
+    {
+      "id": 34,
+      "title": "Historical Cycles 604-662",
+      "link": "archive/cycles_604_to_662_historical.md",
+      "category": "archive",
+      "timestamp": null,
+      "lineNumber": 86,
+      "preview": "- [Historical Cycles 604-662](archive/cycles_604_to_662_historical.md) — Extended stability epoch",
+      "hash": "e0d661ea4fee2f4210e110bab1d19803"
+    },
+    {
+      "id": 35,
+      "title": "Org Status Snapshots",
+      "link": "archive/org_status_snapshots_archive.md",
+      "category": "archive",
+      "timestamp": "2026-06-06",
+      "lineNumber": 87,
+      "preview": "- [Org Status Snapshots](archive/org_status_snapshots_archive.md) — 2026-06-06~07 타임스탬프",
+      "hash": "b53a5b9dc10b2214568c49bd70bfa215"
+    },
+    {
+      "id": 36,
+      "title": "Phase 2 Project History",
+      "link": "archive/phase2_projects_history.md",
+      "category": "archive",
+      "timestamp": null,
+      "lineNumber": 88,
+      "preview": "- [Phase 2 Project History](archive/phase2_projects_history.md) — Travel-P2, Asset Master Phase 2",
+      "hash": "b9293f0c4a5c9a0412dd2e0fb0b6e574"
+    }
+  ]
+}
