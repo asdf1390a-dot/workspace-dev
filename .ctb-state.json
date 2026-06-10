@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-10T00:47:22Z",
+  "timestamp": "2026-06-10T00:52:38Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
@@ -7,12 +7,18 @@
     "phase2c": "ready"
   },
   "production": {
-    "vercel": "DEGRADED",
+    "vercel": "DEPLOYMENT_NOT_FOUND",
     "vercel_http": "404",
-    "vercel_error": "DEPLOYMENT_NOT_FOUND",
-    "vercel_domain": "dsc-fms.vercel.app (미동기)"
+    "blocker_since_kst": "2026-06-10 09:12:00",
+    "blocker_duration_minutes": 40
   },
-  "last_update": "2026-06-10 09:47:22",
-  "blocker": "Vercel /api/assets HTTP 404 (지속 30분+)",
-  "reliability": "92%"
+  "last_update": "2026-06-10 09:52:38",
+  "reliability": 92,
+  "p1_projects": {
+    "audit_p1": "100% (0cf3c1ba)",
+    "discord_bot_p1": "100% (585db4d5)",
+    "bm_p1": "100% (ecc13a9f)",
+    "travel_p2_ui": "100% (e9396c74)"
+  },
+  "user_action_required": "Vercel domain reconfiguration/redeployment"
 }
