@@ -4069,3 +4069,8 @@ TypeError: Cannot read properties of undefined (reading 'call')
  GET / 200 in 34ms
  GET / 200 in 33ms
  GET / 200 in 26ms
+ GET / 200 in 50ms
+ GET / 200 in 29ms
+ GET / 200 in 36ms
+ GET / 200 in 29ms
+ GET / 200 in 29ms
