@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-10T01:15:01Z",
+  "timestamp": "2026-06-10T01:28:00Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
@@ -7,8 +7,25 @@
     "phase2c": "ready"
   },
   "production": {
-    "vercel": "OK",
-    "vercel_http": "200"
+    "vercel": "🔴 DEPLOYMENT_NOT_FOUND (1h+ 지속)",
+    "vercel_http": "404",
+    "assets_endpoint": "404 ERR",
+    "blocker_count": 3,
+    "state_machines": [
+      "/assets → BLOCKED_ON_EXTERNAL",
+      "P2 → BLOCKED_ON_EXTERNAL",
+      "H2 → BLOCKED_ON_USER"
+    ]
   },
-  "last_update": "2026-06-10 10:15:01"
+  "p1_status": {
+    "audit_p1": "✅ 100%",
+    "discord_bot_p1": "✅ 100%",
+    "bm_p1": "✅ 100%",
+    "travel_p2_ui": "✅ 100%",
+    "code_stability": "zero changes since Jun 9 13:34"
+  },
+  "reliability": "92% ⬇️",
+  "user_action_required": "Vercel 도메인 재구성/재배포 필수",
+  "last_update": "2026-06-10 10:28:00 KST",
+  "polling_cycle": 1134
 }
