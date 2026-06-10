@@ -1,7 +1,7 @@
+'use client';
+
 import { Suspense } from 'react';
 import AssetsContent from './assets-content';
-
-export const dynamic = 'force-dynamic';
 
 export default function AssetsPage() {
   return (
