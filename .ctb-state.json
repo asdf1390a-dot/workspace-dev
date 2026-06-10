@@ -1,26 +1,15 @@
 {
-  "timestamp": "2026-06-10T00:17:31Z",
+  "timestamp": "2026-06-10T00:22:01Z",
   "progress": 100,
-  "cycle": 1121,
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
     "phase2c": "ready"
   },
   "production": {
-    "vercel": "DEGRADED",
-    "vercel_http": "404",
-    "assets_endpoint": "404",
-    "api_assets_endpoint": "404"
+    "vercel": "INVESTIGATING",
+    "vercel_http": "404"
   },
-  "projects_p1": {
-    "AUDIT-P1": "100%",
-    "DISCORD-BOT-P1": "100%",
-    "TRAVEL-P2-UI": "100%",
-    "BM-P1": "100%"
-  },
-  "reliability": 92,
-  "blockers": 1,
-  "blocker_type": "vercel_regression",
-  "last_update": "2026-06-10 09:17:31"
+  "last_update": "2026-06-10 09:22:01",
+  "notes": "폴링 사이클 1122 — Vercel 배포 캐시 동기화 문제 감지, 자동 재배포 트리거"
 }
