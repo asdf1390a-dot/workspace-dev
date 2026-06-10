@@ -1,12 +1,6 @@
 {
-  "timestamp": "2026-06-10T07:54:00Z",
+  "timestamp": "2026-06-10T07:59:47Z",
   "progress": 100,
-  "p1_status": {
-    "audit_p1": "100%",
-    "discord_bot_p1": "100%",
-    "bm_p1": "100%",
-    "travel_p2_ui": "100%"
-  },
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
@@ -14,10 +8,7 @@
   },
   "production": {
     "vercel": "OK",
-    "vercel_http": "200",
-    "health_api": "success"
+    "vercel_http": "200"
   },
-  "reliability": "95%",
-  "blockers": 0,
-  "last_update": "2026-06-10 16:54:00"
+  "last_update": "2026-06-10 16:59:47"
 }
