@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-10T09:53:15Z",
+  "timestamp": "2026-06-10T09:58:00Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
@@ -7,8 +7,16 @@
     "phase2c": "ready"
   },
   "production": {
-    "vercel": "OK",
-    "vercel_http": "200"
+    "vercel": "ERROR",
+    "vercel_http": "DEPLOYMENT_NOT_FOUND",
+    "vercel_error": "배포 없음 — Vercel에서 배포 발견 불가"
   },
-  "last_update": "2026-06-10 18:53:15"
+  "last_update": "2026-06-10 18:58:00",
+  "cycle": 1191,
+  "projects": {
+    "AUDIT-P1": "0cf3c1ba",
+    "DISCORD-BOT-P1": "585db4d5",
+    "BM-P1": "ecc13a9f",
+    "TRAVEL-P2-UI": "e9396c74"
+  }
 }
