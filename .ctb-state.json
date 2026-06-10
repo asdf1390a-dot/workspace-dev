@@ -1,29 +1,14 @@
 {
-  "timestamp": "2026-06-10T04:02:30Z",
+  "timestamp": "2026-06-10T04:07:15Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
-    "phase2c": "ready",
-    "asset_master_phase3": "in_progress"
+    "phase2c": "ready"
   },
   "production": {
-    "vercel": "DEPLOYMENT_NOT_FOUND",
-    "vercel_http": "error",
-    "last_known_status": "200",
-    "status_check_time": "2026-06-10 13:02:30"
+    "vercel": "OK",
+    "vercel_http": "200"
   },
-  "p1_projects": {
-    "audit_p1": "complete (0cf3c1ba)",
-    "discord_bot_p1": "complete (585db4d5)",
-    "travel_p2_ui": "complete (e9396c74)",
-    "bm_p1": "complete (ecc13a9f)"
-  },
-  "reliability": "92%",
-  "blockers": [
-    "Team Dashboard P1 db/36 사용자 액션 대기 (비-크리티컬)",
-    "Vercel DEPLOYMENT_NOT_FOUND (크리티컬)"
-  ],
-  "last_update": "2026-06-10 13:02:30",
-  "polling_cycle": 1144
+  "last_update": "2026-06-10 13:07:15"
 }
