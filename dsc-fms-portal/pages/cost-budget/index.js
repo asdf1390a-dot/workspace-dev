@@ -1,6 +1,11 @@
 import { useState, useEffect } from 'react';
 import styles from '@/styles/pages/cost-budget.module.css';
 
+export const getServerSideProps = async () => ({
+  props: { timestamp: Date.now() },
+  revalidate: 0,
+});
+
 export default function CostBudgetPortal() {
   const categories = ['재료비', '인건비', '운영비'];
 

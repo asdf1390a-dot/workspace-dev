@@ -1,6 +1,11 @@
 import { useState, useEffect } from 'react';
 import styles from '@/styles/pages/productivity.module.css';
 
+export const getServerSideProps = async () => ({
+  props: { timestamp: Date.now() },
+  revalidate: 0,
+});
+
 export default function ProductivityPortal() {
   const sheets = [
     '생산성 집계',
