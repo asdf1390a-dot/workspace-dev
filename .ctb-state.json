@@ -1,6 +1,19 @@
 {
-  "timestamp": "2026-06-10T03:33:00Z",
+  "timestamp": "2026-06-10T03:56:02Z",
+  "cycle": 1143,
   "progress": 100,
+  "completion": {
+    "AUDIT-P1": "100%",
+    "DISCORD-BOT-P1": "100%",
+    "BM-P1": "100%",
+    "TRAVEL-P2-UI": "100%"
+  },
+  "commits": {
+    "AUDIT-P1": "0cf3c1ba",
+    "DISCORD-BOT-P1": "585db4d5",
+    "BM-P1": "ecc13a9f",
+    "TRAVEL-P2-UI": "e9396c74"
+  },
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
@@ -10,16 +23,8 @@
     "vercel": "OK",
     "vercel_http": "200"
   },
-  "last_update": "2026-06-10 12:33:00",
-  "cycle": 1160,
-  "p1_projects": {
-    "audit_p1": "100% complete",
-    "discord_bot_p1": "100% complete",
-    "travel_p2_ui": "100% complete",
-    "bm_p1": "100% complete",
-    "team_dashboard_p1_db36": "100% complete ✅"
-  },
-  "reliability": "100%",
-  "blockers": 0,
-  "blocker_details": "모든 블로커 해제됨"
+  "reliability": "92%",
+  "blockers": 1,
+  "blocker_detail": "Team Dashboard P1 db/36 마이그레이션 (사용자 액션 대기)",
+  "last_update": "2026-06-10 12:56:02"
 }
