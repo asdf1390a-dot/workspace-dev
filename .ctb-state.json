@@ -1,6 +1,15 @@
 {
-  "timestamp": "2026-06-10T06:06:00Z",
+  "timestamp": "2026-06-10T06:22:54Z",
+  "cycle": 1159,
+  "time_kst": "2026-06-10 15:22:54",
   "progress": 100,
+  "p1_status": {
+    "audit_p1": "✅ 완료 (0cf3c1ba)",
+    "discord_bot_p1": "✅ 완료 (585db4d5)",
+    "travel_p2_ui": "✅ 완료 (e9396c74)",
+    "bm_p1": "✅ 완료 (ecc13a9f)",
+    "count": "4/4"
+  },
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
@@ -8,15 +17,12 @@
   },
   "production": {
     "vercel": "OK",
-    "vercel_http": "200"
+    "vercel_http": "200",
+    "assets_page": "✅ 200",
+    "api_assets": "✅ 200"
   },
-  "last_update": "2026-06-10 15:06:00",
-  "p1_projects": {
-    "AUDIT-P1": {"completion": 100, "commit": "0cf3c1ba", "status": "complete"},
-    "DISCORD-BOT-P1": {"completion": 100, "commit": "585db4d5", "status": "complete"},
-    "BM-P1": {"completion": 100, "commit": "ecc13a9f", "status": "complete"},
-    "TRAVEL-P2-UI": {"completion": 100, "commit": "e9396c74", "status": "complete"}
-  },
-  "cycle": 1158,
-  "reliability": "95%"
+  "reliability": "95%",
+  "blockers": 0,
+  "status": "운영 정상화 지속",
+  "last_update": "2026-06-10 15:22:54"
 }
