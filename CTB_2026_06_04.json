@@ -1,9 +1,9 @@
 {
-  "polling_cycle": 1118,
-  "timestamp": "2026-06-10T00:02:21Z",
-  "timestamp_kst": "2026-06-10 09:02 KST",
-  "status": "✅ STABLE — Vercel HTTP 200 sustained (19h+ continuous) | P1=4/4 (100% code verified stable, zero changes since Jun 9 13:34) | /assets=200 ✅ | /api/assets=200 ✅ | 신뢰도=95% | 블로커=0 | 상태: 완전 정상화 지속",
-  "latest_update": "2026-06-10T00:02:21Z",
+  "polling_cycle": 1125,
+  "timestamp": "2026-06-10T00:37:00Z",
+  "timestamp_kst": "2026-06-10 09:37 KST",
+  "status": "🔴 VERCEL 404 REGRESSION — DEPLOYMENT_NOT_FOUND 지속 (09:12 KST 이후) | P1=4/4 (100% code stable, zero changes since Jun 9 13:34) | /assets=404 ❌ | /api/assets=404 ❌ | 신뢰도=92% | 블로커=1 | Vercel 배포 설정 재검증 필요",
+  "latest_update": "2026-06-10T00:37:00Z",
   "build_verification": {
     "status": "✅ PASSING (Code Compiled) | 🟡 PARTIAL INFRASTRUCTURE: /assets page 404 on openclaw-fms domain only",
     "pages_compiled": 143,
@@ -63,13 +63,23 @@
     "phase_2b_service": "✅ Running (port 3010, status: LISTEN, health: READY)",
     "phase_2c_service": "✅ Running (port 3011, status: LISTEN, health: READY)",
     "nextjs_dev_server": "✅ Running (port 3000, status: healthy)",
-    "vercel_deployment": "🟡 PARTIAL — /api/assets HTTP 200 ✅ (dsc-fms-portal) | /assets page HTTP 404 (openclaw-fms) | Domain routing mismatch",
-    "api_endpoint": "✅ /api/assets responding HTTP 200 (dsc-fms-portal.vercel.app) — API functional",
-    "static_page": "🔴 /assets page returning 404 (openclaw-fms.vercel.app) — Route not found",
+    "vercel_deployment": "🔴 CRITICAL — /api/assets HTTP 404 ❌ (DEPLOYMENT_NOT_FOUND) | /assets page HTTP 404 ❌ | Domain: dsc-fms.vercel.app 불응",
+    "api_endpoint": "❌ /api/assets returning 404 (DEPLOYMENT_NOT_FOUND) — API 다운",
+    "static_page": "🔴 /assets page returning 404 (DEPLOYMENT_NOT_FOUND) — Route lost",
     "gateway_status": "✅ Operational (port 19001)",
-    "overall_health": "🟡 DEGRADED — API operational, static page routing issue detected"
+    "overall_health": "🔴 CRITICAL — Vercel 배포 미응, 9:12 KST 이후 지속"
   },
-  "critical_blockers": [],
+  "critical_blockers": [
+    {
+      "id": "VERCEL_DEPLOYMENT_LOST",
+      "severity": "🔴 CRITICAL",
+      "title": "Vercel DEPLOYMENT_NOT_FOUND — dsc-fms.vercel.app 미응",
+      "since_kst": "2026-06-10 09:12 KST",
+      "duration_minutes": 25,
+      "impact": "모든 P1 프로젝트 배포 중단 (/assets, /api/assets 404)",
+      "action_required": "Vercel 배포 구성 재검증 (도메인 동기화, 캐시 초기화)"
+    }
+  ],
   "code_changes": {
     "since_last_cycle": 0,
     "recent_commits": [
