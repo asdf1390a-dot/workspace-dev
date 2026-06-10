@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-10T03:18:00Z",
+  "timestamp": "2026-06-10T03:23:15Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
@@ -7,21 +7,18 @@
     "phase2c": "ready"
   },
   "production": {
-    "vercel": "RECOVERED (HTTP 200)",
-    "vercel_http": "200",
-    "assets_page": "ready",
-    "api_routes": "ready"
+    "vercel": "OK",
+    "vercel_http": "200"
   },
-  "last_update": "2026-06-10 12:18:00",
+  "last_update": "2026-06-10 12:23:15",
+  "cycle": 1158,
   "p1_projects": {
-    "audit": "100%",
-    "discord_bot": "100%",
-    "travel_ui": "100%",
-    "bm_events": "100%"
+    "audit_p1": "100% complete",
+    "discord_bot_p1": "100% complete",
+    "travel_p2_ui": "100% complete",
+    "bm_p1": "100% complete"
   },
   "reliability": "92%",
-  "blockers": {
-    "vercel_regression": "ongoing (intermittent)",
-    "user_action_pending": "db/36 migration (non-critical)"
-  }
+  "blockers": 1,
+  "blocker_details": "db/36 user action waiting (non-critical)"
 }
