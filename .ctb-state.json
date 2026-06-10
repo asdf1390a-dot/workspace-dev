@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-10T03:08:00Z",
+  "timestamp": "2026-06-10T03:10:55Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
@@ -7,24 +7,8 @@
     "phase2c": "ready"
   },
   "production": {
-    "vercel": "DEGRADED",
-    "vercel_http": "404",
-    "vercel_error": "DEPLOYMENT_NOT_FOUND",
-    "local_fms": "UP"
+    "vercel": "BROKEN (HTTP 404)",
+    "vercel_http": "404"
   },
-  "last_update": "2026-06-10 12:08:00",
-  "issues": [
-    {
-      "severity": "CRITICAL",
-      "component": "vercel_deployment",
-      "status": "404",
-      "description": "dsc-fms.vercel.app returns HTTP 404 (DEPLOYMENT_NOT_FOUND)"
-    },
-    {
-      "severity": "WARNING",
-      "component": "ctb_accuracy",
-      "status": "mismatch",
-      "description": "12:03 commit reported HTTP 200 but actual curl returns 404"
-    }
-  ]
+  "last_update": "2026-06-10 12:10:55"
 }

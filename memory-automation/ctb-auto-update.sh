@@ -25,8 +25,8 @@ PHASE2A_HEALTH=$(extract_status "$(curl -s --connect-timeout 2 http://127.0.0.1:
 PHASE2B_HEALTH=$(extract_status "$(curl -s --connect-timeout 2 http://127.0.0.1:3010/health 2>/dev/null)")
 PHASE2C_HEALTH=$(extract_status "$(curl -s --connect-timeout 2 http://127.0.0.1:3011/health 2>/dev/null)")
 
-# Vercel 프로덕션 배포 상태 확인 [NEW: P0 Monitoring Gap Fix @ 14:05 KST]
-VERCEL_HTTP=$(curl -s -o /dev/null -w "%{http_code}" --connect-timeout 3 https://dsc-fms-portal.vercel.app 2>/dev/null)
+# Vercel 프로덕션 배포 상태 확인 [FIXED: 12:10 KST — 정확한 도메인으로 수정 (dsc-fms-portal→dsc-fms)]
+VERCEL_HTTP=$(curl -s -o /dev/null -w "%{http_code}" --connect-timeout 3 https://dsc-fms.vercel.app 2>/dev/null)
 if [[ "$VERCEL_HTTP" == "200" ]]; then
   VERCEL_HEALTH="OK"
 else
