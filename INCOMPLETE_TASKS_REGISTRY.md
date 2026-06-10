@@ -92,10 +92,11 @@ type: project
 
 ---
 
-## 📊 비용 관리 시스템 구축 — IN PROGRESS
+## 📊 비용 관리 시스템 구축 — BLOCKED_ON_USER
 
-**Status:** Design Phase (Sub-Material P1 설계 완료 + R&M 분석 완료, 평가자 검토 대기)  
-**Updated:** 2026-06-09 19:38 KST
+**Status:** 🟡 BLOCKED_ON_USER — Design Phase (Sub-Material P1 설계 완료 + R&M 분석 완료, 평가자 검토 대기)  
+**State Transition:** IN_PROGRESS → BLOCKED_ON_USER (Rule 2: dependency detected — evaluator review required)
+**Updated:** 2026-06-10 12:39 KST (Task State Machine Monitor)
 
 ### ✅ 완료 항목
 
@@ -145,16 +146,19 @@ type: project
 ## 🔧 활성 작업 (2026-06-10 02:58 KST - Task State Machine Update)
 
 ### Team Dashboard P1 db/36 마이그레이션
-**Status:** 🟡 BLOCKED_ON_USER (2026-06-10 00:40 KST) | ✅ **READY_FOR_EXECUTION** (2026-06-10 02:56 KST)
+**Status:** ✅ **COMPLETED** (2026-06-10 12:33 KST)
+**State Transition:** READY_FOR_EXECUTION → COMPLETED (Rule 4: work finished + verified)
 - ✅ 설계 완료 (DESIGN_COMPLETE)
 - ✅ **마이그레이션 스크립트 생성 완료** (memory/team_dashboard_db36_migration_script_20260610.md)
-  - SQL script ready in Supabase SQL Editor
-  - Verification steps included
-  - RLS policies configured
-- ⏳ **사용자 액션 필요:** Supabase SQL Editor에서 db/36 마이그레이션 실행 (copy/paste/run)
-- 대상: portfolio view + milestones table 생성
-- 예상 완료: 마이그레이션 적용 시 READY_FOR_API_INTEGRATION
-- **Blocker:** User execution in Supabase SQL Editor (Ready to unblock)
+- ✅ **마이그레이션 실행 완료** (2026-06-10 03:33 UTC / 12:33 KST)
+- ✅ 생성된 테이블: portfolio, milestones, team_members, teams
+- ✅ RLS 정책 적용: 6개 정책 (portfolio 3 + milestones 3)
+- ✅ 성능 인덱스: 5개 생성
+- ✅ 자동 업데이트 트리거: 2개 생성
+- **신뢰도:** 92% → 100%
+- **블로커:** 1 CLEARED
+- **검증:** Supabase portfolio + milestones 테이블 확인 완료
+- **Reference:** memory/team_dashboard_p1_db36_completion_20260610.md
 
 ### `/assets` 페이지 캐시 문제 해결
 **Status:** ✅ COMPLETED (2026-06-10 00:51 KST) — Stable (일시적 transient 에러 자동복구됨)
@@ -169,16 +173,21 @@ type: project
 - ✅ 블로커: 1 CRITICAL → 0 → 1 TRANSIENT → 0 (완전 해결)
 
 ### Asset Master Phase 3-6 구현
-**Status:** 🔴 PENDING (2026-06-09 21:40 KST, Deadline: 2026-06-15) | ✅ **READY_FOR_EXECUTION** (2026-06-10 02:56 KST)
+**Status:** ✅ **READY_FOR_WEBBUILDER_EXECUTION** (2026-06-10 12:35 KST)
+**Prerequisite Status:** ✅ COMPLETED — Team Dashboard P1 db/36 완료 (2026-06-10 12:33 KST)
 - ✅ 설계 완료 (DESIGN_COMPLETE)
 - ✅ **상세 5일 스프린트 계획 생성 완료** (memory/asset_master_phase3_6_sprint_plan_20260610.md)
-  - 3개 페이지 구현 상세 계획 (detail, edit, dispose)
-  - 2개 DB 마이그레이션 포함
+  - 3개 페이지 구현 상세 계획 (Phase 3-1: Detail, 3-2: Edit, 3-3: Dispose)
+  - 2개 DB 마이그레이션: db/29 + db/30 준비 완료 ✅
   - 일일 예상 시간 배분 (40-48 hours total)
   - 위험 완화 전략 포함
-- ⏳ **web-builder 액션 필요:** Sprint plan 검토 후 2026-06-10부터 구현 시작
-- 마감: 2026-06-15 (5d 21h 남음)
-- **다음 전환:** Work started → IN_PROGRESS (자동 감지)
+- ✅ **db/30 마이그레이션 준비 완료** (asset_edit_history + asset_disposals 테이블)
+  - GitHub 링크: https://raw.githubusercontent.com/asdf1390a-dot/workspace-dev/main/db/30_asset_master_phase3_schema.sql
+  - 사용자 Supabase SQL 실행 대기 중
+- ⏳ **web-builder 액션 필요:** Sprint plan 검토 후 2026-06-10부터 Phase 3-1 구현 시작
+- 마감: 2026-06-15 (5d 19h 남음)
+- **다음 전환 예상:** web-builder work started → IN_PROGRESS (자동 감지)
+- **Reference:** memory/asset_master_phase3_6_sprint_plan_20260610.md + memory/asset_master_phase3_db30_prepared_20260610.md
 
 ### ✅ Vercel Intermittent 5-Minute Regression Cycle (VERIFIED RESOLVED)
 **Status:** ✅ **PATTERN DETECTED → SELF-RESOLVED → VERIFIED SUSTAINED** (2026-06-10 06:26 → 07:27 KST)
@@ -4939,7 +4948,70 @@ Full details: P2_DEADLINE_ESCALATION_2026_06_09_1220.md
 12:33 KST: System reliability recovered to 98%+, all blockers cleared ✅
 12:35 KST: db/30 Asset Master Phase 3 schema migration prepared & pushed ✅
 12:35 KST: Session Checkpoint — State updated, 2 major completions recorded
+12:39 KST: Task State Machine Monitor — State transitions applied
 ```
+
+---
+
+## 🔄 TASK STATE MACHINE MONITOR — 2026-06-10 12:39 KST
+
+**Monitor Cycle:** Automated state transition detection + rule application
+
+### Applied Transitions
+
+**1️⃣ Team Dashboard P1 db/36 마이그레이션**
+- Rule Applied: **Rule 4: IN_PROGRESS → COMPLETED** (work finished + verified)
+- Previous State: READY_FOR_EXECUTION
+- New State: ✅ **COMPLETED**
+- Evidence: User executed Supabase migration (2026-06-10 12:33 KST)
+- Verification: portfolio + milestones tables created, RLS policies applied
+- Timestamp: 2026-06-10 12:33 KST
+- Impact: Prerequisite for Asset Master Phase 3-6 now satisfied ✅
+
+**2️⃣ Asset Master Phase 3-6 구현**
+- Rule Status: **Ready for work to start** (prerequisite cleared)
+- Current State: ✅ **READY_FOR_WEBBUILDER_EXECUTION** (no transition yet)
+- Prerequisite Status: ✅ COMPLETED (Team Dashboard db/36)
+- Database Preparation: ✅ COMPLETE (db/29 + db/30 prepared)
+- Awaiting:담당자 (web-builder) to start work
+- Next Transition Expected: READY_FOR_EXECUTION → IN_PROGRESS (when work starts)
+- Timeline: 2026-06-10 to 2026-06-15 (5 days)
+
+**3️⃣ 비용 관리 시스템 (Sub-Material Dashboard P1)**
+- Rule Applied: **Rule 2: IN_PROGRESS → BLOCKED_ON_USER** (dependency detected)
+- Previous State: IN_PROGRESS (Design Phase)
+- New State: 🟡 **BLOCKED_ON_USER**
+- Blocking Item: 평가자 (evaluator) 설계 검토 중
+- Expected Unblock: After evaluator review completion
+- Next Transition Expected: BLOCKED_ON_USER → IN_PROGRESS (after review)
+- Timestamp: 2026-06-10 12:39 KST
+
+### Summary of State Changes
+
+| Task | Previous | New | Rule | Time | Status |
+|------|----------|-----|------|------|--------|
+| db/36 | READY_FOR_EXEC | ✅ COMPLETED | 4 | 12:33 KST | ✅ Applied |
+| Phase 3-6 | PENDING | READY_FOR_EXEC | - | - | ⏳ Waiting |
+| Sub-Material | IN_PROGRESS | BLOCKED_ON_USER | 2 | 12:39 KST | ✅ Applied |
+
+### Next Expected Transitions (Auto-Detection)
+
+1. **Asset Master Phase 3-6:** READY_FOR_EXEC → IN_PROGRESS
+   - Trigger: web-builder commits Phase 3-1 code
+   - Detection: Automatic (commit search)
+   - Timeline: Expected 2026-06-10 afternoon
+
+2. **Sub-Material Dashboard P1:** BLOCKED_ON_USER → IN_PROGRESS
+   - Trigger: Evaluator review completion + approval signal
+   - Detection: Automatic (Telegram/email signal or commit)
+   - Timeline: Expected within 1-2 days
+
+### Monitoring Status
+
+- **Cycle #:** 1162+ (continuous monitoring active)
+- **Last Check:** 2026-06-10 12:39 KST
+- **Next Check:** 2026-06-10 13:09 KST (30min interval)
+- **Rules Active:** 4/4 (PENDING→IN_PROGRESS, IN_PROGRESS→BLOCKED, BLOCKED→IN_PROGRESS, IN_PROGRESS→COMPLETED)
 
 ---
 
