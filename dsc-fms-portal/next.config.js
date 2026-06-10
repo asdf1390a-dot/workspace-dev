@@ -6,7 +6,7 @@ const nextConfig = {
         headers: [
           {
             key: 'Cache-Control',
-            value: 'no-store, no-cache, must-revalidate, max-age=0, proxy-revalidate',
+            value: 'no-cache, no-store, max-age=0, must-revalidate',
           },
           {
             key: 'Pragma',
@@ -14,7 +14,29 @@ const nextConfig = {
           },
           {
             key: 'Expires',
-            value: '0',
+            value: '-1',
+          },
+          {
+            key: 'Surrogate-Control',
+            value: 'no-store',
+          },
+        ],
+      },
+      {
+        source: '/cost-budget(/.*)?',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'no-cache, no-store, max-age=0, must-revalidate',
+          },
+        ],
+      },
+      {
+        source: '/productivity(/.*)?',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'no-cache, no-store, max-age=0, must-revalidate',
           },
         ],
       },

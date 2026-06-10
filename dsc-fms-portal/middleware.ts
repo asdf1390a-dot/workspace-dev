@@ -3,17 +3,20 @@ import type { NextRequest } from 'next/server';
 
 export function middleware(request: NextRequest) {
   const response = NextResponse.next();
+  const pathname = request.nextUrl.pathname;
 
-  // /assets 페이지에 대해 항상 최신 컨텐츠 반환 (캐시 없음)
-  if (request.nextUrl.pathname === '/assets') {
-    response.headers.set('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+  // 모든 동적 페이지에 no-cache 헤더 설정
+  if (pathname.startsWith('/assets') || pathname.startsWith('/cost-budget') || pathname.startsWith('/productivity')) {
+    response.headers.set('Cache-Control', 'no-cache, no-store, max-age=0, must-revalidate, proxy-revalidate');
     response.headers.set('Pragma', 'no-cache');
-    response.headers.set('Expires', '0');
+    response.headers.set('Expires', '-1');
+    response.headers.set('Surrogate-Control', 'no-store');
+    response.headers.set('CDN-Cache-Control', 'no-store');
   }
 
   return response;
 }
 
 export const config = {
-  matcher: ['/assets'],
+  matcher: ['/:path*'],
 };
