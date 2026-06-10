@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-10T09:27:00Z",
+  "timestamp": "2026-06-10T18:33:13Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
@@ -8,32 +8,8 @@
   },
   "production": {
     "vercel": "DEGRADED",
-    "vercel_http": "404",
-    "health_endpoint": "/api/audit/health (200 OK)",
-    "blocker": "Vercel /api/health 404 — route.ts 배포 미완료"
+    "vercel_http": "health check timeout",
+    "vercel_note": "Both /api/health and /api/audit/health endpoints unreachable"
   },
-  "last_update": "2026-06-10 18:27:00",
-  "p1_projects": {
-    "AUDIT-P1": {
-      "commit": "0cf3c1ba",
-      "status": "100%",
-      "verified": true
-    },
-    "DISCORD-BOT-P1": {
-      "commit": "585db4d5",
-      "status": "100%",
-      "verified": true
-    },
-    "BM-P1": {
-      "commit": "ecc13a9f",
-      "status": "100%",
-      "verified": true
-    },
-    "TRAVEL-P2-UI": {
-      "commit": "e9396c74",
-      "status": "100%",
-      "verified": true
-    }
-  },
-  "reliability": "95%"
+  "last_update": "2026-06-10 18:33:13"
 }
