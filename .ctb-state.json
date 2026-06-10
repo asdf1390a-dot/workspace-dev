@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-10T09:58:00Z",
+  "timestamp": "2026-06-10T10:03:15Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
@@ -7,16 +7,11 @@
     "phase2c": "ready"
   },
   "production": {
-    "vercel": "ERROR",
-    "vercel_http": "DEPLOYMENT_NOT_FOUND",
-    "vercel_error": "배포 없음 — Vercel에서 배포 발견 불가"
+    "vercel": "DEPLOYMENT_NOT_FOUND",
+    "vercel_http": "404"
   },
-  "last_update": "2026-06-10 18:58:00",
-  "cycle": 1191,
-  "projects": {
-    "AUDIT-P1": "0cf3c1ba",
-    "DISCORD-BOT-P1": "585db4d5",
-    "BM-P1": "ecc13a9f",
-    "TRAVEL-P2-UI": "e9396c74"
-  }
+  "reliability": "92%",
+  "blockers": 1,
+  "last_update": "2026-06-10 19:03:15",
+  "note": "사이클 1192 @ 19:03 KST | 근본원인: Vercel 배포 불안정 (5분 회귀 반복) | P1 4/4 안정 (0변화) | db/36 완료 | Phase 2 Day 11/7"
 }

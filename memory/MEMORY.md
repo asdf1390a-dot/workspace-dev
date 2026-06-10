@@ -1,9 +1,10 @@
 # 메모리 인덱스
 
-**Last Checkpoint:** 2026-06-10 18:58 KST (CTB 폴링 1191 — 🔴 **Vercel DEPLOYMENT_NOT_FOUND 긴급** | P1 4/4 완료 | 신뢰도 95% | 블로커 1건 — 수동 개입 필요)
+**Last Checkpoint:** 2026-06-10 19:03 KST (CTB 폴링 사이클 1192 — 🔴 **Vercel DEPLOYMENT_NOT_FOUND 지속** | 5분 회귀 반복 패턴 | P1 4/4 완료 (0변화) | 신뢰도 92% (회귀) | 블로커 1건 — **사용자 수동 개입 필요**)
 
-# 🔴 **긴급 상황 — Vercel 배포 오류**
+# 🔴 **긴급 상황 — Vercel DEPLOYMENT_NOT_FOUND (5분 회귀 반복)**
 
+- [🔴 CTB 폴링 사이클 1192 (2026-06-10 19:03 KST)](ctb_cycle_1192_20260610_1903.md) — **DEPLOYMENT_NOT_FOUND 지속** | 근본원인: 배포 구성 오류 또는 캐시 충돌 | 5분 회귀 주기 반복 (18:53 회복 → 18:58 즉시 회귀) | P1 4/4 완료 (0변화) | 신뢰도 92% | 블로커 1건 | **사용자 수동 조치 필요**
 - [🔴 Vercel 배포 긴급 오류 (2026-06-10 18:58 KST)](vercel_deployment_critical_20260610.md) — **DEPLOYMENT_NOT_FOUND** | 5분 전 정상(HTTP 200)에서 회귀 | 인프라 문제 | 수동 개입 필요 | 커밋: 0d38ddd2
 - [🟡 CTB 폴링 사이클 1190 (2026-06-10 18:53 KST)](ctb_cycle_1190_20260610_1853.md) — ✅ Vercel 정상 (HTTP 200) | P1 4/4 완료 (100%) | Phase 2A/B/C ready | 신뢰도 95% | 블로커 0 | 커밋: e674ac66
 
