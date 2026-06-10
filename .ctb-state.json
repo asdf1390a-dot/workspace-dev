@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-10T00:32:15Z",
+  "timestamp": "2026-06-10T00:42:30Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
@@ -7,9 +7,12 @@
     "phase2c": "ready"
   },
   "production": {
-    "vercel": "DEPLOYMENT_NOT_FOUND",
-    "vercel_http": "error",
-    "blocker": "domain_desync"
+    "vercel": "DEGRADED",
+    "vercel_http": "404",
+    "issue": "DEPLOYMENT_NOT_FOUND — domain sync",
+    "duration": "30min since 09:12",
+    "action_required": true,
+    "user_action": "Vercel dashboard redeploy/domain reconfigure"
   },
-  "last_update": "2026-06-10 09:32:15"
+  "last_update": "2026-06-10 09:42:30"
 }
