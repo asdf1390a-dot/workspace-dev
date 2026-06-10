@@ -1,52 +1,16 @@
 {
-  "cycle": 1147,
-  "timestamp": "2026-06-10T04:17:37Z",
-  "timestamp_kst": "2026-06-10 13:17:37",
+  "timestamp": "2026-06-10T04:22:32Z",
   "progress": 100,
-  "projects": {
-    "AUDIT-P1": {
-      "status": "complete",
-      "completion": 100,
-      "commit": "0cf3c1ba",
-      "updated": "2026-06-09T15:30:00Z"
-    },
-    "DISCORD-BOT-P1": {
-      "status": "complete",
-      "completion": 100,
-      "commit": "585db4d5",
-      "updated": "2026-06-09T14:20:00Z"
-    },
-    "TRAVEL-P2-UI": {
-      "status": "complete",
-      "completion": 100,
-      "commit": "e9396c74",
-      "updated": "2026-06-09T16:45:00Z"
-    },
-    "BM-P1": {
-      "status": "complete",
-      "completion": 100,
-      "commit": "ecc13a9f",
-      "updated": "2026-06-09T13:15:00Z"
-    }
-  },
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
-    "phase2c": "ready",
-    "uptime_hours": 28
+    "phase2c": "ready"
   },
   "production": {
     "vercel": "OK",
-    "vercel_http": 200,
-    "api_assets": "OK",
-    "assets_page": "OK",
-    "last_verified": "2026-06-10T04:12:00Z"
+    "vercel_http": "200",
+    "api_assets": "200",
+    "assets_page": "200"
   },
-  "reliability": {
-    "completion_rate": 92,
-    "blockers": 1,
-    "blocker_detail": "Team Dashboard P1 db/36 마이그레이션 (사용자 액션 대기, 비-크리티컬)"
-  },
-  "last_update": "2026-06-10 13:17:37",
-  "status": "운영 정상화"
+  "last_update": "2026-06-10 13:22:32"
 }
