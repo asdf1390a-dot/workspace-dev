@@ -1,18 +1,18 @@
 # 메모리 인덱스
 
-**Last Checkpoint:** 2026-06-10 12:45 KST (Phase 3-1 Detail Page ✅ 완료 + Phase 3-2 Edit Page 준비 중)
+**Last Checkpoint:** 2026-06-10 13:27 KST (CTB Cycle 1148 — Vercel 회복 완료, db/36 자동 완료, Phase 2 검증 Day 1/7 진행중)
 
-# 🟢 상태판 — 정상 운영 중
+# 🟢 상태판 — 안정화 진행 중
 
+- [📊 조직 현황 (2026-06-10 13:27 KST)](org_status_20260610_1327.md) — Vercel ✅ 정상 (HTTP 307), P1=4/4 완료, db/36 ✅ 완료 (12:33), Phase 2 검증 Day 1/7, 신뢰도 92% (회복 중) | 블로커 1 (비-크리티컬)
 - [🔧 평가자 에이전트 비활성화 완료](evaluator_deactivation_20260610.md) — 규칙 검증 로직 부재로 자동모드 위반 반복 → 구조적 비활성화 결정 | 비서가 직접 검증 담당 (2026-06-10 12:52)
 - [✅ Asset Master Phase 3-1 Detail Page 개발 완료](asset_master_phase3_1_detail_page_complete_20260610.md) — `/assets/[id]` 라우트 + EditHistoryTimeline 컴포넌트 준비 완료 | db/46 사용자 실행 대기
-- [✅ Team Dashboard P1 db/36 마이그레이션 완료](team_dashboard_p1_db36_completion_20260610.md) — Supabase 마이그레이션 성공 (portfolio + milestones 테이블, RLS 정책 적용) | 신뢰도 100% ✅
+- [✅ Team Dashboard P1 db/36 마이그레이션 완료](team_dashboard_p1_db36_completion_20260610.md) — Supabase 마이그레이션 성공 (portfolio + milestones 테이블, RLS 정책 적용) | 신뢰도 100% ✅ (12:33 KST)
 - [✅ Asset Master Phase 3 db/30 준비 완료](asset_master_phase3_db30_prepared_20260610.md) — db/30 마이그레이션 파일 생성 & GitHub 푸시 완료 | 사용자 Supabase SQL 실행 대기 중
-- [🟢 Vercel 안정화 지속](vercel_stability_2026_06_10_1200.md) — HTTP 200 OK (3h+ uptime) | P1=5/5 (100%) | 블로커=0 | 신뢰도=98%+ ✅
 
 ---
 
-**마지막 갱신:** 2026-06-10 12:45 KST | **상태:** 🟢 **NORMAL** — Phase 3-1 ✅ | Phase 3-2 준비 중 | Vercel 안정 (HTTP 200) | P1=5/5 (100%) | 신뢰도=98%+ | 블로커=0 ✅
+**마지막 갱신:** 2026-06-10 13:27 KST | **상태:** 🟡 **RECOVERY** — Vercel ✅ 회복 | db/36 ✅ 완료 | Phase 2 Day 1/7 | 신뢰도 92% (목표: 14:00까지 98%+)
 
 ---
 

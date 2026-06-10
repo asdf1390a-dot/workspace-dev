@@ -1,0 +1,34 @@
+{
+  "sessionKey": "test-session-123",
+  "timestamp": 1781062724390,
+  "context": {
+    "sessionKey": "test-session-123",
+    "createdAt": 1781062724387,
+    "updatedAt": 1781062724389,
+    "metadata": {
+      "agentRole": "web-builder",
+      "project": "DSC-FMS",
+      "sessionId": "2506e076-8dbe-4b70-8abb-f980053129c6"
+    },
+    "state": {
+      "lastProcessedId": "msg-abc123",
+      "deduplicationCount": 42
+    },
+    "history": [
+      {
+        "type": "message_processed",
+        "timestamp": 1781062724389,
+        "data": {
+          "messageId": "msg-abc123"
+        }
+      },
+      {
+        "type": "deduplication_complete",
+        "timestamp": 1781062724389,
+        "data": {
+          "count": 42
+        }
+      }
+    ]
+  }
+}

@@ -1,7 +1,10 @@
 {
-  "enqueued": 1381,
-  "dequeued": 336,
+  "enqueued": 1404,
+  "dequeued": 338,
   "expired": 844,
   "parse_error": 0,
-  "last_update": "2026-06-10T02:45:01.531Z"
+  "cache_hits": 0,
+  "cache_misses": 0,
+  "cache_hit_rate": 0,
+  "last_update": "2026-06-10T04:25:01.498Z"
 }
