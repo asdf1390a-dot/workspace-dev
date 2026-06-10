@@ -1,14 +1,14 @@
 # 메모리 인덱스
 
-**Last Checkpoint:** 2026-06-10 09:27:15 KST (폴링 사이클 1123 — 근본원인 진단)
+**Last Checkpoint:** 2026-06-10 09:47:22 KST (폴링 사이클 1127 — HTTP 404 지속 30분+)
 
 # 🔴 긴급 상황판
 
-- [🔴 Vercel 도메인 미동기 진단 (2026-06-10 09:27)](vercel_domain_mismatch_20260610.md) — dsc-fms.vercel.app 도메인 무효 → DEPLOYMENT_NOT_FOUND | 해결책: 도메인 별칭 추가 필요 | 블로커 1건
+- [🔴 Vercel HTTP 404 블로커 (2026-06-10 09:47)](vercel_http404_blocker_20260610_0947.md) — dsc-fms.vercel.app DEPLOYMENT_NOT_FOUND | HTTP 404 지속 (09:42~09:47, 30분 이상) | P1=4/4 코드 안정 | 신뢰도=92% | 블로커=1 (사용자 액션: Vercel 도메인 재구성/재배포)
 
 ---
 
-**마지막 갱신:** 2026-06-10 09:27 KST | **상태:** 🔴 **DEGRADED** — Vercel HTTP 404 (cycle 1120~1122) | 근본원인: dsc-fms.vercel.app 도메인 미동기 | P1=4/4 (100%, code 변경 0 since Jun 9 13:34) | 신뢰도=92% ⬇️ | 블로커=1 | CTB: CTB_2026_06_10.json
+**마지막 갱신:** 2026-06-10 09:47:22 KST | **상태:** 🔴 **CRITICAL** — Vercel `/api/assets` HTTP 404 (지속 30분) | 근본원인: Vercel DEPLOYMENT_NOT_FOUND (도메인 미동기) | P1=4/4 (100%, code 변경 0 since Jun 9 13:34) | 신뢰도=92% | 블로커=1 | CTB: 자동 업데이트 중
 
 ---
 

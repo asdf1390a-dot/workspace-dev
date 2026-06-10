@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-10T00:42:30Z",
+  "timestamp": "2026-06-10T00:47:22Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
@@ -9,10 +9,10 @@
   "production": {
     "vercel": "DEGRADED",
     "vercel_http": "404",
-    "issue": "DEPLOYMENT_NOT_FOUND — domain sync",
-    "duration": "30min since 09:12",
-    "action_required": true,
-    "user_action": "Vercel dashboard redeploy/domain reconfigure"
+    "vercel_error": "DEPLOYMENT_NOT_FOUND",
+    "vercel_domain": "dsc-fms.vercel.app (미동기)"
   },
-  "last_update": "2026-06-10 09:42:30"
+  "last_update": "2026-06-10 09:47:22",
+  "blocker": "Vercel /api/assets HTTP 404 (지속 30분+)",
+  "reliability": "92%"
 }
