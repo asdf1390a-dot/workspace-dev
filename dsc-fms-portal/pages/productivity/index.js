@@ -49,6 +49,28 @@ export default function ProductivityPortal() {
     }
   };
 
+  const handleDownloadCSV = () => {
+    const csv = [
+      ['Sheet', 'ID', 'Name', 'Value', 'Status'].join(','),
+      ...data.map((item) =>
+        [
+          activeSheet,
+          item.data?.id || '',
+          item.data?.name || '',
+          item.data?.value || '',
+          item.data?.status || '',
+        ].join(',')
+      ),
+    ].join('\n');
+
+    const blob = new Blob([csv], { type: 'text/csv' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `productivity-${activeSheet.replace(/\s+/g, '-')}-${new Date().toISOString().split('T')[0]}.csv`;
+    a.click();
+  };
+
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>📊 생산성 포털</h1>
@@ -86,6 +108,9 @@ export default function ProductivityPortal() {
           <option value={50}>50행</option>
           <option value={100}>100행</option>
         </select>
+        <button onClick={handleDownloadCSV} className={styles.downloadBtn} style={{ marginLeft: 'auto' }}>
+          📥 CSV 다운로드
+        </button>
       </div>
 
       {/* 데이터 테이블 */}
