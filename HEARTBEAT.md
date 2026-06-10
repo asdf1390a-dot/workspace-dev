@@ -2,7 +2,7 @@
 
 ## ✅ **현재 상태 (2026-06-10 12:33 KST)**
 - **Vercel `/assets`:** HTTP 200 ✅ (stable 3h+, 캐시 문제 완전 해결)
-- **팀 구성:** 10명 100% 활용률 (CEO + 9개 AI 에이전트)
+- **팀 구성:** 9명 100% 활용률 (CEO + 8개 AI 에이전트) — 평가자 비활성화
 - **P1 프로젝트:** 5개 모두 완료 ✅ (AUDIT, DISCORD-BOT, BM, TRAVEL, **TEAM_DASHBOARD_DB36**)
   - 🎉 **Team Dashboard P1 db/36:** Supabase 마이그레이션 성공 (portfolio + milestones 테이블, RLS 정책 적용)
 - **배포 상태:** 모든 P1/P2 프로젝트 배포 완료 ✅

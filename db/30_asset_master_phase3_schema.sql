@@ -4,9 +4,12 @@
 
 -- Add columns to assets table for edit tracking
 ALTER TABLE assets ADD COLUMN IF NOT EXISTS
-  edit_history JSONB DEFAULT '[]'::jsonb,
-  last_edited_by UUID,
-  last_edited_at TIMESTAMP WITH TIME ZONE DEFAULT NOW();
+  edit_history JSONB DEFAULT '[]'::jsonb;
+ALTER TABLE assets ADD COLUMN IF NOT EXISTS
+  last_edited_by uuid;
+ALTER TABLE assets ADD COLUMN IF NOT EXISTS
+  last_edited_at timestamptz DEFAULT now();
+ALTER TABLE assets ADD CONSTRAINT fk_assets_last_edited_by FOREIGN KEY (last_edited_by) REFERENCES auth.users(id) ON DELETE SET NULL;
 
 -- Table: Asset Edit History
 -- Tracks all changes made to asset fields (name, location, status, etc.)
@@ -39,14 +42,19 @@ ALTER TABLE asset_disposals ENABLE ROW LEVEL SECURITY;
 -- RLS Policy: Users can view edit history for their own portfolio assets
 DROP POLICY IF EXISTS "asset_edit_history_select" ON asset_edit_history;
 CREATE POLICY asset_edit_history_select ON asset_edit_history
-  FOR SELECT USING (
-    asset_id IN (
-      SELECT a.id FROM assets a
-      WHERE a.portfolio_id IN (
-        SELECT p.id FROM portfolios p WHERE p.owner_id = auth.uid()
-      )
-    )
-  );
+  FOR SELECT USING (changed_by = auth.uid());
+
+DROP POLICY IF EXISTS "asset_edit_history_insert" ON asset_edit_history;
+CREATE POLICY asset_edit_history_insert ON asset_edit_history
+  FOR INSERT WITH CHECK (changed_by = auth.uid());
+
+DROP POLICY IF EXISTS "asset_disposals_select" ON asset_disposals;
+CREATE POLICY asset_disposals_select ON asset_disposals
+  FOR SELECT USING (disposed_by = auth.uid());
+
+DROP POLICY IF EXISTS "asset_disposals_insert" ON asset_disposals;
+CREATE POLICY asset_disposals_insert ON asset_disposals
+  FOR INSERT WITH CHECK (disposed_by = auth.uid());
 
 -- RLS Policy: Users can view disposal records for their assets
 DROP POLICY IF EXISTS "asset_disposals_select" ON asset_disposals;
