@@ -1,25 +1,14 @@
 {
-  "timestamp": "2026-06-10T09:37:00Z",
+  "timestamp": "2026-06-10T09:43:00Z",
   "progress": 100,
-  "cycle": 1187,
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
     "phase2c": "ready"
   },
   "production": {
-    "vercel": "TIMEOUT",
-    "vercel_http": "timeout",
-    "vercel_health_endpoint": "미응답"
+    "vercel": "OK",
+    "vercel_http": "200"
   },
-  "p1_projects": {
-    "audit_p1": "0cf3c1ba",
-    "discord_bot_p1": "585db4d5",
-    "bm_p1": "ecc13a9f",
-    "travel_p2_ui": "e9396c74"
-  },
-  "blockers": 1,
-  "blocker_detail": "Vercel 네트워크 연결 타임아웃",
-  "reliability": 95,
-  "last_update": "2026-06-10 18:37:00"
+  "last_update": "2026-06-10 18:43:00"
 }
