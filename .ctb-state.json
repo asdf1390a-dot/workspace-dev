@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-10T04:25:01Z",
+  "timestamp": "2026-06-10T04:32:01Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
@@ -7,8 +7,11 @@
     "phase2c": "ready"
   },
   "production": {
-    "vercel": "OK",
-    "vercel_http": "200"
+    "vercel": "DEGRADED",
+    "vercel_http": "404",
+    "vercel_issue": "/assets + /api/assets → 404 DEPLOYMENT_NOT_FOUND (recurring regression)"
   },
-  "last_update": "2026-06-10 13:25:01"
+  "last_update": "2026-06-10 13:32:01",
+  "polling_cycle": 1149,
+  "note": "🔴 Vercel 회귀 재발생 (cycle 1149). Local Phase 2 services 정상 (3009/3010/3011 HTTP 200). 근본원인 재조사 필요."
 }
