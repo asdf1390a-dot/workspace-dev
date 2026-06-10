@@ -6,7 +6,7 @@ const nextConfig = {
         headers: [
           {
             key: 'Cache-Control',
-            value: 'no-cache, no-store, max-age=0, must-revalidate',
+            value: 'no-cache, no-store, must-revalidate, max-age=0, s-maxage=0',
           },
           {
             key: 'Pragma',
@@ -18,7 +18,11 @@ const nextConfig = {
           },
           {
             key: 'Surrogate-Control',
-            value: 'no-store',
+            value: 'no-store, max-age=0',
+          },
+          {
+            key: 'X-Accel-Expires',
+            value: '0',
           },
         ],
       },
@@ -27,7 +31,7 @@ const nextConfig = {
         headers: [
           {
             key: 'Cache-Control',
-            value: 'no-cache, no-store, max-age=0, must-revalidate',
+            value: 'no-cache, no-store, must-revalidate, max-age=0, s-maxage=0',
           },
         ],
       },
@@ -36,7 +40,16 @@ const nextConfig = {
         headers: [
           {
             key: 'Cache-Control',
-            value: 'no-cache, no-store, max-age=0, must-revalidate',
+            value: 'no-cache, no-store, must-revalidate, max-age=0, s-maxage=0',
+          },
+        ],
+      },
+      {
+        source: '/api(/.*)?',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'no-cache, no-store, max-age=0, s-maxage=0',
           },
         ],
       },

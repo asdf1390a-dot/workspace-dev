@@ -5,6 +5,44 @@
   "env": {
     "NODE_ENV": "production"
   },
+  "functions": {
+    "dsc-fms-portal/.next/server/pages/**": {
+      "maxDuration": 30
+    }
+  },
+  "headers": [
+    {
+      "source": "/assets(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, no-store, must-revalidate"
+        },
+        {
+          "key": "X-Vercel-Cache-Control",
+          "value": "no-cache, no-store"
+        }
+      ]
+    },
+    {
+      "source": "/cost-budget(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, no-store, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/productivity(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, no-store, must-revalidate"
+        }
+      ]
+    }
+  ],
   "crons": [
     {
       "path": "/api/cron/checkpoints/08-00",
