@@ -1,6 +1,16 @@
 -- db/36: Team Dashboard Phase 2
 -- Schema: Portfolio management and milestones tracking
 
+-- Drop existing objects to allow re-migration
+DROP TRIGGER IF EXISTS portfolio_updated_at_trigger ON portfolio;
+DROP TRIGGER IF EXISTS milestones_updated_at_trigger ON milestones;
+DROP FUNCTION IF EXISTS set_portfolio_updated_at();
+DROP FUNCTION IF EXISTS set_milestones_updated_at();
+DROP TABLE IF EXISTS milestones CASCADE;
+DROP TABLE IF EXISTS portfolio CASCADE;
+DROP TABLE IF EXISTS team_members CASCADE;
+DROP TABLE IF EXISTS teams CASCADE;
+
 CREATE TABLE IF NOT EXISTS teams (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   name VARCHAR(255) NOT NULL,
