@@ -4074,3 +4074,26 @@ TypeError: Cannot read properties of undefined (reading 'call')
  GET / 200 in 36ms
  GET / 200 in 29ms
  GET / 200 in 29ms
+ GET / 200 in 28ms
+ GET / 200 in 33ms
+ GET / 200 in 44ms
+ GET / 200 in 31ms
+ GET / 200 in 33ms
+ GET / 200 in 30ms
+ GET / 200 in 31ms
+ GET / 200 in 33ms
+ GET / 200 in 28ms
+ GET / 200 in 25ms
+ GET / 200 in 33ms
+ GET / 200 in 27ms
+ GET / 200 in 28ms
+ GET / 200 in 31ms
+ GET / 200 in 26ms
+ GET / 200 in 31ms
+ GET / 200 in 28ms
+ GET / 200 in 35ms
+ GET / 200 in 34ms
+ GET / 200 in 30ms
+ ⚠ Duplicate page detected. pages/api/health.js and app/api/health/route.ts resolve to /api/health
+ ✓ Compiled in 825ms (749 modules)
+ ✓ Compiled in 114ms (425 modules)
