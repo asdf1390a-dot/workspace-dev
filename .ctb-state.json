@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-10T00:52:38Z",
+  "timestamp": "2026-06-10T01:00:02Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
@@ -7,18 +7,8 @@
     "phase2c": "ready"
   },
   "production": {
-    "vercel": "DEPLOYMENT_NOT_FOUND",
-    "vercel_http": "404",
-    "blocker_since_kst": "2026-06-10 09:12:00",
-    "blocker_duration_minutes": 40
+    "vercel": "OK",
+    "vercel_http": "200"
   },
-  "last_update": "2026-06-10 09:52:38",
-  "reliability": 92,
-  "p1_projects": {
-    "audit_p1": "100% (0cf3c1ba)",
-    "discord_bot_p1": "100% (585db4d5)",
-    "bm_p1": "100% (ecc13a9f)",
-    "travel_p2_ui": "100% (e9396c74)"
-  },
-  "user_action_required": "Vercel domain reconfiguration/redeployment"
+  "last_update": "2026-06-10 10:00:02"
 }
