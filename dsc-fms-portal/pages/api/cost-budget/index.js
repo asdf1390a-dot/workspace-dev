@@ -8,7 +8,7 @@ const supabase = createClient(
 export const config = { maxDuration: 60 };
 
 export default async function handler(req, res) {
-  const { page = 1, pageSize = 20, category = '', search = '' } = req.query;
+  const { page = 1, pageSize = 20, category = '', search = '', sortBy = 'item_name', sortOrder = 'asc' } = req.query;
 
   try {
     let query = supabase
@@ -28,7 +28,8 @@ export default async function handler(req, res) {
     }
 
     // 정렬
-    query = query.order('category', { ascending: true });
+    const ascending = sortOrder === 'asc';
+    query = query.order(sortBy || 'item_name', { ascending });
 
     // 페이지네이션
     const offset = (page - 1) * pageSize;

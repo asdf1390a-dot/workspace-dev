@@ -17,10 +17,12 @@ export default function CostBudgetPortal() {
   const [search, setSearch] = useState('');
   const [summary, setSummary] = useState(null);
   const [totalPages, setTotalPages] = useState(0);
+  const [sortBy, setSortBy] = useState('item_name');
+  const [sortOrder, setSortOrder] = useState('asc');
 
   useEffect(() => {
     fetchData();
-  }, [page, pageSize, selectedCategory, search]);
+  }, [page, pageSize, selectedCategory, search, sortBy, sortOrder]);
 
   const fetchData = async () => {
     setLoading(true);
@@ -30,6 +32,8 @@ export default function CostBudgetPortal() {
         pageSize,
         category: selectedCategory,
         search,
+        sortBy,
+        sortOrder,
       });
       const res = await fetch(`/api/cost-budget?${params}`);
       const json = await res.json();
@@ -142,10 +146,26 @@ export default function CostBudgetPortal() {
             <thead>
               <tr>
                 <th>카테고리</th>
-                <th>항목명</th>
-                <th className={styles.numeric}>집행액</th>
-                <th className={styles.numeric}>예산액</th>
-                <th className={styles.numeric}>차액</th>
+                <th>
+                  <button style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '14px', fontWeight: '600', padding: '0', color: sortBy === 'item_name' ? '#3b82f6' : '#4b5563' }} onClick={() => { setSortBy('item_name'); setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc'); setPage(1); }}>
+                    항목명 {sortBy === 'item_name' ? (sortOrder === 'asc' ? '▲' : '▼') : ''}
+                  </button>
+                </th>
+                <th className={styles.numeric}>
+                  <button style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '14px', fontWeight: '600', padding: '0', color: sortBy === 'amount' ? '#3b82f6' : '#4b5563', width: '100%', textAlign: 'right' }} onClick={() => { setSortBy('amount'); setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc'); setPage(1); }}>
+                    집행액 {sortBy === 'amount' ? (sortOrder === 'asc' ? '▲' : '▼') : ''}
+                  </button>
+                </th>
+                <th className={styles.numeric}>
+                  <button style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '14px', fontWeight: '600', padding: '0', color: sortBy === 'budget' ? '#3b82f6' : '#4b5563', width: '100%', textAlign: 'right' }} onClick={() => { setSortBy('budget'); setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc'); setPage(1); }}>
+                    예산액 {sortBy === 'budget' ? (sortOrder === 'asc' ? '▲' : '▼') : ''}
+                  </button>
+                </th>
+                <th className={styles.numeric}>
+                  <button style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '14px', fontWeight: '600', padding: '0', color: sortBy === 'variance' ? '#3b82f6' : '#4b5563', width: '100%', textAlign: 'right' }} onClick={() => { setSortBy('variance'); setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc'); setPage(1); }}>
+                    차액 {sortBy === 'variance' ? (sortOrder === 'asc' ? '▲' : '▼') : ''}
+                  </button>
+                </th>
                 <th>상태</th>
               </tr>
             </thead>
