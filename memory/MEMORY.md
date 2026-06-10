@@ -1,10 +1,11 @@
 # 메모리 인덱스
 
-**Last Checkpoint:** 2026-06-10 10:04:20 KST (폴링 사이클 1131 — HTTP 404 지속 52분)
+**Last Checkpoint:** 2026-06-10 12:10:55 KST (폴링 사이클 1155 수정 — 도메인 버그 해결)
 
 # 🔴 긴급 상황판
 
-- [🔴 Vercel HTTP 404 블로커 (2026-06-10 10:04)](vercel_404_blocker_critical_20260610_1004.md) — dsc-fms.vercel.app DEPLOYMENT_NOT_FOUND | HTTP 404 지속 (09:12~10:04, 52분 지속) | P1=4/4 (100%, 코드 안정) | 신뢰도=92% | 블로커=1 (사용자 액션: Vercel 도메인 재구성/재배포 필수)
+- [🔴 Vercel HTTP 404 (실제 프로덕션 상태)](critical_vercel_regression_20260610_1208.md) — dsc-fms.vercel.app DEPLOYMENT_NOT_FOUND | HTTP 404 ❌ | P1=4/4 (100%), 로컬 Phase2A/B/C ✅ | **사용자 액션: Vercel 배포/도메인 상태 확인 필수**
+- [🔧 CTB 도메인 버그 (근본원인)](ctb_domain_bug_root_cause_20260610.md) — 자동화 스크립트가 테스트 도메인 체크 (dsc-fms-portal.vercel.app) → 수정해서 프로덕션 체크 (dsc-fms.vercel.app) | 거짓 상태 기록 문제 해결 ✅
 
 ---
 
