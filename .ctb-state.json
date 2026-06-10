@@ -1,26 +1,15 @@
 {
-  "timestamp": "2026-06-10T10:13:00Z",
-  "cycle": 1194,
-  "time_kst": "2026-06-10 19:13 KST",
+  "timestamp": "2026-06-10T10:18:48Z",
   "progress": 100,
-  "p1_projects": {
-    "AUDIT-P1": {"hash": "0cf3c1ba", "status": "100%"},
-    "DISCORD-BOT-P1": {"hash": "585db4d5", "status": "100%"},
-    "BM-P1": {"hash": "ecc13a9f", "status": "100%"},
-    "TRAVEL-P2-UI": {"hash": "e9396c74", "status": "100%"}
-  },
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
     "phase2c": "ready"
   },
   "production": {
-    "vercel": "OK",
-    "vercel_http": 200,
-    "health_endpoint": "success",
-    "supabase": "ok"
+    "vercel": "DEGRADED",
+    "vercel_http": "404",
+    "note": "api/audit/health 404 회귀 — 사이클 1194 이후 5분 내 재발생"
   },
-  "reliability": 95,
-  "blockers": 0,
-  "last_update": "2026-06-10 19:13:02"
+  "last_update": "2026-06-10 19:18:48"
 }
