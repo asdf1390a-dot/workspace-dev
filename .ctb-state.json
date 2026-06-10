@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-10T00:07:00Z",
+  "timestamp": "2026-06-10T00:12:10Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
@@ -7,8 +7,10 @@
     "phase2c": "ready"
   },
   "production": {
-    "vercel": "OK",
-    "vercel_http": "200"
+    "vercel": "DEGRADED",
+    "vercel_http": "404",
+    "status": "회귀 재발생 — /assets /api/assets 모두 404"
   },
-  "last_update": "2026-06-10 09:07:00"
+  "last_update": "2026-06-10 09:12:10",
+  "alert": "CRITICAL — Vercel 배포 회귀, 폴링 사이클 1120에서 재감지"
 }
