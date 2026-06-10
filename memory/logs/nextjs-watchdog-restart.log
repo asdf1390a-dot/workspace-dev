@@ -3548,3 +3548,44 @@ Error: You cannot use different slug names for the same dynamic path ('memberId'
  GET / 200 in 24ms
  GET / 200 in 26ms
  GET / 200 in 23ms
+ GET / 200 in 27ms
+ GET / 200 in 30ms
+ GET / 200 in 34ms
+ GET / 200 in 23ms
+ GET / 200 in 27ms
+ GET / 200 in 34ms
+ GET / 200 in 24ms
+ GET / 200 in 26ms
+ GET / 200 in 42ms
+
+> dsc-fms-portal@1.0.0 dev
+> next dev
+
+  ▲ Next.js 14.2.35
+  - Local:        http://localhost:3000
+  - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 1753ms
+ ○ Compiling / ...
+ ✓ Compiled / in 631ms (452 modules)
+ GET / 200 in 785ms
+ GET / 200 in 32ms
+ GET / 200 in 34ms
+ GET / 200 in 30ms
+ GET / 200 in 27ms
+
+> dsc-fms-portal@1.0.0 dev
+> next dev
+
+  ▲ Next.js 14.2.35
+  - Local:        http://localhost:3000
+  - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 1598ms
+ ○ Compiling / ...
+ ✓ Compiled / in 644ms (452 modules)
+ GET / 200 in 811ms
+ GET / 200 in 35ms
+ GET / 200 in 33ms

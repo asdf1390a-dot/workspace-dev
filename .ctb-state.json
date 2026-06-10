@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-10T11:44:11Z",
+  "timestamp": "2026-06-10T02:45:01Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
@@ -7,19 +7,8 @@
     "phase2c": "ready"
   },
   "production": {
-    "vercel": "DEGRADED (HTTP 404 DEPLOYMENT_NOT_FOUND)",
-    "vercel_http": "404",
-    "affected_routes": ["/assets", "/api/assets"],
-    "persistence": "2h 32min+ since 09:12 KST"
+    "vercel": "OK",
+    "vercel_http": "200"
   },
-  "last_update": "2026-06-10 11:44:11",
-  "polling_cycle": 1150,
-  "p1_completion": {
-    "AUDIT-P1": "100% (0cf3c1ba)",
-    "DISCORD-BOT-P1": "100% (585db4d5)",
-    "BM-P1": "100% (ecc13a9f)",
-    "TRAVEL-P2-UI": "100% (e9396c74)"
-  },
-  "reliability": "92%",
-  "blockers": 3
+  "last_update": "2026-06-10 11:45:01"
 }
