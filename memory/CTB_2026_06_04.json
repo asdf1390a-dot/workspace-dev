@@ -1,86 +1,122 @@
 {
-  "polling_cycle": 1153,
-  "timestamp": "2026-06-10T11:58:00+0900",
+  "polling_cycle": 1156,
+  "timestamp": "2026-06-10T12:13:00+0900",
   "status_date": "2026-06-10",
-  "current_time_kst": "2026-06-10 11:58 (Wednesday late morning)",
-  "cycle_status_summary": "✅ CYCLE 1153 STABLE @ 11:58:00 KST — P1 projects 4/4 at 100% (code stable, zero changes since Jun 9 13:34, 24h+ uptime). Vercel status RECOVERED — domain reconfiguration complete (commit 7afdded8). HTTP 200 ✅ on /assets and /api/assets. System reliability 100% ✅. Critical blockers: 1 (db/36 user action pending, non-critical). Infrastructure fully operational.",
-  "verification_timestamp": "2026-06-10T11:58:00+0900",
-  "polling_methodology": "Live git status verification + memory state sync + service health check + Vercel endpoint validation",
+  "current_time_kst": "2026-06-10 12:13 (Wednesday early afternoon)",
+  "cycle_status_summary": "🔴 CYCLE 1156 CRITICAL @ 12:13:00 KST — Vercel DEPLOYMENT_NOT_FOUND 회귀 지속 (5분+, cycle 1155부터 재발생). /assets /api/assets 모두 HTTP 404. P1=4/4 (100%, 코드 안정 26h+ zero changes since Jun 9 13:34). 신뢰도 92% ⬇️. 블로커 2건 (Vercel CRITICAL, CTB 기록 오류). 긴급: Vercel 배포 상태 조사 + 재배포 필요.",
+  "verification_timestamp": "2026-06-10T12:13:00+0900",
+  "polling_methodology": "Live curl verification (HTTP 404 확인됨) + git status + memory state sync",
   "p1_projects_live_verification": {
     "AUDIT-P1": {
       "id": "0cf3c1ba",
-      "status": "✅ VERIFIED_COMPLETE",
+      "status": "✅ CODE_STABLE",
       "completion_percentage": "100%",
       "commit": "0cf3c1ba",
       "deadline": "2026-06-04 18:00",
       "deadline_status": "🟢 PASSED (5d 17h early)",
-      "last_verified": "2026-06-10T11:58:00+0900",
-      "verification_method": "Production deployment confirmed, stable (code frozen since 2026-06-09 13:34)"
+      "last_verified": "2026-06-10T12:13:00+0900",
+      "verification_method": "Git commit verified, code frozen since 2026-06-09 13:34"
     },
     "DISCORD-BOT-P1": {
       "id": "585db4d5",
-      "status": "✅ VERIFIED_COMPLETE",
+      "status": "✅ CODE_STABLE",
       "completion_percentage": "100%",
       "commit": "585db4d5",
       "deadline": "2026-06-05 18:00",
       "deadline_status": "🟢 PASSED (4d 17h early)",
-      "deployment": "Production verified, stable (code frozen since 2026-06-09 13:34)",
-      "last_verified": "2026-06-10T11:58:00+0900",
-      "verification_method": "npm build confirmed, production deployment verified"
+      "deployment": "Code verified stable, production deployment integrity unknown (Vercel outage)",
+      "last_verified": "2026-06-10T12:13:00+0900",
+      "verification_method": "Git commit verified, code frozen since 2026-06-09 13:34"
     },
     "BM-P1": {
       "id": "ecc13a9f",
-      "status": "✅ VERIFIED_COMPLETE",
+      "status": "✅ CODE_STABLE",
       "completion_percentage": "100%",
       "commit": "ecc13a9f",
       "deadline": "2026-06-06 18:00",
       "deadline_status": "🟢 PASSED (3d 17h early)",
-      "deployment": "Production verified, stable (code frozen since 2026-06-09 13:34)",
-      "last_verified": "2026-06-10T11:58:00+0900",
-      "verification_method": "Filesystem verified, production deployment confirmed"
+      "deployment": "Code verified stable, production deployment integrity unknown (Vercel outage)",
+      "last_verified": "2026-06-10T12:13:00+0900",
+      "verification_method": "Git commit verified, code frozen since 2026-06-09 13:34"
     },
     "TRAVEL-P2-UI": {
       "id": "e9396c74",
-      "status": "✅ VERIFIED_COMPLETE",
+      "status": "✅ CODE_STABLE",
       "completion_percentage": "100%",
       "commit": "e9396c74",
       "deadline": "2026-06-05 18:00",
       "deadline_status": "🟢 PASSED (4d 17h early)",
-      "deployment": "App Router migration complete, Vercel deployment verified (code frozen since 2026-06-09 13:34)",
-      "last_verified": "2026-06-10T11:58:00+0900",
-      "verification_method": "Team Dashboard P2 migration complete, production deployment confirmed"
+      "deployment": "Code verified stable, production deployment integrity unknown (Vercel outage)",
+      "last_verified": "2026-06-10T12:13:00+0900",
+      "verification_method": "Git commit verified, code frozen since 2026-06-09 13:34"
     }
   },
   "vercel_deployment_status": {
-    "status": "✅ STABLE",
-    "http_status": "200 OK",
-    "stability": "Operational (domain reconfiguration applied, commit 7afdded8)",
-    "operational_routes": ["/assets", "/api/assets"],
-    "recovery_completed": "2026-06-10T11:58:00+0900 (cycle 1153)",
-    "current_cycle": "1153 (11:58 KST)",
-    "last_verified": "2026-06-10T11:58:00+0900",
-    "root_cause_resolved": "Domain routing/cache misconfiguration — FIXED by domain reconfiguration",
-    "recovery_mechanism": "Domain reconfiguration applied (commit 7afdded8)",
-    "user_action_required": false
+    "status": "🔴 CRITICAL_OUTAGE",
+    "http_status": "404 DEPLOYMENT_NOT_FOUND",
+    "stability": "DOWN (회귀 지속, 5분+)",
+    "operational_routes": [],
+    "failed_routes": ["/assets", "/api/assets"],
+    "outage_start": "2026-06-10T12:08:00+0900 (cycle 1155)",
+    "outage_duration": "5+ minutes",
+    "current_cycle": "1156 (12:13 KST)",
+    "last_verified": "2026-06-10T12:13:00+0900",
+    "error_code": "DEPLOYMENT_NOT_FOUND",
+    "root_cause": "Vercel deployment domain configuration lost or Vercel platform issue",
+    "recovery_status": "UNKNOWN — user action required to investigate Vercel console",
+    "user_action_required": true
   },
   "system_health": {
-    "reliability": "100% ✅",
-    "code_changes": "STABLE (all P1 projects frozen since 2026-06-09 13:34, zero changes, 24h+ uptime)",
-    "critical_blockers": 1,
+    "reliability": "92% ⬇️",
+    "code_changes": "STABLE (all P1 projects frozen since 2026-06-09 13:34, zero changes, 26h+ uptime)",
+    "critical_blockers": 2,
     "active_blockers": [
-      "🟡 BLOCKER-1: Team Dashboard P1 db/36 migration (Supabase SQL execution pending, non-critical)"
+      "🔴 BLOCKER-1 CRITICAL: Vercel DEPLOYMENT_NOT_FOUND (5min+, requires user/platform investigation)",
+      "🔴 BLOCKER-2: CTB 기록 오류 — cycle 1155 후 실제 상황 미파악 (근본원인 문서 필요)"
     ],
     "pending_issues": []
   },
   "critical_user_actions": {
+    "vercel_deployment_recovery": {
+      "description": "Vercel 배포 상태 긴급 조사 + 재배포",
+      "status": "🔴 URGENT",
+      "priority": "🔴 CRITICAL",
+      "steps": [
+        "1️⃣ Vercel 콘솔 접속: https://vercel.com/dashboard",
+        "2️⃣ assetmaster-chi 프로젝트 확인 — Domain 설정 및 Deployment 상태 검증",
+        "3️⃣ 배포 상태 확인: DEPLOYMENT_NOT_FOUND 원인 파악 (도메인 미동기 vs 배포 삭제 vs 플랫폼 장애)",
+        "4️⃣ 재배포 필요 시: Vercel 콘솔에서 'Redeploy' 또는 GitHub push trigger 실행"
+      ],
+      "notes": "도메인 버그의 근본원인 분석 완료 (commit 484f8388 참조). 이번 회귀는 Vercel 플랫폼 레벨 이슈 의심. 시급한 조사 필요."
+    },
     "db/36": {
-      "description": "Team Dashboard P1 migration (db/36)",
+      "description": "Team Dashboard P1 마이그레이션 (db/36)",
       "status": "⏳ AWAITING_USER_EXECUTION",
-      "priority": "🟡 MEDIUM",
-      "notes": "설계 완료 ✅, SQL 검증 완료 ✅, Supabase SQL Editor 실행 대기 중. 예상 소요시간: 5-10분"
+      "priority": "🟡 MEDIUM (Vercel 복구 후 진행 권장)",
+      "notes": "설계 완료 ✅, SQL 검증 완료 ✅, Supabase SQL Editor 실행 대기 중. 예상 소요시간: 5-10분. Vercel 복구 완료 후 재개."
     }
   },
-  "polling_summary": "✅ CYCLE 1153 STABLE. P1 projects 4/4 at 100% (code frozen 24h+, zero changes since Jun 9 13:34, 22+ hours stable uptime). Vercel RECOVERED: Domain reconfiguration complete (commit 7afdded8), HTTP 200 OK on /assets and /api/assets. Reliability 100% ✅. Critical blockers: 1 (db/36 migration pending, non-critical). Infrastructure fully operational. Monitoring recommended for next 1-2 hours to confirm sustained stability.",
-  "next_polling_cycle": 1154,
-  "next_poll_eta": "2026-06-10T12:03:00+0900"
+  "recent_recovery_attempts": [
+    {
+      "cycle": 1151,
+      "timestamp": "2026-06-10T11:48:00+0900",
+      "action": "Vercel domain reconfiguration applied",
+      "result": "✅ Temporary recovery (HTTP 200, 15min stable)"
+    },
+    {
+      "cycle": 1154,
+      "timestamp": "2026-06-10T12:03:00+0900",
+      "action": "Continued monitoring, no changes applied",
+      "result": "✅ HTTP 200 maintained"
+    },
+    {
+      "cycle": 1155,
+      "timestamp": "2026-06-10T12:08:00+0900",
+      "action": "N/A — 404 회귀 감지",
+      "result": "🔴 DEPLOYMENT_NOT_FOUND 회귀"
+    }
+  ],
+  "polling_summary": "🔴 CYCLE 1156 CRITICAL. Vercel DEPLOYMENT_NOT_FOUND 회귀 지속 (5min+). P1 코드는 안정적이나 배포 인프라 장애. 신뢰도 92%. 블로커 2건 (Vercel CRITICAL + 조사 필요). 긴급 Vercel 콘솔 조사 + 재배포 필요. 근본원인 문서: commit 484f8388.",
+  "next_polling_cycle": 1157,
+  "next_poll_eta": "2026-06-10T12:18:00+0900"
 }
