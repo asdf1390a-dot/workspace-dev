@@ -1,6 +1,7 @@
 {
-  "timestamp": "2026-06-10T00:12:10Z",
+  "timestamp": "2026-06-10T00:17:31Z",
   "progress": 100,
+  "cycle": 1121,
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
@@ -9,8 +10,17 @@
   "production": {
     "vercel": "DEGRADED",
     "vercel_http": "404",
-    "status": "회귀 재발생 — /assets /api/assets 모두 404"
+    "assets_endpoint": "404",
+    "api_assets_endpoint": "404"
   },
-  "last_update": "2026-06-10 09:12:10",
-  "alert": "CRITICAL — Vercel 배포 회귀, 폴링 사이클 1120에서 재감지"
+  "projects_p1": {
+    "AUDIT-P1": "100%",
+    "DISCORD-BOT-P1": "100%",
+    "TRAVEL-P2-UI": "100%",
+    "BM-P1": "100%"
+  },
+  "reliability": 92,
+  "blockers": 1,
+  "blocker_type": "vercel_regression",
+  "last_update": "2026-06-10 09:17:31"
 }
