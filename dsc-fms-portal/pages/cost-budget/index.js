@@ -63,7 +63,7 @@ export default function CostBudgetPortal() {
 
   return (
     <div className={styles.container}>
-      <h1>💰 경비 포털</h1>
+      <h1 className={styles.title}>💰 경비 포털</h1>
 
       {/* 요약 정보 */}
       {summary && (

@@ -46,7 +46,7 @@ export default function ProductivityPortal() {
 
   return (
     <div className={styles.container}>
-      <h1>📊 생산성 포털</h1>
+      <h1 className={styles.title}>📊 생산성 포털</h1>
 
       {/* 시트 탭 */}
       <div className={styles.tabs}>
