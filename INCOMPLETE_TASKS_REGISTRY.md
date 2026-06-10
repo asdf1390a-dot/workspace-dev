@@ -92,11 +92,11 @@ type: project
 
 ---
 
-## 📊 비용 관리 시스템 구축 — BLOCKED_ON_USER
+## 📊 비용 관리 시스템 구축 — IN_PROGRESS (분석 데이터 통합)
 
-**Status:** 🟡 BLOCKED_ON_USER — Design Phase (Sub-Material P1 설계 완료 + R&M 분석 완료, 평가자 검토 대기)  
-**State Transition:** IN_PROGRESS → BLOCKED_ON_USER (Rule 2: dependency detected — evaluator review required)
-**Updated:** 2026-06-10 12:39 KST (Task State Machine Monitor)
+**Status:** 🟢 IN_PROGRESS — Analysis Phase 완료, Consolidation & Design 진행 중  
+**State Transition:** BLOCKED_ON_USER → IN_PROGRESS (Rule 3: user action completed — data analysis finished @ 2026-06-10 14:39 KST)
+**Updated:** 2026-06-10 14:39 KST (Task State Machine Monitor — Cron a79d4227)
 
 ### ✅ 완료 항목
 
@@ -107,27 +107,26 @@ type: project
 - ✅ 파일 업로드 워크플로우 (검증 + 이상치 탐지)
 - ✅ 비용 절감 제안 분석 엔진
 - 예상 구현 기간: 3-4일
-- **상태:** 평가자(evaluator) 검토 대기 중
 
-**R&M 설비 수리비 종합 분석 (2026년 1-4월 YTD)**
-- ✅ 7개 파일 통합 분석 완료 (MAINTENANCE, JIG, MOULD, FABRICATION, OTHER_TEAM, FACTORY, STP)
-- ✅ Rs 1,61,68,999 (Rs 1.62크로) 규모 파악
-- ✅ 월별 추이 분석 (2월 급등 +24%, 3월 안정 -50%, 4월 재상승 +54%)
-- ✅ TOP 10 수리 항목 + 설비 신뢰도 지표 (MTBF, 수리 빈도)
-- ✅ 이전 경비 분석과 교차 검증 (STP Rs 1.5만 단독 vs 전체 R&M Rs 1.62크로)
-- ✅ 2025 vs 2026 비교 (MAINTENANCE -11.7% 개선, FACTORY +155% 공사 증가, MOULD +95% 파손 증가)
-- ✅ 6대 제언 도출 (FACTORY 분류 전환, 프레스 C4 PM 강화, 컴프레서 교체 검토 등)
+**R&M 설비 수리비 종합 분석 (2026년 1-4월 YTD) — 14개 파일 통합**
+- ✅ **R&M 8개 파일** 분석 완료 (MAINTENANCE, JIG, MOULD, FABRICATION, OTHER_TEAM, FACTORY, STP) → Rs 16.17M (agent a43e826a6f7762009)
+- ✅ **소모품 + 가스류 6개 파일** 분석 완료 (STP 재확인, CONSUMABLE, CO2, ARGON, NITROGEN, 용접봉) → Rs 14.35M (agent a5b5425d90a90a991)
+- ✅ **전체 통합 합계** → Rs 30.52M (1~4월 누적)
+- ✅ **월별 추이 분석** (용접봉 3월 폭증 +68%, NITROGEN 연속 초과 +24~62%)
+- ✅ **이상 항목 3건 도출** (용접봉 단가 +19%, 공장유지보수 +323%, NITROGEN 예산 재설정)
+- ✅ **연간 예측** → Rs 91.5M (월 7.63M 평균)
 
-### 🔄 진행 중
+### 🔄 진행 중 — 다음 단계 준비 완료
 
-**경비 분석 자료 검수 및 대시보드 통합 설계 (대기 중)**
-- 평가자(evaluator) Sub-Material P1 설계 검토 결과 대기
-- 검토 완료 후: Planner 에이전트에 통합 비용 관리 대시보드 설계 위임 예정
-- **통합 범위 (예상):**
-  - Sub-material (월별 + 일일 추적)
-  - Power/Utility (월별 + 단가 최적화)
-  - R&M 설비 추적 (위험 설비 모니터링, PM 이행률, MTBF 추이)
-  - Consumables 통합
+**통합 비용 관리 대시보드 설계 (READY_FOR_PLANNER)**
+- ✅ 14개 파일 분석 데이터 통합 완료
+- ⏳ **다음:** Planner 에이전트에 통합 대시보드 설계 위임 준비
+- **설계 범위:**
+  - R&M 설비 추적 (위험도 평가: FACTORY +323%, NITROGEN 초과)
+  - Sub-material 비용 추적 (용접봉 56.6% 차지, 단가 협상 필요)
+  - 가스류 모니터링 (CO2/ARGON/NITROGEN 플랜대비)
+  - 월별 추세 + 이상 항목 자동 감지
+  - 비용 절감 제안 엔진 (공급사 다원화, PM 강화, 예산 재설정)
 
 ## 📊 월간 R&M 설비 수리비 분석 자동화 — CONFIGURED @ 2026-06-09 19:45 KST
 
