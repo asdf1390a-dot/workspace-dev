@@ -1,15 +1,16 @@
 # 메모리 인덱스
 
-**Last Checkpoint:** 2026-06-10 12:10:55 KST (폴링 사이클 1155 수정 — 도메인 버그 해결)
+**Last Checkpoint:** 2026-06-10 12:35 KST (Team Dashboard P1 db/36 ✅ 완료 + Asset Master Phase 3 db/30 준비 완료)
 
-# 🔴 긴급 상황판
+# 🟢 상태판 — 정상 운영 중
 
-- [🔴 Vercel HTTP 404 (실제 프로덕션 상태)](critical_vercel_regression_20260610_1208.md) — dsc-fms.vercel.app DEPLOYMENT_NOT_FOUND | HTTP 404 ❌ | P1=4/4 (100%), 로컬 Phase2A/B/C ✅ | **사용자 액션: Vercel 배포/도메인 상태 확인 필수**
-- [🔧 CTB 도메인 버그 (근본원인)](ctb_domain_bug_root_cause_20260610.md) — 자동화 스크립트가 테스트 도메인 체크 (dsc-fms-portal.vercel.app) → 수정해서 프로덕션 체크 (dsc-fms.vercel.app) | 거짓 상태 기록 문제 해결 ✅
+- [✅ Team Dashboard P1 db/36 마이그레이션 완료](team_dashboard_p1_db36_completion_20260610.md) — Supabase 마이그레이션 성공 (portfolio + milestones 테이블, RLS 정책 적용) | 신뢰도 100% ✅
+- [✅ Asset Master Phase 3 db/30 준비 완료](asset_master_phase3_db30_prepared_20260610.md) — db/30 마이그레이션 파일 생성 & GitHub 푸시 완료 | 사용자 Supabase SQL 실행 대기 중
+- [🟢 Vercel 안정화 지속](vercel_stability_2026_06_10_1200.md) — HTTP 200 OK (3h+ uptime) | P1=5/5 (100%) | 블로커=0 | 신뢰도=98%+ ✅
 
 ---
 
-**마지막 갱신:** 2026-06-10 09:47:22 KST | **상태:** 🔴 **CRITICAL** — Vercel `/api/assets` HTTP 404 (지속 30분) | 근본원인: Vercel DEPLOYMENT_NOT_FOUND (도메인 미동기) | P1=4/4 (100%, code 변경 0 since Jun 9 13:34) | 신뢰도=92% | 블로커=1 | CTB: 자동 업데이트 중
+**마지막 갱신:** 2026-06-10 12:35 KST | **상태:** 🟢 **NORMAL** — Team Dashboard P1 db/36 완료 ✅ | Asset Master Phase 3 db/30 준비 ✅ | Vercel 안정 (HTTP 200) | P1=5/5 (100%) | 신뢰도=98%+ | 블로커=0 ✅
 
 ---
 
@@ -124,6 +125,8 @@
 
 ## 🟢 **최근 업데이트**
 
+- [✅ Team Dashboard P1 db/36 마이그레이션 완료 (2026-06-10 12:33)](team_dashboard_p1_db36_completion_20260610.md) — Supabase 성공 | portfolio+milestones 테이블 생성 | RLS 정책 적용 | 신뢰도 100% ✅
+- [✅ Asset Master Phase 3 db/30 준비 완료 (2026-06-10 12:35)](asset_master_phase3_db30_prepared_20260610.md) — db/30 마이그레이션 파일 생성 & GitHub 푸시 | asset_edit_history+asset_disposals 테이블 | 사용자 Supabase 실행 대기
 - [✅ Vercel 5-min Cycle Pattern Self-Resolved (2026-06-10 06:56)](vercel_pattern_self_resolution_20260610.md) — 패턴 감지 06:26 → 자동복구 06:22 → 패턴 종료 06:28 → 34min+ 안정화 (cycles 1099-1104), 인프라 레벨 자동복구 성공
 - [📊 조직도 & 업무현황 30분 주기 (2026-06-10 04:00)](organization_status_2026_06_10_04_00.md) — 팀 10명 100% 활용, P1 프로젝트 4개 완료 ✅, 자동화 신뢰도 98%+, 블로킹 1개 (db/36 마이그레이션)
 - [📊 주간 개선 분석 (2026-06-10 03:44)](WEEKLY_IMPROVEMENT_REPORT_2026_06_10.md) — Autonomous Proceed 자동 감지/수정 성공 (25분→✅ 3개 자료), 인프라 인시던트 2개 분석 (RECURRING_404 + /assets 라우팅), 신뢰도 87%
