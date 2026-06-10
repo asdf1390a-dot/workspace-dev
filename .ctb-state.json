@@ -1,25 +1,14 @@
 {
-  "timestamp": "2026-06-10T10:43:48Z",
-  "cycle": 1210,
+  "timestamp": "2026-06-10T10:48:00Z",
   "progress": 100,
-  "vercel_status": "DEGRADED",
-  "vercel_http": "404",
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
     "phase2c": "ready"
   },
   "production": {
-    "vercel": "ERROR",
-    "vercel_http": "404"
+    "vercel": "OK",
+    "vercel_http": "200"
   },
-  "last_update": "2026-06-10 19:43:48",
-  "p1_projects": {
-    "AUDIT-P1": { "commit": "0cf3c1ba", "status": "100%" },
-    "DISCORD-BOT-P1": { "commit": "585db4d5", "status": "100%" },
-    "BM-P1": { "commit": "ecc13a9f", "status": "100%" },
-    "TRAVEL-P2-UI": { "commit": "e9396c74", "status": "100%" }
-  },
-  "reliability": "92%",
-  "blockers": 1
+  "last_update": "2026-06-10 19:48:00"
 }
