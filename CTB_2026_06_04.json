@@ -1,8 +1,8 @@
 {
-  "polling_cycle": 1131,
-  "timestamp": "2026-06-10T01:04:20Z",
-  "timestamp_kst": "2026-06-10 10:04 KST",
-  "status": "🔴 VERCEL 404 REGRESSION — DEPLOYMENT_NOT_FOUND 지속 (09:12 KST 이후 52분) | P1=4/4 (100% code stable, zero changes since Jun 9 13:34) | /assets=404 ❌ | /api/assets=404 ❌ | 신뢰도=92% | 블로커=1 (사용자 액션: Vercel 도메인 재구성/재배포 필수)",
+  "polling_cycle": 1141,
+  "timestamp": "2026-06-10T01:13:45Z",
+  "timestamp_kst": "2026-06-10 10:13 KST",
+  "status": "✅ VERCEL RECOVERED — Endpoints 200 OK (cycle 1141) | P1=4/4 (100% code stable, zero changes since Jun 9 13:34) | /assets=200 ✅ | /api/assets=200 ✅ (2,183 assets live) | 신뢰도=95% ↑ | 블로커=0",
   "latest_update": "2026-06-10T01:04:20Z",
   "build_verification": {
     "status": "✅ PASSING (Code Compiled) | 🟡 PARTIAL INFRASTRUCTURE: /assets page 404 on openclaw-fms domain only",
@@ -63,11 +63,11 @@
     "phase_2b_service": "✅ Running (port 3010, status: LISTEN, health: READY)",
     "phase_2c_service": "✅ Running (port 3011, status: LISTEN, health: READY)",
     "nextjs_dev_server": "✅ Running (port 3000, status: healthy)",
-    "vercel_deployment": "🔴 CRITICAL — /api/assets HTTP 404 ❌ (DEPLOYMENT_NOT_FOUND) | /assets page HTTP 404 ❌ | Domain: dsc-fms.vercel.app 불응",
-    "api_endpoint": "❌ /api/assets returning 404 (DEPLOYMENT_NOT_FOUND) — API 다운",
-    "static_page": "🔴 /assets page returning 404 (DEPLOYMENT_NOT_FOUND) — Route lost",
+    "vercel_deployment": "✅ OPERATIONAL — /api/assets HTTP 200 ✅ (2,183 assets) | /assets page HTTP 200 ✅ | Auto-recovery confirmed (cycle 1141)",
+    "api_endpoint": "✅ /api/assets returning 200 OK — API operational, pagination 20/page, 110 pages total",
+    "static_page": "✅ /assets page returning 200 — Route live, CSS loaded",
     "gateway_status": "✅ Operational (port 19001)",
-    "overall_health": "🔴 CRITICAL — Vercel 배포 미응, 9:12 KST 이후 지속"
+    "overall_health": "✅ HEALTHY — Vercel auto-recovered 10:13 KST, all endpoints operational"
   },
   "critical_blockers": [
     {
