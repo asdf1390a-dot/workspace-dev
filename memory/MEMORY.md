@@ -1,10 +1,10 @@
 # 메모리 인덱스
 
-**Last Checkpoint:** 2026-06-10 09:47:22 KST (폴링 사이클 1127 — HTTP 404 지속 30분+)
+**Last Checkpoint:** 2026-06-10 10:04:20 KST (폴링 사이클 1131 — HTTP 404 지속 52분)
 
 # 🔴 긴급 상황판
 
-- [🔴 Vercel HTTP 404 블로커 (2026-06-10 09:47)](vercel_http404_blocker_20260610_0947.md) — dsc-fms.vercel.app DEPLOYMENT_NOT_FOUND | HTTP 404 지속 (09:42~09:47, 30분 이상) | P1=4/4 코드 안정 | 신뢰도=92% | 블로커=1 (사용자 액션: Vercel 도메인 재구성/재배포)
+- [🔴 Vercel HTTP 404 블로커 (2026-06-10 10:04)](vercel_404_blocker_critical_20260610_1004.md) — dsc-fms.vercel.app DEPLOYMENT_NOT_FOUND | HTTP 404 지속 (09:12~10:04, 52분 지속) | P1=4/4 (100%, 코드 안정) | 신뢰도=92% | 블로커=1 (사용자 액션: Vercel 도메인 재구성/재배포 필수)
 
 ---
 

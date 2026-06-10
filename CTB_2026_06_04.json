@@ -1,9 +1,9 @@
 {
-  "polling_cycle": 1125,
-  "timestamp": "2026-06-10T00:37:00Z",
-  "timestamp_kst": "2026-06-10 09:37 KST",
-  "status": "🔴 VERCEL 404 REGRESSION — DEPLOYMENT_NOT_FOUND 지속 (09:12 KST 이후) | P1=4/4 (100% code stable, zero changes since Jun 9 13:34) | /assets=404 ❌ | /api/assets=404 ❌ | 신뢰도=92% | 블로커=1 | Vercel 배포 설정 재검증 필요",
-  "latest_update": "2026-06-10T00:37:00Z",
+  "polling_cycle": 1131,
+  "timestamp": "2026-06-10T01:04:20Z",
+  "timestamp_kst": "2026-06-10 10:04 KST",
+  "status": "🔴 VERCEL 404 REGRESSION — DEPLOYMENT_NOT_FOUND 지속 (09:12 KST 이후 52분) | P1=4/4 (100% code stable, zero changes since Jun 9 13:34) | /assets=404 ❌ | /api/assets=404 ❌ | 신뢰도=92% | 블로커=1 (사용자 액션: Vercel 도메인 재구성/재배포 필수)",
+  "latest_update": "2026-06-10T01:04:20Z",
   "build_verification": {
     "status": "✅ PASSING (Code Compiled) | 🟡 PARTIAL INFRASTRUCTURE: /assets page 404 on openclaw-fms domain only",
     "pages_compiled": 143,
@@ -75,7 +75,7 @@
       "severity": "🔴 CRITICAL",
       "title": "Vercel DEPLOYMENT_NOT_FOUND — dsc-fms.vercel.app 미응",
       "since_kst": "2026-06-10 09:12 KST",
-      "duration_minutes": 25,
+      "duration_minutes": 52,
       "impact": "모든 P1 프로젝트 배포 중단 (/assets, /api/assets 404)",
       "action_required": "Vercel 배포 구성 재검증 (도메인 동기화, 캐시 초기화)"
     }
