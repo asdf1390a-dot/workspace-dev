@@ -1,9 +1,11 @@
 # 메모리 인덱스
 
-**Last Checkpoint:** 2026-06-10 13:27 KST (CTB Cycle 1148 — Vercel 회복 완료, db/36 자동 완료, Phase 2 검증 Day 1/7 진행중)
+**Last Checkpoint:** 2026-06-10 14:45 KST (Session Checkpoint — 비용 분석 완료, Task State Machine Monitor 실행)
 
-# 🟢 상태판 — 안정화 진행 중
+# 🟢 상태판 — 비용 분석 완료 & 상태 전환
 
+- [📊 통합 비용 분석 완료 (2026-06-10 14:39)](cost_analysis_integration_20260610_1439.md) — 14개 파일 분석 완료 | R&M Rs 16.17M + 소모품/가스 Rs 14.35M = Rs 30.52M | 이상 항목 3건 | Planner 투입 준비
+- [🤖 크론 정기 보고 (2026-06-10 14:25 KST)](cron_status_report_20260610_1425.md) — 30분 주기 정기 보고 작성 완료 | Vercel ✅ + P1 4/4 + db/36 ✅ + Phase 2 Day 1/7 | Telegram 채널 설정 대기
 - [📊 조직 현황 (2026-06-10 13:27 KST)](org_status_20260610_1327.md) — Vercel ✅ 정상 (HTTP 307), P1=4/4 완료, db/36 ✅ 완료 (12:33), Phase 2 검증 Day 1/7, 신뢰도 92% (회복 중) | 블로커 1 (비-크리티컬)
 - [🔧 평가자 에이전트 비활성화 완료](evaluator_deactivation_20260610.md) — 규칙 검증 로직 부재로 자동모드 위반 반복 → 구조적 비활성화 결정 | 비서가 직접 검증 담당 (2026-06-10 12:52)
 - [✅ Asset Master Phase 3-1 Detail Page 개발 완료](asset_master_phase3_1_detail_page_complete_20260610.md) — `/assets/[id]` 라우트 + EditHistoryTimeline 컴포넌트 준비 완료 | db/46 사용자 실행 대기
