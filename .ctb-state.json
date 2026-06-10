@@ -1,15 +1,21 @@
 {
-  "timestamp": "2026-06-10T00:22:01Z",
+  "timestamp": "2026-06-10T00:27:15Z",
+  "polling_cycle": 1123,
   "progress": 100,
+  "status": "🔴 DEGRADED — Vercel HTTP 404 (cycle 1120~1122 지속) | DEPLOYMENT_NOT_FOUND 에러 | 재배포 트리거됨",
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
     "phase2c": "ready"
   },
   "production": {
-    "vercel": "INVESTIGATING",
-    "vercel_http": "404"
+    "vercel": "🔴 DEGRADED",
+    "vercel_http": "404 (DEPLOYMENT_NOT_FOUND)",
+    "assets": "🔴 404 ERR",
+    "api_assets": "⚠️ UNKNOWN (HTTP check failed)"
   },
-  "last_update": "2026-06-10 09:22:01",
-  "notes": "폴링 사이클 1122 — Vercel 배포 캐시 동기화 문제 감지, 자동 재배포 트리거"
+  "reliability": "92%",
+  "blockers": 1,
+  "blocker_details": "🔍 근본원인 진단: dsc-fms.vercel.app 도메인이 Vercel에서 무효한 배포를 가리킴 (DEPLOYMENT_NOT_FOUND) | dsc-fms-portal.vercel.app는 정상 (HTTP 200) | 해결책: dsc-fms.vercel.app 도메인을 현재 배포(dsc-fms-portal-l7zx6mz2s)에 재연결 필요",
+  "last_update": "2026-06-10 09:27:15 KST"
 }

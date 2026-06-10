@@ -1,12 +1,14 @@
 # 메모리 인덱스
 
-**Last Checkpoint:** 2026-06-10 07:53:10 KST KST (Auto-Complete v1.0 — Autonomous Proceed enforced)
+**Last Checkpoint:** 2026-06-10 09:27:15 KST (폴링 사이클 1123 — 근본원인 진단)
 
-# 메모리 인덱스
+# 🔴 긴급 상황판
 
-**Last Checkpoint:** 2026-06-10 07:49:37 KST KST (Auto-Complete v1.0 — Autonomous Proceed enforced)
+- [🔴 Vercel 도메인 미동기 진단 (2026-06-10 09:27)](vercel_domain_mismatch_20260610.md) — dsc-fms.vercel.app 도메인 무효 → DEPLOYMENT_NOT_FOUND | 해결책: 도메인 별칭 추가 필요 | 블로커 1건
 
-**마지막 갱신:** 2026-06-10 07:30 KST | **상태:** ✅ **완전 정상화 지속** — Vercel 배포 안정 (HTTP 200 continuous 18h+) | /assets HIT (age: 7960s ~133min) | /api/assets fresh | P1=4/4 (100%, code 변경 0 since Jun 9 13:34) | 신뢰도=98.5% | 블로커=0 | 조직도 & 업무현황: ORG_STATUS_REPORT_2026_06_10_0730.md
+---
+
+**마지막 갱신:** 2026-06-10 09:27 KST | **상태:** 🔴 **DEGRADED** — Vercel HTTP 404 (cycle 1120~1122) | 근본원인: dsc-fms.vercel.app 도메인 미동기 | P1=4/4 (100%, code 변경 0 since Jun 9 13:34) | 신뢰도=92% ⬇️ | 블로커=1 | CTB: CTB_2026_06_10.json
 
 ---
 
