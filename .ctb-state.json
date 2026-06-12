@@ -1,12 +1,6 @@
 {
-  "timestamp": "2026-06-13T04:20:01Z",
+  "timestamp": "2026-06-12T19:30:01Z",
   "progress": 100,
-  "p1_projects": {
-    "AUDIT-P1": "0cf3c1ba",
-    "DISCORD-BOT-P1": "585db4d5",
-    "TRAVEL-P2-UI": "e9396c74",
-    "BM-P1": "ecc13a9f"
-  },
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
@@ -16,12 +10,5 @@
     "vercel": "OK",
     "vercel_http": "200"
   },
-  "team": {
-    "active": 11,
-    "utilization": "82%"
-  },
-  "cron_health": "100% (6/6)",
-  "reliability": "96%",
-  "blockers": 0,
-  "last_update": "2026-06-13 04:20:01"
+  "last_update": "2026-06-13 04:30:01"
 }
