@@ -1,113 +1,118 @@
-import { createClient } from '@supabase/supabase-js';
 import { NextRequest, NextResponse } from 'next/server';
+import { createClient } from '@supabase/supabase-js';
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!,
-  { auth: { persistSession: false } }
+  process.env.SUPABASE_SERVICE_ROLE_KEY!
 );
 
-interface DisposeRequest {
-  disposal_reason: string;
-  disposal_price?: number;
-  buyer_name?: string;
-  buyer_contact?: string;
-  disposed_at?: string;
-}
+const VALID_DISPOSAL_REASONS = ['수명만료', '손상', '판매', '기증', '기타'];
 
-// POST /api/assets/[assetId]/dispose — 매각 등록
+// POST /api/assets/[assetId]/dispose — Asset disposal registration
 export async function POST(
   request: NextRequest,
   { params }: { params: { assetId: string } }
 ) {
   try {
-    const token = request.headers.get('Authorization')?.replace('Bearer ', '');
-    if (!token) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-    }
+    const body = await request.json();
+    const { disposal_reason, disposal_date, disposal_certificate_url } = body;
 
-    // 인증된 사용자 확인
-    const userClient = createClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL!,
-      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-      { global: { headers: { Authorization: `Bearer ${token}` } } }
-    );
-
-    const { data: { user }, error: authError } = await userClient.auth.getUser();
-    if (authError || !user) {
-      return NextResponse.json({ error: 'Invalid token' }, { status: 401 });
-    }
-
-    // 자산 존재 확인
-    const { data: asset } = await supabase
-      .from('assets')
-      .select('*')
-      .eq('id', params.assetId)
-      .single();
-
-    if (!asset) {
-      return NextResponse.json({ error: 'Asset not found' }, { status: 404 });
-    }
-
-    // 요청 데이터 파싱
-    const payload: DisposeRequest = await request.json();
-
-    // 필수 필드 검증
-    if (!payload.disposal_reason) {
+    if (!disposal_reason || !disposal_date) {
       return NextResponse.json(
-        { error: 'Disposal reason is required' },
+        { error: 'disposal_reason and disposal_date are required' },
         { status: 400 }
       );
     }
 
-    // disposal_reason 검증
-    const validReasons = ['노후화', '폐기', '선물', '기타'];
-    if (!validReasons.includes(payload.disposal_reason) &&
-        payload.disposal_reason !== '기타') {
-      // '기타'는 텍스트값도 허용
-      if (!payload.disposal_reason.startsWith('기타:')) {
-        // 기타 사유가 특정 형식이 아니면 저장
-      }
-    }
-
-    // 자산 업데이트 (상태를 'sold'로 변경하고 매각 정보 저장)
-    const updateData: any = {
-      status: 'sold',
-      disposal_reason: payload.disposal_reason,
-      disposed_at: payload.disposed_at || new Date().toISOString(),
-      updated_by: user.id,
-    };
-
-    if (payload.disposal_price !== undefined) {
-      updateData.disposal_price = payload.disposal_price;
-    }
-    if (payload.buyer_name) {
-      updateData.buyer_name = payload.buyer_name;
-    }
-    if (payload.buyer_contact) {
-      updateData.buyer_contact = payload.buyer_contact;
-    }
-
-    const { data: updatedAsset, error: updateError } = await supabase
-      .from('assets')
-      .update(updateData)
-      .eq('id', params.assetId)
-      .select()
-      .single();
-
-    if (updateError) {
-      console.error('Update error:', updateError);
+    if (!VALID_DISPOSAL_REASONS.includes(disposal_reason)) {
       return NextResponse.json(
-        { error: 'Failed to update asset' },
-        { status: 500 }
+        { error: `Invalid disposal_reason. Must be one of: ${VALID_DISPOSAL_REASONS.join(', ')}` },
+        { status: 400 }
       );
     }
 
-    return NextResponse.json(updatedAsset, { status: 200 });
-  } catch (error) {
-    console.error('Dispose error:', error);
+    const disposalDateObj = new Date(disposal_date);
+    if (disposalDateObj > new Date()) {
+      return NextResponse.json(
+        { error: 'disposal_date cannot be in the future' },
+        { status: 400 }
+      );
+    }
+
+    const { data: asset, error: assetError } = await supabase
+      .from('assets')
+      .select('id, status')
+      .eq('id', params.assetId)
+      .single();
+
+    if (assetError || !asset) {
+      return NextResponse.json(
+        { error: 'Asset not found' },
+        { status: 404 }
+      );
+    }
+
+    if (asset.status === 'disposed') {
+      return NextResponse.json(
+        { error: 'Asset is already disposed' },
+        { status: 400 }
+      );
+    }
+
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) {
+      return NextResponse.json(
+        { error: 'Unauthorized' },
+        { status: 401 }
+      );
+    }
+
+    const { data: disposal, error: disposalError } = await supabase
+      .from('asset_disposals')
+      .insert({
+        asset_id: params.assetId,
+        disposed_by: user.id,
+        disposal_reason,
+        disposal_date,
+        disposal_certificate_url: disposal_certificate_url || null,
+      })
+      .select()
+      .single();
+
+    if (disposalError) throw disposalError;
+
+    const { error: updateError } = await supabase
+      .from('assets')
+      .update({ status: 'disposed' })
+      .eq('id', params.assetId);
+
+    if (updateError) throw updateError;
+
+    await supabase
+      .from('asset_edit_history')
+      .insert({
+        asset_id: params.assetId,
+        changed_by: user.id,
+        changed_field: 'status',
+        previous_value: asset.status,
+        new_value: 'disposed',
+      });
+
     return NextResponse.json(
-      { error: error instanceof Error ? error.message : 'Server error' },
+      {
+        id: disposal.id,
+        asset_id: disposal.asset_id,
+        disposal_reason: disposal.disposal_reason,
+        disposal_date: disposal.disposal_date,
+        created_at: disposal.created_at,
+        status: 'recorded',
+      },
+      { status: 201 }
+    );
+  } catch (error: any) {
+    console.error('[dispose]', error);
+    return NextResponse.json(
+      { error: error.message },
       { status: 500 }
     );
   }
