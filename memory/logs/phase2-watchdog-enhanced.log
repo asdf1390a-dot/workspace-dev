@@ -1,0 +1,7 @@
+[2026-06-12 17:10:53] Watchdog cycle started
+[2026-06-12 17:10:53] Watchdog cycle started
+[2026-06-12 17:10:53] ✓ Phase2A (PID 65516): RSS=58MB, FDs=19
+[2026-06-12 17:10:53] ✓ Phase2B (PID 65628): RSS=59MB, FDs=19
+[2026-06-12 17:10:53] ✓ Phase2C (PID 65642): RSS=58MB, FDs=19
+[2026-06-12 17:10:53] ✓ Watchdog cycle complete
+[2026-06-12 17:10:53] ✓ Watchdog cycle complete
