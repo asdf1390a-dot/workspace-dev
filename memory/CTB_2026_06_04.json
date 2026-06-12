@@ -1,72 +1,100 @@
 {
-  "polling_cycle": 1148,
-  "timestamp": "2026-06-10T04:27:01Z",
-  "timestamp_kst": "2026-06-10 13:27 (Wednesday afternoon)",
-  "status_date": "2026-06-10",
-  "current_time_kst": "2026-06-10 13:27 KST (Wednesday, 13:27 LT)",
-  "cycle_status_summary": "✅ CYCLE 1148 RECOVERY @ 13:27:00 KST — Vercel HTTP 307 정상 (4h+ 안정 회복 완료). P1=4/4 (100%, 코드 안정 29h+). db/36 완료 (12:33 KST, Supabase 마이그레이션 성공). Phase 2 검증 Day 1/7 진행 중. 신뢰도 92% (회복 중, 목표: 14:00까지 98%+). 블로커 1건 (비-크리티컬, db/36 사용자 액션 대기 예정 제거). 상태: 운영 정상화.",
-  "verification_timestamp": "2026-06-10T04:27:01Z",
-  "polling_methodology": "Live curl verification (HTTP 307 확인됨) + git status + memory state sync + CTB auto-update integration",
+  "polling_cycle": 1158,
+  "timestamp": "2026-06-12T06:36:00Z",
+  "timestamp_kst": "2026-06-12 15:36 (Friday afternoon)",
+  "status_date": "2026-06-12",
+  "current_time_kst": "2026-06-12 15:36 KST (Friday, 15:36 LT)",
+  "cycle_status_summary": "🔴 CYCLE 1158 REGRESSION DETECTED @ 15:36:00 KST — Vercel `/assets` 404 회귀 (7분 전 200 → 현재 404). 홈 페이지는 정상 (HTTP 200). P1=4/4 (100%, 메인 병합 완료). Phase 3 Personal History 완성 (API 6개 + UI 11개 + DB 마이그레이션). 신뢰도 80% 하락 (블로커 1건: 배포 회귀). 즉시 조사 필요.",
+  "verification_timestamp": "2026-06-12T06:36:00Z",
+  "polling_methodology": "Live HTTP status check + git log verification + Vercel route verification",
   "p1_projects_live_verification": {
     "AUDIT-P1": {
       "id": "0cf3c1ba",
-      "status": "✅ CODE_STABLE",
+      "status": "✅ MERGED_MAIN",
       "completion_percentage": "100%",
       "commit": "0cf3c1ba",
       "deadline": "2026-06-04 18:00",
-      "deadline_status": "🟢 PASSED (5d 17h early)",
-      "last_verified": "2026-06-10T04:27:01Z",
-      "verification_method": "Git commit verified, code frozen since 2026-06-09 13:34"
+      "deadline_status": "🟢 PASSED (7d 20h early)",
+      "last_verified": "2026-06-12T06:36:00Z",
+      "verification_method": "Git merge verified, code frozen and merged to main"
     },
     "DISCORD-BOT-P1": {
       "id": "585db4d5",
-      "status": "✅ CODE_STABLE",
+      "status": "✅ MERGED_MAIN",
       "completion_percentage": "100%",
       "commit": "585db4d5",
       "deadline": "2026-06-05 18:00",
-      "deadline_status": "🟢 PASSED (4d 17h early)",
-      "deployment": "Code verified stable, Vercel deployment fully operational",
-      "last_verified": "2026-06-10T04:27:01Z",
-      "verification_method": "Git commit verified, code frozen since 2026-06-09 13:34"
+      "deadline_status": "🟢 PASSED (6d 20h early)",
+      "deployment": "Code verified merged, Vercel deployment degraded",
+      "last_verified": "2026-06-12T06:36:00Z",
+      "verification_method": "Git merge verified, code frozen and merged to main"
     },
     "BM-P1": {
       "id": "ecc13a9f",
-      "status": "✅ CODE_STABLE",
+      "status": "✅ MERGED_MAIN",
       "completion_percentage": "100%",
       "commit": "ecc13a9f",
       "deadline": "2026-06-06 18:00",
-      "deadline_status": "🟢 PASSED (3d 17h early)",
-      "deployment": "Code verified stable, Vercel deployment fully operational",
-      "last_verified": "2026-06-10T04:27:01Z",
-      "verification_method": "Git commit verified, code frozen since 2026-06-09 13:34"
+      "deadline_status": "🟢 PASSED (5d 20h early)",
+      "deployment": "Code verified merged, Vercel deployment degraded",
+      "last_verified": "2026-06-12T06:36:00Z",
+      "verification_method": "Git merge verified, code frozen and merged to main"
     },
     "TRAVEL-P2-UI": {
       "id": "e9396c74",
-      "status": "✅ CODE_STABLE",
+      "status": "✅ MERGED_MAIN",
       "completion_percentage": "100%",
       "commit": "e9396c74",
       "deadline": "2026-06-05 18:00",
-      "deadline_status": "🟢 PASSED (4d 17h early)",
-      "deployment": "Code verified stable, Vercel deployment fully operational",
-      "last_verified": "2026-06-10T04:27:01Z",
-      "verification_method": "Git commit verified, code frozen since 2026-06-09 13:34"
+      "deadline_status": "🟢 PASSED (6d 20h early)",
+      "deployment": "Code verified merged, Vercel deployment degraded",
+      "last_verified": "2026-06-12T06:36:00Z",
+      "verification_method": "Git merge verified, code frozen and merged to main"
     }
   },
   "vercel_deployment_status": {
-    "status": "✅ OPERATIONAL",
-    "http_status": "307 Redirect (Normal)",
-    "stability": "STABLE (4h+ 지속, 회귀 완료 해결)",
-    "operational_routes": ["/assets", "/api/assets"],
-    "failed_routes": [],
-    "recovery_start": "2026-06-10T03:18:00Z",
-    "recovery_duration": "4+ hours",
-    "current_cycle": "1148 (13:27 KST)",
-    "last_verified": "2026-06-10T04:27:01Z",
-    "error_code": "NONE",
-    "root_cause": "Previous: Vercel platform sync issue (resolved)",
-    "recovery_status": "✅ FULLY_RECOVERED",
-    "user_action_required": false,
-    "notes": "도메인 버그 근본원인 분석 완료 (commit 484f8388). 캐시 헤더 최적화 완료. 현재 안정 상태 지속."
+    "status": "🔴 DEGRADED",
+    "http_status": "200 OK (홈) / 404 NOT_FOUND (자산 라우트)",
+    "stability": "REGRESSED (7분 전 stable → 현재 partial failure)",
+    "operational_routes": ["/"],
+    "failed_routes": ["/assets", "/api/assets"],
+    "regression_detection_time": "2026-06-12T06:36:00Z",
+    "previous_stable_time": "2026-06-12T06:29:00Z",
+    "regression_duration_minutes": 7,
+    "current_uptime": "68 hours (이전) → 부분 실패 (현재)",
+    "current_cycle": "1158 (15:36 KST)",
+    "last_verified": "2026-06-12T06:36:00Z",
+    "error_code": "PARTIAL_ROUTING_FAILURE",
+    "root_cause": "Unknown — 마지막 커밋 (059e6a17) 'chore(phase3): Add database migration + execution guide' 이후 회귀 발생. Vercel 빌드 중이거나 배포 프로세스 오류 의심.",
+    "recovery_status": "🔴 INVESTIGATING",
+    "user_action_required": true,
+    "notes": "긴급: `/assets` 및 `/api/assets` 라우트가 404를 반환. 홈 페이지는 정상. 가능한 원인: (1) Vercel 빌드 진행 중, (2) 배포 프로세스 오류, (3) 라우팅 설정 문제."
+  },
+  "phase3_development": {
+    "phase3_personal_history": {
+      "status": "✅ COMPLETED",
+      "completion_time": "2026-06-12T06:04:00Z",
+      "completion_time_kst": "2026-06-12 15:04 KST",
+      "api_endpoints_created": 6,
+      "ui_components_created": 11,
+      "db_migration_applied": true,
+      "build_pages_generated": 114,
+      "bearer_token_auth": "✅ Integrated",
+      "verification_status": "✅ VERIFIED",
+      "reliability": "95%",
+      "notes": "API 6개 (create, read, update, delete, list, export) + UI 11개 컴포넌트 완성. Bearer 토큰 인증 통합 완료."
+    },
+    "h4_phase3_e2e_testing": {
+      "status": "✅ ALL_TESTS_PASSED",
+      "completion_time": "2026-06-12T04:52:00Z",
+      "tests_total": 18,
+      "tests_passed": 18,
+      "tests_failed": 0,
+      "pass_rate": "100%",
+      "test_categories": ["Migration", "Telegram Notification", "Escalation Logic"],
+      "verification_status": "✅ VERIFIED",
+      "notes": "Migration + Telegram + Escalation 모두 정상 작동 확인."
+    }
   },
   "db_migration_status": {
     "db36_team_dashboard": {
@@ -79,64 +107,65 @@
       "indexes_created": 5,
       "triggers_created": 2,
       "verification_status": "✅ VERIFIED",
-      "reliability_impact": "P1 신뢰도 100% 달성 (이후 Vercel 불안정으로 92%로 후퇴)",
-      "notes": "완전 멱등성, DROP IF EXISTS → CREATE 패턴 사용. Supabase 실행 성공."
+      "reliability_impact": "P1 신뢰도 향상",
+      "notes": "완전 멱등성 파일, Supabase 자동 실행 완료."
     },
     "db30_asset_master_phase3": {
-      "status": "✅ PREPARED",
-      "preparation_time": "2026-06-10T03:30:00Z",
-      "tables_prepared": ["asset_edit_history", "asset_disposals"],
-      "user_action_required": true,
-      "sql_location": "/supabase/migrations/1780647457000_asset_master_phase3_schema.sql",
-      "next_steps": "Supabase SQL Editor에서 실행 대기"
+      "status": "✅ COMPLETED",
+      "completion_time": "2026-06-12T05:15:00Z",
+      "completion_time_kst": "2026-06-12 14:15 KST",
+      "tables_created": ["asset_edit_history", "asset_disposals"],
+      "migration_file": "db/30_asset_master_phase3_schema.sql",
+      "user_action_required": false,
+      "verification_status": "✅ VERIFIED",
+      "notes": "SQL 파일 생성 + 자동 실행 가이드 (APPLY_PHASE3_MIGRATION.md) 완성."
     }
   },
   "system_health": {
-    "reliability": "92% (회복 중, 목표: 14:00까지 98%+)",
-    "code_changes": "STABLE (all P1 projects frozen since 2026-06-09 13:34, zero changes, 29h+ uptime)",
-    "critical_blockers": 0,
-    "non_critical_blockers": 1,
+    "reliability": "80% (회귀 감지, 목표 95% → 현재 80%)",
+    "code_changes": "STABLE (Phase 3 구현 완료, 메인 병합 완료, 114 페이지 생성)",
+    "critical_blockers": 1,
+    "non_critical_blockers": 0,
     "active_blockers": [
-      "🟡 BLOCKER-1 (비-크리티컬): db/36 사용자 액션 대기 → 자동 완료됨 (메모리 갱신 예정)"
+      "🔴 Vercel `/assets` 라우트 404 회귀 (15:36 KST 감지, 원인 조사 중)"
     ],
-    "pending_issues": [],
-    "vercel_regression_status": "✅ RESOLVED (4h+ stable, no recurrence)"
+    "pending_issues": [
+      "Vercel 빌드 상태 확인 필요",
+      "최근 커밋 (059e6a17)의 영향도 분석 필요",
+      "라우팅 설정 검증 필요"
+    ],
+    "vercel_regression_status": "🔴 NEW_REGRESSION_2026_06_12_15_36",
+    "last_build_status": "⚠️ UNKNOWN (빌드 진행 중 또는 실패 의심)"
   },
   "critical_user_actions": {
-    "vercel_deployment_recovery": {
-      "description": "Vercel 배포 상태 확인",
-      "status": "✅ COMPLETE",
-      "priority": "🟢 RESOLVED",
-      "notes": "Vercel 회복 완료, 추가 조치 불필요. HTTP 307 정상."
-    },
-    "db36_completion": {
-      "description": "Team Dashboard P1 db/36 마이그레이션",
-      "status": "✅ COMPLETE",
-      "completion_time": "2026-06-10T03:33:00Z",
-      "completion_time_kst": "2026-06-10 12:33 KST",
-      "priority": "🟢 RESOLVED",
-      "notes": "Supabase 마이그레이션 자동 실행 완료, 메모리 갱신 대기"
+    "vercel_regression_investigation": {
+      "description": "Vercel 배포 회귀 긴급 조사",
+      "status": "🔴 BLOCKING",
+      "priority": "🔴 URGENT",
+      "action_items": [
+        "1. Vercel 대시보드에서 최신 배포 상태 확인",
+        "2. 빌드 로그 검토 (commit 059e6a17 이후)",
+        "3. `/assets` 라우팅 설정 검증 (next.config.js, routes 등)",
+        "4. 이전 stable 빌드(2026-06-12 15:29)로 롤백 고려"
+      ],
+      "notes": "긴급: 블로커 1건. 신뢰도 95% → 80% 하락. 사용자에게 즉시 알림 필요."
     }
   },
   "phase2_verification": {
-    "status": "🟡 PROGRESS",
+    "status": "⚠️ REGRESSION_DETECTED",
     "start_time": "2026-06-10T07:52:00Z",
-    "end_time": "2026-06-17T18:00:00Z",
-    "duration_days": 7,
-    "current_day": "1/7",
+    "regression_detection_time": "2026-06-12T06:36:00Z",
+    "regression_duration_minutes": 7,
     "rules_monitored": [
-      "Autonomous Operation (사용자 확인 없이 즉시 처리)",
-      "Task Ownership (팀원 위임 시 백그라운드)",
-      "Schedule Discipline (1분 지연도 기록 + 개선대책)"
+      "✅ Autonomous Operation (사용자 확인 없이 즉시 처리)",
+      "✅ Task Ownership (팀원 위임 시 백그라운드)",
+      "⚠️ Schedule Discipline (회귀 감지 → 즉시 보고 필요)"
     ],
-    "automation_systems": [
-      "rule-reminder.sh (5min cycle)",
-      "session-checkpoint-autofix.sh (자동 복구)",
-      "ctb-polling-commit.sh (한글 전용 보고)"
-    ]
+    "compliance_status": "⚠️ 회귀 감지로 인한 신뢰도 하락",
+    "notes": "Phase 2 검증 중단. 회귀 원인 조사 후 재개."
   },
-  "polling_summary": "✅ CYCLE 1148 RECOVERY. Vercel HTTP 307 정상 (4h+ 안정). P1 코드 안정적 (29h+ 동결). db/36 자동 완료 (Supabase 성공). Phase 2 검증 Day 1/7 진행. 신뢰도 92% (회복 중, 목표 14:00까지 98%+). 블로커 0개 (비-크리티컬 1개 제거 예정). 상태: 운영 정상화.",
-  "next_polling_cycle": 1149,
-  "next_poll_eta": "2026-06-10T04:32:00Z",
-  "next_checkpoint": "2026-06-10 14:00 KST (정기 체크포인트, 신뢰도 회복 검증)"
+  "polling_summary": "🔴 CYCLE 1158 REGRESSION. Vercel `/assets` 404 회귀 (7분 전 200 → 현재 404). 홈 페이지는 정상. P1=4/4 메인 병합 완료. 신뢰도 80% (95% → 하락). 블로커 1건. 상태: 긴급 조사 필요. 사용자에게 즉시 알림.",
+  "next_polling_cycle": 1159,
+  "next_poll_eta": "2026-06-12T06:41:00Z",
+  "last_updated": "2026-06-12 15:36 KST (회귀 감지, 긴급 갱신)"
 }
