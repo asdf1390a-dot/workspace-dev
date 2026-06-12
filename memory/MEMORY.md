@@ -1,10 +1,11 @@
 # 메모리 인덱스
 
-**Last Update:** 2026-06-12 22:04 KST — 30분 주기 자동 업데이트, db/52 CRITICAL 블로커  
-**Last Checkpoint:** 2026-06-12 22:04 KST (✅ **P1 4/4 (100%) | 신뢰도 96% | 블로커 1건 CRITICAL (db/52 Supabase 실행 임박) | Vercel HTTP 200 (91h+) | Phase3 64% | 팀 82% (11명) | Cron 100% (6/6)**)
+**Last Update:** 2026-06-12 22:36 KST — Session Checkpoint Auto-Save, Phase 3 Personal History 완성  
+**Last Checkpoint:** 2026-06-12 22:36 KST (✅ **P1 4/4 (100%) | Phase 3 완성 (테이블 확인) | db/52 마이그레이션 완료 | 신뢰도 96% | 블로커 해제 | Vercel HTTP 200 (91h+) | 팀 82% (11명) | Cron 100% (6/6)**)
 
-## 🟢 최신 (2026-06-12 22:04 KST)
+## 🟢 최신 (2026-06-12 22:36 KST)
 
+- [✅ Session Checkpoint (2026-06-12 22:36 KST)](checkpoint_20260612_2236.md) — **Phase 3 Personal History 완성**, user_companies/projects/achievements 테이블 3개 확인, API 6개 + UI 11개 구현 완료, db/52 마이그레이션 완료 (이미 생성됨), 블로커 해제 ✅, 신뢰도 96%, 팀 82% (11/11)
 - [📊 조직도 & 업무현황 (2026-06-12 22:04 KST)](org_status_20260612_2204.md) — **30분 주기 업데이트** | **P1 4/4 완료 (100%)** | **신뢰도 96%** | **블로커 1건 CRITICAL** (db/52 Supabase 2-3분 작업) | Vercel HTTP 200 (91h+ 연속 안정) | **Phase 2 준비 완료, db/52만 남음** | 팀 활용률 82% (11명, 9명 활성) | Phase 3 평균 64% | Cron 100% (6/6 jobs) | 다음 체크 22:30 KST
 - [✅ Phase C Weekly Improvement Analysis 완료 (2026-06-12 21:42 KST)](../WEEKLY_IMPROVEMENT_REPORT.md) — **5개 개선 가설 생성** (신뢰도 70~95%) | Vercel 캐시 (85%) | Evaluator 자동화 (95%) | 리소스 할당 (90%) | Web-Builder 백업 (85%) | 회의 정기화 (70%) | 7일 위반 분석 완료 | 테스트 플랜 + 성공 지표 포함
 

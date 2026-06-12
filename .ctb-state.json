@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-12T14:16:30Z",
+  "timestamp": "2026-06-12T14:21:46Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
@@ -7,18 +7,9 @@
     "phase2c": "ready"
   },
   "production": {
-    "vercel": "OK",
-    "vercel_http": "200"
+    "vercel": "DEGRADED",
+    "vercel_http": "404"
   },
-  "p1_projects": {
-    "AUDIT-P1": {"commit": "0cf3c1ba", "status": "completed", "completion": 100},
-    "DISCORD-BOT-P1": {"commit": "585db4d5", "status": "completed", "completion": 100},
-    "TRAVEL-P2-UI": {"commit": "e9396c74", "status": "completed", "completion": 100},
-    "BM-P1": {"commit": "ecc13a9f", "status": "completed", "completion": 100}
-  },
-  "reliability": 96,
-  "blockers": 0,
-  "team_utilization": 82,
-  "cron_success_rate": 100,
-  "last_update": "2026-06-12 23:16:30"
+  "last_update": "2026-06-12 23:21:46",
+  "blocker": "Vercel DEPLOYMENT_NOT_FOUND (회귀 재발생)"
 }
