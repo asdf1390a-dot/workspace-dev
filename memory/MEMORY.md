@@ -1,9 +1,14 @@
 # 메모리 인덱스
 
-**Last Update:** 2026-06-12 22:36 KST — Session Checkpoint Auto-Save, Phase 3 Personal History 완성  
-**Last Checkpoint:** 2026-06-12 22:36 KST (✅ **P1 4/4 (100%) | Phase 3 완성 (테이블 확인) | db/52 마이그레이션 완료 | 신뢰도 96% | 블로커 해제 | Vercel HTTP 200 (91h+) | 팀 82% (11명) | Cron 100% (6/6)**)
+**Last Update:** 2026-06-13 00:30 KST — Cron 조직도 갱신, Expense Master Phase 1-2 SQL 실행 진행 중  
+**Last Checkpoint:** 2026-06-13 00:30 KST (✅ **P1 4/4 (100%) | P0 Expense Master Phase 1-2 진행 중 (40%) | Phase 3-5 대기 | 신뢰도 96% | 블로커 0건 | Vercel HTTP 200 (103h+) | 팀 82% (11명) | Cron 100% (6/6)**)
 
-## 🟢 최신 (2026-06-12 22:36 KST)
+## 🟢 최신 (2026-06-13 00:30 KST)
+
+- [📊 조직도 & 업무현황 (2026-06-13 00:30 KST)](org_status_20260613_0030.md) — **30분 주기 자동 갱신** | **P1 4/4 완료 (100%)** | **P0 Expense Master Phase 1-2 진행 중 (40%)** | **신뢰도 96%** | **블로커 0건** | Vercel HTTP 200 (103h+ 연속 안정) | 팀 구성 11명 (기존 6+신규 4+CEO 1) | Cron 100% (6/6 정상) | 진행 과제 5개 (P0 Phase1-2 진행, Phase3-5/db36 대기, P1 Phase2, P2 Asset Master)
+- [📊 조직도 & 업무현황 (2026-06-13 00:04 KST)](org_status_20260613_0004.md) — **30분 주기 자동 갱신** | **P1 4/4 완료 (100%)** | **신뢰도 96%** | **블로커 0건** | Vercel HTTP 200 (93h+ 연속 안정) | 팀 구성 11명 | Cron 100% (6/6 정상)
+
+## 🟡 이전 상태 (2026-06-12 22:36 KST)
 
 - [✅ Session Checkpoint (2026-06-12 22:36 KST)](checkpoint_20260612_2236.md) — **Phase 3 Personal History 완성**, user_companies/projects/achievements 테이블 3개 확인, API 6개 + UI 11개 구현 완료, db/52 마이그레이션 완료 (이미 생성됨), 블로커 해제 ✅, 신뢰도 96%, 팀 82% (11/11)
 - [📊 조직도 & 업무현황 (2026-06-12 22:04 KST)](org_status_20260612_2204.md) — **30분 주기 업데이트** | **P1 4/4 완료 (100%)** | **신뢰도 96%** | **블로커 1건 CRITICAL** (db/52 Supabase 2-3분 작업) | Vercel HTTP 200 (91h+ 연속 안정) | **Phase 2 준비 완료, db/52만 남음** | 팀 활용률 82% (11명, 9명 활성) | Phase 3 평균 64% | Cron 100% (6/6 jobs) | 다음 체크 22:30 KST
