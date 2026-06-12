@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-12T13:56:00Z",
+  "timestamp": "2026-06-12T14:16:30Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
@@ -10,13 +10,15 @@
     "vercel": "OK",
     "vercel_http": "200"
   },
-  "last_update": "2026-06-12 22:56:00",
-  "polling_cycle": {
-    "cycle_id": "ctb-auto-20260612-2256",
-    "build_status": "success",
-    "p1_completion": "4/4 (100%)",
-    "reliability": "96%",
-    "blockers": "0건",
-    "uptime_hours": 91
-  }
+  "p1_projects": {
+    "AUDIT-P1": {"commit": "0cf3c1ba", "status": "completed", "completion": 100},
+    "DISCORD-BOT-P1": {"commit": "585db4d5", "status": "completed", "completion": 100},
+    "TRAVEL-P2-UI": {"commit": "e9396c74", "status": "completed", "completion": 100},
+    "BM-P1": {"commit": "ecc13a9f", "status": "completed", "completion": 100}
+  },
+  "reliability": 96,
+  "blockers": 0,
+  "team_utilization": 82,
+  "cron_success_rate": 100,
+  "last_update": "2026-06-12 23:16:30"
 }
