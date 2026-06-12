@@ -1,12 +1,12 @@
 ---
 name: Incomplete Tasks Registry
-description: Active incomplete work tracking (updated 2026-06-12 15:34 KST) — ✅ 9/11 COMPLETED (82%), 🟡 2 IN_PROGRESS, 🔴 1 BLOCKED_ON_USER (db/43), 55.5h to deadline
+description: Active incomplete work tracking (updated 2026-06-12 16:04 KST) — ✅ 9/11 COMPLETED (82%), 🟡 2 IN_PROGRESS, ⏳ 1 WAITING_FOR_USER (db/43 SQL, non-blocking), 55.5h to deadline
 type: project
 ---
 
-# Incomplete Tasks Registry (Last Updated: 2026-06-12 15:34 KST - Session Checkpoint Auto-Save)
+# Incomplete Tasks Registry (Last Updated: 2026-06-12 16:04 KST - Session Checkpoint Auto-Save)
 
-**Status:** ✅ COMPLETED: 9/11 (82%) | 🟡 IN_PROGRESS: 2 | 🔴 BLOCKED_ON_USER: 1 (db/43 마이그레이션 SQL 대기) | Build: 143 pages ✅ | Phase 2: Ready (3/3) | **Phase 3-2 시작 대기 (db/43 먼저 실행 필요)** | 마감: Asset Master Phase 3-6 @ 2026-06-15 (55.5h 남음)
+**Status:** ✅ COMPLETED: 9/11 (82%) | 🟡 IN_PROGRESS: 2 | ⏳ WAITING_FOR_USER: 1 (db/43 마이그레이션 SQL, non-blocking) | Critical Blockers: 0 🟢 | Build: 143 pages ✅ | Phase 2: Ready (3/3) | Phase 3-2 준비 완료 (db/43 사용자 액션 대기, non-critical) | 마감: Asset Master Phase 3-6 @ 2026-06-15 (55.5h 남음)
 
 ---
 
