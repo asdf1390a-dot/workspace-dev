@@ -1,6 +1,30 @@
 {
-  "timestamp": "2026-06-12T06:41:00Z",
+  "timestamp": "2026-06-12T06:47:00Z",
+  "timestamp_kst": "2026-06-12 15:47:00",
+  "cycle": 1041,
   "progress": 100,
+  "p1_projects": {
+    "audit_p1": {
+      "hash": "0cf3c1ba",
+      "status": "complete",
+      "completion": 100
+    },
+    "discord_bot_p1": {
+      "hash": "585db4d5",
+      "status": "complete",
+      "completion": 100
+    },
+    "travel_p2_ui": {
+      "hash": "e9396c74",
+      "status": "complete",
+      "completion": 100
+    },
+    "bm_p1": {
+      "hash": "ecc13a9f",
+      "status": "complete",
+      "completion": 100
+    }
+  },
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
@@ -8,16 +32,13 @@
   },
   "production": {
     "vercel": "DEGRADED",
-    "vercel_http": "DEPLOYMENT_NOT_FOUND",
-    "blocker": "Vercel deployment cache/configuration error",
-    "reliability": "92%"
+    "vercel_root": "200",
+    "vercel_http": "partial-404",
+    "issue": "API endpoints returning 404 (DEPLOYMENT_NOT_FOUND regression)"
   },
-  "p1_projects": {
-    "AUDIT-P1": "0cf3c1ba",
-    "DISCORD-BOT-P1": "585db4d5",
-    "TRAVEL-P2-UI": "e9396c74",
-    "BM-P1": "ecc13a9f",
-    "status": "4/4 complete (no changes)"
-  },
-  "last_update": "2026-06-12 15:41:00"
+  "reliability": 92,
+  "blockers": 1,
+  "blocker_detail": "Vercel deployment cache issue affecting specific routes",
+  "last_update": "2026-06-12 15:47:00",
+  "status_detail": "P1=4/4 (100%, no changes) | Phase2A/B/C=ready | Reliability=92% | Blocker=1 (Vercel)"
 }
