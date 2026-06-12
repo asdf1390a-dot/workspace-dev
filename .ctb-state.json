@@ -1,26 +1,37 @@
 {
-  "timestamp": "2026-06-12T23:14:04Z",
-  "progress": 100,
+  "timestamp": "2026-06-13T08:28:00+09:00",
+  "progress": 95,
+  "incident": {
+    "status": "CRITICAL",
+    "type": "Vercel /assets HTTP 000 TIMEOUT",
+    "duration_minutes": 38,
+    "first_detected": "2026-06-13T07:50:00+09:00",
+    "last_updated": "2026-06-13T08:14:00+09:00",
+    "sla_impact": "115h+ broken"
+  },
   "services": {
-    "phase2a": "ready",
-    "phase2b": "ready",
-    "phase2c": "ready"
+    "phase2a": "healthy",
+    "phase2b": "healthy",
+    "phase2c": "healthy"
   },
   "production": {
     "vercel": "DEGRADED",
-    "vercel_http": "000",
-    "incident": "HTTP 000 TIMEOUT on /assets (started 07:50 KST, 24min+)",
-    "incident_severity": "CRITICAL"
+    "vercel_http": "000_TIMEOUT",
+    "vercel_endpoint": "/assets",
+    "supabase": "OK"
   },
-  "last_update": "2026-06-13 08:14:04",
-  "p1_projects": {
-    "AUDIT-P1": "100% (0cf3c1ba)",
-    "DISCORD-BOT-P1": "100% (585db4d5)",
-    "BM-P1": "100% (ecc13a9f)",
-    "TRAVEL-P2-UI": "100% (e9396c74)"
+  "projects": {
+    "audit_p1": "100% complete (0cf3c1ba)",
+    "discord_bot_p1": "100% complete (585db4d5)",
+    "travel_p2_ui": "100% complete (e9396c74)",
+    "bm_p1": "100% complete (ecc13a9f)"
   },
-  "team_utilization": "82% (9/11)",
-  "reliability": "UNKNOWN (incident in progress)",
-  "blockers": 1,
-  "cron_success": "100% (8/8)"
+  "blockers": {
+    "count": 1,
+    "critical": "Vercel /assets timeout — requires manual intervention",
+    "requires_user_action": true
+  },
+  "reliability": "UNKNOWN",
+  "last_update": "2026-06-13 08:28:00",
+  "next_checkpoint": "2026-06-13 08:39:00"
 }
