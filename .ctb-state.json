@@ -1,11 +1,27 @@
 {
-  "timestamp": "2026-06-12T21:53:00Z",
+  "timestamp": "2026-06-13T07:03:00+09:00",
   "progress": 100,
   "p1_projects": {
-    "audit_p1": "100% ✅",
-    "discord_bot_p1": "100% ✅",
-    "travel_p2_ui": "100% ✅",
-    "bm_p1": "100% ✅"
+    "AUDIT-P1": {
+      "commit": "0cf3c1ba",
+      "status": "completed",
+      "stable_since_hours": 24
+    },
+    "DISCORD-BOT-P1": {
+      "commit": "585db4d5",
+      "status": "completed",
+      "stable_since_hours": 24
+    },
+    "TRAVEL-P2-UI": {
+      "commit": "e9396c74",
+      "status": "completed",
+      "stable_since_hours": 24
+    },
+    "BM-P1": {
+      "commit": "ecc13a9f",
+      "status": "completed",
+      "stable_since_hours": 24
+    }
   },
   "services": {
     "phase2a": "ready",
@@ -15,11 +31,13 @@
   "production": {
     "vercel": "OK",
     "vercel_http": "200",
-    "uptime": "115h+"
+    "uptime_hours": 115
   },
-  "reliability": "96%",
-  "team_utilization": "82% (11/11)",
-  "blockers": 0,
-  "cron_status": "100% (7/7)",
-  "last_update": "2026-06-13 06:53:00"
+  "metrics": {
+    "reliability": 96,
+    "team_utilization": 82,
+    "blockers": 0,
+    "cron_success_rate": 100
+  },
+  "last_update": "2026-06-13 07:03 KST"
 }
