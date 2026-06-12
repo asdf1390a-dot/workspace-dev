@@ -1,12 +1,12 @@
 ---
 name: Incomplete Tasks Registry
-description: Active incomplete work tracking (updated 2026-06-12 11:58 KST) — ✅ 7/11 COMPLETED (63%), 🟡 2 IN_PROGRESS, 🔴 0 BLOCKED, 60h to deadline
+description: Active incomplete work tracking (updated 2026-06-12 12:32 KST) — ✅ 8/11 COMPLETED (73%), 🟡 3 IN_PROGRESS, 🔴 0 BLOCKED, 58.5h to deadline
 type: project
 ---
 
-# Incomplete Tasks Registry (Last Updated: 2026-06-12 11:58 KST - Session Checkpoint)
+# Incomplete Tasks Registry (Last Updated: 2026-06-12 12:32 KST - Task State Machine Transition)
 
-**Status:** ✅ COMPLETED: 7/11 (63%) | 🟡 IN_PROGRESS: 2 | 🔴 BLOCKED: 0 (Vercel `/assets` 404 **FIXED** ✅) | Build: 143 pages ✅ | Phase 2: Ready (3/3) | **READY: Phase 3-6 시작 가능** | 마감: Asset Master Phase 3-6 @ 2026-06-15 (60h 남음)
+**Status:** ✅ COMPLETED: 8/11 (73%) | 🟡 IN_PROGRESS: 3 | 🔴 BLOCKED: 0 (Vercel `/assets` 404 **FIXED** ✅, `/api/health` **복구** ✅, **db/36 마이그레이션 ✅**) | Build: 143 pages ✅ | Phase 2: Ready (3/3) | **Phase 3-1 구현 중 (12:21-시작, ETA 12:51)** | 마감: Asset Master Phase 3-6 @ 2026-06-15 (58.5h 남음)
 
 ---
 
@@ -16,18 +16,18 @@ type: project
 
 | Status | Count | Items |
 |--------|-------|-------|
-| ✅ **COMPLETED** | 7 | db/36, /assets 캐시, Phase 2 (3), Asset Master P1 Phase 2, Vercel issues (2) |
-| 🟡 **IN_PROGRESS** | 2 | Cost Management (분석+설계), R&M Analysis (configured) |
-| 🔴 **BLOCKED** | 2 | Phase 3-6 (web-builder 미시작), Vercel HTTP 000 (배포 DOWN) |
+| ✅ **COMPLETED** | 8 | db/36 ✅, /assets 캐시, Phase 2 (3), Asset Master P1 Phase 2, Vercel issues (2), `/api/health` 복구 |
+| 🟡 **IN_PROGRESS** | 3 | Asset Master Phase 3-1 (구현 중, 12:21-시작), Cost Management (분석+설계), R&M Analysis (configured) |
+| 🔴 **BLOCKED** | 0 | — ✅ 모두 해결됨 |
 | ⚪ **PENDING** | 0 | — |
 
 ### 2️⃣ TODAY 우선순위 (< 12h 남음)
 - ✅ **없음** (당일 마감 항목 0건)
-- 다음 마감: Asset Master Phase 3-6 @ 2026-06-15 (60시간 남음)
+- 다음 마감: Asset Master Phase 3-6 @ 2026-06-15 (58.5시간 남음)
 
 ### 3️⃣ BLOCKED 항목 (근본원인)
 
-**✅ 모두 해결됨 (2026-06-12 11:58)**
+**✅ 모두 해결됨 (2026-06-12 12:32 KST)**
 
 | # | Issue | Duration | Impact | Root Cause | Action | Status |
 |---|-------|----------|--------|-----------|--------|--------|
@@ -43,15 +43,15 @@ type: project
 |------|--------------|--------|----------|--------|
 | 👤 Evaluator | — | 🔴 DEACTIVATED | 2d | 구조적 재설계 필요 (자동 규칙 검증 통합) |
 | 🎨 Planner | Cost Mgmt 대시보드 설계 | ⚠️ NO ACTIVITY | 24h+ | 작업 재확인 필수 (48h 임계) |
-| 🔧 Web-Builder | Phase 3-6 구현 | 🟡 NOT STARTED | 2d | 즉시 Phase 3-1 시작 (40-48h work, 60h deadline) |
+| 🔧 Web-Builder | Phase 3-6 구현 (Phase 3-1 진행 중) | 🟢 IN_PROGRESS | 11분 / 30분 | Phase 3-1 진행 중 (ETA 12:51, 로컬 build → Vercel 검증) |
 
 ### 🚨 CRITICAL ACTIONS (오늘 내 처리 필수)
 
 | Priority | Action | Owner | Deadline |
 |----------|--------|-------|----------|
-| 🔴 **CRITICAL** | Vercel HTTP 000 해결 | DevOps/사용자 | **즉시** |
-| ⚠️ **URGENT** | Web-Builder 작업 시작 | Web-Builder | **오늘** |
-| 🟡 **WARNING** | Planner 진행도 확인 | Manager | **24h 내** |
+| 🟢 **ACTIVE** | Phase 3-1 구현 진행 | Web-Builder (Agent) | 12:51 (~19분) |
+| ⚠️ **NEXT** | Phase 3-2/3 순차 진행 | Web-Builder (Agent) | 13:51 (~79분) |
+| 🟡 **MONITOR** | Planner 진행도 확인 | Manager | **24h 내** |
 
 ---
 
@@ -95,45 +95,47 @@ type: project
 
 ---
 
-## 🔄 ACTIVE PENDING TASKS (READY FOR EXECUTION)
+## 🔄 TASK STATE TRANSITIONS (2026-06-12 12:32 KST)
 
-### 1️⃣ Team Dashboard P1 db/36 Supabase Migration
-**Status:** READY_FOR_USER_EXECUTION  
-**Blocker:** Waiting for user to execute SQL migration  
-**Execution Time:** 3-5 minutes  
-**Location:** `/memory/team_dashboard_db36_migration_script_20260610.md`
+### ✅ STATE MACHINE RULE APPLICATIONS
 
-**What's prepared:**
-- ✅ Complete SQL migration script (copy-paste ready)
-- ✅ Milestones table with RLS policies
-- ✅ Portfolio details view
-- ✅ 5 RLS policies for secure access
-- ✅ Verification checklist included
+**RULE 1: PENDING → IN_PROGRESS (owner started work)**
+- ✅ **Asset Master Phase 3-6: READY_FOR_WEBBUILDER_EXECUTION → IN_PROGRESS**
+  - Timestamp: 2026-06-12 12:21 KST
+  - Owner: Agent ac39ed6c495e62e35 (Web-Builder)
+  - Current status: Phase 3-1 multi-filter implementation in progress
+  - Expected completion: 2026-06-12 12:51 KST (~30 minutes)
+  - Details: asset_class_code filter dropdown + localStorage saved searches
 
-**Next step:** User opens Supabase SQL Editor → Copy script → Paste → Click Run
+**RULE 4: IN_PROGRESS → COMPLETED (work finished + verified)**
+- ✅ **Team Dashboard P1 db/36 Supabase Migration: READY_FOR_USER_EXECUTION → COMPLETED**
+  - Timestamp: 2026-06-10 12:33 KST
+  - Verification: Portfolio + Milestones tables created, RLS policies applied, 6 indexes created
+  - Prerequisite fulfilled for: Asset Master Phase 3-6 ✅
 
 ---
 
-### 2️⃣ Asset Master Phase 3-6 Implementation
-**Status:** READY_FOR_WEBBUILDER_EXECUTION  
-**Deadline:** 2026-06-15 (5 days, 21 hours remaining)  
-**Duration:** 40-48 hours (5 days × 8-10 hrs/day)  
-**Location:** `/memory/asset_master_phase3_6_sprint_plan_20260610.md`
+## 🔄 ACTIVE EXECUTION TASKS
 
-**What's prepared:**
-- ✅ Detailed 5-day sprint plan (Phase 3-1 Detail, 3-2 Edit, 3-3 Dispose)
-- ✅ Subtasks breakdown (T3.1.1 through T3.3.4)
-- ✅ Database migrations (db/29) ready to apply
-- ✅ Risk mitigation and success criteria
-- ✅ Day-by-day schedule
+### 1️⃣ Asset Master Phase 3-6 Implementation (NOW IN PROGRESS)
+**Status:** 🟢 IN_PROGRESS (Phase 3-1 only)  
+**Deadline:** 2026-06-15 23:37 KST (58.5 hours remaining)  
+**Current Phase:** Phase 3-1 multi-filter (12:21-12:51 ETA)  
+**Owner:** Agent ac39ed6c495e62e35
 
-**Scope:**
-- 3 pages (Detail, Edit, Dispose views)
-- 2 database migrations (asset_edit_history, asset_disposals tables)
-- 1 test suite
-- RLS policy enforcement
+**Phase Breakdown:**
+- **Phase 3-1:** Asset class code filter + localStorage (12:21 start, 30min ETA)
+- **Phase 3-2:** Tab interface for asset detail page (pending 3-1)
+- **Phase 3-3:** New asset form (pending 3-2)
+- **Phase 4-6:** Smoke tests + docs + Vercel validation (pending 3-3)
 
-**Prerequisite:** Team Dashboard db/36 migration must complete first
+**Prepared Resources:**
+- ✅ Detailed sprint plan (memory/asset_master_phase3_6_sprint_plan_20260610.md)
+- ✅ Database migrations (db/29, db/30) ready
+- ✅ Risk mitigation & success criteria defined
+- ✅ Prerequisite (db/36) completed ✅
+
+**Next step:** Monitor Phase 3-1 commit + Vercel HTTP 200 verification (ETA 12:51)
 
 ---
 
