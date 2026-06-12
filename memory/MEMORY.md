@@ -1,10 +1,11 @@
 # 메모리 인덱스
 
-**Last Update:** 2026-06-13 00:30 KST — Cron 조직도 갱신, Expense Master Phase 1-2 SQL 실행 진행 중  
-**Last Checkpoint:** 2026-06-13 00:30 KST (✅ **P1 4/4 (100%) | P0 Expense Master Phase 1-2 진행 중 (40%) | Phase 3-5 대기 | 신뢰도 96% | 블로커 0건 | Vercel HTTP 200 (103h+) | 팀 82% (11명) | Cron 100% (6/6)**)
+**Last Update:** 2026-06-13 00:38 KST — 폴링 사이클 1160 완료, CTB 업데이트  
+**Last Checkpoint:** 2026-06-13 00:38 KST (✅ **P1 4/4 (100%, 변화없음) | Vercel HTTP 200 (102h+) | 신뢰도 96% | 블로커 0건 | Cron 100% (6/6) | 팀 82% (11명) | db/52 마이그레이션 대기 | 상태: 정상 운영**)
 
-## 🟢 최신 (2026-06-13 00:30 KST)
+## 🟢 최신 (2026-06-13 00:38 KST)
 
+- [✅ Session Checkpoint (2026-06-13 00:38 KST)](checkpoint_20260613_0038.md) — **P1 4/4 완료 (100%, 변화없음)** | Vercel HTTP 200 (102h+ 안정) | 신뢰도 96% | 블로커 0건 | Cron 100% (6/6) | 팀 82% (11명) | db/52 마이그레이션 대기 중 | Phase 3 Personal History 완성 (API 6개 + UI 11개)
 - [📊 조직도 & 업무현황 (2026-06-13 00:30 KST)](org_status_20260613_0030.md) — **30분 주기 자동 갱신** | **P1 4/4 완료 (100%)** | **P0 Expense Master Phase 1-2 진행 중 (40%)** | **신뢰도 96%** | **블로커 0건** | Vercel HTTP 200 (103h+ 연속 안정) | 팀 구성 11명 (기존 6+신규 4+CEO 1) | Cron 100% (6/6 정상) | 진행 과제 5개 (P0 Phase1-2 진행, Phase3-5/db36 대기, P1 Phase2, P2 Asset Master)
 - [📊 조직도 & 업무현황 (2026-06-13 00:04 KST)](org_status_20260613_0004.md) — **30분 주기 자동 갱신** | **P1 4/4 완료 (100%)** | **신뢰도 96%** | **블로커 0건** | Vercel HTTP 200 (93h+ 연속 안정) | 팀 구성 11명 | Cron 100% (6/6 정상)
 
@@ -237,6 +238,7 @@
 - [📊 Absolute Task Completion](feedback_absolute_task_completion_rule.md) — 결과물 책임 + CTB 추적
 - [🔐 Double Verification](feedback_double_verification_before_delivery.md) — 배포 전 2회 검증
 - [🔐 Excel 파일 구조 변경 금지](feedback_excel_no_structural_changes.md) — 양식 그대로 유지, 셀 값만 수정
+- [🔗 GitHub 링크 전용 규칙 (스크립트/SQL)](feedback_github_link_for_scripts.md) — 긴 스크립트는 본문 X, GitHub 링크만 (2026-06-13)
 
 ---
 
