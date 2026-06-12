@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-12T15:33:13Z",
+  "timestamp": "2026-06-12T15:38:00Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
@@ -10,27 +10,5 @@
     "vercel": "OK",
     "vercel_http": "200"
   },
-  "p1_projects": {
-    "AUDIT-P1": {
-      "commit": "0cf3c1ba",
-      "status": "100%",
-      "change": "none"
-    },
-    "DISCORD-BOT-P1": {
-      "commit": "585db4d5",
-      "status": "100%",
-      "change": "none"
-    },
-    "TRAVEL-P2-UI": {
-      "commit": "e9396c74",
-      "status": "100%",
-      "change": "none"
-    },
-    "BM-P1": {
-      "commit": "ecc13a9f",
-      "status": "100%",
-      "change": "none"
-    }
-  },
-  "last_update": "2026-06-13 00:33:13"
+  "last_update": "2026-06-13 00:38:00"
 }
