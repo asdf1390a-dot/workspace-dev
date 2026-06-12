@@ -1,6 +1,10 @@
 {
-  "timestamp": "2026-06-13T03:48:00Z",
+  "timestamp": "2026-06-13T00:58:00Z",
+  "timestamp_kst": "2026-06-13 00:58 KST",
+  "cycle_number": 1284,
   "progress": 100,
+  "reliability": 96,
+  "blockers": 0,
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
@@ -8,7 +12,40 @@
   },
   "production": {
     "vercel": "OK",
-    "vercel_http": "200"
+    "vercel_http": "200",
+    "uptime_hours": 112
   },
-  "last_update": "2026-06-13 12:48:00"
+  "projects": {
+    "AUDIT-P1": {
+      "commit": "0cf3c1ba",
+      "completion": "100%",
+      "status": "STABLE"
+    },
+    "DISCORD-BOT-P1": {
+      "commit": "585db4d5",
+      "completion": "100%",
+      "status": "STABLE"
+    },
+    "TRAVEL-P2-UI": {
+      "commit": "e9396c74",
+      "completion": "100%",
+      "status": "STABLE"
+    },
+    "BM-P1": {
+      "commit": "ecc13a9f",
+      "completion": "100%",
+      "status": "STABLE"
+    }
+  },
+  "team": {
+    "utilization": "82%",
+    "members": "11/11"
+  },
+  "cron": {
+    "total": 6,
+    "active": 6,
+    "status": "100%"
+  },
+  "overall_status": "✅ 정상 운영",
+  "last_update": "2026-06-13 00:58:00 KST"
 }
