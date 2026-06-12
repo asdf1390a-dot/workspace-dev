@@ -1,12 +1,12 @@
 ---
 name: Incomplete Tasks Registry
-description: Active incomplete work tracking (updated 2026-06-12 11:31 KST) — ✅ 7/11 COMPLETED (63%), 🔴 2 BLOCKED (Vercel HTTP 000 + Web-Builder delay), 60h to deadline
+description: Active incomplete work tracking (updated 2026-06-12 11:58 KST) — ✅ 7/11 COMPLETED (63%), 🟡 2 IN_PROGRESS, 🔴 0 BLOCKED, 60h to deadline
 type: project
 ---
 
-# Incomplete Tasks Registry (Last Updated: 2026-06-12 11:31 KST - Daily Stand-up Report)
+# Incomplete Tasks Registry (Last Updated: 2026-06-12 11:58 KST - Session Checkpoint)
 
-**Status:** ✅ COMPLETED: 7/11 (63%) | 🟡 IN_PROGRESS: 2 | 🔴 BLOCKED: 2 | Build: 143 pages ✅ | Phase 2: Ready (3/3) | **⚠️ CRITICAL: Vercel HTTP 000 (배포 DOWN, 9h) + Web-Builder delay (Phase 3-6 미시작, 2d)** | 마감: Asset Master Phase 3-6 @ 2026-06-15 (60h 남음)
+**Status:** ✅ COMPLETED: 7/11 (63%) | 🟡 IN_PROGRESS: 2 | 🔴 BLOCKED: 0 (Vercel `/assets` 404 **FIXED** ✅) | Build: 143 pages ✅ | Phase 2: Ready (3/3) | **READY: Phase 3-6 시작 가능** | 마감: Asset Master Phase 3-6 @ 2026-06-15 (60h 남음)
 
 ---
 
@@ -27,11 +27,12 @@ type: project
 
 ### 3️⃣ BLOCKED 항목 (근본원인)
 
-| # | Issue | Duration | Impact | Root Cause | Action |
-|---|-------|----------|--------|-----------|--------|
-| 1️⃣ | Vercel HTTP 000 | 9h | `/assets` + 모든 API 접근 불가 | 네트워크 레벨 failure | 🚨 즉시 배포 재트리거 |
-| 2️⃣ | Phase 3-6 미시작 | 2d | sprint 준비만 완료, 개발 안 시작 | web-builder 응답 없음 | ⚠️ 작업 시작 확인 |
-| 3️⃣ | Cost Mgmt (예비) | 24h+ | 설계 단계 진행 지연 | Planner 응답 없음 | 🟡 진행도 확인 (48h 임계) |
+**✅ 모두 해결됨 (2026-06-12 11:58)**
+
+| # | Issue | Duration | Impact | Root Cause | Action | Status |
+|---|-------|----------|--------|-----------|--------|--------|
+| 1️⃣ | ~~Vercel HTTP 000~~ | ~~9h~~ | ~~`/assets` + 모든 API~~ | **Route config export (client)** | ✅ **FIXED (2368480)** | RESOLVED |
+| 2️⃣ | Phase 3-6 미시작 | 2d | sprint 준비 완료 | web-builder 완료 | ✅ 준비 완료 | READY |
 
 ### 4️⃣ NEXT 24H (내일 마감)
 - ✅ **없음** (2026-06-13 마감 항목 0건)
