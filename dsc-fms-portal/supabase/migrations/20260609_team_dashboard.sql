@@ -126,7 +126,37 @@ CREATE POLICY "Users can manage permissions for dashboards they own" ON dashboar
     )
   );
 
--- 8. 기본 대시보드 데이터 (선택사항)
+-- 8. 마일스톤 테이블
+CREATE TABLE IF NOT EXISTS milestones (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  project_id UUID,
+  title TEXT NOT NULL,
+  description TEXT,
+  target_date DATE,
+  status TEXT DEFAULT 'pending' CHECK (status IN ('pending', 'in_progress', 'completed', 'on_hold')),
+  owner_id UUID REFERENCES auth.users(id) ON DELETE SET NULL,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT now(),
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT now()
+);
+
+CREATE INDEX IF NOT EXISTS idx_milestones_project_id ON milestones(project_id);
+CREATE INDEX IF NOT EXISTS idx_milestones_owner_id ON milestones(owner_id);
+CREATE INDEX IF NOT EXISTS idx_milestones_status ON milestones(status);
+
+-- 9. 포트폴리오 아이템 테이블
+CREATE TABLE IF NOT EXISTS portfolio_items (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  title TEXT NOT NULL,
+  description TEXT,
+  skills_used TEXT[],
+  owner_id UUID REFERENCES auth.users(id) ON DELETE CASCADE,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT now(),
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT now()
+);
+
+CREATE INDEX IF NOT EXISTS idx_portfolio_items_owner_id ON portfolio_items(owner_id);
+
+-- 10. 기본 대시보드 데이터 (선택사항)
 INSERT INTO team_dashboards (name, description, owner_id, is_shared)
 SELECT
   'Default Team Dashboard',

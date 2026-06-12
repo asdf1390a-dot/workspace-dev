@@ -24,6 +24,7 @@ from handlers.ctb_handler import CTBHandler
 from handlers.error_handler import ErrorHandler
 from handlers.message_handler import MessageHandler
 from handlers.task_handler import TaskHandler
+from handlers.translator_handler import TranslatorHandler
 from sync.ctb_sync import CTBSync
 from sync.discord_sync import DiscordSync
 from sync.telegram_sync import TelegramSync
@@ -63,6 +64,7 @@ class FMSBot(discord.Client):
         self.message_handler = MessageHandler(
             self.telegram_sync, self.supabase, self.error_handler
         )
+        self.translator_handler = TranslatorHandler(self.supabase)
         self.task_handler = TaskHandler(self.supabase, self.telegram_sync)
         self.ctb_sync = CTBSync(self.discord_sync, self.telegram_sync)
         self.ctb_handler = CTBHandler(self.ctb_sync)
@@ -99,6 +101,7 @@ class FMSBot(discord.Client):
         if message.content.strip().lower() == "!ping":
             await message.channel.send("pong")
             return
+        await self.translator_handler.handle_translator_message(message)
         await self.message_handler.handle_discord_message(message)
 
     async def close(self) -> None:

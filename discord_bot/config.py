@@ -32,6 +32,11 @@ class Config:
     channel_completed: int = _int("DISCORD_CHANNEL_COMPLETED")
     channel_issues: int = _int("DISCORD_CHANNEL_ISSUES")
     channel_discussion: int = _int("DISCORD_CHANNEL_DISCUSSION")
+    channel_secretary: int = _int("DISCORD_CHANNEL_SECRETARY")
+    channel_translator: int = _int("DISCORD_CHANNEL_TRANSLATOR")
+    channel_analyst: int = _int("DISCORD_CHANNEL_ANALYST")
+    channel_developer: int = _int("DISCORD_CHANNEL_DEVELOPER")
+    channel_planner: int = _int("DISCORD_CHANNEL_PLANNER")
 
     # Telegram
     telegram_bot_token: str = os.getenv("TELEGRAM_BOT_TOKEN", "")
@@ -60,6 +65,11 @@ cfg = Config()
 
 # Channel routing: incoming Discord channel IDs that should mirror to Telegram
 SYNC_CHANNELS = {
+    cfg.channel_secretary,
+    cfg.channel_translator,
+    cfg.channel_analyst,
+    cfg.channel_developer,
+    cfg.channel_planner,
     cfg.channel_discussion,
     cfg.channel_completed,
 }
