@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-12T13:15:01Z",
+  "timestamp": "2026-06-12T13:21:15Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
@@ -10,5 +10,37 @@
     "vercel": "OK",
     "vercel_http": "200"
   },
-  "last_update": "2026-06-12 22:15:01"
+  "p1_projects": {
+    "AUDIT-P1": {
+      "commit": "0cf3c1ba",
+      "status": "✅ 완료",
+      "completion": "100%",
+      "timestamp": "2026-06-12 22:16:00"
+    },
+    "DISCORD-BOT-P1": {
+      "commit": "585db4d5",
+      "status": "✅ 완료",
+      "completion": "100%",
+      "timestamp": "2026-06-12 22:16:00"
+    },
+    "TRAVEL-P2-UI": {
+      "commit": "e9396c74",
+      "status": "✅ 완료",
+      "completion": "100%",
+      "timestamp": "2026-06-12 22:16:00"
+    },
+    "BM-P1": {
+      "commit": "ecc13a9f",
+      "status": "✅ 완료",
+      "completion": "100%",
+      "timestamp": "2026-06-12 22:16:00"
+    }
+  },
+  "reliability": "96%",
+  "blocker_count": 1,
+  "blocker_critical": "db/52 (Supabase 실행 대기)",
+  "team_utilization": "82% (11/11)",
+  "cron_health": "100% (6/6)",
+  "phase3_status": "Personal History 완료",
+  "last_update": "2026-06-12 22:21:15"
 }
