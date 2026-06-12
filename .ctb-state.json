@@ -1,7 +1,6 @@
 {
-  "timestamp": "2026-06-12T13:41:01Z",
+  "timestamp": "2026-06-12T13:45:01Z",
   "progress": 100,
-  "blockers": 0,
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
@@ -11,11 +10,5 @@
     "vercel": "OK",
     "vercel_http": "200"
   },
-  "kpis": {
-    "p1_completion": "4/4 (100%)",
-    "reliability": "96%",
-    "team_utilization": "82% (11/11)",
-    "cron_status": "6/6 (100%)"
-  },
-  "last_update": "2026-06-12 22:41:30"
+  "last_update": "2026-06-12 22:45:01"
 }
