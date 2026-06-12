@@ -83,4 +83,4 @@ const nextConfig = {
 };
 
 module.exports = nextConfig;
-// Force redeploy - cache flush [2026-06-12T02:37:00Z] Emergency fix for /assets 404
+// Force redeploy - cache flush [2026-06-12T16:57:00Z] Fix auth/login 404 rendering issue
