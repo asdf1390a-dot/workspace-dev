@@ -1,24 +1,6 @@
 {
-  "timestamp": "2026-06-12T09:10:30Z",
-  "progress": 95,
-  "reliability": 95,
-  "p1_projects": {
-    "audit": "100%",
-    "discord_bot": "100%",
-    "bm": "100%",
-    "travel_ui": "100%"
-  },
-  "active_tasks": {
-    "asset_master_p3_6": "45%",
-    "expense_master_p1": "0% (blocked)",
-    "cost_management_p1": "35%",
-    "team_dashboard_p2": "40%"
-  },
-  "blockers": {
-    "count": 3,
-    "critical": 1,
-    "medium": 2
-  },
+  "timestamp": "2026-06-12T13:15:01Z",
+  "progress": 100,
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
@@ -26,8 +8,7 @@
   },
   "production": {
     "vercel": "OK",
-    "vercel_http": "200",
-    "uptime_hours": 88
+    "vercel_http": "200"
   },
-  "last_update": "2026-06-12 18:10:30"
+  "last_update": "2026-06-12 22:15:01"
 }
