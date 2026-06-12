@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS expense_audit_trail (
 
   -- 이벤트
   event_type VARCHAR(50) NOT NULL,        -- 'INSERT'|'UPDATE'|'DELETE'|'APPROVE'|'DRIFT_DETECT'
-  transaction_id BIGINT REFERENCES expense_ledgers(id) ON DELETE SET NULL,
+  transaction_id BIGINT,  -- logical reference to expense_ledgers(id) + period_month (no FK due to partitioning)
 
   -- 상세
   action_by UUID NOT NULL REFERENCES auth.users(id),
