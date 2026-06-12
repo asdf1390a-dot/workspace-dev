@@ -10766,3 +10766,8 @@ Require stack:
  GET / 200 in 210ms
  GET / 200 in 146ms
  GET / 200 in 170ms
+ GET / 200 in 124ms
+ GET / 200 in 155ms
+ GET / 200 in 156ms
+ GET / 200 in 155ms
+ GET / 200 in 33ms
