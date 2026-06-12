@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-12T22:18:00Z",
+  "timestamp": "2026-06-12T22:23:22Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
@@ -10,5 +10,11 @@
     "vercel": "OK",
     "vercel_http": "200"
   },
-  "last_update": "2026-06-13 07:18:00"
+  "last_update": "2026-06-13 07:23:22",
+  "cycle": 1270,
+  "p1_complete": "4/4",
+  "reliability": 96,
+  "blockers": 0,
+  "cron_status": "8/8",
+  "team_capacity": "82% (11명)"
 }
