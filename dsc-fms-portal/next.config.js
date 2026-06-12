@@ -83,4 +83,4 @@ const nextConfig = {
 };
 
 module.exports = nextConfig;
-// Force redeploy - cache flush [2026-06-12T16:57:00Z] Fix auth/login 404 rendering issue
+// Force redeploy - rebuild .next directory [2026-06-12T17:15:00Z]
