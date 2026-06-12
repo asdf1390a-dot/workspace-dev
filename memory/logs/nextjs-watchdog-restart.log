@@ -5411,3 +5411,616 @@ Require stack:
  ✓ Compiled in 78ms (435 modules)
  ✓ Compiled in 89ms (435 modules)
  ✓ Compiled in 110ms (435 modules)
+ ⨯ Error: Cannot find module './8948.js'
+Require stack:
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/webpack-runtime.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/pages/_document.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/require.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/load-components.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/build/utils.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/dev/hot-middleware.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/dev/hot-reloader-webpack.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/router-server.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/start-server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1207:15)
+    at /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/require-hook.js:55:36
+    at Module._load (node:internal/modules/cjs/loader:1038:27)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:182:18)
+    at __webpack_require__.f.require (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/webpack-runtime.js:198:28)
+    at /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/webpack-runtime.js:111:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/webpack-runtime.js:162:22)
+    at /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/app/page.js:1:3934
+    at Object.<anonymous> (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/app/page.js:1:3982)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:182:18)
+    at requirePage (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/require.js:109:84)
+    at /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/load-components.js:103:84
+    at async loadComponentsImpl (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/load-components.js:103:26)
+    at async DevServer.findPageComponentsImpl (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/next-server.js:714:36)
+    at async DevServer.findPageComponents (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/dev/next-dev-server.js:577:20)
+    at async DevServer.renderPageComponent (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/base-server.js:1910:24)
+    at async DevServer.renderToResponseImpl (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/base-server.js:1962:32)
+    at async DevServer.pipeImpl (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/base-server.js:922:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/next-server.js:272:17)
+    at async DevServer.handleRequestImpl (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/base-server.js:818:17)
+    at async /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/dev/next-dev-server.js:339:20
+    at async Span.traceAsyncFn (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/trace/trace.js:154:20)
+    at async DevServer.handleRequest (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/dev/next-dev-server.js:336:24)
+    at async invokeRender (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/router-server.js:179:21)
+    at async handleRequest (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/router-server.js:359:24)
+    at async requestHandlerImpl (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/router-server.js:383:13)
+    at async Server.requestListener (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/start-server.js:141:13) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/webpack-runtime.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/pages/_document.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/require.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/load-components.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/build/utils.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/dev/hot-middleware.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/dev/hot-reloader-webpack.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/router-server.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/start-server.js'
+  ],
+  page: '/'
+}
+ ⨯ Error: Cannot find module './1682.js'
+Require stack:
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/webpack-runtime.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/pages/_document.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/require.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/load-components.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/build/utils.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/dev/hot-middleware.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/dev/hot-reloader-webpack.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/router-server.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/start-server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1207:15)
+    at /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/require-hook.js:55:36
+    at Module._load (node:internal/modules/cjs/loader:1038:27)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:182:18)
+    at __webpack_require__.f.require (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/webpack-runtime.js:198:28)
+    at /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/webpack-runtime.js:111:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/webpack-runtime.js:162:22)
+    at /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/pages/_document.js:1:340
+    at Object.<anonymous> (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/pages/_document.js:1:383)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:182:18)
+    at requirePage (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/require.js:109:84)
+    at /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/load-components.js:72:65
+    at async Promise.all (index 0)
+    at async loadComponentsImpl (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/load-components.js:71:33)
+    at async DevServer.findPageComponentsImpl (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/next-server.js:714:36) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/webpack-runtime.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/pages/_document.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/require.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/load-components.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/build/utils.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/dev/hot-middleware.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/dev/hot-reloader-webpack.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/router-server.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/start-server.js'
+  ]
+}
+ GET / 500 in 50ms
+ ✓ Compiled in 145ms (434 modules)
+ ✓ Compiled in 116ms (434 modules)
+ ⨯ Error: Cannot find module './8948.js'
+Require stack:
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/webpack-runtime.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/pages/_document.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/require.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/load-components.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/build/utils.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/dev/hot-middleware.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/dev/hot-reloader-webpack.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/router-server.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/start-server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1207:15)
+    at /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/require-hook.js:55:36
+    at Module._load (node:internal/modules/cjs/loader:1038:27)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:182:18)
+    at __webpack_require__.f.require (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/webpack-runtime.js:198:28)
+    at /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/webpack-runtime.js:111:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/webpack-runtime.js:162:22)
+    at /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/app/page.js:1:3934
+    at Object.<anonymous> (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/app/page.js:1:3982)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:182:18)
+    at requirePage (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/require.js:109:84)
+    at /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/load-components.js:103:84
+    at async loadComponentsImpl (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/load-components.js:103:26)
+    at async DevServer.findPageComponentsImpl (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/next-server.js:714:36)
+    at async DevServer.findPageComponents (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/dev/next-dev-server.js:577:20)
+    at async DevServer.renderPageComponent (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/base-server.js:1910:24)
+    at async DevServer.renderToResponseImpl (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/base-server.js:1962:32)
+    at async DevServer.pipeImpl (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/base-server.js:922:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/next-server.js:272:17)
+    at async DevServer.handleRequestImpl (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/base-server.js:818:17)
+    at async /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/dev/next-dev-server.js:339:20
+    at async Span.traceAsyncFn (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/trace/trace.js:154:20)
+    at async DevServer.handleRequest (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/dev/next-dev-server.js:336:24)
+    at async invokeRender (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/router-server.js:179:21)
+    at async handleRequest (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/router-server.js:359:24)
+    at async requestHandlerImpl (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/router-server.js:383:13)
+    at async Server.requestListener (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/start-server.js:141:13) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/webpack-runtime.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/pages/_document.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/require.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/load-components.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/build/utils.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/dev/hot-middleware.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/dev/hot-reloader-webpack.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/router-server.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/start-server.js'
+  ],
+  page: '/'
+}
+ ✓ Compiled /_error in 124ms (688 modules)
+ GET / 500 in 186ms
+ ✓ Compiled in 92ms (435 modules)
+ ✓ Compiled in 82ms (435 modules)
+ ✓ Compiled in 101ms (435 modules)
+ ✓ Compiled in 91ms (435 modules)
+ ✓ Compiled in 89ms (434 modules)
+ ✓ Compiled in 97ms (434 modules)
+ ✓ Compiled in 88ms (434 modules)
+ ✓ Compiled in 79ms (434 modules)
+ ✓ Compiled in 74ms (434 modules)
+ ✓ Compiled in 81ms (434 modules)
+ ✓ Compiled in 68ms (434 modules)
+ ✓ Compiled in 100ms (434 modules)
+ ✓ Compiled in 126ms (434 modules)
+ ✓ Compiled in 87ms (434 modules)
+ ⨯ TypeError: Cannot read properties of undefined (reading 'call')
+    at Object.t [as require] (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/webpack-runtime.js:1:143)
+digest: "1025058662"
+TypeError: Cannot read properties of undefined (reading 'call')
+    at Object.t [as require] (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/webpack-runtime.js:1:143)
+    at require (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:17:18811)
+    at A (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:94398)
+    at /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:96726
+    at B._fromJSON (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:97164)
+    at JSON.parse (<anonymous>)
+    at I (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:94119)
+    at t (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:100640)
+ ⨯ TypeError: Cannot read properties of undefined (reading 'call')
+    at Object.t [as require] (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/webpack-runtime.js:1:143)
+    at require (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:17:18811)
+    at A (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:94398)
+    at /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:96726
+    at B._fromJSON (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:97164)
+    at JSON.parse (<anonymous>)
+    at I (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:94119)
+    at t (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:100640) {
+  page: '/'
+}
+ ✓ Compiled /_error in 121ms (688 modules)
+ GET / 500 in 207ms
+ ✓ Compiled in 80ms (435 modules)
+ ✓ Compiled in 96ms (435 modules)
+ ✓ Compiled in 87ms (435 modules)
+ ✓ Compiled in 91ms (435 modules)
+ ✓ Compiled in 354ms (718 modules)
+ ✓ Compiled in 92ms (437 modules)
+ ✓ Compiled in 72ms (436 modules)
+ ✓ Compiled in 95ms (436 modules)
+ ✓ Compiled in 104ms (436 modules)
+ ✓ Compiled in 69ms (436 modules)
+ GET / 200 in 208ms
+ GET / 200 in 44ms
+ ✓ Compiled in 469ms (533 modules)
+ ✓ Compiled in 88ms (485 modules)
+ ✓ Compiled in 68ms (485 modules)
+ ✓ Compiled in 87ms (485 modules)
+ ✓ Compiled in 202ms (591 modules)
+ ✓ Compiled / in 277ms (319 modules)
+ GET / 200 in 405ms
+ ✓ Compiled in 113ms (485 modules)
+ ✓ Compiled in 80ms (485 modules)
+ ✓ Compiled in 173ms (862 modules)
+ ✓ Compiled in 74ms (485 modules)
+ ✓ Compiled in 61ms (485 modules)
+ ✓ Compiled in 91ms (485 modules)
+ ✓ Compiled in 220ms (862 modules)
+ ✓ Compiled in 151ms (485 modules)
+ ✓ Compiled in 230ms (862 modules)
+ ✓ Compiled in 101ms (485 modules)
+ ✓ Compiled in 151ms (862 modules)
+ ✓ Compiled in 99ms (485 modules)
+ ✓ Compiled in 84ms (485 modules)
+ ✓ Compiled in 141ms (862 modules)
+ ✓ Compiled in 81ms (485 modules)
+ ✓ Compiled in 77ms (485 modules)
+ ✓ Compiled in 130ms (591 modules)
+ ✓ Compiled in 84ms (485 modules)
+ ✓ Compiled in 177ms (591 modules)
+ ⨯ Error: ENOENT: no such file or directory, open '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/middleware-manifest.json'
+    at Object.readFileSync (node:fs:448:20)
+    at Module._extensions..json (node:internal/modules/cjs/loader:1632:22)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:182:18)
+    at DevServer.getMiddlewareManifest (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/next-server.js:938:26)
+    at DevServer.getEdgeFunctionInfo (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/next-server.js:965:31)
+    at DevServer.runMiddleware (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/next-server.js:1059:37)
+    at async DevServer.runMiddleware (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/dev/next-dev-server.js:268:28)
+    at async NextNodeServer.handleCatchallMiddlewareRequest (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/next-server.js:322:26)
+    at async DevServer.handleRequestImpl (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/base-server.js:824:28)
+    at async /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/dev/next-dev-server.js:339:20
+    at async Span.traceAsyncFn (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/trace/trace.js:154:20)
+    at async DevServer.handleRequest (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/dev/next-dev-server.js:336:24)
+    at async handleRoute (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/router-utils/resolve-routes.js:313:33)
+    at async resolveRoutes (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/router-utils/resolve-routes.js:552:28)
+    at async handleRequest (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/router-server.js:219:96)
+    at async requestHandlerImpl (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/router-server.js:383:13)
+    at async Server.requestListener (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/start-server.js:141:13) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/middleware-manifest.json'
+}
+ ✓ Compiled /_error in 171ms (521 modules)
+ ✓ Compiled / in 133ms (319 modules)
+ ⨯ Error: Cannot find module './8948.js'
+Require stack:
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/webpack-runtime.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/app/page.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/require.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/load-components.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/build/utils.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/dev/hot-middleware.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/dev/hot-reloader-webpack.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/router-server.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/start-server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1207:15)
+    at /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/require-hook.js:55:36
+    at Module._load (node:internal/modules/cjs/loader:1038:27)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:182:18)
+    at __webpack_require__.f.require (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/webpack-runtime.js:198:28)
+    at /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/webpack-runtime.js:111:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/webpack-runtime.js:162:22)
+    at /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/app/page.js:1:6137
+    at Object.<anonymous> (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/app/page.js:1:6195)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:182:18)
+    at requirePage (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/require.js:109:84)
+    at /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/load-components.js:103:84
+    at async loadComponentsImpl (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/load-components.js:103:26)
+    at async DevServer.findPageComponentsImpl (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/next-server.js:714:36)
+    at async DevServer.findPageComponents (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/dev/next-dev-server.js:577:20)
+    at async DevServer.renderPageComponent (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/base-server.js:1910:24)
+    at async DevServer.renderToResponseImpl (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/base-server.js:1962:32)
+    at async DevServer.pipeImpl (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/base-server.js:922:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/next-server.js:272:17)
+    at async DevServer.handleRequestImpl (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/base-server.js:818:17)
+    at async /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/dev/next-dev-server.js:339:20
+    at async Span.traceAsyncFn (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/trace/trace.js:154:20)
+    at async DevServer.handleRequest (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/dev/next-dev-server.js:336:24)
+    at async invokeRender (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/router-server.js:179:21)
+    at async handleRequest (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/router-server.js:359:24)
+    at async requestHandlerImpl (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/router-server.js:383:13)
+    at async Server.requestListener (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/start-server.js:141:13) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/webpack-runtime.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/app/page.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/require.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/load-components.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/build/utils.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/dev/hot-middleware.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/dev/hot-reloader-webpack.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/router-server.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/start-server.js'
+  ],
+  page: '/'
+}
+ ✓ Compiled /_error in 116ms (792 modules)
+ ⨯ Error: Cannot find module './1682.js'
+Require stack:
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/webpack-runtime.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/pages/_document.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/require.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/load-components.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/build/utils.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/dev/hot-middleware.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/dev/hot-reloader-webpack.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/router-server.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/start-server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1207:15)
+    at /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/require-hook.js:55:36
+    at Module._load (node:internal/modules/cjs/loader:1038:27)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:182:18)
+    at __webpack_require__.f.require (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/webpack-runtime.js:198:28)
+    at /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/webpack-runtime.js:111:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/webpack-runtime.js:162:22)
+    at /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/pages/_document.js:1:340
+    at Object.<anonymous> (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/pages/_document.js:1:383)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:182:18)
+    at requirePage (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/require.js:109:84)
+    at /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/load-components.js:72:65
+    at async Promise.all (index 0)
+    at async loadComponentsImpl (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/load-components.js:71:33)
+    at async DevServer.findPageComponentsImpl (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/next-server.js:714:36) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/webpack-runtime.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/pages/_document.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/require.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/load-components.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/build/utils.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/dev/hot-middleware.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/dev/hot-reloader-webpack.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/router-server.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/start-server.js'
+  ]
+}
+ GET / 500 in 312ms
+ ✓ Compiled in 136ms (485 modules)
+ ✓ Compiled in 87ms (485 modules)
+ ✓ Compiled in 111ms (485 modules)
+ ✓ Compiled in 254ms (591 modules)
+ ✓ Compiled in 122ms (485 modules)
+ ✓ Compiled in 170ms (591 modules)
+ ✓ Compiled in 90ms (485 modules)
+ ✓ Compiled in 163ms (591 modules)
+ ✓ Compiled / in 59ms (319 modules)
+ ⨯ Error: Cannot find module './8948.js'
+Require stack:
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/webpack-runtime.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/app/page.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/require.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/load-components.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/build/utils.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/dev/hot-middleware.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/dev/hot-reloader-webpack.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/router-server.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/start-server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1207:15)
+    at /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/require-hook.js:55:36
+    at Module._load (node:internal/modules/cjs/loader:1038:27)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:182:18)
+    at __webpack_require__.f.require (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/webpack-runtime.js:198:28)
+    at /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/webpack-runtime.js:111:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/webpack-runtime.js:162:22)
+    at /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/app/page.js:1:6137
+    at Object.<anonymous> (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/app/page.js:1:6195)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:182:18)
+    at requirePage (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/require.js:109:84)
+    at /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/load-components.js:103:84
+    at async loadComponentsImpl (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/load-components.js:103:26)
+    at async DevServer.findPageComponentsImpl (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/next-server.js:714:36)
+    at async DevServer.findPageComponents (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/dev/next-dev-server.js:577:20)
+    at async DevServer.renderPageComponent (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/base-server.js:1910:24)
+    at async DevServer.renderToResponseImpl (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/base-server.js:1962:32)
+    at async DevServer.pipeImpl (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/base-server.js:922:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/next-server.js:272:17)
+    at async DevServer.handleRequestImpl (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/base-server.js:818:17)
+    at async /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/dev/next-dev-server.js:339:20
+    at async Span.traceAsyncFn (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/trace/trace.js:154:20)
+    at async DevServer.handleRequest (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/dev/next-dev-server.js:336:24)
+    at async invokeRender (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/router-server.js:179:21)
+    at async handleRequest (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/router-server.js:359:24)
+    at async requestHandlerImpl (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/router-server.js:383:13)
+    at async Server.requestListener (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/start-server.js:141:13) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/webpack-runtime.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/app/page.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/require.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/load-components.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/build/utils.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/dev/hot-middleware.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/dev/hot-reloader-webpack.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/router-server.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/start-server.js'
+  ],
+  page: '/'
+}
+ ✓ Compiled /_error in 164ms (792 modules)
+ ⨯ Error: Cannot find module './1682.js'
+Require stack:
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/webpack-runtime.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/pages/_document.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/require.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/load-components.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/build/utils.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/dev/hot-middleware.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/dev/hot-reloader-webpack.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/router-server.js
+- /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/start-server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1207:15)
+    at /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/require-hook.js:55:36
+    at Module._load (node:internal/modules/cjs/loader:1038:27)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:182:18)
+    at __webpack_require__.f.require (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/webpack-runtime.js:198:28)
+    at /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/webpack-runtime.js:111:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/webpack-runtime.js:162:22)
+    at /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/pages/_document.js:1:340
+    at Object.<anonymous> (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/pages/_document.js:1:383)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:182:18)
+    at requirePage (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/require.js:109:84)
+    at /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/load-components.js:72:65
+    at async Promise.all (index 0)
+    at async loadComponentsImpl (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/load-components.js:71:33)
+    at async DevServer.findPageComponentsImpl (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/next-server.js:714:36) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/webpack-runtime.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/pages/_document.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/require.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/load-components.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/build/utils.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/dev/hot-middleware.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/dev/hot-reloader-webpack.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/router-server.js',
+    '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/start-server.js'
+  ]
+}
+ GET / 500 in 275ms
+ ✓ Compiled in 108ms (486 modules)
+ ✓ Compiled in 78ms (486 modules)
+ ✓ Compiled in 166ms (864 modules)
+ ✓ Compiled in 112ms (486 modules)
+ ✓ Compiled in 161ms (864 modules)
+ ✓ Compiled in 97ms (486 modules)
+ ✓ Compiled in 164ms (864 modules)
+ ✓ Compiled in 92ms (486 modules)
+ ✓ Compiled in 201ms (864 modules)
+ ✓ Compiled in 134ms (486 modules)
+ ✓ Compiled in 225ms (864 modules)
+ ✓ Compiled in 122ms (486 modules)
+ ✓ Compiled in 199ms (864 modules)
+ ✓ Compiled in 148ms (485 modules)
+ ✓ Compiled in 281ms (591 modules)
+ ✓ Compiled in 121ms (485 modules)
+ ✓ Compiled in 179ms (591 modules)
+ ✓ Compiled in 135ms (485 modules)
+ ✓ Compiled in 151ms (591 modules)
+ ✓ Compiled in 88ms (485 modules)
+ ✓ Compiled in 206ms (591 modules)
+ ✓ Compiled / in 423ms (319 modules)
+ GET / 200 in 550ms
+ ✓ Compiled in 85ms (485 modules)
+ ✓ Compiled in 224ms (862 modules)
+ ✓ Compiled in 110ms (485 modules)
+ ✓ Compiled in 79ms (485 modules)
+ ✓ Compiled in 214ms (591 modules)
+ ✓ Compiled in 117ms (485 modules)
+ ✓ Compiled in 95ms (485 modules)
+ ✓ Compiled in 154ms (591 modules)
+ ✓ Compiled in 94ms (485 modules)
+ ✓ Compiled in 89ms (485 modules)
+ ⨯ Error: ENOENT: no such file or directory, open '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/middleware-manifest.json'
+    at Object.readFileSync (node:fs:448:20)
+    at Module._extensions..json (node:internal/modules/cjs/loader:1632:22)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Module.require (node:internal/modules/cjs/loader:1289:19)
+    at mod.require (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:182:18)
+    at DevServer.getMiddlewareManifest (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/next-server.js:938:26)
+    at DevServer.getEdgeFunctionInfo (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/next-server.js:965:31)
+    at DevServer.runMiddleware (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/next-server.js:1059:37)
+    at async DevServer.runMiddleware (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/dev/next-dev-server.js:268:28)
+    at async NextNodeServer.handleCatchallMiddlewareRequest (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/next-server.js:322:26)
+    at async DevServer.handleRequestImpl (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/base-server.js:824:28)
+    at async /home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/dev/next-dev-server.js:339:20
+    at async Span.traceAsyncFn (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/trace/trace.js:154:20)
+    at async DevServer.handleRequest (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/dev/next-dev-server.js:336:24)
+    at async handleRoute (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/router-utils/resolve-routes.js:313:33)
+    at async resolveRoutes (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/router-utils/resolve-routes.js:552:28)
+    at async handleRequest (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/router-server.js:219:96)
+    at async requestHandlerImpl (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/router-server.js:383:13)
+    at async Server.requestListener (/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/node_modules/next/dist/server/lib/start-server.js:141:13) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/jeepney/.openclaw/workspace-dev/dsc-fms-portal/.next/server/middleware-manifest.json'
+}
+ ✓ Compiled /_error in 158ms (521 modules)
+ ✓ Compiled in 114ms (486 modules)
+ ✓ Compiled in 82ms (486 modules)
+ ✓ Compiled in 97ms (486 modules)
+ ✓ Compiled in 77ms (486 modules)
+ ✓ Compiled in 90ms (486 modules)
+ ✓ Compiled in 138ms (486 modules)
+ ✓ Compiled in 96ms (486 modules)
+ ✓ Compiled in 109ms (486 modules)
+ ✓ Compiled in 103ms (485 modules)
+ ✓ Compiled in 76ms (485 modules)
+ ✓ Compiled in 77ms (485 modules)
+ ✓ Compiled in 90ms (485 modules)

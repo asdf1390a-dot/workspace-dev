@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { LanguageProvider } from '@/lib/i18n/context'
 import './globals.css'
+import './styles/jeepney.css'
 
 export const metadata: Metadata = {
   title: 'DSC FMS Portal',
