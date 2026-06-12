@@ -1,32 +1,11 @@
 {
-  "timestamp": "2026-06-12T19:10:00Z",
-  "cycle": "2026-06-13 04:10 KST",
+  "timestamp": "2026-06-13T04:20:01Z",
   "progress": 100,
-  "projects": {
-    "AUDIT-P1": {
-      "status": "complete",
-      "completion": "100%",
-      "commit": "0cf3c1ba",
-      "last_activity": "2026-06-09 13:34"
-    },
-    "DISCORD-BOT-P1": {
-      "status": "complete",
-      "completion": "100%",
-      "commit": "585db4d5",
-      "last_activity": "2026-06-12 13:58"
-    },
-    "BM-P1": {
-      "status": "complete",
-      "completion": "100%",
-      "commit": "ecc13a9f",
-      "last_activity": "2026-06-09"
-    },
-    "TRAVEL-P2-UI": {
-      "status": "complete",
-      "completion": "100%",
-      "commit": "e9396c74",
-      "last_activity": "2026-06-12 15:04"
-    }
+  "p1_projects": {
+    "AUDIT-P1": "0cf3c1ba",
+    "DISCORD-BOT-P1": "585db4d5",
+    "TRAVEL-P2-UI": "e9396c74",
+    "BM-P1": "ecc13a9f"
   },
   "services": {
     "phase2a": "ready",
@@ -35,22 +14,14 @@
   },
   "production": {
     "vercel": "OK",
-    "vercel_http": "200",
-    "uptime_hours": "114+"
+    "vercel_http": "200"
   },
   "team": {
-    "active_members": 11,
-    "utilization": "82%",
-    "status": "all_active"
+    "active": 11,
+    "utilization": "82%"
   },
-  "automation": {
-    "cron_jobs": "6/6",
-    "success_rate": "100%"
-  },
+  "cron_health": "100% (6/6)",
   "reliability": "96%",
   "blockers": 0,
-  "state_change": "none",
-  "overall_status": "normal_operations",
-  "last_update": "2026-06-13 04:10:00",
-  "next_poll": "2026-06-13 04:15:00"
+  "last_update": "2026-06-13 04:20:01"
 }
