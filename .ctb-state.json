@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-12T22:50:33Z",
+  "timestamp": "2026-06-12T23:00:02Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
@@ -7,10 +7,8 @@
     "phase2c": "ready"
   },
   "production": {
-    "vercel": "DEGRADED",
-    "vercel_http": "404",
-    "vercel_status": "/assets page returning 404 — Deployment issue detected"
+    "vercel": "OK",
+    "vercel_http": "200"
   },
-  "last_update": "2026-06-13 07:50:33",
-  "state_change_at": "2026-06-13 07:50:00"
+  "last_update": "2026-06-13 08:00:02"
 }
