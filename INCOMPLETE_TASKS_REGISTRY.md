@@ -1,12 +1,56 @@
 ---
 name: Incomplete Tasks Registry
-description: Active incomplete work tracking (updated 2026-06-08 18:54 KST) — ✅ ALL P0/P1 COMPLETE, BUILD STABLE (141 pages, Cycle 975)
+description: Active incomplete work tracking (updated 2026-06-12 11:31 KST) — ✅ 7/11 COMPLETED (63%), 🔴 2 BLOCKED (Vercel HTTP 000 + Web-Builder delay), 60h to deadline
 type: project
 ---
 
-# Incomplete Tasks Registry (Last Updated: 2026-06-10 14:45 KST - Session Checkpoint)
+# Incomplete Tasks Registry (Last Updated: 2026-06-12 11:31 KST - Daily Stand-up Report)
 
-**Status:** ✅ **ALL P0/P1/P2 COMPLETE** | Build: 143 pages ✅ | Phase 2 Services: Ready (3/3) | Vercel: ✅ **STABLE** (HTTP 200, 3h+ uptime) | **활성 작업: Team Dashboard P1 db/36 마이그레이션 + Asset Master Phase 3-6 (BLOCKED_ON_USER)** | **✅ `/assets` 캐시 문제 완전 해결 — 신뢰도 98%+, 블로커 0개**
+**Status:** ✅ COMPLETED: 7/11 (63%) | 🟡 IN_PROGRESS: 2 | 🔴 BLOCKED: 2 | Build: 143 pages ✅ | Phase 2: Ready (3/3) | **⚠️ CRITICAL: Vercel HTTP 000 (배포 DOWN, 9h) + Web-Builder delay (Phase 3-6 미시작, 2d)** | 마감: Asset Master Phase 3-6 @ 2026-06-15 (60h 남음)
+
+---
+
+## 📋 Daily Stand-up Report — 2026-06-12 11:31 KST
+
+### 1️⃣ 작업 상태 집계
+
+| Status | Count | Items |
+|--------|-------|-------|
+| ✅ **COMPLETED** | 7 | db/36, /assets 캐시, Phase 2 (3), Asset Master P1 Phase 2, Vercel issues (2) |
+| 🟡 **IN_PROGRESS** | 2 | Cost Management (분석+설계), R&M Analysis (configured) |
+| 🔴 **BLOCKED** | 2 | Phase 3-6 (web-builder 미시작), Vercel HTTP 000 (배포 DOWN) |
+| ⚪ **PENDING** | 0 | — |
+
+### 2️⃣ TODAY 우선순위 (< 12h 남음)
+- ✅ **없음** (당일 마감 항목 0건)
+- 다음 마감: Asset Master Phase 3-6 @ 2026-06-15 (60시간 남음)
+
+### 3️⃣ BLOCKED 항목 (근본원인)
+
+| # | Issue | Duration | Impact | Root Cause | Action |
+|---|-------|----------|--------|-----------|--------|
+| 1️⃣ | Vercel HTTP 000 | 9h | `/assets` + 모든 API 접근 불가 | 네트워크 레벨 failure | 🚨 즉시 배포 재트리거 |
+| 2️⃣ | Phase 3-6 미시작 | 2d | sprint 준비만 완료, 개발 안 시작 | web-builder 응답 없음 | ⚠️ 작업 시작 확인 |
+| 3️⃣ | Cost Mgmt (예비) | 24h+ | 설계 단계 진행 지연 | Planner 응답 없음 | 🟡 진행도 확인 (48h 임계) |
+
+### 4️⃣ NEXT 24H (내일 마감)
+- ✅ **없음** (2026-06-13 마감 항목 0건)
+
+### 5️⃣ 팀 상태
+
+| Team | Current Task | Status | Duration | Action |
+|------|--------------|--------|----------|--------|
+| 👤 Evaluator | — | 🔴 DEACTIVATED | 2d | 구조적 재설계 필요 (자동 규칙 검증 통합) |
+| 🎨 Planner | Cost Mgmt 대시보드 설계 | ⚠️ NO ACTIVITY | 24h+ | 작업 재확인 필수 (48h 임계) |
+| 🔧 Web-Builder | Phase 3-6 구현 | 🟡 NOT STARTED | 2d | 즉시 Phase 3-1 시작 (40-48h work, 60h deadline) |
+
+### 🚨 CRITICAL ACTIONS (오늘 내 처리 필수)
+
+| Priority | Action | Owner | Deadline |
+|----------|--------|-------|----------|
+| 🔴 **CRITICAL** | Vercel HTTP 000 해결 | DevOps/사용자 | **즉시** |
+| ⚠️ **URGENT** | Web-Builder 작업 시작 | Web-Builder | **오늘** |
+| 🟡 **WARNING** | Planner 진행도 확인 | Manager | **24h 내** |
 
 ---
 
