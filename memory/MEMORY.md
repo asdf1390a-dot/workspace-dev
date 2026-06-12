@@ -1,6 +1,12 @@
 # 메모리 인덱스
 
-**Last Checkpoint:** 2026-06-12 13:40 KST (Phase 3-6 Launch Readiness Complete — ✅ **모든 준비 완료** | P1=4/4 (100%) | 신뢰도=95% | 블로커=1 (db/36 SQL, 1분) | Phase 2A/B/C 정상 (135h+) | Vercel 정상 (68h+))
+**Last Checkpoint:** 2026-06-12 14:31 KST (Discord Bot Anthropic API 키 문제 발견 — 🔴 **API 키 무효** (401) | Discord Bot 실행 중 (PID 66212) | Team Dashboard API 응답 중 | **번역 기능 블록됨** | 사용자 조치 대기 중)
+
+## 🔴 긴급 (2026-06-12 14:31 KST)
+
+- [🔴 Anthropic API 키 무효](anthropic_api_key_issue_20260612.md) — Discord 번역 기능 블록됨 | 401 인증 오류 | .env 키 = Claude 토큰 (API 키 아님) | **사용자 조치 필요** (console.anthropic.com에서 키 생성)
+- [📊 조직 & 업무현황 (2026-06-12 14:31 KST)](org_status_20260612_1431.md) — 팀 10명 (90% 활용) | P1 4/4 완료 (100%) | P2 진행 중 (70%) | Phase 2A/B/C ready | Vercel HTTP 200 | 신뢰도 95% | 블로커 1개 (API 키)
+- [🔄 Task State Machine Monitor (2026-06-12 14:33 KST)](task_state_machine_20260612_1433.md) — Rule 2 적용 (Discord Bot → BLOCKED_ON_USER) | Anthropic API 키 미발급 | 신규 블로킹 항목 | 4/4 규칙 정상 작동 | 신뢰도 98%
 
 ## 🟢 최신 상태 (2026-06-12 13:40 KST)
 

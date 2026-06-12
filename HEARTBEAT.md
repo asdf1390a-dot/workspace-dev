@@ -1,3 +1,20 @@
+# 🟡 2026-06-12 14:31 KST — **Discord Bot Anthropic API 키 문제 발견, 번역 기능 블록됨**
+
+## 🔴 **현재 상태 (2026-06-12 14:31 KST)**
+- **Discord Bot:** ✅ 실행 중 (PID 66212), 메시지 핸들러 준비
+- **Anthropic API 키:** 🔴 **무효** (401 인증 오류)
+  - `.env`의 키 = Claude Code 토큰 (API 키 아님)
+  - **번역 기능 작동 불가** — 사용자 조치 필요
+- **Team Dashboard:** ✅ 페이지 로드 (포트 3001)
+- **API 엔드포인트:** ✅ 응답 (milestones, portfolio 빈 배열)
+- **신뢰도:** 95% (API 키 이슈로 인해 일부 기능 미작동)
+
+## 📋 **필요한 조치**
+- ⏳ 사용자: Anthropic 콘솔에서 **유효한 API 키** 제공 필요
+- 대기 항목: Discord 번역 기능 (Anthropic API 키 없이 진행 불가)
+
+---
+
 # 🟢 2026-06-10 12:33 KST — **Team Dashboard P1 db/36 마이그레이션 완료! 신뢰도 100% 달성**
 
 ## ✅ **현재 상태 (2026-06-10 12:33 KST)**
