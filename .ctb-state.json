@@ -1,51 +1,58 @@
 {
-  "timestamp": "2026-06-13T00:58:00Z",
-  "timestamp_kst": "2026-06-13 00:58 KST",
-  "cycle_number": 1284,
+  "timestamp": "2026-06-13T01:13:00Z",
+  "cycle": 1271,
   "progress": 100,
-  "reliability": 96,
-  "blockers": 0,
+  "p1_projects": {
+    "AUDIT-P1": {
+      "commit": "0cf3c1ba",
+      "status": "MERGED_MAIN",
+      "completion": 100,
+      "deadline": "2026-06-04T18:00:00Z"
+    },
+    "DISCORD-BOT-P1": {
+      "commit": "585db4d5",
+      "status": "MERGED_MAIN",
+      "completion": 100,
+      "deadline": "2026-06-05T18:00:00Z"
+    },
+    "BM-P1": {
+      "commit": "ecc13a9f",
+      "status": "MERGED_MAIN",
+      "completion": 100,
+      "deadline": "2026-06-06T18:00:00Z"
+    },
+    "TRAVEL-P2-UI": {
+      "commit": "e9396c74",
+      "status": "MERGED_MAIN",
+      "completion": 100,
+      "deadline": "2026-06-05T18:00:00Z"
+    }
+  },
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
     "phase2c": "ready"
   },
   "production": {
-    "vercel": "OK",
+    "vercel": "HEALTHY",
     "vercel_http": "200",
-    "uptime_hours": 112
-  },
-  "projects": {
-    "AUDIT-P1": {
-      "commit": "0cf3c1ba",
-      "completion": "100%",
-      "status": "STABLE"
-    },
-    "DISCORD-BOT-P1": {
-      "commit": "585db4d5",
-      "completion": "100%",
-      "status": "STABLE"
-    },
-    "TRAVEL-P2-UI": {
-      "commit": "e9396c74",
-      "completion": "100%",
-      "status": "STABLE"
-    },
-    "BM-P1": {
-      "commit": "ecc13a9f",
-      "completion": "100%",
-      "status": "STABLE"
-    }
+    "uptime_hours": 112,
+    "regression": "resolved"
   },
   "team": {
-    "utilization": "82%",
-    "members": "11/11"
+    "active_members": 11,
+    "total_members": 13,
+    "utilization_percent": 82,
+    "cron_jobs": "6/6",
+    "reliability_percent": 96,
+    "blockers": 0
   },
-  "cron": {
-    "total": 6,
-    "active": 6,
-    "status": "100%"
+  "phase3": {
+    "status": "IN_PROGRESS",
+    "api_completion": 100,
+    "ui_completion": 100,
+    "db_migration": "PENDING_USER_ACTION",
+    "migration_ref": "db/52"
   },
-  "overall_status": "✅ 정상 운영",
-  "last_update": "2026-06-13 00:58:00 KST"
+  "last_update": "2026-06-13 01:13:00 KST"
 }
