@@ -11005,3 +11005,5 @@ Require stack:
  GET / 200 in 48ms
  GET / 200 in 38ms
  GET / 200 in 34ms
+ GET / 200 in 38ms
+ GET / 200 in 35ms
