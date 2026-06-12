@@ -41,15 +41,18 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json({
       total_count: count || 0,
-      disposals: data?.map(d => ({
-        id: d.id,
-        asset_id: d.asset_id,
-        asset_name: d.assets?.[0]?.name || 'Unknown',
-        disposal_reason: d.disposal_reason,
-        disposal_date: d.disposal_date,
-        disposed_by: d.disposed_by?.raw_user_meta_data?.name || 'Unknown',
-        created_at: d.created_at,
-      })) || [],
+      disposals: data?.map((d: any) => {
+        const disposedByName = (d.disposed_by as any)?.raw_user_meta_data?.name || 'Unknown';
+        return {
+          id: d.id,
+          asset_id: d.asset_id,
+          asset_name: d.assets?.[0]?.name || 'Unknown',
+          disposal_reason: d.disposal_reason,
+          disposal_date: d.disposal_date,
+          disposed_by: disposedByName,
+          created_at: d.created_at,
+        };
+      }) || [],
     });
   } catch (error: any) {
     console.error('[disposed]', error);

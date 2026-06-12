@@ -36,7 +36,7 @@ export async function POST(
 
     const validations = changes.map((change: any) => {
       const { field, new_value } = change;
-      const issues = [];
+      const issues: Array<string> = [];
 
       // Validate field exists
       if (!asset.hasOwnProperty(field)) {

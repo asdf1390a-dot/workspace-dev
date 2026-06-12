@@ -53,16 +53,19 @@ export async function GET(request: NextRequest) {
         user_id: userId,
       },
       total_changes: count || 0,
-      changes: data?.map(entry => ({
-        id: entry.id,
-        asset_id: entry.asset_id,
-        asset_name: entry.assets?.[0]?.name || 'Unknown',
-        changed_field: entry.changed_field,
-        previous_value: entry.previous_value,
-        new_value: entry.new_value,
-        changed_by: entry.changed_by?.raw_user_meta_data?.name || 'Unknown',
-        changed_at: entry.changed_at,
-      })) || [],
+      changes: data?.map((entry: any) => {
+        const changedByName = (entry.changed_by as any)?.raw_user_meta_data?.name || 'Unknown';
+        return {
+          id: entry.id,
+          asset_id: entry.asset_id,
+          asset_name: entry.assets?.[0]?.name || 'Unknown',
+          changed_field: entry.changed_field,
+          previous_value: entry.previous_value,
+          new_value: entry.new_value,
+          changed_by: changedByName,
+          changed_at: entry.changed_at,
+        };
+      }) || [],
     };
 
     return NextResponse.json(report);

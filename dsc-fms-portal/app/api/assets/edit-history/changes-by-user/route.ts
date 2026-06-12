@@ -44,8 +44,8 @@ export async function GET(request: NextRequest) {
     if (error) throw error;
 
     // Get user info
-    const { data: { users } } = await supabase.auth.admin.listUsers();
-    const user = users?.find(u => u.id === userId);
+    const { data: { users = [] } = {} } = await supabase.auth.admin.listUsers();
+    const user = (users as any[])?.find(u => u.id === userId);
 
     return NextResponse.json({
       user: {
@@ -53,7 +53,7 @@ export async function GET(request: NextRequest) {
         name: user?.user_metadata?.name || 'Unknown User',
       },
       total_changes: count || 0,
-      changes: data?.map(entry => ({
+      changes: data?.map((entry: any) => ({
         asset_id: entry.asset_id,
         asset_name: entry.assets?.[0]?.name || 'Unknown Asset',
         changed_field: entry.changed_field,

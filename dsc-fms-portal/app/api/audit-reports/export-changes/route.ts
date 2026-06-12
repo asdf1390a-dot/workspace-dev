@@ -40,18 +40,19 @@ export async function POST(request: NextRequest) {
 
     if (format === 'csv') {
       const csvHeader = ['ID', 'Asset ID', 'Asset Name', 'Field', 'Previous Value', 'New Value', 'Changed By', 'Changed At'].join(',');
-      const csvRows = data?.map(entry =>
-        [
+      const csvRows = data?.map((entry: any) => {
+        const changedByName = (entry.changed_by as any)?.raw_user_meta_data?.name || 'Unknown';
+        return [
           entry.id,
           entry.asset_id,
           `"${entry.assets?.[0]?.name || 'Unknown'}"`,
           entry.changed_field,
           `"${entry.previous_value || ''}"`,
           `"${entry.new_value || ''}"`,
-          `"${entry.changed_by?.raw_user_meta_data?.name || 'Unknown'}"`,
+          `"${changedByName}"`,
           entry.changed_at,
-        ].join(',')
-      ) || [];
+        ].join(',');
+      }) || [];
 
       const csv = [csvHeader, ...csvRows].join('\n');
 
@@ -68,16 +69,19 @@ export async function POST(request: NextRequest) {
       const json = {
         generated_at: new Date().toISOString(),
         total_records: data?.length || 0,
-        data: data?.map(entry => ({
-          id: entry.id,
-          asset_id: entry.asset_id,
-          asset_name: entry.assets?.[0]?.name || 'Unknown',
-          changed_field: entry.changed_field,
-          previous_value: entry.previous_value,
-          new_value: entry.new_value,
-          changed_by: entry.changed_by?.raw_user_meta_data?.name || 'Unknown',
-          changed_at: entry.changed_at,
-        })) || [],
+        data: data?.map((entry: any) => {
+          const changedByName = (entry.changed_by as any)?.raw_user_meta_data?.name || 'Unknown';
+          return {
+            id: entry.id,
+            asset_id: entry.asset_id,
+            asset_name: entry.assets?.[0]?.name || 'Unknown',
+            changed_field: entry.changed_field,
+            previous_value: entry.previous_value,
+            new_value: entry.new_value,
+            changed_by: changedByName,
+            changed_at: entry.changed_at,
+          };
+        }) || [],
       };
 
       return NextResponse.json(json);
