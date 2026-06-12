@@ -1,12 +1,12 @@
 ---
 name: Incomplete Tasks Registry
-description: Active incomplete work tracking (updated 2026-06-12 16:04 KST) — ✅ 9/11 COMPLETED (82%), 🟡 2 IN_PROGRESS, ⏳ 1 WAITING_FOR_USER (db/43 SQL, non-blocking), 55.5h to deadline
+description: Active incomplete work tracking (updated 2026-06-12 17:41 KST) — ✅ 9/11 COMPLETED (82%), 🟡 IN_PROGRESS: 3 (Asset Master, Expense Master, Automation), ⏳ WAITING_FOR_USER: 3 (Expense Master tech, env vars), 48h critical path
 type: project
 ---
 
-# Incomplete Tasks Registry (Last Updated: 2026-06-12 16:04 KST - Session Checkpoint Auto-Save)
+# Incomplete Tasks Registry (Last Updated: 2026-06-12 17:41 KST - Session Checkpoint Auto-Save)
 
-**Status:** ✅ COMPLETED: 9/11 (82%) | 🟡 IN_PROGRESS: 2 | ⏳ WAITING_FOR_USER: 1 (db/43 마이그레이션 SQL, non-blocking) | Critical Blockers: 0 🟢 | Build: 143 pages ✅ | Phase 2: Ready (3/3) | Phase 3-2 준비 완료 (db/43 사용자 액션 대기, non-critical) | 마감: Asset Master Phase 3-6 @ 2026-06-15 (55.5h 남음)
+**Status:** ✅ COMPLETED: 10/12 (83%) | 🟡 IN_PROGRESS: 3 (Asset Master P3-6 45%, Expense Master Phase 2 APIs 0%, Cost Management 35%, Team Dashboard 40%) | ⏳ BLOCKED_ON_USER: 1 (db/52 Supabase execution) | Build: 145 pages ✅ | Vercel: HTTP 200 (91h+ continuous) ✅ | 신뢰도: 96% ⬆️ | Phase C Weekly Improvement Analysis: ✅ COMPLETE (2026-06-12 21:42 KST)
 
 ---
 
