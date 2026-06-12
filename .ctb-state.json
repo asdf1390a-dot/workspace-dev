@@ -1,6 +1,13 @@
 {
-  "timestamp": "2026-06-12T22:23:22Z",
+  "timestamp": "2026-06-13T10:28:30Z",
   "progress": 100,
+  "p1_projects": {
+    "audit-p1": "100%",
+    "discord-bot-p1": "100%",
+    "bm-p1": "100%",
+    "travel-p2-ui": "100%"
+  },
+  "stability": "24h+ (no regressions)",
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
@@ -8,13 +15,12 @@
   },
   "production": {
     "vercel": "OK",
-    "vercel_http": "200"
+    "vercel_http": "200",
+    "uptime": "120h+"
   },
-  "last_update": "2026-06-13 07:23:22",
-  "cycle": 1270,
-  "p1_complete": "4/4",
-  "reliability": 96,
+  "reliability": "96%",
   "blockers": 0,
-  "cron_status": "8/8",
-  "team_capacity": "82% (11명)"
+  "cron_execution": "8/8 (100%)",
+  "team_utilization": "82% (11/13 members)",
+  "last_update": "2026-06-13 07:28:30 KST"
 }
