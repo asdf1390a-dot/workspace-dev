@@ -1,16 +1,21 @@
 {
-  "timestamp": "2026-06-12T05:17:00Z",
+  "timestamp": "2026-06-12T05:22:14Z",
   "progress": 100,
   "services": {
-    "phase2a": "ready",
-    "phase2b": "ready",
-    "phase2c": "ready"
+    "phase2a": "DOWN",
+    "phase2b": "DOWN",
+    "phase2c": "DOWN"
   },
   "production": {
     "vercel": "OK",
     "vercel_http": "200"
   },
-  "last_update": "2026-06-12 14:17:00",
-  "latest_commit": "6fffd425",
-  "recent_feature": "Team Dashboard 페이지 추가"
+  "last_update": "2026-06-12 14:22:14",
+  "p1_status": {
+    "AUDIT-P1": "100%",
+    "DISCORD-BOT-P1": "100%",
+    "BM-P1": "100%",
+    "TRAVEL-P2-UI": "100%"
+  },
+  "reliability": 95
 }
