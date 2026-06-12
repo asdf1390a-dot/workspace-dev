@@ -1,37 +1,14 @@
 {
-  "timestamp": "2026-06-13T08:28:00+09:00",
-  "progress": 95,
-  "incident": {
-    "status": "CRITICAL",
-    "type": "Vercel /assets HTTP 000 TIMEOUT",
-    "duration_minutes": 38,
-    "first_detected": "2026-06-13T07:50:00+09:00",
-    "last_updated": "2026-06-13T08:14:00+09:00",
-    "sla_impact": "115h+ broken"
-  },
+  "timestamp": "2026-06-12T23:45:01Z",
+  "progress": 100,
   "services": {
-    "phase2a": "healthy",
-    "phase2b": "healthy",
-    "phase2c": "healthy"
+    "phase2a": "ready",
+    "phase2b": "ready",
+    "phase2c": "ready"
   },
   "production": {
-    "vercel": "DEGRADED",
-    "vercel_http": "000_TIMEOUT",
-    "vercel_endpoint": "/assets",
-    "supabase": "OK"
+    "vercel": "OK",
+    "vercel_http": "200"
   },
-  "projects": {
-    "audit_p1": "100% complete (0cf3c1ba)",
-    "discord_bot_p1": "100% complete (585db4d5)",
-    "travel_p2_ui": "100% complete (e9396c74)",
-    "bm_p1": "100% complete (ecc13a9f)"
-  },
-  "blockers": {
-    "count": 1,
-    "critical": "Vercel /assets timeout — requires manual intervention",
-    "requires_user_action": true
-  },
-  "reliability": "UNKNOWN",
-  "last_update": "2026-06-13 08:28:00",
-  "next_checkpoint": "2026-06-13 08:39:00"
+  "last_update": "2026-06-13 08:45:01"
 }
