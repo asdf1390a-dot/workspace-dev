@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-12T15:07:00Z",
+  "timestamp": "2026-06-13T00:17:04Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
@@ -10,19 +10,5 @@
     "vercel": "OK",
     "vercel_http": "200"
   },
-  "last_update": "2026-06-13 00:07:00",
-  "polling_cycle": "cycle_12:07_kst",
-  "p1_projects": {
-    "audit_p1": "0cf3c1ba",
-    "discord_bot_p1": "585db4d5",
-    "travel_p2_ui": "e9396c74",
-    "bm_p1": "ecc13a9f"
-  },
-  "metrics": {
-    "reliability": "96%",
-    "blockers": 0,
-    "team_utilization": "82% (11/11)",
-    "cron_success": "100% (6/6)",
-    "vercel_uptime_hours": 93
-  }
+  "last_update": "2026-06-13 09:17:04"
 }
