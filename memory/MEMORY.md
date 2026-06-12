@@ -5,9 +5,10 @@
 **Last Update:** 2026-06-13 08:02:17 KST — **🔴 CRITICAL Vercel Incident Escalation (Endpoint Timeout)**
 **Last Checkpoint:** 2026-06-13 08:02 KST (🔴 **P1 CRITICAL: Vercel `/assets` HTTP 000 TIMEOUT | Backend healthy (Phase2A/B/C all ready) | SLA 115h+ uptime BROKEN | Incident report created | Status: AWAITING VERCEL RECOVERY**)
 
-## 🔴 **CRITICAL (2026-06-13 08:02 KST)**
+## 🔴 **CRITICAL (2026-06-13 08:10 KST — Ongoing)**
 
-- [🔴 **CRITICAL INCIDENT — Vercel `/assets` Timeout** (2026-06-13 08:02 KST)](incident_20260613_0802_vercel_degradation.md) — **HTTP 000 TIMEOUT** | **Production DEGRADED** | **SLA 115h+ BROKEN** | 07:50 detected 404 → 08:02 escalated to timeout | **Backend Phase2A/B/C all HEALTHY** | **Vercel routing/deployment issue** | **URGENT: Manual Vercel dashboard intervention required** | Recovery target: <15min | Next manual check: 08:04 KST
+- [📊 조직도 & 업무현황 (2026-06-13 08:10 KST)](org_status_20260613_0810.md) — **🔴 DEGRADED: Vercel `/assets` HTTP 000 TIMEOUT (18분+ 지속)** | **P1 4/4 완료 (프로젝트 블로커 0건)** | **Phase2A/B/C 백엔드 건강** | **SLA 115h+ uptime BROKEN** | **신뢰도 UNKNOWN** | **긴급: Vercel 대시보드 수동 개입 필요** | 블로커 1건 CRITICAL
+- [🔴 **CRITICAL INCIDENT — Vercel `/assets` Timeout** (2026-06-13 08:02 KST)](incident_20260613_0802_vercel_degradation.md) — **HTTP 000 TIMEOUT (ongoing)** | **Production DEGRADED** | **SLA 115h+ BROKEN** | 07:50 detected 404 → 08:02 escalated to timeout → 08:10 still down | **Backend Phase2A/B/C all HEALTHY** | **Vercel routing/deployment issue** | **URGENT: Manual Vercel dashboard intervention required** | Recovery target: ASAP
 
 ## 🟢 최신 상태 갱신 (2026-06-13 08:09 KST — Pre-Incident Checkpoint)
 
