@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-12T13:45:01Z",
+  "timestamp": "2026-06-12T13:56:00Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
@@ -10,5 +10,13 @@
     "vercel": "OK",
     "vercel_http": "200"
   },
-  "last_update": "2026-06-12 22:45:01"
+  "last_update": "2026-06-12 22:56:00",
+  "polling_cycle": {
+    "cycle_id": "ctb-auto-20260612-2256",
+    "build_status": "success",
+    "p1_completion": "4/4 (100%)",
+    "reliability": "96%",
+    "blockers": "0건",
+    "uptime_hours": 91
+  }
 }
