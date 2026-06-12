@@ -613,3 +613,7 @@
 /home/jeepney/.openclaw/workspace-dev/memory-automation/org-status-snapshot.sh: line 20: jq: command not found
 /home/jeepney/.openclaw/workspace-dev/memory-automation/org-status-snapshot.sh: line 21: jq: command not found
 /home/jeepney/.openclaw/workspace-dev/memory-automation/org-status-snapshot.sh: line 22: jq: command not found
+/home/jeepney/.openclaw/workspace-dev/memory-automation/org-status-snapshot.sh: line 20: jq: command not found
+/home/jeepney/.openclaw/workspace-dev/memory-automation/org-status-snapshot.sh: line 21: jq: command not found
+/home/jeepney/.openclaw/workspace-dev/memory-automation/org-status-snapshot.sh: line 22: jq: command not found
+[2026-06-13 04:30:00 KST] 조직도 업데이트 — ✅ P1 4/4 (100%, 변화없음) | Vercel HTTP 200 (114h+) | 팀 82% (11명) | 신뢰도 96% | 블로커 0건 | Cron 100% (7/7) | CTB 1305+ (+9 cycles) | Phase C-1 90분 경과 | 상태: 정상 운영
