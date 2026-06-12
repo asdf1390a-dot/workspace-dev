@@ -1,14 +1,15 @@
 {
-  "timestamp": "2026-06-12T07:05:01Z",
-  "progress": 100,
+  "timestamp": "2026-06-12T07:17:00Z",
+  "progress": 75,
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
     "phase2c": "ready"
   },
   "production": {
-    "vercel": "OK",
-    "vercel_http": "200"
+    "vercel": "DEGRADED",
+    "vercel_http": "404"
   },
-  "last_update": "2026-06-12 16:05:01"
+  "last_update": "2026-06-12 16:17:00",
+  "alert": "Vercel all endpoints returning 404 — 2nd regression in 30min (15:47 KST 1st, 16:17 KST 2nd)"
 }
