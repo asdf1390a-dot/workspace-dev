@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-12T07:32:00Z",
+  "timestamp": "2026-06-12T08:00:02Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
@@ -10,14 +10,5 @@
     "vercel": "OK",
     "vercel_http": "200"
   },
-  "last_update": "2026-06-12 16:32:00",
-  "p1_status": {
-    "AUDIT-P1": "✅ 0cf3c1ba (100%)",
-    "DISCORD-BOT-P1": "✅ 585db4d5 (100%)",
-    "TRAVEL-P2-UI": "✅ e9396c74 (100%)",
-    "BM-P1": "✅ ecc13a9f (100%)"
-  },
-  "reliability": "95%",
-  "blockers": 0,
-  "notes": "Phase 3 진행 중 (마이그레이션 준비)"
+  "last_update": "2026-06-12 17:00:02"
 }
