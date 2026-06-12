@@ -1,8 +1,6 @@
 {
-  "timestamp": "2026-06-13T07:38:00Z",
-  "cycle": "1",
+  "timestamp": "2026-06-12T22:45:01Z",
   "progress": 100,
-  "p1_status": "4/4 complete (100%)",
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
@@ -10,14 +8,7 @@
   },
   "production": {
     "vercel": "OK",
-    "vercel_http": "200",
-    "uptime_hours": 115
+    "vercel_http": "200"
   },
-  "team_utilization": "82% (11/11)",
-  "reliability": "96%",
-  "blockers": 0,
-  "cron_status": "100% (8/8)",
-  "phase_c1": "testing day 1/7 (270min elapsed)",
-  "asset_master": "5% progress (300min)",
-  "last_update": "2026-06-13 07:38:00"
+  "last_update": "2026-06-13 07:45:32"
 }
