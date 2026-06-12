@@ -98,6 +98,9 @@ class FMSBot(discord.Client):
             log.info("  guild: %s (%d) — %d channels", g.name, g.id, len(g.channels))
 
     async def on_message(self, message: discord.Message) -> None:
+        log.info(f"Message received: channel={message.channel.id}, author={message.author.name}, content={message.content[:50]}")
+        if message.author.bot:
+            return
         if message.content.strip().lower() == "!ping":
             await message.channel.send("pong")
             return
