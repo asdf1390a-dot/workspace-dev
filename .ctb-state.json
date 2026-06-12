@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-13T20:17:01Z",
+  "timestamp": "2026-06-12T20:22:01Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
@@ -10,23 +10,5 @@
     "vercel": "OK",
     "vercel_http": "200"
   },
-  "last_update": "2026-06-13 05:17:01",
-  "cycle": 1325,
-  "p1_projects": {
-    "audit_p1": "100%",
-    "discord_bot_p1": "100%",
-    "bm_p1": "100%",
-    "travel_p2_ui": "100%",
-    "summary": "4/4 완료"
-  },
-  "team": {
-    "active": 9,
-    "total": 11,
-    "utilization": "82%"
-  },
-  "automation": {
-    "cron_success": "6/6",
-    "reliability": "96%",
-    "blockers": 0
-  }
+  "last_update": "2026-06-13 05:22:01"
 }
