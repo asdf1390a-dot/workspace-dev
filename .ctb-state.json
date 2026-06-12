@@ -1,6 +1,33 @@
 {
-  "timestamp": "2026-06-13T04:00:01Z",
+  "timestamp": "2026-06-12T19:10:00Z",
+  "cycle": "2026-06-13 04:10 KST",
   "progress": 100,
+  "projects": {
+    "AUDIT-P1": {
+      "status": "complete",
+      "completion": "100%",
+      "commit": "0cf3c1ba",
+      "last_activity": "2026-06-09 13:34"
+    },
+    "DISCORD-BOT-P1": {
+      "status": "complete",
+      "completion": "100%",
+      "commit": "585db4d5",
+      "last_activity": "2026-06-12 13:58"
+    },
+    "BM-P1": {
+      "status": "complete",
+      "completion": "100%",
+      "commit": "ecc13a9f",
+      "last_activity": "2026-06-09"
+    },
+    "TRAVEL-P2-UI": {
+      "status": "complete",
+      "completion": "100%",
+      "commit": "e9396c74",
+      "last_activity": "2026-06-12 15:04"
+    }
+  },
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
@@ -8,36 +35,22 @@
   },
   "production": {
     "vercel": "OK",
-    "vercel_http": "200"
+    "vercel_http": "200",
+    "uptime_hours": "114+"
   },
-  "p1_projects": {
-    "AUDIT-P1": {
-      "commit": "0cf3c1ba",
-      "completion": 100,
-      "status": "완료"
-    },
-    "DISCORD-BOT-P1": {
-      "commit": "585db4d5",
-      "completion": 100,
-      "status": "완료"
-    },
-    "TRAVEL-P2-UI": {
-      "commit": "e9396c74",
-      "completion": 100,
-      "status": "완료"
-    },
-    "BM-P1": {
-      "commit": "ecc13a9f",
-      "completion": 100,
-      "status": "완료"
-    }
+  "team": {
+    "active_members": 11,
+    "utilization": "82%",
+    "status": "all_active"
   },
-  "metrics": {
-    "reliability": 96,
-    "blockers": 0,
-    "team_utilization": 82,
-    "cron_success_rate": 100,
-    "vercel_uptime_hours": 114
+  "automation": {
+    "cron_jobs": "6/6",
+    "success_rate": "100%"
   },
-  "last_update": "2026-06-13 04:00:01"
+  "reliability": "96%",
+  "blockers": 0,
+  "state_change": "none",
+  "overall_status": "normal_operations",
+  "last_update": "2026-06-13 04:10:00",
+  "next_poll": "2026-06-13 04:15:00"
 }
