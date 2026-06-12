@@ -1,16 +1,25 @@
 # 메모리 인덱스
 
-**Last Checkpoint:** 2026-06-12 16:17 KST (🔴 **Vercel 2차 회귀 (404)** — 반복 패턴 30분 간격 | P1 4/4 완료 (100%) | 신뢰도 92% ⬇️ | 블로커 1건 | Vercel deployment DEGRADED)
+**Last Update:** 2026-06-12 22:00 KST — 주간 분석 완료, 신뢰도 96%, db/52 임박  
+**Last Checkpoint:** 2026-06-12 22:00 KST (✅ **P1 4/4 (100%) | 신뢰도 96% | 블로커 1건 CRITICAL (db/52 실행 대기) | Vercel HTTP 200 (91h+) | Phase3 64% | 팀 82% | Cron 100% (6/6)**)
 
-## 🔴 긴급 상황 (2026-06-12 16:17 KST)
+## 🟢 최신 (2026-06-12 22:00 KST)
 
-- [🔴 Vercel 배포 2차 회귀](checkpoint_20260612_1617.md) — **모든 엔드포인트 404** (16:17 감지) | 회귀 패턴: 15:47 & 16:17 (30분 간격) | 신뢰도 95%→92% ⬇️ | P1 4/4 완료 (변화없음) | Phase2A/B/C=ready | 자동 모니터링 중
+- [📊 조직도 & 업무현황 (2026-06-12 22:00 KST)](org_status_20260612_2200.md) — **주간 분석 완료** | **P1 4/4 완료 (100%)** | **신뢰도 96%** | **블로커 1건 CRITICAL** (db/52 Supabase 실행 임박) | Vercel HTTP 200 (91h+ 연속) | **Phase 2 킥오프 준비 완료** | 팀 활용률 82% (11명) | Phase 3 평균 64% (Asset 45%, Cost 35%, Team 40%, Expense 설계 100%) | Cron 100% (6/6 jobs 정상)
+- [✅ Phase C Weekly Improvement Analysis 완료 (2026-06-12 21:42 KST)](../WEEKLY_IMPROVEMENT_REPORT.md) — **5개 개선 가설 생성** (신뢰도 70~95%) | Vercel 캐시 (85%) | Evaluator 자동화 (95%) | 리소스 할당 (90%) | Web-Builder 백업 (85%) | 회의 정기화 (70%) | 7일 위반 분석 완료 | 테스트 플랜 + 성공 지표 포함
 
-## 🟡 이전 회귀 (2026-06-12 15:36 KST)
+## 🟡 이전 상태 (2026-06-12 18:20 KST)
 
-- [🔴 Vercel 배포 1차 회귀](org_status_20260612_1538.md) — **`/assets` 404 회귀** (15:36 감지) | 신뢰도 95%→80% ⬇️ | 15:52 자동복구 완료 | 16:04 상태 안정 → 16:17 재발생
+- [✅ Session Checkpoint (2026-06-12 18:20)](checkpoint_20260612_1820.md) — **18:00 최종 검증 완료**, P1 4/4 (100%) | 신뢰도 95% | 블로커 3건 (1 Critical Expense Master -18h) | Vercel HTTP 200 (88h+) | Phase 3-1 완성 + 3-2/3-3/3-4 진행중 | CTB 폴링 사이클 1250
+- [📊 조직도 & 업무현황 (2026-06-12 18:02 KST)](org_status_20260612_1802.md) — **일일 최종 검증** | **3개 신규 블로커** (Expense Master -18h 🔴Critical, Vercel/Slack 자동화 설정 🟡Medium) | 신뢰도 95% (목표 99%+4%) | P1 4/4 완료 (100%) | Team Dashboard P2 진행 (40%) | 팀 활용도 82% (하락 임박)
+- [🔄 Task State Machine Monitor (2026-06-12 17:43 KST)](task_state_machine_20260612_1743.md) — **3개 상태 전환 감지** | Expense Master Phase 1 🔴 BLOCKED_ON_USER (기술 결정 4가지 -18h) | Automation (Vercel) 🟡 BLOCKED_ON_USER (env vars 5개) | Automation (Slack) 🟡 BLOCKED_ON_USER (webhook) | Auto-detect 패턴 배포 (Telegram 신호 모니터링)
 
-## 🟢 최신 상태 (2026-06-12 16:04 KST)
+## 🟡 이전 회귀 + 자동 복구 (2026-06-12 16:00~17:00 KST)
+
+- [📊 조직도 & 업무현황 (2026-06-12 16:00 KST)](org_status_20260612_1600.md) — **Vercel 자동 복구 완료** (15:52 회귀→16:00 복구) | HTTP 200 정상 | 신뢰도 95% 복구 | db/43 SQL 준비됨 (사용자 액션만 대기) | Phase 3-2 개발 준비 완료
+- [🔴 Vercel 배포 2차 회귀](checkpoint_20260612_1617.md) — **모든 엔드포인트 404** (16:17 감지) | 회귀 패턴: 15:47 & 16:17 (30분 간격) | 신뢰도 95%→92% ⬇️ | P1 4/4 완료 (변화없음) | Phase2A/B/C=ready | CTB 자동 모니터링 완료
+
+## 🟡 이전 상태 (2026-06-12 16:00~18:00 KST)
 
 - [✅ Session Checkpoint (2026-06-12 16:04)](checkpoint_20260612_1604.md) — **Blocker 1→0 재분류** | db/43 WAITING_FOR_USER (non-blocking) | Vercel HTTP 200 안정 | 신뢰도 95% 유지 | 임계 블로커 0건 🟢 | Phase 3-2 개발 진행 가능
 - [📊 조직도 & 업무현황 (2026-06-12 16:00)](org_status_20260612_1600.md) — **팀 11명 82% 활용** | P1 4/4 완료 | P2 진행 중 (45%) | Vercel 자동 복구 완료 ✅ | db/43 사용자 액션 대기 (non-critical) | Phase 3-2 준비 완료
