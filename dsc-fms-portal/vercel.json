@@ -1,20 +1,6 @@
 {
   "buildCommand": "rm -rf node_modules package-lock.json && npm install && npm run build",
   "outputDirectory": ".next",
-  "functions": {
-    "app/api/reports/quality/generate/route.js": {
-      "maxDuration": 120,
-      "memory": 1024
-    },
-    "app/api/bm/import/route.js": {
-      "maxDuration": 120,
-      "memory": 1024
-    },
-    "app/api/photos/upload/route.js": {
-      "maxDuration": 60,
-      "memory": 1024
-    }
-  },
   "crons": [
     {
       "path": "/api/cron/checkpoints/08-00",
