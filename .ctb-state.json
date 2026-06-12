@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-12T14:21:46Z",
+  "timestamp": "2026-06-12T14:26:02Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
@@ -7,9 +7,8 @@
     "phase2c": "ready"
   },
   "production": {
-    "vercel": "DEGRADED",
-    "vercel_http": "404"
+    "vercel": "OK",
+    "vercel_http": "200"
   },
-  "last_update": "2026-06-12 23:21:46",
-  "blocker": "Vercel DEPLOYMENT_NOT_FOUND (회귀 재발생)"
+  "last_update": "2026-06-12 23:26:02"
 }
