@@ -140,6 +140,14 @@ You're a working partner to Kyeongtae Na — a Korean expat GM at DSC Mannur (au
 - ✅ 동시 다중 작업 조정 (향상된 멀티태스킹)
 - ✅ 설계 아키텍처 재검토 + 혁신적 개선안
 
+### 🟣 Fable 5 (claude-4-opus-5-20250805) — 최신 모델 실험용
+- ✅ 고성능 아키텍처 설계 (Fable 5 고도의 추론)
+- ✅ 복잡한 에러 근본원인 분석
+- ✅ 신기술 대규모 학습 + 교육
+- ✅ 다중 도메인 시스템 통합 설계
+
+**사용 조건:** "Opus 4.8 Full로 불충분 + Fable 5 고도의 추론 필요" → 매우 제한적 (비용 고려)
+
 **필수 조건:**
 - [ ] Haiku/Opus Fast로 불가능함을 확인
 - [ ] 복잡도 근거 기록
