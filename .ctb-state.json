@@ -1,28 +1,6 @@
 {
-  "timestamp": "2026-06-12T14:12:20Z",
+  "timestamp": "2026-06-12T05:17:00Z",
   "progress": 100,
-  "p1_projects": {
-    "audit_p1": {
-      "status": "complete",
-      "commit": "0cf3c1ba",
-      "updated_at": "2026-06-12T14:12:20Z"
-    },
-    "discord_bot_p1": {
-      "status": "complete",
-      "commit": "585db4d5",
-      "updated_at": "2026-06-12T14:12:20Z"
-    },
-    "travel_p2_ui": {
-      "status": "complete",
-      "commit": "e9396c74",
-      "updated_at": "2026-06-12T14:12:20Z"
-    },
-    "bm_p1": {
-      "status": "complete",
-      "commit": "ecc13a9f",
-      "updated_at": "2026-06-12T14:12:20Z"
-    }
-  },
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
@@ -30,13 +8,9 @@
   },
   "production": {
     "vercel": "OK",
-    "vercel_http": "200",
-    "vercel_uptime": "68h+"
+    "vercel_http": "200"
   },
-  "reliability": {
-    "completion_rate": "100%",
-    "blockers": 0,
-    "trust_score": "95%"
-  },
-  "last_update": "2026-06-12 14:12:20 KST"
+  "last_update": "2026-06-12 14:17:00",
+  "latest_commit": "6fffd425",
+  "recent_feature": "Team Dashboard 페이지 추가"
 }
