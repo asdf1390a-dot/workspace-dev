@@ -1,6 +1,16 @@
 # 메모리 인덱스
 
-**Last Checkpoint:** 2026-06-12 14:31 KST (Discord Bot Anthropic API 키 문제 발견 — 🔴 **API 키 무효** (401) | Discord Bot 실행 중 (PID 66212) | Team Dashboard API 응답 중 | **번역 기능 블록됨** | 사용자 조치 대기 중)
+**Last Checkpoint:** 2026-06-12 16:03 KST (P0 자동복구 완료 — ✅ **Vercel 회귀 자동 해결** (27분) | 신뢰도 80%→95% ✅ | 모든 포트 정상 | db/43 BLOCKED_ON_USER (사용자 액션) | 82% 완료 | 팀 11명 82% 활용)
+
+## 🔴 긴급 상황 (2026-06-12 15:36 KST)
+
+- [🔴 Vercel 배포 회귀 감지](org_status_20260612_1538.md) — **`/assets` 404 회귀** (15:36 감지) | 신뢰도 95%→80% ⬇️ | 홈페이지 정상 | 배포 캐시 미동기화 | CTB 자동 모니터링 중
+
+## 🟢 최신 상태 (2026-06-12 15:38 KST)
+
+- [📊 조직도 & 업무현황 (2026-06-12 15:38)](org_status_20260612_1538.md) — **팀 11명 82% 활용** | P1 4/4 완료 | P2 진행 중 (45%) | Phase 3-1 ✅ | db/43 🔴 BLOCKED_ON_USER | Vercel 회귀 모니터링 중
+- [✅ Session Checkpoint (2026-06-12 15:34)](checkpoint_20260612_1534.md) — **4 state transitions 감지** | Phase 3 Personal History ✅ COMPLETED | db/43 🔴 BLOCKED_ON_USER (SQL 대기) | 82% 완료율 (9/11) | 신뢰도 95% (회귀 전)
+- [📊 Task State Machine Monitor (2026-06-12 15:34)](task_state_machine_20260612_1534.md) — 4/4 규칙 정상 작동 | Rule 2 적용 (db/43 → BLOCKED_ON_USER) | Phase 3-2 개발 대기 중
 
 ## 🔴 긴급 (2026-06-12 14:31 KST)
 
