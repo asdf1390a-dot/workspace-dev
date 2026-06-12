@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-13T08:09:02Z",
+  "timestamp": "2026-06-12T23:14:04Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
@@ -9,15 +9,18 @@
   "production": {
     "vercel": "DEGRADED",
     "vercel_http": "000",
-    "vercel_error": "DEPLOYMENT_NOT_FOUND / assets timeout (14min+)",
-    "blocker_count": 1,
-    "incident": "memory/incident_20260613_0802_vercel_degradation.md"
+    "incident": "HTTP 000 TIMEOUT on /assets (started 07:50 KST, 24min+)",
+    "incident_severity": "CRITICAL"
   },
-  "last_update": "2026-06-13 08:09:02",
+  "last_update": "2026-06-13 08:14:04",
   "p1_projects": {
-    "audit": "complete",
-    "discord_bot": "complete",
-    "travel_ui": "complete",
-    "bm": "complete"
-  }
+    "AUDIT-P1": "100% (0cf3c1ba)",
+    "DISCORD-BOT-P1": "100% (585db4d5)",
+    "BM-P1": "100% (ecc13a9f)",
+    "TRAVEL-P2-UI": "100% (e9396c74)"
+  },
+  "team_utilization": "82% (9/11)",
+  "reliability": "UNKNOWN (incident in progress)",
+  "blockers": 1,
+  "cron_success": "100% (8/8)"
 }
