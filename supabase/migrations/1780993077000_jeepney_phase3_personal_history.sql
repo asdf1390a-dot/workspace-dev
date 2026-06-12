@@ -19,6 +19,7 @@ CREATE TABLE IF NOT EXISTS public.user_companies (
   updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
+DROP INDEX IF EXISTS idx_user_companies_user_id;
 CREATE INDEX idx_user_companies_user_id ON public.user_companies(user_id);
 
 -- user_projects table
@@ -39,7 +40,9 @@ CREATE TABLE IF NOT EXISTS public.user_projects (
   updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
+DROP INDEX IF EXISTS idx_user_projects_user_id;
 CREATE INDEX idx_user_projects_user_id ON public.user_projects(user_id);
+DROP INDEX IF EXISTS idx_user_projects_company_id;
 CREATE INDEX idx_user_projects_company_id ON public.user_projects(company_id);
 
 -- user_achievements table
@@ -58,6 +61,7 @@ CREATE TABLE IF NOT EXISTS public.user_achievements (
   updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
+DROP INDEX IF EXISTS idx_user_achievements_user_id;
 CREATE INDEX idx_user_achievements_user_id ON public.user_achievements(user_id);
 
 -- RLS Policies for user_companies
