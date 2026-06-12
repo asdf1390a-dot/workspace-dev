@@ -3199,3 +3199,13 @@ Vercel: OK (no-cache 헤더 적용)
 [2026-06-13 07:55:02] ✅ CTB updated: 100% | Local: Phase2A=ready | Phase2B=ready | Phase2C=ready | Production: Vercel=OK
 [2026-06-13 08:00:01] 🔄 CTB Auto-Update 폴링 시작...
 [2026-06-13 08:00:02] ✅ CTB updated: 100% | Local: Phase2A=ready | Phase2B=ready | Phase2C=ready | Production: Vercel=OK
+[2026-06-13 08:05:01] 🔄 CTB Auto-Update 폴링 시작...
+[2026-06-13 08:05:01] ✅ CTB updated: 100% | Local: Phase2A=ready | Phase2B=ready | Phase2C=ready | Production: Vercel=OK
+
+[2026-06-13 08:09:02] 🔴 CTB AUTO-UPDATE CYCLE (URGENT) — Vercel Critical Incident
+[2026-06-13 08:09:02] ⚠️  BLOCKER DETECTED: Vercel `/assets` HTTP 000 TIMEOUT (14+ minutes since 07:50 KST)
+[2026-06-13 08:09:02] ✅ P1 Project Status: AUDIT-P1 ✓ | DISCORD-BOT-P1 ✓ | BM-P1 ✓ | TRAVEL-P2-UI ✓ (100%)
+[2026-06-13 08:09:02] 🔴 Production Status: DEPLOYMENT_NOT_FOUND — Vercel front-end failure (backend healthy)
+[2026-06-13 08:09:02] 📍 Incident Report: memory/incident_20260613_0802_vercel_degradation.md
+[2026-06-13 08:09:02] 🔴 System Reliability: DEGRADED (was 96%) | Blocker: 1 CRITICAL
+[2026-06-13 08:09:02] ⏱️  SLA Impact: 115h+ uptime streak BROKEN | Recommended Action: Manual Vercel intervention (dashboard/redeploy)
