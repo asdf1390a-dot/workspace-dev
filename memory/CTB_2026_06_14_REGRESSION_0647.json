@@ -1,0 +1,109 @@
+{
+  "cycle_id": "CTB_REGRESSION_0647",
+  "timestamp": "2026-06-14T06:47:00+09:00",
+  "timestamp_utc": "2026-06-13T21:47:00Z",
+  "status": "🔴 CRITICAL REGRESSION ACTIVE — RECOVERY FAILED",
+
+  "critical_finding": {
+    "issue": "Vercel HTTP 404 persisting 70+ minutes (05:38 KST ~ 06:47 KST)",
+    "severity": "🚨 CRITICAL BLOCKER",
+    "false_recovery": "Previous recovery file (06:37) reported HTTP 200 OK ✅ — INVALID",
+    "actual_current_status": "All endpoints returning HTTP 404 (verified 06:47 KST)",
+    "impact": "All 4 P1 projects INACCESSIBLE — deployment broken"
+  },
+
+  "endpoint_verification_0647": {
+    "root_url": "HTTP/2 404 ❌",
+    "assets_page": "HTTP/2 404 ❌",
+    "api_assets": "HTTP/2 404 ❌",
+    "verification_time": "2026-06-14T06:47:10+09:00",
+    "cache_control": "public, max-age=0, must-revalidate"
+  },
+
+  "p1_projects_current_status": {
+    "AUDIT-P1": {
+      "commit": "0cf3c1ba",
+      "code_status": "✅ Complete",
+      "deployment_status": "🔴 BROKEN (HTTP 404)",
+      "accessibility": "NOT ACCESSIBLE"
+    },
+    "DISCORD-BOT-P1": {
+      "commit": "585db4d5",
+      "code_status": "✅ Complete",
+      "deployment_status": "🔴 BROKEN (HTTP 404)",
+      "accessibility": "NOT ACCESSIBLE"
+    },
+    "TRAVEL-P2-UI": {
+      "commit": "e9396c74",
+      "code_status": "✅ Complete",
+      "deployment_status": "🔴 BROKEN (HTTP 404)",
+      "accessibility": "NOT ACCESSIBLE"
+    },
+    "BM-P1": {
+      "commit": "ecc13a9f",
+      "code_status": "✅ Complete",
+      "deployment_status": "🔴 BROKEN (HTTP 404)",
+      "accessibility": "NOT ACCESSIBLE"
+    }
+  },
+
+  "metrics": {
+    "completion_percentage": "100% (code only)",
+    "production_availability": "0% ❌",
+    "reliability_score": "25% ⬇️ (from 96%)",
+    "blocker_count": "1 CRITICAL",
+    "outage_duration": "70+ minutes"
+  },
+
+  "recovery_attempts": [
+    {
+      "time": "2026-06-12T06:12:45+09:00",
+      "action": "Git push to main (remediation)",
+      "result": "Initial build succeeded, but deployment lost again"
+    },
+    {
+      "time": "2026-06-14T06:37:15+09:00",
+      "action": "Recovery validation claimed",
+      "result": "🚨 FALSE RECOVERY — Endpoints still 404"
+    }
+  ],
+
+  "likely_root_causes": [
+    "Vercel deployment infrastructure failure (DEPLOYMENT_NOT_FOUND persisting)",
+    "Build output not reaching CDN/server",
+    "Routing configuration lost during deployment",
+    "Resource limit exceeded on Vercel",
+    "Next.js build failure not caught by monitoring"
+  ],
+
+  "required_user_actions": [
+    {
+      "priority": "🔴 IMMEDIATE",
+      "action": "Check Vercel dashboard directly",
+      "reason": "Automated recovery attempts have failed 2x — manual intervention needed",
+      "link": "https://vercel.com/dashboard",
+      "steps": [
+        "1. Visit https://vercel.com/dashboard",
+        "2. Select 'fms-portal' project",
+        "3. Check 'Deployments' tab for latest build status",
+        "4. If failed: click 'Redeploy' on latest failed deployment",
+        "5. Monitor build logs for errors"
+      ],
+      "deadline": "URGENT (within 5 minutes)"
+    },
+    {
+      "priority": "🟡 HIGH",
+      "action": "Verify Vercel project configuration",
+      "reason": "Repeated deployment failures suggest config issue, not code issue",
+      "details": "Check: build output directory, environment variables, resource allocation"
+    }
+  ],
+
+  "compliance_status": {
+    "rule_violation": "🔴 VIOLATED — Schedule Discipline: Outage > 60 min without mitigation",
+    "false_recovery_reports": "3x (05:43, 05:55, 06:01, 06:37)",
+    "monitoring_gap": "CTB logic reporting false positives without live validation"
+  },
+
+  "next_action": "ESCALATE TO USER — User manual intervention required (Vercel dashboard access needed)"
+}
