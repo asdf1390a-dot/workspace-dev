@@ -1,12 +1,74 @@
 ---
 name: Incomplete Tasks Registry
-description: Active incomplete work tracking (updated 2026-06-14 06:08 KST) — ✅ INCIDENT RESOLVED | Vercel HTTP 200 STABLE (63+ min) | P1 4/4 배포완료 | 신뢰도 96% | 블로커 0건 | 자동화 100% | NO STATE TRANSITIONS DETECTED
+description: Active incomplete work tracking (updated 2026-06-14 06:35 KST) — 🚨 CRITICAL REGRESSION DETECTED | Vercel HTTP 404 (23+ min) | P1 4/4 BLOCKED | 신뢰도 CRITICAL | 블로커 1 CRITICAL | 사용자 수동 개입 필수
 type: project
 ---
 
-# Incomplete Tasks Registry (Last Updated: 2026-06-14 06:08 KST - TASK STATE MACHINE MONITORING)
+# Incomplete Tasks Registry (Last Updated: 2026-06-14 06:35 KST - CRITICAL INCIDENT ESCALATION)
 
-**Status:** ✅ **INCIDENT RESOLVED & STABLE** | P1 4/4 Code Complete (100%) | **Deployment LIVE** 🟢 HTTP 200 (63+ min stable) | Reliability: 96% | Blockers: 0 | Automation: 7/7 (100%) | **NO STATE TRANSITIONS** | **【All tasks maintaining assigned states, waiting for담당자 action】**
+**Status:** 🚨 **CRITICAL INCIDENT ACTIVE** | P1 4/4 Code Complete (100%) | **Deployment BLOCKED** 🔴 HTTP 404 (23+ min ongoing) | Reliability: CRITICAL ⬇️ | Blockers: 1 CRITICAL | **【사용자 수동 개입 필수: Vercel 재배포】**
+
+---
+
+## 🚨 Session Checkpoint (2026-06-14 06:35 KST - CRITICAL INCIDENT ESCALATION)
+
+### 🔴 CRITICAL REGRESSION DETECTED
+
+**Incident Status:**
+```
+06:08 KST: ✅ HTTP 200 OK (Stable post-recovery, 63+ min verified)
+     ↓ (4 minutes later)
+06:12 KST: 🔴 CRITICAL: Vercel DEPLOYMENT_NOT_FOUND (regression triggered)
+     ↓
+06:14 KST: 🔴 ESCALATION: HTTP 404 persists, Git push blocked
+     ↓
+06:35 KST: 🔴 CONFIRMED: HTTP 404 still active (23+ min duration)
+```
+
+**Detection:**
+- ✅ Automated curl verification confirmed HTTP 404 response
+- ⚠️ .ctb-state.json was stale (showing HTTP 200 despite actual 404)
+- 🔴 Git commits at 06:12 and 06:14 show incident timeline
+
+**Severity:** 🔴 **CRITICAL** — Same as incident at 03:14-05:07 KST pattern
+
+### Task State Transitions (Triggered)
+
+| Task | Previous State (06:08) | Current State (06:35) | Transition | Severity |
+|------|------------------------|----------------------|-----------|----------|
+| AUDIT-P1 | ✅ COMPLETED | 🔴 BLOCKED_ON_USER | COMPLETED → BLOCKED_ON_USER | CRITICAL |
+| DISCORD-BOT-P1 | ✅ COMPLETED | 🔴 BLOCKED_ON_USER | COMPLETED → BLOCKED_ON_USER | CRITICAL |
+| BM-P1 | ✅ COMPLETED | 🔴 BLOCKED_ON_USER | COMPLETED → BLOCKED_ON_USER | CRITICAL |
+| TRAVEL-P2-UI | ✅ COMPLETED | 🔴 BLOCKED_ON_USER | COMPLETED → BLOCKED_ON_USER | CRITICAL |
+
+**Reason for State Transition:** External dependency (Vercel) returned to HTTP 404 state → External blocker re-activated → P1 tasks auto-transition to BLOCKED_ON_USER
+
+### Incident Details
+
+| Metric | Value |
+|--------|-------|
+| **Incident Duration (Current)** | 23+ minutes (06:12→06:35 KST) |
+| **HTTP Status** | 🔴 404 NOT FOUND |
+| **Vercel Status** | 🔴 DEPLOYMENT_NOT_FOUND |
+| **P1 Deployment** | 🔴 BLOCKED (4/4 affected) |
+| **Reliability** | CRITICAL ⬇️ |
+| **Critical Blockers** | 1 (Vercel deployment) |
+| **Git Push Status** | 🔴 Blocked (reported 06:14) |
+| **Last Valid State** | 06:08 KST (HTTP 200, 63+ min stable) |
+
+### 🔴 Immediate Action Required
+
+**USER ACTION CRITICAL:**
+1. ✅ Verify Vercel dashboard status
+2. ✅ Manual redeploy all P1 projects (AUDIT, Discord Bot, BM, TRAVEL-P2-UI)
+3. ✅ Verify HTTP 200 recovery
+
+**Automation Status:**
+- ⚠️ CTB Polling: Monitoring active (will detect recovery)
+- ⚠️ Session Checkpoint: Escalation captured (06:35)
+- ⚠️ Task State Machine: 4 state transitions logged
+
+**Next Checkpoint:** 06:40 KST (5 minutes) — Immediate incident monitoring
 
 ---
 
