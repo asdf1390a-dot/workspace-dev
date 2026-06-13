@@ -1,14 +1,16 @@
 {
-  "timestamp": "2026-06-13T17:35:02Z",
-  "progress": 100,
+  "timestamp": "2026-06-13T17:52:00Z",
+  "progress": 75,
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
     "phase2c": "ready"
   },
   "production": {
-    "vercel": "OK",
-    "vercel_http": "200"
+    "vercel": "BROKEN (HTTP 404)",
+    "vercel_http": 404,
+    "regression_status": "🔴 회귀 감지 (01:21 KST 시작)"
   },
-  "last_update": "2026-06-14 02:35:02"
+  "last_update": "2026-06-14 02:52:00",
+  "blocker": "Vercel HTTP 404 — /assets, /team-dashboard"
 }

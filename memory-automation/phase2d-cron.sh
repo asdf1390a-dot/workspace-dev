@@ -410,9 +410,11 @@ update_memory_file() {
   log "INFO" "=== MEMORY.md Auto-Update ==="
 
   # Backup before modification
-  if ! backup_memory; then
-    log "WARNING" "Memory backup failed, proceeding with caution"
-  fi
+  # DISABLED 2026-06-14 02:30 — Causing runaway backup loop (backup every 5 min)
+  # Re-enable with daily-only policy or manual triggers only
+  # if ! backup_memory; then
+  #   log "WARNING" "Memory backup failed, proceeding with caution"
+  # fi
 
   # Collect all scored messages that were ACCEPTED
   local scores_file=$(ls -1t "$COLLECTIONS_DIR"/trust_scores_*.json 2>/dev/null | head -1)
