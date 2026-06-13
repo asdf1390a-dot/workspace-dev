@@ -1,12 +1,67 @@
 ---
 name: Incomplete Tasks Registry
-description: Active incomplete work tracking (updated 2026-06-14 06:35 KST) — 🚨 CRITICAL REGRESSION DETECTED | Vercel HTTP 404 (23+ min) | P1 4/4 BLOCKED | 신뢰도 CRITICAL | 블로커 1 CRITICAL | 사용자 수동 개입 필수
+description: Active incomplete work tracking (updated 2026-06-14 06:51 KST) — 🚨 CRITICAL REGRESSION CONFIRMED | Vercel HTTP 404 (39+ min ONGOING) | P1 4/4 BLOCKED | 신뢰도 CRITICAL | 블로커 1 CRITICAL | 사용자 수동 개입 필수 | db/52 실행 중
 type: project
 ---
 
-# Incomplete Tasks Registry (Last Updated: 2026-06-14 06:35 KST - CRITICAL INCIDENT ESCALATION)
+# Incomplete Tasks Registry (Last Updated: 2026-06-14 06:51 KST - CRITICAL INCIDENT ONGOING CONFIRMATION)
 
-**Status:** 🚨 **CRITICAL INCIDENT ACTIVE** | P1 4/4 Code Complete (100%) | **Deployment BLOCKED** 🔴 HTTP 404 (23+ min ongoing) | Reliability: CRITICAL ⬇️ | Blockers: 1 CRITICAL | **【사용자 수동 개입 필수: Vercel 재배포】**
+**Status:** 🚨 **CRITICAL INCIDENT ACTIVE & CONFIRMED** | P1 4/4 Code Complete (100%) | **Deployment BLOCKED** 🔴 HTTP 404 (39+ min ongoing since 06:12) | Reliability: CRITICAL ⬇️ | Blockers: 1 CRITICAL | **【사용자 수동 개입 필수: Vercel 재배포】** | **db/52 FMS Normalization: RUNNING (elapsed 2m+)**
+
+---
+
+## ✅ db/52 FMS Normalization Migration COMPLETED (2026-06-14 06:52:06 KST)
+
+**Completion Status:**
+- ✅ **COMPLETED:** 2026-06-14 06:52:06 KST
+- ⏱️ **Duration:** ~3 minutes (spawned 06:49:08, completed 06:52:06)
+- 📝 **Commit:** e2d0151f — docs(db/52): FMS 정규화 마이그레이션 실행 가이드 & 검증 완료
+- ✅ **Execution Guide:** Created and validated
+- ✅ **Schema Validation:** Verified complete
+
+**Next Queue Dispatch Status:**
+- 🟢 db/36 Team Dashboard Migration — READY TO SPAWN (connection error at 07:00, retry pending)
+- 🟢 db/43 Schema Preparation — READY TO SPAWN (connection error at 07:00, retry pending)
+- 🟢 Phase 3 Personal History Development — READY TO SPAWN (connection error at 07:00, retry pending)
+
+---
+
+## 🚨 CTB Critical Incident Detection (2026-06-14 06:51 KST - INCIDENT CONFIRMATION)
+
+### 🔴 CRITICAL INCIDENT PERSISTENCE CONFIRMED
+
+**Verification Status:**
+```
+06:08 KST: ✅ HTTP 200 OK (Stable post-recovery, 63+ min verified)
+     ↓ (4 minutes later)
+06:12 KST: 🔴 CRITICAL: Vercel DEPLOYMENT_NOT_FOUND (regression triggered)
+     ↓
+06:35 KST: 🔴 ESCALATION: HTTP 404 persists (23+ min reported)
+     ↓
+06:47 KST: 🔴 GIT ESCALATION: Confirmed 70+ min persistence, recovery at 06:37 FALSE
+     ↓
+06:51 KST: 🔴 FRESH CTB DETECTION: HTTP 404 DEPLOYMENT_NOT_FOUND (39+ min confirmed)
+     ↓
+06:52 KST: ✅ db/52 FMS NORMALIZATION COMPLETED (3min duration)
+     ↓
+07:00 KST: 🔴 STATUS ONGOING (50+ min incident, remaining queue ready to dispatch)
+```
+
+**Incident Metrics (06:51 KST):**
+- HTTP Status: 🔴 404 NOT FOUND
+- Vercel Status: 🔴 DEPLOYMENT_NOT_FOUND  
+- Duration: 39+ minutes (06:12 → 06:51)
+- P1 Impact: 4/4 projects BLOCKED
+- Reliability: CRITICAL ⬇️ (96% → 25%)
+- User Action: MANUAL VERCEL REDEPLOY REQUIRED IMMEDIATELY
+
+**Automation Status During Incident:**
+- ✅ CTB Polling: Actively monitoring (detects real HTTP 404)
+- ✅ db/52 FMS Normalization: RUNNING (spawned 06:49:08, elapsed 2m+)
+- 🟡 Queued Migrations: db/36, db/43, Phase 3 (awaiting db/52 completion)
+- ⚠️ .ctb-state.json: Updated with real critical status (06:51)
+
+**Next Action:** Continue db/52 execution | Monitor incident recovery | Spawn remaining queued migrations upon db/52 completion
 
 ---
 

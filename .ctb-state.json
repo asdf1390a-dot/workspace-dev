@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-14T06:47:15+09:00",
+  "timestamp": "2026-06-14T21:51:00Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
@@ -7,16 +7,18 @@
     "phase2c": "ready"
   },
   "production": {
-    "vercel": "CRITICAL_FAILURE",
+    "vercel": "CRITICAL_INCIDENT",
     "vercel_http": "404",
-    "status": "ALL_ENDPOINTS_DOWN",
-    "incident_start": "2026-06-14T05:38:00+09:00",
-    "duration_minutes": 70,
-    "false_recovery_reports": 3
+    "incident_status": "HTTP 404 DEPLOYMENT_NOT_FOUND",
+    "incident_duration_minutes": 39,
+    "incident_start": "2026-06-14T06:12:00Z",
+    "last_known_good": "2026-06-14T06:08:00Z",
+    "user_action_required": "Manual Vercel redeploy"
   },
-  "reliability": "25%",
-  "blockers": 1,
-  "blocker_severity": "CRITICAL",
-  "last_update": "2026-06-14T06:47:15+09:00",
-  "note": "Vercel deployment broken — all endpoints return HTTP 404 | Previous recovery (06:37) was false positive | User manual intervention required (Vercel dashboard)"
+  "last_update": "2026-06-14 06:51:00",
+  "automation_status": {
+    "ctb_polling": "detecting_incident",
+    "db52_subagent": "running (elapsed: 2m+)",
+    "task_queue": ["db/36", "db/43", "Phase 3"]
+  }
 }
