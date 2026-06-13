@@ -1,6 +1,5 @@
 {
-  "buildCommand": "cd dsc-fms-portal && npm ci && npm run build",
-  "outputDirectory": "dsc-fms-portal/.next",
+  "rootDirectory": "dsc-fms-portal",
   "ignoreCommand": "git diff --quiet HEAD^ HEAD -- dsc-fms-portal",
   "env": {
     "NODE_ENV": "production"
