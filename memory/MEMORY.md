@@ -1,6 +1,10 @@
 # 메모리 인덱스
 
-## 🟢 최신 (2026-06-14 07:56 KST)
+## 🟢 최신 (2026-06-14 08:00 KST)
+
+- [📅 Deadline Monitor (08:00 KST)](../INCOMPLETE_TASKS_REGISTRY.md) — ✅ **DEADLINE SCAN COMPLETE** | 🔴 OVERDUE 0건 | ⚠️ **URGENT: Asset Master Phase 3-6 @ 2026-06-15 (16h away)** | 🟢 ON_TRACK: Phase 2 Auto Rules (6 days) | 상태 변화 없음 (안정적)
+
+## 🟢 (2026-06-14 07:56 KST)
 
 - [📊 조직도 & 업무현황 (07:56 KST)](org_status_20260614_0756.md) — **✅ SYSTEMS STABLE** | **P1 4/4 COMPLETE LIVE** | **Vercel HTTP 200 (169h+)** | 신뢰도 96% ✅ | **블로커 0건** | 팀 82% (11/11) | Cron 100% (8/8) | db/52 ✅ COMPLETED | 인프라 queue 복구 대기
 

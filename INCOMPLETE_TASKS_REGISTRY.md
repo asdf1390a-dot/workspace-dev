@@ -1,12 +1,31 @@
 ---
 name: Incomplete Tasks Registry
-description: Active incomplete work tracking (updated 2026-06-14 07:35 KST) — ✅ INCIDENT AUTO-RESOLVED | Vercel HTTP 200 | P1 4/4 COMPLETE LIVE | 신뢰도 96% | 블로커 0건 | Infrastructure queue blocker PENDING | db/52 ✅ COMPLETED
+description: Active incomplete work tracking (updated 2026-06-14 08:00 KST) — ✅ INCIDENT AUTO-RESOLVED | Vercel HTTP 200 | P1 4/4 COMPLETE LIVE | 신뢰도 96% | 블로커 0건 | ⚠️ Asset Master deadline 16h (2026-06-15) | Infrastructure queue blocker PENDING | db/52 ✅ COMPLETED
 type: project
 ---
 
-# Incomplete Tasks Registry (Last Updated: 2026-06-14 07:35 KST - INCIDENT AUTO-RESOLVED)
+# Incomplete Tasks Registry (Last Updated: 2026-06-14 08:00 KST - DEADLINE MONITOR CHECKPOINT)
 
-**Status:** ✅ **INCIDENT AUTO-RESOLVED** | P1 4/4 Code Complete (100%) | **Deployment LIVE** ✅ HTTP 200 OK (recovered 07:27) | Reliability: 96% ✅ | Blockers: 0 active (Infrastructure connection pending) | **db/52 FMS Normalization: ✅ COMPLETED (06:52:06 KST)** | **Queue Items READY: db/36, db/43, Phase 3 (awaiting infrastructure restoration)**
+**Status:** ✅ **INCIDENT AUTO-RESOLVED** | P1 4/4 Code Complete (100%) | **Deployment LIVE** ✅ HTTP 200 OK (stable 30+ min) | Reliability: 96% ✅ | Blockers: 0 active (Infrastructure connection pending) | **db/52 FMS Normalization: ✅ COMPLETED (06:52:06 KST)** | **Queue Items READY: db/36, db/43, Phase 3 (awaiting infrastructure restoration)** | **⚠️ URGENT DEADLINE: Asset Master Phase 3-6 @ 2026-06-15 (16h away)**
+
+---
+
+## 📅 Deadline Monitor Checkpoint (2026-06-14 08:00 KST)
+
+**Scan Results:** Current time 2026-06-14 08:00 KST
+
+| Item | Deadline | Status | Time Remaining | Flag |
+|------|----------|--------|-----------------|------|
+| Asset Master Phase 3-6 | 2026-06-15 00:00 | 🟡 BLOCKED_ON_TEAM | 16 hours | ⚠️ URGENT |
+| Phase 2 Auto Rules | 2026-06-20 00:00 | 🟡 IN_PROGRESS | 6 days | 🟢 ON_TRACK |
+
+**Summary:**
+- 🔴 **OVERDUE:** 0 items
+- ⚠️ **URGENT (<6h):** 0 items
+- ⚠️ **WARNING (6-24h):** Asset Master Phase 3-6 (infrastructure-dependent, all preconditions READY)
+- 🟢 **ON_TRACK (>24h):** Phase 2 Auto Rules (Day 3/7, stable operation)
+
+**State Transitions:** No changes in last 1 hour (stable conditions)
 
 ---
 
