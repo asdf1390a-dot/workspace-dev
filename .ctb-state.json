@@ -1,28 +1,6 @@
 {
-  "timestamp": "2026-06-13T08:49:41Z",
+  "timestamp": "2026-06-13T08:54:00Z",
   "progress": 100,
-  "p1_projects": {
-    "AUDIT-P1": {
-      "status": "완료",
-      "completion": "100%",
-      "commit": "0cf3c1ba"
-    },
-    "DISCORD-BOT-P1": {
-      "status": "완료",
-      "completion": "100%",
-      "commit": "585db4d5"
-    },
-    "TRAVEL-P2-UI": {
-      "status": "완료",
-      "completion": "100%",
-      "commit": "e9396c74"
-    },
-    "BM-P1": {
-      "status": "완료",
-      "completion": "100%",
-      "commit": "ecc13a9f"
-    }
-  },
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
@@ -30,10 +8,7 @@
   },
   "production": {
     "vercel": "OK",
-    "vercel_http": "200",
-    "health_check": "ok"
+    "vercel_http": "200"
   },
-  "reliability": "96%",
-  "blockers": 0,
-  "last_update_kst": "2026-06-13 17:49:41"
+  "last_update": "2026-06-13 17:54:00"
 }
