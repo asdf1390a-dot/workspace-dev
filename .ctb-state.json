@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-13T00:54:30Z",
+  "timestamp": "2026-06-13T00:59:31Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
@@ -7,17 +7,8 @@
     "phase2c": "ready"
   },
   "production": {
-    "vercel": "DEGRADED",
-    "vercel_http": "404",
-    "blocker": "CRITICAL — /assets 회귀 재발생"
+    "vercel": "OK",
+    "vercel_http": "200"
   },
-  "p1_projects": {
-    "audit-p1": "100% ✅",
-    "discord-bot-p1": "100% ✅",
-    "travel-p2-ui": "100% ✅",
-    "bm-p1": "100% ✅"
-  },
-  "reliability": "96% (블로커 1건 CRITICAL)",
-  "last_update": "2026-06-13 09:54:30",
-  "note": "Vercel /assets 404 재발생 — 5분 내 반복 패턴 확인"
+  "last_update": "2026-06-13 09:59:31"
 }
