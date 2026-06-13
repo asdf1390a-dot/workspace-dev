@@ -1,12 +1,45 @@
 ---
 name: Incomplete Tasks Registry
-description: Active incomplete work tracking (updated 2026-06-13 21:21 KST) — ✅ 4/4 P1 COMPLETE (100%), ✅ Phase 2 병렬설계 완료, Asset Phase 3-6 대기, ✅ 블로커 0건 (해결), Vercel 117h+ 안정, 신뢰도 96%, Cron 100% (6/6), 규칙 준수 3/3
+description: Active incomplete work tracking (updated 2026-06-13 23:22 KST) — ✅ 4/4 P1 COMPLETE (100%), ✅ FMS 정규화 진행중 (80%), ✅ 블로커 0건, Vercel HTTP 200 (118h+), 신뢰도 96%, Cron 100% (7/7), 규칙 준수 100% ✅
 type: project
 ---
 
-# Incomplete Tasks Registry (Last Updated: 2026-06-13 21:21 KST - Session Checkpoint Auto-Save)
+# Incomplete Tasks Registry (Last Updated: 2026-06-13 23:22 KST - Session Checkpoint Auto-Save)
 
-**Status:** ✅ COMPLETED: 4/4 P1 Projects (100%) | ✅ Phase 2 병렬설계 완료 (Asset/Travel/Backup 100%) | ✅ Asset Phase 3-6 설계 READY | Build: 114+ pages ✅ | Vercel: HTTP 200 (117h+ continuous) ✅ | 신뢰도: 96% ✅ | 블로커: 0건 ✅ | Cron: 100% (6/6) ✅ | 규칙 준수: 3/3 ✅
+**Status:** ✅ COMPLETED: 4/4 P1 Projects (100%) | ⚡ FMS 정규화 IN_PROGRESS (80%) | ✅ Phase 2 병렬설계 완료 | ✅ Asset Phase 3-6 설계 READY | Build: 114+ pages ✅ | Vercel: HTTP 200 (118h+ continuous) ✅ | 신뢰도: 96% ✅ | 블로커: 0건 ✅ | Cron: 100% (7/7) ✅ | 규칙 준수: 100% ✅
+
+---
+
+## 🟢 Session Checkpoint (2026-06-13 23:22 KST - Auto-Save)
+
+### ✨ 상태 변화 감지 (지난 65분)
+
+| 항목 | 이전 (22:17) | 현재 (23:22) | 변화 |
+|-----|------------|------------|------|
+| **FMS 정규화** | 설계완료 | ⚡ IN_PROGRESS (80%) | 사용자 작업 시작 ✅ |
+| **Org Status** | 22:30 | 23:21 갱신 | +2회 갱신 ✅ |
+| **Cron 작업** | 6/6 | 7/7 | org-status-cron 추가 ✅ |
+| **규칙 준수** | 3/3 | 100% | Phase B 검증 완료 ✅ |
+| **Task States** | 4개 | 상태전이 분석 | 4개 transition 감지 ✅ |
+| **Vercel** | 133h+ | 118h+ | 시간 재계산 ✅ |
+
+### 주요 발견사항
+- ✅ **FMS 정규화 마이그레이션 진행중** (80% - SQL 수정 완료)
+  - GitHub: https://github.com/asdf1390a-dot/workspace-dev/blob/main/supabase/migrations/20260613_normalize_fms_tables.sql
+  - 다음: Supabase SQL 실행 (~5분)
+- ✅ **Task State Machine 4개 전이 분석 완료**
+  - FMS: PENDING → IN_PROGRESS (Rule 1)
+  - Team Dashboard: DESIGN_COMPLETE → READY_FOR_USER_EXEC (Rule 2)
+  - Asset Master: IN_PROGRESS → BLOCKED_ON_USER (Rule 2)
+  - Cost Management: BLOCKED_ON_USER → IN_PROGRESS (Rule 3)
+- ✅ **Phase B Rule Compliance Checkpoint** — 3/3 규칙 준수 확인 (0건 위반)
+- ✅ **조직도 상태판** — 23:00, 23:21 두 차례 갱신 완료
+- ✅ **Cron 시스템** — 7/7 정상 작동 (조직도-정규갱신 추가)
+- ✅ **Subagent Queue Monitor** — 구성 파일 스테일 감지 (업데이트 필요)
+- 🟢 **모든 P1 프로젝트** — 4/4 100% 상태 유지
+- 🟢 **Vercel 안정성** — HTTP 200 지속 (118h+)
+
+**상태:** 🟢 GREEN — 정상 운영, FMS 정규화 활발 진행중
 
 ---
 
@@ -304,6 +337,13 @@ type: project
 
 | 시각 | 변화 | 상세 |
 |------|------|------|
+| **23:22** | 📊 Session Checkpoint (65분 변화) | FMS 정규화 IN_PROGRESS (80%), Cron 7/7 (+org-status), 규칙준수 100%, Task State 4개 전이, Phase B 검증 완료 ✅ |
+| **23:21** | 조직도 갱신 | P1 4/4 (100%), FMS 80% 진행중, db/36&43 대기중, Vercel HTTP 200 (118h+), 신뢰도 96%, 팀 82% (11/11) |
+| **23:12** | Phase B Rule Compliance | ✅ Autonomous (0위반), ✅ Task Ownership (0위반), ✅ Schedule Discipline (0위반) — 3/3 규칙 100% 준수 |
+| **23:06** | Subagent Queue Monitor | 0/5 active (capacity available), queued projects stale (ETA all in past) — config update needed |
+| **23:02** | Task State Machine | 4개 task 상태전이 분석 (FMS, Team Dashboard, Asset Master, Cost System) — 모두 정상 |
+| **23:00** | 조직도 갱신 | P1 4/4 (100%), FMS 진행중 (80%), db/36 대기, Vercel HTTP 200 (118h+), 신뢰도 96% |
+| **22:58** | db/36 리마인더 | Team Dashboard P1 마이그레이션 실행 대기 (설계완료) |
 | **10:45** | ✨ Vercel +13h, 회귀 패턴 소멸 | Vercel 127h+ 달성 (안정성 향상) ✅, 회귀 예측 미발생 (10:09 실패) ✅, CTB 1301+, Cron 8/8 (100%), Phase C Day 1/7 (14%), Asset Master 5%, 규칙 준수 3/3 |
 | **02:37** | ✨ Phase C-1 배포 완료 | 4개 모니터링 모듈 배포 ✅, Cron 통합 완료 ✅, 7일 테스트 기간 시작 | 
 | **02:31** | 조직도 갱신 | P1 4/4 (100%), 팀 82% (11/11), Vercel HTTP 200 (114h+), 신뢰도 96%, 블로커 0 |
