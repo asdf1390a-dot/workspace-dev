@@ -1,6 +1,13 @@
 {
-  "timestamp": "2026-06-13T13:12:59Z",
+  "timestamp": "2026-06-13T22:17:01Z",
+  "cycle": 1275,
   "progress": 100,
+  "p1_projects": {
+    "AUDIT-P1": "0cf3c1ba ✅",
+    "DISCORD-BOT-P1": "585db4d5 ✅",
+    "TRAVEL-P2-UI": "e9396c74 ✅",
+    "BM-P1": "ecc13a9f ✅"
+  },
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
@@ -8,7 +15,11 @@
   },
   "production": {
     "vercel": "OK",
-    "vercel_http": "200"
+    "vercel_http": "200",
+    "uptime_hours": 133
   },
-  "last_update": "2026-06-13 22:12:59"
+  "reliability": "96%",
+  "blockers": 1,
+  "blocker_detail": "db/30 사용자 대기",
+  "last_update": "2026-06-13 22:17:01"
 }
