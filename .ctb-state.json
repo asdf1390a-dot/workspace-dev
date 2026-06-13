@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-13T04:38:00Z",
+  "timestamp": "2026-06-13T05:00:02Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
@@ -10,7 +10,5 @@
     "vercel": "OK",
     "vercel_http": "200"
   },
-  "last_update": "2026-06-13 13:38:00",
-  "polling_cycle": 1324,
-  "vercel_stable_hours": 114
+  "last_update": "2026-06-13 14:00:02"
 }
