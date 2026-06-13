@@ -1,6 +1,10 @@
 # 메모리 인덱스
 
-## 🟢 최신 (2026-06-14 03:34 KST) — CTB 자동 폴링 갱신
+## 🚨 최신 CRITICAL (2026-06-14 04:01 KST) - ESCALATED TO USER
+
+- [🚨 CRITICAL INCIDENT (04:01 KST)](../memory/CTB_2026_06_14_CYCLE_FINAL_0401.json) — **P1 4/4 코드완료 (100%) 하지만 배포 BROKEN** | **Vercel HTTP 404** (46분 지속, 03:15→04:01) | 신뢰도 50% | 블로커 1건 CRITICAL | **【사용자 액션 필요】Vercel 대시보드 https://vercel.com/dashboard 에서 수동 재배포**
+
+## 🟢 이전 (2026-06-14 03:34 KST) — CTB 자동 폴링 갱신
 
 - [📊 CTB 폴링 (03:34 KST)](../memory/CTB_2026_06_14_CYCLE_0008.json) — **P1 4/4 완료 (100%)**, **Vercel HTTP 200 OK (139h+)**, 신뢰도 96%, **블로커 0건**, 시스템 안정 운영 중
 
