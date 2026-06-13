@@ -1,6 +1,14 @@
 # 메모리 인덱스
 
-## 🚨 최신 CRITICAL (2026-06-14 04:01 KST) - ESCALATED TO USER
+## 🚨 최신 CRITICAL (2026-06-14 04:30 KST) — 조직도 & 업무현황 갱신
+
+- [📊 조직도 & 업무현황 (04:30 KST)](org_status_20260614_0430.md) — 🚨 **CRITICAL Incident: Vercel HTTP 404 (75분 지속, 03:15→04:30)** | **P1 4/4 코드완료 but 배포 BROKEN** | 신뢰도 50% | 블로커 1건 CRITICAL | 팀 82% (11/11) | Cron 100% (7/7) | **【사용자 액션 필수】** https://vercel.com/dashboard
+
+## 🚨 이전 CRITICAL (2026-06-14 04:21 KST) - INCIDENT ONGOING
+
+- [🚨 CRITICAL INCIDENT UPDATE (04:21 KST)](../memory/CTB_2026_06_14_CYCLE_0421.json) — **P1 4/4 코드완료 (100%) 하지만 배포 BROKEN** | **Vercel HTTP 404** (66분 지속, 03:15→04:21) | 신뢰도 50% | 블로커 1건 CRITICAL | **【사용자 액션 필요】Vercel 대시보드에서 수동 재배포**
+
+## 🚨 이전 CRITICAL (2026-06-14 04:01 KST) - ESCALATED TO USER
 
 - [🚨 CRITICAL INCIDENT (04:01 KST)](../memory/CTB_2026_06_14_CYCLE_FINAL_0401.json) — **P1 4/4 코드완료 (100%) 하지만 배포 BROKEN** | **Vercel HTTP 404** (46분 지속, 03:15→04:01) | 신뢰도 50% | 블로커 1건 CRITICAL | **【사용자 액션 필요】Vercel 대시보드 https://vercel.com/dashboard 에서 수동 재배포**
 
