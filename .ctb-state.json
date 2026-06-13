@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-13T19:15:02Z",
+  "timestamp": "2026-06-13T19:36:00Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
@@ -7,8 +7,14 @@
     "phase2c": "ready"
   },
   "production": {
-    "vercel": "OK",
-    "vercel_http": "200"
+    "vercel": "CRITICAL_INCIDENT",
+    "vercel_http": "404"
   },
-  "last_update": "2026-06-14 04:15:02"
+  "last_update": "2026-06-14 04:36:00",
+  "critical_incident": {
+    "status": "ONGOING",
+    "duration_minutes": 81,
+    "incident_start": "2026-06-14T03:15:22+09:00",
+    "blocker": "USER_MANUAL_REDEPLOY_REQUIRED"
+  }
 }
