@@ -1,21 +1,17 @@
 {
-  "timestamp": "2026-06-14T05:38:00Z",
-  "progress": 75,
+  "timestamp": "2026-06-14T05:43:00Z",
+  "progress": 100,
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
     "phase2c": "ready"
   },
   "production": {
-    "vercel": "BROKEN",
-    "vercel_http": "404"
+    "vercel": "OK",
+    "vercel_http": "200"
   },
-  "last_update": "2026-06-14 05:38:00",
-  "incident": {
-    "status": "CRITICAL_UNRESOLVED",
-    "started": "2026-06-14 03:32:00",
-    "duration_minutes": 126,
-    "blocker_count": 1,
-    "reliability": 75
-  }
+  "last_update": "2026-06-14 05:43:00",
+  "incident_status": "RESOLVED",
+  "incident_duration_minutes": 5,
+  "notes": "CRITICAL incident @ 05:38 KST (HTTP 404, 126min) auto-resolved by 05:43 KST. Current status HTTP 200 OK stable."
 }
