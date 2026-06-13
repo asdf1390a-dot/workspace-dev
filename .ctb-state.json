@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-13T04:33:01Z",
+  "timestamp": "2026-06-13T04:38:00Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
@@ -10,6 +10,7 @@
     "vercel": "OK",
     "vercel_http": "200"
   },
-  "last_update": "2026-06-13 13:33:01",
-  "recovery_note": "Temporary 404 at 13:28 KST auto-recovered by Vercel"
+  "last_update": "2026-06-13 13:38:00",
+  "polling_cycle": 1324,
+  "vercel_stable_hours": 114
 }
