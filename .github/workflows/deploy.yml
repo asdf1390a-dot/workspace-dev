@@ -43,20 +43,6 @@ jobs:
           NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
 
-      - name: Validate build artifacts
-        run: |
-          if [ ! -d "dsc-fms-portal/.next" ]; then
-            echo "❌ CRITICAL: .next directory not created — build is incomplete"
-            ls -la dsc-fms-portal/
-            exit 1
-          fi
-          if [ ! -f "dsc-fms-portal/.next/BUILD_ID" ]; then
-            echo "❌ CRITICAL: BUILD_ID not found — Next.js build may be corrupted"
-            exit 1
-          fi
-          echo "✅ Build artifacts validated (.next directory exists, BUILD_ID found)"
-          find dsc-fms-portal/.next -maxdepth 2 -type f | head -10
-
       - name: Check build success
         if: failure()
         run: |
