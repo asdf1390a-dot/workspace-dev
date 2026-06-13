@@ -1,29 +1,25 @@
 {
-  "timestamp": "2026-06-13T12:40:00+09:00",
-  "cycle": 1313,
+  "timestamp": "2026-06-13T12:45:00Z",
+  "cycle": 1314,
   "progress": 100,
+  "p1_status": {
+    "audit_p1": "완료",
+    "discord_bot_p1": "완료",
+    "travel_p2_ui": "완료",
+    "bm_p1": "완료"
+  },
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
     "phase2c": "ready"
   },
   "production": {
-    "vercel": "regression_detected",
-    "vercel_http": "monitoring",
-    "last_http_ok": "2026-06-13T12:35:00+09:00"
+    "vercel": "OK",
+    "vercel_http": "200",
+    "uptime_hours": "131h+"
   },
-  "p1_projects": {
-    "audit_p1": "100%",
-    "discord_bot_p1": "100%",
-    "bm_p1": "100%",
-    "travel_p2_ui": "100%"
-  },
-  "compliance": {
-    "rule_checks": "5/5 PASS",
-    "reliability": "96%",
-    "blockers": 0
-  },
-  "team_utilization": "82% (11/11 active)",
-  "cron_status": "100% (6/6 running)",
-  "last_update": "2026-06-13 12:40:00+09:00"
+  "reliability": "96%",
+  "blockers": 0,
+  "team_utilization": "82%",
+  "last_update": "2026-06-13 12:45:00 KST"
 }
