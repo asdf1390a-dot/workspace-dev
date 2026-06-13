@@ -4283,3 +4283,51 @@
 [2026-06-13 21:52:02] ✓ Phase2B (PID 65628): RSS=62MB, FDs=19
 [2026-06-13 21:52:02] ✓ Phase2C (PID 65642): RSS=62MB, FDs=19
 [2026-06-13 21:52:02] ✓ All services healthy
+[2026-06-13 21:54:01] Starting Phase 2 health monitor...
+[2026-06-13 21:54:01] ✓ Phase2A (PID 65516): RSS=61MB, FDs=19
+[2026-06-13 21:54:01] ✓ Phase2B (PID 65628): RSS=62MB, FDs=19
+[2026-06-13 21:54:01] ✓ Phase2C (PID 65642): RSS=62MB, FDs=19
+[2026-06-13 21:54:01] ✓ All services healthy
+[2026-06-14 07:02:00] 🔄 Task State Machine Monitor — 2-min Cycle
+[2026-06-14 07:02:00] Checking task state transitions...
+
+Applied Rules:
+- ✅ Rule 1: PENDING → IN_PROGRESS (if work started) — NO TRIGGERS
+- ✅ Rule 2: IN_PROGRESS → BLOCKED_ON_[USER|TEAM|EXTERNAL] (if dependency detected) — TRIGGER EXTERNAL
+- ✅ Rule 3: BLOCKED_ON_USER → IN_PROGRESS (if user action detected) — NO TRIGGERS
+- ✅ Rule 4: IN_PROGRESS → COMPLETED (if work finished + verified) — NO TRIGGERS
+
+Current Task States:
+
+AUDIT-P1: ✅ COMPLETED → 🔴 BLOCKED_ON_USER (Vercel HTTP 404 ongoing)
+DISCORD-BOT-P1: ✅ COMPLETED → 🔴 BLOCKED_ON_USER (Vercel HTTP 404 ongoing)
+BM-P1: ✅ COMPLETED → 🔴 BLOCKED_ON_USER (Vercel HTTP 404 ongoing)
+TRAVEL-P2-UI: ✅ COMPLETED → 🔴 BLOCKED_ON_USER (Vercel HTTP 404 ongoing)
+
+db/52 FMS Normalization: 🟡 IN_PROGRESS → ✅ COMPLETED (06:52:06 confirmed)
+
+db/36 Team Dashboard: 🟢 PENDING (Ready to dispatch, awaiting subagent queue)
+db/43 Schema Prep: 🟢 PENDING (Ready to dispatch, awaiting subagent queue)
+Phase 3 Personal History: 🟢 PENDING (Ready to dispatch, awaiting subagent queue)
+
+External Blockers Detected:
+- Vercel HTTP 404 (50+ min ongoing) — Blocking all P1 projects
+
+Incident Status:
+- 🔴 Critical Vercel regression (started 06:12 KST)
+- 📍 User manual action required: Vercel redeploy
+- ⏳ Awaiting HTTP 200 recovery
+
+State Transitions Logged:
+- P1 4/4 projects: COMPLETED → BLOCKED_ON_USER (due to Vercel regression)
+- db/52: IN_PROGRESS → COMPLETED (successful)
+- db/36, db/43, Phase 3: PENDING (no change, awaiting dispatch)
+
+Summary:
+- Active transitions: 4 (P1 projects to BLOCKED state)
+- Completed transitions: 1 (db/52 to COMPLETED)
+- Awaiting transitions: 3 (queue items pending dispatch)
+- Blocked items: 4 (P1 projects + 3 queue items unable to dispatch)
+
+Next Monitor: 07:04 KST (2-min cycle)
+
