@@ -1,12 +1,12 @@
 ---
 name: Incomplete Tasks Registry
-description: Active incomplete work tracking (updated 2026-06-14 06:51 KST) — 🚨 CRITICAL REGRESSION CONFIRMED | Vercel HTTP 404 (39+ min ONGOING) | P1 4/4 BLOCKED | 신뢰도 CRITICAL | 블로커 1 CRITICAL | 사용자 수동 개입 필수 | db/52 실행 중
+description: Active incomplete work tracking (updated 2026-06-14 07:05 KST) — 🚨 CRITICAL REGRESSION CONFIRMED | Vercel HTTP 404 (53+ min ONGOING) | P1 4/4 BLOCKED | 신뢰도 CRITICAL | 블로커 2건 (Vercel + Infrastructure) | 사용자 수동 개입 필수 | db/52 ✅ COMPLETED
 type: project
 ---
 
 # Incomplete Tasks Registry (Last Updated: 2026-06-14 06:51 KST - CRITICAL INCIDENT ONGOING CONFIRMATION)
 
-**Status:** 🚨 **CRITICAL INCIDENT ACTIVE & CONFIRMED** | P1 4/4 Code Complete (100%) | **Deployment BLOCKED** 🔴 HTTP 404 (39+ min ongoing since 06:12) | Reliability: CRITICAL ⬇️ | Blockers: 1 CRITICAL | **【사용자 수동 개입 필수: Vercel 재배포】** | **db/52 FMS Normalization: RUNNING (elapsed 2m+)**
+**Status:** 🚨 **CRITICAL INCIDENT ACTIVE & CONFIRMED** | P1 4/4 Code Complete (100%) | **Deployment BLOCKED** 🔴 HTTP 404 (53+ min ongoing since 06:12) | Reliability: CRITICAL ⬇️ | Blockers: 2 (1 CRITICAL, 1 INFRASTRUCTURE) | **【사용자 수동 개입 필수: Vercel 재배포】** | **db/52 FMS Normalization: ✅ COMPLETED (06:52:06 KST)**
 
 ---
 
@@ -42,18 +42,21 @@ type: project
      ↓
 06:51 KST: 🔴 FRESH CTB DETECTION: HTTP 404 DEPLOYMENT_NOT_FOUND (39+ min confirmed)
      ↓
-06:52 KST: ✅ db/52 FMS NORMALIZATION COMPLETED (3min duration)
+06:52 KST: ✅ db/52 FMS NORMALIZATION COMPLETED (3min duration, spawned 06:49:08)
      ↓
-07:00 KST: 🔴 STATUS ONGOING (50+ min incident, remaining queue ready to dispatch)
+07:00 KST: 🔴 STATUS ONGOING (48+ min incident, db/36/43/Phase 3 ready to dispatch)
+     ↓
+07:05 KST: 🔴 CTB RECONFIRMATION: HTTP 404 still active (53+ min UNRESOLVED)
 ```
 
-**Incident Metrics (06:51 KST):**
+**Incident Metrics (07:05 KST - FRESH CTB CONFIRMATION):**
 - HTTP Status: 🔴 404 NOT FOUND
 - Vercel Status: 🔴 DEPLOYMENT_NOT_FOUND  
-- Duration: 39+ minutes (06:12 → 06:51)
+- Duration: 53+ minutes (06:12 → 07:05 ONGOING)
 - P1 Impact: 4/4 projects BLOCKED
 - Reliability: CRITICAL ⬇️ (96% → 25%)
 - User Action: MANUAL VERCEL REDEPLOY REQUIRED IMMEDIATELY
+- Last Verified: 07:05 KST CTB Polling (HTTP 404 confirmed)
 
 **Automation Status During Incident:**
 - ✅ CTB Polling: Actively monitoring (detects real HTTP 404)
@@ -61,7 +64,11 @@ type: project
 - 🟡 Queued Migrations: db/36, db/43, Phase 3 (awaiting db/52 completion)
 - ⚠️ .ctb-state.json: Updated with real critical status (06:51)
 
-**Next Action:** Continue db/52 execution | Monitor incident recovery | Spawn remaining queued migrations upon db/52 completion
+**Blocking Status (2 Blockers Identified):**
+1. 🔴 **CRITICAL BLOCKER:** Vercel HTTP 404 Regression — 53+ min unresolved, user manual redeploy required
+2. 🔴 **INFRASTRUCTURE BLOCKER:** Subagent queue spawn connection error (mcp__openclaw__sessions_spawn unable to connect) — db/36, db/43, Phase 3 ready to dispatch pending infrastructure restoration
+
+**Next Action:** Await user Vercel redeploy | Monitor incident recovery | Auto-spawn remaining queued migrations upon infrastructure restoration
 
 ---
 

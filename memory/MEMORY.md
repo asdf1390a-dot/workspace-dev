@@ -1,5 +1,9 @@
 # 메모리 인덱스
 
+## 🚨 **CRITICAL REGRESSION ONGOING (2026-06-14 07:05 KST — SESSION CHECKPOINT)**
+
+- [✅ Session Checkpoint (07:05 KST)](checkpoint_20260614_0705.md) — 🔴 **CRITICAL: Vercel HTTP 404 CONFIRMED (53+ min since 06:12)** | CTB 재검증 (07:05) 진행 중 | **db/52 COMPLETED ✅ (06:52:06)** | P1 4/4 BLOCKED | 신뢰도 25% | **블로커 2건** (Vercel CRITICAL + Infrastructure connection error) | **db/36, db/43, Phase 3 READY** (spawn 대기) | **【사용자 수동 개입 필수】— Vercel 대시보드 재배포 필요**
+
 ## 🚨 **CRITICAL REGRESSION ONGOING (2026-06-14 07:00 KST — 48+ min)**
 
 - [🚨 조직도 & 업무현황 (07:00 KST)](org_status_20260614_0700.md) — 🔴 **CRITICAL: Vercel HTTP 404 PERSISTING (48+ min since 06:12)** | CTB 신선감지 (06:51) 검증됨 | 모든 엔드포인트 404 | **P1 4/4 배포 BLOCKED** | 신뢰도 25% ⬇️ | **블로커 1건 CRITICAL** | **db/52 FMS Normalization RUNNING (3m+)** | **【사용자 수동 개입 필수】— Vercel 대시보드 재배포 필요** | db/36, db/43, Phase 3 queued (자동 배치 준비)
