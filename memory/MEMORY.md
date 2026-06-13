@@ -1,8 +1,14 @@
 # 메모리 인덱스
 
-## 🔴 최신 CRITICAL (2026-06-14 08:39 KST) - REGRESSION ONGOING, USER ACTION REQUIRED
+## 🔴 최신 CRITICAL (2026-06-14 08:58 KST) - REGRESSION ONGOING 35+ MIN, USER ACTION REQUIRED
 
-- [🔴 Session Checkpoint (08:39 KST)](../INCOMPLETE_TASKS_REGISTRY.md) — **🔴 CRITICAL REGRESSION UNRESOLVED (15분 지속)** | Vercel HTTP 000 (마지막 정상 08:13, 26분 전) | **신뢰도 96%→70% (26% 급락)** | **블로커 1건 CRITICAL** | P1 4/4 상태 검증 불가 (Vercel 차단) | **【사용자 액션 필수】Vercel 재배포 또는 git push** | 복구 시간: 2-3분 (Option 1,2) / 30+ min (Option 3)
+- [📊 조직도 & 업무현황 (08:58 KST)](org_status_20260614_0858.md) — **🔴 Vercel HTTP 000 (35분+ 지속, 08:24→08:58+)** | 마지막 정상: 08:13 KST (HTTP 200) | **신뢰도 96%→70% (26% 급락)** | **블로커 2건** (CRITICAL: Vercel + Infrastructure queue) | P1 4/4 배포 검증 불가 | **【사용자 액션 필수】Vercel 재배포** (대시보드 또는 git push, 2-3분) | 팀 11명 활동 (82%) | Cron 8/8 정시 (100%) | 규칙 준수 100% (7+ 일)
+
+## 🔴 이전 (2026-06-14 08:40 KST) - REGRESSION ONGOING, MANUAL ACTION REQUIRED
+
+- [🔴 Ongoing Regression (08:40 KST)](incident_regression_20260614_ongoing.md) — **Vercel HTTP 000→GitHub Pages 404 (16분 지속)** | **git push 자동재배포 실패** | **신뢰도 96%→70%** | **블로커 1건 CRITICAL** | P1 4/4 코드 100% ✅ / 배포 DOWN 🔴 | **【긴급】사용자 수동 Vercel 재배포 필수**
+
+## 🔴 이전 상태 (2026-06-14 08:39 KST)
 
 ## 🔴 (2026-06-14 08:24 KST) - NEW REGRESSION DETECTED
 
