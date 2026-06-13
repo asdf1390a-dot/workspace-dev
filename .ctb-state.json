@@ -1,34 +1,31 @@
 {
-  "timestamp": "2026-06-13T19:51:00Z",
-  "cycle_number": "2402",
-  "cycle_timestamp": "2026-06-14T04:51:00+09:00",
-  "progress": 100,
-  "status": "🔴 CRITICAL_INCIDENT_ONGOING",
-  "p1_code_completion": 100,
-  "p1_deployment_status": "🔴 BROKEN (Vercel 404)",
+  "timestamp": "2026-06-14T20:27:00Z",
+  "cycle": "0527",
+  "status": "CRITICAL_REGRESSION",
+  "progress": 75,
+  "p1_projects": {
+    "AUDIT-P1": "🟢 100% COMPLETE",
+    "DISCORD-BOT-P1": "🟢 100% COMPLETE",
+    "BM-P1": "🟢 100% COMPLETE",
+    "TRAVEL-P2-UI": "🔴 CRITICAL (Vercel 404)"
+  },
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
     "phase2c": "ready"
   },
   "production": {
-    "vercel": "🔴 FAILED",
+    "vercel": "DEGRADED",
     "vercel_http": "404",
-    "error": "DEPLOYMENT_NOT_FOUND",
-    "incident_start": "2026-06-14T03:15:22+09:00",
-    "incident_duration_minutes": "96+"
+    "deployment_status": "DEPLOYMENT_NOT_FOUND",
+    "incident_duration_min": 15,
+    "incident_start": "2026-06-14T05:12:00Z"
   },
-  "reliability": 50,
+  "reliability": 75,
   "blockers": 1,
-  "blockers_critical": 1,
-  "escalation": {
-    "escalated_to_user": true,
-    "escalation_timestamp": "2026-06-14T04:01:30+09:00",
-    "user_action_required": "Manual Vercel redeploy",
-    "action_url": "https://vercel.com/dashboard",
-    "critical_reminder_scheduled": "2026-06-14T05:01:00+09:00",
-    "minutes_until_reminder": 10
-  },
-  "last_update": "2026-06-14 04:51:00",
-  "notes": "All P1 projects code-complete but deployment blocked. Auto-recovery exhausted. Awaiting user manual intervention."
+  "blocker_details": "CRITICAL: Vercel HTTP 404 DEPLOYMENT_NOT_FOUND — TRAVEL-P2-UI 배포 손실 (회귀)",
+  "user_action_required": "YES — Vercel 대시보드에서 수동 재배포 필요",
+  "vercel_url": "https://vercel.com/dashboard",
+  "last_update": "2026-06-14 05:27:00",
+  "notes": "인시던트 패턴: 23:50(초회귀) → 04:15(복구) → 05:12(재회귀) — 근본원인 미파악"
 }
