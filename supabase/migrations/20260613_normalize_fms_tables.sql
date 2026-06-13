@@ -115,7 +115,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- 트리거 생성
-DROP TRIGGER IF NOT EXISTS fms_productivity_data_validate_plant_period ON fms_productivity_data;
+DROP TRIGGER IF EXISTS fms_productivity_data_validate_plant_period ON fms_productivity_data;
 CREATE TRIGGER fms_productivity_data_validate_plant_period
 BEFORE INSERT OR UPDATE ON fms_productivity_data
 FOR EACH ROW
