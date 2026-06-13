@@ -1,6 +1,12 @@
 {
-  "timestamp": "2026-06-13T01:50:01Z",
+  "timestamp": "2026-06-13T02:01:00Z",
   "progress": 100,
+  "p1_status": {
+    "AUDIT-P1": "100% (0cf3c1ba)",
+    "DISCORD-BOT-P1": "100% (585db4d5)",
+    "TRAVEL-P2-UI": "100% (e9396c74)",
+    "BM-P1": "100% (ecc13a9f)"
+  },
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
@@ -10,5 +16,5 @@
     "vercel": "OK",
     "vercel_http": "200"
   },
-  "last_update": "2026-06-13 10:50:01"
+  "last_update": "2026-06-13 11:01:00"
 }
