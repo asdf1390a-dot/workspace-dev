@@ -154,7 +154,7 @@ SELECT
   'fms_productivity' as system_type,
   fpd.plant,
   fpd.period,
-  fpd.id,
+  fpd.id::text,
   fpd.data,
   fpd.created_at,
   fpd.updated_at
