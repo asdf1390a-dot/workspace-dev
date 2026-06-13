@@ -1,12 +1,83 @@
 ---
 name: Incomplete Tasks Registry
-description: Active incomplete work tracking (updated 2026-06-14 08:07 KST) — ✅ INCIDENT AUTO-RESOLVED | Vercel HTTP 200 (stable 32+ min) | P1 4/4 COMPLETE LIVE | 신뢰도 96% | 블로커 0건 | ⚠️ Asset Master deadline 16h (2026-06-15) | Infrastructure queue blocker PENDING | All P1 morning blockers clear
+description: Active incomplete work tracking (updated 2026-06-14 08:24 KST - CRITICAL REGRESSION) — 🔴 NEW CRITICAL REGRESSION DETECTED | Vercel HTTP 000 (Connection Failure) | 3 consecutive curl retries FAILED | P1 projects UNVERIFIED (STALE 21h+) | 신뢰도 96%→70% ⬇️ | 블로커 1 CRITICAL | **USER ACTION REQUIRED** | Asset Master deadline 16h (2026-06-15)
 type: project
 ---
 
-# Incomplete Tasks Registry (Last Updated: 2026-06-14 08:07 KST - SESSION CHECKPOINT)
+# Incomplete Tasks Registry (Last Updated: 2026-06-14 08:24 KST - CRITICAL REGRESSION)
 
-**Status:** ✅ **INCIDENT AUTO-RESOLVED** | P1 4/4 Code Complete (100%) | **Deployment LIVE** ✅ HTTP 200 OK (stable 32+ min) | Reliability: 96% ✅ | **Blockers: 0 active (Infrastructure connection pending)** | **db/52 FMS Normalization: ✅ COMPLETED (06:52:06 KST)** | **Queue Items READY: db/36, db/43, Phase 3 (awaiting infrastructure restoration)** | **⚠️ URGENT DEADLINE: Asset Master Phase 3-6 @ 2026-06-15 (16h away)**
+**🔴 CRITICAL STATUS:** **NEW VERCEL HTTP 000 REGRESSION DETECTED @ 08:24:31 KST** | **USER ACTION REQUIRED IMMEDIATELY** | Vercel Connection Failure (Network Unreachable) | 3 consecutive curl retries all FAILED | Last Good: 08:13 KST (HTTP 200 OK, 11 min ago) | Reliability: 96%→70% ⬇️ (26% drop) | **Blockers: 1 CRITICAL** (Vercel HTTP 000 connection failure) | P1 Projects: Status UNKNOWN (verification STALE 21h+) | **Infrastructure queue blocker PENDING (separate issue)**
+
+---
+
+## 🔴 CRITICAL INCIDENT (2026-06-14 08:24 KST - NEW REGRESSION)
+
+**Incident Detection Time:** 2026-06-14 08:24:31 KST  
+**Detection Method:** CTB Polling - 3 consecutive curl retries all FAILED  
+**Previous Status:** HTTP 200 ✅ at 2026-06-14 08:13:00 KST  
+**Time Since Previous Status:** 11 minutes  
+**Time Since Previous Incident Recovery:** 67 minutes (previous incident resolved 07:27)
+
+**Incident Details:**
+- **Error Type:** Vercel HTTP 000 (Connection Failure / Network Unreachable)
+- **Severity:** CRITICAL
+- **Retry Count:** 3 (all failed)
+- **Health Status:** UNREACHABLE
+
+**Metrics Impact:**
+- Reliability: 96% → 70% (26% drop)
+- Blockers: 0 → 1 CRITICAL
+- Error Rate: 0% → 100%
+- All P1 project verification: STALE (21h+ old)
+
+**P1 Project Status (UNVERIFIED):**
+| Project | Code | Last Known Deployment | Verification | Status |
+|---------|------|----------------------|----------------|--------|
+| AUDIT-P1 | 100% (0cf3c1ba) | 2026-06-14 03:00 | STALE (21h+) | ❓ UNKNOWN |
+| DISCORD-BOT-P1 | 100% (585db4d5) | 2026-06-14 03:00 | STALE (21h+) | ❓ UNKNOWN |
+| BM-P1 | 100% (ecc13a9f) | 2026-06-14 03:00 | STALE (21h+) | ❓ UNKNOWN |
+| TRAVEL-P2-UI | 100% (e9396c74) | 2026-06-14 03:00 | STALE (21h+) | ❓ UNKNOWN |
+
+**USER ACTION REQUIRED - Choose ONE:**
+
+### Option 1: Vercel Dashboard Redeploy (Recommended - 2-3 min)
+1. Go to: https://vercel.com/nanakitk/fms-portal/deployments
+2. Review latest deployment status
+3. If FAILED: Click "Redeploy" on the most recent deployment
+4. Wait 2-3 minutes for deployment to complete
+5. Verify: `curl https://fms.dscmannur.com/assets` → expect HTTP 200
+
+### Option 2: Git Push Redeploy (2-3 min)
+1. `git push origin main` (triggers automatic Vercel redeploy)
+2. Wait 2-3 minutes for deployment
+3. Verify: `curl https://fms.dscmannur.com/assets` → expect HTTP 200
+
+### Option 3: Vercel Support (30+ min SLA)
+If neither option 1 or 2 works within 10 minutes:
+- Contact Vercel support
+- Provide incident ID: CTB_2026_06_14_0824
+- Reference time: 08:24 KST, connection failure to fms.dscmannur.com
+
+**Timeline:**
+```
+08:13:00 KST: ✅ HTTP 200 OK (last successful check)
+             ↓ (11 minutes later)
+08:24:31 KST: 🔴 CRITICAL: HTTP 000 (connection failure, 3 curl retries failed)
+             ↓
+08:29:31 KST: [Next CTB polling cycle scheduled]
+```
+
+**Automatic Recovery:** ❌ NO (requires user intervention)
+
+**Recovery Time Estimate (once user acts):**
+- Option 1 (Vercel UI): 2-3 minutes
+- Option 2 (git push): 2-3 minutes
+- Option 3 (Vercel support): 30+ minutes (SLA dependent)
+
+**Success Criteria:**
+- HTTP 200 response from fms.dscmannur.com
+- All 4 P1 projects reachable (endpoints return 200)
+- Reliability metric returns to 96%+
 
 ---
 
