@@ -1,12 +1,6 @@
 {
-  "timestamp": "2026-06-13T14:43:02Z",
+  "timestamp": "2026-06-13T15:51:00Z",
   "progress": 100,
-  "p1_projects": {
-    "AUDIT-P1": "100%",
-    "DISCORD-BOT-P1": "100%",
-    "TRAVEL-P2-UI": "100%",
-    "BM-P1": "100%"
-  },
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
@@ -14,10 +8,7 @@
   },
   "production": {
     "vercel": "OK",
-    "vercel_http": "200",
-    "uptime": "139h+"
+    "vercel_http": "200"
   },
-  "reliability": "96%",
-  "blockers": "0",
-  "last_update": "2026-06-13 23:43:02"
+  "last_update": "2026-06-14 00:51:00"
 }
