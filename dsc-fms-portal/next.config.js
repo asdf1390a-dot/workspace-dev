@@ -83,4 +83,4 @@ const nextConfig = {
 };
 
 module.exports = nextConfig;
-// Force redeploy - rebuild .next directory [2026-06-12T17:15:00Z]
+// Force redeploy - rebuild .next directory [2026-06-13T02:41:53Z] - FORCE REDEPLOY
