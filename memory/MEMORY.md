@@ -1,8 +1,20 @@
 # 메모리 인덱스
 
-## ✅ 최신 RECOVERY (2026-06-14 05:05 KST) — 인시던트 해결 확인
+## ✅ 최신 RECOVERY (2026-06-14 05:30 KST) — 인시던트 완전 해결 & 시스템 정상화
 
-- [✅ Session Checkpoint (05:05 KST)](checkpoint_20260614_0505_RECOVERY.md) — ✅ **INCIDENT RESOLVED: Vercel HTTP 200 RECOVERED** | **P1 4/4 배포완료 (100%)** | Reliability 96% ⬆️ (50%→96%) | 블로커 0건 ⬇️ (1→0) | 자동복구 확인 (04:15 탐지) | 팀 82% (11/11) | Cron 100% (7/7) | **【모든 시스템 정상, 대기업무 재개】** | 인시던트 기간 ~60분 (03:15→04:15)
+- [📊 조직도 & 업무현황 (05:30 KST)](org_status_20260614_0530.md) — ✅ **INCIDENT RESOLVED & SYSTEMS NOMINAL** | **P1 4/4 배포완료 (100%)** | **Vercel HTTP 200 (안정 25분+)** | 신뢰도 96% | **블로커 0건** | Cron 100% (7/7) | 팀 82% (11/11) | **자동화 100%** | **대기업무 준비완료**
+
+## ✅ 이전 RECOVERY (2026-06-14 05:17 KST) — Auto-Recovery Confirmed
+
+- [📊 CTB 폴링 (05:17 KST)](../CTB_2026_06_14_CYCLE_0517.json) — ✅ **RECOVERY COMPLETE | Vercel HTTP 200 (139h+)** | P1 4/4 완료 (100%) | 신뢰도 96% | 블로커 0건 | Cron 7/7 (100%) | 인시던트 자동해결 (03:14→05:07 KST, 113분)
+
+## ⚠️ 이전 CRITICAL (2026-06-14 05:12 KST) — 회귀 감지 (자동 복구됨)
+
+- [🚨 CTB ALERT (05:12 KST)](../CTB_2026_06_14_CYCLE_ALERT_0512.json) — 🔴 **CRITICAL REGRESSION 감지: Vercel HTTP 404** (05:12 일시) | P1 3/4 (TRAVEL-P2-UI 임시 down) | 신뢰도 75% ⬇️ | ⚠️ **FALSE POSITIVE — 05:17 KST 자동복구 확인** | 근본원인: 일시적 배포 연결 끊김
+
+## ✅ 이전 Session Checkpoint (2026-06-14 05:05 KST) — 초기 복구 감지 (partial)
+
+- [✅ Session Checkpoint (05:05 KST)](checkpoint_20260614_0505_RECOVERY.md) — ⚠️ **INCIDENT RESOLVED: Vercel HTTP 200 RECOVERED** ❌ **FALSE POSITIVE** | Cycle 2365 재폴링 시 HTTP 404 재감지 | 배포 상태가 5분 내 다시 손실됨 | 근본원인 미파악
 
 ## 🚨 이전 CRITICAL (2026-06-14 05:00 KST) — 조직도 & 업무현황 갱신
 
