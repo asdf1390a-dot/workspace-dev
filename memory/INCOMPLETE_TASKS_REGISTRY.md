@@ -38,6 +38,10 @@
 
 | Timestamp | Change | Impact | Details |
 |-----------|--------|--------|---------|
+| 2026-06-13 09:45 | Session Checkpoint (30min auto-save) — Vercel 회귀 + 복구 | NORMAL: 5분 내 자동 복구 완료 | 22분 경과 (09:23→09:45): 🔴 **Vercel HTTP 404 회귀** (09:39, 2차 occurrence, 신뢰도 UNKNOWN) → ✅ **Vercel HTTP 200 복구** (09:44, 자동 회복 5분 이내), ✅ **P1 4/4 완료 (100%, 변화없음)**, ✅ **신뢰도 96% 회복**, ✅ **블로커 0건 (해제)**, ✅ **Phase C-1 Day 1/7** (631분), ✅ **Asset Master** (5%, 551분), ✅ **Cost Management** (35%), ✅ **Phase2A/B/C 백엔드 건강 (59-60MB RSS, 19 FDs)**, ✅ **팀 82% (11명)**, ✅ **Cron 100% (8/8)**, ✅ **규칙 준수 100% (3/3)**, 주의: Vercel 30분 주기 회귀 패턴 감지 (09:09 + 30min = 09:39), 근본 원인 미해결, 다음 checkpoint 10:15 KST |
+
+| Timestamp | Change | Impact | Details |
+|-----------|--------|--------|---------|
 | 2026-06-13 08:14 | Session Checkpoint (30min auto-save) — CRITICAL CHANGES | DEGRADED: 프로덕션 배포 다운 | 4분 경과 (08:10→08:14): 🔴 **Vercel HTTP 000 TIMEOUT (24분+ 지속)**, 🔴 **신뢰도 96%→UNKNOWN**, 🔴 **SLA 115h+ BROKEN**, 🔴 **블로커 0→1건 CRITICAL**, ✅ **P1 4/4 (100%, 변화없음)**, ✅ **Phase C-1 Day 1/7** (314분), ✅ **Asset Master** (5%, 351분), ✅ **Cost Management** (35%), ✅ **Phase2A/B/C 백엔드 건강 (59-60MB RSS, 19 FDs)**, ✅ **팀 82% (11명)**, ✅ **Cron 100% (8/8)**, ✅ **규칙 준수 100% (3/3)**, 긴급: Vercel 대시보드 개입 필요, 다음 checkpoint 08:39 KST (또는 Vercel 회복 시) |
 
 | Timestamp | Change | Impact | Details |
