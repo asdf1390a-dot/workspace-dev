@@ -1,9 +1,22 @@
 # 메모리 인덱스
 
-✅ **20:03 KST POLLING CYCLE 1355 [2026-06-13 20:03 KST]:** CTB 자동 갱신 완료 ✅ — **P1 4/4 완료 (100%)** — **Vercel HTTP 200 (124h+ 안정)** — **신뢰도 96%** — **블로커 0건** — **규칙 준수 100% (3/3)** — **팀 82% (11/11)** — **상태: 정상 운영 중**
+✅ **22:12 KST CTB 폴링 사이클 [2026-06-13 22:12 KST]:** CTB 자동 갱신 ✅ — **P1 4/4 완료 (100%)** — **Vercel HTTP 200 (133h+ 안정)** — **신뢰도 96%** — **블로커 1건 (db/30)** — **규칙 준수 100% (3/3)** — **상태: 정상 운영 중**
 
-**Last Update:** 2026-06-13 20:03:00 KST — **✅ Polling Cycle 1355 Complete | CTB Synced | Memory Updated | Status: NORMAL OPERATIONS**
-**Last Checkpoint:** 2026-06-13 20:03 KST (✅ **정상: P1 4/4 (100%) | Vercel HTTP 200 (124h+) | 신뢰도 96% | 블로커 0건 | 팀 82% (11/11) | 규칙 준수 100% (3/3) | Status: NORMAL OPERATIONS**)
+✅ **22:00 KST CRON CYCLE 30MIN [2026-06-13 22:00 KST]:** 조직도 & 업무현황 자동 갱신 ✅ — **P1 4/4 완료 (100%)** — **Vercel HTTP 200 (130h+ 안정)** — **신뢰도 96%** — **블로커 0건** — **규칙 준수 100% (3/3)** — **팀 82% (11/11)** — **상태: 정상 운영 중**
+
+**Last Update:** 2026-06-13 22:00:00 KST — **✅ Org Status Cycle Complete | 조직도 갱신 | 메모리 인덱스 추가 | Status: NORMAL OPERATIONS**
+**Last Checkpoint:** 2026-06-13 22:00 KST (✅ **정상: P1 4/4 (100%) | Vercel HTTP 200 (130h+) | 신뢰도 96% | 블로커 0건 | 팀 82% (11/11) | 규칙 준수 100% (3/3) | 3계통 규격 100% 저장 | Status: NORMAL OPERATIONS**)
+
+## 🟢 **신규 규칙 통합 (2026-06-13 22:30 KST)**
+
+- [📋 Mannur 자재 BOM·보관위치 마스터 명세 (2026-06-13)](MANNUR_BOM_LOCATION_SPECIFICATION.md) — 2파일(HTL/MOBIS) 24시트 고정 양식, 6개 검증 룰, Canonical Keys 통합 패치 ⭐, 3시스템 연결(생산성·경비·BOM), 메인 프롬프트 5-1 RULES에 추가 완료
+- [📋 Mannur 생산성(Productivity) 모듈 명세 (2026-06-13)](MANNUR_PRODUCTIVITY_SPECIFICATION.md) — 32시트 고정 양식(7 출력+2 마스터+23 라인-CAPA), 8개 검증 룰, 월간 순환 cycle, Historical Data Lock, PPC PLAN 3시스템 허브, Canonical Keys ⭐
+- [📋 Mannur 경비(Expense) 모듈 명세 (2026-06-13)](MANNUR_EXPENSE_SPECIFICATION.md) — 20파일 고정 세트(R&M 1.x+소모품 2.1+부자재 3.x+전력 4.1), 7개 검증 룰, Asset Master 조인(DCMI), 월간 ingestion cycle, Historical Data Lock, 3시스템 통합(생산성·BOM·경비) ⭐
+- [📋 FMS 통합 분석 프롬프트 (2026-06-13)](FMS_UNIFIED_CROSSSYSTEM_PROMPT.md) — **3시스템 교차 KPI 산출** (원단위·계획정확도·발주충실도·단위원가), PPC PLAN 허브 조인, Canonical Keys 정규화, 7개 교차 검증 규칙, 이상 플래깅, 운영 프로토콜 (phase 2 이후 구현 시작 권장)
+
+## 🟢 **폴링 사이클 갱신 (2026-06-13 22:00 KST)**
+
+- [📊 조직 & 업무현황 (2026-06-13 22:00 KST)](org_status_20260613_2200.md) — **Cron 30분 주기 갱신** | **P1 4/4 완료 (100%)** | **신뢰도 96%** | **블로커 0건** | **Vercel HTTP 200 (130h+ 안정)** | **팀 82% (11/11)** | **Cron 100% (8/8)** | **규칙 준수 100% (3/3)** | **3계통 규격 저장 완료** | **상태: 정상 운영 중**
 
 ## 🟢 **폴링 사이클 1355 갱신 (2026-06-13 20:03 KST)**
 
