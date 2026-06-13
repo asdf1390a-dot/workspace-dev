@@ -5,11 +5,6 @@
   "env": {
     "NODE_ENV": "production"
   },
-  "functions": {
-    "dsc-fms-portal/.next/server/pages/**": {
-      "maxDuration": 30
-    }
-  },
   "headers": [
     {
       "source": "/assets(.*)",
