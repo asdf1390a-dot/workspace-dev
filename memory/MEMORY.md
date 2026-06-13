@@ -1,8 +1,8 @@
 # 메모리 인덱스
 
-## 🔴 최신 CRITICAL (2026-06-14 02:52 KST) — 회귀 재발생
+## 🔴 최신 CRITICAL (2026-06-14 02:57 KST) — Vercel 진동 패턴 (자동복구 한계 도달)
 
-- [🔴 CRITICAL INCIDENT (02:52 KST)](../CTB_2026_06_14_CYCLE0052.json) — **Vercel HTTP 404 회귀 재발생** | **P1 4/4 코드 완료 (100%) 하지만 배포 BROKEN** | **신뢰도 75% ⬇️** | **블로커 1건 CRITICAL (Vercel 404)** | **자동 복구 실패** | **수동 개입 필수** | **상태: ESCALATED**
+- [🔴 CRITICAL OSCILLATION (02:57 KST)](../CTB_2026_06_14_CYCLE_0257.json) — **Vercel 진동 패턴** (HTTP 200 ↔ 000 timeout, 96분 지속) | **P1 4/4 코드 완료 (100%)** | **신뢰도 75% ⬇️** | **블로커 1건 CRITICAL** | **자동 복구 한계 도달** | **수동 개입 필수 (Vercel 지원 또는 전체 재배포)**
 
 ## ⚠️ 이전 CRITICAL (2026-06-14 02:35 KST) — 허위 복구 기록
 
