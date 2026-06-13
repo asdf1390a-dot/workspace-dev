@@ -13,7 +13,8 @@ ADD COLUMN IF NOT EXISTS period TEXT DEFAULT NULL;
 -- RLS 정책 적용 (plant 기반 필터링)
 ALTER TABLE fms_productivity_data ENABLE ROW LEVEL SECURITY;
 
-CREATE POLICY IF NOT EXISTS "fms_productivity_data_plant_filter"
+DROP POLICY IF EXISTS "fms_productivity_data_plant_filter" ON fms_productivity_data;
+CREATE POLICY "fms_productivity_data_plant_filter"
 ON fms_productivity_data
 FOR SELECT
 USING (
@@ -30,7 +31,8 @@ ADD COLUMN IF NOT EXISTS plant TEXT DEFAULT 'Mannur';
 
 ALTER TABLE expense_ledgers ENABLE ROW LEVEL SECURITY;
 
-CREATE POLICY IF NOT EXISTS "expense_ledgers_plant_filter"
+DROP POLICY IF EXISTS "expense_ledgers_plant_filter" ON expense_ledgers;
+CREATE POLICY "expense_ledgers_plant_filter"
 ON expense_ledgers
 FOR SELECT
 USING (
@@ -64,7 +66,11 @@ BEGIN
     ', table_name);
 
     EXECUTE format('
-      CREATE POLICY IF NOT EXISTS %I
+      DROP POLICY IF EXISTS %I ON %I
+    ', 'expense_ledgers_' || table_name || '_plant_filter', table_name);
+
+    EXECUTE format('
+      CREATE POLICY %I
       ON %I
       FOR SELECT
       USING (
