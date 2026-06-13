@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-13T04:28:00Z",
+  "timestamp": "2026-06-13T04:33:01Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
@@ -7,11 +7,9 @@
     "phase2c": "ready"
   },
   "production": {
-    "vercel": "DEPLOYMENT_NOT_FOUND",
-    "vercel_http": "404",
-    "status_change": "CRITICAL — deployment lost",
-    "last_ok": "2026-06-13 13:23:00"
+    "vercel": "OK",
+    "vercel_http": "200"
   },
-  "last_update": "2026-06-13 13:28:00",
-  "alert": "URGENT — Vercel deployment status changed from HTTP 200 to DEPLOYMENT_NOT_FOUND within 5 minutes. Service unavailable."
+  "last_update": "2026-06-13 13:33:01",
+  "recovery_note": "Temporary 404 at 13:28 KST auto-recovered by Vercel"
 }
