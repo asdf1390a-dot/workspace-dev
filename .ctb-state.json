@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-13T03:05:30Z",
+  "timestamp": "2026-06-13T03:15:00Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
@@ -10,13 +10,5 @@
     "vercel": "OK",
     "vercel_http": "200"
   },
-  "last_update": "2026-06-13 12:05:30",
-  "p1_projects": {
-    "audit_p1": "0cf3c1ba",
-    "discord_bot_p1": "585db4d5",
-    "travel_p2_ui": "e9396c74",
-    "bm_p1": "ecc13a9f"
-  },
-  "reliability": "96%",
-  "blockers": 0
+  "last_update": "2026-06-13 12:15:00"
 }
