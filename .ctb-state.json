@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-13T07:04:29Z",
+  "timestamp": "2026-06-13T07:15:02Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
@@ -7,10 +7,8 @@
     "phase2c": "ready"
   },
   "production": {
-    "vercel": "CRITICAL",
-    "vercel_http": "404",
-    "error": "DEPLOYMENT_NOT_FOUND",
-    "status": "배포 실패 — 긴급"
+    "vercel": "OK",
+    "vercel_http": "200"
   },
-  "last_update": "2026-06-13 16:04:29"
+  "last_update": "2026-06-13 16:15:02"
 }
