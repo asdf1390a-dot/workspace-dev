@@ -1,6 +1,30 @@
 {
-  "timestamp": "2026-06-13T03:15:00Z",
+  "timestamp": "2026-06-13T03:25:01Z",
+  "cycle": 1311,
+  "cycle_time": "2026-06-13 12:25 KST",
   "progress": 100,
+  "p1_projects": {
+    "AUDIT-P1": {
+      "commit": "0cf3c1ba",
+      "status": "completed",
+      "completion": 100
+    },
+    "DISCORD-BOT-P1": {
+      "commit": "585db4d5",
+      "status": "completed",
+      "completion": 100
+    },
+    "TRAVEL-P2-UI": {
+      "commit": "e9396c74",
+      "status": "completed",
+      "completion": 100
+    },
+    "BM-P1": {
+      "commit": "ecc13a9f",
+      "status": "completed",
+      "completion": 100
+    }
+  },
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
@@ -8,7 +32,23 @@
   },
   "production": {
     "vercel": "OK",
-    "vercel_http": "200"
+    "vercel_http": "200",
+    "stability_hours": "130+"
   },
-  "last_update": "2026-06-13 12:15:00"
+  "team_utilization": {
+    "total": 11,
+    "active": 9,
+    "utilization_percent": 82
+  },
+  "reliability": 96,
+  "blockers": 0,
+  "state_changes": 0,
+  "cron_success": 8,
+  "rule_compliance": {
+    "autonomous": "pass",
+    "task_ownership": "pass",
+    "schedule_discipline": "pass"
+  },
+  "last_update": "2026-06-13 12:25:01",
+  "status": "stable"
 }
