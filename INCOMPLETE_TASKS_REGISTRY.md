@@ -1,16 +1,54 @@
 ---
 name: Incomplete Tasks Registry
-description: Active incomplete work tracking (updated 2026-06-13 23:22 KST) — ✅ 4/4 P1 COMPLETE (100%), ✅ FMS 정규화 진행중 (80%), ✅ 블로커 0건, Vercel HTTP 200 (118h+), 신뢰도 96%, Cron 100% (7/7), 규칙 준수 100% ✅
+description: Active incomplete work tracking (updated 2026-06-13 23:52 KST) — 🚨 VERCEL HTTP 404 회귀 감지 (23:50), P1 3/4 정상 + TRAVEL-P2-UI 손상, 신뢰도 92%, 블로커 1건 | FMS 정규화 준비완료 (db/52), Cron 100% (7/7)
 type: project
 ---
 
-# Incomplete Tasks Registry (Last Updated: 2026-06-13 23:22 KST - Session Checkpoint Auto-Save)
+# Incomplete Tasks Registry (Last Updated: 2026-06-13 23:52 KST - Session Checkpoint Auto-Save)
 
-**Status:** ✅ COMPLETED: 4/4 P1 Projects (100%) | ⚡ FMS 정규화 IN_PROGRESS (80%) | ✅ Phase 2 병렬설계 완료 | ✅ Asset Phase 3-6 설계 READY | Build: 114+ pages ✅ | Vercel: HTTP 200 (118h+ continuous) ✅ | 신뢰도: 96% ✅ | 블로커: 0건 ✅ | Cron: 100% (7/7) ✅ | 규칙 준수: 100% ✅
+**Status:** 🚨 CRITICAL INCIDENT DETECTED (23:50 KST) | P1 3/4 정상 (AUDIT ✅ / DISCORD-BOT ✅ / BM ✅) + TRAVEL-P2-UI 손상 (/assets HTTP 404) | 신뢰도: 92% ↓ | 블로커: 1건 (TRAVEL-P2-UI 배포) | FMS 정규화: 준비완료 (db/52 즉시실행) | Cron: 100% (7/7) ✅ | 규칙 준수: 100% ✅
 
 ---
 
-## 🟢 Session Checkpoint (2026-06-13 23:22 KST - Auto-Save)
+## 🚨 Session Checkpoint (2026-06-13 23:52 KST - CRITICAL INCIDENT)
+
+### 🔴 CRITICAL STATUS CHANGE (지난 30분)
+
+| 항목 | 이전 (23:30) | 현재 (23:52) | 변화 |
+|------|------------|------------|------|
+| **P1 프로젝트** | ✅ 4/4 완료 (100%) | ⚠️ 3/4 정상 + 1 손상 | TRAVEL-P2-UI 회귀 🔴 |
+| **Vercel 상태** | 🟢 HTTP 200 | 🔴 HTTP 404 (/assets) | **REGRESSION 감지** |
+| **신뢰도** | 96% | 92% | ↓ -4% |
+| **블로커** | 0건 | 1건 | TRAVEL-P2-UI |
+| **FMS 정규화** | 진행중 (80%) | ✅ 준비완료 | ⬆️ UNION 타입 수정 |
+| **배포 안정성** | 139h+ 지속 | 139h+ 중단 | 🔴 Deployment failure |
+
+### 🔴 Incident Details (23:50 KST)
+
+**Incident:** TRAVEL-P2-UI `/assets` Route HTTP 404 Regression
+- **Detected:** 2026-06-13 23:50:00 KST
+- **Previous Status:** HTTP 200 (healthy at 23:30)
+- **Time Since Healthy:** 20 minutes ago
+- **Affected Component:** `/assets` route handler
+- **Severity:** HIGH (P1 project impacted)
+- **Probable Cause:** Route handler or layout file deletion/misconfiguration
+- **Status:** INVESTIGATION REQUIRED IMMEDIATELY
+
+**Project Impact:**
+- ✅ AUDIT-P1: Complete, all routes operational (NO CHANGE)
+- ✅ DISCORD-BOT-P1: Complete, all processors active (NO CHANGE)
+- ✅ BM-P1: Complete, schema operational (NO CHANGE)
+- ⚠️ TRAVEL-P2-UI: **DEGRADED** — `/assets` returns 404, codebase complete (Days 1-13)
+
+**System Health:**
+- Build Status: ✅ Passing (115 pages compiled)
+- Phase 2 Services: ✅ 3/3 running (ports 3009/3010/3011)
+- Local Infrastructure: ✅ All OK
+- Production Deployment: 🔴 DEGRADED (Vercel /assets route)
+
+---
+
+## 🟢 Session Checkpoint (2026-06-13 23:30 KST - Organization Status Update)
 
 ### ✨ 상태 변화 감지 (지난 65분)
 
