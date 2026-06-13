@@ -2,6 +2,7 @@ import { Suspense } from 'react';
 import AssetsContent from './assets-content';
 
 export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 export const metadata = {
   title: 'Assets',
   description: 'Asset Master',
