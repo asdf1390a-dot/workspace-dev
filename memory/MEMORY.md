@@ -1,6 +1,10 @@
 # 메모리 인덱스
 
-## 🚨 최신 CRITICAL (2026-06-14 04:30 KST) — 조직도 & 업무현황 갱신
+## 🚨 최신 CRITICAL (2026-06-14 05:00 KST) — 조직도 & 업무현황 갱신
+
+- [📊 조직도 & 업무현황 (05:00 KST)](org_status_20260614_0500.md) — 🚨 **CRITICAL Incident PERSISTENT: Vercel HTTP 404 (97분+ 지속, 03:15→05:00)** | **P1 4/4 코드완료 but 배포 BROKEN** | NO CHANGES (55min 안정) | 신뢰도 50% | 블로커 1건 CRITICAL | 팀 82% (11/11) | Cron 100% (7/7) | **【사용자 액션 필수】** https://vercel.com/dashboard
+
+## 🚨 이전 CRITICAL (2026-06-14 04:30 KST) — 조직도 & 업무현황 갱신
 
 - [📊 조직도 & 업무현황 (04:30 KST)](org_status_20260614_0430.md) — 🚨 **CRITICAL Incident: Vercel HTTP 404 (75분 지속, 03:15→04:30)** | **P1 4/4 코드완료 but 배포 BROKEN** | 신뢰도 50% | 블로커 1건 CRITICAL | 팀 82% (11/11) | Cron 100% (7/7) | **【사용자 액션 필수】** https://vercel.com/dashboard
 
