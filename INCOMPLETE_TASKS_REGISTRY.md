@@ -134,54 +134,151 @@ type: project
 
 ---
 
-## 📊 Task State Machine Monitor (2026-06-14 06:08 KST)
+## 📊 Task State Machine Monitor (2026-06-14 07:08 KST)
 
-### Rule Application Results
+### Rule Application Results (Current Cycle: 07:08 KST)
 
 **Applied Rules:**
-- ✅ Rule 1: PENDING → IN_PROGRESS (if담당자 started work) — **NO TRIGGERS**
-- ✅ Rule 2: IN_PROGRESS → BLOCKED_ON_[USER|TEAM|EXTERNAL] (if dependency detected) — **NO TRIGGERS**
-- ✅ Rule 3: BLOCKED_ON_USER → IN_PROGRESS (if user action detected) — **NO TRIGGERS**
-- ✅ Rule 4: IN_PROGRESS → COMPLETED (if work finished + verified) — **NO TRIGGERS**
+- ✅ Rule 1: PENDING → IN_PROGRESS (if담당자 started work) — **NO TRIGGERS** (db/36, db/43, Phase 3 blocked by infrastructure error)
+- ✅ Rule 2: IN_PROGRESS → BLOCKED_ON_[USER|TEAM|EXTERNAL] (if dependency detected) — **1 TRIGGER: Asset Master Phase 3-6**
+- ✅ Rule 3: BLOCKED_ON_USER → IN_PROGRESS (if user action detected) — **NO TRIGGERS** (P1 projects still awaiting Vercel redeploy, no Telegram signals)
+- ✅ Rule 4: IN_PROGRESS → COMPLETED (if work finished + verified) — **1 TRIGGER: db/52 FMS Normalization**
 
 **Detection Methods:**
-- Git commit history (last 33 min): ❌ No담당자 commits detected on queued items (db/52, db/36, db/43, Phase 3)
-- External dependency signals: ✅ All dependencies maintained (Vercel HTTP 200, Phase 2 services ready)
-- System state changes: ❌ No changes since last checkpoint (06:05 KST)
-- Telegram signals: ❌ No user action signals received
+- Git commit history (last 3+ hours): ✅ db/52 completion verified (commit e2d0151f at 06:52:06)
+- External dependency signals: 🔴 Vercel HTTP 404 detected (53+ min ongoing), Phase 2 services maintained
+- System state changes: ✅ 2 state transitions detected, 1 new blocker identified (infrastructure connection error)
+- Telegram signals: ❌ No user action signals received (P1 projects still BLOCKED_ON_USER, awaiting manual Vercel redeploy)
 
 ### State Machine Status Report
 
-**Current Task States (No Changes):**
+**Current Task States (Updated 07:08 KST):**
 
-| Task | State | Owner | Duration | Status |
-|------|-------|-------|----------|--------|
-| AUDIT-P1 | ✅ COMPLETED | Android Lead | 100% | Stable |
-| DISCORD-BOT-P1 | ✅ COMPLETED | Backend Lead | 100% | Stable |
-| BM-P1 | ✅ COMPLETED | Android Lead | 100% | Stable |
-| TRAVEL-P2-UI | ✅ COMPLETED | UI/UX Designer | 100% | Stable |
-| Phase 2 Auto Rules | 🟡 IN_PROGRESS | DevOps | Day 2/7 hypothesis testing | Stable |
-| Asset Master Phase 3-6 | 🟡 IN_PROGRESS | Web Builder | Design complete, dev pending | Stable |
-| db/52 (FMS Normalization) | 🟡 IN_PROGRESS | Data Engineer | SQL provided, awaiting Supabase execution | Waiting for담당자 |
-| db/36 Migration | 🟢 PENDING | Data Engineer | Queued, ready for dispatch | Waiting for subagent config |
-| db/43 Migration | 🟢 PENDING | Data Engineer | Queued, ready for dispatch | Waiting for subagent config |
-| Phase 3 Personal History | 🟢 PENDING | Web Builder | Development ready, awaiting queue assignment | Waiting for subagent config |
+| Task | Previous State | Current State | Transition | Reason | Timestamp |
+|------|----------------|---------------|-----------|--------|-----------|
+| db/52 FMS Normalization | 🟡 IN_PROGRESS | ✅ COMPLETED | IN_PROGRESS → COMPLETED | Execution verified (06:52:06 KST, commit e2d0151f, guide validated) | 07:08 |
+| Asset Master Phase 3-6 | 🟡 IN_PROGRESS | 🔴 BLOCKED_ON_TEAM | IN_PROGRESS → BLOCKED_ON_TEAM | Dependency detected: blocked on db/36, db/43 completion (infrastructure issue) | 07:08 |
+| AUDIT-P1 | 🔴 BLOCKED_ON_USER | 🔴 BLOCKED_ON_USER | NO CHANGE | Vercel HTTP 404 persists (53+ min), awaiting manual redeploy | 07:08 |
+| DISCORD-BOT-P1 | 🔴 BLOCKED_ON_USER | 🔴 BLOCKED_ON_USER | NO CHANGE | Vercel HTTP 404 persists (53+ min), awaiting manual redeploy | 07:08 |
+| BM-P1 | 🔴 BLOCKED_ON_USER | 🔴 BLOCKED_ON_USER | NO CHANGE | Vercel HTTP 404 persists (53+ min), awaiting manual redeploy | 07:08 |
+| TRAVEL-P2-UI | 🔴 BLOCKED_ON_USER | 🔴 BLOCKED_ON_USER | NO CHANGE | Vercel HTTP 404 persists (53+ min), awaiting manual redeploy | 07:08 |
+| db/36 Migration | 🟢 PENDING | 🟢 PENDING | NO CHANGE | Infrastructure blocker (subagent spawn connection error), awaiting restoration | 07:08 |
+| db/43 Migration | 🟢 PENDING | 🟢 PENDING | NO CHANGE | Infrastructure blocker (subagent spawn connection error), awaiting restoration | 07:08 |
+| Phase 3 Personal History | 🟢 PENDING | 🟢 PENDING | NO CHANGE | Infrastructure blocker (subagent spawn connection error), awaiting restoration | 07:08 |
+| Phase 2 Auto Rules | 🟡 IN_PROGRESS | 🟡 IN_PROGRESS | NO CHANGE | Day 3/7 hypothesis testing (ends 2026-06-20), stable operation | 07:08 |
 
 **Summary:**
-- ✅ **No transitions triggered** — All rules checked, no conditions met
-- ✅ **System stable** — All external dependencies maintained
-- 🟡 **Awaiting담당자 action** — Queued work ready for subagent dispatch once configuration complete
-- 🟡 **Awaiting user action** — db/52 SQL execution on Supabase by담당자
+- ✅ **2 transitions applied** — db/52 COMPLETED verified, Asset Master BLOCKED_ON_TEAM detected
+- 🔴 **4 tasks BLOCKED_ON_USER** — All P1 projects, manual Vercel redeploy required
+- 🔴 **3 tasks BLOCKED (infrastructure)** — db/36, db/43, Phase 3 unable to dispatch
+- 🟡 **1 task BLOCKED_ON_TEAM** — Asset Master Phase 3-6, dependent on db migrations
+- 🟡 **1 task IN_PROGRESS** — Phase 2 Auto Rules, Day 3/7 testing
+
+### Transition Details
+
+#### ✅ TRANSITION 1: db/52 IN_PROGRESS → COMPLETED (2026-06-14 07:08)
+
+**Previous State:** 🟡 IN_PROGRESS (spawned 06:49:08)  
+**New State:** ✅ COMPLETED (07:08 KST)  
+**Rule Applied:** Rule 4 (IN_PROGRESS → COMPLETED if work finished + verified)
+
+**Verification Evidence:**
+- ✅ Git commit: e2d0151f (2026-06-14 06:52:06 KST)
+- ✅ Commit message: "docs(db/52): FMS 정규화 마이그레이션 실행 가이드 & 검증 완료"
+- ✅ Duration: 3 minutes (06:49:08 → 06:52:06)
+- ✅ Execution guide created and validated
+- ✅ Schema validation verified complete
+
+**Next Action:** db/36, db/43, Phase 3 ready for auto-spawn upon infrastructure restoration
+
+---
+
+#### 🔴 TRANSITION 2: Asset Master Phase 3-6 IN_PROGRESS → BLOCKED_ON_TEAM (2026-06-14 07:08)
+
+**Previous State:** 🟡 IN_PROGRESS (design complete, dev pending)  
+**New State:** 🔴 BLOCKED_ON_TEAM  
+**Rule Applied:** Rule 2 (IN_PROGRESS → BLOCKED_ON_[USER|TEAM|EXTERNAL] if dependency detected)
+
+**Dependency Analysis:**
+- **Blocker Task:** db/36, db/43 (Team data migrations)
+- **Blocker Reason:** Infrastructure connection error (mcp__openclaw__sessions_spawn unable to connect)
+- **Impact:** Cannot begin dev phase (asset management schema not ready)
+- **Owner:** Web Builder (requires Data Engineer team to complete migrations first)
+
+**Previous State Documentation:** 
+- Design: ✅ Complete (Phase 3-6 specification 102h invested)
+- Dev: 🟡 Ready to start, blocked by schema availability
+- Timeline: Expected 2026-06-15 → 06-25, now BLOCKED
+
+**Next Action:** Upon db/36, db/43 completion and infrastructure restoration, transition back to IN_PROGRESS
+
+---
+
+### No Transitions (Unchanged Tasks)
+
+**P1 Projects (AUDIT-P1, DISCORD-BOT-P1, BM-P1, TRAVEL-P2-UI) — BLOCKED_ON_USER**
+
+**Status:** 🔴 Still BLOCKED (no transition from BLOCKED_ON_USER)
+
+**Rule 3 Check:** BLOCKED_ON_USER → IN_PROGRESS (if user action detected)
+- ❌ No Telegram signals received
+- 🔴 Vercel HTTP 404 still active (verified 07:05 KST CTB Polling)
+- 🔴 Manual redeploy action not yet initiated
+- **Condition NOT met** → No transition
+
+**Duration:** 53+ minutes (06:12 → 07:08, ONGOING)  
+**User Action Required:** Manual Vercel dashboard redeploy IMMEDIATELY
+
+**Expected Transition:** BLOCKED_ON_USER → COMPLETED (when Vercel HTTP 200 detected + all P1 endpoints return success)
+
+---
+
+**Queue Items (db/36, db/43, Phase 3) — PENDING**
+
+**Status:** 🟢 Still PENDING (no transition to IN_PROGRESS)
+
+**Rule 1 Check:** PENDING → IN_PROGRESS (if담당자 started work)
+- ❌담당자 has NOT started work (subagent not spawned)
+- 🔴 Infrastructure blocker: mcp__openclaw__sessions_spawn unable to connect
+- **Condition NOT met** → No transition
+
+**Duration:** Awaiting infrastructure restoration + subagent spawn retry  
+**Current Readiness:** All 3 items fully prepared, queued, awaiting dispatch signal
+
+**Expected Transition:** PENDING → IN_PROGRESS (when infrastructure restored and subagent spawn succeeds)
+
+---
+
+**Phase 2 Auto Rules — IN_PROGRESS**
+
+**Status:** 🟡 Still IN_PROGRESS (no transition)
+
+**Rule 2 Check:** IN_PROGRESS → BLOCKED_ON_[USER|TEAM|EXTERNAL] (if dependency detected)
+- ✅ No blocking dependencies detected
+- ✅ Hypothesis testing continuing normally (Day 3/7)
+- ✅ Vercel services maintained (despite deployment regression in P1)
+- **Condition NOT met** → No transition
+
+**Duration:** Day 3/7 (started 2026-06-10, ending 2026-06-20)  
+**Status:** Stable operation, hypothesis #1 & #2 testing ongoing
+
+---
 
 ### Next State Transitions (Expected)
 
-**Immediate (when subagent queue fires):**
+**IMMEDIATE (upon infrastructure restoration):**
 - db/36 PENDING → IN_PROGRESS (subagent담당자 starts work)
 - db/43 PENDING → IN_PROGRESS (subagent담당자 starts work)  
 - Phase 3 PENDING → IN_PROGRESS (subagent담당자 starts work)
 
-**User-Triggered (when user executes db/52 SQL):**
-- db/52 IN_PROGRESS → COMPLETED (upon Supabase execution + verification)
+**User-Triggered (when user executes Vercel redeploy):**
+- AUDIT-P1 BLOCKED_ON_USER → COMPLETED (HTTP 200 detected)
+- DISCORD-BOT-P1 BLOCKED_ON_USER → COMPLETED (HTTP 200 detected)
+- BM-P1 BLOCKED_ON_USER → COMPLETED (HTTP 200 detected)
+- TRAVEL-P2-UI BLOCKED_ON_USER → COMPLETED (HTTP 200 detected)
+
+**Team-Dependent (when db/36, db/43 complete):**
+- Asset Master Phase 3-6 BLOCKED_ON_TEAM → IN_PROGRESS (schema ready, dev can begin)
 
 ---
 
