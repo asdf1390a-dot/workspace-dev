@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-12T23:55:02Z",
+  "timestamp": "2026-06-13T00:14:07Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
@@ -7,8 +7,36 @@
     "phase2c": "ready"
   },
   "production": {
-    "vercel": "OK",
-    "vercel_http": "200"
+    "vercel": "CRITICAL",
+    "vercel_http": "000",
+    "vercel_timeout": "84min+",
+    "incident_start": "2026-06-13 08:50 KST"
   },
-  "last_update": "2026-06-13 08:55:02"
+  "p1_projects": {
+    "AUDIT-P1": {
+      "commit": "0cf3c1ba",
+      "status": "100%",
+      "completion": true
+    },
+    "DISCORD-BOT-P1": {
+      "commit": "585db4d5",
+      "status": "100%",
+      "completion": true
+    },
+    "TRAVEL-P2-UI": {
+      "commit": "e9396c74",
+      "status": "100%",
+      "completion": true
+    },
+    "BM-P1": {
+      "commit": "ecc13a9f",
+      "status": "100%",
+      "completion": true
+    }
+  },
+  "reliability": "UNKNOWN",
+  "blockers": 1,
+  "blocker_type": "CRITICAL_DEPLOYMENT",
+  "last_update": "2026-06-13 09:14:07",
+  "action_required": "User manual Vercel redeploy or restart required"
 }
