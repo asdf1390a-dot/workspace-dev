@@ -84,3 +84,5 @@ const nextConfig = {
 
 module.exports = nextConfig;
 // Force redeploy - rebuild .next directory [2026-06-13T02:41:53Z] - FORCE REDEPLOY
+
+// Vercel deployment fix: rootDirectory consistency [$(date -u +%Y-%m-%dT%H:%M:%SZ)]
