@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-13T06:10:01Z",
+  "timestamp": "2026-06-13T06:23:45Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
@@ -10,5 +10,14 @@
     "vercel": "OK",
     "vercel_http": "200"
   },
-  "last_update": "2026-06-13 15:10:01"
+  "last_update": "2026-06-13 15:23:45",
+  "p1_projects": {
+    "audit_p1": "100% (0cf3c1ba)",
+    "discord_bot_p1": "100% (585db4d5)",
+    "bm_p1": "100% (ecc13a9f)",
+    "travel_p2_ui": "100% (e9396c74)"
+  },
+  "stability": "121h+ (Vercel HTTP 200)",
+  "reliability": "96%",
+  "blockers": "0건"
 }
