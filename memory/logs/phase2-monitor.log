@@ -1843,3 +1843,13 @@
 [2026-06-13 05:36:01] ✓ Phase2B (PID 65628): RSS=61MB, FDs=19
 [2026-06-13 05:36:01] ✓ Phase2C (PID 65642): RSS=62MB, FDs=19
 [2026-06-13 05:36:01] ✓ All services healthy
+[2026-06-13 05:38:01] Starting Phase 2 health monitor...
+[2026-06-13 05:38:01] ✓ Phase2A (PID 65516): RSS=61MB, FDs=19
+[2026-06-13 05:38:01] ✓ Phase2B (PID 65628): RSS=61MB, FDs=19
+[2026-06-13 05:38:01] ✓ Phase2C (PID 65642): RSS=62MB, FDs=19
+[2026-06-13 05:38:01] ✓ All services healthy
+[2026-06-13 05:40:01] Starting Phase 2 health monitor...
+[2026-06-13 05:40:01] ✓ Phase2A (PID 65516): RSS=60MB, FDs=19
+[2026-06-13 05:40:01] ✓ Phase2B (PID 65628): RSS=61MB, FDs=19
+[2026-06-13 05:40:01] ✓ Phase2C (PID 65642): RSS=62MB, FDs=19
+[2026-06-13 05:40:01] ✓ All services healthy
