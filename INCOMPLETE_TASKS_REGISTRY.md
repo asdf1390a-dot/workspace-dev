@@ -1,12 +1,73 @@
 ---
 name: Incomplete Tasks Registry
-description: Active incomplete work tracking (updated 2026-06-14 02:35 KST) — ✅ Vercel 배포 자동복구 (71분 CRITICAL 해결), ✅ P1 4/4 완료 (100%), 신뢰도 96%, 블로커 0건, Cron 100% (7/7), 규칙준수 100% | 다음: FMS 정규화 (db/52) 즉시 실행
+description: Active incomplete work tracking (updated 2026-06-14 04:08 KST) — 🚨 NEW CRITICAL INCIDENT 03:15→04:05 KST (46min Vercel HTTP 404), P1 4/4 코드완료 but 배포 BROKEN, 신뢰도 50%, 블로커 1건 CRITICAL, 【사용자 수동개입 필수】| 이전 복구: 02:35 KST ✅
 type: project
 ---
 
-# Incomplete Tasks Registry (Last Updated: 2026-06-14 02:35 KST - RECOVERY COMPLETE)
+# Incomplete Tasks Registry (Last Updated: 2026-06-14 04:08 KST - NEW CRITICAL INCIDENT)
 
-**Status:** ✅ **RECOVERED — Vercel Deployment Auto-Resolved** | P1 4/4 완료 (100%) | 신뢰도: 96% ✅ | 블로커: 0건 | Vercel: ✅ HTTP 200 | FMS 정규화: ✅ 준비완료 (db/52) | Cron: 100% (7/7) ✅ | 규칙 준수: 100% ✅ | **다음: FMS 정규화 (db/52) 즉시 실행 준비**
+**Status:** 🚨 **NEW CRITICAL INCIDENT — Vercel HTTP 404 (46min+, 03:15→04:05 KST)** | P1 4/4 Code Complete (100%) | **Deployment BROKEN** 🔴 | Reliability: 50% | Blockers: 1 CRITICAL | **【User Manual Intervention Required】** | **Previous recovery: 02:35 KST** ✅ | Task State: **BLOCKED_ON_USER** (Vercel manual redeploy)
+
+---
+
+## 🚨 Session Checkpoint (2026-06-14 04:08 KST - CRITICAL INCIDENT MONITORING)
+
+### 🚨 NEW CRITICAL INCIDENT DETECTED (04:05 KST)
+
+**State Transition Detected:**
+```
+02:35 KST: ✅ COMPLETED (recovery successful)
+     ↓
+04:05 KST: 🔴 BLOCKED_ON_USER (new incident triggered)
+     ↓
+04:08 KST: STATE MACHINE MONITORING ACTIVE
+```
+
+**Task State Changes:**
+
+| Task | Previous State (02:35) | Current State (04:05) | Transition | Severity |
+|------|------------------------|----------------------|-----------|----------|
+| AUDIT-P1 | ✅ COMPLETED | 🔴 BLOCKED_ON_USER | COMPLETED → BLOCKED_ON_USER | CRITICAL |
+| DISCORD-BOT-P1 | ✅ COMPLETED | 🔴 BLOCKED_ON_USER | COMPLETED → BLOCKED_ON_USER | CRITICAL |
+| BM-P1 | ✅ COMPLETED | 🔴 BLOCKED_ON_USER | COMPLETED → BLOCKED_ON_USER | CRITICAL |
+| TRAVEL-P2-UI | ✅ COMPLETED | 🔴 BLOCKED_ON_USER | COMPLETED → BLOCKED_ON_USER | CRITICAL |
+
+**Reason for State Transition:**
+- **Dependency:** Vercel deployment pipeline failure (HTTP 404 DEPLOYMENT_NOT_FOUND)
+- **Blocker Type:** External (Vercel infrastructure issue)
+- **Duration:** 46 minutes (03:15→04:05 KST)
+- **Auto-Recovery Attempts:** 5 attempts failed
+- **Next Action:** 🔴 BLOCKED_ON_USER → Awaiting manual Vercel redeploy
+
+### 📋 Incident Details
+
+| Metric | Value |
+|--------|-------|
+| **Incident Start** | 2026-06-14 03:15 KST (after force-redeploy attempt) |
+| **Auto-Recovery Limit** | 5 attempts (all failed) |
+| **Critical Alarm** | Issued at 04:01 KST |
+| **Escalation Status** | User manual intervention required |
+| **Vercel Status** | HTTP 404 NOT FOUND (DEPLOYMENT_NOT_FOUND) |
+| **Code Status** | ✅ All code complete (npm run build ✅) |
+
+### 🔄 Task State Machine Rules Applied
+
+**Rule Applied:** IN_PROGRESS → BLOCKED_ON_USER
+- **Condition Met:** External dependency (Vercel deployment) failed
+- **Duration Threshold:** >30 minutes without auto-recovery
+- **Action:** Transition all P1 tasks to BLOCKED_ON_USER state
+- **Waiting For:** User manual Vercel dashboard redeploy action
+
+### ✅ Monitoring Active
+
+| Monitor | Status | Next Check |
+|---------|--------|-----------|
+| Task State Monitor | 🟢 Active | 2026-06-14 04:38 KST (+30min) |
+| Vercel Health | 🔴 Down | Continuous polling |
+| User Telegram Signals | 🟡 Waiting | Real-time |
+| Auto-Recovery System | ⚠️ Exhausted | Ready to restart on user action |
+
+**Expected Transition:** BLOCKED_ON_USER → IN_PROGRESS (when user completes manual redeploy)
 
 ---
 
