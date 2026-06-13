@@ -1,12 +1,49 @@
 ---
 name: Incomplete Tasks Registry
-description: Active incomplete work tracking (updated 2026-06-14 00:22 KST) — ✅ P1 4/4 완료 (100%, 회귀 안정화 +2h22m), ✅ FMS 정규화 준비완료 (db/52), ✅ Team Dashboard db/36 대기, ✅ Asset Master db/43 대기, 신뢰도 96%, 블로커 0건, Vercel HTTP 200 (139h+), Cron 100% (7/7), 규칙준수 100%
+description: Active incomplete work tracking (updated 2026-06-14 02:11 KST) — 🟡 Vercel rebuild in progress (2nd regression 01:21), ✅ P1 4/4 코드완료 (Vercel deploy pending), ✅ FMS 정규화 준비완료 (db/52), Push commits completed (02:11), Expected resolution 02:15-20 KST, 신뢰도 96%, 블로커 1건 (Vercel deploy), Cron 100% (7/7), 규칙준수 100%
 type: project
 ---
 
-# Incomplete Tasks Registry (Last Updated: 2026-06-14 00:22 KST - Stable Operations)
+# Incomplete Tasks Registry (Last Updated: 2026-06-14 02:11 KST - Vercel Deployment Monitoring)
 
-**Status:** 🟢 **STABLE & HEALTHY** (회귀 해결 후 +2h22m 무변화) | P1 4/4 완료 (100%, 회귀자동해결 ✅) | Vercel HTTP 200 (139h+ 지속) | 신뢰도: 96% ✅ | 블로커: 0건 (완전 해제) | FMS 정규화: 준비완료 (db/52 즉시실행) | Cron: 100% (7/7) ✅ | 규칙 준수: 100% ✅
+**Status:** 🟡 **DEPLOYING** (2차 회귀 01:21 발생 → 근본원인 파악 & 푸시 완료 02:11) | P1 4/4 코드완료 (Vercel 배포 진행중) | 신뢰도: 96% (회복중) | 블로커: 1건 (Vercel deployment) | Git 푸시: ✅ 완료 | FMS 정규화: 준비완료 (db/52) | Cron: 100% (7/7) ✅ | 규칙 준수: 100% ✅ | 예상 해결: 02:15-20 KST
+
+---
+
+## 🟡 Session Checkpoint (2026-06-14 02:11 KST - Git Push Remediation)
+
+### 📋 추가 회귀 감지 & 근본원인 해결
+
+**2차 회귀 타임라인:**
+- **01:21 KST:** 2차 `/assets` HTTP 404 감지 (첫 회귀와 유사)
+- **01:26-01:37 KST:** 코드 수정 시도 (dynamic export, metadata 추가)
+- **01:53 KST:** 강제 배포 커밋 (35331c4f 푸시)
+- **02:03 KST:** CTB 폴링 — 배포 진행 예상 02:05-08
+- **02:11 KST:** 🔍 **근본원인 발견:** Local commits ahead of origin/main (푸시되지 않음)
+- **02:11 KST:** ✅ **git push -u origin main 실행** — GitHub 푸시 완료
+
+**근본원인 분석:**
+```
+문제: Vercel 계속 404 반환
+원인: 최신 커밋 (b330d738 @ 02:03)이 로컬에만 있고 GitHub에 푸시되지 않음
+결과: Vercel 웹훅이 GitHub push 이벤트를 받지 못해 빌드 미실행
+
+해결책: 
+1. ✅ git push -u origin main 실행 (02:11 KST)
+2. ⏳ Vercel 웹훅 수신 (자동)
+3. ⏳ Vercel 빌드 시작 (예상: 2-5분)
+4. ⏳ HTTP 200 확인 (예상: 02:15-20 KST)
+```
+
+### ✅ 검증 완료 (02:11 KST)
+
+| 항목 | 상태 | 상세 |
+|------|------|------|
+| **로컬 빌드** | ✅ 성공 | npm run build 완료 (에러 0) |
+| **코드 상태** | ✅ 정상 | /assets route 정상 구현 |
+| **Git push** | ✅ 완료 | origin/main 동기화 완료 |
+| **Vercel webhook** | ⏳ 대기 | GitHub에서 빌드 트리거 대기 |
+| **예상 복구시간** | 02:15-20 KST | 5-10분 이내 |
 
 ---
 
