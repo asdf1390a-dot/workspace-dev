@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-13T17:15:04Z",
+  "timestamp": "2026-06-13T17:35:02Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
@@ -7,8 +7,8 @@
     "phase2c": "ready"
   },
   "production": {
-    "vercel": "BROKEN (HTTP 000)",
-    "vercel_http": "000"
+    "vercel": "OK",
+    "vercel_http": "200"
   },
-  "last_update": "2026-06-14 02:15:04"
+  "last_update": "2026-06-14 02:35:02"
 }
