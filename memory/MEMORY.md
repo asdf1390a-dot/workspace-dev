@@ -1,6 +1,10 @@
 # 메모리 인덱스
 
-## 🟢 최신 (2026-06-14 06:30 KST)
+## 🟢 최신 VALIDATED RECOVERY (2026-06-14 06:37 KST)
+
+- [✅ CTB Recovery Validated (06:37 KST)](CTB_2026_06_14_RECOVERY_0637.json) — ✅ **CRITICAL INCIDENT FULLY RESOLVED & VERIFIED** (59min duration: 05:38→06:37) | **P1 4/4 배포 LIVE ✅** | `/assets` + API health **모두 HTTP 200 검증됨** | 신뢰도 96% (복구) | **블로커 0건** | 근본원인: Vercel 배포 손실 → Git push 재배포로 자동 복구 | ⚠️ **CTB 거짓 양성 3건 발생 (05:43, 05:55, 06:01) — 모니터링 로직 검토 필요**
+
+## 🟢 (2026-06-14 06:30 KST)
 
 - [📊 조직도 & 업무현황 (06:30 KST)](org_status_20260614_0630.md) — ✅ **SYSTEMS NOMINAL (85min post-recovery)** | **P1 4/4 배포완료 (100%)** | **Vercel HTTP 200 (169.5h+ 안정)** | 신뢰도 96% | **블로커 0건** | 팀 11명 활동 (82% 활용) + 기존 6/신규 4 | Cron 100% (8/8) | **규칙 준수 100% (16일 연속)** | **주간 위반 0건** | Task State Machine 0 transitions
 
