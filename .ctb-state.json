@@ -1,28 +1,12 @@
 {
-  "timestamp": "2026-06-13T01:15:00Z",
-  "poll_cycle": 1298,
+  "timestamp": "2026-06-13T01:20:29Z",
+  "cycle": 1299,
   "progress": 100,
   "p1_projects": {
-    "AUDIT-P1": {
-      "commit": "0cf3c1ba",
-      "status": "completed",
-      "completion": "100%"
-    },
-    "DISCORD-BOT-P1": {
-      "commit": "585db4d5",
-      "status": "completed",
-      "completion": "100%"
-    },
-    "TRAVEL-P2-UI": {
-      "commit": "e9396c74",
-      "status": "completed",
-      "completion": "100%"
-    },
-    "BM-P1": {
-      "commit": "ecc13a9f",
-      "status": "completed",
-      "completion": "100%"
-    }
+    "AUDIT-P1": "completed (100%)",
+    "DISCORD-BOT-P1": "completed (100%)",
+    "TRAVEL-P2-UI": "completed (100%)",
+    "BM-P1": "completed (100%)"
   },
   "services": {
     "phase2a": "ready",
@@ -32,11 +16,13 @@
   "production": {
     "vercel": "OK",
     "vercel_http": "200",
-    "vercel_uptime_hours": 127
+    "stable_duration": "127h+"
   },
-  "reliability": "96%",
-  "blockers": 0,
-  "team_utilization": "82% (11/11)",
-  "cron_status": "100% (8/8)",
-  "last_update": "2026-06-13 10:15:00 KST"
+  "metrics": {
+    "reliability": "96%",
+    "blockers": 0,
+    "team_capacity": "82% (11/11)",
+    "cron_health": "100% (8/8)"
+  },
+  "last_update": "2026-06-13 10:20:29"
 }
