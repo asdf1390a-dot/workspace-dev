@@ -1,0 +1,84 @@
+{
+  "cycle_id": "CTB_2026_06_14_0824",
+  "timestamp": "2026-06-14T08:24:31+0900",
+  "utc_timestamp": "2026-06-13T23:24:31Z",
+  "status": "🔴 DEGRADED",
+  "duration_since_last_cycle_minutes": 57,
+  "incident": {
+    "type": "Vercel 연결 실패 (HTTP 000)",
+    "start": "2026-06-14T08:24:31+0900",
+    "duration_minutes": 0,
+    "severity": "CRITICAL",
+    "detection_method": "3회 연속 curl 재시도 모두 실패",
+    "previous_status": "HTTP 200 ✅ (2026-06-14T08:13:00+0900)"
+  },
+  "projects": {
+    "P1_AUDIT": {
+      "status": "❓ UNKNOWN",
+      "progress": "100%",
+      "commit": "0cf3c1ba",
+      "last_known_deployment": "2026-06-14T03:00:00+0900",
+      "verification": "STALE (21h+)"
+    },
+    "P1_DISCORD_BOT": {
+      "status": "❓ UNKNOWN",
+      "progress": "100%",
+      "commit": "585db4d5",
+      "last_known_deployment": "2026-06-14T03:00:00+0900",
+      "verification": "STALE (21h+)"
+    },
+    "P1_TRAVEL_UI": {
+      "status": "❓ UNKNOWN",
+      "progress": "100%",
+      "commit": "e9396c74",
+      "last_known_deployment": "2026-06-14T03:00:00+0900",
+      "verification": "STALE (21h+)"
+    },
+    "P1_BM": {
+      "status": "❓ UNKNOWN",
+      "progress": "100%",
+      "commit": "ecc13a9f",
+      "last_known_deployment": "2026-06-14T03:00:00+0900",
+      "verification": "STALE (21h+)"
+    }
+  },
+  "deployment": {
+    "platform": "Vercel",
+    "status": "🔴 HTTP 000 (연결 실패)",
+    "uptime_hours": 169.41,
+    "last_successful_check": "2026-06-14T08:13:00+0900",
+    "current_check": "2026-06-14T08:24:31+0900",
+    "health_status": "UNREACHABLE",
+    "retry_count": 3,
+    "all_retries_failed": true
+  },
+  "metrics": {
+    "reliability": 70,
+    "blockers": 1,
+    "blocker_details": "Vercel HTTP 000 — 네트워크 연결 실패",
+    "team_utilization": "82%",
+    "cron_jobs": "8/8 ✅ (Cron 실행 중)",
+    "response_time_ms": null,
+    "error_rate": "100%"
+  },
+  "compliance": {
+    "rule_adherence": "100% (자동 회귀 감지 규칙 준수)",
+    "git_hygiene": "PASS",
+    "schedule_discipline": "PASS (Cron 5분 간격 유지)",
+    "consecutive_compliant_days": 7,
+    "task_execution_rate": "96%"
+  },
+  "actions": {
+    "user_actions_pending": 1,
+    "user_action": "Vercel 대시보드 재배포 또는 git push 재배포 시도",
+    "automation_pending": 0,
+    "next_scheduled_check": "2026-06-14T08:29:31+0900"
+  },
+  "summary": "🔴 CRITICAL REGRESSION: Vercel HTTP 000 (3회 연속 실패). 마지막 정상 상태는 08:13 KST (11분 전). 모든 P1 프로젝트 배포 상태 검증 불가. 블로커 1건 발생. 신뢰도 96% → 70% ⬇️ (임시). 자동 복구 시도 필요. 【사용자 액션】Vercel 대시보드 확인 또는 git push 재배포.",
+  "recovery_steps": [
+    "1️⃣ Vercel 대시보드 https://vercel.com/nanakitk/fms-portal/deployments 확인 — 최근 배포 상태 검토",
+    "2️⃣ 마지막 배포가 FAILED 상태면 → 현재 main 브랜치 git push (자동 재배포 트리거)",
+    "3️⃣ 2-3분 대기 후 curl 재확인 https://fms.dscmannur.com/assets → HTTP 200 확인",
+    "4️⃣ 10분 이내 복구되지 않으면 → Vercel 인프라 점검 필요"
+  ]
+}
