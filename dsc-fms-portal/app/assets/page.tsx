@@ -15,3 +15,4 @@ export default function AssetsPage() {
     </Suspense>
   );
 }
+// Force redeploy Sun Jun 14 01:53:52 KST 2026
