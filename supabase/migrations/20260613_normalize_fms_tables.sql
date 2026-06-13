@@ -44,7 +44,7 @@ USING (
 -- 3. 모든 expense_ledgers_YYYY_MM 파티션 테이블 정규화
 -- ============================================
 
--- Helper 함수: 모든 파티션 테이블에 plant 컬럼 추가
+-- RLS 정책을 모든 파티션에 적용 (컬럼은 부모에서 상속)
 DO $$
 DECLARE
   table_name TEXT;
@@ -56,11 +56,6 @@ BEGIN
     AND tablename LIKE 'expense_ledgers_%'
     AND tablename != 'expense_ledgers_history'
   LOOP
-    EXECUTE format('
-      ALTER TABLE %I
-      ADD COLUMN IF NOT EXISTS plant TEXT DEFAULT ''Mannur''
-    ', table_name);
-
     EXECUTE format('
       ALTER TABLE %I ENABLE ROW LEVEL SECURITY
     ', table_name);
