@@ -1,4 +1,5 @@
 {
+  "rootDirectory": "dsc-fms-portal",
   "buildCommand": "npm ci && npm run build",
   "outputDirectory": ".next",
   "ignoreCommand": "git diff --quiet HEAD^ HEAD -- dsc-fms-portal",
