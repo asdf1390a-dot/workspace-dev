@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-13T11:19:00Z",
+  "timestamp": "2026-06-13T11:24:52Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
@@ -10,5 +10,14 @@
     "vercel": "OK",
     "vercel_http": "200"
   },
-  "last_update": "2026-06-13 20:19:00"
+  "p1_projects": {
+    "AUDIT-P1": "완료 (0cf3c1ba)",
+    "DISCORD-BOT-P1": "완료 (585db4d5)",
+    "TRAVEL-P2-UI": "완료 (e9396c74)",
+    "BM-P1": "완료 (ecc13a9f)"
+  },
+  "reliability": "96%",
+  "blockers": 0,
+  "team_utilization": "82%",
+  "last_update": "2026-06-13 20:24:52"
 }
