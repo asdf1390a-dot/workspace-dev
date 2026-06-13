@@ -1,6 +1,5 @@
 {
-  "timestamp": "2026-06-13T12:45:00Z",
-  "timestamp_kst": "2026-06-13 21:45:00",
+  "timestamp": "2026-06-13T12:55:00Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
@@ -11,8 +10,5 @@
     "vercel": "OK",
     "vercel_http": "200"
   },
-  "reliability": 96,
-  "blockers": 0,
-  "uptime_hours": "130h+",
-  "last_update": "2026-06-13 21:45:00"
+  "last_update": "2026-06-13 21:55:00"
 }
