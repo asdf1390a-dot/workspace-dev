@@ -1,23 +1,21 @@
 {
-  "timestamp": "2026-06-13T20:34:03Z",
-  "progress": 100,
+  "timestamp": "2026-06-14T05:38:00Z",
+  "progress": 75,
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
     "phase2c": "ready"
   },
-  "p1_status": {
-    "audit_p1": "deployed",
-    "discord_bot_p1": "deployed",
-    "bm_p1": "deployed",
-    "travel_p2_ui": "deployed"
-  },
   "production": {
-    "vercel": "OK",
-    "vercel_http": "200",
-    "stability_hours": 25
+    "vercel": "BROKEN",
+    "vercel_http": "404"
   },
-  "reliability": 96,
-  "blockers": 0,
-  "last_update": "2026-06-14 05:34:03"
+  "last_update": "2026-06-14 05:38:00",
+  "incident": {
+    "status": "CRITICAL_UNRESOLVED",
+    "started": "2026-06-14 03:32:00",
+    "duration_minutes": 126,
+    "blocker_count": 1,
+    "reliability": 75
+  }
 }
