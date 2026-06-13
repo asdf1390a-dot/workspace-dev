@@ -3540,3 +3540,206 @@
 [2026-06-13 10:10:01] ✓ Phase2C (PID 65642): RSS=62MB, FDs=19
 [2026-06-13 10:10:01] ✓ Watchdog cycle complete
 [2026-06-13 10:10:01] ✓ Watchdog cycle complete
+[2026-06-13 10:12:01] Watchdog cycle started
+[2026-06-13 10:12:01] Watchdog cycle started
+[2026-06-13 10:12:01] ✓ Phase2A (PID 65516): RSS=62MB, FDs=19
+[2026-06-13 10:12:01] ✓ Phase2B (PID 65628): RSS=61MB, FDs=19
+[2026-06-13 10:12:01] ✓ Phase2C (PID 65642): RSS=62MB, FDs=19
+[2026-06-13 10:12:01] ✓ Watchdog cycle complete
+[2026-06-13 10:12:01] ✓ Watchdog cycle complete
+[2026-06-13 10:14:01] Watchdog cycle started
+[2026-06-13 10:14:01] Watchdog cycle started
+[2026-06-13 10:14:01] ✓ Phase2A (PID 65516): RSS=62MB, FDs=19
+[2026-06-13 10:14:01] ✓ Phase2B (PID 65628): RSS=62MB, FDs=19
+[2026-06-13 10:14:01] ✓ Phase2C (PID 65642): RSS=62MB, FDs=19
+[2026-06-13 10:14:01] ✓ Watchdog cycle complete
+[2026-06-13 10:14:01] ✓ Watchdog cycle complete
+[2026-06-13 10:16:01] Watchdog cycle started
+[2026-06-13 10:16:01] Watchdog cycle started
+[2026-06-13 10:16:01] ✓ Phase2A (PID 65516): RSS=62MB, FDs=19
+[2026-06-13 10:16:01] ✓ Phase2B (PID 65628): RSS=62MB, FDs=19
+[2026-06-13 10:16:01] ✓ Phase2C (PID 65642): RSS=62MB, FDs=19
+[2026-06-13 10:16:01] ✓ Watchdog cycle complete
+[2026-06-13 10:16:01] ✓ Watchdog cycle complete
+[2026-06-13 10:18:01] Watchdog cycle started
+[2026-06-13 10:18:01] Watchdog cycle started
+[2026-06-13 10:18:01] ✓ Phase2A (PID 65516): RSS=62MB, FDs=19
+[2026-06-13 10:18:01] ✓ Phase2B (PID 65628): RSS=62MB, FDs=19
+[2026-06-13 10:18:01] ✓ Phase2C (PID 65642): RSS=62MB, FDs=19
+[2026-06-13 10:18:01] ✓ Watchdog cycle complete
+[2026-06-13 10:18:01] ✓ Watchdog cycle complete
+[2026-06-13 10:20:01] Watchdog cycle started
+[2026-06-13 10:20:01] Watchdog cycle started
+[2026-06-13 10:20:01] ✓ Phase2A (PID 65516): RSS=62MB, FDs=19
+[2026-06-13 10:20:01] ✓ Phase2B (PID 65628): RSS=62MB, FDs=19
+[2026-06-13 10:20:01] ✓ Phase2C (PID 65642): RSS=62MB, FDs=19
+[2026-06-13 10:20:01] ✓ Watchdog cycle complete
+[2026-06-13 10:20:01] ✓ Watchdog cycle complete
+[2026-06-13 10:22:02] Watchdog cycle started
+[2026-06-13 10:22:02] Watchdog cycle started
+[2026-06-13 10:22:02] ✓ Phase2A (PID 65516): RSS=62MB, FDs=19
+[2026-06-13 10:22:02] ✓ Phase2B (PID 65628): RSS=62MB, FDs=19
+[2026-06-13 10:22:02] ✓ Phase2C (PID 65642): RSS=62MB, FDs=19
+[2026-06-13 10:22:02] ✓ Watchdog cycle complete
+[2026-06-13 10:22:02] ✓ Watchdog cycle complete
+[2026-06-13 10:24:01] Watchdog cycle started
+[2026-06-13 10:24:01] Watchdog cycle started
+[2026-06-13 10:24:01] ✓ Phase2A (PID 65516): RSS=62MB, FDs=19
+[2026-06-13 10:24:01] ✓ Phase2B (PID 65628): RSS=62MB, FDs=19
+[2026-06-13 10:24:01] ✓ Phase2C (PID 65642): RSS=62MB, FDs=19
+[2026-06-13 10:24:02] ✓ Watchdog cycle complete
+[2026-06-13 10:24:02] ✓ Watchdog cycle complete
+[2026-06-13 10:26:02] Watchdog cycle started
+[2026-06-13 10:26:02] Watchdog cycle started
+[2026-06-13 10:26:02] ✓ Phase2A (PID 65516): RSS=62MB, FDs=19
+[2026-06-13 10:26:02] ✓ Phase2B (PID 65628): RSS=62MB, FDs=19
+[2026-06-13 10:26:02] ✓ Phase2C (PID 65642): RSS=62MB, FDs=19
+[2026-06-13 10:26:02] ✓ Watchdog cycle complete
+[2026-06-13 10:26:02] ✓ Watchdog cycle complete
+[2026-06-13 10:28:02] Watchdog cycle started
+[2026-06-13 10:28:02] Watchdog cycle started
+[2026-06-13 10:28:02] ✓ Phase2A (PID 65516): RSS=62MB, FDs=19
+[2026-06-13 10:28:02] ✓ Phase2B (PID 65628): RSS=62MB, FDs=19
+[2026-06-13 10:28:02] ✓ Phase2C (PID 65642): RSS=62MB, FDs=19
+[2026-06-13 10:28:02] ✓ Watchdog cycle complete
+[2026-06-13 10:28:02] ✓ Watchdog cycle complete
+[2026-06-13 10:30:01] Watchdog cycle started
+[2026-06-13 10:30:01] Watchdog cycle started
+[2026-06-13 10:30:01] ✓ Phase2A (PID 65516): RSS=62MB, FDs=19
+[2026-06-13 10:30:01] ✓ Phase2B (PID 65628): RSS=63MB, FDs=19
+[2026-06-13 10:30:01] ✓ Phase2C (PID 65642): RSS=63MB, FDs=19
+[2026-06-13 10:30:02] ✓ Watchdog cycle complete
+[2026-06-13 10:30:02] ✓ Watchdog cycle complete
+[2026-06-13 10:32:01] Watchdog cycle started
+[2026-06-13 10:32:01] Watchdog cycle started
+[2026-06-13 10:32:01] ✓ Phase2A (PID 65516): RSS=62MB, FDs=19
+[2026-06-13 10:32:01] ✓ Phase2B (PID 65628): RSS=63MB, FDs=19
+[2026-06-13 10:32:01] ✓ Phase2C (PID 65642): RSS=63MB, FDs=19
+[2026-06-13 10:32:01] ✓ Watchdog cycle complete
+[2026-06-13 10:32:01] ✓ Watchdog cycle complete
+[2026-06-13 10:34:01] Watchdog cycle started
+[2026-06-13 10:34:01] Watchdog cycle started
+[2026-06-13 10:34:01] ✓ Phase2A (PID 65516): RSS=62MB, FDs=19
+[2026-06-13 10:34:01] ✓ Phase2B (PID 65628): RSS=62MB, FDs=19
+[2026-06-13 10:34:01] ✓ Phase2C (PID 65642): RSS=63MB, FDs=19
+[2026-06-13 10:34:01] ✓ Watchdog cycle complete
+[2026-06-13 10:34:01] ✓ Watchdog cycle complete
+[2026-06-13 10:36:01] Watchdog cycle started
+[2026-06-13 10:36:01] Watchdog cycle started
+[2026-06-13 10:36:01] ✓ Phase2A (PID 65516): RSS=62MB, FDs=19
+[2026-06-13 10:36:01] ✓ Phase2B (PID 65628): RSS=62MB, FDs=19
+[2026-06-13 10:36:01] ✓ Phase2C (PID 65642): RSS=62MB, FDs=19
+[2026-06-13 10:36:01] ✓ Watchdog cycle complete
+[2026-06-13 10:36:01] ✓ Watchdog cycle complete
+[2026-06-13 10:38:01] Watchdog cycle started
+[2026-06-13 10:38:01] Watchdog cycle started
+[2026-06-13 10:38:01] ✓ Phase2A (PID 65516): RSS=62MB, FDs=19
+[2026-06-13 10:38:01] ✓ Phase2B (PID 65628): RSS=61MB, FDs=19
+[2026-06-13 10:38:01] ✓ Phase2C (PID 65642): RSS=62MB, FDs=19
+[2026-06-13 10:38:01] ✓ Watchdog cycle complete
+[2026-06-13 10:38:01] ✓ Watchdog cycle complete
+[2026-06-13 10:40:01] Watchdog cycle started
+[2026-06-13 10:40:01] Watchdog cycle started
+[2026-06-13 10:40:01] ✓ Phase2A (PID 65516): RSS=61MB, FDs=19
+[2026-06-13 10:40:01] ✓ Phase2B (PID 65628): RSS=61MB, FDs=19
+[2026-06-13 10:40:01] ✓ Phase2C (PID 65642): RSS=62MB, FDs=19
+[2026-06-13 10:40:01] ✓ Watchdog cycle complete
+[2026-06-13 10:40:01] ✓ Watchdog cycle complete
+[2026-06-13 10:42:01] Watchdog cycle started
+[2026-06-13 10:42:01] Watchdog cycle started
+[2026-06-13 10:42:01] ✓ Phase2A (PID 65516): RSS=61MB, FDs=19
+[2026-06-13 10:42:01] ✓ Phase2B (PID 65628): RSS=61MB, FDs=19
+[2026-06-13 10:42:01] ✓ Phase2C (PID 65642): RSS=62MB, FDs=19
+[2026-06-13 10:42:01] ✓ Watchdog cycle complete
+[2026-06-13 10:42:01] ✓ Watchdog cycle complete
+[2026-06-13 10:44:01] Watchdog cycle started
+[2026-06-13 10:44:01] Watchdog cycle started
+[2026-06-13 10:44:01] ✓ Phase2A (PID 65516): RSS=61MB, FDs=19
+[2026-06-13 10:44:01] ✓ Phase2B (PID 65628): RSS=61MB, FDs=19
+[2026-06-13 10:44:01] ✓ Phase2C (PID 65642): RSS=62MB, FDs=19
+[2026-06-13 10:44:01] ✓ Watchdog cycle complete
+[2026-06-13 10:44:01] ✓ Watchdog cycle complete
+[2026-06-13 10:46:01] Watchdog cycle started
+[2026-06-13 10:46:01] Watchdog cycle started
+[2026-06-13 10:46:01] ✓ Phase2A (PID 65516): RSS=61MB, FDs=19
+[2026-06-13 10:46:01] ✓ Phase2B (PID 65628): RSS=61MB, FDs=19
+[2026-06-13 10:46:01] ✓ Phase2C (PID 65642): RSS=62MB, FDs=19
+[2026-06-13 10:46:01] ✓ Watchdog cycle complete
+[2026-06-13 10:46:01] ✓ Watchdog cycle complete
+[2026-06-13 10:48:01] Watchdog cycle started
+[2026-06-13 10:48:01] Watchdog cycle started
+[2026-06-13 10:48:01] ✓ Phase2A (PID 65516): RSS=61MB, FDs=19
+[2026-06-13 10:48:01] ✓ Phase2B (PID 65628): RSS=61MB, FDs=19
+[2026-06-13 10:48:01] ✓ Phase2C (PID 65642): RSS=62MB, FDs=19
+[2026-06-13 10:48:01] ✓ Watchdog cycle complete
+[2026-06-13 10:48:01] ✓ Watchdog cycle complete
+[2026-06-13 10:50:01] Watchdog cycle started
+[2026-06-13 10:50:01] Watchdog cycle started
+[2026-06-13 10:50:01] ✓ Phase2A (PID 65516): RSS=61MB, FDs=19
+[2026-06-13 10:50:01] ✓ Phase2B (PID 65628): RSS=61MB, FDs=19
+[2026-06-13 10:50:01] ✓ Phase2C (PID 65642): RSS=61MB, FDs=19
+[2026-06-13 10:50:01] ✓ Watchdog cycle complete
+[2026-06-13 10:50:01] ✓ Watchdog cycle complete
+[2026-06-13 10:52:01] Watchdog cycle started
+[2026-06-13 10:52:01] Watchdog cycle started
+[2026-06-13 10:52:01] ✓ Phase2A (PID 65516): RSS=61MB, FDs=19
+[2026-06-13 10:52:01] ✓ Phase2B (PID 65628): RSS=61MB, FDs=19
+[2026-06-13 10:52:01] ✓ Phase2C (PID 65642): RSS=61MB, FDs=19
+[2026-06-13 10:52:01] ✓ Watchdog cycle complete
+[2026-06-13 10:52:01] ✓ Watchdog cycle complete
+[2026-06-13 10:54:02] Watchdog cycle started
+[2026-06-13 10:54:02] Watchdog cycle started
+[2026-06-13 10:54:02] ✓ Phase2A (PID 65516): RSS=61MB, FDs=19
+[2026-06-13 10:54:02] ✓ Phase2B (PID 65628): RSS=61MB, FDs=19
+[2026-06-13 10:54:02] ✓ Phase2C (PID 65642): RSS=61MB, FDs=19
+[2026-06-13 10:54:02] ✓ Watchdog cycle complete
+[2026-06-13 10:54:02] ✓ Watchdog cycle complete
+[2026-06-13 10:56:01] Watchdog cycle started
+[2026-06-13 10:56:01] Watchdog cycle started
+[2026-06-13 10:56:01] ✓ Phase2A (PID 65516): RSS=61MB, FDs=19
+[2026-06-13 10:56:01] ✓ Phase2B (PID 65628): RSS=61MB, FDs=19
+[2026-06-13 10:56:01] ✓ Phase2C (PID 65642): RSS=61MB, FDs=19
+[2026-06-13 10:56:01] ✓ Watchdog cycle complete
+[2026-06-13 10:56:01] ✓ Watchdog cycle complete
+[2026-06-13 10:58:01] Watchdog cycle started
+[2026-06-13 10:58:01] Watchdog cycle started
+[2026-06-13 10:58:01] ✓ Phase2A (PID 65516): RSS=61MB, FDs=19
+[2026-06-13 10:58:01] ✓ Phase2B (PID 65628): RSS=61MB, FDs=19
+[2026-06-13 10:58:01] ✓ Phase2C (PID 65642): RSS=61MB, FDs=19
+[2026-06-13 10:58:01] ✓ Watchdog cycle complete
+[2026-06-13 10:58:01] ✓ Watchdog cycle complete
+[2026-06-13 11:00:02] Watchdog cycle started
+[2026-06-13 11:00:02] Watchdog cycle started
+[2026-06-13 11:00:02] ✓ Phase2A (PID 65516): RSS=62MB, FDs=19
+[2026-06-13 11:00:02] ✓ Phase2B (PID 65628): RSS=61MB, FDs=19
+[2026-06-13 11:00:02] ✓ Phase2C (PID 65642): RSS=61MB, FDs=19
+[2026-06-13 11:00:02] ✓ Watchdog cycle complete
+[2026-06-13 11:00:02] ✓ Watchdog cycle complete
+[2026-06-13 11:02:02] Watchdog cycle started
+[2026-06-13 11:02:02] Watchdog cycle started
+[2026-06-13 11:02:02] ✓ Phase2A (PID 65516): RSS=62MB, FDs=19
+[2026-06-13 11:02:02] ✓ Phase2B (PID 65628): RSS=61MB, FDs=19
+[2026-06-13 11:02:02] ✓ Phase2C (PID 65642): RSS=62MB, FDs=19
+[2026-06-13 11:02:02] ✓ Watchdog cycle complete
+[2026-06-13 11:02:02] ✓ Watchdog cycle complete
+[2026-06-13 11:04:01] Watchdog cycle started
+[2026-06-13 11:04:01] Watchdog cycle started
+[2026-06-13 11:04:01] ✓ Phase2A (PID 65516): RSS=62MB, FDs=19
+[2026-06-13 11:04:01] ✓ Phase2B (PID 65628): RSS=61MB, FDs=19
+[2026-06-13 11:04:01] ✓ Phase2C (PID 65642): RSS=61MB, FDs=19
+[2026-06-13 11:04:02] ✓ Watchdog cycle complete
+[2026-06-13 11:04:02] ✓ Watchdog cycle complete
+[2026-06-13 11:06:02] Watchdog cycle started
+[2026-06-13 11:06:02] Watchdog cycle started
+[2026-06-13 11:06:02] ✓ Phase2A (PID 65516): RSS=62MB, FDs=19
+[2026-06-13 11:06:02] ✓ Phase2B (PID 65628): RSS=61MB, FDs=19
+[2026-06-13 11:06:02] ✓ Phase2C (PID 65642): RSS=61MB, FDs=19
+[2026-06-13 11:06:02] ✓ Watchdog cycle complete
+[2026-06-13 11:06:02] ✓ Watchdog cycle complete
+[2026-06-13 11:08:01] Watchdog cycle started
+[2026-06-13 11:08:01] Watchdog cycle started
+[2026-06-13 11:08:01] ✓ Phase2A (PID 65516): RSS=62MB, FDs=19
+[2026-06-13 11:08:01] ✓ Phase2B (PID 65628): RSS=61MB, FDs=19
+[2026-06-13 11:08:01] ✓ Phase2C (PID 65642): RSS=61MB, FDs=19
+[2026-06-13 11:08:01] ✓ Watchdog cycle complete
+[2026-06-13 11:08:01] ✓ Watchdog cycle complete
