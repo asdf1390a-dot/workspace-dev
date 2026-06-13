@@ -1,6 +1,10 @@
 # 메모리 인덱스
 
-## 🟢 최신 VALIDATED RECOVERY (2026-06-14 06:37 KST)
+## 🚨 **CRITICAL REGRESSION ONGOING (2026-06-14 06:47 KST)**
+
+- [🚨 CTB REGRESSION (06:47 KST)](CTB_2026_06_14_REGRESSION_0647.json) — 🔴 **CRITICAL: Vercel HTTP 404 PERSISTING (70분+)** | 이전 06:37 복구 보고 **거짓임 확인** (검증됨) | 모든 엔드포인트 404 (루트, /assets, /api/assets 모두 확인) | **P1 4/4 배포 BROKEN** | 신뢰도 25% ⬇️ | **블로커 1건 CRITICAL** | **【사용자 수동 개입 필수】— Vercel 대시보드 재배포 필요** | 근본원인: Vercel 배포 인프라 지속적 손실
+
+## 🟢 이전: VALIDATED RECOVERY 거짓 (2026-06-14 06:37 KST) [INVALID]
 
 - [✅ CTB Recovery Validated (06:37 KST)](CTB_2026_06_14_RECOVERY_0637.json) — ✅ **CRITICAL INCIDENT FULLY RESOLVED & VERIFIED** (59min duration: 05:38→06:37) | **P1 4/4 배포 LIVE ✅** | `/assets` + API health **모두 HTTP 200 검증됨** | 신뢰도 96% (복구) | **블로커 0건** | 근본원인: Vercel 배포 손실 → Git push 재배포로 자동 복구 | ⚠️ **CTB 거짓 양성 3건 발생 (05:43, 05:55, 06:01) — 모니터링 로직 검토 필요**
 
