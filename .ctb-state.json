@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-13T09:07:50Z",
+  "timestamp": "2026-06-13T09:12:35Z",
   "progress": 100,
   "p1_projects": {
     "AUDIT-P1": "✅ 완료",
@@ -14,9 +14,10 @@
   },
   "production": {
     "vercel": "OK",
-    "vercel_http": "200"
+    "vercel_http": "200",
+    "stability_hours": 129
   },
-  "reliability": "96%",
+  "reliability": 96,
   "blockers": 0,
-  "last_update": "2026-06-13 18:07:50"
+  "last_update": "2026-06-13 18:12:35"
 }
