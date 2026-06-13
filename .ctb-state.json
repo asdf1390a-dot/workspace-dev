@@ -1,23 +1,25 @@
 {
-  "timestamp": "2026-06-13T05:20:33Z",
+  "timestamp": "2026-06-13T05:35:00Z",
+  "polling_cycle": 1325,
+  "timestamp_kst": "2026-06-13 14:35 KST",
   "progress": 100,
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
     "phase2c": "ready"
   },
+  "p1_projects": {
+    "AUDIT-P1": "✅ 100% (0cf3c1ba)",
+    "DISCORD-BOT-P1": "✅ 100% (585db4d5)",
+    "BM-P1": "✅ 100% (ecc13a9f)",
+    "TRAVEL-P2-UI": "✅ 100% (e9396c74)"
+  },
   "production": {
     "vercel": "OK",
-    "vercel_http": "200"
+    "vercel_http": "200",
+    "stability": "✅ stable (116h+)"
   },
-  "p1_projects": {
-    "AUDIT-P1": "0cf3c1ba",
-    "DISCORD-BOT-P1": "585db4d5",
-    "TRAVEL-P2-UI": "e9396c74",
-    "BM-P1": "ecc13a9f"
-  },
-  "reliability": "96%",
+  "reliability": 96,
   "blockers": 0,
-  "team_utilization": "82%",
-  "last_update": "2026-06-13 14:20:33"
+  "last_update": "2026-06-13T05:35:00Z"
 }
