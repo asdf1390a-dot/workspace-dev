@@ -1,6 +1,14 @@
 # 메모리 인덱스
 
-## 🟢 최신 (2026-06-14 08:07 KST)
+## 🔴 최신 CRITICAL (2026-06-14 08:39 KST) - REGRESSION ONGOING, USER ACTION REQUIRED
+
+- [🔴 Session Checkpoint (08:39 KST)](../INCOMPLETE_TASKS_REGISTRY.md) — **🔴 CRITICAL REGRESSION UNRESOLVED (15분 지속)** | Vercel HTTP 000 (마지막 정상 08:13, 26분 전) | **신뢰도 96%→70% (26% 급락)** | **블로커 1건 CRITICAL** | P1 4/4 상태 검증 불가 (Vercel 차단) | **【사용자 액션 필수】Vercel 재배포 또는 git push** | 복구 시간: 2-3분 (Option 1,2) / 30+ min (Option 3)
+
+## 🔴 (2026-06-14 08:24 KST) - NEW REGRESSION DETECTED
+
+- [🔴 CRITICAL REGRESSION (08:24 KST)](incident_regression_20260614_0824.md) — **Vercel HTTP 000 (3회 연속 curl 실패)** | 블로커 1건 CRITICAL | 신뢰도 96%→70% ⬇️ (26% 급락) | **【사용자 액션】Vercel 대시보드 재배포 필요** | 마지막 정상: 08:13 KST (HTTP 200, 11분 전) | P1 4/4 배포 상태 검증 불가 (21h+ stale) | 복구 옵션: Vercel UI 재배포 또는 git push (2-3분)
+
+## 🟢 (2026-06-14 08:13 KST)
 
 - [✅ Session Checkpoint (08:07 KST)](../INCOMPLETE_TASKS_REGISTRY.md) — **✅ NO CHANGES DETECTED** | P1 4/4 COMPLETED LIVE (stable) | Vercel HTTP 200 (32+ min sustained) | 신뢰도 96% ✅ | **블로커 0건** (인프라 queue 복구 대기) | 모든 Cron 정상 | 다음 체크 08:35 KST
 

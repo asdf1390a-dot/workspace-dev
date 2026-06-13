@@ -143,6 +143,60 @@ If neither option 1 or 2 works within 10 minutes:
 
 ---
 
+## 🔴 Session Checkpoint (2026-06-14 08:39 KST - CRITICAL INCIDENT ONGOING)
+
+**Checkpoint Time:** 2026-06-14 08:39:00 KST  
+**Duration Since Last Checkpoint:** 32 minutes (from 08:07 checkpoint)  
+**System Status:** 🔴 DEGRADED (CRITICAL REGRESSION UNRESOLVED)
+
+**Critical Status Changes (Last 32 Minutes):**
+- 🔴 **NEW REGRESSION DETECTED @ 08:24:31 KST** — Vercel HTTP 000 (connection failure)
+- 🔴 **Reliability: 96% → 70%** (26% drop)
+- 🔴 **Blockers: 0 → 1 CRITICAL** (Vercel HTTP 000)
+- 🔴 **Error Rate: 0% → 100%** (all requests failing)
+- 🔴 **P1 Projects: LIVE → UNKNOWN** (verification STALE 21h+)
+- 🔴 **User Action: NOT REQUIRED → REQUIRED** (Vercel redeploy needed)
+
+**Last Status Check (08:39 KST):**
+- HTTP Status: 🔴 000 (connection still failing)
+- Verification Time: 08:39 KST (curl test)
+- Time Since Last Good: 26 minutes (08:13 KST was last HTTP 200)
+- Duration Unresolved: 15 minutes (08:24 → 08:39)
+
+**Cron Jobs Status:**
+| Time | Job | Status | Notes |
+|------|-----|--------|-------|
+| 08:24 | CTB Polling (incident detection) | ✅ Complete | Detected HTTP 000 + escalated |
+| 08:34 | Org Status Update | ⚠️ STALE | Created 08:34 before incident known; now superseded by regression |
+| 08:39 | Session Checkpoint | 🔴 IN_PROGRESS | THIS CHECKPOINT |
+
+**Infrastructure Status:**
+- 🔴 Vercel HTTP: UNREACHABLE (HTTP 000)
+- 🟡 Queue Spawn (db/36, db/43, Phase 3): Still pending (72+ min since initial connection error)
+- ❓ P1 Project Endpoints: UNVERIFIABLE (blocked by Vercel connection failure)
+
+**Task State:**
+| Task | State | Notes |
+|------|-------|-------|
+| AUDIT-P1 | COMPLETED | Status unverifiable (P1 project behind HTTP 000 barrier) |
+| DISCORD-BOT-P1 | COMPLETED | Status unverifiable |
+| BM-P1 | COMPLETED | Status unverifiable |
+| TRAVEL-P2-UI | COMPLETED | Status unverifiable |
+| Phase 2 Auto Rules | IN_PROGRESS | Unaffected by Vercel incident |
+| Asset Master Phase 3-6 | BLOCKED_ON_TEAM | Blocked on infrastructure queue + now Vercel recovery |
+
+**Critical Action Required:**
+- 🚨 **USER INTERVENTION NEEDED** — Vercel redeploy (Option 1, 2, or 3 per critical incident section above)
+- ⏰ **Time Elapsed:** 15 minutes since detection (08:24:31 → 08:39:00)
+- 🎯 **Recovery Paths:** Documented in CRITICAL INCIDENT section (dashboard/git push/support)
+- ✅ **System Monitoring:** CTB polling active, awaiting recovery detection
+
+**Next Checkpoint:** 09:07 KST (30-min interval)
+
+**Summary:** 🔴 **CRITICAL REGRESSION ONGOING — Vercel HTTP 000 unresolved. User action required. All critical metrics degraded. System monitoring active and awaiting recovery signal.**
+
+---
+
 ## ✅ db/52 FMS Normalization Migration COMPLETED (2026-06-14 06:52:06 KST)
 
 **Completion Status:**
