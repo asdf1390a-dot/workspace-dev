@@ -1,6 +1,13 @@
 {
-  "timestamp": "2026-06-14T07:01:00+0900",
+  "timestamp": "2026-06-14T22:22:00Z",
+  "cycle": 1290,
   "progress": 100,
+  "p1_projects": {
+    "AUDIT-P1": {"commit": "0cf3c1ba", "status": "completed", "completion": 100},
+    "DISCORD-BOT-P1": {"commit": "585db4d5", "status": "completed", "completion": 100},
+    "TRAVEL-P2-UI": {"commit": "e9396c74", "status": "completed", "completion": 100},
+    "BM-P1": {"commit": "ecc13a9f", "status": "completed", "completion": 100}
+  },
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
@@ -11,17 +18,10 @@
     "vercel_http": "200",
     "uptime_hours": 169
   },
-  "projects": {
-    "P1_AUDIT": "100%",
-    "P1_DISCORD_BOT": "100%",
-    "P1_TRAVEL_UI": "100%",
-    "P1_BM": "100%"
-  },
   "metrics": {
     "reliability": 96,
     "blockers": 0,
-    "rule_compliance": "100%",
-    "consecutive_compliant_days": 7
+    "violations_7d": 0
   },
-  "last_update": "2026-06-14 07:01:00 KST"
+  "last_update": "2026-06-14 07:22:03"
 }
