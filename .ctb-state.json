@@ -1,6 +1,12 @@
 {
-  "timestamp": "2026-06-13T00:14:07Z",
+  "timestamp": "2026-06-13T00:19:09Z",
   "progress": 100,
+  "p1_projects": {
+    "audit_p1": "complete",
+    "discord_bot_p1": "complete",
+    "travel_p2_ui": "complete",
+    "bm_p1": "complete"
+  },
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
@@ -8,35 +14,35 @@
   },
   "production": {
     "vercel": "CRITICAL",
-    "vercel_http": "000",
-    "vercel_timeout": "84min+",
-    "incident_start": "2026-06-13 08:50 KST"
+    "vercel_http": "DEPLOYMENT_NOT_FOUND",
+    "incident_start": "2026-06-13T00:02:00Z",
+    "duration_minutes": 84,
+    "status": "🔴 CRITICAL: Vercel deployment unavailable (84min+)"
   },
-  "p1_projects": {
-    "AUDIT-P1": {
-      "commit": "0cf3c1ba",
-      "status": "100%",
-      "completion": true
-    },
-    "DISCORD-BOT-P1": {
-      "commit": "585db4d5",
-      "status": "100%",
-      "completion": true
-    },
-    "TRAVEL-P2-UI": {
-      "commit": "e9396c74",
-      "status": "100%",
-      "completion": true
-    },
-    "BM-P1": {
-      "commit": "ecc13a9f",
-      "status": "100%",
-      "completion": true
+  "blockers": [
+    {
+      "id": "DEPLOYMENT_NOT_FOUND",
+      "severity": "CRITICAL",
+      "component": "Vercel",
+      "description": "FMS Portal deployment not found",
+      "user_action_required": true,
+      "action": "Manual Vercel redeployment via dashboard"
     }
+  ],
+  "reliability": {
+    "score": "UNKNOWN",
+    "sla_status": "🔴 BROKEN",
+    "sla_duration": "115h+"
   },
-  "reliability": "UNKNOWN",
-  "blockers": 1,
-  "blocker_type": "CRITICAL_DEPLOYMENT",
-  "last_update": "2026-06-13 09:14:07",
-  "action_required": "User manual Vercel redeploy or restart required"
+  "cron": {
+    "status": "100%",
+    "running": 8,
+    "total": 8
+  },
+  "team": {
+    "utilization": "82%",
+    "members": 11
+  },
+  "last_update": "2026-06-13 09:19:09 KST",
+  "last_update_utc": "2026-06-13T00:19:09Z"
 }
