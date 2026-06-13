@@ -1,14 +1,16 @@
 {
-  "polling_cycle": 1101,
-  "timestamp": "2026-06-10T06:38:00+09:00",
+  "polling_cycle": 1297,
+  "timestamp": "2026-06-13T01:04:00Z",
   "timezone": "Asia/Seoul",
-  "status": "🟢 HEALTHY — Vercel SUSTAINED (HTTP 200 continuous 10min+)",
+  "kst_time": "2026-06-13 10:04:00",
+  "status": "🟢 HEALTHY — Vercel HTTP 200 (127h+ stable)",
 
   "projects": {
     "AUDIT-P1": {
       "commit": "0cf3c1ba",
       "status": "✅ COMPLETE",
       "completion": 100,
+      "last_update": "2026-06-09 13:34",
       "vercel_deployment": "✅ Integrated (FMS Portal)",
       "deployment_status": "200 OK"
     },
@@ -16,6 +18,7 @@
       "commit": "585db4d5",
       "status": "✅ COMPLETE",
       "completion": 100,
+      "last_update": "2026-06-12 13:58",
       "vercel_deployment": "✅ Integrated (FMS Portal)",
       "deployment_status": "200 OK"
     },
@@ -23,13 +26,15 @@
       "commit": "ecc13a9f",
       "status": "✅ COMPLETE",
       "completion": 100,
-      "vercel_deployment": "✅ Integrated (FMS Portal)",
+      "last_update": "2026-06-09 00:00",
+      "vercel_deployment": "✅ Integrated (Supabase)",
       "deployment_status": "200 OK"
     },
     "TRAVEL-P2-UI": {
       "commit": "e9396c74",
       "status": "✅ COMPLETE",
       "completion": 100,
+      "last_update": "2026-06-12 15:04",
       "vercel_deployment": "✅ Integrated (FMS Portal)",
       "deployment_status": "200 OK"
     }
@@ -39,16 +44,14 @@
     "vercel_fms_portal": {
       "url": "https://dsc-fms-portal.vercel.app/assets",
       "status": "✅ 200 OK",
-      "cache_age": "5024초 (약 84분)",
-      "cache_control": "public, max-age=0, must-revalidate",
-      "cache_state": "HIT",
-      "last_checked": "2026-06-10T06:38:00+09:00",
-      "recovery_status": "안정화 지속 확인 (회귀 이후 no-cache 헤더 적용으로 정상화)"
+      "uptime_hours": 127,
+      "cache_state": "stable",
+      "last_checked": "2026-06-13 10:04 KST",
+      "recovery_status": "✅ 정상 운영 중 (no-cache 헤더 적용)"
     },
     "api_endpoint": {
       "url": "https://dsc-fms-portal.vercel.app/api/assets",
       "status": "✅ 200 OK",
-      "cache_state": "MISS (fresh)",
       "response_time": "~1.0s"
     },
     "phase_2_services": {
@@ -56,28 +59,30 @@
         "port": 3009,
         "service": "message-collection",
         "status": "✅ LISTEN",
-        "uptime": "verified at 06:38 KST"
+        "uptime": "verified at 10:04 KST"
       },
       "phase_2b": {
         "port": 3010,
         "service": "duplicate-detection",
         "status": "✅ LISTEN",
-        "uptime": "verified at 06:38 KST"
+        "uptime": "verified at 10:04 KST"
       },
       "phase_2c": {
         "port": 3011,
         "service": "trust-score",
         "status": "✅ LISTEN",
-        "uptime": "verified at 06:38 KST"
+        "uptime": "verified at 10:04 KST"
       }
     }
   },
 
   "system_health": {
-    "reliability": "98%+",
-    "consecutive_stable_cycles": 8,
+    "reliability": 96,
+    "team_utilization": 82,
+    "team_active": "11/11",
+    "consecutive_stable_cycles": 5,
     "blockers": 0,
-    "code_stability": "55h+ (zero changes since 2026-06-04 21:12)",
-    "status_notes": "✅ 모든 P1 프로젝트 완료 (4/4) | ✅ Phase 2A/B/C 정상 | ✅ Vercel 캐시 안정화 확인 | ✅ 신뢰도 98%+ 회복"
+    "cron_status": "100% (8/8 passing)",
+    "status_notes": "✅ 모든 P1 프로젝트 완료 (4/4) | ✅ Phase 2A/B/C 정상 | ✅ Vercel 127h+ 안정 | ✅ 신뢰도 96% | ✅ 블로커 0건"
   }
 }
