@@ -1,6 +1,33 @@
 {
-  "timestamp": "2026-06-13T07:55:02Z",
+  "timestamp": "2026-06-13T08:19:32Z",
+  "polling_cycle": 5937792,
   "progress": 100,
+  "projects": {
+    "audit_p1": {
+      "hash": "0cf3c1ba",
+      "status": "complete",
+      "completion": 100,
+      "last_updated": "2026-06-12T13:31:00Z"
+    },
+    "discord_bot_p1": {
+      "hash": "585db4d5",
+      "status": "complete",
+      "completion": 100,
+      "last_updated": "2026-06-12T13:58:00Z"
+    },
+    "travel_p2_ui": {
+      "hash": "e9396c74",
+      "status": "complete",
+      "completion": 100,
+      "last_updated": "2026-06-12T13:31:00Z"
+    },
+    "bm_p1": {
+      "hash": "ecc13a9f",
+      "status": "complete",
+      "completion": 100,
+      "last_updated": "2026-06-09T23:40:00Z"
+    }
+  },
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
@@ -8,7 +35,12 @@
   },
   "production": {
     "vercel": "OK",
-    "vercel_http": "200"
+    "vercel_http": "200",
+    "uptime_hours": 116
   },
-  "last_update": "2026-06-13 16:55:02"
+  "reliability": 96,
+  "blockers": 0,
+  "team_utilization": 82,
+  "rule_compliance": 100,
+  "last_update_kst": "2026-06-13 17:19:32"
 }
