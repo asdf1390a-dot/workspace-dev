@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-14T21:51:00Z",
+  "timestamp": "2026-06-14T07:01:00+0900",
   "progress": 100,
   "services": {
     "phase2a": "ready",
@@ -7,18 +7,21 @@
     "phase2c": "ready"
   },
   "production": {
-    "vercel": "CRITICAL_INCIDENT",
-    "vercel_http": "404",
-    "incident_status": "HTTP 404 DEPLOYMENT_NOT_FOUND",
-    "incident_duration_minutes": 39,
-    "incident_start": "2026-06-14T06:12:00Z",
-    "last_known_good": "2026-06-14T06:08:00Z",
-    "user_action_required": "Manual Vercel redeploy"
+    "vercel": "OK",
+    "vercel_http": "200",
+    "uptime_hours": 169
   },
-  "last_update": "2026-06-14 06:51:00",
-  "automation_status": {
-    "ctb_polling": "detecting_incident",
-    "db52_subagent": "running (elapsed: 2m+)",
-    "task_queue": ["db/36", "db/43", "Phase 3"]
-  }
+  "projects": {
+    "P1_AUDIT": "100%",
+    "P1_DISCORD_BOT": "100%",
+    "P1_TRAVEL_UI": "100%",
+    "P1_BM": "100%"
+  },
+  "metrics": {
+    "reliability": 96,
+    "blockers": 0,
+    "rule_compliance": "100%",
+    "consecutive_compliant_days": 7
+  },
+  "last_update": "2026-06-14 07:01:00 KST"
 }
