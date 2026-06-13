@@ -1,0 +1,44 @@
+{
+  "timestamp": "2026-06-14_00-30-01",
+  "phase2_services": {
+    "phase2a_message_collection": "ready",
+    "phase2b_duplicate_detection": "ready",
+    "phase2c_trust_score": "ready"
+  },
+  "project_health": {
+    "p1_projects_complete": 4,
+    "p1_projects_total": 4,
+    "p1_completion_percent": 100,
+    "travel_p2_regression_status": "recovered_stable",
+    "regression_stability_hours": 2.5
+  },
+  "system_resources": {
+    "disk_usage": "4%",
+    "memory_usage": "21.5%",
+    "load_average": "0.08, 0.13, 0.15"
+  },
+  "vercel_status": {
+    "http_status": 200,
+    "uptime_hours": "139+",
+    "reliability_percent": 96,
+    "reliability_goal": 95
+  },
+  "blockers": {
+    "count": 0,
+    "critical": 0,
+    "pending_user_action": 3
+  },
+  "automation": {
+    "cron_jobs_total": 7,
+    "cron_jobs_healthy": 7,
+    "cron_health_percent": 100,
+    "rule_compliance_percent": 100
+  },
+  "team": {
+    "total_members": 11,
+    "utilization_percent": 82,
+    "core_team": 6,
+    "automation_team": 4,
+    "leadership": 1
+  }
+}
