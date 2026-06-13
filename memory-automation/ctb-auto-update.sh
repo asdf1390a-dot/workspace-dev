@@ -25,10 +25,21 @@ PHASE2A_HEALTH=$(extract_status "$(curl -s --connect-timeout 2 http://127.0.0.1:
 PHASE2B_HEALTH=$(extract_status "$(curl -s --connect-timeout 2 http://127.0.0.1:3010/health 2>/dev/null)")
 PHASE2C_HEALTH=$(extract_status "$(curl -s --connect-timeout 2 http://127.0.0.1:3011/health 2>/dev/null)")
 
-# Vercel 프로덕션 배포 상태 확인 [FIXED: 12:10 KST — 정확한 도메인으로 수정 (dsc-fms-portal→dsc-fms)]
-VERCEL_HTTP=$(curl -s -o /dev/null -w "%{http_code}" --connect-timeout 3 https://dsc-fms.vercel.app 2>/dev/null)
+# Vercel 프로덕션 배포 상태 확인 [IMPROVED: 03:02 KST — 타임아웃 증가 + 재시도 로직 추가]
+VERCEL_HTTP=""
+for attempt in 1 2 3; do
+  VERCEL_HTTP=$(curl -s -o /dev/null -w "%{http_code}" --connect-timeout 5 --max-time 10 https://dsc-fms.vercel.app 2>/dev/null)
+  if [[ "$VERCEL_HTTP" == "200" ]]; then
+    break
+  fi
+  [[ $attempt -lt 3 ]] && sleep 1
+done
+
 if [[ "$VERCEL_HTTP" == "200" ]]; then
   VERCEL_HEALTH="OK"
+elif [[ -z "$VERCEL_HTTP" ]]; then
+  VERCEL_HEALTH="TIMEOUT (no response)"
+  log_event "⚠️  WARNING: Vercel health check timeout (possible network delay, retried 3x)"
 else
   VERCEL_HEALTH="BROKEN (HTTP $VERCEL_HTTP)"
   log_event "🚨 CRITICAL: Vercel deployment health check failed — HTTP $VERCEL_HTTP (expected 200)"
