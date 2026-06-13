@@ -1,59 +1,20 @@
 {
-  "polling_cycle": 1485,
-  "timestamp": "2026-06-14T03:04:00+09:00",
-  "utc_timestamp": "2026-06-13T18:04:00Z",
-  "kst_timestamp": "2026-06-14 03:04:00",
-  "status_date": "2026-06-14",
-  "incident_type": "REGRESSION_AUTO_RESOLVED",
-  "incident_detected_time": "2026-06-14T02:52:00+09:00",
-  "incident_resolved_time": "2026-06-14T03:04:00+09:00",
-  "recovery_duration_minutes": 12,
-  "system_state": {
-    "integrity_status": "🟢 HEALTHY_RECOVERED",
-    "last_integrity_check": "2026-06-14T03:04:00+09:00",
-    "crisis_description": "Transient HTTP 404 regression on /assets detected at 02:52 KST. Auto-recovery engaged. System self-healed by 03:04 KST.",
-    "system_reliability": "96%"
+  "timestamp": "2026-06-14T18:15:00Z",
+  "progress": 75,
+  "status": "CRITICAL",
+  "issue": "Vercel DEPLOYMENT_NOT_FOUND",
+  "services": {
+    "phase2a": "ready",
+    "phase2b": "ready",
+    "phase2c": "ready"
   },
-  "projects": {
-    "AUDIT-P1": {
-      "id": "0cf3c1ba",
-      "status": "🟢 COMPLETE",
-      "claimed_completion": "100%",
-      "actual_completion": "100%",
-      "production_status": "🟢 HTTP 200 OK",
-      "verified": true
-    },
-    "DISCORD-BOT-P1": {
-      "id": "585db4d5",
-      "status": "🟢 COMPLETE",
-      "claimed_completion": "100%",
-      "actual_completion": "100%",
-      "production_status": "🟢 HTTP 200 OK",
-      "verified": true
-    },
-    "BM-P1": {
-      "id": "ecc13a9f",
-      "status": "🟢 COMPLETE",
-      "claimed_completion": "100%",
-      "actual_completion": "100%",
-      "production_status": "🟢 HTTP 200 OK",
-      "verified": true
-    },
-    "TRAVEL-P2-UI": {
-      "id": "e9396c74",
-      "status": "🟢 COMPLETE",
-      "claimed_completion": "100%",
-      "actual_completion": "100%",
-      "production_status": "🟢 HTTP 200 OK (recovered)",
-      "verified": true,
-      "recovery_note": "Regression at 02:52 KST resolved by 03:04 KST"
-    }
+  "production": {
+    "vercel": "BROKEN",
+    "vercel_http": "404",
+    "error": "DEPLOYMENT_NOT_FOUND",
+    "details": "배포 메타데이터 손상 또는 Vercel 프로젝트 링크 문제"
   },
-  "deployment": {
-    "vercel_http": "200",
-    "vercel_health": "OK",
-    "vercel_uptime": "139+ hours",
-    "last_check": "2026-06-14T03:04:00+09:00"
-  },
-  "summary": "All P1 projects complete (4/4), Vercel HTTP 200 stable, regression auto-recovered within 12 min, system reliability 96%, blockers 0"
+  "reliability": 75,
+  "blockers": 1,
+  "last_update": "2026-06-14 03:15:30"
 }
