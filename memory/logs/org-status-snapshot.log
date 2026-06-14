@@ -1142,3 +1142,23 @@
 [2026-06-14 23:00:01] ✅ 스냅샷 완료: /home/jeepney/.openclaw/workspace-dev/ORGANIZATION_STATUS_SNAPSHOT_2026_06_14_2300.json
 [2026-06-14 23:00:01]   Phase2A: ready | Phase2B: ready | Phase2C: ready
 [2026-06-14 23:00:01]   Disk: 4% | Memory: 17.4% | Load: 0.15, 0.13, 0.10
+[2026-06-14 23:30:01] 🔄 조직도 & 업무현황 스냅샷 생성 시작...
+[2026-06-14 23:30:01] ✅ 스냅샷 완료: /home/jeepney/.openclaw/workspace-dev/ORGANIZATION_STATUS_SNAPSHOT_2026_06_14_2330.json
+[2026-06-14 23:30:01]   Phase2A: ready | Phase2B: ready | Phase2C: ready
+[2026-06-14 23:30:01]   Disk: 4% | Memory: 17.3% | Load: 0.00, 0.02, 0.03
+[2026-06-15 00:00:01] 🔄 조직도 & 업무현황 스냅샷 생성 시작...
+[2026-06-15 00:00:01] ✅ 스냅샷 완료: /home/jeepney/.openclaw/workspace-dev/ORGANIZATION_STATUS_SNAPSHOT_2026_06_15_0000.json
+[2026-06-15 00:00:01]   Phase2A: ready | Phase2B: ready | Phase2C: ready
+[2026-06-15 00:00:01]   Disk: 4% | Memory: 18.2% | Load: 0.58, 0.26, 0.14
+[2026-06-15 00:30:01] 🔄 조직도 & 업무현황 스냅샷 생성 시작...
+[2026-06-15 00:30:01] ✅ 스냅샷 완료: /home/jeepney/.openclaw/workspace-dev/ORGANIZATION_STATUS_SNAPSHOT_2026_06_15_0030.json
+[2026-06-15 00:30:01]   Phase2A: ready | Phase2B: ready | Phase2C: ready
+[2026-06-15 00:30:01]   Disk: 4% | Memory: 17.4% | Load: 0.11, 0.17, 0.14
+[2026-06-15 01:00:01] 🔄 조직도 & 업무현황 스냅샷 생성 시작...
+[2026-06-15 01:00:01] ✅ 스냅샷 완료: /home/jeepney/.openclaw/workspace-dev/ORGANIZATION_STATUS_SNAPSHOT_2026_06_15_0100.json
+[2026-06-15 01:00:01]   Phase2A: ready | Phase2B: ready | Phase2C: ready
+[2026-06-15 01:00:01]   Disk: 4% | Memory: 17.4% | Load: 0.02, 0.07, 0.09
+[2026-06-15 01:30:01] 🔄 조직도 & 업무현황 스냅샷 생성 시작...
+[2026-06-15 01:30:01] ✅ 스냅샷 완료: /home/jeepney/.openclaw/workspace-dev/ORGANIZATION_STATUS_SNAPSHOT_2026_06_15_0130.json
+[2026-06-15 01:30:01]   Phase2A: ready | Phase2B: ready | Phase2C: ready
+[2026-06-15 01:30:01]   Disk: 4% | Memory: 18.7% | Load: 0.06, 0.10, 0.10

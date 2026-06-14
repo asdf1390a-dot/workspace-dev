@@ -69,6 +69,43 @@ generate_korean_message() {
   echo "$msg"
 }
 
+# Vercel 배포 검증 (P0 개선사항: 2단계 검증 + 30초 감지)
+verify_vercel_deployment() {
+  log "🔍 Vercel 배포 검증 시작..."
+
+  local retry_count=5
+  local delay=6  # 30초 / 5회 = 6초
+
+  for i in $(seq 1 $retry_count); do
+    sleep "$delay"
+
+    # 모든 P1 프로젝트 엔드포인트 헬스 체크
+    local all_healthy=true
+    local endpoints=(
+      "https://audit.vercel.app"
+      "https://discord-bot.vercel.app"
+      "https://asset-master.vercel.app"
+      "https://travel-planner.vercel.app"
+    )
+
+    for endpoint in "${endpoints[@]}"; do
+      http_code=$(curl -s -o /dev/null -w "%{http_code}" "$endpoint" 2>/dev/null || echo "000")
+      if [[ "$http_code" != "200" ]]; then
+        log "⚠️  재시도 $i/$retry_count: $endpoint → HTTP $http_code"
+        all_healthy=false
+      fi
+    done
+
+    if [[ "$all_healthy" == "true" ]]; then
+      log "✅ Vercel 배포 검증 성공 (모든 프로젝트 HTTP 200)"
+      return 0
+    fi
+  done
+
+  log "🔴 Vercel 배포 검증 실패 (5회 시도 후에도 회복 불가)"
+  return 1
+}
+
 # 깃 커밋 실행
 commit_ctb_status() {
   local msg="$1"
@@ -94,6 +131,16 @@ commit_ctb_status() {
   # 커밋 실행
   if git add .ctb-state.json && git commit -m "$msg" 2>/dev/null; then
     log "✅ 커밋 성공: $msg"
+
+    # P0 개선사항: git push 후 Vercel 배포 검증
+    log "🚀 git push 실행..."
+    if git push origin main 2>/dev/null; then
+      log "✅ git push 성공"
+      verify_vercel_deployment || {
+        log "🔴 Vercel 배포 검증 실패 - 수동 개입 필요"
+        return 1
+      }
+    fi
     return 0
   else
     log "⚠️  커밋 실패 (변경사항 없음 또는 에러)"

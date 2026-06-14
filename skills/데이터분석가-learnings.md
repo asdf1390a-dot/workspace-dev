@@ -541,3 +541,7 @@ openpyxl·pandas로 FMS 포털 데이터를 Excel로 자동 추출·정제하는
 FMS 포털에서 자산·BM 이벤트 조회가 느리다면 대부분 인덱스 부재가 원인이다. `created_at`, `asset_id` 같은 필터 컬럼에 인덱스를 추가하면 체감 속도가 확 달라진다. Supabase 대시보드 → SQL Editor에서 `EXPLAIN ANALYZE`로 슬로우 쿼리를 바로 확인할 수 있다.
 
 → 적용 포인트: BM 이벤트 테이블 `asset_id` + `event_date` 복합 인덱스 추가 검토
+
+## 2026-06-15 — FMS 포털 다음 단계로 어떤 기능이 현장에 가장 필요할 것 같아?
+- `bm_events` 테이블의 `started_at`/`resolved_at` 데이터를 집계 뷰로 만들면 설비별 MTBF를 수치로 산출할 수 있으며, 현재 이 데이터가 KPI로 집계되지 않고 있음
+- `failure_code` 컬럼에 glossary 미매핑 비표준 값이 입력되면 집계 오염이 발생하는데, 입력 시점에 경고가 없어 분석 실행 후에야 발견됨 — 입력 단계 경고로 수작업 정제 비용 절감 가능
