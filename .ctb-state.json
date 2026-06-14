@@ -1,24 +1,14 @@
 {
-  "timestamp": "2026-06-14T13:55:32Z",
-  "progress": 25,
-  "incident": {
-    "type": "DEPLOYMENT_NOT_FOUND",
-    "severity": "CRITICAL",
-    "detected_at": "2026-06-14T13:55:32Z",
-    "status": "REGRESSION - Vercel HTTP 404",
-    "affected_projects": ["AUDIT-P1", "TRAVEL-P2-UI", "BM-P1", "DISCORD-BOT-P1"],
-    "message": "Vercel returning DEPLOYMENT_NOT_FOUND for dsc-mannur.vercel.app"
-  },
+  "timestamp": "2026-06-14T14:00:02Z",
+  "progress": 100,
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
     "phase2c": "ready"
   },
   "production": {
-    "vercel": "FAILED",
-    "vercel_http": "404",
-    "vercel_error": "DEPLOYMENT_NOT_FOUND",
-    "last_healthy": "2026-06-14T13:44:00Z"
+    "vercel": "OK",
+    "vercel_http": "200"
   },
-  "last_update": "2026-06-14 22:55:32"
+  "last_update": "2026-06-14 23:00:02"
 }
