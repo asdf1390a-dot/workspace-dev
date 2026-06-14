@@ -1,7 +1,8 @@
 // app/api/discord/processors/translator/route.ts
-// Handles: Korean ↔ English translation with tone adjustment
+// Handles: Korean ↔ English translation with tone adjustment via Claude API
 
 import { NextRequest, NextResponse } from 'next/server';
+import { Anthropic } from '@anthropic-ai/sdk';
 import { sanitizeText } from '@/lib/discord/sanitizer';
 
 interface ProcessorRequest {
@@ -32,40 +33,43 @@ function isKorean(text: string): boolean {
   return /[가-힯]/.test(text);
 }
 
-function translateText(text: string, targetLang: 'en' | 'ko'): string {
-  if (targetLang === 'en' && isKorean(text)) {
-    const translations: Record<string, string> = {
-      '안녕': 'Hello',
-      '감사합니다': 'Thank you',
-      '도움이 필요합니다': 'I need help',
-      '작업 진행': 'Work in progress',
-      '완료되었습니다': 'Completed',
-      '오류가 발생했습니다': 'An error occurred',
-    };
-
-    let result = text;
-    Object.entries(translations).forEach(([ko, en]) => {
-      result = result.replace(ko, en);
-    });
-    return result || `[EN Translation needed for: ${text}]`;
-  } else if (targetLang === 'ko' && !isKorean(text)) {
-    const translations: Record<string, string> = {
-      'Hello': '안녕',
-      'Thank you': '감사합니다',
-      'Help': '도움',
-      'Work': '작업',
-      'Completed': '완료',
-      'Error': '오류',
-    };
-
-    let result = text;
-    Object.entries(translations).forEach(([en, ko]) => {
-      result = result.replace(new RegExp(en, 'gi'), ko);
-    });
-    return result || `[KO Translation needed for: ${text}]`;
+async function translateWithClaude(text: string, targetLang: 'en' | 'ko'): Promise<string> {
+  const apiKey = process.env.ANTHROPIC_API_KEY;
+  if (!apiKey) {
+    console.warn('ANTHROPIC_API_KEY not set, returning original text');
+    return text;
   }
 
-  return text;
+  const client = new Anthropic({ apiKey });
+
+  const prompt =
+    targetLang === 'en'
+      ? `Translate the following Korean business text to professional English. Maintain tone and context.\n\nKorean:\n${text}\n\nProvide only the English translation, no explanations.`
+      : `Translate the following English business text to natural Korean. Maintain tone and context.\n\nEnglish:\n${text}\n\nProvide only the Korean translation, no explanations.`;
+
+  try {
+    const message = await client.messages.create({
+      model: 'claude-opus-4-7',
+      max_tokens: 1024,
+      messages: [
+        {
+          role: 'user',
+          content: prompt,
+        },
+      ],
+    });
+
+    const translatedText = message.content
+      .filter((block) => block.type === 'text')
+      .map((block) => (block.type === 'text' ? block.text : ''))
+      .join('')
+      .trim();
+
+    return translatedText || text;
+  } catch (error) {
+    console.error('Claude API error:', error);
+    return text;
+  }
 }
 
 export async function POST(req: NextRequest): Promise<NextResponse<ProcessorResponse>> {
@@ -85,7 +89,7 @@ export async function POST(req: NextRequest): Promise<NextResponse<ProcessorResp
     const content = sanitizeText(raw.content);
     const sourceIsKorean = isKorean(content);
     const targetLang = sourceIsKorean ? 'en' : 'ko';
-    const translated = sanitizeText(translateText(content, targetLang));
+    const translated = sanitizeText(await translateWithClaude(content, targetLang));
 
     return NextResponse.json({
       success: true,
