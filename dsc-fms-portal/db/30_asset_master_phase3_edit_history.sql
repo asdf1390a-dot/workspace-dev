@@ -16,7 +16,9 @@ ALTER TABLE assets ADD COLUMN IF NOT EXISTS
 ALTER TABLE assets ADD COLUMN IF NOT EXISTS
   last_edited_at timestamptz DEFAULT now();          -- 마지막 편집 시간
 
--- Add foreign key constraint if not exists
+-- Drop existing constraint if exists, then add
+ALTER TABLE assets DROP CONSTRAINT IF EXISTS fk_assets_last_edited_by;
+
 ALTER TABLE assets
   ADD CONSTRAINT fk_assets_last_edited_by
   FOREIGN KEY (last_edited_by) REFERENCES auth.users(id) ON DELETE SET NULL;
@@ -76,6 +78,7 @@ CREATE INDEX IF NOT EXISTS idx_asset_disposals_created_at
 ALTER TABLE asset_edit_history ENABLE ROW LEVEL SECURITY;
 
 -- SELECT: Users can view edit history of assets they own
+DROP POLICY IF EXISTS "asset_edit_history_select_policy" ON asset_edit_history;
 CREATE POLICY "asset_edit_history_select_policy"
   ON asset_edit_history
   FOR SELECT
@@ -88,6 +91,7 @@ CREATE POLICY "asset_edit_history_select_policy"
   );
 
 -- INSERT: Users can only log their own edits
+DROP POLICY IF EXISTS "asset_edit_history_insert_policy" ON asset_edit_history;
 CREATE POLICY "asset_edit_history_insert_policy"
   ON asset_edit_history
   FOR INSERT
@@ -100,6 +104,7 @@ CREATE POLICY "asset_edit_history_insert_policy"
 ALTER TABLE asset_disposals ENABLE ROW LEVEL SECURITY;
 
 -- SELECT: Users can view disposals of assets they own
+DROP POLICY IF EXISTS "asset_disposals_select_policy" ON asset_disposals;
 CREATE POLICY "asset_disposals_select_policy"
   ON asset_disposals
   FOR SELECT
@@ -112,6 +117,7 @@ CREATE POLICY "asset_disposals_select_policy"
   );
 
 -- INSERT: Users can only dispose of assets they own
+DROP POLICY IF EXISTS "asset_disposals_insert_policy" ON asset_disposals;
 CREATE POLICY "asset_disposals_insert_policy"
   ON asset_disposals
   FOR INSERT
@@ -128,6 +134,8 @@ CREATE POLICY "asset_disposals_insert_policy"
 -- 6. Trigger: Auto-update last_edited_by and last_edited_at
 -- ============================================================================
 
+DROP TRIGGER IF EXISTS trigger_update_asset_edit_tracking ON assets;
+
 CREATE OR REPLACE FUNCTION update_asset_edit_tracking()
 RETURNS TRIGGER AS $$
 BEGIN
@@ -137,8 +145,6 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql SECURITY DEFINER;
 
-DROP TRIGGER IF EXISTS trigger_update_asset_edit_tracking ON assets;
-
 CREATE TRIGGER trigger_update_asset_edit_tracking
   BEFORE UPDATE ON assets
   FOR EACH ROW
@@ -147,6 +153,8 @@ CREATE TRIGGER trigger_update_asset_edit_tracking
 -- ============================================================================
 -- 7. Trigger: Log asset changes to asset_edit_history
 -- ============================================================================
+
+DROP TRIGGER IF EXISTS trigger_log_asset_changes ON assets;
 
 CREATE OR REPLACE FUNCTION log_asset_changes()
 RETURNS TRIGGER AS $$
@@ -182,8 +190,6 @@ BEGIN
   RETURN NEW;
 END;
 $$ LANGUAGE plpgsql SECURITY DEFINER;
-
-DROP TRIGGER IF EXISTS trigger_log_asset_changes ON assets;
 
 CREATE TRIGGER trigger_log_asset_changes
   AFTER UPDATE ON assets
