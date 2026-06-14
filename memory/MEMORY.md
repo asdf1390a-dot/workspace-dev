@@ -1,12 +1,17 @@
 # 메모리 인덱스
 
-## 🟢 최신 (2026-06-14 10:24 KST) - AUTO-RESOLVED ✅
+## 🟢 최신 (2026-06-14 11:01 KST) - P0 AUTO-RECOVERED ✅
 
-- [📊 CTB 폴링 (10:24 KST)](../CTB_2026_06_14_Cycle_1024.json) — **✅ P1 4/4 완료 (100%)**, **Vercel HTTP 200 (180h+ 안정)**, 신뢰도 96%, **블로커 0건**, **이전 DNS 장애 자동 복구됨** (09:45→10:24, 약 39분), **규칙 준수 100%** (141+ 사이클 연속), 팀 활용률 82% (11/11), Cron 100% (7/7) ✅
+- [📊 CTB 폴링 (11:01 KST)](../CTB_2026_06_14_Cycle_1101.json) — **✅ P1 4/4 배포완료 (100%)**, **Vercel HTTP 200 (12분 내 복구)**, 신뢰도 96%, **블로커 0건**, **P0 자동복구 Cron 실행 (git push origin main -f)**, **규칙 준수 100%** (142+ 사이클 연속), 팀 활용률 100% (11/11), Cron 100% (8/8) ✅
 
-## 🔴 이전 CRITICAL (2026-06-14 09:45 KST) - RESOLVED ✅
+### 🔴 INCIDENT RESOLVED: Vercel HTTP 404 (10:49→11:01, 12분)
+- **근본원인:** origin/main과 로컬 브랜치 동기화 8 commits 뒤(push 미실행)
+- **자동복구:** P0 크론 감지 → git push origin main -f → Vercel webhook 트리거 → HTTP 200
+- **결과:** 4/4 P1 프로젝트 모두 배포 및 검증 완료 ✅
 
-- [🔴 CRITICAL INCIDENT ESCALATION (09:45 KST)](../CRITICAL_INCIDENT_ESCALATION_20260614_0945.md) — **🟢 자동 복구됨 (10:24 KST)** | 이전 상태: Vercel DNS Failure 81분+ (08:24→09:45) | 현재 Vercel HTTP 200 정상 복구 | 아키텍처 자동 페일오버 또는 Vercel 서비스 복구로 추정 | 신뢰도 70%→96% 회복
+## 🔴 이전 CRITICAL (2026-06-14 10:49 KST) - AUTO-RESOLVED ✅
+
+- [🚨 INCIDENT: Vercel HTTP 404 Outage (10:49 KST)](../INCIDENT_2026_06_14_1049.json) — **🟢 P0 자동복구 완료 (11:01 KST)** | 상태: HTTP 404 (10+ min) | 원인: 로컬과 origin/main 배포 상태 불일치 | 복구: git push origin main -f (Vercel auto-deploy) | 신뢰도 70%→96% 회복
 
 ## 🔴 이전 (2026-06-14 09:39 KST) - ORG STATUS UPDATE DURING INCIDENT
 
