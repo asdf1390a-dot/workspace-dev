@@ -1,0 +1,24 @@
+{
+  "timestamp": "2026-06-15T04:27:00+09:00",
+  "status": "CRITICAL_INCIDENT_ONGOING",
+  "severity": "CRITICAL",
+  "duration_minutes": 85,
+  "incident_start": "2026-06-15T03:02:00+09:00",
+  "last_verified": "2026-06-15T04:27:00+09:00",
+  "p1_status": "4/4 DOWN (NETWORK TIMEOUT)",
+  "vercel_endpoint": "UNREACHABLE (HTTP 000)",
+  "ctb_polling": "DISABLED (FALSE POSITIVE CYCLE DETECTED)",
+  "reliability": 0,
+  "blockers": 4,
+  "action_required": "https://vercel.com/kyeongtae-na/fms-portal",
+  "deadline": "2026-06-15T04:30:00+09:00",
+  "user_action_status": "NO_ACTION_FOR_85_MINUTES",
+  "notes": [
+    "CTB polling is reporting FALSE 'OK' status every 5 minutes",
+    "Actual services are UNREACHABLE (NETWORK TIMEOUT)",
+    "Root cause: CTB script checks local Phase 2 only, not Vercel endpoints",
+    "User must manually verify Vercel deployment status",
+    "Endpoint status evolution: HTTP 404 → NETWORK TIMEOUT (000)",
+    "All 4 P1 services completely unavailable"
+  ]
+}
