@@ -1,14 +1,38 @@
 {
-  "timestamp": "2026-06-14T18:00:01Z",
-  "progress": 100,
+  "timestamp": "2026-06-15T18:07:02Z",
+  "cycle": "03:07 KST",
+  "progress": 0,
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
-    "phase2c": "ready"
+    "phase2c": "ready",
+    "local_ports": "3009:✓ 3010:✓ 3011:✓"
   },
   "production": {
-    "vercel": "OK",
-    "vercel_http": "200"
+    "vercel": "UNREACHABLE",
+    "vercel_dns": "Cannot resolve fms.dsc-mannur.com",
+    "vercel_http": "000",
+    "p1_endpoints": {
+      "audit_p1": "UNREACHABLE",
+      "discord_p1": "UNREACHABLE",
+      "travel_p2_ui": "UNREACHABLE",
+      "bm_p1": "UNREACHABLE"
+    }
   },
-  "last_update": "2026-06-15 03:00:01"
+  "reliability": 0,
+  "blockers": 4,
+  "incident": {
+    "status": "🔴 CRITICAL",
+    "detected": "2026-06-15T03:02:00Z",
+    "type": "Vercel deployment unreachable",
+    "root_cause": "DNS resolution failure or Vercel deployment down"
+  },
+  "diagnostic": {
+    "network_ok": true,
+    "github_ping": "31.3ms",
+    "local_phase2": "all healthy",
+    "vercel_api": "unavailable"
+  },
+  "last_update": "2026-06-15 03:07:02",
+  "notes": "로컬 Phase2 서비스 정상 작동 | Vercel 도메인 DNS 해석 불가 | 외부 접근 불가능 | 사용자 지정 Vercel 대시보드 확인 필요"
 }
