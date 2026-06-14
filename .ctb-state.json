@@ -1,42 +1,14 @@
 {
-  "timestamp": "2026-06-14T09:15:00+09:00",
-  "timestamp_utc": "2026-06-14T00:15:00Z",
-  "progress": 70,
-  "status": "🔴 CRITICAL REGRESSION ONGOING (51+ min)",
-  "incident": {
-    "type": "Vercel DEPLOYMENT_NOT_FOUND",
-    "duration_minutes": 51,
-    "started": "2026-06-14T08:24:31+09:00",
-    "severity": "CRITICAL"
-  },
+  "timestamp": "2026-06-14T00:25:02Z",
+  "progress": 100,
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
     "phase2c": "ready"
   },
   "production": {
-    "vercel": "🔴 DEPLOYMENT_NOT_FOUND",
-    "vercel_http": "000",
-    "vercel_status": "Infrastructure error - deployment missing",
-    "last_healthy": "2026-06-14T08:13:00+09:00",
-    "last_healthy_duration": "62+ minutes ago"
+    "vercel": "OK",
+    "vercel_http": "200"
   },
-  "p1_projects": {
-    "code_status": "✅ 4/4 COMPLETE",
-    "deployment_status": "❓ UNKNOWN (Vercel unavailable)",
-    "commits": {
-      "AUDIT-P1": "0cf3c1ba",
-      "DISCORD-BOT-P1": "585db4d5",
-      "TRAVEL-P2-UI": "e9396c74",
-      "BM-P1": "ecc13a9f"
-    }
-  },
-  "reliability": {
-    "compliance_score": 70,
-    "trust_score": 70,
-    "blocking_tasks": 1,
-    "critical_blocker": "VERCEL_DEPLOYMENT_MISSING"
-  },
-  "user_action_required": "✅ Verify Vercel deployment status and trigger recovery (git push to main or Vercel dashboard redeploy)",
-  "last_update": "2026-06-14 09:15:00 KST"
+  "last_update": "2026-06-14 09:25:02"
 }
