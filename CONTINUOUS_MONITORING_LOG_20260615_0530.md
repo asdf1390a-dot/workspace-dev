@@ -112,7 +112,9 @@ No recovery by deadline (worst case)
 | 05:34 KST | ❌ 000 | ❌ 000 | ❌ 000 | ❌ 000 | AWAITING | Status unchanged, infrastructure outage persists |
 | 05:36 KST | ❌ 000 | ❌ 000 | ❌ 000 | ❌ 000 | AWAITING | No recovery indicators, outage stable at 154 min |
 | 05:38 KST | ❌ 000 | ❌ 000 | ❌ 000 | ❌ 000 | AWAITING | Continued monitoring, escalation checkpoint 06:30 KST |
-| [Monitoring cycle continues every 2 minutes] | | | | | | |
+| 06:00 KST | ❌ 000 | ❌ 000 | ❌ 000 | ❌ 000 | AWAITING | 30-min checkpoint: ZERO recovery signals, infrastructure failure persists |
+| 06:15 KST | ❌ 000 | ❌ 000 | ❌ 000 | ❌ 000 | AWAITING | 45-min duration, no user Vercel action detected, continued timeout |
+| 06:30 KST | ❌ 000 | ❌ 000 | ❌ 000 | ❌ 000 | ESCALATION REQUIRED | **ESCALATION POINT**: No recovery in 60 min. Assessment required. |
 
 ---
 
