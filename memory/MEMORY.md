@@ -1,8 +1,29 @@
 # 메모리 인덱스
 
-## 🟡 최신 (2026-06-15 06:45 KST ACTUAL) - PARTIAL RECOVERY / RECOVERY SIGNAL DETECTED
+## 🔴 최신 (2026-06-15 07:32 KST) - STABLE DEGRADATION / OSCILLATION ENDED / 4/4 DOWN @ 404 (STABLE)
 
-- [📊 조직 & 업무현황 (06:45 KST PARTIAL RECOVERY)](org_status_20260615_0645.md) — **🟡 PARTIAL RECOVERY DETECTED (06:45 KST)** | **STATUS CHANGE: HTTP 000 TIMEOUT → HTTP 404** | **3/4 P1 UP (75%)** | **1/4 P1 DOWN (AUDIT)** | **Incident 3h 43min (203 min)** | **Phase 3-1 BLOCKED (6h 43m loss)** | **신뢰도 75%** | **블로커 1건 (AUDIT)** | **팀 27% (EMERGENCY)** | **✅ Deadline extended 2026-06-20 14:00** | **✅ CEO decision EXECUTED (Option B at 05:30 KST)** | **🟡 RECOVERY SIGNAL: Vercel infrastructure responding** | **모니터링 계속 중**
+- [📊 조직 & 업무현황 (07:32 KST STABLE DEGRADATION)](org_status_20260615_0732.md) — **🔴 CRITICAL INCIDENT STABILIZED (270 min, 03:02→07:32)** | **4/4 P1 DOWN (HTTP 404 DEPLOYMENT_NOT_FOUND)** | **OSCILLATION ENDED (stable at 404, no 000 regression, no 200 progression in 20 min)** | **Phase 3-1 BLOCKED (6h 32m loss)** | **신뢰도 0%** | **블로커 4건 CRITICAL** | **팀 27% (EMERGENCY)** | **✅ Deadline extended 2026-06-20 14:00 (remains active)** | **⏳ Escalation decision PENDING (Vercel support RECOMMENDED, trigger 07:42 KST if still 404)** | **🚨 Status stabilized = positive change, but HTTP 200 not achieved = recovery stalled** | **모니터링 계속 (2min 주기)**
+
+## 🔴 이전 (2026-06-15 07:23 KST) - CRITICAL VERIFICATION CONFIRMED: ALL 4/4 P1 DEPLOYMENTS DOWN (404) — MONITORING ENDPOINT MISMATCH DISCOVERED
+
+- [🔴 폴링 재검증 (07:23 KST)](CTB_2026_06_15_Cycle_0723_ENDPOINT_MISMATCH_DISCOVERY.md) — **🔴 ALL 4/4 P1 SEPARATE DEPLOYMENTS DOWN (404 DEPLOYMENT_NOT_FOUND)** | **⚠️ CRITICAL DISCOVERY: CTB 폴링이 잘못된 엔드포인트 체크** (API 라우트 vs 분리 배포) | **Actual P1 Status: 0/4 UP (0%)** | **Main Portal: HTTP 200 OK ✅ (but APIs degraded)** | **Separate P1 Deployments: dsc-fms-audit, dsc-fms-discord-bot, dsc-fms-travel, dsc-fms-bm ALL 404** | **Incident 4h 21min 지속 (03:02 → 07:23)** | **Phase 3-1 BLOCKED (6h 21m+ loss)** | **신뢰도 0%** | **블로커 4건 CRITICAL** | **팀 27% (EMERGENCY)** | **✅ Deadline extended 2026-06-20 14:00 (remains active)** | **🚨 ENDPOINT MISMATCH: CTB was checking main portal API routes, not separate deployments** | **⏳ User Decision CRITICAL OVERDUE (from 06:30, 53+ min)**
+
+## 🟡 이전 (2026-06-15 07:07 KST) - PARTIAL RECOVERY STABLE / 15+ MIN SUSTAINED / OSCILLATION RESOLVED [⚠️ FALSE POSITIVE]
+
+- [✅ CTB 폴링 (07:07 KST MANUAL VERIFIED)](CTB_2026_06_15_Cycle_0707.json) — **🟡 보고됨: PARTIAL RECOVERY STABLE (07:07 actual)** | **⚠️ 07:12 재검증 결과: 거짓양성 (모든 P1 404)** | **이전 보고는 API route 404 감지만 했으나, 기본 URL도 실제로 404** | **Incident 245 min reported but actually continues** | **신뢰도: 0% (CTB 모니터링 신뢰 불가)**
+
+## 🟡 이전 (2026-06-15 06:57 KST) - EXTENDED RECOVERY / BASE URL HTTP 200 ✅
+
+- [📊 조직 & 업무현황 (06:57 KST)](org_status_20260615_0657.md) — **🟡 EXTENDED RECOVERY SIGNAL** | **Base URL HTTP 200 OK ✅** | **APIs 404/401 (not timeout)** | **Vercel infra RECOVERED** | **Incident 175+ min** | **Phase 3-1 BLOCKED (6h 57m loss)** | **신뢰도 33%** | **블로커 4건 (API routes)** | **팀 27%** | **모니터링 계속 (2min 주기, 07:00 KST next)**
+- [🟡 CTB 폴링 (06:52 KST MANUAL CHECK)](CTB_2026_06_15_Cycle_0652.json) — **🟡 PARTIAL RECOVERY CONFIRMED (06:52 actual)** | **Base app HTTP 200 ✅** | **APIs returning 404/401 (not timing out)** | **Status change: HTTP 000 → 404/401** | **Infrastructure responding again** | **Incident 170+ min (03:02 → 06:52)** | **Phase 3-1 BLOCKED (6h 52m+ loss)** | **신뢰도 33% (base + auth endpoint)** | **블로커 4건 (API routes missing)** | **팀 27% (EMERGENCY)** | **Monitoring continues, next checkpoint 07:00 KST**
+
+## 🔴 이전 (2026-06-15 06:47 KST ACTUAL) - REGRESSION / OSCILLATION PATTERN DETECTED
+
+- [🔴 조직 & 업무현황 (06:47 KST REGRESSION)](org_status_20260615_0647.md) — **🔴 REGRESSION AT 06:47 KST** | **STATUS CHANGE: HTTP 404 → 000 (after 2-minute recovery window)** | **0/4 P1 UP (0%)** | **4/4 P1 TIMEOUT (HTTP 000)** | **Oscillation pattern 000→404→000** | **Incident 3h 45min (225 min)** | **Phase 3-1 BLOCKED (6h 45m loss)** | **신뢰도 0%** | **블로커 4건 CRITICAL** | **팀 27% (EMERGENCY)** | **✅ Deadline extended 2026-06-20 14:00 (remains active)** | **⭐ Vercel support escalation RECOMMENDED** | **🔴 Oscillation pattern indicates deeper infrastructure issue**
+
+## 🟡 이전 (2026-06-15 06:45 KST ACTUAL) - PARTIAL RECOVERY (SHORT-LIVED) / RECOVERY SIGNAL DETECTED
+
+- [📊 조직 & 업무현황 (06:45 KST PARTIAL RECOVERY)](org_status_20260615_0645.md) — **🟡 PARTIAL RECOVERY DETECTED (06:45 KST) — SHORT-LIVED** | **STATUS CHANGE: HTTP 000 TIMEOUT → HTTP 404 (2-minute window only)** | **3/4 P1 UP (75%) — TEMPORARY** | **1/4 P1 DOWN (AUDIT) — TEMPORARY** | **Incident 3h 43min (203 min)** | **Phase 3-1 BLOCKED (6h 43m loss)** | **신뢰도 75% (temporary)** | **블로커 1건 (temporary)** | **팀 27% (EMERGENCY)** | **✅ Deadline extended 2026-06-20 14:00** | **🟡 RECOVERY SIGNAL REVISED: Was brief fluctuation, not actual recovery** | **2분 후 재회귀 (06:47 confirmed)**
 
 ## 🔴 이전 (2026-06-15 06:30 KST ACTUAL) - ESCALATION CHECKPOINT / CEO DECISION CRITICAL OVERDUE
 

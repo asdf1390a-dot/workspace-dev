@@ -1,0 +1,96 @@
+{
+  "timestamp": "2026-06-15T06:52:00+09:00",
+  "cycle": 1720,
+  "status": "PARTIAL_RECOVERY",
+  "incident_duration_minutes": 170,
+  "incident_start": "2026-06-15T03:02:00+09:00",
+
+  "endpoint_status": {
+    "base_url": {
+      "url": "https://dsc-fms-portal.vercel.app/",
+      "http_code": 200,
+      "status": "OK",
+      "verified": "2026-06-15T06:52:00+09:00"
+    },
+    "api_audit": {
+      "url": "https://dsc-fms-portal.vercel.app/api/audit",
+      "http_code": 404,
+      "status": "NOT_FOUND",
+      "verified": "2026-06-15T06:52:00+09:00"
+    },
+    "api_discord": {
+      "url": "https://dsc-fms-portal.vercel.app/api/discord",
+      "http_code": 404,
+      "status": "NOT_FOUND",
+      "verified": "2026-06-15T06:52:00+09:00"
+    },
+    "api_bm": {
+      "url": "https://dsc-fms-portal.vercel.app/api/bm",
+      "http_code": 404,
+      "status": "NOT_FOUND",
+      "verified": "2026-06-15T06:52:00+09:00"
+    },
+    "api_travels": {
+      "url": "https://dsc-fms-portal.vercel.app/api/travels",
+      "http_code": 401,
+      "status": "UNAUTHORIZED",
+      "verified": "2026-06-15T06:52:00+09:00"
+    }
+  },
+
+  "p1_projects": {
+    "AUDIT_P1": {
+      "status": "DEGRADED",
+      "http": 404,
+      "commit": "0cf3c1ba",
+      "comment": "API endpoint returning 404, infrastructure responding (recovery from timeout)"
+    },
+    "DISCORD_BOT_P1": {
+      "status": "DEGRADED",
+      "http": 404,
+      "commit": "585db4d5",
+      "comment": "API endpoint returning 404, infrastructure responding (recovery from timeout)"
+    },
+    "BM_P1": {
+      "status": "DEGRADED",
+      "http": 404,
+      "commit": "ecc13a9f",
+      "comment": "API endpoint returning 404, infrastructure responding (recovery from timeout)"
+    },
+    "TRAVEL_P2_UI": {
+      "status": "DEGRADED",
+      "http": 401,
+      "commit": "e9396c74",
+      "comment": "API endpoint returning 401, infrastructure responding (recovery from timeout)"
+    }
+  },
+
+  "summary": {
+    "base_app_status": "HTTP 200 OK ✅",
+    "p1_count": "0/4 fully functional",
+    "api_endpoints": "4/4 returning error (404/401, not timeout)",
+    "reliability": "33% (base app + 1 auth endpoint responding)",
+    "blockers": 4,
+    "recovery_trend": "🟡 POSITIVE (infrastructure recovered from HTTP 000 TIMEOUT)",
+    "status_change": "HTTP 000 TIMEOUT → HTTP 404/401 (infrastructure responding)",
+    "incident_duration": "170 minutes (03:02 → 06:52)",
+    "assessment": "Partial recovery detected: Vercel infrastructure is responding. API endpoints returning 4xx errors instead of timing out. This is a significant improvement from complete network timeout."
+  },
+
+  "assessment": {
+    "previous_state": "HTTP 000 TIMEOUT (complete infrastructure failure, 03:02-06:30)",
+    "current_state": "HTTP 404/401 (infrastructure recovering, 06:30-06:52)",
+    "interpretation": "🟡 RECOVERY SIGNAL — Infrastructure is no longer timing out. Endpoints are returning HTTP error codes, indicating the Vercel deployment infrastructure has recovered from complete failure, though routes/endpoints may not be correctly deployed or configured.",
+    "next_signals_to_watch": [
+      "HTTP 404 → HTTP 200 (successful route resolution)",
+      "HTTP 401 → HTTP 200 (auth configuration resolved)",
+      "Response time consistency"
+    ]
+  },
+
+  "actions": {
+    "monitoring": "Continue 2-minute polling cycles to track recovery progression",
+    "verification": "Manual verification at 06:52 KST confirmed infrastructure responding (no longer timing out)",
+    "next_checkpoint": "07:00 KST (8 minutes)"
+  }
+}

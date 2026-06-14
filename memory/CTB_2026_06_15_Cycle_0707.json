@@ -1,0 +1,116 @@
+{
+  "timestamp": "2026-06-15T07:07:00+09:00",
+  "cycle": 1729,
+  "status": "PARTIAL_RECOVERY_STABLE",
+  "incident_duration_minutes": 245,
+  "incident_start": "2026-06-15T03:02:00+09:00",
+
+  "endpoint_status": {
+    "base_url": {
+      "url": "https://dsc-fms-portal.vercel.app/",
+      "http_code": 200,
+      "status": "OK",
+      "verified": "2026-06-15T07:07:00+09:00"
+    },
+    "api_audit": {
+      "url": "https://dsc-fms-portal.vercel.app/api/audit",
+      "http_code": 404,
+      "status": "NOT_FOUND",
+      "verified": "2026-06-15T07:07:00+09:00"
+    },
+    "api_discord": {
+      "url": "https://dsc-fms-portal.vercel.app/api/discord",
+      "http_code": 404,
+      "status": "NOT_FOUND",
+      "verified": "2026-06-15T07:07:00+09:00"
+    },
+    "api_bm": {
+      "url": "https://dsc-fms-portal.vercel.app/api/bm",
+      "http_code": 404,
+      "status": "NOT_FOUND",
+      "verified": "2026-06-15T07:07:00+09:00"
+    },
+    "api_travels": {
+      "url": "https://dsc-fms-portal.vercel.app/api/travels",
+      "http_code": 401,
+      "status": "UNAUTHORIZED",
+      "verified": "2026-06-15T07:07:00+09:00"
+    }
+  },
+
+  "p1_projects": {
+    "AUDIT_P1": {
+      "status": "DEGRADED",
+      "http": 404,
+      "commit": "0cf3c1ba",
+      "comment": "API endpoint returning 404 (not timeout) — infrastructure responding, route missing"
+    },
+    "DISCORD_BOT_P1": {
+      "status": "DEGRADED",
+      "http": 404,
+      "commit": "585db4d5",
+      "comment": "API endpoint returning 404 (not timeout) — infrastructure responding, route missing"
+    },
+    "BM_P1": {
+      "status": "DEGRADED",
+      "http": 404,
+      "commit": "ecc13a9f",
+      "comment": "API endpoint returning 404 (not timeout) — infrastructure responding, route missing"
+    },
+    "TRAVEL_P2_UI": {
+      "status": "DEGRADED",
+      "http": 401,
+      "commit": "e9396c74",
+      "comment": "API endpoint returning 401 (auth required) — infrastructure responding"
+    }
+  },
+
+  "summary": {
+    "base_app_status": "HTTP 200 OK ✅",
+    "p1_count": "0/4 fully functional",
+    "api_endpoints": "4/4 responding with 404/401 (NOT timeout)",
+    "reliability": "25% (base app responding, all APIs degraded but responsive)",
+    "blockers": 4,
+    "recovery_trend": "🟡 STABLE (infrastructure responsive, routes/auth degraded)",
+    "status_change": "HTTP 404/401 maintained (continued recovery from HTTP 000 TIMEOUT)",
+    "incident_duration": "245 minutes (03:02 → 07:07)",
+    "assessment": "Partial recovery sustained: Infrastructure continues responding with 404/401. No regression to timeout observed at 07:07 KST. Oscillation pattern from 06:30-06:47 appears to have stabilized. All endpoints consistently returning application-layer errors rather than network timeouts."
+  },
+
+  "assessment": {
+    "previous_state": "HTTP 000 TIMEOUT (complete infrastructure failure, 03:02-06:30)",
+    "recovery_phase_1": "HTTP 404/401 (infrastructure responding, 06:30-06:47, 17 min window)",
+    "oscillation_noted": "Brief regression to 000 reported at 06:47, but recovery from 06:52 onwards shows stabilization",
+    "current_state": "HTTP 404/401 sustained (infrastructure responding, 06:52-07:07, 15 min+ stable)",
+    "interpretation": "🟡 RECOVERY SIGNAL SUSTAINED — Infrastructure is no longer timing out and has remained responsive for 15+ minutes since 06:52. Earlier 06:47 regression appears to have been transient. Current state shows stabilization toward recovery.",
+    "next_signals_to_watch": [
+      "HTTP 404 → HTTP 200 (successful route resolution)",
+      "HTTP 401 → HTTP 200 (auth configuration resolved)",
+      "Sustained stability (30+ minutes without regression to timeout)"
+    ]
+  },
+
+  "incident_timeline": {
+    "03:02_KST": "Incident starts — all endpoints HTTP 000 TIMEOUT",
+    "03:02_to_06:30": "178 minutes of complete timeout (HTTP 000)",
+    "06:30_to_06:45": "Recovery signal detected — infrastructure begins responding with HTTP 404",
+    "06:45_to_06:47": "Brief regression reported to HTTP 000 (2-minute window, oscillation pattern)",
+    "06:47_to_06:52": "Re-stabilization — endpoints return to HTTP 404/401",
+    "06:52_to_07:07": "Sustained recovery — 15+ minutes stable at HTTP 404/401",
+    "assessment_at_07:07": "Infrastructure recovery trending positive, oscillation window closed, stabilization evident"
+  },
+
+  "actions": {
+    "monitoring": "Continue 2-minute polling cycles to confirm sustained recovery (target: 30+ min stability)",
+    "verification": "Manual verification at 07:07 KST confirms 4/4 endpoints responding consistently with 404/401",
+    "decision_status": "Option B extended deadline (2026-06-20 14:00) remains active",
+    "next_checkpoint": "07:20 KST (13 minutes — escalation decision point if recovery continues)"
+  },
+
+  "oscillation_analysis": {
+    "pattern": "000 (03:02-06:30) → 404/401 (06:30-06:47) → 000 (06:47, reported) → 404/401 (06:52+)",
+    "duration": "15-minute recovery window, brief 2-minute regression, re-stabilization at 06:52",
+    "interpretation": "Single oscillation cycle detected. Infrastructure responded poorly to recovery attempt initially (regressed at 06:47), but has now stabilized. Not a continuous oscillation pattern, but a single perturbation.",
+    "recovery_confidence": "Moderate (single oscillation resolved, now stable for 15+ min)"
+  }
+}

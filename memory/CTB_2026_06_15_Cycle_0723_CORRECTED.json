@@ -1,0 +1,98 @@
+{
+  "timestamp": "2026-06-15T07:23:00+09:00",
+  "cycle": 1735,
+  "status": "CRITICAL_ALL_P1_DOWN",
+  "incident_duration_minutes": 261,
+  "incident_start": "2026-06-15T03:02:00+09:00",
+
+  "monitoring_correction": {
+    "issue": "🚨 ENDPOINT MISMATCH DISCOVERED",
+    "previous_error": "CTB was checking API routes on main portal (/api/audit, /api/discord) instead of separate P1 deployments",
+    "corrected_targets": [
+      "https://dsc-fms-audit.vercel.app (AUDIT-P1)",
+      "https://dsc-fms-discord-bot.vercel.app (DISCORD-BOT-P1)",
+      "https://dsc-fms-travel.vercel.app (TRAVEL-P2-UI)",
+      "https://dsc-fms-bm.vercel.app (BM-P1)"
+    ]
+  },
+
+  "p1_deployment_status": {
+    "dsc_fms_audit": {
+      "url": "https://dsc-fms-audit.vercel.app/",
+      "http_code": 404,
+      "status": "DEPLOYMENT_NOT_FOUND",
+      "verified": "2026-06-15T07:23:00+09:00",
+      "project": "AUDIT-P1",
+      "commit": "0cf3c1ba"
+    },
+    "dsc_fms_discord_bot": {
+      "url": "https://dsc-fms-discord-bot.vercel.app/",
+      "http_code": 404,
+      "status": "DEPLOYMENT_NOT_FOUND",
+      "verified": "2026-06-15T07:23:00+09:00",
+      "project": "DISCORD-BOT-P1",
+      "commit": "585db4d5"
+    },
+    "dsc_fms_travel": {
+      "url": "https://dsc-fms-travel.vercel.app/",
+      "http_code": 404,
+      "status": "DEPLOYMENT_NOT_FOUND",
+      "verified": "2026-06-15T07:23:00+09:00",
+      "project": "TRAVEL-P2-UI",
+      "commit": "e9396c74"
+    },
+    "dsc_fms_bm": {
+      "url": "https://dsc-fms-bm.vercel.app/",
+      "http_code": 404,
+      "status": "DEPLOYMENT_NOT_FOUND",
+      "verified": "2026-06-15T07:23:00+09:00",
+      "project": "BM-P1",
+      "commit": "ecc13a9f"
+    }
+  },
+
+  "main_portal_status": {
+    "base_url": "https://dsc-fms-portal.vercel.app/",
+    "http_code": 200,
+    "status": "OK",
+    "note": "Main portal working but P1 services (which may depend on separate deployments) are not accessible",
+    "verified": "2026-06-15T07:23:00+09:00"
+  },
+
+  "summary": {
+    "p1_deployments": "0/4 accessible (all DEPLOYMENT_NOT_FOUND)",
+    "main_portal": "HTTP 200 OK ✅",
+    "reliability": "0% (all 4 P1 services unreachable)",
+    "blockers": 4,
+    "recovery_trend": "🔴 NO RECOVERY SIGNAL (confirmed at 07:23, 4h 21min)",
+    "status_change": "NO CHANGE from 07:12 — all 4 P1 deployments remain 404",
+    "incident_duration": "261 minutes (03:02 → 07:23)",
+    "assessment": "Critical incident continues. All 4 P1 Vercel deployments are not found. Main portal infrastructure working but P1 services dependent on separate deployments are completely unavailable. This confirms 07:12 verification — incident unresolved."
+  },
+
+  "assessment": {
+    "endpoint_correction_significance": "CRITICAL",
+    "previous_monitoring": "Was checking main portal API routes (/api/audit, /api/discord, /api/bm, /api/travels) instead of actual P1 separate deployments",
+    "actual_p1_status": "All 4 separate Vercel deployments are DEPLOYMENT_NOT_FOUND (404)",
+    "recovery_status": "NO RECOVERY — all P1 services remain inaccessible for 4h 21min",
+    "interpretation": "🔴 CRITICAL INCIDENT UNRESOLVED — Infrastructure issue extends beyond main portal routing. Separate P1 deployments do not exist or are completely unavailable. Vercel account/deployment verification required.",
+    "confidence": "High (manual verification confirms 07:12 report)"
+  },
+
+  "incident_timeline": {
+    "03:02_KST": "Incident starts — all endpoints unreachable",
+    "03:02_to_07:12": "4h 10min with no recovery signals",
+    "07:12_KST": "Manual verification confirms all 4 P1 deployments DOWN (404 DEPLOYMENT_NOT_FOUND)",
+    "07:23_KST": "CTB re-verification confirms no change — all P1 deployments still 404, incident unresolved"
+  },
+
+  "required_actions": {
+    "user_decision": "OVERDUE by 53+ minutes (from 06:30 escalation deadline)",
+    "options": [
+      "Option A: Check Vercel account for P1 deployments — they may need to be redeployed/recovered",
+      "Option B: Accept extended deadline (2026-06-20 14:00) — currently active",
+      "Option C: Formal Vercel support escalation for DEPLOYMENT_NOT_FOUND errors"
+    ],
+    "monitoring": "Continue 2-minute cycles with corrected P1 deployment endpoints"
+  }
+}
