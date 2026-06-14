@@ -1,0 +1,63 @@
+{
+  "incident_id": "INCIDENT_2026_06_14_1142",
+  "timestamp": "2026-06-14T02:42:00Z",
+  "timestamp_kst": "2026-06-14 11:42:00 KST",
+  "severity": "🔴 CRITICAL P0",
+
+  "incident_summary": "NEW REGRESSION: 3/4 P1 프로젝트 DOWN (AUDIT, TRAVEL, BM 404) | DISCORD 만 200 OK | 이전 11:41 '완전복구' 보고에서 1분만에 회귀 재발생",
+
+  "p1_status_actual": {
+    "AUDIT-P1": {
+      "commit": "0cf3c1ba",
+      "code_status": "✅ Complete",
+      "deployment_status": "🔴 404 DEPLOYMENT_NOT_FOUND",
+      "http_status": 404,
+      "polled_at": "2026-06-14 11:42:00 KST"
+    },
+    "DISCORD-BOT-P1": {
+      "commit": "585db4d5",
+      "code_status": "✅ Complete",
+      "deployment_status": "✅ 200 OK",
+      "http_status": 200,
+      "polled_at": "2026-06-14 11:42:00 KST"
+    },
+    "TRAVEL-P2-UI": {
+      "commit": "e9396c74",
+      "code_status": "✅ Complete",
+      "deployment_status": "🔴 404 NOT_FOUND",
+      "http_status": 404,
+      "polled_at": "2026-06-14 11:42:00 KST"
+    },
+    "BM-P1": {
+      "commit": "ecc13a9f",
+      "code_status": "✅ Complete",
+      "deployment_status": "🔴 404 DEPLOYMENT_NOT_FOUND",
+      "http_status": 404,
+      "polled_at": "2026-06-14 11:42:00 KST"
+    }
+  },
+
+  "p1_status_reported": {
+    "reported_at": "2026-06-14 11:41:00 KST",
+    "all_4_reported_live": true,
+    "last_verified_reported": "2026-06-14 11:40:00 KST"
+  },
+
+  "regression_pattern": {
+    "previous_incident": "2026-06-14 10:49 KST (51분 duration, origin/main push로 복구)",
+    "current_regression_interval": "1분 (11:41 → 11:42 사이)",
+    "observation": "동일한 패턴 반복: Vercel 배포 상태 손실 → git push -f로 자동 복구 필요"
+  },
+
+  "recovery_action": {
+    "status": "시작 (11:42 KST)",
+    "action": "git push origin main -f",
+    "reason": "Vercel auto-deploy webhook 트리거 → origin/main과 Vercel 배포 상태 재동기화",
+    "expected_recovery_time": "2-10 minutes"
+  },
+
+  "urgency": "🚨 IMMEDIATE — Asset Master Phase 3-6 마감 12시간 내에 인프라 안정성 필수",
+  "requires_user_intervention": false,
+  "action_owner": "비서 AI (자동 git push 실행)",
+  "next_checkpoint": "2026-06-14 11:47 KST (5분 후, 회복 확인)"
+}
