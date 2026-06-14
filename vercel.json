@@ -1,59 +1,6 @@
 {
-  "buildCommand": "./build.sh",
-  "outputDirectory": "dsc-fms-portal/.next",
-  "ignoreCommand": "git diff --quiet HEAD^ HEAD -- dsc-fms-portal",
-  "env": {
-    "NODE_ENV": "production"
-  },
-  "headers": [
-    {
-      "source": "/assets(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "no-cache, no-store, must-revalidate"
-        },
-        {
-          "key": "X-Vercel-Cache-Control",
-          "value": "no-cache, no-store"
-        }
-      ]
-    },
-    {
-      "source": "/cost-budget(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "no-cache, no-store, must-revalidate"
-        }
-      ]
-    },
-    {
-      "source": "/productivity(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "no-cache, no-store, must-revalidate"
-        }
-      ]
-    }
-  ],
-  "crons": [
-    {
-      "path": "/api/cron/checkpoints/08-00",
-      "schedule": "0 23 * * *"
-    },
-    {
-      "path": "/api/cron/checkpoints/14-00",
-      "schedule": "0 5 * * *"
-    },
-    {
-      "path": "/api/cron/checkpoints/15-00",
-      "schedule": "0 6 * * *"
-    },
-    {
-      "path": "/api/cron/checkpoints/18-00",
-      "schedule": "0 9 * * *"
-    }
-  ]
+  "buildCommand": "cd dsc-fms-portal && npm run build",
+  "devCommand": "cd dsc-fms-portal && npm run dev",
+  "installCommand": "npm install && cd dsc-fms-portal && npm install",
+  "outputDirectory": "dsc-fms-portal/.next"
 }
