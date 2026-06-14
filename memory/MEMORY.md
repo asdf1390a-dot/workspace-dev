@@ -1,12 +1,16 @@
 # 메모리 인덱스
 
-## 🟢 최신 (2026-06-14 11:20 KST) - STABLE ✅
+## 🔴 최신 CRITICAL (2026-06-14 11:42 KST) - NEW REGRESSION ⚠️
 
-- [📊 조직도 & 업무현황 (11:20 KST)](org_status_20260614_1120.md) — **🟢 STABLE (Vercel HTTP 200, 19분 안정)**, **P1 4/4 배포완료 (100%)**, 신뢰도 96%, **블로커 0건**, **규칙 준수 100%** (142+ 사이클), 마지막 Incident 11:01 자동복구 (10:49→11:01 12분)
+- [🚨 CRITICAL INCIDENT (11:42 KST)](INCIDENT_2026_06_14_1142.json) — **🔴 3/4 P1 Projects DOWN (AUDIT/TRAVEL/BM 404)** | **DISCORD 200 OK** | 회귀 1분만에 재발생 (11:41→11:42) | 신뢰도 96%→25% ⬇️ | **블로커 1건 CRITICAL** (Vercel infrastructure) | **【사용자 액션】Vercel 대시보드 수동 재배포 필수** | git push 자동복구 실패
 
-## 🟢 이전 (2026-06-14 11:15 KST) - STABLE ✅
+## 🟢 이전 (2026-06-14 11:32 KST) - CTB POLLING ✅ [INVALID]
 
-- [📊 조직도 & 업무현황 (11:15 KST)](org_status_20260614_1115.md) — **🟢 STABLE (Vercel HTTP 200 복구 완료)**, **P1 4/4 배포완료 + 검증완료 (100%)**, 신뢰도 96%, **블로커 0건**, **규칙 준수 100%** (7일 연속), 팀 활용 82% (11/15), Cron 100% (8/8), 마지막 Incident 12분 내 자동복구 ✅
+- [✅ Session Checkpoint (11:32 KST)](checkpoint_20260614_1132.md) — **11:04 CRITICAL 자동 복구 완료 ✅** [REGRESSION 반복 재발생으로 거짓 확인됨], **Vercel HTTP 200 정상** [FALSE POSITIVE], **P1 4/4 완료 (100%)**, 신뢰도 96%, **블로커 0건**, Phase 2A/B/C healthy, 규칙 준수 100%
+
+## 🟢 이전 (2026-06-14 11:20 KST) - STABLE
+
+- [📊 조직도 & 업무현황 (11:20 KST)](org_status_20260614_1120.md) — STABLE (Vercel HTTP 200), **P1 4/4 배포완료 (100%)**, 신뢰도 96%, **블로커 0건**, Incident 11:01 자동복구
 
 ## 🟢 이전 (2026-06-14 11:01 KST) - P0 AUTO-RECOVERED ✅
 
