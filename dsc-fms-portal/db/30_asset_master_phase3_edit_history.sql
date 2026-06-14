@@ -1,5 +1,6 @@
 -- db/30 Asset Master Phase 3: Edit History Tracking & Disposal Management
 -- FIXED: Safe idempotent execution (safe for re-run)
+-- VERIFICATION HASH: Complete idempotent version with full STEP 1 cleanup
 
 -- ============================================================================
 -- STEP 1: Clean up existing objects (safe to run multiple times)
