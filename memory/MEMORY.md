@@ -1,6 +1,10 @@
 # 메모리 인덱스
 
-## 🟢 최신 (2026-06-14 22:30 KST) - STABLE + ZERO BLOCKERS
+## 🔴 긴급 CRITICAL (2026-06-14 22:55 KST) - DEPLOYMENT_NOT_FOUND REGRESSION
+
+- [🔴 CRITICAL INCIDENT (22:55 KST)](../INCOMPLETE_TASKS_REGISTRY.md) — **🔴 0/4 P1 DOWN**, **Vercel HTTP 404 (DEPLOYMENT_NOT_FOUND)**, **지속시간 2분**, **신뢰도 DEGRADED**, **블로커 1건 CRITICAL** 🔴, git push -f 복구 시작, Phase 3-1 개발 62분 후 시작 위험
+
+## 🟢 이전 (2026-06-14 22:30 KST) - STABLE + ZERO BLOCKERS
 
 - [📊 조직 & 업무현황 (22:30 KST)](org_status_20260614_2230.md) — **✅ 4/4 P1 LIVE (100%)**, **Vercel HTTP 200 (11h22m+ 연속)**, **신뢰도 96%**, **블로커 0건** ✅, db/30 완료 + Phase 3-1 설계 완료, 팀 11/15 (73%), 규칙준수 3/3 100%, Phase 3-1 개발 1h 30m 후 자동 시작
 - [✅ Session Checkpoint (22:27 KST)](../INCOMPLETE_TASKS_REGISTRY.md) — **✅ 4/4 P1 LIVE (100%)**, **Vercel HTTP 200 (11h19m+ 연속)**, **신뢰도 96%**, **블로커 0건** ✅, 무변화 90분 지속, Phase 3-1 개발 1h 33m 후 자동 시작
