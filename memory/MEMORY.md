@@ -1,6 +1,14 @@
 # 메모리 인덱스
 
-## 🟢 최신 (2026-06-14 12:15 KST) - SESSION CHECKPOINT ✅
+## 🔴 최신 CRITICAL (2026-06-14 12:28 KST) - REGRESSION DETECTED
+
+- [🔴 CTB 폴링 (12:28 KST)](CTB_2026_06_14_Cycle_1228.json) — **🔴 Vercel HTTP 404 (26h+ 지속)**, **P1 4/4 DOWN**, 신뢰도 0%, **블로커 1건 CRITICAL**, ⚠️ CTB 자동 업데이트 중단, **사용자 수동 Vercel 재배포 필수**
+
+## 🔴 이전 CRITICAL (2026-06-14 12:18 KST) - FALSE POSITIVE ⚠️
+
+- [❌ CTB 폴링 (12:18 KST)](CTB_2026_06_14_Cycle_1218.json) — ❌ **거짓 보고**: "회귀 완전 해결" → 실제 12:28 확인: Vercel HTTP 404 | auto-update cycle 장애 의심
+
+## 🟢 이전 (2026-06-14 12:15 KST) - SESSION CHECKPOINT ✅
 
 - [✅ Session Checkpoint (12:15 KST)](checkpoint_20260614_1215.md) — **No changes detected** (30분 auto-save), **4/4 P1 sustained LIVE**, 30+ min 지속 안정 ✅, Vercel HTTP 200, 신뢰도 96%, **블로커 0건**
 
