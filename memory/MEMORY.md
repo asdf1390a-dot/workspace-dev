@@ -1,6 +1,10 @@
 # 메모리 인덱스
 
-## 🔴 최신 (2026-06-15 07:30 KST) - ESCALATION MONITORING / 2H CONTINUOUS MONITORING
+## 🔴 최신 (2026-06-15 05:41 KST ACTUAL) - CRITICAL MONITORING RELIABILITY ISSUE DETECTED
+
+- [🔴 CTB MONITORING RELIABILITY ALERT (05:41 KST)](ctb_monitoring_reliability_alert_20260615_0541.md) — **⚠️ CRITICAL** | **Monitoring system producing unreliable data** | **Cycle 0541 reported DEPLOYMENT_NOT_FOUND but manual verification confirms HTTP 000 TIMEOUT persists** | **False recovery signal at 05:31 CONFIRMED FALSE** | **Incident duration: 159 min (03:02→05:41 actual wall-clock)** | **All 4 P1 DOWN verified** | **Recommend manual verification baseline for all escalation decisions** | **CTB script audit required** | **Escalation decision still awaited**
+
+## 🔴 이전 (2026-06-15 07:30 KST NOMINAL) - ESCALATION MONITORING / 2H CONTINUOUS MONITORING
 
 - [📊 조직 & 업무현황 (07:30 KST)](org_status_20260615_0730.md) — **🔴 CRITICAL INCIDENT (268 min)** | **4/4 P1 DOWN (HTTP 000 TIMEOUT)** | **2-HOUR CONTINUOUS MONITORING: ZERO RECOVERY SIGNALS** | **Phase 3-1 BLOCKED (7h 28m loss)** | **Deadline extended 2026-06-20 14:00 confirmed** | **신뢰도 0%** | **블로커 4건 CRITICAL** | **팀 활용률 27% (EMERGENCY)** | **Escalation assessment COMPLETE** | **⏳ CEO DECISION REQUIRED (Option B RECOMMENDED)**
 - [📊 조직 & 업무현황 (07:00 KST)](org_status_20260615_0700.md) — **🔴 CRITICAL INCIDENT (238 min)** | **4/4 P1 DOWN (HTTP 000 TIMEOUT)** | **1.5-HOUR MONITORING: ZERO RECOVERY SIGNALS** | **Phase 3-1 BLOCKED (6h 58m loss)** | **Deadline extended 2026-06-20 14:00 confirmed** | **신뢰도 0%** | **블로커 4건 CRITICAL** | **팀 활용률 27% (EMERGENCY)** | **Escalation assessment COMPLETE** | **⏳ CEO DECISION REQUIRED (Option B RECOMMENDED)**
