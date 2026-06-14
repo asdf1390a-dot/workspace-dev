@@ -1,8 +1,20 @@
 # 메모리 인덱스
 
-## 🔴 최신 CRITICAL (2026-06-14 12:45 KST) - DATA DISCREPANCY & ONGOING OUTAGE
+## 🟢 최신 (2026-06-14 14:02 KST) - OPERATIONAL STABLE ✅
 
-- [🔴 Session Checkpoint (12:45 KST)](checkpoint_20260614_1245.md) — **⚠️ Data discrepancy alert** (state file shows HTTP 200 vs CTB shows 404) | **🔴 All projects STILL DOWN** (26h+ ongoing) | 신뢰도 0%, **블로커 1건 CRITICAL** | **사용자 수동 Vercel 재배포 PENDING** | Recovery AWAITED
+- [📊 조직 & 업무현황 (14:02 KST)](org_status_20260614_1402.md) — **🟢 OPERATIONAL**, **P1 4/4 배포완료 (100%)**, Vercel HTTP 200 지속, 신뢰도 96%, **블로커 1건** (db/30 SQL), 팀 82% 활용, 자동화 95%
+
+## 🟢 이전 (2026-06-14 13:58 KST) - SUSTAINED STABILITY ✅
+
+- [✅ CTB 폴링 (13:58 KST)](CTB_2026_06_14_Cycle_1358.json) — **✅ 2시간+ 지속 안정**, **P1 4/4 배포완료 (코드 변경 없음)**, Vercel HTTP 200 지속, 신뢰도 96% ✅, **블로커 0건**, 무사고 유지
+
+## 🟢 이전 (2026-06-14 13:53 KST) - RECOVERY CONFIRMED ✅
+
+- [✅ CTB 폴링 (13:53 KST)](CTB_2026_06_14_Cycle_1353.json) — **✅ 회귀 완전 해결 (2h 6분 안정)**, **P1 4/4 배포완료**, Vercel HTTP 200 (audit/travels/assets), 신뢰도 96% ✅, **블로커 0건**, 모든 서비스 정상
+
+## 🔴 이전 CRITICAL (2026-06-14 13:33 KST) - 4차 회귀 (RESOLVED) ✅
+
+- [🔴 CTB 폴링 (13:33 KST)](CTB_2026_06_14_Cycle_1333.json) — 🔴 4차 회귀 감지 (13:33) → ✅ 13:53 자동복구 | 회복 시간 약 20분
 
 ## 🔴 이전 CRITICAL (2026-06-14 12:28 KST) - REGRESSION DETECTED
 
