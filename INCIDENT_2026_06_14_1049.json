@@ -1,0 +1,43 @@
+{
+  "timestamp": "2026-06-14T01:49:51Z",
+  "kst_time": "2026-06-14 10:49:51 KST",
+  "severity": "🔴 CRITICAL",
+  "type": "PRODUCTION_OUTAGE",
+  "status": "ACTIVE",
+
+  "incident_details": {
+    "description": "모든 Vercel 엔드포인트 HTTP 404 (시스템 다운)",
+    "affected_services": [
+      "/ (root)",
+      "/api/health",
+      "/assets",
+      "/api/assets"
+    ],
+    "detection_time": "2026-06-14 10:49:51 KST",
+    "last_healthy_check": "2026-06-14 10:44 KST (5분 전, CTB cycle 1044)",
+    "downtime_duration": "5+ minutes"
+  },
+
+  "root_cause_suspects": [
+    "Recent Vercel deployment failure",
+    "Project misconfiguration after last commit",
+    "Next.js build system error",
+    "Environment variable mismatch"
+  ],
+
+  "immediate_actions_needed": [
+    "1. Check Vercel dashboard for deployment logs",
+    "2. Verify last successful build/deployment commit",
+    "3. Review changes between commit d2dbb6b2 (10:34 ✅) and current time",
+    "4. Check for build errors in Vercel logs",
+    "5. Consider rollback if critical issue found"
+  ],
+
+  "evidence": {
+    "curl_test_timestamp": "2026-06-14 10:49:51 KST",
+    "all_endpoints": "HTTP/2 404",
+    "headers_present": "strict-transport-security (indicates Vercel still responding, not DNS issue)"
+  },
+
+  "escalation": "🚨 URGENT — User 나경태 must be notified immediately"
+}
