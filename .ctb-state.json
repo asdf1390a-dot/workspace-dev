@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-14T02:26:00Z",
+  "timestamp": "2026-06-14T02:40:01Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
@@ -7,17 +7,8 @@
     "phase2c": "ready"
   },
   "production": {
-    "vercel": "PARTIAL_DEGRADED",
-    "vercel_http": "200 (root) / 404 (api routes)",
-    "status_detail": "Root deployed but API routes missing"
+    "vercel": "OK",
+    "vercel_http": "200"
   },
-  "p1_status": {
-    "audit_p1": "code_complete",
-    "discord_bot_p1": "code_complete",
-    "travel_p2_ui": "code_complete",
-    "bm_p1": "code_complete"
-  },
-  "reliability": "70%",
-  "blockers": 1,
-  "last_update": "2026-06-14 11:26:00"
+  "last_update": "2026-06-14 11:40:01"
 }
