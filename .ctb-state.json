@@ -1,14 +1,18 @@
 {
-  "timestamp": "2026-06-14T06:05:02Z",
-  "progress": 100,
+  "timestamp": "2026-06-14T06:08:30Z",
+  "progress": 25,
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
     "phase2c": "ready"
   },
   "production": {
-    "vercel": "OK",
-    "vercel_http": "200"
+    "vercel": "DEPLOYMENT_NOT_FOUND",
+    "vercel_http": "404",
+    "vercel_error": "x-vercel-error: DEPLOYMENT_NOT_FOUND",
+    "blockers": "모든 P1 4개 엔드포인트 404 반환 (AUDIT/DISCORD/TRAVEL/BM)",
+    "recurring_issue": "2026-06-10부터 4일간 지속",
+    "monitoring_failure": "거짓 양성: 모니터링은 OK 보고하지만 실제 404"
   },
-  "last_update": "2026-06-14 15:05:02"
+  "last_update": "2026-06-14 15:08:30"
 }
