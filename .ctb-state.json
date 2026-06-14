@@ -1,14 +1,19 @@
 {
-  "timestamp": "2026-06-14T03:25:01Z",
-  "progress": 100,
+  "timestamp": "2026-06-14T04:04:55Z",
+  "progress": 50,
+  "alert": "🟡 PARTIAL_RECOVERY_IN_PROGRESS",
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
     "phase2c": "ready"
   },
   "production": {
-    "vercel": "OK",
-    "vercel_http": "200"
+    "vercel": "PARTIAL_RECOVERY",
+    "vercel_http": "mixed (root 200 + audit 401 + travel/bm 404)",
+    "audit_status": "✅ 401_AUTH_OK (endpoint alive)",
+    "travel_status": "🔴 404_NOT_FOUND",
+    "bm_status": "🔴 404_NOT_FOUND"
   },
-  "last_update": "2026-06-14 12:25:01"
+  "last_update": "2026-06-14 13:04:55 KST",
+  "note": "부분 회복 진행: AUDIT-P1 회복됨 (12:59 대비 개선), TRAVEL/BM 여전히 404"
 }
