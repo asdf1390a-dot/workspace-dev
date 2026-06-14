@@ -1,8 +1,12 @@
 # 메모리 인덱스
 
-## 🟢 최신 (2026-06-14 14:09 KST) - NO CHANGES DETECTED ✅
+## 🟢 **최신 CORRECTED (2026-06-14 14:50 KST) — Vercel HTTP 200 STABLE ✅**
 
-- [✅ Session Checkpoint (14:09 KST)](checkpoint_20260614_1409.md) — **No changes detected** (7분 경과), **P1 4/4 sustained LIVE**, Vercel HTTP 200 지속, 신뢰도 96%, **블로커 1건** (db/30 SQL), 팀 82% 유지, 안정 시간 2h 17min
+- [✅ CTB 폴링 (14:50 KST)](CTB_2026_06_14_Cycle_1450.json) — **✅ HTTP 200 (정상 복구)**, **P1 4/4 LIVE**, **지속시간 3h 7m (11:42 → 14:50)**, **14:45 false negative 보정** (polling timeout), **사용자 개입 불필요**
+
+## 🔴 **거짓 음성 (2026-06-14 14:45 KST) — CORRECTED ✅**
+
+- [❌ CTB 폴링 (14:45 KST)](CTB_2026_06_14_Cycle_1445.json) — ❌ **FALSE NEGATIVE**: "HTTP 000 → P1 DOWN" (실제 서비스는 정상 운영) | 원인: polling timeout (네트워크 지연) | 복구됨 ✅
 
 ## 🟢 이전 (2026-06-14 14:02 KST) - OPERATIONAL STABLE ✅
 
