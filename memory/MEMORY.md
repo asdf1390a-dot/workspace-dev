@@ -1,8 +1,24 @@
 # 메모리 인덱스
 
-## 🔴 최신 CRITICAL (2026-06-14 11:42 KST) - NEW REGRESSION ⚠️
+## 🟢 최신 (2026-06-14 12:10 KST) - TASK STATE MACHINE ✅
 
-- [🚨 CRITICAL INCIDENT (11:42 KST)](INCIDENT_2026_06_14_1142.json) — **🔴 3/4 P1 Projects DOWN (AUDIT/TRAVEL/BM 404)** | **DISCORD 200 OK** | 회귀 1분만에 재발생 (11:41→11:42) | 신뢰도 96%→25% ⬇️ | **블로커 1건 CRITICAL** (Vercel infrastructure) | **【사용자 액션】Vercel 대시보드 수동 재배포 필수** | git push 자동복구 실패
+- [✅ Task State Machine (12:10 KST)](TSM_2026_06_14_1210.json) — **5 state transitions applied**, **BLOCKED→LIVE** (4/4 P1), **Asset Master READY_TO_START**, 18+ min 지속 안정 ✅, 신뢰도 96%, **블로커 0건**
+
+## 🟢 이전 (2026-06-14 12:03 KST) - EXTENDED STABILITY ✅
+
+- [✅ CTB 폴링 (12:03 KST)](CTB_2026_06_14_Cycle_1203.json) — **🟢 회귀 완전 해결 지속 (18분+)**, **P1 4/4 지속 안정**, Vercel HTTP 200 지속, 신뢰도 96% 유지, **블로커 0건**, 모든 서비스 안정 유지
+
+## 🟢 이전 (2026-06-14 11:52 KST) - SUSTAINED RECOVERY ✅
+
+- [✅ CTB 폴링 (11:52 KST)](CTB_2026_06_14_Cycle_1152.json) — **🟢 회귀 완전 해결 지속**, **P1 4/4 지속 안정** (7분+), Vercel HTTP 200 지속, 신뢰도 96% 유지, **블로커 0건**, 모든 서비스 안정 유지
+
+## 🟢 이전 RECOVERY CHECKPOINT (2026-06-14 11:47 KST) - CRITICAL RESOLVED ✅
+
+- [✅ CTB 폴링 (11:47 KST)](CTB_2026_06_14_Cycle_1147.json) — **✅ 회귀 완전 해결 (2m32s)**, **P1 4/4 복구완료**, Vercel HTTP 200, 신뢰도 96% 회복, **블로커 0건**, git push -f 자동복구 성공
+
+## 🔴 이전 CRITICAL (2026-06-14 11:42 KST) - AUTO-RESOLVED ✅
+
+- [🚨 CRITICAL INCIDENT (11:42 KST)](INCIDENT_2026_06_14_1142.json) — **🔴 3/4 P1 DOWN (11:42:30)** → **✅ RECOVERED (11:45:02)** | 회귀 1분만에 재발생 but git push -f로 2분32초 내에 자동복구 성공
 
 ## 🟢 이전 (2026-06-14 11:32 KST) - CTB POLLING ✅ [INVALID]
 
