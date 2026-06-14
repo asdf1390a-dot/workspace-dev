@@ -1,6 +1,10 @@
 # 메모리 인덱스
 
-## 🟢 **최신 (2026-06-14 14:55 KST) — Continuous Stability ✅**
+## 🟢 **최신 (2026-06-14 15:12 KST) — Continuous Stability +4h 27m ✅**
+
+- [✅ CTB 폴링 (15:12 KST)](CTB_2026_06_14_Cycle_1512.json) — **✅ 연속 안정 (154+ polls)**, **P1 4/4 LIVE (no code changes)**, **지속시간 4h 27m (11:45 → 15:12)**, **회귀 패턴 0건**, **신뢰도 96%**, **블로커 1건** (db/30 SQL 대기)
+
+## 🟢 이전 (2026-06-14 14:55 KST) — Continuous Stability ✅
 
 - [✅ CTB 폴링 (14:55 KST)](CTB_2026_06_14_Cycle_1455.json) — **✅ 연속 안정 (4 healthy polls)**, **P1 4/4 LIVE (no changes)**, **지속시간 3h 12m 30s (11:42:30 → 14:55)**, **회귀 패턴 0건**, **신뢰도 96%**, **블로커 0건**
 
