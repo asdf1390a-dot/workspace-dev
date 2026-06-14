@@ -1,6 +1,10 @@
 # 메모리 인덱스
 
-## 🔴 최신 CRITICAL (2026-06-14 09:39 KST) - ORG STATUS UPDATE DURING INCIDENT
+## 🔴 최신 CRITICAL (2026-06-14 09:45+ KST) - FALSE RECOVERY DETECTED
+
+- [🔴 CRITICAL INCIDENT ESCALATION (09:45 KST)](../CRITICAL_INCIDENT_ESCALATION_20260614_0945.md) — **🔴 Vercel DNS Failure 81분+ 지속 (08:24→09:45+)** | **거짓 복구 발견** (git 09:25-09:40 커밋들은 캐시된 상태에 기반, 실제 curl 검증 실패) | DNS 해결 불가: "Could not resolve host: fms.dscmannur.com" | P1 4/4 배포 검증 불가 (24h+ stale) | **【긴급】사용자 즉시 조치 필수**: (1) Vercel 대시보드 재배포, (2) git push, (3) Vercel 지원 | Asset Master URGENT (13-14h 남음)
+
+## 🔴 이전 (2026-06-14 09:39 KST) - ORG STATUS UPDATE DURING INCIDENT
 
 - [📊 조직도 & 업무현황 (09:39 KST)](org_status_20260614_0939.md) — **🔴 Vercel HTTP 000 75분+ 진행 중** | 팀 11/15 (82%) | Cron 8/8 100% | 규칙 준수 100% (7일) | 신뢰도 70% (26% 급락) | **블로커 2건** (VERCEL HTTP 000 + 인프라 큐) | P1 4/4 완료→배포 검증 불가 | Asset Master URGENT (14h 남음) | **【긴급】Vercel 재배포 필수** (2-10분)
 
@@ -441,6 +445,7 @@
 
 ## 📌 **핵심 규칙** (필독)
 
+- [🚨 거짓 복구 탐지 교훈](incident_false_recovery_detection_20260614.md) — 캐시된 상태는 실제 검증 없이 OK 리포트하면 안됨 (2026-06-14)
 - [💡 사용자 의사결정 자율화](feedback_user_decision_autonomy.md) — 판단/조치는 사용자 책임, 비서는 데이터만 (2026-06-09)
 - [🔴 평가자 메모리 정확 읽기 의무화](feedback_evaluator_memory_verification.md) — 분석 전 규칙 검증 필수 (2026-06-09)
 - [🔴 평가자 책임 & 검증 체크리스트](evaluator_responsibilities_and_rules.md) — 분석 제출 전 3단계 검증 의무 (2026-06-09)
