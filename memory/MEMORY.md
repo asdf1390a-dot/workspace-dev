@@ -1,6 +1,10 @@
 # 메모리 인덱스
 
-## 🔴 최신 CRITICAL (2026-06-14 12:28 KST) - REGRESSION DETECTED
+## 🔴 최신 CRITICAL (2026-06-14 12:45 KST) - DATA DISCREPANCY & ONGOING OUTAGE
+
+- [🔴 Session Checkpoint (12:45 KST)](checkpoint_20260614_1245.md) — **⚠️ Data discrepancy alert** (state file shows HTTP 200 vs CTB shows 404) | **🔴 All projects STILL DOWN** (26h+ ongoing) | 신뢰도 0%, **블로커 1건 CRITICAL** | **사용자 수동 Vercel 재배포 PENDING** | Recovery AWAITED
+
+## 🔴 이전 CRITICAL (2026-06-14 12:28 KST) - REGRESSION DETECTED
 
 - [🔴 CTB 폴링 (12:28 KST)](CTB_2026_06_14_Cycle_1228.json) — **🔴 Vercel HTTP 404 (26h+ 지속)**, **P1 4/4 DOWN**, 신뢰도 0%, **블로커 1건 CRITICAL**, ⚠️ CTB 자동 업데이트 중단, **사용자 수동 Vercel 재배포 필수**
 
