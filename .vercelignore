@@ -21,3 +21,5 @@ tmp
 tmp/**
 __pycache__
 *.pyc
+dsc-fms-portal/.next/cache
+dsc-fms-portal/node_modules/.cache
