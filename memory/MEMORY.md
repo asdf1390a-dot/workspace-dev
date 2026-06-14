@@ -1,6 +1,10 @@
 # 메모리 인덱스
 
-## 🔴 최신 CRITICAL (2026-06-14 09:14 KST) - SESSION CHECKPOINT CONFIRMS INCIDENT ONGOING 50+ MIN
+## 🔴 최신 CRITICAL (2026-06-14 09:39 KST) - ORG STATUS UPDATE DURING INCIDENT
+
+- [📊 조직도 & 업무현황 (09:39 KST)](org_status_20260614_0939.md) — **🔴 Vercel HTTP 000 75분+ 진행 중** | 팀 11/15 (82%) | Cron 8/8 100% | 규칙 준수 100% (7일) | 신뢰도 70% (26% 급락) | **블로커 2건** (VERCEL HTTP 000 + 인프라 큐) | P1 4/4 완료→배포 검증 불가 | Asset Master URGENT (14h 남음) | **【긴급】Vercel 재배포 필수** (2-10분)
+
+## 🔴 이전 (2026-06-14 09:14 KST) - SESSION CHECKPOINT CONFIRMS INCIDENT
 
 - [✅ Session Checkpoint (09:14 KST)](../INCOMPLETE_TASKS_REGISTRY.md#-session-checkpoint-2026-06-14-0914-kst--critical-incident-ongoing) — **🔴 Vercel HTTP 000 확인됨** | curl 검증 (09:14:17): HTTP 000 활성 | **거짓 복구 @ 09:10** (상태 파일 오류) | 회귀 지속: 50분 (08:24→09:14, 미해결) | 신뢰도 70% 지속 | **블로커 1건 CRITICAL** | P1 4/4 배포 검증 불가 (21h+) | 작업상태: 변화 없음 (안정) | **【긴급】사용자 Vercel 즉시 재배포 필요** (2-10분)
 
