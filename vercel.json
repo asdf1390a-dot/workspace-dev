@@ -1,5 +1,5 @@
 {
-  "buildCommand": "cd dsc-fms-portal && npm run build",
+  "buildCommand": "cd dsc-fms-portal && rm -rf .next/cache && npm run build",
   "devCommand": "cd dsc-fms-portal && npm run dev",
   "installCommand": "cd dsc-fms-portal && npm install",
   "outputDirectory": "dsc-fms-portal/.next"
