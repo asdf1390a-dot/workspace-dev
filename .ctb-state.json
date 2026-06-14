@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-14T10:34:00Z",
+  "timestamp": "2026-06-14T10:49:00Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
@@ -10,5 +10,8 @@
     "vercel": "OK",
     "vercel_http": "200"
   },
-  "last_update": "2026-06-14 19:34:00 KST"
+  "p1_status": "4/4_stable",
+  "reliability": "96%",
+  "blockers": "1건",
+  "last_update": "2026-06-14 19:49:00"
 }
