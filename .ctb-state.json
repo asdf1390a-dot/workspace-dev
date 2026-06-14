@@ -1,12 +1,13 @@
 {
-  "timestamp": "2026-06-14T18:25:01Z",
-  "incident_id": "CTB-2026-06-15-0302-0328",
+  "timestamp": "2026-06-14T18:30:01Z",
+  "incident_id": "CTB-2026-06-15-0302-ONGOING",
   "incident_start": "2026-06-15T03:02:00+09:00",
-  "incident_detection": "2026-06-15T03:28:15+09:00",
-  "incident_duration_minutes": 26,
+  "incident_verified": "2026-06-15T03:28:15+09:00",
+  "incident_reconfirmed": "2026-06-15T03:30:15+09:00",
+  "incident_duration_minutes": 28,
   "severity": "CRITICAL",
   "progress": 0,
-  "status": "CRITICAL_INCIDENT_ONGOING",
+  "status": "CRITICAL_INCIDENT_ONGOING_FALSE_POSITIVES",
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
@@ -15,20 +16,26 @@
   "production": {
     "vercel": "DOWN",
     "vercel_http": "404",
-    "vercel_status": "DEPLOYMENT_NOT_FOUND",
+    "vercel_status": "DEPLOYMENT_NOT_FOUND_ALL_4_PROJECTS",
     "audit_p1": "HTTP 404",
     "discord_bot_p1": "HTTP 404",
     "travel_p2_ui": "HTTP 404",
     "bm_p1": "HTTP 404",
     "domain_fms": "DNS_UNREACHABLE"
   },
+  "ctb_monitoring_issue": {
+    "problem": "CTB auto-update script produces continuous false positives",
+    "cause": "Script checks local Phase2 services (3009/3010/3011) instead of Vercel endpoints",
+    "evidence": "03:30 cycle: script reported 'vercel=OK' and overwrote critical status file despite all endpoints returning HTTP 404",
+    "impact": "Critical status masked by false positive cycles, recovery could be delayed"
+  },
   "verification": {
     "method": "Direct curl endpoint verification",
-    "timestamp": "2026-06-15T03:28:15+09:00",
-    "verified_by": "Automated CTB Critical Incident Detection"
+    "last_verified": "2026-06-15T03:30:15+09:00",
+    "verified_by": "Automated CTB + Manual verification"
   },
   "last_good_state": "2026-06-15T02:58:00+09:00",
-  "last_update": "2026-06-15 03:28:15",
-  "escalation": "USER_VERCEL_VERIFICATION_REQUIRED",
-  "action_required": "Check https://vercel.com/kyeongtae-na/fms-portal deployments tab"
+  "last_update": "2026-06-15 03:30:15",
+  "escalation": "CRITICAL_USER_ACTION_REQUIRED",
+  "action_required": "1. Check Vercel dashboard (https://vercel.com/kyeongtae-na/fms-portal), 2. Review deployments & build logs, 3. Redeploy or rollback, 4. Confirm HTTP 200 on all endpoints"
 }
