@@ -1,6 +1,10 @@
 # 메모리 인덱스
 
-## ✅ 최신 (2026-06-15 08:17:30 KST) - ESCALATION ACTIVE MONITORING / SESSION CHECKPOINT
+## ✅ 최신 (2026-06-15 08:30 KST) - ESCALATION ACTIVE MONITORING / 30MIN CHECKPOINT
+
+- [📊 조직 & 업무현황 (08:30 KST CHECKPOINT)](org_status_20260615_0830.md) — **✅ ESCALATION ACTIVE (43 min since 07:47:50)** | **Incident 327 min (5h 27m, 03:02→08:30)** | **4/4 P1 HTTP 404 STABLE (60+ min, 07:12→08:30)** | **Phase 3-1 BLOCKED (6h 58m loss)** | **신뢰도 0%** | **블로커 4건 CRITICAL** | **팀 27% (4 active monitoring, 11 standby)** | **✅ Deadline 2026-06-20 14:00 (118+ hours buffer)** | **✅ Vercel support escalation ACTIVE** | **⏳ Awaiting Vercel engineering priority investigation** | **모니터링 계속 (2min 주기)**
+
+## ✅ 이전 (2026-06-15 08:17:30 KST) - ESCALATION ACTIVE MONITORING / SESSION CHECKPOINT
 
 - [✅ Session Checkpoint (08:17:30 KST)](../INCOMPLETE_TASKS_REGISTRY.md#-session-checkpoint-2026-06-15-08173000-kst---escalation-active-monitoring) — **✅ ESCALATION ACTIVE (30 min since 07:47:50)** | **Incident 315 min (5h 15m, 03:02→08:17)** | **4/4 P1 HTTP 404 STABLE (48+ min, 07:12→08:17)** | **Phase 3-1 BLOCKED (7h 17m loss)** | **신뢰도 0%** | **블로커 4건 CRITICAL** | **팀 27% (4 active monitoring, 11 standby)** | **✅ Deadline 2026-06-20 14:00 (118+ hours buffer)** | **✅ Vercel support escalation TRIGGERED (07:47:50)** | **⏳ Awaiting Vercel engineering priority investigation** | **모니터링 계속 (2min 주기)**
 
