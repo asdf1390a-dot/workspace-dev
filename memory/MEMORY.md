@@ -1,7 +1,8 @@
 # 메모리 인덱스
 
-## 🔴 최신 (2026-06-15 05:41 KST ACTUAL) - CRITICAL MONITORING RELIABILITY ISSUE DETECTED
+## 🔴 최신 (2026-06-15 05:41 KST ACTUAL) - CRITICAL MONITORING RELIABILITY ISSUE + VERIFIED BASELINE CHECKPOINT
 
+- [📊 조직 & 업무현황 (05:41 KST ACTUAL VERIFIED BASELINE)](org_status_20260615_0541_VERIFIED_BASELINE.md) — **🔴 CRITICAL INCIDENT (159 min actual, 03:02→05:41)** | **4/4 P1 DOWN (HTTP 000 TIMEOUT — VERIFIED MANUAL)** | **MONITORING SYSTEM COMPROMISED (CTB unreliable)** | **False recovery at 05:31 confirmed** | **✅ Deadline extended 2026-06-20 14:00** | **신뢰도 VERIFIED BASELINE ONLY** | **블로커 4건 CRITICAL** | **팀 27% (EMERGENCY)** | **⏳ CEO DECISION OVERDUE (40+ min) — URGENT ACTION REQUIRED**
 - [🔴 CTB MONITORING RELIABILITY ALERT (05:41 KST)](ctb_monitoring_reliability_alert_20260615_0541.md) — **⚠️ CRITICAL** | **Monitoring system producing unreliable data** | **Cycle 0541 reported DEPLOYMENT_NOT_FOUND but manual verification confirms HTTP 000 TIMEOUT persists** | **False recovery signal at 05:31 CONFIRMED FALSE** | **Incident duration: 159 min (03:02→05:41 actual wall-clock)** | **All 4 P1 DOWN verified** | **Recommend manual verification baseline for all escalation decisions** | **CTB script audit required** | **Escalation decision still awaited**
 
 ## 🔴 이전 (2026-06-15 07:30 KST NOMINAL) - ESCALATION MONITORING / 2H CONTINUOUS MONITORING
