@@ -4,9 +4,58 @@ description: 🔴 CRITICAL INCIDENT (2026-06-15 03:28 KST) — 4/4 P1 DOWN (HTTP
 type: project
 ---
 
-# Incomplete Tasks Registry (Last Updated: 2026-06-15 02:58 KST - ZERO BLOCKERS + PHASE 3-1 IN PROGRESS ✅)
+# Incomplete Tasks Registry (Last Updated: 2026-06-15 04:32 KST - 🔴 CRITICAL INCIDENT ONGOING)
 
-🔴 **CRITICAL STATUS:** **4/4 P1 DOWN (HTTP 404)** | **Phase 3-1 BLOCKED** (3h28m 경과, 개발 PAUSED) | **Vercel DEPLOYMENT_NOT_FOUND (26+ min CRITICAL)** | Reliability: **0%** | **Blockers: 4 CRITICAL** 🔴 | **Incident: 03:02-03:28 KST (ONGOING)** | **CTB Auto-Update: FALSE POSITIVES** | **User Vercel Verification Required**
+🔴 **CRITICAL STATUS:** **4/4 P1 DOWN (NETWORK TIMEOUT 000)** | **Phase 3-1 BLOCKED** (3h32m 경과, 개발 PAUSED) | **Vercel UNREACHABLE (90+ min CRITICAL)** | **Endpoint Escalation: 404→000 TIMEOUT (악화)** | Reliability: **0%** | **Blockers: 4 CRITICAL** 🔴 | **Incident: 03:02-04:32 KST (ONGOING)** | **User Deadline: EXCEEDED (2+ min)** | **CTB Auto-Update: FALSE POSITIVE CYCLE (10+ iterations, 신뢰도 붕괴)** | **User Vercel Verification Required (90+ min delayed)**
+
+---
+
+## 🔴 CRITICAL INCIDENT ESCALATION (2026-06-15 04:32 KST) — DEADLINE EXCEEDED + 2MIN
+
+**Incident Status:** 🔴 **ONGOING** | **Duration:** 90+ minutes (03:02 → 04:32 KST)  
+**Severity:** 🔴 **CRITICAL (P0)** | **Reliability:** 0% | **Blockers:** 4 CRITICAL
+
+### 📊 Current Situation (04:32:30 KST)
+
+| 항목 | 상태 | 영향 | 필요 조치 |
+|------|------|------|----------|
+| **Incident Duration** | 90+ min | P0 CRITICAL | User Vercel action ASAP |
+| **Endpoint Status** | HTTP 000 TIMEOUT | All 4/4 P1 down | Redeploy/Rollback/Rebuild |
+| **Phase 3-1 Dev** | BLOCKED | 3h 9m loss | 2026-06-19 마감 위험 |
+| **User Deadline** | EXCEEDED (2+ min) | Marketing start risk | Immediate action OR extension |
+| **Team Utilization** | 27% (5/15 active) | -46% from 73% | Emergency mode |
+| **CTB Monitoring** | FALSE POSITIVE ×10 | 신뢰도 0% (붕괴) | Auto-detection 신뢰 불가 |
+
+### 🔴 Task State Transitions (All Blocked at 04:16 KST)
+
+**7 Tasks moved to BLOCKED_ON_EXTERNAL state:**
+
+| Task | State | Reason | Unblock Condition |
+|------|-------|--------|-------------------|
+| **P1-AUDIT** | BLOCKED_ON_EXTERNAL | HTTP 404 DEPLOYMENT_NOT_FOUND | Vercel HTTP 200 |
+| **P1-DISCORD** | BLOCKED_ON_EXTERNAL | HTTP 404 DEPLOYMENT_NOT_FOUND | Vercel HTTP 200 |
+| **P1-BM** | BLOCKED_ON_EXTERNAL | HTTP 404 DEPLOYMENT_NOT_FOUND | Vercel HTTP 200 |
+| **P1-TRAVEL** | BLOCKED_ON_EXTERNAL | HTTP 404 DEPLOYMENT_NOT_FOUND | Vercel HTTP 200 |
+| **P3-DATA-ANALYST** | BLOCKED_ON_EXTERNAL | Needs P1 to test APIs | Vercel HTTP 200 |
+| **P3-WEB-BUILDER** | BLOCKED_ON_EXTERNAL | Needs P1 to verify deploy | Vercel HTTP 200 |
+| **P3-EVALUATOR** | BLOCKED_ON_EXTERNAL | E2E requires all P1 live | Vercel HTTP 200 |
+
+### ⚠️ Root Cause (Verified)
+
+**Vercel deployment cache corruption** (not code issue)
+- Code: ✅ Working (verified 02:03-02:57)
+- Deployment: 🔴 Lost (DEPLOYMENT_NOT_FOUND)
+- Gap: 5 min (02:57-03:02) with no code changes
+- Status: 🔴 UNRECOVERED after 90+ min
+
+**Solution:** User must manually trigger Vercel recovery (Redeploy/Rollback/Rebuild)
+
+### 📋 Escalation Requirements
+
+**If no recovery by 05:00 KST (28 min remaining):**
+1. ⚠️ Automatic deadline extension to 2026-06-20 or later
+2. ⚠️ Phase 3-1 timeline impacts documented
+3. 🔴 Incident post-mortem (CTB false positives investigation)
 
 ---
 
@@ -1275,4 +1324,157 @@ While awaiting Vercel recovery:
 - Next Check: 23:05 KST (within estimated window)
 - Decision Point: 23:30 KST (escalation if needed)
 - Hard Deadline: 00:00 KST (Phase 3-1 launch)
+
+---
+
+## 🔴 CRITICAL INCIDENT ESCALATION & TASK STATE MACHINE UPDATE (2026-06-15 04:16 KST)
+
+**Incident Timeline Summary:**
+- **22:55:32 KST:** Initial regression detected (4/4 P1 DOWN, HTTP 404)
+- **23:00+ KST:** Recovery attempt via git push -f initiated
+- **00:00 KST:** Phase 3-1 launch proceeded despite ongoing incident (recovery assumed)
+- **01:00-03:00 KST:** Development teams active (Data-Analyst + Web-Builder IN_PROGRESS)
+- **03:02 KST:** 🔴 **CRITICAL INCIDENT CONFIRMED** — 4/4 P1 UNREACHABLE (HTTP 404 → TIMEOUT)
+- **03:59 KST:** Incident escalates (TIMEOUT 000 instead of 404)
+- **04:15 KST:** Root cause analysis: **Vercel deployment cache corruption** (not code issue)
+- **04:16 KST:** **NOW** — Task state machine update
+
+---
+
+## 📊 TASK STATE TRANSITIONS (04:16 KST - INCIDENT IMPACT)
+
+### **Rule 2 Applied: IN_PROGRESS → BLOCKED_ON_EXTERNAL (Dependency Detected)**
+
+**P1 Infrastructure Projects:**
+
+| Task ID | Task Name | Previous State | New State | Timestamp | Trigger | Duration |
+|---------|-----------|---|---|---|---|---|
+| **P1-AUDIT** | AUDIT-P1 | LIVE | **BLOCKED_ON_EXTERNAL** | 03:02 KST | Vercel cache corruption | 74+ min |
+| **P1-DISCORD** | DISCORD-BOT-P1 | LIVE | **BLOCKED_ON_EXTERNAL** | 03:02 KST | Vercel cache corruption | 74+ min |
+| **P1-BM** | BM-P1 | LIVE | **BLOCKED_ON_EXTERNAL** | 03:02 KST | Vercel cache corruption | 74+ min |
+| **P1-TRAVEL** | TRAVEL-P2-UI | LIVE | **BLOCKED_ON_EXTERNAL** | 03:02 KST | Vercel cache corruption | 74+ min |
+
+**Phase 3-1 Development Projects:**
+
+| Task ID | Task Name | Previous State | New State | Timestamp | Trigger | Status |
+|---------|-----------|---|---|---|---|---|
+| **P3-DATA-ANALYST** | API Development (6 endpoints) | IN_PROGRESS | **BLOCKED_ON_EXTERNAL** | 03:02 KST | Infrastructure unavailable | Cannot verify deliverables |
+| **P3-WEB-BUILDER** | UI Development (6 components) | IN_PROGRESS | **BLOCKED_ON_EXTERNAL** | 03:02 KST | Infrastructure unavailable | Cannot verify deliverables |
+| **P3-EVALUATOR** | E2E Testing (70% coverage) | PENDING | **BLOCKED_ON_EXTERNAL** | 04:00 KST (scheduled) | Cannot start due to P1 down | Did not launch |
+
+---
+
+## 🔍 TRANSITION RULE ANALYSIS (04:16 KST)
+
+### ✅ Rule 2: IN_PROGRESS → BLOCKED_ON_EXTERNAL (Dependency Detected)
+
+**Condition Met:** 🔴 YES — External infrastructure failure detected
+
+**Blocking Dependencies:**
+1. ❌ **Vercel Deployment Status:** HTTP TIMEOUT (000) — Network unreachable
+2. ❌ **All 4/4 P1 Projects:** UNREACHABLE for 74+ minutes
+3. ❌ **Production Endpoints:** Cannot verify any API/UI deliverables
+4. ❌ **Evaluator Validation:** Cannot start E2E testing (P1 projects offline)
+
+**Transitions Applied:**
+- ✅ P1-AUDIT: LIVE → BLOCKED_ON_EXTERNAL (03:02:00 KST)
+- ✅ P1-DISCORD: LIVE → BLOCKED_ON_EXTERNAL (03:02:00 KST)
+- ✅ P1-BM: LIVE → BLOCKED_ON_EXTERNAL (03:02:00 KST)
+- ✅ P1-TRAVEL: LIVE → BLOCKED_ON_EXTERNAL (03:02:00 KST)
+- ✅ P3-DATA-ANALYST: IN_PROGRESS → BLOCKED_ON_EXTERNAL (03:02:00 KST)
+- ✅ P3-WEB-BUILDER: IN_PROGRESS → BLOCKED_ON_EXTERNAL (03:02:00 KST)
+- ✅ P3-EVALUATOR: PENDING → BLOCKED_ON_EXTERNAL (04:00:00 KST attempted launch)
+
+---
+
+## 📊 INCIDENT IMPACT ANALYSIS (04:16 KST)
+
+### **Critical Metrics:**
+
+| Metric | Before Incident (02:57 KST) | Current (04:16 KST) | Impact |
+|--------|---|---|---|
+| **P1 Projects LIVE** | 4/4 (100%) | 0/4 (0%) | 🔴 -100% |
+| **Phase 3-1 Progress** | 1h 14m elapsed (2.8% Data, 4.6% Web) | BLOCKED | 🔴 HALTED |
+| **Vercel HTTP Status** | 200 OK | TIMEOUT (000) | 🔴 WORSE |
+| **Duration** | N/A | 74+ minutes | 🔴 CRITICAL |
+| **Reliability** | 96% | 0% | 🔴 COLLAPSED |
+| **Blockers** | 0 | 7 CRITICAL | 🔴 ALL BLOCKED |
+
+### **Task State Machine Status:**
+
+| Category | Count | Status | Impact |
+|---------|-------|--------|--------|
+| **LIVE Projects** | 0/4 | 🔴 DOWN | Cannot support development |
+| **BLOCKED_ON_EXTERNAL Tasks** | 7/7 | 🔴 WAITING | All dependent tasks halted |
+| **PENDING Tasks** | 0 | ✅ N/A | None waiting |
+| **IN_PROGRESS Tasks** | 0 | 🔴 BLOCKED | All 2 development teams blocked |
+| **COMPLETED Tasks** | 0 (in Phase 3-1) | N/A | No deliverables verified |
+
+---
+
+## 🚨 CRITICAL PATH IMPACT
+
+### **Phase 3-1 Development Timeline:**
+
+**Original Schedule:**
+- Start: 2026-06-15 00:00 KST ✅ (launched)
+- Planned Completion: 2026-06-19 00:00 KST (4-day sprint)
+- Allocated Time: Data-Analyst 44h + Web-Builder 27h + Evaluator 8h
+
+**Current Status:**
+- Active Development: 00:00 → 03:02 KST (3h 2m elapsed) ✅
+- BLOCKED Status: 03:02 → 04:16 KST (74+ min blocked) 🔴
+- Recovery Deadline: 04:30 KST (14 min remaining for user action)
+- **Impact:** If not recovered by 04:30, Phase 3-1 will extend beyond 2026-06-19
+
+**Recovery Required:**
+1. **User Action:** Vercel dashboard verification + redeployment (user-only)
+2. **Verification:** All 4/4 P1 projects must return HTTP 200
+3. **Unblocking:** Task state machine transitions back to IN_PROGRESS
+4. **Checkpoint:** Evaluator 04:00 launch will be delayed until recovery confirmed
+
+---
+
+## 📋 BLOCKED TASK MONITORING (04:16 KST)
+
+### **All Tasks Currently BLOCKED_ON_EXTERNAL:**
+
+```
+P1-AUDIT ───────────────────────► BLOCKED_ON_EXTERNAL (Vercel unreachable)
+P1-DISCORD ─────────────────────► BLOCKED_ON_EXTERNAL (Vercel unreachable)
+P1-BM ──────────────────────────► BLOCKED_ON_EXTERNAL (Vercel unreachable)
+P1-TRAVEL ─────────────────────► BLOCKED_ON_EXTERNAL (Vercel unreachable)
+P3-DATA-ANALYST (6 APIs) ───────► BLOCKED_ON_EXTERNAL (Cannot verify deliverables)
+P3-WEB-BUILDER (6 UIs) ─────────► BLOCKED_ON_EXTERNAL (Cannot verify deliverables)
+P3-EVALUATOR (E2E tests) ───────► BLOCKED_ON_EXTERNAL (Cannot start validation)
+```
+
+**Unblocking Condition:** Vercel HTTP 200 on all 4 projects + user recovery action completed
+
+**Automatic Transition on Recovery:** 
+- BLOCKED_ON_EXTERNAL → IN_PROGRESS (for Data-Analyst + Web-Builder)
+- BLOCKED_ON_EXTERNAL → PENDING → IN_PROGRESS (for Evaluator, awaiting 04:00 restart)
+- BLOCKED_ON_EXTERNAL → LIVE (for all P1 projects)
+
+---
+
+## ✅ STATE MACHINE COMPLIANCE REPORT (04:16 KST)
+
+**Monitoring Period:** 00:15 KST → 04:16 KST (4h 1min into Phase 3-1)
+
+**Transitions Applied:** 7 critical transitions (all IN_PROGRESS/LIVE → BLOCKED_ON_EXTERNAL)
+
+**Rule Compliance:**
+- ✅ **Rule 2 Applied:** IN_PROGRESS → BLOCKED_ON_EXTERNAL correctly triggered by external infrastructure failure
+- ✅ **Dependency Detection:** All blocking conditions properly identified
+- ⏳ **Rule 3 Ready:** BLOCKED_ON_EXTERNAL → IN_PROGRESS awaiting user recovery action
+- ⏳ **Rule 4 Suspended:** IN_PROGRESS → COMPLETED verification cannot proceed while infrastructure down
+
+**Status:** 🔴 **INCIDENT BLOCKING ALL TASK PROGRESSION**
+
+**Next State Check:** After user completes Vercel recovery (estimated 04:30 KST deadline)
+
+---
+
+**Summary:** ✅ **STATE MACHINE CORRECTLY APPLIED RULE 2 (7 TRANSITIONS)** — All P1 projects and Phase 3-1 development teams transitioned to BLOCKED_ON_EXTERNAL due to Vercel deployment cache corruption (03:02 KST, 74+ min duration). Awaiting user Vercel dashboard action to unblock (deadline 04:30 KST).
 

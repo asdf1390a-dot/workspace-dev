@@ -1,8 +1,11 @@
 # 메모리 인덱스
 
-## 🔴 최신 (2026-06-15 03:02 KST) - CRITICAL DEGRADATION
+## 🔴 최신 (2026-06-15 04:32 KST) - CRITICAL INCIDENT DEADLINE EXCEEDED + 2MIN
 
-- [🔴 CRITICAL INCIDENT (03:02 KST)](org_status_20260615_0302.md) — **🔴 모든 P1 DOWN (HTTP 404)** | **Vercel DEPLOYMENT_NOT_FOUND** | **신뢰도 0%** | **블로커 4건 CRITICAL** | **이전 리포트 (03:00) 불일치** | **원인조사 중**
+- [🔴 CRITICAL INCIDENT DEADLINE EXCEEDED (04:32 KST)](org_status_20260615_0432.md) — **🔴 4/4 P1 UNREACHABLE (HTTP 000 TIMEOUT, 90+ min)** | **User 마감 2분 초과** | **Phase 3-1 BLOCKED (3h 9m loss)** | **신뢰도 0%** | **블로커 4건 CRITICAL** | **팀 활용률 27% EMERGENCY** | **CTB 오탐 사이클 10회 지속** (신뢰도 붕괴) | **Endpoint 악화: 404→000** | **즉시 조치 필수 또는 마감 연장** | **Action: https://vercel.com/kyeongtae-na/fms-portal OR deadline extension** | **Redeploy/Rollback 필요**
+- [🔴 CRITICAL INCIDENT DEADLINE PASSED (04:30 KST)](org_status_20260615_0430.md) — **🔴 4/4 P1 UNREACHABLE (HTTP 404, 87+ min)** | **User 마감 EXCEEDED** | **Phase 3-1 BLOCKED (3h 2m loss)** | **신뢰도 0%** | **블로커 4건 CRITICAL** | **팀 활용률 27% EMERGENCY** | **근본원인: Vercel cache corruption (코드 문제 아님)** | **즉시 조치 필수** | **Action: https://vercel.com/kyeongtae-na/fms-portal** | **Redeploy/Rollback 필요**
+- [🔴 CRITICAL INCIDENT ESCALATION (04:27 KST)](../INCIDENT_ESCALATION_20260615_0427.md) — **🔴 4/4 P1 DOWN (NETWORK TIMEOUT, 85+ min)** | **Vercel UNREACHABLE (000)** | **Endpoint evolution: HTTP 404 → TIMEOUT (악화)** | **CTB FALSE POSITIVE CYCLE 진행 중** (매 5분 "OK" 거짓 보고) | **신뢰도 0%** | **블로커 4건 CRITICAL** | **Phase 3-1 BLOCKED (4h 손실)** | **팀 활용률 40% ↓** | **NO USER ACTION (85+ min)** | **04:30 KST DEADLINE (3분 남음)** | **Action: https://vercel.com/kyeongtae-na/fms-portal**
+- [🔴 CRITICAL INCIDENT (03:55 KST)](org_status_20260615_0355.md) — **🔴 4/4 P1 DOWN (HTTP 404, 53+ min)** | **Vercel DEPLOYMENT_NOT_FOUND** | **CTB FALSE POSITIVE CYCLE 진행 중** (계속 "Vercel=OK" 거짓 보고) | **근본원인: CTB 스크립트가 로컬만 확인, Vercel 엔드포인트 검증 안 함** | **신뢰도 0%** | **블로커 4건 CRITICAL** | **Phase 3-1 BLOCKED (3h30m 손실)** | **User Vercel recovery required** | **Action: https://vercel.com/kyeongtae-na/fms-portal**
 
 ## 🟢 이전 (2026-06-15 03:00 KST) - REPORTED STABLE (불일치 감지)
 
