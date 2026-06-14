@@ -1,6 +1,10 @@
 # 메모리 인덱스
 
-## 🟢 최신 (2026-06-14 12:10 KST) - TASK STATE MACHINE ✅
+## 🟢 최신 (2026-06-14 12:15 KST) - SESSION CHECKPOINT ✅
+
+- [✅ Session Checkpoint (12:15 KST)](checkpoint_20260614_1215.md) — **No changes detected** (30분 auto-save), **4/4 P1 sustained LIVE**, 30+ min 지속 안정 ✅, Vercel HTTP 200, 신뢰도 96%, **블로커 0건**
+
+## 🟢 이전 (2026-06-14 12:10 KST) - TASK STATE MACHINE ✅
 
 - [✅ Task State Machine (12:10 KST)](TSM_2026_06_14_1210.json) — **5 state transitions applied**, **BLOCKED→LIVE** (4/4 P1), **Asset Master READY_TO_START**, 18+ min 지속 안정 ✅, 신뢰도 96%, **블로커 0건**
 
