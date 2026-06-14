@@ -1,6 +1,30 @@
 {
-  "timestamp": "2026-06-14T07:15:01Z",
+  "timestamp": "2026-06-14T08:34:44Z",
+  "timestamp_kst": "2026-06-14 17:34:44",
+  "cycle": "1734",
   "progress": 100,
+  "projects": {
+    "audit_p1": {
+      "commit": "0cf3c1ba",
+      "status": "LIVE",
+      "http_status": 200
+    },
+    "discord_bot_p1": {
+      "commit": "585db4d5",
+      "status": "LIVE",
+      "http_status": 200
+    },
+    "travel_p2_ui": {
+      "commit": "e9396c74",
+      "status": "LIVE",
+      "http_status": 200
+    },
+    "bm_p1": {
+      "commit": "ecc13a9f",
+      "status": "LIVE",
+      "http_status": 200
+    }
+  },
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
@@ -8,7 +32,12 @@
   },
   "production": {
     "vercel": "OK",
-    "vercel_http": "200"
+    "vercel_http": "200",
+    "uptime": "6h34m continuous"
   },
-  "last_update": "2026-06-14 16:15:01"
+  "reliability": 96,
+  "blockers": 1,
+  "blocker_details": "db/30 SQL (~6h 20min remaining)",
+  "state_changes": 0,
+  "last_update": "2026-06-14 17:34:44"
 }
