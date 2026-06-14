@@ -1,6 +1,14 @@
 # 메모리 인덱스
 
-## 🟢 최신 (2026-06-15 02:27 KST) - STABLE + ZERO BLOCKERS
+## 🔴 최신 (2026-06-15 03:02 KST) - CRITICAL DEGRADATION
+
+- [🔴 CRITICAL INCIDENT (03:02 KST)](org_status_20260615_0302.md) — **🔴 모든 P1 DOWN (HTTP 404)** | **Vercel DEPLOYMENT_NOT_FOUND** | **신뢰도 0%** | **블로커 4건 CRITICAL** | **이전 리포트 (03:00) 불일치** | **원인조사 중**
+
+## 🟢 이전 (2026-06-15 03:00 KST) - REPORTED STABLE (불일치 감지)
+
+- [📊 조직 & 업무현황 (03:00 KST)](org_status_20260615_0300.md) — **보고됨:** 4/4 P1 LIVE (100%), Vercel HTTP 200 (15h) | **실제:** HTTP 404 (03:02 확인) ⚠️ 불일치
+
+## 🟢 이전 (2026-06-15 02:27 KST) - STABLE + ZERO BLOCKERS
 
 - [✅ CTB 폴링 (02:27 KST)](../CTB_2026_06_15_Cycle_0227.json) — **✅ 연속 안정 운영**, **4/4 P1 LIVE (100%)**, **Vercel HTTP 200 (14h27m+)**, **신뢰도 96%**, **블로커 0건 ✅**, **Phase 3-1 진행중**, **규칙준수 3/3 100%** 🟢
 
