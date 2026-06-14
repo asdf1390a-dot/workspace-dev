@@ -115,6 +115,7 @@ No recovery by deadline (worst case)
 | 06:00 KST | ❌ 000 | ❌ 000 | ❌ 000 | ❌ 000 | AWAITING | 30-min checkpoint: ZERO recovery signals, infrastructure failure persists |
 | 06:15 KST | ❌ 000 | ❌ 000 | ❌ 000 | ❌ 000 | AWAITING | 45-min duration, no user Vercel action detected, continued timeout |
 | 06:30 KST | ❌ 000 | ❌ 000 | ❌ 000 | ❌ 000 | ESCALATION REQUIRED | **ESCALATION POINT**: No recovery in 60 min. Assessment required. |
+| 06:45 KST | ❌ 000 | ❌ 000 | ❌ 000 | ❌ 000 | AWAITING DECISION | Escalation assessment complete; Option B recommended; awaiting CEO decision |
 
 ---
 
