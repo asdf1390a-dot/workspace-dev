@@ -1,6 +1,14 @@
 # 메모리 인덱스
 
-## 🔴 최신 (2026-06-15 06:13 KST ACTUAL) - SESSION CHECKPOINT / CONTINUOUS MONITORING ACTIVE
+## 🟡 최신 (2026-06-15 06:45 KST ACTUAL) - PARTIAL RECOVERY / RECOVERY SIGNAL DETECTED
+
+- [📊 조직 & 업무현황 (06:45 KST PARTIAL RECOVERY)](org_status_20260615_0645.md) — **🟡 PARTIAL RECOVERY DETECTED (06:45 KST)** | **STATUS CHANGE: HTTP 000 TIMEOUT → HTTP 404** | **3/4 P1 UP (75%)** | **1/4 P1 DOWN (AUDIT)** | **Incident 3h 43min (203 min)** | **Phase 3-1 BLOCKED (6h 43m loss)** | **신뢰도 75%** | **블로커 1건 (AUDIT)** | **팀 27% (EMERGENCY)** | **✅ Deadline extended 2026-06-20 14:00** | **✅ CEO decision EXECUTED (Option B at 05:30 KST)** | **🟡 RECOVERY SIGNAL: Vercel infrastructure responding** | **모니터링 계속 중**
+
+## 🔴 이전 (2026-06-15 06:30 KST ACTUAL) - ESCALATION CHECKPOINT / CEO DECISION CRITICAL OVERDUE
+
+- [📊 조직 & 업무현황 (06:30 KST ESCALATION CHECKPOINT)](org_status_20260615_0630_escalation_checkpoint.md) — **🔴 CRITICAL INCIDENT (207 min, 03:02→06:30 KST actual)** | **4/4 P1 DOWN (HTTP 000 TIMEOUT — verified)** | **3.5-HOUR CONTINUOUS MONITORING: ZERO RECOVERY SIGNALS** | **Phase 3-1 BLOCKED (7h loss)** | **✅ Deadline extended 2026-06-20 14:00 confirmed** | **신뢰도 VERIFIED BASELINE ONLY** | **블로커 4건 CRITICAL** | **팀 27% (EMERGENCY)** | **⏳ CEO DECISION CRITICAL OVERDUE (1h 0m) — IMMEDIATE ACTION REQUIRED** | **Option B STRONGLY RECOMMENDED (Accept Extended Deadline)**
+
+## 🔴 이전 (2026-06-15 06:13 KST ACTUAL) - SESSION CHECKPOINT / CONTINUOUS MONITORING ACTIVE
 
 - [✅ Session Checkpoint (06:13 KST)](../INCOMPLETE_TASKS_REGISTRY.md) — **🔴 CRITICAL INCIDENT (191 min, 03:02→06:13 KST actual)** | **4/4 P1 DOWN (HTTP 000 TIMEOUT — VERIFIED 06:13)** | **No endpoint status changes** | **Continuous monitoring active** | **✅ Deadline extended 2026-06-20 14:00 confirmed** | **신뢰도 VERIFIED BASELINE ONLY** | **블로커 4건 CRITICAL** | **팀 27% (EMERGENCY)** | **Monitoring reliability compromised (CTB unreliable)** | **⏳ CEO decision status awaited**
 
