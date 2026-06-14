@@ -1,0 +1,30 @@
+{
+  "incident_id": "REGRESSION_2026_06_14_1703",
+  "timestamp_detected": "2026-06-14T08:03:00Z",
+  "timestamp_kst": "2026-06-14 17:03 KST",
+  "severity": "🔴 CRITICAL",
+  "description": "New regression detected — all P1 endpoints returning HTTP 404",
+  "root_cause": "Unknown — CTB polling file claimed 200 OK at 16:53, but actual endpoints confirm 404 at 17:03",
+  "affected_endpoints": [
+    {
+      "endpoint": "https://fms-dsc.vercel.app/assets",
+      "status": "🔴 404",
+      "verified_at": "2026-06-14 17:03:00 KST"
+    },
+    {
+      "endpoint": "https://fms-dsc.vercel.app/audit",
+      "status": "🔴 404",
+      "verified_at": "2026-06-14 17:03:00 KST"
+    }
+  ],
+  "p1_projects": {
+    "AUDIT-P1": "🔴 DOWN (404)",
+    "DISCORD-BOT-P1": "🔴 DOWN (404)",
+    "BM-P1": "🔴 DOWN (404)",
+    "TRAVEL-P2-UI": "🔴 DOWN (404)"
+  },
+  "production_impact": "100% (4/4 down)",
+  "reliability": "96% → 0%",
+  "user_action_required": "IMMEDIATE",
+  "next_action": "Manual Vercel redeploy required — 사용자에게 긴급 알림 전송"
+}
