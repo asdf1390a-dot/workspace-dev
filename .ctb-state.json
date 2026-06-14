@@ -1,14 +1,20 @@
 {
-  "timestamp": "2026-06-14T01:00:01Z",
-  "progress": 100,
+  "timestamp": "2026-06-14T01:09:15Z",
+  "progress": 0,
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
     "phase2c": "ready"
   },
   "production": {
-    "vercel": "OK",
-    "vercel_http": "200"
+    "vercel": "CRITICAL REGRESSION",
+    "vercel_http": "404"
   },
-  "last_update": "2026-06-14 10:00:01"
+  "last_update": "2026-06-14 10:09:15",
+  "incident": {
+    "type": "Vercel HTTP 404 (3rd occurrence in 6h)",
+    "detection_time": "2026-06-14T10:09:15+09:00",
+    "status": "🔴 CRITICAL",
+    "pattern": "Recurring regression — requires root cause analysis"
+  }
 }

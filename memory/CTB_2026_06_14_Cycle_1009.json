@@ -1,0 +1,90 @@
+{
+  "cycle_id": "CTB_CYCLE_1009",
+  "timestamp": "2026-06-14T10:09:00+09:00",
+  "timestamp_utc": "2026-06-14T01:09:00Z",
+  "cycle_number": 1345,
+
+  "🚨 REGRESSION ALERT": "HTTP 404 DETECTED AT 10:09 KST",
+  "critical_detection": {
+    "time_of_detection": "2026-06-14T10:09:15+09:00",
+    "endpoint_check": "curl -sI https://fms-portal-dsc.vercel.app/",
+    "result": "HTTP/2 404 ❌",
+    "last_known_good": "2026-06-14T10:05:01Z (ctb-state.json: HTTP 200)",
+    "regression_window": "~4 minutes (10:05 → 10:09)",
+    "severity": "🔴 CRITICAL BLOCKER"
+  },
+
+  "p1_projects_status": {
+    "AUDIT-P1": {
+      "commit": "0cf3c1ba",
+      "code_status": "✅ Complete",
+      "deployment_status": "🔴 BROKEN (HTTP 404 regression)",
+      "accessibility": "NOT ACCESSIBLE",
+      "last_healthy": "2026-06-14T10:05:01Z"
+    },
+    "DISCORD-BOT-P1": {
+      "commit": "585db4d5",
+      "code_status": "✅ Complete",
+      "deployment_status": "🔴 BROKEN (HTTP 404 regression)",
+      "accessibility": "NOT ACCESSIBLE",
+      "last_healthy": "2026-06-14T10:05:01Z"
+    },
+    "TRAVEL-P2-UI": {
+      "commit": "e9396c74",
+      "code_status": "✅ Complete",
+      "deployment_status": "🔴 BROKEN (HTTP 404 regression)",
+      "accessibility": "NOT ACCESSIBLE",
+      "last_healthy": "2026-06-14T10:05:01Z"
+    },
+    "BM-P1": {
+      "commit": "ecc13a9f",
+      "code_status": "✅ Complete",
+      "deployment_status": "🔴 BROKEN (HTTP 404 regression)",
+      "accessibility": "NOT ACCESSIBLE",
+      "last_healthy": "2026-06-14T10:05:01Z"
+    }
+  },
+
+  "metrics": {
+    "completion_percentage": "100% (code)",
+    "production_availability": "0% ❌",
+    "reliability_score": "25% ⬇️",
+    "blocker_count": "1 CRITICAL",
+    "regression_type": "Intermittent (resolved 06:47→10:05, returned 10:05→10:09)"
+  },
+
+  "pattern_analysis": {
+    "first_occurrence": "2026-06-13 23:50 KST",
+    "auto_recovery": "Yes (23:58)",
+    "second_occurrence": "2026-06-14 06:47 KST (extended 70+ min)",
+    "manual_recovery": "Yes (by 10:05)",
+    "third_occurrence": "2026-06-14 10:09 KST 🔴 CURRENT",
+    "pattern": "🚨 RECURRING REGRESSION — appears to be systematic issue with Vercel deployment"
+  },
+
+  "required_immediate_actions": [
+    {
+      "priority": "🔴 CRITICAL",
+      "action": "Verify Vercel build status",
+      "link": "https://vercel.com/dashboard",
+      "steps": [
+        "1. Check fms-portal project Deployments tab",
+        "2. Verify latest deployment status (check if build succeeded)",
+        "3. If failed: review build logs for errors",
+        "4. If succeeded but 404 persists: check routing configuration"
+      ]
+    },
+    {
+      "priority": "🔴 CRITICAL",
+      "action": "Check build output & Next.js configuration",
+      "reason": "Recurring 404 suggests systematic build/routing issue, not one-off error"
+    },
+    {
+      "priority": "🟡 HIGH",
+      "action": "Document root cause of recurring 404s",
+      "reason": "3 occurrences in 6 hours suggests infrastructure or config defect"
+    }
+  ],
+
+  "recommendation": "🚨 ESCALATE IMMEDIATELY — This is the 3rd HTTP 404 regression in 6 hours. Root cause analysis + permanent fix required before production stability can be guaranteed."
+}
