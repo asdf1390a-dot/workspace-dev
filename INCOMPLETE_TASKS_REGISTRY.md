@@ -10,6 +10,29 @@ type: project
 
 ---
 
+## 🔍 MORNING BLOCKER CHECK (2026-06-16 08:06:00 KST)
+
+### 📋 의존성 체인 분석
+
+| 순서 | 프로젝트 | HTTP | 상태 | 블로커 | 지속 시간 | 영향 |
+|-----|---------|------|------|--------|---------|------|
+| 1️⃣ | **AUDIT-P1** | 404 | 🔴 DOWN | Vercel DEPLOYMENT_NOT_FOUND | 28h 58m | Phase 3-1 UI 블로킹 |
+| 2️⃣ | **DISCORD-BOT-P1** | 404 | 🔴 DOWN | Vercel DEPLOYMENT_NOT_FOUND | 28h 58m | — |
+| 3️⃣ | **TRAVEL-P2-UI** | 404 | 🔴 DOWN | Vercel DEPLOYMENT_NOT_FOUND | 28h 58m | Phase 3-1 UI + P2 블로킹 |
+| 4️⃣ | **BM-P1** | 404 | 🔴 DOWN | Vercel DEPLOYMENT_NOT_FOUND | 28h 58m | Asset Master 블로킹 |
+
+### 🔴 3대 블로커
+
+| # | 블로커 | 심각도 | 영향 범위 | 필요 조치 |
+|---|--------|--------|---------|---------|
+| 1️⃣ | Vercel DEPLOYMENT_NOT_FOUND | 🔴 CRITICAL | 4/4 P1 + Phase 3 (3건) | GitHub PAT/Vercel 토큰 제공 |
+| 2️⃣ | GitHub PAT/Vercel 토큰 미제공 | 🔴 CRITICAL | 팀 3명 + 모든 Phase 3 | 사용자 액션 |
+| 3️⃣ | db/30 마이그레이션 OVERDUE | 🔴 CRITICAL | Phase 3-1 UI 개발 | SQL 실행 (Supabase 또는 CLI) |
+
+**결론:** 🔴 사용자 조치 없이 진행 불가 (전체 개발 정지, 팀 11명 대기)
+
+---
+
 ## ⏱️ DEADLINE MONITOR REPORT (2026-06-16 08:00:00 KST)
 
 ### 🔴 OVERDUE 항목 (2건)
