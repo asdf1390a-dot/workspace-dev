@@ -1,0 +1,40 @@
+{
+  "cycle_time": "2026-06-16_05-42-00",
+  "p1_status": {
+    "audit": {
+      "endpoint": "https://dsc-fms-audit.vercel.app",
+      "http_status": 404,
+      "status": "DOWN"
+    },
+    "discord_bot": {
+      "endpoint": "https://dsc-fms-discord-bot.vercel.app",
+      "http_status": 404,
+      "status": "DOWN"
+    },
+    "travel_ui": {
+      "endpoint": "https://dsc-fms-travel.vercel.app",
+      "http_status": 404,
+      "status": "DOWN"
+    },
+    "bm": {
+      "endpoint": "https://dsc-fms-bm.vercel.app",
+      "http_status": 404,
+      "status": "DOWN"
+    }
+  },
+  "summary": {
+    "total_p1": 4,
+    "operational": 0,
+    "operational_percent": 0,
+    "downtime_minutes": 1585,
+    "incident_start": "2026-06-15_03-02-00",
+    "status_code_count": {
+      "404": 4
+    }
+  },
+  "blocker_status": {
+    "vercel_deployment": "UNRESOLVED",
+    "github_token": "PENDING"
+  },
+  "monitoring_reliability": "100%"
+}

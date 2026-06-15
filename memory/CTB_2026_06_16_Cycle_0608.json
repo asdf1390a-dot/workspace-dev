@@ -1,0 +1,37 @@
+{
+  "cycle": "20260616_0608",
+  "timestamp": "2026-06-16T06:08:00+09:00",
+  "duration_seconds": 96432,
+  "incident_start": "2026-06-15T03:02:00+09:00",
+  "p1_services": {
+    "audit": {
+      "url": "dsc-fms-audit.vercel.app",
+      "status": "DOWN",
+      "http_code": 404,
+      "error": "DEPLOYMENT_NOT_FOUND"
+    },
+    "discord_bot": {
+      "url": "dsc-fms-discord-bot.vercel.app",
+      "status": "DOWN",
+      "http_code": 404,
+      "error": "DEPLOYMENT_NOT_FOUND"
+    },
+    "bm": {
+      "url": "dsc-fms-bm.vercel.app",
+      "status": "DOWN",
+      "http_code": 404,
+      "error": "DEPLOYMENT_NOT_FOUND"
+    },
+    "travel": {
+      "url": "dsc-fms-travel.vercel.app",
+      "status": "DOWN",
+      "http_code": 404,
+      "error": "DEPLOYMENT_NOT_FOUND"
+    }
+  },
+  "summary": "4/4 P1 DOWN (26h 6m, no recovery signals)",
+  "reliability": "100%",
+  "blockers": 2,
+  "team_utilization_pct": 27,
+  "next_update": "2026-06-16T06:30:00+09:00"
+}

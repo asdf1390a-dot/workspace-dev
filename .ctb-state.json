@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-15T19:00:04Z",
+  "timestamp": "2026-06-16T21:23:00Z",
   "progress": 100,
   "services": {
     "phase2a": "ready",
@@ -7,8 +7,15 @@
     "phase2c": "ready"
   },
   "production": {
-    "vercel": "심각 장애 (0/4 P1만)",
-    "vercel_http": "000"
+    "vercel": "🔴 4/4 P1 DOWN (27h 21m) — DEPLOYMENT_NOT_FOUND",
+    "vercel_http": "404",
+    "last_check": "06:23 KST",
+    "endpoints": {
+      "audit": "DEPLOYMENT_NOT_FOUND",
+      "discord": "DEPLOYMENT_NOT_FOUND",
+      "travel": "DEPLOYMENT_NOT_FOUND",
+      "bm": "DEPLOYMENT_NOT_FOUND"
+    }
   },
-  "last_update": "2026-06-16 04:00:04"
+  "last_update": "2026-06-16 06:23:00 KST"
 }
