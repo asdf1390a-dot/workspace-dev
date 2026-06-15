@@ -29,9 +29,11 @@ type: project
 
 **BM-P1 Task (P1-BM):**
 - **Previous State:** BLOCKED_EXTENDED (HTTP 404)
-- **Current State:** READY FOR TRANSITION to ACTIVE
-- **Condition:** HTTP 200 confirmed ✅
-- **Action:** Evaluate auto-transition to IN_PROGRESS
+- **Current State:** ✅ IN_PROGRESS (transitioned 09:19 KST)
+- **Condition:** HTTP 200 confirmed ✅ (sustained 09:00→09:25, 25+ min)
+- **Action:** ✅ AUTO-TRANSITION APPLIED — P1-BM team can resume Phase 3-1 development
+- **Transition Timestamp:** 2026-06-15 09:19:00 KST
+- **Team Status:** READY FOR WORK (BM-P1 project operational)
 
 **Other 3 P1 Tasks (AUDIT/DISCORD/TRAVEL):**
 - **Current State:** BLOCKED_EXTENDED (HTTP 404, now due to build config)
@@ -101,7 +103,7 @@ type: project
 |------|-------|--------|-------------------|---------------|
 | **P1-AUDIT** | BLOCKED_EXTENDED | HTTP 000 TIMEOUT (118+ min) | Vercel HTTP 200 | 2026-06-20 14:00 |
 | **P1-DISCORD** | BLOCKED_EXTENDED | HTTP 000 TIMEOUT (118+ min) | Vercel HTTP 200 | 2026-06-20 14:00 |
-| **P1-BM** | BLOCKED_EXTENDED | HTTP 000 TIMEOUT (118+ min) | Vercel HTTP 200 | 2026-06-20 14:00 |
+| **P1-BM** | ✅ IN_PROGRESS | HTTP 200 OPERATIONAL (25+ min sustained) | Phase 3-1 development | 2026-06-20 14:00 |
 | **P1-TRAVEL** | BLOCKED_EXTENDED | HTTP 000 TIMEOUT (118+ min) | Vercel HTTP 200 | 2026-06-20 14:00 |
 | **P3-DATA-ANALYST** | BLOCKED_EXTENDED | Needs P1 to test APIs | Vercel HTTP 200 + recovery | 2026-06-20 14:00 |
 | **P3-WEB-BUILDER** | BLOCKED_EXTENDED | Needs P1 to verify deploy | Vercel HTTP 200 + recovery | 2026-06-20 14:00 |
