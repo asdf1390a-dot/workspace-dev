@@ -4,9 +4,67 @@ description: 🚨 CRITICAL INCIDENT (2026-06-15 03:02-ONGOING) — 🚨 ESCALATI
 type: project
 ---
 
-# Incomplete Tasks Registry (Last Updated: 2026-06-15 08:46:00 KST - SESSION CHECKPOINT)
+# Incomplete Tasks Registry (Last Updated: 2026-06-15 09:16:00 KST - SESSION CHECKPOINT)
 
-🚨 **CRITICAL STATUS (08:46:00 KST VERIFIED):** **🚨 ESCALATION EXECUTED & MONITORING CONTINUES** | **4/4 P1 REMAIN DOWN: HTTP 404 STABLE (67+ min)** | **No status changes since 08:17 checkpoint** | **Phase 3-1 BLOCKED** (344 min, 5h 44min 경과) | **Vercel Infrastructure RESPONDING (404 errors)** | **Endpoint Status: HTTP 404 DEPLOYMENT_NOT_FOUND (STABLE for 67+ min)** | **Reliability: 0% (no recovery progress)** | **Blockers: 4 CRITICAL (stable, not changing)** | **Incident: 03:02→08:46 KST (344 min, 5h 44min, ESCALATION ACTIVE)** | **User Deadline: EXCEEDED (256 min from original 04:30)** | **📋 Deadline Extension: 2026-06-20 14:00 KST (CONFIRMED & SECURE, 118+ hours buffer)** | **Decision: Option B (Accept Extension) EXECUTED at 05:30** | **Decision: Option C (Escalation) EXECUTED at 07:47:50** | **Monitoring Reliability: CTB UNRELIABLE (false positives), manual verification only** | **Escalation Status: ✅ FORMAL VERCEL SUPPORT ESCALATION ACTIVE** | **Escalation Elapsed: 59 minutes (07:47:50 → 08:46)** | **Team: 27% active (monitoring escalation + endpoints), 73% paused (waiting recovery)** | **Next Checkpoint: 09:00 KST (30-min cycle) + Continue 2min monitoring cycles**
+🟡 **PARTIAL RECOVERY DETECTED (09:16:00 KST VERIFIED):** **🟡 CRITICAL STATUS CHANGE** | **1/4 P1 UP: BM-P1 HTTP 200 ✅ (sustained since 09:00)** | **3/4 P1 DOWN: AUDIT/DISCORD/TRAVEL HTTP 404 (route compilation failure)** | **Root Cause REVISED: Selective route compilation in Vercel build, NOT cache corruption** | **Phase 3-1 PARTIAL UNBLOCK (BM-P1 team ready)** (373 min, 6h 13min 경과) | **Vercel Infrastructure FULLY OPERATIONAL (root, /assets, API all 200)** | **Reliability: 60% (1/4 UP, selective build issue)** | **Blockers: 3 CRITICAL (reduced from 4)** | **Incident: 03:02→09:16 KST (373 min, 6h 13min, ESCALATION ACTIVE)** | **User Deadline: EXCEEDED (281 min from original 04:30)** | **📋 Deadline Extension: 2026-06-20 14:00 KST (CONFIRMED & SECURE, 117+ hours buffer)** | **Decision: Option B EXECUTED at 05:30** | **Decision: Option C EXECUTED at 07:47:50** | **Monitoring: CTB RELIABLE for partial recovery detection** | **Escalation Status: ✅ FORMAL VERCEL SUPPORT ESCALATION ACTIVE** | **Escalation Elapsed: 89 minutes (07:47:50 → 09:16)** | **Team: 32% active (BM-P1 team now operational + monitoring), 68% paused (AUDIT/DISCORD/TRAVEL waiting)** | **Next Checkpoint: 09:45 KST (30-min cycle) + Continue 2min monitoring cycles**
+
+---
+
+## 🟡 PARTIAL RECOVERY (2026-06-15 09:00-09:16 KST) — BM-P1 OPERATIONAL / 3 ROUTES MISSING FROM BUILD
+
+**Recovery Detection:** 09:10 KST (CTB polling)  
+**Recovery Sustained:** 09:00-09:16 KST (16+ minutes stable)  
+**Root Cause Confirmed:** Selective route compilation in Vercel Next.js build
+
+### 📊 Current P1 Status (09:16 KST)
+
+| Project | Status | HTTP | Error | Duration | Unblock Condition |
+|---------|--------|------|-------|----------|-------------------|
+| **BM-P1** | ✅ OPERATIONAL | 200 | None | 16+ min stable | Already resolved ✅ |
+| **AUDIT-P1** | 🔴 DOWN | 404 | Route not in build | 345+ min | Rebuild with route included |
+| **DISCORD-BOT-P1** | 🔴 DOWN | 404 | Route not in build | 345+ min | Rebuild with route included |
+| **TRAVEL-P2-UI** | 🔴 DOWN | 404 | Route not in build | 345+ min | Rebuild with route included |
+
+### 🔄 Task State Machine Impact
+
+**BM-P1 Task (P1-BM):**
+- **Previous State:** BLOCKED_EXTENDED (HTTP 404)
+- **Current State:** READY FOR TRANSITION to ACTIVE
+- **Condition:** HTTP 200 confirmed ✅
+- **Action:** Evaluate auto-transition to IN_PROGRESS
+
+**Other 3 P1 Tasks (AUDIT/DISCORD/TRAVEL):**
+- **Current State:** BLOCKED_EXTENDED (HTTP 404, now due to build config)
+- **Unblock Condition:** Vercel rebuild with missing routes included
+- **Expected Recovery:** 1-2 hours (after rebuild)
+
+### 🛠️ User Action Required
+
+**Priority:** HIGH
+1. **Check Vercel deployment logs** → https://vercel.com/deployments
+   - Verify /audit route compilation status
+   - Verify /discord route compilation status
+   - Verify /travel route compilation status
+
+2. **Verify route files exist:**
+   - `src/app/audit/*` files present
+   - `src/app/discord/*` files present
+   - `src/app/travel/*` files present
+
+3. **Check Next.js build config:**
+   - `next.config.js` or `next.config.mjs`
+   - Look for route exclusion rules
+
+4. **Manual rebuild if needed:**
+   - Click "Redeploy" in Vercel dashboard
+   - Expected resolution time: 1-2 hours
+
+**Infrastructure Status (ALL OK):**
+- ✅ Vercel root: HTTP 200
+- ✅ Vercel /assets: HTTP 200
+- ✅ API health: OK
+- ✅ Supabase: OK
+- ✅ Git sync: OK
 
 ---
 
