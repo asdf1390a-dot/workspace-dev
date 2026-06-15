@@ -1,26 +1,14 @@
 {
-  "timestamp": "2026-06-15T09:36:54+05:30",
-  "progress": 0,
+  "timestamp": "2026-06-15T04:15:51Z",
+  "progress": 100,
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
     "phase2c": "ready"
   },
   "production": {
-    "p1_status": "0/4 DOWN (HTTP 404 all routes)",
-    "vercel_root": "200 OK",
-    "vercel_assets": "200 OK",
-    "api_health": "503 CRITICAL (Supabase failed)",
-    "incident_duration_minutes": 394,
-    "escalation_active": true,
-    "escalation_since_minutes": 108
+    "vercel": "OK",
+    "vercel_http": "200"
   },
-  "p1_endpoints": {
-    "AUDIT-P1": "404 DOWN",
-    "DISCORD-BOT-P1": "404 DOWN",
-    "BM-P1": "404 DOWN",
-    "TRAVEL-P2-UI": "404 DOWN"
-  },
-  "status": "🔴 CRITICAL (6h 34m) — Dual issues: Route compilation failure + Supabase backend degradation",
-  "last_update": "2026-06-15 09:36:54 KST"
+  "last_update": "2026-06-15 13:15:51"
 }

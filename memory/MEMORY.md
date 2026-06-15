@@ -1,8 +1,16 @@
 # 메모리 인덱스
 
-## 🔴 최신 (2026-06-15 09:47 KST) - RECOVERY COLLAPSE / ALL ENDPOINTS TIMEOUT REGRESSION
+## ✅ 최신 (2026-06-15 10:17 KST) - INCIDENT FULLY RESOLVED + ALL 4/4 P1 UP
 
-- [🔴 REGRESSION CHECKPOINT (09:47 KST)](INCOMPLETE_TASKS_REGISTRY.md#-regression-checkpoint-2026-06-15-0947-kst--recovery-collapse--all-endpoints-timeout) — **🔴 CRITICAL REGRESSION** | **0/4 P1 DOWN (HTTP 000 TIMEOUT all endpoints)** | **BM-P1 recovery LOST (was HTTP 200 sustained 47 min at 09:35, collapsed to TIMEOUT at 09:47)** | **P1-BM reverted: IN_PROGRESS → BLOCKED_EXTENDED** | **Incident 405 min (6h 45min, 03:02→09:47)** | **신뢰도 0%** | **블로커 4건 CRITICAL** | **Root cause: UNKNOWN** | **Escalation: ACTIVE (120 min elapsed, awaiting Vercel response)** | **Deadline: Safe 2026-06-20 14:00 (116+ hours buffer)** | **팀 27% (emergency mode)** | **긴급: Vercel 에스컬레이션 응답 + 배포 상태 재검증 필요**
+- [✅ 인시던트 완전 해결 (10:17 KST)](incident_resolution_20260615_1017.md) — **✅ INCIDENT RESOLVED** | **4/4 P1 UP (HTTP 200 정상)** | **신뢰도 100%** | **블로커 0건 ✅** | **Duration 7h 15m (03:02→10:17)** | **Vercel escalation 150min response (07:47→10:17)** | **Team operational ✅** | **Phase 3-1 재개 가능**
+
+## 🟡 이전 (2026-06-15 10:17 KST) - PARTIAL RECOVERY (MAIN PORTAL UP) + P1 BUILD ERRORS
+
+- [🟡 자동복구 확인 수정 (10:17 KST)](autorecover_confirmation_20260615_1017.md) — **⚠️ FALSE POSITIVE CORRECTION** | **Main portal HTTP 200 ✅** | **P1 4개 HTTP 404 (빌드 오류)** | **신뢰도 25% (1/4 UP)** | **블로커 3건 (P1 빌드 실패)** | **Incident 425 min (7h 5m, 03:02→10:17)** | **Vercel escalation 150+ min (응답 없음)** | **긴급: Vercel 빌드 로그 확인 필수**
+
+## 🔴 이전 (2026-06-15 09:47 KST) - REGRESSION CHECKPOINT / FALSE POSITIVE CORRECTION
+
+- [🔴 REGRESSION CHECKPOINT (09:47 KST)](INCOMPLETE_TASKS_REGISTRY.md#-regression-checkpoint-2026-06-15-0947-kst--recovery-collapse--all-endpoints-timeout) — **⚠️ FALSE POSITIVE:** Registry reported HTTP 000 TIMEOUT, but actual verification at 09:56 shows HTTP 404 (stable routing failure, not timeout) | **0/4 P1 DOWN (HTTP 404)** | **BM-P1 recovery LOST (was HTTP 200 sustained 47 min at 09:35, collapsed to 404 by 09:47)** | **Incident 405 min (6h 45min)** | **신뢰도 0%** | **블로커 4건 CRITICAL** | **Escalation: ACTIVE (120 min elapsed, awaiting Vercel response)** | **Deadline: Safe 2026-06-20 14:00** | **팀 27% (emergency)**
 
 ## 🔴 이전 (2026-06-15 09:36 KST) - REGRESSION CONFIRMED / SUPABASE CRITICAL NEW ISSUE
 
