@@ -1,5 +1,9 @@
 # 메모리 인덱스
 
+## ✅ Session Checkpoint (2026-06-15 14:48 KST) — P1-A 활성화 완료
+
+- [✅ Checkpoint (14:48 KST)](checkpoint_20260615_1448.md) — **P1-A ✅ 활성화 완료** | **P1-B 📋 가이드 제공** | **P2 ⏳ 토큰 대기** | **모니터링 진행 중** | **4/4 DOWN (11h 46m)** | **신뢰도 0% → 대기 중**
+
 ## 🔵 CTB 폴링 재검증 (2026-06-15 14:35 KST) — Vercel 주 배포 정상, 커스텀 도메인 DNS 타임아웃
 
 - [🔵 CTB 폴링 상태 (14:35 KST)](ctb_polling_status_20260615_1435.md) — **✅ Vercel 주 배포 HTTP 200 OK** | **🔴 커스텀 도메인 (4개) HTTP 000 TIMEOUT** | **신뢰도 50% (주 배포만 정상)** | **블로커 1건 (DNS/네트워크 설정)** | **근본원인: 커스텀 도메인 DNS 해석 실패** | **대응: DNS 설정 재검증 + Vercel 도메인 바인딩 확인** | **권장: 주 Vercel URL(dsc-fms-portal.vercel.app) 직접 접근 가능**
