@@ -1,6 +1,6 @@
 # Central Task Board (CTB) — Active Work Tracking
-**마지막 업데이트:** 2026-06-15 14:31 KST (CRITICAL INCIDENT 11h 22m 지속)  
-**상태:** 🔴 **CRITICAL INCIDENT — P1 4/4 모두 DOWN (HTTP 404). Vercel redeploy 실패 (14:00). Supabase 재시작 무효. 신뢰도: 0%. 블로커: 4건 CRITICAL. 마감 연장: 2026-06-20 14:00. Vercel 에스컬레이션 진행 중.**
+**마지막 업데이트:** 2026-06-15 15:56 KST (CRITICAL INCIDENT 12h 54m 지속)  
+**상태:** 🔴 **CRITICAL INCIDENT — P1 4/4 모두 DOWN (HTTP 404). 8h 17m 동안 상태 변화 없음. 자동 복구 불가능. 신뢰도: 0%. 블로커: 4건 CRITICAL. 마감 연장: 2026-06-20 14:00. ⚠️ Vercel 어카운트 매니저 직접 에스컬레이션 필수 (즉시 조치).**
 
 ---
 

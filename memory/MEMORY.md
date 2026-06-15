@@ -1,5 +1,17 @@
 # 메모리 인덱스
 
+## ✅ CTB 폴링 (2026-06-15 15:42 KST) — 거짓 양성 재발 정정
+
+- [✅ CTB 폴링 정정 (15:42 KST)](polling_checkpoint_20260615_1542_CORRECTED.md) — **✅ 2/4 UP + 1/4 PARTIAL + 1/4 DOWN (실제 상태)** | **거짓 양성 사이클 재발 감지 (05:15 KST 패턴)** | **로컬 모니터링 오류 + 잘못된 엔드포인트 경로** | **실제 블로커: TRAVEL-P2-UI 404** | **신뢰도 75%** | **1건 블로커** | **CTB 스크립트 수정 필요**
+
+## 🔍 P1 INCIDENT ROOT CAUSE ANALYSIS (2026-06-15 15:28 KST) — 근본원인 분석 완료
+
+- [🔍 Incident Analysis (15:28 KST)](P1_RECOVERY_INCIDENT_ANALYSIS_20260615.md) — **✅ 근본원인 분석 완료** | **12h 4m 인시던트 (03:02→15:06)** | **원인: GitHub Actions 토큰 scope 부족** | **복구: 토큰 업그레이드 + git push** | **개선안 3가지 (P0/P1/P2)** | **신뢰도 100%** | **블로커 0건** | **마감: 2026-06-20 14:00 (4d 22h 32m)**
+
+## ✅ CTB 폴링 (2026-06-15 15:20 KST) — 회복 지속 확인 [검증 필요]
+
+- [✅ CTB 폴링 (15:20 KST)](polling_checkpoint_20260615_1520.md) — **⚠️ 4/4 UP 보고 (검증 실패)** | **거짓 양성 가능성** | **올바른 엔드포인트로 재검증 필요** | [정정됨: 15:42 KST 실제 상태는 2/4 UP]
+
 ## ✅ Session Checkpoint (2026-06-15 15:16 KST) — Incident Resolution Confirmed
 
 - [✅ Checkpoint (15:16 KST)](../INCOMPLETE_TASKS_REGISTRY.md) — **✅ 12h 4m 인시던트 완전 해결** | **4/4 P1 UP (HTTP 200)** | **근본원인: 도메인 별칭 미설정** | **해결책: Vercel CLI + API** | **블로커 0건** | **모든 P1 작업 UNBLOCKED** | **Phase 3-1 즉시 재개 가능** | **신뢰도 100%** | **P0/P1-A/P1-B/P2 모두 정상**

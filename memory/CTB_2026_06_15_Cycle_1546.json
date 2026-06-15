@@ -1,0 +1,97 @@
+{
+  "timestamp": "2026-06-15T15:46:00+09:00",
+  "cycle": 2000,
+  "status": "CRITICAL_ALL_P1_DOWN",
+  "incident_duration_minutes": 764,
+  "incident_start": "2026-06-15T03:02:00+09:00",
+  "cycle_interval": "5_minutes",
+
+  "p1_deployment_status": {
+    "dsc_fms_audit": {
+      "url": "https://dsc-fms-audit.vercel.app/",
+      "http_code": 404,
+      "status": "DEPLOYMENT_NOT_FOUND",
+      "verified": "2026-06-15T15:46:00+09:00",
+      "project": "AUDIT-P1",
+      "commit": "0cf3c1ba"
+    },
+    "dsc_fms_discord_bot": {
+      "url": "https://dsc-fms-discord-bot.vercel.app/",
+      "http_code": 404,
+      "status": "DEPLOYMENT_NOT_FOUND",
+      "verified": "2026-06-15T15:46:00+09:00",
+      "project": "DISCORD-BOT-P1",
+      "commit": "585db4d5"
+    },
+    "dsc_fms_travel": {
+      "url": "https://dsc-fms-travel.vercel.app/",
+      "http_code": 404,
+      "status": "DEPLOYMENT_NOT_FOUND",
+      "verified": "2026-06-15T15:46:00+09:00",
+      "project": "TRAVEL-P2-UI",
+      "commit": "e9396c74"
+    },
+    "dsc_fms_bm": {
+      "url": "https://dsc-fms-bm.vercel.app/",
+      "http_code": 404,
+      "status": "DEPLOYMENT_NOT_FOUND",
+      "verified": "2026-06-15T15:46:00+09:00",
+      "project": "BM-P1",
+      "commit": "ecc13a9f"
+    }
+  },
+
+  "main_portal": {
+    "url": "https://dsc-fms-portal.vercel.app/",
+    "http_code": 200,
+    "status": "OK",
+    "verified": "2026-06-15T15:46:00+09:00",
+    "note": "Main portal operational"
+  },
+
+  "reliability": {
+    "up_count": 0,
+    "down_count": 4,
+    "total": 4,
+    "percentage": 0
+  },
+
+  "ceo_decision_status": {
+    "decision_made": true,
+    "made_at": "2026-06-15T05:30:00+09:00",
+    "option_selected": "Option B",
+    "deadline_extended": "2026-06-20T14:00:00+09:00",
+    "escalation_required": true,
+    "escalation_target": "Vercel Account Manager",
+    "notes": "CEO confirmed extended deadline. Vercel account manager escalation required (critical incident >12 hours)"
+  },
+
+  "recovery_attempts": [
+    {
+      "time": "2026-06-15T07:47:50+09:00",
+      "action": "Vercel formal support escalation",
+      "result": "Awaiting response"
+    },
+    {
+      "time": "2026-06-15T14:00:00+09:00",
+      "action": "Vercel redeploy executed",
+      "result": "Ineffective (404 persisted)"
+    },
+    {
+      "time": "2026-06-15T14:11:00+09:00",
+      "action": "Supabase restart",
+      "result": "Ineffective (P1 routing issue unresolved)"
+    }
+  ],
+
+  "monitoring_system": {
+    "endpoints_checked": 4,
+    "valid_vercel_domains": true,
+    "last_corrected": "2026-06-15T07:23:00+09:00",
+    "note": "Using verified Vercel P1 deployment endpoints"
+  },
+
+  "next_checkpoint": "2026-06-15T16:00:00+09:00",
+  "critical_action_required": "Vercel Account Manager direct escalation (immediate)",
+  "notes": "All 4 P1 projects returning HTTP 404 (DEPLOYMENT_NOT_FOUND). Incident ongoing 12h 44min. No recovery signals in past 8+ hours (since 07:29). CEO decision executed (deadline extended to 2026-06-20 14:00). Immediate Vercel account manager escalation required."
+}
