@@ -68,17 +68,17 @@ export async function POST(request: NextRequest) {
       `CREATE TRIGGER trigger_log_asset_changes AFTER UPDATE ON assets FOR EACH ROW EXECUTE FUNCTION log_asset_changes();`,
     ];
 
-    const results = [];
+    const results: Array<{ statement: string; status: string; error?: string }> = [];
     for (const statement of statements) {
       try {
         const { error } = await supabase.rpc('exec', { sql: statement });
         if (error) {
-          results.push({ statement: statement.substring(0, 50), status: 'error', error: error.message });
+          results.push({ statement: statement.substring(0, 50), status: 'error', error: error.message || 'Unknown error' });
         } else {
           results.push({ statement: statement.substring(0, 50), status: 'ok' });
         }
       } catch (err: any) {
-        results.push({ statement: statement.substring(0, 50), status: 'exception', error: err.message });
+        results.push({ statement: statement.substring(0, 50), status: 'exception', error: err.message || 'Unknown exception' });
       }
     }
 
