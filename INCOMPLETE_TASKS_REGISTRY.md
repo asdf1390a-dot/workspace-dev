@@ -4,13 +4,77 @@ description: 🚨 CRITICAL INCIDENT (2026-06-15 03:02-ONGOING) — 🚨 ESCALATI
 type: project
 ---
 
-# Incomplete Tasks Registry (Last Updated: 2026-06-15 09:16:00 KST - SESSION CHECKPOINT)
+# Incomplete Tasks Registry (Last Updated: 2026-06-15 09:47:00 KST - SESSION CHECKPOINT)
 
-🟡 **PARTIAL RECOVERY DETECTED (09:16:00 KST VERIFIED):** **🟡 CRITICAL STATUS CHANGE** | **1/4 P1 UP: BM-P1 HTTP 200 ✅ (sustained since 09:00)** | **3/4 P1 DOWN: AUDIT/DISCORD/TRAVEL HTTP 404 (route compilation failure)** | **Root Cause REVISED: Selective route compilation in Vercel build, NOT cache corruption** | **Phase 3-1 PARTIAL UNBLOCK (BM-P1 team ready)** (373 min, 6h 13min 경과) | **Vercel Infrastructure FULLY OPERATIONAL (root, /assets, API all 200)** | **Reliability: 60% (1/4 UP, selective build issue)** | **Blockers: 3 CRITICAL (reduced from 4)** | **Incident: 03:02→09:16 KST (373 min, 6h 13min, ESCALATION ACTIVE)** | **User Deadline: EXCEEDED (281 min from original 04:30)** | **📋 Deadline Extension: 2026-06-20 14:00 KST (CONFIRMED & SECURE, 117+ hours buffer)** | **Decision: Option B EXECUTED at 05:30** | **Decision: Option C EXECUTED at 07:47:50** | **Monitoring: CTB RELIABLE for partial recovery detection** | **Escalation Status: ✅ FORMAL VERCEL SUPPORT ESCALATION ACTIVE** | **Escalation Elapsed: 89 minutes (07:47:50 → 09:16)** | **Team: 32% active (BM-P1 team now operational + monitoring), 68% paused (AUDIT/DISCORD/TRAVEL waiting)** | **Next Checkpoint: 09:45 KST (30-min cycle) + Continue 2min monitoring cycles**
+🔴 **REGRESSION DETECTED (09:47:00 KST CRITICAL):** **🔴 RECOVERY LOST** | **0/4 P1 UP: ALL ENDPOINTS HTTP 000 TIMEOUT** | **BM-P1 recovery collapsed (was HTTP 200 at 09:35 KST, 35+ min sustained, now TIMEOUT at 09:47)** | **Phase 3-1 FULLY BLOCKED AGAIN (P1-BM state reverting from IN_PROGRESS → BLOCKED_EXTENDED)** | **Incident Duration EXTENDED: 405 min (6h 45min, 03:02→09:47 KST)** | **Reliability: 0% (0/4 UP)** | **Blockers: 4 CRITICAL (restored)** | **Status Change: BM-P1 sustained HTTP 200 for 47 minutes (09:00→09:47), then collapsed to HTTP 000 TIMEOUT** | **Root Cause: UNKNOWN — was selective route compilation, now appears to be broader Vercel infrastructure failure** | **Escalation Status: ✅ FORMAL VERCEL SUPPORT ESCALATION ACTIVE** | **Escalation Elapsed: 120 minutes (07:47:50 → 09:47)** | **Team: Back to emergency mode (27% active + monitoring 4/4 endpoints)** | **Deadline: Still safe (2026-06-20 14:00 KST, 116+ hours buffer)** | **Next Action: Urgent manual curl verification + Vercel support escalation response check**
 
 ---
 
-## 🟡 PARTIAL RECOVERY (2026-06-15 09:00-09:16 KST) — BM-P1 OPERATIONAL / 3 ROUTES MISSING FROM BUILD
+## 🔴 REGRESSION CHECKPOINT (2026-06-15 09:47 KST) — RECOVERY COLLAPSE / ALL ENDPOINTS TIMEOUT
+
+**Regression Detection:** 09:47 KST (manual curl verification)  
+**Recovery Duration:** 47 minutes (09:00→09:47 KST, BM-P1 HTTP 200)  
+**Recovery Collapse:** All 4 endpoints → HTTP 000 TIMEOUT  
+**Incident Duration Now:** 405 minutes (6h 45min, 03:02→09:47)
+
+### 📊 Current P1 Status (09:47 KST — REGRESSION)
+
+| Project | Status | HTTP | Error | Last Verified | Duration DOWN |
+|---------|--------|------|-------|---|---|
+| **BM-P1** | 🔴 DOWN (REGRESSION) | 000 | TIMEOUT | 09:47 KST | 47 min recovered → NOW DOWN |
+| **AUDIT-P1** | 🔴 DOWN | 000 | TIMEOUT | 09:47 KST | 345+ min |
+| **DISCORD-BOT-P1** | 🔴 DOWN | 000 | TIMEOUT | 09:47 KST | 345+ min |
+| **TRAVEL-P2-UI** | 🔴 DOWN | 000 | TIMEOUT | 09:47 KST | 345+ min |
+
+**Summary:** 0/4 P1 LIVE (0% — all endpoints TIMEOUT) | Regression from 1/4 to 0/4 in 12 minutes
+
+### 🔄 Task State Machine Regression
+
+**BM-P1 Task (P1-BM) — REGRESSION:**
+- **Previous State:** IN_PROGRESS (transitioned 09:19 KST on HTTP 200 confirmation)
+- **Current State:** REVERTING to BLOCKED_EXTENDED (unblock condition lost: HTTP 200 → HTTP 000)
+- **Reason:** Endpoint down again (regression after 47 min recovery)
+- **Action:** AUTO-REVERT — P1-BM state must return to BLOCKED_EXTENDED pending Vercel recovery
+- **Regression Timestamp:** 2026-06-15 09:47:00 KST
+- **Team Status:** Development paused (endpoint inaccessible)
+
+**All 4 P1 Tasks (AUDIT/DISCORD/TRAVEL/BM):**
+- **Current State:** BLOCKED_EXTENDED (all 4 now blocked again)
+- **Unblock Condition:** Vercel HTTP 200 on all 4 endpoints + 30 min stability
+- **Recovery Outlook:** UNKNOWN (Vercel support escalation pending response)
+
+### ⚠️ Regression Analysis
+
+**Timeline of Recovery & Collapse:**
+```
+09:00 KST: BM-P1 recovery detected → HTTP 200
+09:05 KST: Status stable (no change from 09:00)
+09:10 KST: Partial recovery confirmed (CTB polling)
+09:16 KST: Session checkpoint — BM-P1 sustained 16+ min
+09:19 KST: Task state transition — P1-BM → IN_PROGRESS
+09:25 KST: Rule compliance auto-fix applied
+09:35 KST: Org status update — BM-P1 35+ min sustained ✅
+09:47 KST: 🔴 REGRESSION — BM-P1 HTTP 000 TIMEOUT (collapse after 47 min)
+```
+
+**Root Cause Unknown:** 
+- At 09:35 KST, BM-P1 was stable (HTTP 200, 35+ min sustained)
+- At 09:47 KST, all 4 endpoints TIMEOUT (12 minutes later)
+- Pattern shift: Was selective route failure → Now broader infrastructure TIMEOUT
+- Possible causes:
+  1. Vercel infrastructure instability (oscillating recovery pattern)
+  2. Network connectivity issue (all endpoints timing out simultaneously)
+  3. Deployment cache invalidation (similar to earlier 06:45-07:12 oscillation)
+  4. User action triggered new deployment/rebuild that failed
+
+**Escalation Impact:**
+- Formal Vercel support escalation submitted 07:47:50 KST (now 120 min old)
+- **URGENT:** Need escalation response + manual investigation of Vercel build/deployment state
+- User may need to manually check Vercel dashboard for deployment status changes
+
+---
+
+## 🟡 PARTIAL RECOVERY (2026-06-15 09:00-09:47 KST) — BM-P1 OPERATIONAL / 3 ROUTES MISSING FROM BUILD [NOW COLLAPSED]
 
 **Recovery Detection:** 09:10 KST (CTB polling)  
 **Recovery Sustained:** 09:00-09:16 KST (16+ minutes stable)  
@@ -27,18 +91,18 @@ type: project
 
 ### 🔄 Task State Machine Impact
 
-**BM-P1 Task (P1-BM):**
-- **Previous State:** BLOCKED_EXTENDED (HTTP 404)
-- **Current State:** ✅ IN_PROGRESS (transitioned 09:19 KST)
-- **Condition:** HTTP 200 confirmed ✅ (sustained 09:00→09:25, 25+ min)
-- **Action:** ✅ AUTO-TRANSITION APPLIED — P1-BM team can resume Phase 3-1 development
-- **Transition Timestamp:** 2026-06-15 09:19:00 KST
-- **Team Status:** READY FOR WORK (BM-P1 project operational)
+**BM-P1 Task (P1-BM) — REGRESSION AT 09:47 KST:**
+- **Previous State:** IN_PROGRESS (transitioned 09:19 KST, reverted at 09:47)
+- **Current State:** 🔴 BLOCKED_EXTENDED (REVERTED - endpoint down again)
+- **Reason:** Recovery lost — HTTP 200 sustained only 47 min (09:00→09:47), then collapsed to HTTP 000
+- **Action:** AUTO-REVERT APPLIED — P1-BM returns to BLOCKED_EXTENDED pending Vercel recovery
+- **Revert Timestamp:** 2026-06-15 09:47:00 KST
+- **Team Status:** Development paused again (waiting for stable HTTP 200)
 
-**Other 3 P1 Tasks (AUDIT/DISCORD/TRAVEL):**
-- **Current State:** BLOCKED_EXTENDED (HTTP 404, now due to build config)
-- **Unblock Condition:** Vercel rebuild with missing routes included
-- **Expected Recovery:** 1-2 hours (after rebuild)
+**All 3+1 P1 Tasks (AUDIT/DISCORD/TRAVEL/BM):**
+- **Current State:** BLOCKED_EXTENDED (all 4 now blocked, BM reverted from IN_PROGRESS)
+- **Unblock Condition:** Vercel HTTP 200 on all 4 endpoints + 30 min stability + Vercel support response
+- **Expected Recovery:** UNKNOWN (depends on Vercel investigation)
 
 ### 🛠️ User Action Required
 
