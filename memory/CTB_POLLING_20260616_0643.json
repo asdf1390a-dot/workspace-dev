@@ -1,0 +1,85 @@
+{
+  "polling_cycle": 2026061606,
+  "timestamp": "2026-06-16T21:43:55Z",
+  "timestamp_kst": "2026-06-16 06:43:55 KST",
+  "status_date": "2026-06-16",
+  "current_time_kst": "2026-06-16 06:43 KST (Monday morning)",
+  "cycle_status_summary": "🔴 CYCLE POLL 06:43 — P1 4/4 DOWN (DEPLOYMENT_NOT_FOUND, 27h 41m). Zero recovery signals. HTTP 404 all endpoints. Incident unresolved since 2026-06-15 03:02 KST.",
+  "incident_tracking": {
+    "start_time": "2026-06-15T03:02:00Z",
+    "start_time_kst": "2026-06-15 12:02 KST",
+    "current_duration_hours": 27.683,
+    "current_duration_hms": "27h 41m",
+    "last_recovery_signal": "NONE (26+ hours)",
+    "status_unchanged_since": "2026-06-16T06:23:00Z (20 minutes ago)"
+  },
+  "p1_projects_status": {
+    "AUDIT-P1": {
+      "id": "0cf3c1ba",
+      "status": "🔴 DOWN",
+      "http_status": "404 DEPLOYMENT_NOT_FOUND",
+      "verified_at": "2026-06-16T21:43:55Z",
+      "endpoint": "https://dsc-fms-audit.vercel.app",
+      "stability": "NONE (continuous DOWN 27h 41m)"
+    },
+    "DISCORD-BOT-P1": {
+      "id": "585db4d5",
+      "status": "🔴 DOWN",
+      "http_status": "404 DEPLOYMENT_NOT_FOUND",
+      "verified_at": "2026-06-16T21:43:55Z",
+      "endpoint": "https://dsc-fms-discord.vercel.app",
+      "stability": "NONE (continuous DOWN 27h 41m)"
+    },
+    "TRAVEL-P2-UI": {
+      "id": "e9396c74",
+      "status": "🔴 DOWN",
+      "http_status": "404 DEPLOYMENT_NOT_FOUND",
+      "verified_at": "2026-06-16T21:43:55Z",
+      "endpoint": "https://dsc-fms-travel.vercel.app",
+      "stability": "NONE (continuous DOWN 27h 41m)"
+    },
+    "BM-P1": {
+      "id": "ecc13a9f",
+      "status": "🔴 DOWN",
+      "http_status": "404 DEPLOYMENT_NOT_FOUND",
+      "verified_at": "2026-06-16T21:43:55Z",
+      "endpoint": "https://dsc-fms-bm.vercel.app",
+      "stability": "NONE (continuous DOWN 27h 41m)"
+    }
+  },
+  "vercel_deployment_status": {
+    "status": "🔴 CRITICAL — DEPLOYMENT_NOT_FOUND",
+    "http_status": "404",
+    "operational_routes": [],
+    "failed_routes": ["*"],
+    "all_endpoints_unreachable": true,
+    "error_type": "DEPLOYMENT_NOT_FOUND",
+    "notes": "Vercel 프로젝트 배포 ID 자체가 없음. 배포 삭제됨 또는 GitHub Actions 실패로 배포 미생성."
+  },
+  "system_health": {
+    "reliability": "0% (목표 99%)",
+    "operational": false,
+    "critical_blockers": 4,
+    "p1_fully_operational": false,
+    "recovery_status": "BLOCKED (사용자 액션 필수)"
+  },
+  "user_actions_required": {
+    "priority": "🔴 CRITICAL P0",
+    "actions": [
+      "1. GitHub Actions secrets 확인: VERCEL_TOKEN 유효 여부 (https://github.com/nakyeongtae/dsc-fms/settings/secrets/actions)",
+      "2. Vercel 배포 상태 확인: 프로젝트 존재 여부 (https://vercel.com)",
+      "3. 토큰 재생성 필요 시 Vercel → Settings → Tokens에서 새 토큰 생성 후 GitHub 업데이트"
+    ]
+  },
+  "deadline_status": {
+    "original_deadline": "2026-06-20 00:00",
+    "extended_deadline": "2026-06-20 14:00 KST",
+    "extension_date": "2026-06-15 17:30 KST",
+    "remaining_time": "4d 7h 17m",
+    "extended": true
+  },
+  "monitoring_status": "🔍 ACTIVE (5-10min polling cycle) — Continuous until recovery or user decision",
+  "polling_summary": "🔴 06:43 POLL — P1 4/4 DOWN (DEPLOYMENT_NOT_FOUND). 27h 41m unresolved. Zero recovery. User action required.",
+  "next_polling_cycle_eta": "2026-06-16T21:53:00Z",
+  "last_updated": "2026-06-16 06:43:55 KST (live endpoint verification + incident duration recalc)"
+}
