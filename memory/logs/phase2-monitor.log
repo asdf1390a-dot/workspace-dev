@@ -9671,3 +9671,8 @@ Next Monitor: 07:04 KST (2-min cycle)
 [2026-06-15 15:58:01] ✓ Phase2B (PID 65628): RSS=60MB, FDs=19
 [2026-06-15 15:58:01] ✓ Phase2C (PID 65642): RSS=63MB, FDs=19
 [2026-06-15 15:58:01] ✓ All services healthy
+[2026-06-15 16:00:01] Starting Phase 2 health monitor...
+[2026-06-15 16:00:01] ✓ Phase2A (PID 65516): RSS=61MB, FDs=19
+[2026-06-15 16:00:01] ✓ Phase2B (PID 65628): RSS=60MB, FDs=19
+[2026-06-15 16:00:01] ✓ Phase2C (PID 65642): RSS=63MB, FDs=19
+[2026-06-15 16:00:01] ✓ All services healthy
