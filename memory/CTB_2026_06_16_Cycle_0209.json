@@ -1,0 +1,15 @@
+{
+  "cycle_id": "ctb-2026-06-16-0209",
+  "timestamp_kst": "2026-06-16 02:09 KST",
+  "incident_duration": "23h 7m",
+  "p1_status": {
+    "AUDIT_P1": "🔴 DOWN",
+    "DISCORD_BOT_P1": "🔴 DOWN",
+    "BM_P1": "🔴 DOWN",
+    "TRAVEL_P2_UI": "🔴 DOWN"
+  },
+  "overall": "🔴 0/4 CRITICAL",
+  "blockers": 2,
+  "reliability": "100%",
+  "next_update": "2026-06-16 02:14 KST"
+}
