@@ -1,5 +1,17 @@
 # 메모리 인덱스
 
+## 🟢 INCIDENT RECOVERY COMPLETE (2026-06-15 15:06 KST) — 12h 4m 해결 ✅
+
+- [🟢 Incident Recovery (15:06 KST)](incident_recovery_20260615_1506.md) — **✅ 4/4 P1 RECOVERED** | **12h 4m duration (03:02→15:06)** | **ROOT CAUSE: Domain alias misconfiguration** | **SOLUTION: Vercel CLI deploy + domain alias API** | **3/3 verification cycles passed** | **신뢰도 100%** | **블로커 0건** | **P0/P1-A/P2 모두 정상**
+
+## 🔴 CTB 폴링 (2026-06-15 14:54 KST) — 심각한 회귀! 1/4 UP (25%) [RESOLVED by 15:06]
+
+- [🔴 CTB 폴링 (14:54 KST)](polling_checkpoint_20260615_1454.md) — **🔴 CRITICAL REGRESSION (11h 52m)** | **1/4 P1 UP (DISCORD만)** | **3/4 DOWN (AUDIT/BM/TRAVEL 404)** | **14:41에서 2/4 → 퇴행** | **신뢰도 25%** | **블로커 3건 CRITICAL** | **패턴: 부분 회복 → 전체 악화 반복** | **[RESOLVED: 15:06 도메인 별칭 추가로 4/4 복구]**
+
+## 🔴 이전 CTB 폴링 (2026-06-15 14:48 KST) — 0/4 P1 DOWN (11h 45m, 변화 없음)
+
+- [🔴 CTB 폴링 (14:48 KST)](ctb_polling_20260615_1448.md) — **🔴 CRITICAL ONGOING (11h 45m)** | **0/4 P1 HTTP 000 TIMEOUT** | **Vercel 에스컬레이션 6h 59m 진행 중** | **신뢰도 0%** | **블로커 4건 CRITICAL** | **변화: 없음 (14:37→14:48)** | **Option B/C 의사결정 필요** | **다음 폴링: 14:53 KST**
+
 ## ✅ Session Checkpoint (2026-06-15 14:48 KST) — P1-A 활성화 완료
 
 - [✅ Checkpoint (14:48 KST)](checkpoint_20260615_1448.md) — **P1-A ✅ 활성화 완료** | **P1-B 📋 가이드 제공** | **P2 ⏳ 토큰 대기** | **모니터링 진행 중** | **4/4 DOWN (11h 46m)** | **신뢰도 0% → 대기 중**
