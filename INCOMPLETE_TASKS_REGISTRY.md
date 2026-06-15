@@ -1,12 +1,12 @@
 ---
 name: Incomplete Tasks Registry
-description: 🔴 CRITICAL REGRESSION (2026-06-15 22:46~23:10 KST) | 0/4 P1 DOWN (HTTP 404) | 19:50 임시 복구 후 회귀 재발생 | 신뢰도 0% | 블로커 4건 CRITICAL | CEO 에스컬레이션 필수 | 마감 2026-06-20 14:00
+description: 🔴 CRITICAL INCIDENT ONGOING (2026-06-15 03:02 ~ 2026-06-16 00:40, 21h 38m) | 4/4 P1 DOWN (HTTP 404) | 거짓 메모리 정정됨 | 신뢰도 0% | 블로커 4건 CRITICAL | 팀 활용률 27% | 마감 2026-06-20 14:00 (초과)
 type: project
 ---
 
-# Incomplete Tasks Registry (Last Updated: 2026-06-15 23:40:00 KST - 🔴 CRITICAL REGRESSION ONGOING)
+# Incomplete Tasks Registry (Last Updated: 2026-06-16 00:40:00 KST - 🔴 CRITICAL INCIDENT ONGOING)
 
-🔴 **STATUS AT 23:40 KST (CRITICAL REGRESSION ONGOING):** **🔴 0/4 P1 DOWN (HTTP 404/000)** | **회귀 지속**: 19:50 해제 후 22:46 재발생 → 23:40 계속 진행 중 | **지속 시간: 16h 48m (1차) + 54m (2차, 진행 중)** | **신뢰도: 0% (회귀 진행 중, 복구 신호 없음)** | **블로커: 4건 CRITICAL** | **팀 활용률: ~9% (EMERGENCY)** | **마감 연장 필수 유지 (2026-06-20 14:00 KST, 110h 남음)** | **CEO 에스컬레이션 필수**
+🔴 **STATUS AT 00:40 KST (CRITICAL ONGOING):** **🔴 0/4 P1 DOWN (HTTP 404)** | **인시던트 지속**: 21h 38m (2026-06-15 03:02 ~ 현재) | **거짓 메모리 정정**: 19:50 "완전복구" 거짓 (실제: 부분복구 후 즉시 회귀) | **신뢰도: 0%** | **블로커: 4건 CRITICAL** | **팀 활용률: ~27% (대기)** | **마감 (2026-06-20 14:00 KST, 82시간 남음, 이미 초과)** | **Phase 3-1/3-2 BLOCKED (Vercel 외부의존)**
 
 ---
 
