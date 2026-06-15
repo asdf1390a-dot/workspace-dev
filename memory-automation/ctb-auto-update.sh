@@ -25,24 +25,48 @@ PHASE2A_HEALTH=$(extract_status "$(curl -s --connect-timeout 2 http://127.0.0.1:
 PHASE2B_HEALTH=$(extract_status "$(curl -s --connect-timeout 2 http://127.0.0.1:3010/health 2>/dev/null)")
 PHASE2C_HEALTH=$(extract_status "$(curl -s --connect-timeout 2 http://127.0.0.1:3011/health 2>/dev/null)")
 
-# Vercel 프로덕션 배포 상태 확인 [IMPROVED: 03:02 KST — 타임아웃 증가 + 재시도 로직 추가] [FIXED: 15:00 KST — dsc-fms → dsc-fms-portal]
-VERCEL_HTTP=""
+# Vercel 프로덕션 배포 4개 P1 모두 검증
+# P1: AUDIT, DISCORD-BOT, BM, TRAVEL-P2-UI
+VERCEL_AUDIT_HTTP=""
+VERCEL_DISCORD_HTTP=""
+VERCEL_BM_HTTP=""
+VERCEL_TRAVEL_HTTP=""
+
 for attempt in 1 2 3; do
-  VERCEL_HTTP=$(curl -s -o /dev/null -w "%{http_code}" --connect-timeout 5 --max-time 10 https://dsc-fms-portal.vercel.app/api/audit/health 2>/dev/null)
-  if [[ "$VERCEL_HTTP" == "200" ]]; then
+  VERCEL_AUDIT_HTTP=$(curl -s -o /dev/null -w "%{http_code}" --connect-timeout 5 --max-time 10 https://dsc-fms-portal.vercel.app/api/audit/health 2>/dev/null)
+  VERCEL_DISCORD_HTTP=$(curl -s -o /dev/null -w "%{http_code}" --connect-timeout 5 --max-time 10 https://dsc-fms-portal.vercel.app/api/discord/processors 2>/dev/null)
+  VERCEL_BM_HTTP=$(curl -s -o /dev/null -w "%{http_code}" --connect-timeout 5 --max-time 10 https://dsc-fms-portal.vercel.app/api/bm/breakdowns 2>/dev/null)
+  VERCEL_TRAVEL_HTTP=$(curl -s -o /dev/null -w "%{http_code}" --connect-timeout 5 --max-time 10 https://dsc-fms-portal.vercel.app/api/travels 2>/dev/null)
+
+  P1_COUNT=0
+  [[ "$VERCEL_AUDIT_HTTP" == "200" ]] && ((P1_COUNT++))
+  [[ "$VERCEL_DISCORD_HTTP" == "200" ]] && ((P1_COUNT++))
+  [[ "$VERCEL_BM_HTTP" == "200" ]] && ((P1_COUNT++))
+  [[ "$VERCEL_TRAVEL_HTTP" =~ ^(200|401)$ ]] && ((P1_COUNT++))  # 401 expected for auth-protected
+
+  if [[ $P1_COUNT -ge 3 ]]; then
     break
   fi
   [[ $attempt -lt 3 ]] && sleep 1
 done
 
-if [[ "$VERCEL_HTTP" == "200" ]]; then
-  VERCEL_HEALTH="OK"
-elif [[ -z "$VERCEL_HTTP" ]]; then
-  VERCEL_HEALTH="TIMEOUT (no response)"
-  log_event "⚠️  WARNING: Vercel health check timeout (possible network delay, retried 3x)"
+P1_OK=0
+[[ "$VERCEL_AUDIT_HTTP" == "200" ]] && ((P1_OK++))
+[[ "$VERCEL_DISCORD_HTTP" == "200" ]] && ((P1_OK++))
+[[ "$VERCEL_BM_HTTP" == "200" ]] && ((P1_OK++))
+[[ "$VERCEL_TRAVEL_HTTP" =~ ^(200|401)$ ]] && ((P1_OK++))
+
+if [[ $P1_OK -ge 4 ]]; then
+  VERCEL_HEALTH="OK (4/4 P1)"
+  VERCEL_HTTP="200"
+elif [[ $P1_OK -ge 3 ]]; then
+  VERCEL_HEALTH="DEGRADED ($P1_OK/4 P1)"
+  VERCEL_HTTP="206"
+  log_event "⚠️  WARNING: Vercel partially degraded — $P1_OK/4 P1 operational (AUDIT=$VERCEL_AUDIT_HTTP, DISCORD=$VERCEL_DISCORD_HTTP, BM=$VERCEL_BM_HTTP, TRAVEL=$VERCEL_TRAVEL_HTTP)"
 else
-  VERCEL_HEALTH="BROKEN (HTTP $VERCEL_HTTP)"
-  log_event "🚨 CRITICAL: Vercel deployment health check failed — HTTP $VERCEL_HTTP (expected 200)"
+  VERCEL_HEALTH="CRITICAL (only $P1_OK/4 P1)"
+  VERCEL_HTTP="000"
+  log_event "🚨 CRITICAL: Vercel deployment severely degraded — only $P1_OK/4 P1 operational (AUDIT=$VERCEL_AUDIT_HTTP, DISCORD=$VERCEL_DISCORD_HTTP, BM=$VERCEL_BM_HTTP, TRAVEL=$VERCEL_TRAVEL_HTTP)"
 fi
 
 # 진행도 계산 (ready/UP 모두 인식)
