@@ -1,0 +1,101 @@
+name: P2 Vercel 자동 복구 (배포 상태 감시 + 재배포)
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'  # 5분 주기
+  workflow_dispatch:
+
+jobs:
+  monitor-and-recover:
+    runs-on: ubuntu-latest
+    name: Vercel 배포 상태 감시 + 자동 복구
+
+    steps:
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v4
+
+      - name: P1 엔드포인트 상태 확인
+        id: verify
+        run: |
+          endpoints=(
+            "https://dsc-fms-portal-audit.vercel.app"
+            "https://dsc-fms-portal-discord.vercel.app"
+            "https://dsc-fms-portal-bm.vercel.app"
+            "https://dsc-fms-portal-travel.vercel.app"
+          )
+
+          healthy=0
+          down=0
+
+          for endpoint in "${endpoints[@]}"; do
+            code=$(curl -s -o /dev/null -w "%{http_code}" "$endpoint" --max-time 10 2>/dev/null || echo "000")
+            if [[ "$code" == "200" ]]; then
+              ((healthy++))
+            else
+              ((down++))
+            fi
+          done
+
+          echo "HEALTHY_COUNT=$healthy" >> $GITHUB_OUTPUT
+          echo "DOWN_COUNT=$down" >> $GITHUB_OUTPUT
+          echo "✅ 확인 완료: $healthy UP, $down DOWN"
+
+      - name: 복구 필요 여부 판단
+        if: steps.verify.outputs.DOWN_COUNT > 0
+        run: |
+          echo "🔴 DOWN 감지: ${{ steps.verify.outputs.DOWN_COUNT }}/4"
+          echo "⚠️ 자동 복구 시도 중..."
+
+      - name: Vercel 재배포
+        if: steps.verify.outputs.DOWN_COUNT > 0 && env.VERCEL_TOKEN != ''
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          echo "🔧 Vercel 재배포 시도..."
+          npm install -g vercel
+          vercel deploy --prod --token=$VERCEL_TOKEN 2>&1 || echo "⚠️ 재배포 실패"
+
+      - name: 30초 후 재검증
+        if: steps.verify.outputs.DOWN_COUNT > 0
+        run: |
+          sleep 30
+          
+          endpoints=(
+            "https://dsc-fms-portal-audit.vercel.app"
+            "https://dsc-fms-portal-discord.vercel.app"
+            "https://dsc-fms-portal-bm.vercel.app"
+            "https://dsc-fms-portal-travel.vercel.app"
+          )
+
+          recovered=0
+          for endpoint in "${endpoints[@]}"; do
+            code=$(curl -s -o /dev/null -w "%{http_code}" "$endpoint" --max-time 10 2>/dev/null || echo "000")
+            if [[ "$code" == "200" ]]; then
+              ((recovered++))
+            fi
+          done
+
+          if [[ $recovered -eq 4 ]]; then
+            echo "🎉 자동 복구 성공! 4/4 복구됨"
+          else
+            echo "🚨 복구 실패: $recovered/4만 복구"
+          fi
+
+      - name: 실패 알림 (Discord)
+        if: failure() && env.DISCORD_WEBHOOK_URL != ''
+        uses: slackapi/slack-github-action@v1
+        with:
+          webhook-url: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          payload: |
+            {
+              "text": "🚨 P2 자동 복구 실패",
+              "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "*Vercel 자동 복구 실패*\n\nP1 엔드포인트가 DOWN 상태\n수동 확인 필요: https://vercel.com/dashboard"
+                  }
+                }
+              ]
+            }
