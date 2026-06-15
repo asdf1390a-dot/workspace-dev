@@ -20,7 +20,14 @@ function parseActivitiesFromCTB(): TeamMemberRealtime[] {
       process.cwd(),
       'memory/active_work_tracking.md'
     );
-    const content = readFileSync(ctbPath, 'utf-8');
+
+    let content: string;
+    try {
+      content = readFileSync(ctbPath, 'utf-8');
+    } catch {
+      // File doesn't exist (e.g., during Vercel build), return mock
+      return createMockTeamMembers();
+    }
 
     const members: TeamMemberRealtime[] = [];
 
