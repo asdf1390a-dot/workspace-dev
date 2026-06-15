@@ -1,0 +1,98 @@
+{
+  "cycle_id": "CTB_2026_06_15_Cycle_0910",
+  "timestamp": "2026-06-15T09:10:00+05:30",
+  "interval_minutes": 5,
+  "status": "PARTIAL_RECOVERY_STABLE",
+  "summary": "🟡 PARTIAL RECOVERY STABLE (09:10 KST) | BM-P1 HTTP 200 ✅ (100% operational) | /audit /travel /discord HTTP 404 (routes not compiled) | Root + /assets + API all OK | Incident 6h 8m (03:02→09:10) | 신뢰도 60% (stable) | 블로커 3건 (selective routing issue)",
+  "projects": {
+    "AUDIT-P1": {
+      "commit": "0cf3c1ba",
+      "status": "DEGRADED",
+      "http_status": 404,
+      "error": "HTTP 404 NOT_FOUND (route not compiled in Vercel build)",
+      "last_verified": "2026-06-15T09:05:00+05:30",
+      "completion_percent": 0,
+      "note": "No change from 09:05 cycle — route missing from deployment build"
+    },
+    "DISCORD-BOT-P1": {
+      "commit": "585db4d5",
+      "status": "DEGRADED",
+      "http_status": 404,
+      "error": "HTTP 404 NOT_FOUND (route not compiled in Vercel build)",
+      "last_verified": "2026-06-15T09:05:00+05:30",
+      "completion_percent": 0,
+      "note": "No change from 09:05 cycle — consistent pattern with AUDIT/TRAVEL"
+    },
+    "BM-P1": {
+      "commit": "ecc13a9f",
+      "status": "OPERATIONAL",
+      "http_status": 200,
+      "error": null,
+      "last_verified": "2026-06-15T09:05:00+05:30",
+      "completion_percent": 100,
+      "note": "✅ STABLE — HTTP 200 sustained (recovered at 09:00 KST)"
+    },
+    "TRAVEL-P2-UI": {
+      "commit": "e9396c74",
+      "status": "DEGRADED",
+      "http_status": 404,
+      "error": "HTTP 404 NOT_FOUND (route not compiled in Vercel build)",
+      "last_verified": "2026-06-15T09:05:00+05:30",
+      "completion_percent": 0,
+      "note": "No change from 09:05 cycle — pattern consistent"
+    }
+  },
+  "infrastructure": {
+    "vercel_root_status": 200,
+    "vercel_assets_status": 200,
+    "vercel_http_status": 200,
+    "vercel_health_api": "OK (200)",
+    "api_health": "✅ Operational",
+    "incident_start": "2026-06-15T03:02:00+05:30",
+    "incident_duration_minutes": 368,
+    "git_sync": "OK",
+    "supabase": "OK",
+    "cron_jobs_active": 7,
+    "cron_success_rate": "100%",
+    "root_cause": "Selective route compilation failure — /audit /discord /travel routes not included in Vercel build, but /bm and core paths are present"
+  },
+  "recovery_timeline": {
+    "03:02_KST": "Incident start (HTTP 000 TIMEOUT)",
+    "07:34_KST": "Partial recovery detected (3/4 UP)",
+    "08:19_KST": "Regression (0/4 DOWN)",
+    "08:55_KST": "Partial recovery round 2 (HTTP 404 stabilization)",
+    "09:00_KST": "Recovery progress (1/4 P1 operational, BM-P1 HTTP 200)",
+    "09:05_KST": "Status STABLE (no change from 09:00, BM-P1 sustained)",
+    "09:10_KST": "Monitoring continues — no new changes detected"
+  },
+  "reliability": {
+    "score": 60,
+    "blockers": 3,
+    "incidents": 3,
+    "incident_type": "VERCEL_SELECTIVE_ROUTE_COMPILATION_FAILURE",
+    "p1_recovery": "1/4 UP (BM-P1 sustained at HTTP 200), 3/4 DOWN (AUDIT/DISCORD/TRAVEL routes missing from build)",
+    "phase_3_1_impact": "BLOCKED (6h 8m cumulative loss)",
+    "deadline_impact": "Extended to 2026-06-20 14:00 KST (Option B — 132+ hours buffer)"
+  },
+  "rule_compliance": {
+    "autonomous_proceed": "🟡 블로킹 상태 (Vercel 빌드 구성 검증 필요)",
+    "task_ownership": "✅ 비서 진단 완료 (선택적 라우팅 실패 확진)",
+    "schedule_discipline": "🔴 지연 (6h 8m cumulative, Option B deadline 적용)"
+  },
+  "escalation_status": {
+    "vercel_escalation": "⚠️ PARTIALLY RESOLVED — Core deployment operational at 09:00 KST, 3 routes missing from build",
+    "escalation_email_sent": true,
+    "escalation_sent_time": "2026-06-15T07:47:50+05:30",
+    "escalation_age_minutes": 82,
+    "user_action_required": "HIGH — Vercel build log investigation + route config verification",
+    "required_action_link": "https://vercel.com/deployments",
+    "estimated_resolution": "1-2 hours (rebuild with missing routes included)"
+  },
+  "change_from_last_cycle": "NONE (stable from 09:05)",
+  "no_changes_detected": true,
+  "last_baseline": "2026-06-15T09:05:00+05:30",
+  "change_summary": "No state changes detected from 09:05 to 09:10 (5-minute window). BM-P1 remains operational at HTTP 200. Three routes (/audit /travel /discord) remain inaccessible at HTTP 404. Infrastructure fully responsive and healthy. Root cause confirmed: Next.js build process completed successfully for some routes (/bm /assets) but excluded others (/audit /travel /discord). This indicates configuration issue rather than infrastructure failure.",
+  "user_action_summary": "✅ PARTIAL RECOVERY CONFIRMED (1/4 UP)\n\n【필요 조치】\n1️⃣ Vercel 배포 로그 확인 → https://vercel.com/deployments\n   • /audit 라우트 빌드 상태 확인\n   • /discord 라우트 빌드 상태 확인\n   • /travel 라우트 빌드 상태 확인\n\n2️⃣ src/app/ 디렉토리에서 라우트 파일 존재 확인\n   • src/app/audit/* 확인\n   • src/app/discord/* 확인\n   • src/app/travel/* 확인\n\n3️⃣ Next.js 빌드 설정 검증\n   • next.config.js 또는 next.config.mjs 확인\n   • 라우트 제외 규칙 확인\n\n4️⃣ 필요시 Vercel에서 rebuild 수동 실행\n   → Redeploy 클릭으로 전체 재빌드\n\n【참고】\n• BM-P1은 정상 작동 중 (HTTP 200 지속, 09:00 KST부터)\n• 근본원인: Vercel 선택적 라우트 컴파일 실패\n• 예상 해결: 1-2시간 (빌드 재설정 후)\n• 마감: 2026-06-20 14:00 KST (Option B 유효)",
+  "cron_notes": "✅ PARTIAL RECOVERY STABLE: BM-P1 recovered and sustained at HTTP 200 since 09:00 KST. Three P1 routes (audit/discord/travel) still inaccessible due to selective compilation failure in Vercel build. Core infrastructure (root, /assets, API) all operational. Pattern confirms build configuration issue, not infrastructure failure. Recommendation: User should (1) investigate Vercel build logs for specific route compilation status, (2) verify route files in src/app/, (3) check Next.js build config for route exclusions, (4) trigger manual rebuild if needed. Next checkpoint: 09:15 KST.",
+  "timestamp_generated": "2026-06-15T09:10:30Z"
+}

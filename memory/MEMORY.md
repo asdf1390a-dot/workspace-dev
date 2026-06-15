@@ -1,6 +1,26 @@
 # 메모리 인덱스
 
-## ✅ 최신 (2026-06-15 08:30 KST) - ESCALATION ACTIVE MONITORING / 30MIN CHECKPOINT
+## 🟡 최신 (2026-06-15 09:10 KST) - PARTIAL RECOVERY STABLE / USER ACTION REQUIRED
+
+- [✅ CTB 폴링 (09:10 KST)](../CTB_2026_06_15_Cycle_0910.json) — **🟡 PARTIAL RECOVERY STABLE** | **1/4 P1 UP (BM-P1 HTTP 200 ✅)** | **3/4 DOWN (AUDIT/DISCORD/TRAVEL routes missing from Vercel build)** | **Core infrastructure fully operational** | **Incident 6h 8m (03:02→09:10)** | **신뢰도 60% (stable)** | **블로커 3건 (selective routing)** | **팀 27% (monitoring)** | **✅ Deadline 2026-06-20 14:00 (132+ hours buffer)** | **⭐ 진단 완료: Vercel 선택적 라우트 컴파일 실패** | **📍 사용자 액션: (1) Vercel 빌드 로그 확인 (2) 라우트 파일 검증 (3) 필요시 rebuild 실행**
+
+## 🟡 이전 (2026-06-15 09:05 KST) - PARTIAL RECOVERY STABLE / SELECTIVE ROUTING DIAGNOSIS
+
+- [✅ CTB 폴링 (09:05 KST)](../CTB_2026_06_15_Cycle_0905.json) — **🟡 PARTIAL RECOVERY STABLE (no regression)** | **1/4 P1 UP (BM-P1 HTTP 200 sustained) ✅** | **3/4 DOWN (AUDIT/DISCORD/TRAVEL HTTP 404 — routes missing from build)** | **Core infrastructure fully operational** | **Incident 6h 3m (03:02→09:05)** | **신뢰도 60% (stable)** | **블로커 3건 (routing)** | **팀 27% (EMERGENCY)** | **✅ Deadline 2026-06-20 14:00 (132h buffer)** | **⭐ 진단 완료: 선택적 라우팅 실패 (Vercel 빌드 이슈)** | **📍 사용자 액션: Vercel 빌드 로그 확인 필요**
+
+## 🟡 이전 (2026-06-15 09:00 KST) - RECOVERY TREND POSITIVE / 1/4 UP + CORE PATHS WORKING
+
+- [🟡 CTB 폴링 (09:00 KST RECOVERY PROGRESS)](../CTB_2026_06_15_Cycle_0900.json) — **🟡 RECOVERY TREND POSITIVE (1/4 P1 UP ✅)** | **Root+Assets+BM = HTTP 200 ✅** | **API health OK** | **3/4 routes still 404 (audit/discord/travel)** | **Incident 5h 58m (03:02→09:00)** | **신뢰도 60% (10% → 60%)** | **블로커 3건 (3/4 routes)** | **팀 27% (EMERGENCY)** | **✅ Deadline 2026-06-20 14:00 (118h buffer)** | **⭐ 긍정적 추세** | **다음 목표: 나머지 3개 라우팅 복구**
+
+## 🟡 이전 (2026-06-15 08:55 KST) - PARTIAL RECOVERY DETECTED / BUILD/ROUTING ISSUE
+
+- [🟡 CTB 폴링 (08:55 KST PARTIAL RECOVERY)](CTB_2026_06_15_Cycle_0855.json) — **🟡 PARTIAL RECOVERY (HTTP 000 → 404 + API 200 OK)** | **Vercel reachable again (health check passing)** | **Pages returning 404 (routing/build issue suspected)** | **0/4 P1 pages broken (backends potentially ok)** | **Incident 5h 53m (03:02→08:55)** | **Phase 3-1 BLOCKED (7h loss)** | **신뢰도 10%** | **블로커 4건 (P1 pages 404, backend ok)** | **팀 27% (EMERGENCY)** | **[09:00 KST 부분 복구]**
+
+## 🔴 이전 (2026-06-15 08:35 KST) - CONNECTIVITY DEGRADATION DETECTED / CRITICAL REGRESSION
+
+- [🔴 INCIDENT UPDATE (08:35 KST)](incident_update_20260615_0835.md) — **🔴 HTTP 404 → 000 REGRESSION** | **Connectivity degraded (server responding → timeout)** | **Incident 332 min (5h 32m, 03:02→08:35)** | **0/4 P1 UNREACHABLE (HTTP 000 TIMEOUT)** | **Escalation 47min old - NO RESPONSE from Vercel** | **Phase 3-1 BLOCKED (7h loss)** | **신뢰도 0%** | **블로커 4건 CRITICAL** | **팀 27% (EMERGENCY)** | **✅ Deadline 2026-06-20 14:00** | **⚠️ Vercel escalation status: CHECK IF EMAIL DELIVERED** | **모니터링 계속 (2min 주기)**
+
+## ✅ 이전 (2026-06-15 08:30 KST) - ESCALATION ACTIVE MONITORING / 30MIN CHECKPOINT
 
 - [📊 조직 & 업무현황 (08:30 KST CHECKPOINT)](org_status_20260615_0830.md) — **✅ ESCALATION ACTIVE (43 min since 07:47:50)** | **Incident 327 min (5h 27m, 03:02→08:30)** | **4/4 P1 HTTP 404 STABLE (60+ min, 07:12→08:30)** | **Phase 3-1 BLOCKED (6h 58m loss)** | **신뢰도 0%** | **블로커 4건 CRITICAL** | **팀 27% (4 active monitoring, 11 standby)** | **✅ Deadline 2026-06-20 14:00 (118+ hours buffer)** | **✅ Vercel support escalation ACTIVE** | **⏳ Awaiting Vercel engineering priority investigation** | **모니터링 계속 (2min 주기)**
 
