@@ -25,10 +25,10 @@ PHASE2A_HEALTH=$(extract_status "$(curl -s --connect-timeout 2 http://127.0.0.1:
 PHASE2B_HEALTH=$(extract_status "$(curl -s --connect-timeout 2 http://127.0.0.1:3010/health 2>/dev/null)")
 PHASE2C_HEALTH=$(extract_status "$(curl -s --connect-timeout 2 http://127.0.0.1:3011/health 2>/dev/null)")
 
-# Vercel 프로덕션 배포 상태 확인 [IMPROVED: 03:02 KST — 타임아웃 증가 + 재시도 로직 추가]
+# Vercel 프로덕션 배포 상태 확인 [IMPROVED: 03:02 KST — 타임아웃 증가 + 재시도 로직 추가] [FIXED: 15:00 KST — dsc-fms → dsc-fms-portal]
 VERCEL_HTTP=""
 for attempt in 1 2 3; do
-  VERCEL_HTTP=$(curl -s -o /dev/null -w "%{http_code}" --connect-timeout 5 --max-time 10 https://dsc-fms.vercel.app 2>/dev/null)
+  VERCEL_HTTP=$(curl -s -o /dev/null -w "%{http_code}" --connect-timeout 5 --max-time 10 https://dsc-fms-portal.vercel.app/api/audit/health 2>/dev/null)
   if [[ "$VERCEL_HTTP" == "200" ]]; then
     break
   fi

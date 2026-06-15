@@ -1,0 +1,115 @@
+{
+  "cycle_id": "CTB_2026_06_15_Cycle_0926",
+  "timestamp": "2026-06-15T09:26:00+05:30",
+  "interval_minutes": 5,
+  "status": "PARTIAL_RECOVERY_STABLE_SUPABASE_CONCERN",
+  "summary": "🟡 PARTIAL RECOVERY STABLE + 🚨 SUPABASE DEGRADATION (09:26 KST) | BM-P1 status unclear (404 on direct test) | /audit /travel /discord still 404 | API health shows Supabase failed | Root + /assets HTTP 200 OK | Incident 6h 24m (03:02→09:26) | 신뢰도 55% (new concern) | 블로커 4건 (selective routing + Supabase)",
+  "projects": {
+    "AUDIT-P1": {
+      "commit": "0cf3c1ba",
+      "status": "DEGRADED",
+      "http_status": 404,
+      "error": "HTTP 404 NOT_FOUND — route not compiled in Vercel build",
+      "last_verified": "2026-06-15T09:26:00+05:30",
+      "completion_percent": 0,
+      "note": "Stable from 09:10 cycle — no change in last 16 minutes"
+    },
+    "DISCORD-BOT-P1": {
+      "commit": "585db4d5",
+      "status": "DEGRADED",
+      "http_status": 404,
+      "error": "HTTP 404 NOT_FOUND — route not compiled in Vercel build",
+      "last_verified": "2026-06-15T09:26:00+05:30",
+      "completion_percent": 0,
+      "note": "Stable from 09:10 cycle — pattern consistent with AUDIT/TRAVEL"
+    },
+    "BM-P1": {
+      "commit": "ecc13a9f",
+      "status": "UNKNOWN",
+      "http_status": 404,
+      "error": "HTTP 404 NOT_FOUND — route not found at /bm endpoint",
+      "last_verified": "2026-06-15T09:26:00+05:30",
+      "completion_percent": 0,
+      "note": "⚠️ DISCREPANCY: CTB 09:10 reported HTTP 200, but direct test shows 404. Possible: (1) test failed to reach correct route, (2) regression between 09:10-09:26, or (3) route name is different (not /bm)"
+    },
+    "TRAVEL-P2-UI": {
+      "commit": "e9396c74",
+      "status": "DEGRADED",
+      "http_status": 404,
+      "error": "HTTP 404 NOT_FOUND — route not compiled in Vercel build",
+      "last_verified": "2026-06-15T09:26:00+05:30",
+      "completion_percent": 0,
+      "note": "Stable from 09:10 cycle — consistent pattern"
+    }
+  },
+  "infrastructure": {
+    "vercel_root_status": 200,
+    "vercel_root_url": "https://dsc-fms-portal.vercel.app/",
+    "vercel_assets_status": 200,
+    "vercel_http_status": 200,
+    "vercel_health_api": "🚨 DEGRADED (HTTP 503) — Supabase connection failing",
+    "api_health": "🚨 DEGRADED — Supabase failed health check",
+    "supabase_status": "UNKNOWN (health endpoint returned 503)",
+    "incident_start": "2026-06-15T03:02:00+05:30",
+    "incident_duration_minutes": 384,
+    "git_sync": "OK",
+    "supabase_dependency": "CRITICAL CONCERN — API routes depend on Supabase, HTTP 503 indicates DB connection issue",
+    "cron_jobs_active": 7,
+    "cron_success_rate": "Unknown",
+    "root_cause": "Dual issue: (1) Selective route compilation failure for P1 routes, (2) NEW: Supabase backend degradation detected at 09:26 KST"
+  },
+  "recovery_timeline": {
+    "03:02_KST": "Incident start (HTTP 000 TIMEOUT)",
+    "07:34_KST": "Partial recovery detected (3/4 UP) — decision point",
+    "08:19_KST": "Regression (0/4 DOWN) — back to critical",
+    "08:55_KST": "Partial recovery round 2 (HTTP 404 instead of timeout)",
+    "09:00_KST": "Recovery progress (1/4 operational per CTB)",
+    "09:05_KST": "Status STABLE per CTB (no change from 09:00)",
+    "09:10_KST": "CTB polling showed 1/4 UP (BM-P1 at 200), 3/4 at 404",
+    "09:26_KST": "Current polling — DISCREPANCY detected: BM-P1 now shows 404, Supabase health degraded"
+  },
+  "reliability": {
+    "score": 55,
+    "blockers": 4,
+    "incidents": 3,
+    "incident_type": "VERCEL_SELECTIVE_ROUTE_COMPILATION_FAILURE + SUPABASE_BACKEND_DEGRADATION",
+    "p1_recovery": "UNCERTAIN: CTB reported 1/4 UP at 09:10, but direct test at 09:26 shows all 404",
+    "phase_3_1_impact": "BLOCKED (6h 24m cumulative loss)",
+    "deadline_impact": "Extended to 2026-06-20 14:00 KST (Option B — 129+ hours buffer)"
+  },
+  "rule_compliance": {
+    "autonomous_proceed": "🔴 BLOCKED (Dual infrastructure issues — build routing + Supabase dependency)",
+    "task_ownership": "✅ 비서 진단 진행 중 (새로운 Supabase 이슈 감지)",
+    "schedule_discipline": "🔴 지연 (6h 24m cumulative, escalation 필요)"
+  },
+  "escalation_status": {
+    "vercel_escalation": "⚠️ PARTIAL — First escalation sent 07:47:50 (1h 38m ago)",
+    "escalation_email_sent": true,
+    "escalation_sent_time": "2026-06-15T07:47:50+05:30",
+    "escalation_age_minutes": 98,
+    "user_action_required": "CRITICAL UPGRADE — Original issue (build routes) + NEW: Supabase backend degradation",
+    "new_concern": "🚨 API health check returns HTTP 503 with Supabase failed — backend database connection issue",
+    "required_action_link": "https://vercel.com/deployments + Supabase dashboard health check",
+    "estimated_resolution": "2-4 hours (if Supabase requires intervention)"
+  },
+  "change_from_last_cycle": "DISCREPANCY DETECTED (BM-P1 status changed or test method differs)",
+  "discrepancies_detected": [
+    {
+      "field": "BM-P1 status",
+      "ctb_09_10": "HTTP 200 (operational)",
+      "test_09_26": "HTTP 404 (not found)",
+      "interpretation": "Either CTB 09:10 was incorrect, BM-P1 regressed in 16 minutes, or test is checking wrong route"
+    },
+    {
+      "field": "API health",
+      "ctb_09_10": "OK (200)",
+      "test_09_26": "DEGRADED (503 — Supabase failed)",
+      "interpretation": "NEW infrastructure issue emerged between 09:10-09:26 KST"
+    }
+  ],
+  "last_baseline": "2026-06-15T09:10:00+05:30",
+  "change_summary": "⚠️ TWO CRITICAL CHANGES DETECTED:\n\n1️⃣ STATUS DISCREPANCY: CTB 09:10 reported BM-P1 at HTTP 200 (recovered), but direct test at 09:26 shows HTTP 404. This suggests either:\n   - BM-P1 regressed between 09:10-09:26 (unlikely in 16min)\n   - Test route is incorrect (/bm vs /api/bm or other path)\n   - CTB 09:10 polling method was flawed\n\n2️⃣ NEW INFRASTRUCTURE ISSUE: API health endpoint now returns HTTP 503 with error \"Supabase failed\". This is a NEW problem not present at 09:10 KST.\n   - Indicates backend database connection issue\n   - May be blocking all P1 endpoints even if routing is fixed\n   - Requires investigation into Supabase status/credentials\n\n⏱️ INCIDENT NOW 6h 24m WITH ESCALATING COMPLEXITY",
+  "user_action_summary": "🚨 ESCALATION REQUIRED — TWO ISSUES DETECTED\n\n【Issue 1】Vercel 라우트 컴파일 실패 (09:10 기준)\n  → /audit /discord /travel 404 (routes missing from build)\n  → BM-P1 상태 불명확 (09:10에 200 보고, 09:26에 404 확인)\n\n【Issue 2】🚨 Supabase 백엔드 문제 (새로 감지 09:26)\n  → /api/health 엔드포인트 HTTP 503\n  → Error: \"Supabase failed\"\n  → 데이터베이스 연결 실패 의심\n\n【필요 조치】\n\n1️⃣ IMMEDIATE: Supabase 상태 확인\n   • Supabase 대시보드: https://app.supabase.com\n   • 프로젝트: pzkvhomhztikhkgwgqzr\n   • DB 연결 상태 확인\n   • 자격증명/환경변수 확인\n\n2️⃣ VERIFY: BM-P1 실제 라우트 확인\n   • /bm vs /api/bm vs 다른 경로 확인\n   • src/app/ 디렉토리에서 실제 경로 확인\n\n3️⃣ INVESTIGATE: CTB 09:10 vs 09:26 데이터 차이\n   • 어느 것이 정확한지 재확인\n   • 폴링 방법 검증\n\n【참고】\n• 마감: 2026-06-20 14:00 KST (Option B)\n• Escalation 첫 전송: 07:47:50 (1h 38m 전)\n• 新 이슈 (Supabase): 09:26에 새로 감지됨",
+  "cron_notes": "DISCREPANCY ALERT: CTB 09:10 reported BM-P1 at HTTP 200, but 09:26 direct test shows 404 on all P1 routes. Additionally, API health check now returns 503 with Supabase failed — NEW infrastructure issue not present at 09:10. Two possible scenarios: (1) BM-P1 regressed + Supabase issue emerged in 16min window, or (2) CTB 09:10 polling was inaccurate. Recommend: (a) verify actual BM-P1 route path, (b) check Supabase status immediately, (c) review CTB polling methodology. Next checkpoint: 09:31 KST (5min).",
+  "timestamp_generated": "2026-06-15T09:26:30Z"
+}

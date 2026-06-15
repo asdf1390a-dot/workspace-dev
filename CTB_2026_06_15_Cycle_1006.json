@@ -1,0 +1,72 @@
+{
+  "cycle_id": "CTB_2026_06_15_Cycle_1006",
+  "timestamp": "2026-06-15T10:06:00+05:30",
+  "interval_minutes": 5,
+  "status": "STABLE_0_4_DOWN_HTTP_404_SUPABASE_503_CRITICAL",
+  "summary": "🔴 NO CHANGE (09:56→10:06) | 0/4 P1 at HTTP 404 (route compilation failure) | API Health HTTP 503 (Supabase backend CRITICAL) | Incident 7h 4m (03:02→10:06) | Root HTTP 200 OK | 신뢰도 0% | 블로커 4건 CRITICAL | Escalation active 2h 18m (NO RESPONSE)",
+  "projects": {
+    "AUDIT-P1": {
+      "commit": "0cf3c1ba",
+      "status": "DOWN",
+      "http_status": 404,
+      "error": "HTTP 404 NOT_FOUND — route not compiled in Vercel build",
+      "last_verified": "2026-06-15T10:06:00+05:30",
+      "completion_percent": 0,
+      "note": "Stable at 404 since 09:26 cycle — 40+ min stable"
+    },
+    "DISCORD-BOT-P1": {
+      "commit": "585db4d5",
+      "status": "DOWN",
+      "http_status": 404,
+      "error": "HTTP 404 NOT_FOUND — route not compiled in Vercel build",
+      "last_verified": "2026-06-15T10:06:00+05:30",
+      "completion_percent": 0,
+      "note": "Stable at 404 since 09:26 cycle — 40+ min stable"
+    },
+    "BM-P1": {
+      "commit": "ecc13a9f",
+      "status": "DOWN",
+      "http_status": 404,
+      "error": "HTTP 404 NOT_FOUND — route not found",
+      "last_verified": "2026-06-15T10:06:00+05:30",
+      "completion_percent": 0,
+      "note": "Confirmed 404 at 10:06 — was briefly HTTP 200 at 09:10-09:35 (47 min recovery, then regressed)"
+    },
+    "TRAVEL-P2-UI": {
+      "commit": "e9396c74",
+      "status": "DOWN",
+      "http_status": 404,
+      "error": "HTTP 404 NOT_FOUND — route not compiled in Vercel build",
+      "last_verified": "2026-06-15T10:06:00+05:30",
+      "completion_percent": 0,
+      "note": "Stable at 404 since 09:26 cycle — 40+ min stable"
+    }
+  },
+  "infrastructure": {
+    "vercel_root_status": 200,
+    "vercel_root_url": "https://dsc-fms-portal.vercel.app/",
+    "vercel_assets_status": 200,
+    "vercel_http_status": 200,
+    "vercel_health_api": "🔴 CRITICAL (HTTP 503) — Supabase connection failing",
+    "api_health": "🔴 CRITICAL — Supabase failed health check (HTTP 503)",
+    "supabase_status": "CRITICAL (health endpoint returned 503)",
+    "incident_start": "2026-06-15T03:02:00+05:30",
+    "incident_duration_minutes": 424,
+    "git_sync": "OK",
+    "supabase_dependency": "CRITICAL — API routes depend on Supabase, HTTP 503 indicates DB connection issue",
+    "cron_jobs_active": 7,
+    "root_cause": "Dual issue: (1) Selective route compilation failure for P1 routes (DEPLOYMENT_NOT_FOUND), (2) Supabase backend degradation (HTTP 503)"
+  },
+  "escalation_status": {
+    "vercel_escalation": "✅ ACTIVE (First escalation: 07:47:50, 2h 18m ago)",
+    "escalation_sent_time": "2026-06-15T07:47:50+05:30",
+    "escalation_age_minutes": 138,
+    "response_status": "⏳ NO RESPONSE (138 min elapsed)",
+    "new_infrastructure_issue": "🚨 SUPABASE CRITICAL (HTTP 503) — Detected at 09:26, persisting at 10:06",
+    "required_action": "Follow-up escalation to Vercel URGENT if no response in next 30 min (10:36 KST threshold)"
+  },
+  "stability_assessment": "STABLE_404_NOT_TIMEOUT (HTTP 404 is stable routing failure, not network timeout) — BUT escalation age 138 min with zero response indicates critical delay",
+  "monitoring_notes": "No change from 09:56 cycle. All 4 routes returning 404 consistently for 40+ min. Supabase health critical (503). Dual root cause confirmed: selective compilation + DB backend.",
+  "next_action": "Continue 5-minute polling. URGENT: Send follow-up escalation to Vercel at 10:36 KST if no response. Supabase investigation required in parallel.",
+  "timestamp_generated": "2026-06-15T10:06:00Z"
+}

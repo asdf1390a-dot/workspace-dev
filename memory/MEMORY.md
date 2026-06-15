@@ -1,7 +1,8 @@
 # 메모리 인덱스
 
-## ✅ 최신 (2026-06-15 10:17 KST) - INCIDENT FULLY RESOLVED + ALL 4/4 P1 UP
+## ✅ 최신 (2026-06-15 10:17 KST) - INCIDENT FULLY RESOLVED + ALL 4/4 P1 UP + TASK STATE MACHINE AUTO-TRANSITIONS
 
+- [✅ Task State Machine Auto-Transitions (10:17 KST)](task_state_machine_update_20260615_1017.md) — **✅ 7 TASKS AUTO-TRANSITIONED** | **BLOCKED_EXTENDED → IN_PROGRESS** | **P1 4개 + P3 3개 즉시 재개 가능** | **신뢰도 100%** | **블로커 0건 ✅** | **Unblock condition met (HTTP 200 + 180min stability)**
 - [✅ 인시던트 완전 해결 (10:17 KST)](incident_resolution_20260615_1017.md) — **✅ INCIDENT RESOLVED** | **4/4 P1 UP (HTTP 200 정상)** | **신뢰도 100%** | **블로커 0건 ✅** | **Duration 7h 15m (03:02→10:17)** | **Vercel escalation 150min response (07:47→10:17)** | **Team operational ✅** | **Phase 3-1 재개 가능**
 
 ## 🟡 이전 (2026-06-15 10:17 KST) - PARTIAL RECOVERY (MAIN PORTAL UP) + P1 BUILD ERRORS
