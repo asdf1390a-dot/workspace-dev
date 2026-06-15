@@ -69,40 +69,51 @@ generate_korean_message() {
   echo "$msg"
 }
 
-# Vercel 배포 검증 (P0 개선사항: 2단계 검증 + 30초 감지)
+# Vercel 배포 검증 (P0 개선사항: 3회 연속 확인 + 오탐 방지)
 verify_vercel_deployment() {
-  log "🔍 Vercel 배포 검증 시작..."
+  log "🔍 Vercel 배포 검증 시작 (3회 연속 확인)..."
 
-  local retry_count=5
-  local delay=6  # 30초 / 5회 = 6초
+  local endpoints=(
+    "https://dsc-fms-portal-audit.vercel.app"
+    "https://dsc-fms-portal-discord.vercel.app"
+    "https://dsc-fms-portal-bm.vercel.app"
+    "https://dsc-fms-portal-travel.vercel.app"
+  )
 
-  for i in $(seq 1 $retry_count); do
-    sleep "$delay"
+  local success_count=0
+  local max_checks=3
 
-    # 모든 P1 프로젝트 엔드포인트 헬스 체크
-    local all_healthy=true
-    local endpoints=(
-      "https://audit.vercel.app"
-      "https://discord-bot.vercel.app"
-      "https://asset-master.vercel.app"
-      "https://travel-planner.vercel.app"
-    )
+  for check in $(seq 1 $max_checks); do
+    log "📍 상태 확인 $check/$max_checks..."
+    local check_healthy=true
 
     for endpoint in "${endpoints[@]}"; do
-      http_code=$(curl -s -o /dev/null -w "%{http_code}" "$endpoint" 2>/dev/null || echo "000")
+      http_code=$(curl -s -o /dev/null -w "%{http_code}" "$endpoint" --max-time 10 2>/dev/null || echo "000")
       if [[ "$http_code" != "200" ]]; then
-        log "⚠️  재시도 $i/$retry_count: $endpoint → HTTP $http_code"
-        all_healthy=false
+        log "   ❌ $endpoint → HTTP $http_code"
+        check_healthy=false
+      else
+        log "   ✅ $endpoint → HTTP 200"
       fi
     done
 
-    if [[ "$all_healthy" == "true" ]]; then
-      log "✅ Vercel 배포 검증 성공 (모든 프로젝트 HTTP 200)"
+    if [[ "$check_healthy" == "true" ]]; then
+      ((success_count++))
+      log "✅ 확인 $check 성공 ($success_count/$max_checks)"
+    else
+      success_count=0
+      log "⚠️  확인 $check 실패 (카운트 리셋)"
+    fi
+
+    if [[ $success_count -eq $max_checks ]]; then
+      log "🎉 3회 연속 확인 성공 - 상태 변경 승인"
       return 0
     fi
+
+    sleep 10  # 10초 대기 후 재확인
   done
 
-  log "🔴 Vercel 배포 검증 실패 (5회 시도 후에도 회복 불가)"
+  log "🔴 Vercel 배포 검증 실패 (3회 연속 성공 불가)"
   return 1
 }
 
