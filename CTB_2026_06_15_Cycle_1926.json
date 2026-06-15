@@ -1,0 +1,60 @@
+{
+  "cycle_timestamp": "2026-06-15T19:26:00+09:00",
+  "cycle_number": 1926,
+  "incident_start": "2026-06-15T03:02:00+09:00",
+  "incident_duration_seconds": 59040,
+  "incident_duration_formatted": "16h 24m",
+  "polling_results": {
+    "audit_p1": {
+      "url": "https://dsc-fms-audit.vercel.app/",
+      "status": 404,
+      "state": "DOWN",
+      "error": "DEPLOYMENT_NOT_FOUND",
+      "verified_at": "2026-06-15T19:26:00+09:00"
+    },
+    "discord_bot_p1": {
+      "url": "https://dsc-fms-discord-bot.vercel.app/",
+      "status": 404,
+      "state": "DOWN",
+      "error": "DEPLOYMENT_NOT_FOUND",
+      "verified_at": "2026-06-15T19:26:00+09:00"
+    },
+    "bm_p1": {
+      "url": "https://dsc-fms-bm.vercel.app/",
+      "status": 404,
+      "state": "DOWN",
+      "error": "DEPLOYMENT_NOT_FOUND",
+      "verified_at": "2026-06-15T19:26:00+09:00"
+    },
+    "travel_p2_ui": {
+      "url": "https://dsc-fms-travel.vercel.app/",
+      "status": 404,
+      "state": "DOWN",
+      "error": "DEPLOYMENT_NOT_FOUND",
+      "verified_at": "2026-06-15T19:26:00+09:00"
+    },
+    "main_portal": {
+      "url": "https://dsc-fms-portal.vercel.app/",
+      "status": 200,
+      "state": "UP",
+      "error": null,
+      "verified_at": "2026-06-15T19:26:00+09:00"
+    }
+  },
+  "summary": {
+    "p1_available": 0,
+    "p1_total": 4,
+    "p1_uptime": "0%",
+    "main_portal_status": "UP",
+    "overall_reliability": "0%",
+    "last_change_duration": "16h 24m",
+    "status_unchanged_since": "2026-06-15T07:29:00+09:00"
+  },
+  "escalation_status": {
+    "option_selected": "Option B (Extended Deadline)",
+    "deadline_extended": "2026-06-20T14:00:00+09:00",
+    "vercel_escalation_required": true,
+    "critical_action_pending": "Vercel Account Manager direct escalation"
+  },
+  "notes": "🔴 CRITICAL: 16h 24m incident duration with no recovery. Infrastructure-level DEPLOYMENT_NOT_FOUND error. Vercel account manager escalation is essential. Main portal remains healthy (HTTP 200)."
+}
