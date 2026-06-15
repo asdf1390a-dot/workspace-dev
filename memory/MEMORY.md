@@ -1,6 +1,10 @@
 # 메모리 인덱스
 
-## 🔴 최신 (2026-06-15 09:36 KST) - REGRESSION CONFIRMED / SUPABASE CRITICAL NEW ISSUE
+## 🔴 최신 (2026-06-15 09:47 KST) - RECOVERY COLLAPSE / ALL ENDPOINTS TIMEOUT REGRESSION
+
+- [🔴 REGRESSION CHECKPOINT (09:47 KST)](INCOMPLETE_TASKS_REGISTRY.md#-regression-checkpoint-2026-06-15-0947-kst--recovery-collapse--all-endpoints-timeout) — **🔴 CRITICAL REGRESSION** | **0/4 P1 DOWN (HTTP 000 TIMEOUT all endpoints)** | **BM-P1 recovery LOST (was HTTP 200 sustained 47 min at 09:35, collapsed to TIMEOUT at 09:47)** | **P1-BM reverted: IN_PROGRESS → BLOCKED_EXTENDED** | **Incident 405 min (6h 45min, 03:02→09:47)** | **신뢰도 0%** | **블로커 4건 CRITICAL** | **Root cause: UNKNOWN** | **Escalation: ACTIVE (120 min elapsed, awaiting Vercel response)** | **Deadline: Safe 2026-06-20 14:00 (116+ hours buffer)** | **팀 27% (emergency mode)** | **긴급: Vercel 에스컬레이션 응답 + 배포 상태 재검증 필요**
+
+## 🔴 이전 (2026-06-15 09:36 KST) - REGRESSION CONFIRMED / SUPABASE CRITICAL NEW ISSUE
 
 - [🔴 CTB 폴링 (09:36 KST)](polling_checkpoint_20260615_0936.md) — **🔴 NO CHANGE DETECTED** | **0/4 P1 DOWN (HTTP 404 all routes, including BM-P1 REGRESSION from 09:10)** | **🚨 NEW: API Health HTTP 503 (Supabase backend CRITICAL)** | **Incident 6h 34m (03:02→09:36)** | **신뢰도 0% (down from 60%)** | **블로커 4건 CRITICAL (dual issues: routing + database)** | **팀 27% (monitoring)** | **✅ Deadline 2026-06-20 14:00 (128+ hours buffer)** | **⚠️ DISCREPANCY: CTB 09:10 reported 1/4 UP (BM-P1 200), but 09:36 confirms all 4 at 404** | **📍 긴급 필요: (1) Supabase 연결 확인 (2) BM-P1 상태 재검증 (3) API health 503 원인 규명**
 
