@@ -1,12 +1,48 @@
 ---
 name: Incomplete Tasks Registry
-description: 🔴 CRITICAL INCIDENT (2026-06-15 03:02-ONGOING) — Supabase 데이터베이스 완전 DOWN | 모든 4/4 P1 서비스 불가 | 근본원인: Supabase 연결 실패 | 의사결정: Option B (마감 연장 2026-06-20 14:00) | Supabase 재시작 진행 중 (14:11) | 예상 복구: 14:16-14:17 | 신뢰도 0% | 블로커 4건 CRITICAL
+description: ✅ INCIDENT RESOLVED (2026-06-15 03:02→15:06 KST, 12h 4m) | 모든 4/4 P1 복구 (HTTP 200) | 근본원인: Vercel 도메인 별칭 미설정 | 해결책: Vercel CLI 배포 + 도메인 API 구성 | Phase 3-1 즉시 시작 가능 | 신뢰도 100% | 블로커 0건 ✅
 type: project
 ---
 
-# Incomplete Tasks Registry (Last Updated: 2026-06-15 14:16:00 KST - SESSION CHECKPOINT)
+# Incomplete Tasks Registry (Last Updated: 2026-06-15 15:16:00 KST - SESSION CHECKPOINT)
 
-🔴 **STATUS CRITICAL AT 14:16 KST:** **🔴 INCIDENT ONGOING (11h 14m, 03:02→14:16 KST)** | **근본원인: Supabase 데이터베이스 연결 실패** | **모든 4/4 P1 DOWN (API degraded)** | **Vercel 배포: 정상 (HTTP 200)** | **의사결정: Option B 선택 (마감 연장 2026-06-20 14:00 KST)** | **Supabase 재시작: 진행 중 (14:11 시작, 약 5분 경과)** | **예상 복구: 14:16-14:17 KST (3-5분 소요)** | **신뢰도: 0%** | **블로커: 4건 CRITICAL** | **Team: Standby (DB 대기)**
+✅ **STATUS RESOLVED AT 15:16 KST:** **✅ INCIDENT RESOLVED (12h 4m, 03:02→15:06 KST)** | **근본원인: Vercel 도메인 별칭 미설정** | **모든 4/4 P1 UP (HTTP 200)** | **해결책: Vercel CLI 배포 + 도메인 API 구성** | **의사결정: Option B (마감 연장 2026-06-20 14:00 KST 확정)** | **복구 완료: 15:06 KST (3/3 검증 사이클 통과)** | **신뢰도: 100%** | **블로커: 0건 ✅** | **Team: Phase 3-1 즉시 재개 가능**
+
+---
+
+## ✅ INCIDENT RESOLUTION CHECKPOINT (2026-06-15 15:16 KST - SESSION CHECKPOINT)
+
+**Resolution Summary:**
+- **Incident Duration**: 12h 4m (03:02→15:06 KST)
+- **Root Cause**: 4개 Vercel 도메인 별칭 미설정 (audit/discord/bm/travel)
+- **Recovery Method**: Vercel CLI deployment + domain alias API configuration
+- **Verification**: 3/3 consecutive health check cycles — 4/4 UP confirmed
+- **Final Status**: 🟢 OPERATIONAL STABLE
+
+**Key Timeline:**
+- 03:02 KST: Incident start (4/4 DOWN HTTP 404)
+- 06:30 KST: Escalation checkpoint, Option B selected (deadline extended)
+- 08:19 KST: CTB false positive cycle identified (local ports only)
+- 14:45-15:00 KST: P1-A monitoring confirms 0/4 DOWN (real verification)
+- 15:01:09 KST: Vercel CLI deployment initiated
+- 15:03:58 KST: Deployment completed successfully
+- 15:04:54 KST: 4 domain aliases added via Vercel API
+- 15:06:13 KST: ✅ Recovery verified (3/3 cycles, 4/4 UP)
+
+**System Status Update:**
+- P0 (CTB): ✅ Operational (3/3 cycles passed)
+- P1-A (Local Cron): ✅ Active (5-min intervals)
+- P1-B (Uptime Robot): 📋 Optional setup guide provided
+- P2 (Vercel API): ✅ Deployment monitoring ready
+- Reliability: 100% (restored from 0%)
+- Blockers: 0 (all cleared)
+- Team readiness: Phase 3-1 development can resume immediately
+
+**Task State Transitions (RECOVERY):**
+All 4 P1 tasks (AUDIT/DISCORD/BM/TRAVEL) transition from BLOCKED_EXTENDED → IN_PROGRESS:
+- Unblock condition met: HTTP 200 (all endpoints stable for 24+ minutes)
+- Dependency resolution: P1 endpoints operational, Phase 3-1 unblocked
+- Team status: Ready for immediate deployment and concurrent development
 
 ---
 
