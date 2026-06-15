@@ -8,7 +8,7 @@ const supabase = createClient(
 
 export async function POST(request: NextRequest) {
   try {
-    // Verify admin token
+    // Verify admin token — cache buster
     const token = request.headers.get('x-admin-token');
     if (token !== process.env.ADMIN_MIGRATION_TOKEN) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
