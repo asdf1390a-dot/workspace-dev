@@ -1,8 +1,16 @@
 # 메모리 인덱스
 
-## 🟡 최신 (2026-06-15 09:10 KST) - PARTIAL RECOVERY STABLE / USER ACTION REQUIRED
+## 🔴 최신 (2026-06-15 09:36 KST) - REGRESSION CONFIRMED / SUPABASE CRITICAL NEW ISSUE
 
-- [✅ CTB 폴링 (09:10 KST)](../CTB_2026_06_15_Cycle_0910.json) — **🟡 PARTIAL RECOVERY STABLE** | **1/4 P1 UP (BM-P1 HTTP 200 ✅)** | **3/4 DOWN (AUDIT/DISCORD/TRAVEL routes missing from Vercel build)** | **Core infrastructure fully operational** | **Incident 6h 8m (03:02→09:10)** | **신뢰도 60% (stable)** | **블로커 3건 (selective routing)** | **팀 27% (monitoring)** | **✅ Deadline 2026-06-20 14:00 (132+ hours buffer)** | **⭐ 진단 완료: Vercel 선택적 라우트 컴파일 실패** | **📍 사용자 액션: (1) Vercel 빌드 로그 확인 (2) 라우트 파일 검증 (3) 필요시 rebuild 실행**
+- [🔴 CTB 폴링 (09:36 KST)](polling_checkpoint_20260615_0936.md) — **🔴 NO CHANGE DETECTED** | **0/4 P1 DOWN (HTTP 404 all routes, including BM-P1 REGRESSION from 09:10)** | **🚨 NEW: API Health HTTP 503 (Supabase backend CRITICAL)** | **Incident 6h 34m (03:02→09:36)** | **신뢰도 0% (down from 60%)** | **블로커 4건 CRITICAL (dual issues: routing + database)** | **팀 27% (monitoring)** | **✅ Deadline 2026-06-20 14:00 (128+ hours buffer)** | **⚠️ DISCREPANCY: CTB 09:10 reported 1/4 UP (BM-P1 200), but 09:36 confirms all 4 at 404** | **📍 긴급 필요: (1) Supabase 연결 확인 (2) BM-P1 상태 재검증 (3) API health 503 원인 규명**
+
+## 🟡 이전 (2026-06-15 09:26 KST) - DISCREPANCY & SUPABASE ISSUE FIRST DETECTED
+
+- [🟡 CTB 폴링 (09:26 KST)](../CTB_2026_06_15_Cycle_0926.json) — **🟡 PARTIAL RECOVERY CLAIMED (FALSE)** | **⚠️ DISCREPANCY: BM-P1 status 09:10(200)→09:26(404)** | **🚨 NEW: API Health HTTP 503 (Supabase failed)** | **3/4 @ 404, BM unclear** | **Incident 6h 24m** | **신뢰도 55%** | **블로커 4건** | **First detection of Supabase backend issue at 09:26 KST**
+
+## 🟡 이전 (2026-06-15 09:10 KST) - PARTIAL RECOVERY STABLE / USER ACTION REQUIRED
+
+- [✅ CTB 폴링 (09:10 KST)](../CTB_2026_06_15_Cycle_0910.json) — **🟡 PARTIAL RECOVERY STABLE** | **1/4 P1 UP (BM-P1 HTTP 200 ✅)** | **3/4 DOWN (AUDIT/DISCORD/TRAVEL routes missing from Vercel build)** | **Core infrastructure fully operational** | **Incident 6h 8m (03:02→09:10)** | **신뢰도 60% (stable)** | **블로커 3건 (selective routing)** | **팀 27% (monitoring)** | **✅ Deadline 2026-06-20 14:00 (132+ hours buffer)** | **⭐ 진단 완료: Vercel 선택적 라우트 컴파일 실패** | **⚠️ 이후 09:26에 Supabase 503 + BM 회귀 감지**
 
 ## 🟡 이전 (2026-06-15 09:05 KST) - PARTIAL RECOVERY STABLE / SELECTIVE ROUTING DIAGNOSIS
 
