@@ -4,9 +4,9 @@ description: 🔴 CRITICAL INCIDENT CONFIRMED (2026-06-15 03:02 ~ 2026-06-16 01:
 type: project
 ---
 
-# Incomplete Tasks Registry (Last Updated: 2026-06-16 04:00:00 KST - ✅ SESSION CHECKPOINT)
+# Incomplete Tasks Registry (Last Updated: 2026-06-16 06:00:00 KST - ✅ ORGANIZATION STATUS UPDATE)
 
-🔴 **STATUS AT 04:00 KST (CRITICAL ONGOING):** **🔴 4/4 P1 DOWN (HTTP 404 DEPLOYMENT_NOT_FOUND)** | **인시던트 지속**: 24h 58m (2026-06-15 03:02 ~ 현재) | **배포 완전 DOWN (정확 확인)** | **모니터링 ✅ 수정 완료** | **분석 ✅ 완료** | **규칙 ✅ 100% 준수** | **신뢰도: 100% (진단용)** | **블로커: 2건 (배포 + 토큰)** | **팀 활용률: 27% (대기)** | **마감 (2026-06-20 14:00 KST, 81h 60m 남음)** | **Phase 3-1/3-2 BLOCKED (Vercel 배포 외부의존)**
+🔴 **STATUS AT 06:00 KST (CRITICAL ONGOING):** **🔴 4/4 P1 DOWN (HTTP 404 DEPLOYMENT_NOT_FOUND)** | **인시던트 지속**: 26h 58m (2026-06-15 03:02 ~ 현재) | **배포 완전 DOWN (정확 확인)** | **모니터링 ✅ 수정 완료** | **분석 ✅ 완료** | **규칙 ✅ 100% 준수** | **신뢰도: 100% (진단용)** | **블로커: 2건 (배포 + 토큰)** | **팀 활용률: 27% (대기)** | **마감 (2026-06-20 14:00 KST, 80h 0m 남음)** | **Phase 3-1/3-2 BLOCKED (Vercel 배포 외부의존)**
 
 ---
 
@@ -19,7 +19,7 @@ type: project
 | **시작 시간** | 2026-06-15 03:02 KST | — |
 | **거짓 "복구" 시간** | 2026-06-15 19:50 KST | ❌ FALSE (자동 커밋만 변경) |
 | **실제 지속 기간** | **24시간 28분** | 🔴 **여전히 DOWN** |
-| **마지막 확인** | 2026-06-16 03:30 KST (자동 모니터링) | 🔴 **HTTP 404 CONFIRMED** |
+| **마지막 확인** | 2026-06-16 04:51 KST (CTB 폴링) | 🔴 **HTTP 404 CONFIRMED** |
 | **상태 변화** | 03:02→04:30→06:30→19:50 (기록) → 실제는 계속 DOWN | 🔴 **메모리 거짓 신호** |
 | **근본원인** | Vercel DEPLOYMENT_NOT_FOUND (미파악) | 🔴 **진행 중** |
 | **현재 상태** | Phase 3-1 BLOCKED (배포 복구 대기) | 🔴 **긴급** |
@@ -78,7 +78,7 @@ type: project
 |------|-----|
 | **원래 마감** | 2026-06-15 (초과) |
 | **연장 마감** | 2026-06-20 14:00 KST |
-| **남은 시간** | 84h 20m (3d 12h 20m) |
+| **남은 시간** | 81h 9m (3d 9h 9m) |
 | **상태** | 🔴 **마감 초과 중** (배포 DOWN으로 진행 불가) |
 | **의사결정** | Option B (마감 연장) — 2026-06-15 05:30 KST |
 | **CEO 승인** | ✅ 완료 |
