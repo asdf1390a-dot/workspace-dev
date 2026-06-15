@@ -75,7 +75,7 @@ export async function POST(request: NextRequest) {
         if (error) {
           results.push({ statement: statement.substring(0, 50), status: 'error', error: String(error?.message || 'Unknown error') });
         } else {
-          results.push({ statement: statement.substring(0, 50), status: 'ok' });
+          results.push({ statement: statement.substring(0, 50), status: 'ok', error: undefined });
         }
       } catch (err: any) {
         results.push({ statement: statement.substring(0, 50), status: 'exception', error: String(err?.message || 'Unknown exception') });
