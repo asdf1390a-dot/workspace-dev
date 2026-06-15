@@ -1,5 +1,5 @@
 -- db/30 Asset Master Phase 3: Edit History Tracking & Disposal Management
--- FIXED: Safe idempotent execution (safe for re-run)
+-- FIXED: Safe idempotent execution with explicit constraint handling
 -- VERIFIED: RLS policies fixed — no portfolio_id dependency
 
 -- ============================================================================
@@ -16,7 +16,18 @@ DROP POLICY IF EXISTS "asset_edit_history_insert_policy" ON asset_edit_history;
 DROP POLICY IF EXISTS "asset_edit_history_select_policy" ON asset_edit_history;
 DROP TABLE IF EXISTS asset_disposals;
 DROP TABLE IF EXISTS asset_edit_history;
-ALTER TABLE assets DROP CONSTRAINT IF EXISTS fk_assets_last_edited_by;
+
+-- Explicitly drop the constraint if it exists (handles all cases)
+DO $$
+BEGIN
+  IF EXISTS (
+    SELECT 1 FROM information_schema.table_constraints
+    WHERE table_name = 'assets'
+    AND constraint_name = 'fk_assets_last_edited_by'
+  ) THEN
+    ALTER TABLE assets DROP CONSTRAINT fk_assets_last_edited_by;
+  END IF;
+END $$;
 
 -- ============================================================================
 -- STEP 2: Add columns to assets table
@@ -25,8 +36,19 @@ ALTER TABLE assets DROP CONSTRAINT IF EXISTS fk_assets_last_edited_by;
 ALTER TABLE assets ADD COLUMN IF NOT EXISTS edit_history JSONB DEFAULT '[]'::jsonb;
 ALTER TABLE assets ADD COLUMN IF NOT EXISTS last_edited_by uuid;
 ALTER TABLE assets ADD COLUMN IF NOT EXISTS last_edited_at timestamptz DEFAULT now();
-ALTER TABLE assets ADD CONSTRAINT fk_assets_last_edited_by
-  FOREIGN KEY (last_edited_by) REFERENCES auth.users(id) ON DELETE SET NULL;
+
+-- Now safely add the constraint
+DO $$
+BEGIN
+  IF NOT EXISTS (
+    SELECT 1 FROM information_schema.table_constraints
+    WHERE table_name = 'assets'
+    AND constraint_name = 'fk_assets_last_edited_by'
+  ) THEN
+    ALTER TABLE assets ADD CONSTRAINT fk_assets_last_edited_by
+      FOREIGN KEY (last_edited_by) REFERENCES auth.users(id) ON DELETE SET NULL;
+  END IF;
+END $$;
 
 -- ============================================================================
 -- STEP 3: Create asset_edit_history table
