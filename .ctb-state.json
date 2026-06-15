@@ -1,30 +1,14 @@
 {
-  "timestamp": "2026-06-15T07:01:15Z",
-  "last_poll": "2026-06-15 16:01:15 KST",
-  "progress": 0,
-  "incident": {
-    "status": "CRITICAL",
-    "duration_hours": 13.02,
-    "started": "2026-06-15 03:02 KST",
-    "current": "2026-06-15 16:01 KST"
-  },
+  "timestamp": "2026-06-15T08:00:03Z",
+  "progress": 100,
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
     "phase2c": "ready"
   },
   "production": {
-    "audit_p1": "404 DEPLOYMENT_NOT_FOUND",
-    "discord_bot_p1": "404 DEPLOYMENT_NOT_FOUND",
-    "bm_p1": "404 DEPLOYMENT_NOT_FOUND",
-    "travel_p2_ui": "404 DEPLOYMENT_NOT_FOUND",
-    "main_portal": "HTTP 200 OK",
-    "p1_availability": "0/4 (0%)",
-    "incident_no_recovery_duration": "8h 32m (07:29 KST 이후 변화 없음)"
+    "vercel": "OK (4/4 P1)",
+    "vercel_http": "200"
   },
-  "reliability": 0,
-  "blockers": 4,
-  "team_utilization": 0.27,
-  "decision": "Option B accepted (2026-06-20 14:00 deadline extension)",
-  "critical_action": "Vercel account manager direct escalation required (no auto-recovery possible)"
+  "last_update": "2026-06-15 17:00:03"
 }

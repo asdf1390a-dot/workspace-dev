@@ -1,5 +1,9 @@
 # 메모리 인덱스
 
+## 🔴 CRITICAL INCIDENT ONGOING (2026-06-15 16:46 KST SESSION CHECKPOINT) — 13h 44m 지속 / 사용자 Vercel 수동 재생성 시도 중
+
+- [🔴 CTB 폴링 (16:46 KST)](polling_checkpoint_20260615_1601.md) — **🔴 0/4 DOWN (DEPLOYMENT_NOT_FOUND)** | **Incident 13h 44m** | **무변화 9h 17m (07:29→16:46)** | **사용자 Vercel 프로젝트 재생성 시도 시작 (16:45 KST, AUDIT 진행 중)** | **메인 포털만 정상** | **신뢰도 0%** | **블로커 4건 CRITICAL** | **병렬: Vercel 어카운트 매니저 에스컬레이션 필수**
+
 ## ✅ CTB 폴링 (2026-06-15 15:42 KST) — 거짓 양성 재발 정정
 
 - [✅ CTB 폴링 정정 (15:42 KST)](polling_checkpoint_20260615_1542_CORRECTED.md) — **✅ 2/4 UP + 1/4 PARTIAL + 1/4 DOWN (실제 상태)** | **거짓 양성 사이클 재발 감지 (05:15 KST 패턴)** | **로컬 모니터링 오류 + 잘못된 엔드포인트 경로** | **실제 블로커: TRAVEL-P2-UI 404** | **신뢰도 75%** | **1건 블로커** | **CTB 스크립트 수정 필요**
