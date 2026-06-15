@@ -73,12 +73,12 @@ export async function POST(request: NextRequest) {
       try {
         const { error } = await supabase.rpc('exec', { sql: statement });
         if (error) {
-          results.push({ statement: statement.substring(0, 50), status: 'error' as const, error: String(error?.message || 'Unknown error') });
+          results.push({ statement: statement.substring(0, 50), status: 'error', error: String(error?.message || 'Unknown error') });
         } else {
-          results.push({ statement: statement.substring(0, 50), status: 'ok' as const });
+          results.push({ statement: statement.substring(0, 50), status: 'ok' });
         }
       } catch (err: any) {
-        results.push({ statement: statement.substring(0, 50), status: 'exception' as const, error: String(err?.message || 'Unknown exception') });
+        results.push({ statement: statement.substring(0, 50), status: 'exception', error: String(err?.message || 'Unknown exception') });
       }
     }
 
