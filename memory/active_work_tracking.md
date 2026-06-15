@@ -1,6 +1,55 @@
 # Central Task Board (CTB) — Active Work Tracking
-**마지막 업데이트:** 2026-06-14 18:04 KST (일일 최종 검증: P1 4/4 완료, Vercel HTTP 200 6h44m 연속, Phase 2 Cron 정상)  
-**상태:** 🟢 **모든 시스템 정상 가동 — P1 4/4 완료 (100%). Vercel 배포: ✅ Ready (HTTP 200 6h44m+ continuous). 신뢰도: 96%. 블로커: 1건 (db/30 SQL, ~6h). Phase 2A/2B/2C 자동화 ✅ 모두 정상.**
+**마지막 업데이트:** 2026-06-15 14:31 KST (CRITICAL INCIDENT 11h 22m 지속)  
+**상태:** 🔴 **CRITICAL INCIDENT — P1 4/4 모두 DOWN (HTTP 404). Vercel redeploy 실패 (14:00). Supabase 재시작 무효. 신뢰도: 0%. 블로커: 4건 CRITICAL. 마감 연장: 2026-06-20 14:00. Vercel 에스컬레이션 진행 중.**
+
+---
+
+## 🔴 CRITICAL INCIDENT REPORT (14:31 KST - 2026-06-15)
+
+**사건 개요:** Vercel P1 배포 완전 손실 (DEPLOYMENT_NOT_FOUND 에러)  
+**발생 시간:** 2026-06-15 03:02 KST  
+**지속 시간:** 11시간 22분 (14:24 기준)  
+**심각도:** 🔴 CRITICAL (0/4 P1 DOWN)
+
+### 4개 P1 프로젝트 상태
+
+| 프로젝트 | 커밋 | 상태 | HTTP | 에러 | 영향 |
+|---------|------|------|------|------|------|
+| **AUDIT-P1** | 0cf3c1ba | 🔴 DOWN | 404 | DEPLOYMENT_NOT_FOUND | 자산 조회 불가 |
+| **DISCORD-BOT-P1** | 585db4d5 | 🔴 DOWN | 404 | DEPLOYMENT_NOT_FOUND | 번역 봇 불가 |
+| **BM-P1** | ecc13a9f | 🔴 DOWN | 404 | DEPLOYMENT_NOT_FOUND | BM 이벤트 조회 불가 |
+| **TRAVEL-P2-UI** | e9396c74 | 🔴 DOWN | 404 | DEPLOYMENT_NOT_FOUND | 여행 UI 불가 |
+
+**메인 포털:** ✅ HTTP 200 OK (정상)
+
+### 시도한 복구
+
+| 시간 | 조치 | 결과 | 상태 |
+|------|------|------|------|
+| 07:47:50 | Vercel 정식 에스컬레이션 제출 | 응답 대기 | 🟡 ONGOING |
+| 14:00 | Vercel redeploy 실행 | 20분 후에도 404 유지 | 🔴 INEFFECTIVE |
+| 14:11 | Supabase 재시작 | P1 라우팅 문제 해결 불가 | 🔴 INEFFECTIVE |
+
+### 원인 분석
+
+**근본원인:** Vercel 선택적 배포/컴파일 실패 (P1 프로젝트만 영향)
+- 메인 포털은 정상 (HTTP 200)
+- P1 4개 모두 DEPLOYMENT_NOT_FOUND
+- redeploy 시도 후에도 변화 없음 → 인프라 수준 문제 추정
+
+### 신뢰도 & 블로커
+
+| 메트릭 | 값 | 상태 |
+|--------|-----|------|
+| **신뢰도** | 0% | 🔴 CRITICAL |
+| **블로커** | 4건 | 🔴 CRITICAL |
+| **팀 활용률** | 27% (4/15) | 🔴 EMERGENCY |
+
+### 의사결정 & 액션
+
+- **마감 연장:** 2026-06-20 14:00 KST (Option B 수락)
+- **다음 액션:** 14:30에 여전히 404면 Vercel 어카운트 매니저 직접 에스컬레이션 필요
+- **모니터링:** 2분 주기 CTB 폴링 계속 중
 
 ---
 

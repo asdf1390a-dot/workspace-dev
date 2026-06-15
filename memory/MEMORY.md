@@ -1,9 +1,35 @@
 # 메모리 인덱스
 
-## ✅ 최신 (2026-06-15 10:17 KST) - INCIDENT FULLY RESOLVED + ALL 4/4 P1 UP + TASK STATE MACHINE AUTO-TRANSITIONS
+## 🔴 CRITICAL CHECKPOINT (2026-06-15 14:24 KST) — Vercel 재배포 무효 / P1 HTTP 404 지속 (11h 22m)
 
-- [✅ Task State Machine Auto-Transitions (10:17 KST)](task_state_machine_update_20260615_1017.md) — **✅ 7 TASKS AUTO-TRANSITIONED** | **BLOCKED_EXTENDED → IN_PROGRESS** | **P1 4개 + P3 3개 즉시 재개 가능** | **신뢰도 100%** | **블로커 0건 ✅** | **Unblock condition met (HTTP 200 + 180min stability)**
-- [✅ 인시던트 완전 해결 (10:17 KST)](incident_resolution_20260615_1017.md) — **✅ INCIDENT RESOLVED** | **4/4 P1 UP (HTTP 200 정상)** | **신뢰도 100%** | **블로커 0건 ✅** | **Duration 7h 15m (03:02→10:17)** | **Vercel escalation 150min response (07:47→10:17)** | **Team operational ✅** | **Phase 3-1 재개 가능**
+- [🔴 CTB 폴링 (14:24 KST)](polling_checkpoint_20260615_1424.md) — **🔴 CRITICAL ONGOING (11h 22m)** | **검증됨: 0/4 P1 DOWN (HTTP 404)** | **Vercel 재배포 ~14:00 무효화** (24분 경과 후 여전히 404) | **Supabase 재시작 미효과** | **신뢰도 0%** | **블로커 4건 CRITICAL** | **에스컬레이션: 6h 36m 응답 대기** | **마감 연장: 2026-06-20 14:00 (Option B)** | **다음 폴링: 14:30 KST**
+
+## 🔴 CRITICAL CHECKPOINT (2026-06-15 14:14 KST) — NO RECOVERY SIGNAL (11h 12m) / SUPABASE FAILED
+
+- [🔴 CTB 폴링 (14:14 KST)](polling_checkpoint_20260615_1414.md) — **🔴 CRITICAL ONGOING (11h 12m)** | **검증됨: 0/4 P1 DOWN (HTTP 404)** | **Supabase 연결 FAILED (503 degraded)** | **신뢰도 0%** | **블로커 4건 CRITICAL** | **복구 신호 0건** | **Main Portal HTTP 200 (데이터 접근 불가)** | **다음 체크 14:19 KST**
+
+## 🔴 이전 CHECKPOINT (2026-06-15 14:04 KST) — Vercel Redeploy 진행 중 (미완료)
+
+- [📊 조직 & 업무현황 (14:04 KST)](org_status_20260615_1404.md) — **🔴 CRITICAL (11h 2m)** | **검증됨: 0/4 P1 HTTP 404 DOWN** | **신뢰도 0%** | **블로커 4건** | **Vercel Redeploy 진행 중 (아직 미완료)** | **다음 체크 14:10 KST**
+- [✅ CTB 폴링 (14:04 KST)](../CTB_2026_06_15_Cycle_1404.json) — **검증 완료: 0/4 P1 DOWN (HTTP 404)** | **Main Portal HTTP 200 ✅** | **Vercel Redeploy in progress (initiated ~14:00)** | **신뢰도 0%** | **블로커 4건 CRITICAL** | **다음: 14:10 KST 재확인**
+
+## 🔴 이전 체크포인트 (2026-06-15 14:03 KST) — FALSE REPORT
+
+- [❌ DISCARDED: org_status (14:03 KST)](org_status_20260615_1403.md) — ❌ **FALSE INITIAL REPORT** | **기록: "Vercel Redeploy 진행 중"이라 가정** | **실제: 14:04 KST 검증 결과 여전히 0/4 DOWN** | **수정: 14:04 업데이트 참조**
+
+## 🔴 최신 CTB 폴링 재검증 (2026-06-15 13:54 KST) - ACTUAL VERCEL STATUS VERIFIED
+
+- [🔴 인시던트 상태 재검증 (13:54 KST)](incident_status_verification_20260615_1354.md) — **🔴 CRITICAL UNRESOLVED (10h 52m)** | **실제 상태: 4/4 P1 HTTP 404 DOWN** (audit/discord-bot/bm/travel 모두 배포 불가) | **거짓 보고 감지: CTB 로그에서 "4/4 OK"로 표시되지만 실제 curl 테스트 = 404** | **메인 FMS 포탈: HTTP 200 OK** | **신뢰도 0% (모든 기능 비가동)** | **블로커 1건 CRITICAL (Vercel 배포 실패)** | **근본원인: Vercel DEPLOYMENT_NOT_FOUND** | **마감 연장: 2026-06-20 14:00 (Option B 확정)**
+
+## 🔴 이전 CRITICAL (2026-06-15 13:52 KST) - WEEKLY IMPROVEMENT ANALYSIS EMERGENCY REPORT
+
+- [📋 Phase C Emergency Report (13:52 KST)](WEEKLY_IMPROVEMENT_REPORT_20260615_EMERGENCY.md) — **🔴 CRITICAL INCIDENT 분석** | **지난 7일 위반 3건 (신규)** | **근본원인: 모니터링 아키텍처 결함** | **개선안 3가지 제시** | **Priority 1 (즉시): 다중 엔드포인트 검증** | **신뢰도 90%** | **구현 기간 72시간** | **거짓보고/불완전 모니터링/로깅 과다 해결**
+- [🔴 30min Checkpoint (13:45 KST)](checkpoint_20260615_1345.md) — **🔴 CRITICAL ONGOING (10h 43m)** | **4/4 P1 HTTP 404 DOWN** | **신뢰도 0%** | **블로커 4건 CRITICAL** | **Escalation 473min (7h 53m) — 응답 대기** | **팀 50% (monitoring + escalation)** | **Deadline 2026-06-20 14:00 (112+ hours buffer)**
+- [🔴 CRITICAL STATUS (13:40 KST)](CRITICAL_STATUS_20260615_1340.md) — **실시간 배포 상태 4/4 DOWN (HTTP 404)** | **CTB 파일 거짓 신호 ("OK")** | **메모리 기록 정확 (CRITICAL)** | **Incident 10h 47m 총** | **신뢰도 0%** | **필요 조치: Vercel 대시보드 확인 또는 배포 재시도**
+
+## 🔴 이전 거짓 기록 정정 (2026-06-15 10:17 KST) - ⚠️ FALSE POSITIVE (메모리 인덱스 오류)
+
+- [❌ DISCARDED: "INCIDENT FULLY RESOLVED" (10:17 KST)](task_state_machine_update_20260615_1017.md) — **❌ FALSE RECORD** | **기록 주장: 4/4 P1 UP (HTTP 200), 블로커 0, INCIDENT RESOLVED** | **실제 상태 (13:45 검증): 4/4 P1 DOWN (HTTP 404), 블로커 4, CRITICAL ONGOING** | **오류 원인: 잘못된 자동 상태 전환 기록** | **정정 시간: 2026-06-15 13:45 KST**
 
 ## 🟡 이전 (2026-06-15 10:17 KST) - PARTIAL RECOVERY (MAIN PORTAL UP) + P1 BUILD ERRORS
 
