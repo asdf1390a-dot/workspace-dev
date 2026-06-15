@@ -160,41 +160,89 @@ type: project
 
 ---
 
-## ✅ 태스크 상태 머신 (2026-06-15 23:50 KST 갱신)
+## ✅ 태스크 상태 머신 (2026-06-16 07:50 KST 갱신)
 
-### P1 프로젝트 (4건) — 🔴 회귀 감지됨
+### P1 프로젝트 (4건) — 🔴 상태 지속 (회귀 지속 28h 4m)
 
-| 프로젝트 | 19:15 상태 | 22:46 상태 | 23:50 현재 상태 | 회귀 기간 | HTTP |
-|---------|----------|----------|----------|---------|------|
-| **AUDIT-P1** | ✅ COMPLETED | 🔴 REGRESSED | 🔴 **BLOCKED_ON_EXTERNAL** | 1h 4m | 404 |
-| **DISCORD-BOT-P1** | ✅ COMPLETED | 🔴 REGRESSED | 🔴 **BLOCKED_ON_EXTERNAL** | 1h 4m | 404 |
-| **BM-P1** | ✅ COMPLETED | 🔴 REGRESSED | 🔴 **BLOCKED_ON_EXTERNAL** | 1h 4m | 404 |
-| **TRAVEL-P2-UI** | ✅ COMPLETED | 🔴 REGRESSED | 🔴 **BLOCKED_ON_EXTERNAL** | 1h 4m | 404 |
+| 프로젝트 | 23:50 이전 상태 | 07:50 현재 상태 | 블로킹 기간 | HTTP | 상태 전환 |
+|---------|------------|------------|----------|------|---------|
+| **AUDIT-P1** | 🔴 BLOCKED_ON_EXTERNAL | 🔴 **BLOCKED_ON_EXTERNAL** | 8h | 404 | ❌ NO CHANGE |
+| **DISCORD-BOT-P1** | 🔴 BLOCKED_ON_EXTERNAL | 🔴 **BLOCKED_ON_EXTERNAL** | 8h | 404 | ❌ NO CHANGE |
+| **BM-P1** | 🔴 BLOCKED_ON_EXTERNAL | 🔴 **BLOCKED_ON_EXTERNAL** | 8h | 404 | ❌ NO CHANGE |
+| **TRAVEL-P2-UI** | 🔴 BLOCKED_ON_EXTERNAL | 🔴 **BLOCKED_ON_EXTERNAL** | 8h | 404 | ❌ NO CHANGE |
 
-**상태 전환:** 
-- 19:15 KST: BLOCKED_EXTENDED → COMPLETED (HTTP 200) ✅
-- 22:46 KST: COMPLETED → REGRESSED (HTTP 404 회귀) 🔴
-- 23:50 KST: REGRESSED → BLOCKED_ON_EXTERNAL (Vercel 미해결) 🔴
+**근본원인:** Vercel DEPLOYMENT_NOT_FOUND (28h 4m 지속, 미해결)  
+**복구 신호:** ❌ NONE DETECTED (CTB 5분 주기 모니터링)  
+**규칙 적용:** BLOCKED_ON_EXTERNAL → ? (외부 복구 신호 ❌ 미감지) = **상태 유지**
 
-**근본원인:** Vercel 배포 인프라 재발생 (DEPLOYMENT_NOT_FOUND)
+### P2/P3 프로젝트 (차단 지속, 8h 추가)
 
-### P2/P3 프로젝트 (회귀로 인해 차단됨)
+| 프로젝트 | 22:46 상태 | 07:50 현재 상태 | 차단 기간 | 블로킹 조건 | 상태 전환 |
+|---------|----------|----------|---------|----------|---------|
+| **Phase 3-1 UI (데이터분석가)** | BLOCKED_ON_EXTERNAL | 🔴 **BLOCKED_ON_EXTERNAL** | 9h 4m | P1 DOWN + db/30 | ❌ NO CHANGE |
+| **Asset Master Phase 3-2 (웹개발자)** | BLOCKED_ON_EXTERNAL | 🔴 **BLOCKED_ON_EXTERNAL** | 9h 4m | P1 DOWN + db/30 | ❌ NO CHANGE |
+| **Travel P2 UI (웹개발자)** | BLOCKED_ON_EXTERNAL | 🔴 **BLOCKED_ON_EXTERNAL** | 9h 4m | P1 DOWN (배포 불가) | ❌ NO CHANGE |
 
-| 프로젝트 | 19:15 상태 | 22:46 상태 | 23:50 현재 상태 | 블로킹 조건 |
-|---------|----------|----------|----------|-----------|
-| **Phase 3-1 UI (데이터분석가)** | PENDING | PENDING | 🔴 **BLOCKED_ON_EXTERNAL** | P1 회귀 + db/30 미실행 |
-| **Asset Master Phase 3-2 (웹개발자)** | PENDING | PENDING | 🔴 **BLOCKED_ON_EXTERNAL** | P1 회귀 + db/30 미실행 |
-| **Travel P2 UI (웹개발자)** | PENDING | PENDING | 🔴 **BLOCKED_ON_EXTERNAL** | P1 회귀 (배포 불가) |
-
-**상태 전환:** PENDING (19:15) → BLOCKED_ON_EXTERNAL (22:46, Vercel 회귀) 🔴
+**차단 원인:** P1 배포 여전히 DOWN (Vercel DEPLOYMENT_NOT_FOUND)  
+**규칙 적용:** BLOCKED_ON_EXTERNAL → ? (의존 조건 여전히 미충족) = **상태 유지**
 
 ### db/30 마이그레이션 상태
 
-| 항목 | 기대 상태 | 현재 상태 | 기간 | 상태 |
-|------|----------|---------|------|------|
-| **db/30 마이그레이션** | IN_PROGRESS (19:25 완료 예정) | 🔴 **BLOCKED_ON_USER** | 4h 25m 초과 | OVERDUE |
+| 항목 | 이전 상태 | 현재 상태 | 예상 완료 | 지연 기간 | 사용자 액션 | 상태 |
+|------|----------|---------|---------|---------|----------|------|
+| **db/30 마이그레이션** | BLOCKED_ON_USER | 🔴 **BLOCKED_ON_USER** | 2026-06-15 19:25 | **12h 25m OVERDUE** | ❌ 없음 | ESCALATED |
 
-**근거:** 사용자 SQL 실행 미확인 (19:25 예정 → 23:50 현재 미실행)
+**대기 조건:** 사용자 SQL 실행 (Supabase 또는 CLI)  
+**규칙 적용:** BLOCKED_ON_USER → ? (사용자 액션 신호 ❌ 미감지) = **상태 유지 + OVERDUE ESCALATION**
+
+---
+
+## 📊 Task State Machine Analysis Report (2026-06-16 07:50:00 KST)
+
+### ⚙️ State Transition Rules Applied
+
+| 규칙 | 조건 | 적용 대상 | 결과 |
+|------|------|---------|------|
+| BLOCKED_ON_EXTERNAL → IN_PROGRESS | 외부 복구 신호 감지 | P1 (4건) + Phase 3 (3건) | ❌ **NO SIGNAL** → 상태 유지 |
+| BLOCKED_ON_USER → IN_PROGRESS | 사용자 액션 신호 감지 | db/30 (1건) | ❌ **NO SIGNAL** → 상태 유지 |
+| [ANY] → PENDING | (적용 안함) | — | — |
+| IN_PROGRESS → COMPLETED | 작업 완료 + 검증 | — | ❌ **해당 없음** |
+
+### 📈 State Machine Execution Summary
+
+**실행 시간:** 2026-06-16 07:50:00 KST  
+**모니터링 대상:** 8개 태스크 (P1 4건 + Phase 3 3건 + db/30 1건)  
+**상태 전환 감지:** **0건** ❌  
+**상태 유지:** **8건 (100%)** ✅
+
+### 📋 Detailed Transition Report
+
+| 태스크 | 이전 상태 | 현재 상태 | 지난 시간 | 전환 신호 | 결정 |
+|------|---------|---------|---------|---------|------|
+| AUDIT-P1 | BLOCKED_ON_EXTERNAL | BLOCKED_ON_EXTERNAL | 8h | ❌ 외부 복구 신호 없음 | **NO CHANGE** |
+| DISCORD-BOT-P1 | BLOCKED_ON_EXTERNAL | BLOCKED_ON_EXTERNAL | 8h | ❌ 외부 복구 신호 없음 | **NO CHANGE** |
+| BM-P1 | BLOCKED_ON_EXTERNAL | BLOCKED_ON_EXTERNAL | 8h | ❌ 외부 복구 신호 없음 | **NO CHANGE** |
+| TRAVEL-P2-UI | BLOCKED_ON_EXTERNAL | BLOCKED_ON_EXTERNAL | 8h | ❌ 외부 복구 신호 없음 | **NO CHANGE** |
+| Phase 3-1 UI | BLOCKED_ON_EXTERNAL | BLOCKED_ON_EXTERNAL | 8h | ❌ P1 여전히 DOWN | **NO CHANGE** |
+| Asset Master 3-2 | BLOCKED_ON_EXTERNAL | BLOCKED_ON_EXTERNAL | 8h | ❌ P1 여전히 DOWN | **NO CHANGE** |
+| Travel P2 UI | BLOCKED_ON_EXTERNAL | BLOCKED_ON_EXTERNAL | 8h | ❌ P1 여전히 DOWN | **NO CHANGE** |
+| **db/30 마이그레이션** | **BLOCKED_ON_USER** | **BLOCKED_ON_USER** | **12h 25m** | **❌ 사용자 액션 없음** | **⚠️ OVERDUE ESCALATION** |
+
+### 🔴 Critical Findings
+
+1. **8시간 모니터링 기간 동안 상태 변화 없음**
+   - P1 배포: 여전히 HTTP 404 (Vercel DEPLOYMENT_NOT_FOUND)
+   - 외부 복구 신호: 0건
+
+2. **db/30 마이그레이션 심각한 지연**
+   - 예상 완료: 2026-06-15 19:25 KST
+   - 현재 시간: 2026-06-16 07:50 KST
+   - **지연: 12h 25m** 🔴 OVERDUE
+   - 사용자 액션: 미충족
+
+3. **모든 Phase 3 프로젝트 완전 차단 (9시간+)**
+   - 개발 진행 불가 (P1 배포 의존)
+   - 팀 3명 대기 상태 지속
 
 ---
 
