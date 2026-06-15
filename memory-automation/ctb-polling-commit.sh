@@ -73,11 +73,12 @@ generate_korean_message() {
 verify_vercel_deployment() {
   log "🔍 Vercel 배포 검증 시작 (3회 연속 확인)..."
 
+  local base_url="https://workspace-dev-fallback-git-main-asdf1390a-2608s-projects.vercel.app"
   local endpoints=(
-    "https://dsc-fms-portal-audit.vercel.app"
-    "https://dsc-fms-portal-discord.vercel.app"
-    "https://dsc-fms-portal-bm.vercel.app"
-    "https://dsc-fms-portal-travel.vercel.app"
+    "$base_url/audit"
+    "$base_url/discord"
+    "$base_url/bm"
+    "$base_url/travel"
   )
 
   local success_count=0
