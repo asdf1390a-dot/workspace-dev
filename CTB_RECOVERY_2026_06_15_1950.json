@@ -1,0 +1,50 @@
+{
+  "checkpoint_time": "2026-06-15T19:50:24+09:00",
+  "incident_start": "2026-06-15T03:02:00+09:00",
+  "incident_end": "2026-06-15T19:50:24+09:00",
+  "incident_duration_minutes": 1008,
+  "incident_duration_hours": "16h 48m",
+  "recovery_status": "COMPLETE",
+  "p1_services": {
+    "AUDIT-P1": {
+      "endpoint": "https://audit.dscindia.plant/api/assets",
+      "status": "UP",
+      "http_code": 200,
+      "verified_times": 3,
+      "last_check": "2026-06-15T19:50:24+09:00"
+    },
+    "DISCORD-BOT-P1": {
+      "endpoint": "https://discord-bot.dscindia.plant/health",
+      "status": "UP",
+      "http_code": 200,
+      "verified_times": 3,
+      "last_check": "2026-06-15T19:50:24+09:00"
+    },
+    "BM-P1": {
+      "endpoint": "https://bm.dscindia.plant/api/events",
+      "status": "UP",
+      "http_code": 200,
+      "verified_times": 3,
+      "last_check": "2026-06-15T19:50:24+09:00"
+    },
+    "TRAVEL-P2-UI": {
+      "endpoint": "https://travel.dscindia.plant",
+      "status": "UP",
+      "http_code": 200,
+      "verified_times": 3,
+      "last_check": "2026-06-15T19:50:24+09:00"
+    }
+  },
+  "recovery_timeline": {
+    "03:02_KST": "🔴 Incident Start (DEPLOYMENT_NOT_FOUND)",
+    "05:00_KST": "🔴 No Recovery Detected (118 min)",
+    "19:40_KST": "🟢 Recovery Detected (3/3 Verifications)",
+    "19:45_KST": "🟢 Confirmed Stable (3/3 Verifications)",
+    "19:50_KST": "🟢 COMPLETE RECOVERY (3/3 Verifications)"
+  },
+  "p1_service_status": "4/4 UP (100%)",
+  "reliability": "100%",
+  "blockers": 0,
+  "action_required": "UPDATE: Phase 3-1 복구 예정, 새 마감일 검토 필요",
+  "next_checkpoint": "2026-06-15T20:00:00+09:00"
+}

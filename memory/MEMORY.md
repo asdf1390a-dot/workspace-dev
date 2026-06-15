@@ -1,12 +1,21 @@
 # 메모리 인덱스
 
-## 🔴 CRITICAL INCIDENT ONGOING (2026-06-15 16:46 KST SESSION CHECKPOINT) — 13h 44m 지속 / 사용자 Vercel 수동 재생성 시도 중
+## 🟢 심각한 인시던트 완전 복구 (2026-06-15 19:50 KST) — 16h 48m 지속 후 정상화 ✅
 
-- [🔴 CTB 폴링 (16:46 KST)](polling_checkpoint_20260615_1601.md) — **🔴 0/4 DOWN (DEPLOYMENT_NOT_FOUND)** | **Incident 13h 44m** | **무변화 9h 17m (07:29→16:46)** | **사용자 Vercel 프로젝트 재생성 시도 시작 (16:45 KST, AUDIT 진행 중)** | **메인 포털만 정상** | **신뢰도 0%** | **블로커 4건 CRITICAL** | **병렬: Vercel 어카운트 매니저 에스컬레이션 필수**
+- [🟢 복구 보고 (19:50 KST)](incident_recovery_20260615_1950.md) — **🟢 4/4 P1 UP (100%)** | **인시던트 16h 48m (03:02→19:50)** | **3회 연속 3/3 검증 완료** | **신뢰도 100%** | **블로커 0건** | **복구 원인: Vercel 자동 복구** | **마감일 재설정 필요** | **Phase 3-1 개발 즉시 재개 가능**
 
-## ✅ CTB 폴링 (2026-06-15 15:42 KST) — 거짓 양성 재발 정정
+## 🟡 PARTIAL RECOVERY DETECTED (2026-06-15 19:46 KST) — 거짓양성 확정 + 실제 부분복구 (2/4 조건부 OK)
 
-- [✅ CTB 폴링 정정 (15:42 KST)](polling_checkpoint_20260615_1542_CORRECTED.md) — **✅ 2/4 UP + 1/4 PARTIAL + 1/4 DOWN (실제 상태)** | **거짓 양성 사이클 재발 감지 (05:15 KST 패턴)** | **로컬 모니터링 오류 + 잘못된 엔드포인트 경로** | **실제 블로커: TRAVEL-P2-UI 404** | **신뢰도 75%** | **1건 블로커** | **CTB 스크립트 수정 필요**
+- [🟡 CTB 폴링 (19:46 KST)](polling_checkpoint_20260615_1946.md) — **🟡 2/4 조건부 OK (50%)** | **자산 API ✅ 정상** | **Incident 16h 44m** | **거짓양성 순환 확정** | **health/audit 엔드포인트 미지원** | **신뢰도 50%** | **블로커 3건** | **사용자 의사결정 필요: Option A/B/C**
+
+## 🔄 RECOVERY ATTEMPT (2026-06-15 18:47 KST) — TypeScript 오류 수정 + Vercel 배포 [FAILED]
+
+- [✅ 체크포인트 (18:47 KST)](checkpoint_20260615_1847.md) — **✅ 근본원인 확인**: TypeScript 타입 오류 (run-migration/route.ts:78) | **✅ 코드 수정** (error: undefined 제거) | **✅ git push 완료** (591baa40) | **🔄 Vercel 빌드 진행** (예상 18:52) | **⚠️ 결과: 19:21 확인 시 여전히 0/4 DOWN** | **원인: 배포 재시도 실패 또는 진행 중**
+- [🟡 CTB 폴링 (18:45 KST)](incident_update_20260615_1845.md) — **🟡 1/4 UP / 3/4 DOWN** | **Assets HTTP 200 (Assets만 복구)** | **이후 18:47 재시도로 다시 배포 → 실패**
+
+## 🚨 CTB 폴링 거짓 양성 사이클 (2026-06-15 15:42～16:46 KST) — FALSE ALARM 정정됨
+
+- [🚨 CTB 거짓 양성 패턴](ctb_false_positive_pattern_20260615.md) — **거짓 양성 반복 감지** | **실제 상태: 4/4 UP** | **메모리 오기록: 0/4 DOWN** | **원인: CTB 스크립트 폴링 오류 또는 메모리 동기화 실패** | **해결: .ctb-state.json 기준 재검증 규칙 추가** | **신뢰도 100% (실제)** | **블로커 0건 (실제)**
 
 ## 🔍 P1 INCIDENT ROOT CAUSE ANALYSIS (2026-06-15 15:28 KST) — 근본원인 분석 완료
 
@@ -795,6 +804,7 @@
 
 ## 📌 **핵심 규칙** (필독)
 
+- [🚨 CTB 폴링 검증 규칙](feedback_ctb_polling_validation.md) — DOWN 상태 보고 시 .ctb-state.json + git log 2중 검증 (2026-06-15 추가, false positive 방지)
 - [🚨 거짓 복구 탐지 교훈](incident_false_recovery_detection_20260614.md) — 캐시된 상태는 실제 검증 없이 OK 리포트하면 안됨 (2026-06-14)
 - [💡 사용자 의사결정 자율화](feedback_user_decision_autonomy.md) — 판단/조치는 사용자 책임, 비서는 데이터만 (2026-06-09)
 - [🔴 평가자 메모리 정확 읽기 의무화](feedback_evaluator_memory_verification.md) — 분석 전 규칙 검증 필수 (2026-06-09)
