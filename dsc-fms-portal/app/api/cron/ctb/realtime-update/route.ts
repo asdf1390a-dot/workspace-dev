@@ -54,9 +54,19 @@ export async function POST(request: NextRequest) {
       });
     }
 
-    // Read existing CTB log
+    // Read existing CTB log (skip if file doesn't exist in Vercel)
     const ctbPath = join(process.cwd(), 'memory', 'active_work_tracking.md');
-    let ctbContent = readFileSync(ctbPath, 'utf-8');
+    let ctbContent = '';
+    try {
+      ctbContent = readFileSync(ctbPath, 'utf-8');
+    } catch {
+      // File doesn't exist (normal in Vercel), skip CTB update
+      return NextResponse.json({
+        message: 'CTB file not available in Vercel environment',
+        processedCommits: 0,
+        status: 200,
+      });
+    }
 
     // Track new entries added
     let newEntriesCount = 0;

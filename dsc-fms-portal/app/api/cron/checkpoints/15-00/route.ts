@@ -20,7 +20,12 @@ export async function POST(request: NextRequest) {
 
   try {
     const ctbPath = join(process.cwd(), 'memory', 'active_work_tracking.md');
-    let ctbContent = readFileSync(ctbPath, 'utf-8');
+    let ctbContent = '';
+    try {
+      ctbContent = readFileSync(ctbPath, 'utf-8');
+    } catch {
+      return NextResponse.json({ message: 'CTB file not available', status: 200 });
+    }
 
     const kstTime = new Date().toLocaleString('ko-KR', {
       timeZone: 'Asia/Seoul',
