@@ -4,9 +4,9 @@ description: 🔴 CRITICAL REGRESSION (2026-06-15 22:46~23:10 KST) | 0/4 P1 DOWN
 type: project
 ---
 
-# Incomplete Tasks Registry (Last Updated: 2026-06-15 23:10:00 KST - 🔴 CRITICAL REGRESSION ONGOING)
+# Incomplete Tasks Registry (Last Updated: 2026-06-15 23:40:00 KST - 🔴 CRITICAL REGRESSION ONGOING)
 
-🔴 **STATUS AT 23:10 KST (CRITICAL REGRESSION ONGOING):** **🔴 0/4 P1 DOWN (HTTP 404/000)** | **회귀 지속**: 19:50 해제 후 22:46 재발생 → 23:10 계속 진행 중 | **지속 시간: 16h 48m (1차) + 24m (2차, 진행 중)** | **신뢰도: 0% (회귀 진행 중)** | **블로커: 4건 CRITICAL** | **팀 활용률: ~9% (EMERGENCY)** | **마감 연장 필수 유지 (2026-06-20 14:00 KST, 110h 남음)** | **CEO 에스컬레이션 필수**
+🔴 **STATUS AT 23:40 KST (CRITICAL REGRESSION ONGOING):** **🔴 0/4 P1 DOWN (HTTP 404/000)** | **회귀 지속**: 19:50 해제 후 22:46 재발생 → 23:40 계속 진행 중 | **지속 시간: 16h 48m (1차) + 54m (2차, 진행 중)** | **신뢰도: 0% (회귀 진행 중, 복구 신호 없음)** | **블로커: 4건 CRITICAL** | **팀 활용률: ~9% (EMERGENCY)** | **마감 연장 필수 유지 (2026-06-20 14:00 KST, 110h 남음)** | **CEO 에스컬레이션 필수**
 
 ---
 
@@ -103,28 +103,41 @@ type: project
 
 ---
 
-## ✅ 태스크 상태 머신 (2026-06-15 19:18 KST 갱신)
+## ✅ 태스크 상태 머신 (2026-06-15 23:50 KST 갱신)
 
-### P1 프로젝트 (4건) — ✅ 모두 완료
+### P1 프로젝트 (4건) — 🔴 회귀 감지됨
 
-| 프로젝트 | 이전 상태 | 현재 상태 | HTTP | 전환 시간 |
-|---------|---------|---------|------|---------|
-| **AUDIT-P1** | BLOCKED_EXTENDED | ✅ **COMPLETED** | 200 | 19:15:23 |
-| **DISCORD-BOT-P1** | BLOCKED_EXTENDED | ✅ **COMPLETED** | 200 | 19:15:23 |
-| **BM-P1** | BLOCKED_EXTENDED | ✅ **COMPLETED** | 200 | 19:15:23 |
-| **TRAVEL-P2-UI** | BLOCKED_EXTENDED | ✅ **COMPLETED** | 200 | 19:15:23 |
+| 프로젝트 | 19:15 상태 | 22:46 상태 | 23:50 현재 상태 | 회귀 기간 | HTTP |
+|---------|----------|----------|----------|---------|------|
+| **AUDIT-P1** | ✅ COMPLETED | 🔴 REGRESSED | 🔴 **BLOCKED_ON_EXTERNAL** | 1h 4m | 404 |
+| **DISCORD-BOT-P1** | ✅ COMPLETED | 🔴 REGRESSED | 🔴 **BLOCKED_ON_EXTERNAL** | 1h 4m | 404 |
+| **BM-P1** | ✅ COMPLETED | 🔴 REGRESSED | 🔴 **BLOCKED_ON_EXTERNAL** | 1h 4m | 404 |
+| **TRAVEL-P2-UI** | ✅ COMPLETED | 🔴 REGRESSED | 🔴 **BLOCKED_ON_EXTERNAL** | 1h 4m | 404 |
 
-**상태 전환:** BLOCKED_EXTENDED (HTTP 404) → COMPLETED (HTTP 200) ✅
+**상태 전환:** 
+- 19:15 KST: BLOCKED_EXTENDED → COMPLETED (HTTP 200) ✅
+- 22:46 KST: COMPLETED → REGRESSED (HTTP 404 회귀) 🔴
+- 23:50 KST: REGRESSED → BLOCKED_ON_EXTERNAL (Vercel 미해결) 🔴
 
-### P2/P3 프로젝트 (의존 제거됨)
+**근본원인:** Vercel 배포 인프라 재발생 (DEPLOYMENT_NOT_FOUND)
 
-| 프로젝트 | 이전 상태 | 현재 상태 | 블로킹 조건 | 예상 시작 |
-|---------|---------|---------|-----------|---------|
-| **Phase 3-1 (데이터분석가)** | BLOCKED | 🟡 **PENDING** | db/30 마이그레이션 실행 대기 | 사용자 조치 후 |
-| **Asset Master (웹개발자)** | BLOCKED | 🟡 **PENDING** | P1 해제 (완료됨), db/30 대기 | 사용자 조치 후 |
-| **Travel P2 (웹개발자)** | BLOCKED | 🟡 **PENDING** | P1 해제 (완료됨) | 즉시 시작 가능 |
+### P2/P3 프로젝트 (회귀로 인해 차단됨)
 
-**상태 전환:** BLOCKED (P1 의존) → PENDING (독립 실행 가능) ✅
+| 프로젝트 | 19:15 상태 | 22:46 상태 | 23:50 현재 상태 | 블로킹 조건 |
+|---------|----------|----------|----------|-----------|
+| **Phase 3-1 UI (데이터분석가)** | PENDING | PENDING | 🔴 **BLOCKED_ON_EXTERNAL** | P1 회귀 + db/30 미실행 |
+| **Asset Master Phase 3-2 (웹개발자)** | PENDING | PENDING | 🔴 **BLOCKED_ON_EXTERNAL** | P1 회귀 + db/30 미실행 |
+| **Travel P2 UI (웹개발자)** | PENDING | PENDING | 🔴 **BLOCKED_ON_EXTERNAL** | P1 회귀 (배포 불가) |
+
+**상태 전환:** PENDING (19:15) → BLOCKED_ON_EXTERNAL (22:46, Vercel 회귀) 🔴
+
+### db/30 마이그레이션 상태
+
+| 항목 | 기대 상태 | 현재 상태 | 기간 | 상태 |
+|------|----------|---------|------|------|
+| **db/30 마이그레이션** | IN_PROGRESS (19:25 완료 예정) | 🔴 **BLOCKED_ON_USER** | 4h 25m 초과 | OVERDUE |
+
+**근거:** 사용자 SQL 실행 미확인 (19:25 예정 → 23:50 현재 미실행)
 
 ---
 
