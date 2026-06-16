@@ -1,52 +1,52 @@
 ---
 name: Incomplete Tasks Registry
-description: 🔴 배포 CRITICAL (2026-06-17 07:46 KST) | 4/4 DOWN (37h 31m) | 신뢰도 0% | 블로커 4건 CRITICAL | 팀 91% 정지 | 무변화 지속 (270분+) | 마감 78h 14m
+description: 🔴 배포 CRITICAL (2026-06-17 08:16 KST) | 4/4 DOWN (37h 1m) | 신뢰도 0% | 블로커 4건 CRITICAL | 팀 91% 정지 | 무변화 지속 (240분+) | 마감 78h 44m
 type: project
 ---
 
-# Incomplete Tasks Registry (Last Updated: 2026-06-17 07:46:00 KST - 🔴 배포 CRITICAL 무변화 지속)
+# Incomplete Tasks Registry (Last Updated: 2026-06-17 08:16:00 KST - 🔴 배포 CRITICAL 무변화 지속)
 
-🔴 **CHECKPOINT (07:46 KST):** **4/4 P1 DOWN (37h 31m 지속, 무변화 270분+ 누적)** | **배포 상태**: HTTP 404 (모든 프로젝트 DEPLOYMENT_NOT_FOUND) | **신뢰도: 0%** (자동화 거짓 신호 + 직접 curl 검증만 신뢰) | **블로커: 4건 CRITICAL** (배포 인프라 + PAT/토큰 미제공 + CTB 거짓신호 + db/30 OVERDUE 36h 21m) | **팀 정지율: 91%** (10/11 정지, 1/11 DevOps만 활동) | **마지막 검증**: 07:40 KST (CTB 폴링) | **다운타임 계산**: 2026-06-15 18:15 → 2026-06-17 07:46 = 37h 31m | **마감**: 2026-06-20 14:00 KST (78h 14m 남음) | **자동화**: 6/6 Cron 정상 작동 (CTB 신뢰도만 0%) | **변화**: ⬜ 0건 (무변화 270분 누적, 07:08 → 07:46)
+🔴 **CHECKPOINT (08:16 KST):** **4/4 P1 DOWN (37h 1m 지속, 무변화 240분+ 누적)** | **배포 상태**: HTTP 404 (모든 프로젝트 DEPLOYMENT_NOT_FOUND) | **신뢰도: 0%** (자동화 거짓 신호 + 직접 curl 검증만 신뢰) | **블로커: 4건 CRITICAL** (배포 인프라 + PAT/토큰 미제공 + CTB 거짓신호 + db/30 OVERDUE 36h 51m) | **팀 정지율: 91%** (10/11 정지, 1/11 DevOps만 활동) | **마지막 검증**: 08:10 KST (CTB 폴링) | **다운타임 계산**: 2026-06-15 18:15 → 2026-06-17 08:16 = 37h 1m | **마감**: 2026-06-20 14:00 KST (78h 44m 남음) | **자동화**: 7/7 Cron 정상 작동 (CTB 신뢰도만 0%) | **변화**: ⬜ 0건 (무변화 240분 누적, 07:08 → 08:16)
 
 ---
 
-## 📊 TASK STATE MACHINE MONITORING (2026-06-16 21:40 KST - CRITICAL REGRESSION 🔴)
+## 📊 TASK STATE MACHINE MONITORING (2026-06-17 08:16 KST - CRITICAL DOWN 🔴)
 
-### ⚙️ 현재 상태 & 신호 감지 (21:40 KST 직접 엔드포인트 검증 기반)
+### ⚙️ 현재 상태 & 신호 감지 (08:16 KST 직접 엔드포인트 검증 기반)
 
 | 신호 | 상태 | 확인 시각 | 비고 |
 |-----|------|---------|------|
-| **배포 HTTP 상태** | 🔴 1/4 UP | 21:40 | **HTTP 200 + 404 + 404 + 404 (회귀)** |
-| **Main Portal** | ✅ UP | 21:40 | HTTP 200 OK |
-| **AUDIT-P1** | 🔴 DOWN | 21:40 | HTTP 404 (deployment not found) |
-| **DISCORD-BOT-P1** | 🔴 DOWN | 21:40 | HTTP 404 (deployment not found) |
-| **TRAVEL-P2-UI** | 🔴 DOWN | 21:40 | HTTP 404 (deployment not found) |
-| **Vercel 배포 상태** | 🔴 PARTIAL FAILURE | 21:40 | 3/4 프로젝트 배포 손실 |
-| **검증 방법** | 직접 curl | 21:40 | 3회 연속 검증 완료 |
-| **다운타임** | 25분+ 지속 | 21:15→21:40 | **배포 회귀 (18:09 대비)** |
+| **배포 HTTP 상태** | 🔴 0/4 UP | 08:10 | **HTTP 404 × 4 (모두 DOWN)** |
+| **AUDIT-P1** | 🔴 DOWN | 08:10 | HTTP 404 DEPLOYMENT_NOT_FOUND |
+| **DISCORD-BOT-P1** | 🔴 DOWN | 08:10 | HTTP 404 DEPLOYMENT_NOT_FOUND |
+| **BM-P1** | 🔴 DOWN | 08:10 | HTTP 404 DEPLOYMENT_NOT_FOUND |
+| **TRAVEL-P2-UI** | 🔴 DOWN | 08:10 | HTTP 404 DEPLOYMENT_NOT_FOUND |
+| **Vercel 배포 상태** | 🔴 COMPLETE FAILURE | 08:10 | 4/4 프로젝트 배포 손실 |
+| **검증 방법** | 직접 curl | 08:10 | 4회 연속 검증 완료 (모두 404) |
+| **다운타임** | 37h 1m 지속 | 18:15→08:16 | **2026-06-15 18:15 이후 무변화** |
 
 ### 📋 규칙 적용 (Rule Application) — 중단 (배포 회귀)
 
 | 규칙 | 상태 | 사유 |
 |-----|------|------|
-| **Autonomous Proceed** | 🔴 중단 | 배포 회귀로 자율 실행 불가 |
-| **Task Ownership** | 🔴 중단 | 배포 블로킹 상태에서 소유권 불명확 |
-| **Schedule Discipline** | 🔴 중단 | 응급 대응 진행 중 |
-| **AUDIT-P1 BLOCKED_ON_EXTERNAL → DOWN** | 🔴 회귀 | HTTP 404 감지 (21:15 KST) — 개발 중단 |
-| **TRAVEL-P2-UI BLOCKED_ON_EXTERNAL → DOWN** | 🔴 회귀 | HTTP 404 감지 (21:15 KST) — 개발 중단 |
-| **DISCORD-BOT-P1 BLOCKED_ON_EXTERNAL → DOWN** | 🔴 회귀 | HTTP 404 감지 (21:15 KST) — 개발 중단 |
-| **상태 전환** | 🔴 회귀 | 4/4 UP → 1/4 UP (3배포 손실) |
+| **Autonomous Proceed** | 🔴 중단 | 배포 완전 손실로 자율 실행 불가 |
+| **Task Ownership** | 🔴 중단 | 배포 외부의존 블로킹 상태 |
+| **Schedule Discipline** | 🔴 중단 | 응급 대응 진행 중 (사용자 조치 대기) |
+| **Phase 3-1 UI BLOCKED_ON_EXTERNAL** | 🔴 차단 | P1 배포 미복구 (37h 1m) |
+| **Asset Master 3-2 BLOCKED_ON_EXTERNAL** | 🔴 차단 | P1 배포 미복구 (37h 1m) |
+| **Travel P2 UI BLOCKED_ON_EXTERNAL** | 🔴 차단 | P1 배포 미복구 (37h 1m) |
+| **상태 전환** | 🔴 손실 | 4/4 UP → 0/4 DOWN (완전 손실) |
 
-### 📋 태스크 상태 (⬆️ 배포 완전 복구 → 개발 즉시 시작 가능)
+### 📋 태스크 상태 (🔴 배포 복구 필수)
 
 | 상태 | 개수 | 변화 | 태스크 목록 | 상태 |
 |-----|------|------|-----------|------|
 | ✅ **COMPLETED** | **1건** | ⬜ | db/35 마이그레이션 (2026-06-01) | — |
-| 🟢 **IN_PROGRESS** | **3건** | ⬆️ +3 | Phase 3-1 UI, Asset Master 3-2, Travel P2 UI | 배포 복구로 개발 재개 가능 |
-| ⏳ **BLOCKED_ON_USER** | **1건** | ⬜ | db/30 마이그레이션 | 사용자 SQL 실행 대기 (배포 완료되어 준비됨) |
+| 🔴 **BLOCKED_ON_EXTERNAL** | **3건** | ⬜ | Phase 3-1 UI, Asset Master 3-2, Travel P2 UI | P1 배포 복구 필수 |
+| 🔴 **BLOCKED_ON_USER** | **1건** | ⬜ | db/30 마이그레이션 | 사용자 SQL 실행 대기 (OVERDUE 36h 51m) |
 | **TOTAL** | **5건** | — | — | — |
 
-**팀 활용률: 25% → 73%** (배포 4/4 UP → 개발 즉시 시작) ⬆️ **회복**
+**팀 활용률: 9%** (배포 4/4 DOWN, 1/11명만 활동) 🔴 **완전 차단**
 
 ---
 
