@@ -1,8 +1,8 @@
 # 메모리 인덱스
 
-## 🔴 PARTIAL RECOVERY (2026-06-17 06:17 KST) — BM-P1 신규 복구 | 3/4 DOWN (44h+) | 2/4 UP (Main+BM) | 신뢰도 50%
+## 🔴 STABLE-CRITICAL (2026-06-17 07:08 KST) — 4/4 DOWN (37h 53m) | 무변화 180분 | 신뢰도 0% | 블로커 4건 | 마감 79h 52m
 
-- [🔴 CTB 폴링 (06:17 KST)](CTB_2026_06_17_Cycle_0617.json) — **🔴 3/4 P1 DOWN (44h 18m 지속)** | **2/4 UP ✅ (Main Portal + BM-P1 신규 복구)** | **BM-P1 UNKNOWN→200 (신규 감지)** | **신뢰도 50%** | **블로커 2건 CRITICAL** (AUDIT/DISCORD/TRAVEL 여전히 DOWN) | **사용자 액션 필수**: GitHub PAT 재생성 + Vercel Redeploy
+- [🔴 조직 & 업무현황 (07:08 KST)](org_status_20260617_0708.md) — **🔴 4/4 P1 DOWN (37h 53m, 무변화 180분+)** | **신뢰도 0% (자동화 거짓신호)** | **블로커 4건 CRITICAL** (배포 인프라 + PAT/토큰 + CTB 거짓신호 + db/30 OVERDUE) | **팀 91% 정지 (1/11 활동)** | **마감 79h 52m 남음** | **db/30 OVERDUE 35h 43m** | **자동화 6/6 정상 ✅** | **규칙준수 3/3 ✅** | **다음 갱신 07:38 KST**
 
 ## 🔴 STABLE-CRITICAL (2026-06-17 06:14 KST) — 무변화 지속 (100분) | 4/4 DOWN (35h 59m) | 신뢰도 0% | 토큰 대기
 
