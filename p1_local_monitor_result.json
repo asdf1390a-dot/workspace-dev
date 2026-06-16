@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-06-16T03:10:23Z",
+  "timestamp": "2026-06-16T03:15:23Z",
   "status": "UNHEALTHY",
   "monitor_type": "local_cron",
-  "check_time": "2026-06-16 12:10:23 KST"
+  "check_time": "2026-06-16 12:15:23 KST"
 }
