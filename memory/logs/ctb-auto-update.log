@@ -5377,3 +5377,13 @@ Vercel: OK (no-cache 헤더 적용)
 [2026-06-17 08:15:01] 🔄 CTB Auto-Update 폴링 시작...
 [2026-06-17 08:15:05] 🚨 심각: Vercel 배포 심각하게 저하됨 — 0/4 P1만 운영 (AUDIT=404, DISCORD=404, BM=404, TRAVEL=404)
 [2026-06-17 08:15:05] ✅ CTB updated: 100% | Local: Phase2A=ready | Phase2B=ready | Phase2C=ready | Production: Vercel=심각 장애 (0/4 P1만)
+
+[2026-06-17 08:20:00 KST] 🔴 CTB verified: 0% (4/4 endpoints DOWN)
+  - AUDIT-P1: HTTP 404 (DEPLOYMENT_NOT_FOUND)
+  - DISCORD-BOT-P1: HTTP 404 (DEPLOYMENT_NOT_FOUND)
+  - BM-P1: HTTP 404 (DEPLOYMENT_NOT_FOUND)
+  - TRAVEL-P2-UI: HTTP 404 (DEPLOYMENT_NOT_FOUND)
+  - Downtime duration: 37h 3m (2026-06-15 18:15 → 2026-06-17 08:20)
+  - Reliability: 0% (no recovery signals detected)
+  - Status: CRITICAL (no change from 08:10 check)
+  - Next cycle: 08:25 KST
