@@ -1,8 +1,9 @@
 # 메모리 인덱스
 
-## 🟡 조직 & 업무현황 (2026-06-16 13:29 KST) — CTB 폴링 Cycle 1374 | 3/4 UP 안정화 | AUDIT-P1 404 DOWN
+## 🟡 조직 & 업무현황 (2026-06-16 13:34 KST) — 부분 복구 확정 | AUDIT-P1 재배포 필수 | 신뢰도 75% | 마감 26m
 
-- [🟡 org_status (13:29 KST)](org_status_20260616_1329.md) — **🟡 P1 3/4 UP (부분 운영)** | **신뢰도 75%** | **HTTP 200: /, /assets, /api/assets | HTTP 404: /audit** | **AUDIT-P1 코드 완료 (0cf3c1ba) 배포 미완료** | **블로커 1건 (AUDIT 404)** | **팀 27% (자동화만)** | **마감 81h 31m** | **다음 13:34 KST** | **⚠️ 13:24 메모리 거짓 신호 정정 (스크립트 오류)**
+- [🟡 org_status (13:34 KST) 긴급](org_status_20260616_1334.md) — **🟡 P1 3/4 UP (확정)** | **AUDIT-P1 HTTP 404 지속 (13:34 재확인)** | **신뢰도 75%** | **블로커 1건 CRITICAL** (AUDIT 재배포 수동 필요) | **다음 13:39 KST** | **사용자 액션 필수 🔴 — Vercel 대시보드 AUDIT-P1 Redeploy**
+- [🟡 org_status (13:31 KST)](org_status_20260616_1331.md) — **🟡 P1 3/4 UP (재배포 3/4 성공)** | **신뢰도 75%** | **DISCORD/BM/TRAVEL ✅ HTTP 200 | AUDIT-P1 ❌ HTTP 404** | **블로커 1건** | **팀 100%** | **마감 81h 29m**
 
 ## ⚠️ 정정: 13:24 기록 거짓 신호 (2026-06-16 13:24-13:29 KST)
 
@@ -1002,3 +1003,12 @@
 - [Historical Cycles 604-662](archive/cycles_604_to_662_historical.md) — Extended stability epoch
 - [Org Status Snapshots](archive/org_status_snapshots_archive.md) — 2026-06-06~07 타임스탬프
 - [Phase 2 Project History](archive/phase2_projects_history.md) — Travel-P2, Asset Master Phase 2
+
+---
+
+## 📌 Session Checkpoint (2026-06-16 13:33 KST)
+
+- ✅ **Task State Machine**: 3건 TRANSITION (DISCORD/BM/TRAVEL ✅)
+- 🔴 **AUDIT-P1**: HTTP 404 지속 (배포 미반영) — 13:34 재검증
+- 📊 **신뢰도**: 75% (3/4 배포 성공)
+- 💾 **자동화**: Cron 100% 정상 (폴링 + 상태머신 + 체크포인트)
