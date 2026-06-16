@@ -1,5 +1,9 @@
 # 메모리 인덱스
 
+## 📊 조직 & 업무현황 (2026-06-16 10:18 KST) — 배포 DOWN 32h 2m / 팀 25% / 모니터링 ✅ 100%
+
+- [📊 org_status (10:18 KST)](org_status_20260616_1018.md) — **🔴 4/4 P1 DOWN (32h 2m)** | **팀 11명 (25% 활용)** | **블로커 2건 CRITICAL** (배포+토큰) | **db/30 OVERDUE 15h 39m** | **자동화 ✅ 100% (7/7)** | **신뢰도 100%** | **마감 79h 56m 남음** | **다음 11:00 KST**
+
 ## 📊 Daily Stand-up Report (2026-06-16 10:01 KST) — 태스크 상태 카운팅 + 우선순위 분석 + 팀 현황
 
 - [📊 Daily Stand-up (10:01 KST)](../INCOMPLETE_TASKS_REGISTRY.md#-daily-stand-up-report-2026-06-16-100100kst) — **COMPLETED 1개 (11%)** | **IN_PROGRESS 0개 (0%)** | **BLOCKED 8개 (80%)** | **PENDING 1개 (11%)** | **TODAY P0/P1 4건 모두 CRITICAL** | **블로커 2건** (배포+토큰) | **팀 활용률 25%** | **마감 초과 20h** | **db/30 OVERDUE 15h 36m** | **신뢰도 100% (자동화 정상)**
