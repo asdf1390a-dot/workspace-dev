@@ -5411,3 +5411,17 @@ Vercel: OK (no-cache 헤더 적용)
 - Downtime: 37h 29m (2026-06-15 18:15 → 2026-06-17 08:44)
 - Reliability: 0% (no recovery signals)
 - Signal: EXTERNAL BLOCKED (awaiting GitHub PAT/Vercel token)
+[2026-06-17 08:45:01] 🔄 CTB Auto-Update 폴링 시작...
+[2026-06-17 08:45:04] 🚨 심각: Vercel 배포 심각하게 저하됨 — 0/4 P1만 운영 (AUDIT=404, DISCORD=404, BM=404, TRAVEL=404)
+[2026-06-17 08:45:04] ✅ CTB updated: 100% | Local: Phase2A=ready | Phase2B=ready | Phase2C=ready | Production: Vercel=심각 장애 (0/4 P1만)
+[2026-06-17 08:50:01] 🔄 CTB Auto-Update 폴링 시작...
+[2026-06-17 08:50:05] 🚨 심각: Vercel 배포 심각하게 저하됨 — 0/4 P1만 운영 (AUDIT=404, DISCORD=404, BM=404, TRAVEL=404)
+[2026-06-17 08:50:05] ✅ CTB updated: 100% | Local: Phase2A=ready | Phase2B=ready | Phase2C=ready | Production: Vercel=심각 장애 (0/4 P1만)
+
+[2026-06-17 08:50:12 KST] 🔴 Session Checkpoint AUTO-SAVE: 0건 변화 | 4/4 DOWN (37h 35m)
+- P1 배포: HTTP 404 ×4 (무변화)
+- db/30 신호: ⬜ 없음
+- PAT/토큰 신호: ⬜ 없음
+- 태스크 상태: BLOCKED ×4 (무변화)
+- 팀 활용률: 9% (무변화)
+- 마지막 변화 이후: 34분 누적
