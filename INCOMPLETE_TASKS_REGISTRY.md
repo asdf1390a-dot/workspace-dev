@@ -1,12 +1,12 @@
 ---
 name: Incomplete Tasks Registry
-description: 🔴 배포 CRITICAL (2026-06-17 07:08 KST) | 4/4 DOWN (37h 53m) | 신뢰도 0% | 블로커 4건 CRITICAL | 팀 91% 정지 | 무변화 지속 (180분+) | 마감 79h 52m
+description: 🔴 배포 CRITICAL (2026-06-17 07:46 KST) | 4/4 DOWN (37h 31m) | 신뢰도 0% | 블로커 4건 CRITICAL | 팀 91% 정지 | 무변화 지속 (270분+) | 마감 78h 14m
 type: project
 ---
 
-# Incomplete Tasks Registry (Last Updated: 2026-06-17 07:08:00 KST - 🔴 배포 CRITICAL 무변화 지속)
+# Incomplete Tasks Registry (Last Updated: 2026-06-17 07:46:00 KST - 🔴 배포 CRITICAL 무변화 지속)
 
-🔴 **CHECKPOINT (07:08 KST):** **4/4 P1 DOWN (37h 53m 지속, 무변화 180분+ 누적)** | **배포 상태**: HTTP 404 (모든 프로젝트 DEPLOYMENT_NOT_FOUND) | **신뢰도: 0%** (자동화 거짓 신호 + 직접 curl 검증만 신뢰) | **블로커: 4건 CRITICAL** (배포 인프라 + PAT/토큰 미제공 + CTB 거짓신호 + db/30 OVERDUE 35h 43m) | **팀 정지율: 91%** (10/11 정지, 1/11 DevOps만 활동) | **마지막 검증**: 07:08 KST (조직도 갱신) | **다운타임 계산**: 2026-06-15 18:15 → 2026-06-17 07:08 = 37h 53m | **마감**: 2026-06-20 14:00 KST (79h 52m 남음) | **자동화**: 6/6 Cron 정상 작동 (CTB 신뢰도만 0%) | **변화**: ⬜ 0건 (무변화 30분 단위 지속)
+🔴 **CHECKPOINT (07:46 KST):** **4/4 P1 DOWN (37h 31m 지속, 무변화 270분+ 누적)** | **배포 상태**: HTTP 404 (모든 프로젝트 DEPLOYMENT_NOT_FOUND) | **신뢰도: 0%** (자동화 거짓 신호 + 직접 curl 검증만 신뢰) | **블로커: 4건 CRITICAL** (배포 인프라 + PAT/토큰 미제공 + CTB 거짓신호 + db/30 OVERDUE 36h 21m) | **팀 정지율: 91%** (10/11 정지, 1/11 DevOps만 활동) | **마지막 검증**: 07:40 KST (CTB 폴링) | **다운타임 계산**: 2026-06-15 18:15 → 2026-06-17 07:46 = 37h 31m | **마감**: 2026-06-20 14:00 KST (78h 14m 남음) | **자동화**: 6/6 Cron 정상 작동 (CTB 신뢰도만 0%) | **변화**: ⬜ 0건 (무변화 270분 누적, 07:08 → 07:46)
 
 ---
 
