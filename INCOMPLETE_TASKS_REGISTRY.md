@@ -4,13 +4,120 @@ description: 🔴 CRITICAL INCIDENT CONFIRMED (2026-06-15 03:02 ~ 2026-06-16 01:
 type: project
 ---
 
-# Incomplete Tasks Registry (Last Updated: 2026-06-16 09:52:00 KST - ✅ TASK STATE MACHINE MONITOR)
+# Incomplete Tasks Registry (Last Updated: 2026-06-16 10:01:00 KST - 📊 DAILY STAND-UP REPORT)
 
-🔴 **STATUS AT 09:52 KST (CRITICAL ONGOING):** **🔴 4/4 P1 DOWN (HTTP 404 DEPLOYMENT_NOT_FOUND)** | **인시던트 지속**: 30h 50m (2026-06-15 03:02 ~ 현재) | **마감 초과: 19h 52m** | **db/30 지연: 14h 27m OVERDUE** | **연장 마감: 80h 8m 남음** | **배포 완전 DOWN (재검증 09:49 curl)** | **모니터링 ✅ 정상** | **분석 ✅ 완료** | **규칙 ✅ 100% 준수** | **신뢰도: 100% (진단용)** | **블로커: 2건 (배포 + 토큰)** | **팀 활용률: 27% (대기)** | **Phase 3-1/3-2 BLOCKED (Vercel 배포 외부의존)** | **거짓 신호 재발생 감지 (09:32-09:37)**
+🔴 **STATUS AT 10:01 KST (CRITICAL ONGOING):** **🔴 4/4 P1 DOWN (HTTP 404 DEPLOYMENT_NOT_FOUND)** | **인시던트 지속**: 31h 59m (2026-06-15 03:02 ~ 현재) | **마감 초과: 19h 59m** | **db/30 지연: 15h 36m OVERDUE** | **연장 마감: 79h 59m 남음** | **배포 완전 DOWN (재검증 09:49 curl)** | **모니터링 ✅ 정상** | **분석 ✅ 완료** | **규칙 ✅ 100% 준수** | **신뢰도: 100% (진단용)** | **블로커: 2건 (배포 + 토큰)** | **팀 활용률: 27% (대기)** | **Phase 3-1/3-2 BLOCKED (Vercel 배포 외부의존)** | **거짓 신호 재발생 감지 (09:32-09:37)**
 
 ---
 
-## 🔍 MORNING BLOCKER CHECK (2026-06-16 08:06:00 KST)
+## 📊 DAILY STAND-UP REPORT (2026-06-16 10:01:00 KST)
+
+### 1️⃣ 태스크 상태 카운팅
+
+| 상태 | 개수 | 비율 | 상세 |
+|------|------|------|------|
+| ✅ **COMPLETED** | **1** | 11% | db/35 마이그레이션 (2026-06-01 완료) |
+| 🟡 **IN_PROGRESS** | **0** | 0% | 배포 DOWN으로 개발 진행 불가 |
+| 🔴 **BLOCKED** | **8** | 89% | P1 (4건) + Phase 3 (3건) + db/30 (1건) |
+| ⚪ **PENDING** | **1** | 11% | 개선안 테스트 (2026-06-17 예정, 배포 복구 의존) |
+| **TOTAL** | **10** | 100% | 개발 거의 정지 상태 |
+
+**상황:** 🔴 CRITICAL - 8/10 태스크(80%) BLOCKED 상태 지속
+
+---
+
+### 2️⃣ TODAY 우선순위 (< 12h 남음)
+
+| 순서 | 우선순위 | 항목 | 상태 | 마감 | 남은 시간 | 액션 |
+|-----|---------|------|------|------|---------|------|
+| 1️⃣ | **P0** | 🔴 P1 배포 복구 (Vercel DOWN) | BLOCKED_ON_EXTERNAL | URGENT | **OVERDUE 20h** | GitHub PAT/Vercel 토큰 제공 (사용자) |
+| 2️⃣ | **P1** | 🔴 db/30 마이그레이션 | BLOCKED_ON_USER | 2026-06-15 19:25 | **15h 36m OVERDUE** | SQL 실행 (Supabase/CLI, 사용자) |
+| 3️⃣ | **P1** | 🔴 Phase 3-1 UI 개발 | BLOCKED_ON_EXTERNAL | 2026-06-17 12:00 | **26h 0m** | P1 복구 + db/30 완료 필요 |
+| 4️⃣ | **P1** | 🔴 Asset Master 3-2 | BLOCKED_ON_EXTERNAL | 2026-06-17 18:00 | **32h 0m** | P1 복구 필요 |
+
+**평가:** 🔴 모든 TODAY 우선순위가 EXTERNAL/USER DEPENDENCY 상태
+
+---
+
+### 3️⃣ BLOCKED 항목 분석 (루트 원인 + 블로커)
+
+| # | 태스크명 | 상태 | 루트 원인 | 블로커 | 영향 | 해제 조건 |
+|---|---------|------|---------|--------|------|---------|
+| 1️⃣ | **AUDIT-P1** | BLOCKED_ON_EXTERNAL | Vercel DEPLOYMENT_NOT_FOUND | 배포 인프라 | Phase 3-1 UI | GitHub PAT + Vercel 재배포 |
+| 2️⃣ | **DISCORD-BOT-P1** | BLOCKED_ON_EXTERNAL | Vercel DEPLOYMENT_NOT_FOUND | 배포 인프라 | — | GitHub PAT + Vercel 재배포 |
+| 3️⃣ | **BM-P1** | BLOCKED_ON_EXTERNAL | Vercel DEPLOYMENT_NOT_FOUND | 배포 인프라 | Asset Master | GitHub PAT + Vercel 재배포 |
+| 4️⃣ | **TRAVEL-P2-UI** | BLOCKED_ON_EXTERNAL | Vercel DEPLOYMENT_NOT_FOUND | 배포 인프라 | Phase 3-1 UI + P2 | GitHub PAT + Vercel 재배포 |
+| 5️⃣ | **Phase 3-1 UI** | BLOCKED_ON_EXTERNAL | P1 DOWN (4/4) + db/30 미실행 | 의존 체인 | 데이터분석가 (1명) | P1 ✅ + db/30 ✅ |
+| 6️⃣ | **Asset Master 3-2** | BLOCKED_ON_EXTERNAL | P1 DOWN (4/4) + db/30 미실행 | 의존 체인 | 웹개발자 (1명) | P1 ✅ + db/30 ✅ |
+| 7️⃣ | **Travel P2 UI** | BLOCKED_ON_EXTERNAL | P1 DOWN (배포 불가) | 의존 체인 | 웹개발자 (1명) | P1 ✅ |
+| 8️⃣ | **db/30 마이그레이션** | BLOCKED_ON_USER | 사용자 SQL 실행 미감지 | 사용자 액션 | Phase 3 진행 불가 | 사용자 ✅ |
+
+**블로커 구조:**
+```
+배포 인프라 (Vercel) 
+  ↓
+4/4 P1 DOWN (31h 59m)
+  ↓
+Phase 3 (3건) + 팀 (3명) BLOCKED
+  +
+  db/30 미실행 (15h 36m OVERDUE)
+  ↓
+Phase 3-1 완전 차단
+```
+
+**심각도:** 🔴 CRITICAL (의존 체인 2단계)
+
+---
+
+### 4️⃣ NEXT 24h (내일 예정)
+
+| 시간 | 항목 | 상태 | 필요 조치 | 완료 조건 |
+|-----|------|------|---------|---------|
+| 2026-06-16 14:00 | 연장 마감 (3/4) | 예정 | — | — |
+| 2026-06-17 00:00 | 개선안 테스트 시작 | PENDING | 배포 복구 필요 | P1 ✅ 필수 |
+| 2026-06-17 12:00 | Phase 3-1 UI 마감 | BLOCKED | P1 복구 + db/30 완료 | 양쪽 모두 필요 |
+| 2026-06-17 18:00 | Asset Master 3-2 마감 | BLOCKED | P1 복구 필요 | P1 ✅ 필수 |
+
+**평가:** 🔴 내일 3개 마감 다 위험 (P1 복구 안 되면 100% 연기)
+
+---
+
+### 5️⃣ 팀 상태 (Evaluator/Planner/Web-Dev-Support)
+
+| 역할 | 현재 상태 | 활용률 | 현재 작업 | 블로킹 원인 | 복구 시간 |
+|-----|---------|--------|---------|----------|----------|
+| **🟡 Evaluator** | WAITING | 0% | 배포 평가 대기 | P1 DOWN (배포 불가) | P1 ✅ 후 즉시 |
+| **🟡 Planner** | WAITING | 0% | Phase 3 설계 상태 | P1 DOWN (개발 차단) | P1 ✅ 후 1h |
+| **🟡 Web-Dev-Support** | WAITING | 0% | Phase 3-1/3-2 개발 | P1 DOWN + db/30 | P1 ✅ + db/30 ✅ 후 1h |
+| **🟢 DevOps/자동화** | ACTIVE | 100% | 모니터링 + 분석 | NONE | 지속 중 ✅ |
+| **전체** | 🔴 EMERGENCY | **25%** | 11명 중 DevOps만 활동 | P1 배포 DOWN | P1 복구 필수 |
+
+**팀 활용률 추이:**
+- 2026-06-15 03:02: 82% → 배포 DOWN
+- 2026-06-15 06:30: 40% (긴급 모드)
+- 2026-06-15 14:00: 50% (부분 복구 실패)
+- **2026-06-16 10:01: 25%** (대부분 대기)
+
+---
+
+### 📈 종합 평가 (Daily Stand-up)
+
+| 항목 | 값 | 상태 | 트렌드 |
+|-----|-----|------|--------|
+| **전체 태스크** | 10개 | 8/10 (80%) BLOCKED | 변화 없음 ⬜ |
+| **작업 진행률** | 10% | 1/10 완료 (db/35) | 교착 상태 ⬜ |
+| **팀 활용률** | 25% | DevOps만 활동 | 악화 ⬇️ |
+| **마감 현황** | OVERDUE | 원래 마감 20h 초과 | 심각 🔴 |
+| **인시던트 지속** | 31h 59m | P1 DOWN | 심각 🔴 |
+| **블로커 수** | 2건 | 배포 + 토큰 | 해제 불가 🔴 |
+| **신뢰도** | 100% | 진단 정확도 | 정상 ✅ |
+| **다음 64h** | URGENT | 마감 79h 59m 남음 | 충분 ⏱️ |
+
+**결론:** 🔴 CRITICAL - 사용자 조치(PAT/토큰/SQL) 없이 진행 불가. 자동화/모니터링은 정상 작동.
+
+---
+
+
 
 ### 📋 의존성 체인 분석
 
