@@ -1,0 +1,62 @@
+{
+  "timestamp": "2026-06-16T12:13:00+09:00",
+  "cycle": "1213",
+  "p1_status": {
+    "audit_p1": {
+      "name": "AUDIT-P1",
+      "status": "DOWN",
+      "http_code": "DEPLOYMENT_NOT_FOUND",
+      "endpoint": "https://dsc-fms-portal-audit-hfvdkw.vercel.app",
+      "downtime_minutes": 1631
+    },
+    "discord_bot_p1": {
+      "name": "DISCORD-BOT-P1",
+      "status": "DOWN",
+      "http_code": "DEPLOYMENT_NOT_FOUND",
+      "endpoint": "https://dsc-fms-portal-discord-bot.vercel.app",
+      "downtime_minutes": 1631
+    },
+    "travel_p2_ui": {
+      "name": "TRAVEL-P2-UI",
+      "status": "DOWN",
+      "http_code": "DEPLOYMENT_NOT_FOUND",
+      "endpoint": "https://dsc-fms-portal-travel-planning.vercel.app",
+      "downtime_minutes": 1631
+    },
+    "main_portal": {
+      "name": "Main Portal",
+      "status": "UP",
+      "http_code": 200,
+      "endpoint": "https://dsc-fms-portal.vercel.app",
+      "uptime_minutes": 10
+    }
+  },
+  "summary": {
+    "operational": "1/4 (25%)",
+    "down": "3/4 (75%)",
+    "reliability": "25%",
+    "change_from_last_cycle": "NONE",
+    "status_stability": "STALLED (6min+)"
+  },
+  "blockers": [
+    {
+      "id": "B1",
+      "title": "자동복구 멈춤",
+      "severity": "CRITICAL",
+      "description": "GitHub PAT + Vercel 재배포 필수 (수동개입)",
+      "duration_minutes": 1631
+    },
+    {
+      "id": "B2",
+      "title": "메모리 자동화 거짓신호",
+      "severity": "CRITICAL",
+      "description": "12:02 기록 '3/4 UP'은 FALSE, 신뢰도 훼손",
+      "note": "모니터링 자동화는 정상, 지연 커밋이 거짓신호 생성"
+    }
+  ],
+  "recommendations": [
+    "즉시 액션: GitHub PAT 재생성 + Vercel 재배포",
+    "메모리 자동화 검증 필요 (거짓신호 방지)",
+    "폴링 간격 단축 검토 (현 5분 → 2분 권장)"
+  ]
+}

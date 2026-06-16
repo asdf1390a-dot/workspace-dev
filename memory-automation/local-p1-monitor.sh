@@ -18,10 +18,10 @@ log() {
 # P1 엔드포인트 3회 연속 확인
 check_p1_endpoints() {
   local endpoints=(
-    "https://dsc-fms-audit.vercel.app"
-    "https://dsc-fms-discord-bot.vercel.app"
-    "https://dsc-fms-bm.vercel.app"
-    "https://dsc-fms-travel.vercel.app"
+    "https://dsc-fms-portal-audit.vercel.app"
+    "https://dsc-fms-portal-discord.vercel.app"
+    "https://dsc-fms-portal-bm.vercel.app"
+    "https://dsc-fms-portal-travel.vercel.app"
   )
 
   local names=(
