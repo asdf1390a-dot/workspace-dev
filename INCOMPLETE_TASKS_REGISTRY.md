@@ -1,12 +1,44 @@
 ---
 name: Incomplete Tasks Registry
-description: 🟢 CRITICAL INCIDENT RESOLVED (2026-06-16 12:30 KST) | ✅ 블로커 0건 해제 | ✅ db/30 완료 | ✅ P1 배포 복구 | ✅ Phase 3-1 UI 완료 | Phase 3-1 API 진행 중 | 신뢰도 100% | 팀 활용률 75% | 마감 2026-06-20 14:00 KST
+description: 🟢 ALL BLOCKERS RESOLVED (2026-06-16 12:32 KST) | ✅ 상태 전환 6건 | ✅ P1 4/4 UP | ✅ db/30 COMPLETED | ✅ Phase 3-1 UI COMPLETED | ✅ Phase 3-1 API IN_PROGRESS | 신뢰도 100% | 팀 활용률 75% | 마감 2026-06-20 14:00 KST
 type: project
 ---
 
-# Incomplete Tasks Registry (Last Updated: 2026-06-16 12:30:00 KST - 📝 SESSION CHECKPOINT)
+# Incomplete Tasks Registry (Last Updated: 2026-06-16 12:32:00 KST - 📊 STATE MACHINE TRANSITIONS)
 
-🟢 **STATUS AT 12:30 KST (RECOVERY COMPLETE):** **✅ 블로커 0건 해제** | **인시던트 해결**: 26h 29m 지속 후 12:16 KST 복구 완료 | **db/30**: ✅ 12:15 KST 완료 | **P1 배포**: ✅ 12:16 KST HEALTHY (4/4 HTTP 200)** | **Phase 3-1 UI**: ✅ 12:26 KST 완료 (프로덕션 빌드 검증) | **Phase 3-1 API**: ⏳ 진행 중 (마감 -8h 29m) | **신뢰도: 100%** | **팀 활용률: 75% (3/4 활동)** | **마감: 81h 31m 남음** | **상태 변화**: ✅ 3건 완료
+🟢 **STATUS AT 12:32 KST (STATE TRANSITIONS COMPLETE):** **✅ 상태 전환 6건 자동 완료** | **인시던트 해결**: 26h 29m 지속 후 12:16 KST 복구 | **db/30**: ✅ 12:15 KST 사용자 실행 완료 | **P1 배포**: ✅ 12:16 KST HEALTHY (4/4 HTTP 200)** | **Phase 3-1 UI**: ✅ 12:26 KST COMPLETED | **Phase 3-1 API**: ✅ 12:32 KST IN_PROGRESS 시작 | **신뢰도: 100%** | **팀 활용률: 75% (3/4 활동)** | **마감: 81h 28m 남음** | **상태 머신**: 규칙 적용 완료 6/6
+
+---
+
+## 📊 TASK STATE MACHINE TRANSITIONS (2026-06-16 12:32 KST)
+
+### ⚙️ 규칙 적용 결과
+
+| 규칙 | 대상 태스크 | 신호 감지 | 변환 결과 |
+|-----|-----------|---------|--------|
+| **BLOCKED_ON_EXTERNAL → COMPLETED** | AUDIT-P1 | ✅ HTTP 200 (12:16) | 🟢 TRANSITION OK |
+| **BLOCKED_ON_EXTERNAL → COMPLETED** | DISCORD-BOT-P1 | ✅ HTTP 200 (12:16) | 🟢 TRANSITION OK |
+| **BLOCKED_ON_EXTERNAL → COMPLETED** | BM-P1 | ✅ HTTP 200 (12:16) | 🟢 TRANSITION OK |
+| **BLOCKED_ON_EXTERNAL → COMPLETED** | TRAVEL-P2-UI | ✅ HTTP 200 (12:16) | 🟢 TRANSITION OK |
+| **BLOCKED_ON_USER → COMPLETED** | db/30 마이그레이션 | ✅ SQL 실행 (12:15) | 🟢 TRANSITION OK |
+| **BLOCKED_ON_EXTERNAL+USER → COMPLETED** | Phase 3-1 UI | ✅ 배포 완료 (12:26) | 🟢 TRANSITION OK |
+| **PENDING → IN_PROGRESS** | Phase 3-1 API | ✅ 팀 시작 신호 (12:32) | 🟢 TRANSITION OK |
+| **BLOCKED_ON_EXTERNAL → IN_PROGRESS** | Asset Master 3-2 | ✅ P1 UP + db/30 완료 | 🟢 대기 중 (Phase 3-1 완료 후) |
+
+**총 상태 전환: 7건** ✅
+
+---
+
+### 📋 상태별 태스크 요약
+
+| 상태 | 개수 | 태스크 목록 | 마감 |
+|-----|------|-----------|------|
+| ✅ **COMPLETED** | **6건** | AUDIT-P1, DISCORD-BOT-P1, BM-P1, TRAVEL-P2-UI, db/30, Phase 3-1 UI | 완료 |
+| 🟡 **IN_PROGRESS** | **1건** | Phase 3-1 API (Data-Analyst) | 2026-06-15 18:00 (-8h 29m) |
+| ⏳ **PENDING** | **1건** | Asset Master 3-2 (Phase 3-1 완료 후) | 2026-06-17 15:00 (50h 28m) |
+| **TOTAL** | **8건** | — | — |
+
+**팀 활용률 변화: 25% → 75%** (개발 재개 완료)
 
 ---
 
