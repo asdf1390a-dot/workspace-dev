@@ -1,0 +1,83 @@
+{
+  "timestamp": "2026-06-16T21:37:00+09:00",
+  "cycle": "2137",
+  "verification_method": "direct_endpoint_check",
+  "p1_status": {
+    "audit_p1": {
+      "name": "AUDIT-P1",
+      "status": "UP",
+      "http_code": 200,
+      "endpoint": "https://dsc-fms-portal-audit.vercel.app",
+      "verified": true,
+      "response_time_ms": 200
+    },
+    "discord_bot_p1": {
+      "name": "DISCORD-BOT-P1",
+      "status": "DOWN",
+      "http_code": 404,
+      "error": "DEPLOYMENT_NOT_FOUND",
+      "endpoint": "https://dsc-fms-portal-discord-bot.vercel.app",
+      "verified": true,
+      "down_duration_minutes": 22
+    },
+    "travel_p2_ui": {
+      "name": "TRAVEL-P2-UI",
+      "status": "DOWN",
+      "http_code": 404,
+      "error": "DEPLOYMENT_NOT_FOUND",
+      "endpoint": "https://dsc-fms-portal-travel-planning.vercel.app",
+      "verified": true,
+      "down_duration_minutes": 22
+    },
+    "bm_p1": {
+      "name": "BM-P1",
+      "status": "UP",
+      "http_code": 200,
+      "endpoint": "https://dsc-fms-portal-bm.vercel.app",
+      "verified": true,
+      "response_time_ms": 397
+    }
+  },
+  "summary": {
+    "operational": "2/4 (50%)",
+    "down": "2/4 (50%)",
+    "reliability": "50%",
+    "change_from_previous": "-1/4 (AUDIT 상태 재평가)",
+    "previous_cycle": "2132 @ 21:32 (3/4 UP 보고됨, 재검증 필요)",
+    "incident_duration": "~22분 (DISCORD-BOT, TRAVEL)"
+  },
+  "status_change": {
+    "audit_p1_status_change": "기존 UP 유지 확인",
+    "bm_p1_status_change": "기존 UP 유지 확인",
+    "discord_bot_p1_ongoing": "DOWN 지속 (22분)",
+    "travel_p2_ui_ongoing": "DOWN 지속 (22분)",
+    "operational_accuracy": "2/4 UP 정확 (AUDIT + BM)"
+  },
+  "blockers": [
+    {
+      "id": "B1",
+      "title": "DISCORD-BOT-P1 DOWN (HTTP 404)",
+      "severity": "CRITICAL",
+      "status": "DOWN",
+      "duration_minutes": 22,
+      "error_code": "DEPLOYMENT_NOT_FOUND",
+      "expected_resolution": "자동 배포 재시도 또는 수동 Vercel 재배포"
+    },
+    {
+      "id": "B2",
+      "title": "TRAVEL-P2-UI DOWN (HTTP 404)",
+      "severity": "CRITICAL",
+      "status": "DOWN",
+      "duration_minutes": 22,
+      "error_code": "DEPLOYMENT_NOT_FOUND",
+      "expected_resolution": "자동 배포 재시도 또는 수동 Vercel 재배포"
+    }
+  ],
+  "recommendations": [
+    "2/4 P1 서비스 가동 중 (50% 운영)",
+    "DISCORD-BOT-P1 & TRAVEL-P2-UI: 지속적 DOWN (DEPLOYMENT_NOT_FOUND)",
+    "이전 21:32 사이클의 3/4 UP 보고는 부정확 — 재평가 결과 2/4 UP",
+    "사용자 액션: Vercel 배포 상태 수동 확인 또는 자동 재배포 트리거"
+  ],
+  "next_check": "2026-06-16T21:42:00+09:00"
+}

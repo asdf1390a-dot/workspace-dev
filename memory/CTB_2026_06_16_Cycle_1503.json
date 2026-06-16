@@ -1,0 +1,65 @@
+{
+  "timestamp": "2026-06-16T15:03:00+09:00",
+  "timezone": "Asia/Seoul",
+  "cycle_number": 1503,
+  "endpoints": {
+    "bm_main_portal": {
+      "url": "https://dsc-fms-portal.vercel.app",
+      "status": 200,
+      "label": "BM-P1 (Main)"
+    },
+    "audit_portal": {
+      "url": "https://dsc-fms-portal-audit.vercel.app",
+      "status": 200,
+      "label": "AUDIT-P1"
+    },
+    "discord_bot_portal": {
+      "url": "https://dsc-fms-portal-discord-bot.vercel.app",
+      "status": 404,
+      "label": "DISCORD-BOT-P1"
+    },
+    "travel_portal": {
+      "url": "https://dsc-fms-portal-travel.vercel.app",
+      "status": 200,
+      "label": "TRAVEL-P2-UI"
+    }
+  },
+  "summary": {
+    "up_count": 3,
+    "down_count": 1,
+    "uptime_percentage": 75,
+    "operational": "🟡 PARTIAL (3/4)"
+  },
+  "state_changes": [
+    {
+      "service": "AUDIT-P1",
+      "previous_status": 404,
+      "current_status": 200,
+      "change": "복구 ✅",
+      "last_change_time": "2026-06-16T15:03:00+09:00"
+    },
+    {
+      "service": "TRAVEL-P2-UI",
+      "previous_status": 0,
+      "current_status": 200,
+      "change": "복구 ✅",
+      "last_change_time": "2026-06-16T15:03:00+09:00"
+    }
+  ],
+  "blockers": [
+    {
+      "id": "DISCORD-BOT-404",
+      "severity": "CRITICAL",
+      "service": "DISCORD-BOT-P1",
+      "status": "404 NOT FOUND",
+      "duration": ">1h",
+      "impact": "P1 봇 서비스 불가"
+    }
+  ],
+  "reliability": {
+    "uptime_percentage": 75,
+    "confidence": 96,
+    "status": "🟡 RECOVERING"
+  },
+  "notes": "2개 서비스 복구 감지. DISCORD-BOT-P1만 지속 DOWN. 배포 상태 개선 추세"
+}

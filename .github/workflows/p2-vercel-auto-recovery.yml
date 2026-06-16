@@ -18,10 +18,10 @@ jobs:
         id: verify
         run: |
           endpoints=(
-            "https://dsc-fms-portal-audit.vercel.app"
-            "https://dsc-fms-portal-discord.vercel.app"
-            "https://dsc-fms-portal-bm.vercel.app"
-            "https://dsc-fms-portal-travel.vercel.app"
+            "https://dsc-fms-portal.vercel.app"
+            "https://dsc-audit-p1.vercel.app"
+            "https://dsc-discord-bot-p1.vercel.app"
+            "https://dsc-travel-p2-ui.vercel.app"
           )
 
           healthy=0
@@ -59,12 +59,12 @@ jobs:
         if: steps.verify.outputs.DOWN_COUNT > 0
         run: |
           sleep 30
-          
+
           endpoints=(
-            "https://dsc-fms-portal-audit.vercel.app"
-            "https://dsc-fms-portal-discord.vercel.app"
-            "https://dsc-fms-portal-bm.vercel.app"
-            "https://dsc-fms-portal-travel.vercel.app"
+            "https://dsc-fms-portal.vercel.app"
+            "https://dsc-audit-p1.vercel.app"
+            "https://dsc-discord-bot-p1.vercel.app"
+            "https://dsc-travel-p2-ui.vercel.app"
           )
 
           recovered=0

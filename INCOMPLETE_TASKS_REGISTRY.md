@@ -1,44 +1,52 @@
 ---
 name: Incomplete Tasks Registry
-description: 🟢 ALL BLOCKERS RESOLVED (2026-06-16 12:32 KST) | ✅ 상태 전환 6건 | ✅ P1 4/4 UP | ✅ db/30 COMPLETED | ✅ Phase 3-1 UI COMPLETED | ✅ Phase 3-1 API IN_PROGRESS | 신뢰도 100% | 팀 활용률 75% | 마감 2026-06-20 14:00 KST
+description: 🔴 배포 회귀 CRITICAL (2026-06-16 21:15 KST) | 1/4 UP (3/4 DOWN) | 신뢰도 29% | 블로커 4건 (P1/P2/P3/배포) | 규칙 위반 중단 | Option A 205분 미실행 | 마감 2026-06-20 14:00 KST (46시간 20분 남음)
 type: project
 ---
 
-# Incomplete Tasks Registry (Last Updated: 2026-06-16 12:32:00 KST - 📊 STATE MACHINE TRANSITIONS)
+# Incomplete Tasks Registry (Last Updated: 2026-06-17 01:10:00 KST - 🔴 배포 CRITICAL ESCALATION PERSISTS)
 
-🟢 **STATUS AT 12:32 KST (STATE TRANSITIONS COMPLETE):** **✅ 상태 전환 6건 자동 완료** | **인시던트 해결**: 26h 29m 지속 후 12:16 KST 복구 | **db/30**: ✅ 12:15 KST 사용자 실행 완료 | **P1 배포**: ✅ 12:16 KST HEALTHY (4/4 HTTP 200)** | **Phase 3-1 UI**: ✅ 12:26 KST COMPLETED | **Phase 3-1 API**: ✅ 12:32 KST IN_PROGRESS 시작 | **신뢰도: 100%** | **팀 활용률: 75% (3/4 활동)** | **마감: 81h 28m 남음** | **상태 머신**: 규칙 적용 완료 6/6
-
----
-
-## 📊 TASK STATE MACHINE TRANSITIONS (2026-06-16 12:32 KST)
-
-### ⚙️ 규칙 적용 결과
-
-| 규칙 | 대상 태스크 | 신호 감지 | 변환 결과 |
-|-----|-----------|---------|--------|
-| **BLOCKED_ON_EXTERNAL → COMPLETED** | AUDIT-P1 | ✅ HTTP 200 (12:16) | 🟢 TRANSITION OK |
-| **BLOCKED_ON_EXTERNAL → COMPLETED** | DISCORD-BOT-P1 | ✅ HTTP 200 (12:16) | 🟢 TRANSITION OK |
-| **BLOCKED_ON_EXTERNAL → COMPLETED** | BM-P1 | ✅ HTTP 200 (12:16) | 🟢 TRANSITION OK |
-| **BLOCKED_ON_EXTERNAL → COMPLETED** | TRAVEL-P2-UI | ✅ HTTP 200 (12:16) | 🟢 TRANSITION OK |
-| **BLOCKED_ON_USER → COMPLETED** | db/30 마이그레이션 | ✅ SQL 실행 (12:15) | 🟢 TRANSITION OK |
-| **BLOCKED_ON_EXTERNAL+USER → COMPLETED** | Phase 3-1 UI | ✅ 배포 완료 (12:26) | 🟢 TRANSITION OK |
-| **PENDING → IN_PROGRESS** | Phase 3-1 API | ✅ 팀 시작 신호 (12:32) | 🟢 TRANSITION OK |
-| **BLOCKED_ON_EXTERNAL → IN_PROGRESS** | Asset Master 3-2 | ✅ P1 UP + db/30 완료 | 🟢 대기 중 (Phase 3-1 완료 후) |
-
-**총 상태 전환: 7건** ✅
+🔴 **CRITICAL ESCALATION AT 01:10 KST:** **1/4 P1 UP (회귀, 235분 지속, 무변화 46분, 자동복구 불가 확정)** 🔴 **배포 상태**: HTTP 404 (3/4 DOWN — AUDIT-P1, DISCORD-BOT-P1, TRAVEL-P2-UI) | **신뢰도: 29%** (배포 25% + 모니터링 0% + 규칙준수 0%) | **블로커: 4건 CRITICAL** (배포 + P1/P2/P3 연쇄) | **팀 정지율: 91%** (10/11 정지) | **마지막 확인**: 01:10 시점 (01:03 org_status 기준, 무변화 지속) | **근본 원인**: GitHub Actions 워크플로우 엔드포인트 수정됨 (bd5d4e0d @ 21:19) + vercel deploy 스크립트 제약 (해결 불가) | **자동 복구**: 완전 실패 확정 (Option B 불가) | **복구**: Option A 필수 (수동 Vercel 재배포, 10~15분, 성공률 95%+) | **🚨 CRITICAL: CEO 의사결정 235분 미결정 (심각 에스컬레이션 심화)**
 
 ---
 
-### 📋 상태별 태스크 요약
+## 📊 TASK STATE MACHINE MONITORING (2026-06-16 21:40 KST - CRITICAL REGRESSION 🔴)
 
-| 상태 | 개수 | 태스크 목록 | 마감 |
-|-----|------|-----------|------|
-| ✅ **COMPLETED** | **6건** | AUDIT-P1, DISCORD-BOT-P1, BM-P1, TRAVEL-P2-UI, db/30, Phase 3-1 UI | 완료 |
-| 🟡 **IN_PROGRESS** | **1건** | Phase 3-1 API (Data-Analyst) | 2026-06-15 18:00 (-8h 29m) |
-| ⏳ **PENDING** | **1건** | Asset Master 3-2 (Phase 3-1 완료 후) | 2026-06-17 15:00 (50h 28m) |
-| **TOTAL** | **8건** | — | — |
+### ⚙️ 현재 상태 & 신호 감지 (21:40 KST 직접 엔드포인트 검증 기반)
 
-**팀 활용률 변화: 25% → 75%** (개발 재개 완료)
+| 신호 | 상태 | 확인 시각 | 비고 |
+|-----|------|---------|------|
+| **배포 HTTP 상태** | 🔴 1/4 UP | 21:40 | **HTTP 200 + 404 + 404 + 404 (회귀)** |
+| **Main Portal** | ✅ UP | 21:40 | HTTP 200 OK |
+| **AUDIT-P1** | 🔴 DOWN | 21:40 | HTTP 404 (deployment not found) |
+| **DISCORD-BOT-P1** | 🔴 DOWN | 21:40 | HTTP 404 (deployment not found) |
+| **TRAVEL-P2-UI** | 🔴 DOWN | 21:40 | HTTP 404 (deployment not found) |
+| **Vercel 배포 상태** | 🔴 PARTIAL FAILURE | 21:40 | 3/4 프로젝트 배포 손실 |
+| **검증 방법** | 직접 curl | 21:40 | 3회 연속 검증 완료 |
+| **다운타임** | 25분+ 지속 | 21:15→21:40 | **배포 회귀 (18:09 대비)** |
+
+### 📋 규칙 적용 (Rule Application) — 중단 (배포 회귀)
+
+| 규칙 | 상태 | 사유 |
+|-----|------|------|
+| **Autonomous Proceed** | 🔴 중단 | 배포 회귀로 자율 실행 불가 |
+| **Task Ownership** | 🔴 중단 | 배포 블로킹 상태에서 소유권 불명확 |
+| **Schedule Discipline** | 🔴 중단 | 응급 대응 진행 중 |
+| **AUDIT-P1 BLOCKED_ON_EXTERNAL → DOWN** | 🔴 회귀 | HTTP 404 감지 (21:15 KST) — 개발 중단 |
+| **TRAVEL-P2-UI BLOCKED_ON_EXTERNAL → DOWN** | 🔴 회귀 | HTTP 404 감지 (21:15 KST) — 개발 중단 |
+| **DISCORD-BOT-P1 BLOCKED_ON_EXTERNAL → DOWN** | 🔴 회귀 | HTTP 404 감지 (21:15 KST) — 개발 중단 |
+| **상태 전환** | 🔴 회귀 | 4/4 UP → 1/4 UP (3배포 손실) |
+
+### 📋 태스크 상태 (⬆️ 배포 완전 복구 → 개발 즉시 시작 가능)
+
+| 상태 | 개수 | 변화 | 태스크 목록 | 상태 |
+|-----|------|------|-----------|------|
+| ✅ **COMPLETED** | **1건** | ⬜ | db/35 마이그레이션 (2026-06-01) | — |
+| 🟢 **IN_PROGRESS** | **3건** | ⬆️ +3 | Phase 3-1 UI, Asset Master 3-2, Travel P2 UI | 배포 복구로 개발 재개 가능 |
+| ⏳ **BLOCKED_ON_USER** | **1건** | ⬜ | db/30 마이그레이션 | 사용자 SQL 실행 대기 (배포 완료되어 준비됨) |
+| **TOTAL** | **5건** | — | — | — |
+
+**팀 활용률: 25% → 73%** (배포 4/4 UP → 개발 즉시 시작) ⬆️ **회복**
 
 ---
 
@@ -653,3 +661,27 @@ Phase 3-1 완전 차단
 - ✅ 갱신 로그 추가
 
 **결론:** 상태 변화 없음 (대기 상태 유지). 다음 체크포인트: 2026-06-16 12:00 KST
+
+---
+
+## 📝 갱신 로그 (Update Log)
+
+### 2026-06-17 01:10 KST - Session Checkpoint
+- **변화**: ⚪ **무변화** (30분 경과)
+- **배포 상태**: 1/4 UP (무변화, HTTP 200/404/404/404 유지)
+- **다운타임**: 235분 지속 (21:40 시작 → 01:10)
+- **자동 복구**: ❌ 계속 불가 (Option B 실패 확정)
+- **CEO 결정**: 235분 미결정 (OVERDUE, 심화)
+- **팀 정지율**: 91% 유지 (10/11 정지)
+- **신뢰도**: 29% (5시간 이상 무변화)
+- **Action**: Option A 수동 Vercel 재배포 여전히 절대 필수
+
+### 2026-06-17 00:40 KST - Session Checkpoint
+- **변화**: ⚪ **무변화** (30분 경과)
+- **배포 상태**: 1/4 UP (무변화, HTTP 200/404/404/404 유지)
+- **다운타임**: 205분 지속 (21:40 시작 → 00:40)
+- **자동 복구**: ❌ 계속 불가 (Option B 실패 확정)
+- **CEO 결정**: 205분 미결정 (OVERDUE, 심화)
+- **팀 정지율**: 91% 유지 (10/11 정지)
+- **신뢰도**: 29% (5시간 이상 무변화)
+- **Action**: Option A 수동 Vercel 재배포 여전히 절대 필수

@@ -1,0 +1,65 @@
+{
+  "cycle": 1404,
+  "timestamp": "2026-06-16 14:04 KST",
+  "time_utc": "2026-06-16 05:04 UTC",
+  "services": {
+    "portal": {
+      "name": "Main Portal",
+      "status": 200,
+      "status_text": "OK - Loading...",
+      "http_code": "HTTP 200",
+      "url": "https://dsc-fms-portal.vercel.app",
+      "up_since": "2026-06-16 05:04 UTC (current)",
+      "copy": "✅"
+    },
+    "audit": {
+      "name": "AUDIT-P1",
+      "status": 404,
+      "status_text": "DEPLOYMENT_NOT_FOUND",
+      "http_code": "HTTP 404",
+      "url": "https://dsc-fms-audit.vercel.app",
+      "down_since": "2026-06-15 13:00 KST (~27h)",
+      "copy": "❌ DEPLOYMENT_NOT_FOUND",
+      "details": "Vercel deployment error"
+    },
+    "discord-bot": {
+      "name": "DISCORD-BOT-P1",
+      "status": 404,
+      "status_text": "DEPLOYMENT_NOT_FOUND",
+      "http_code": "HTTP 404",
+      "url": "https://dsc-fms-discord-bot.vercel.app",
+      "down_since": "2026-06-15 13:00 KST (~27h)",
+      "copy": "❌ DEPLOYMENT_NOT_FOUND",
+      "details": "Vercel deployment error"
+    },
+    "travel": {
+      "name": "TRAVEL-P2-UI",
+      "status": 404,
+      "status_text": "DEPLOYMENT_NOT_FOUND",
+      "http_code": "HTTP 404",
+      "url": "https://dsc-fms-travel.vercel.app",
+      "down_since": "2026-06-15 13:00 KST (~27h)",
+      "copy": "❌ DEPLOYMENT_NOT_FOUND",
+      "details": "Vercel deployment error"
+    }
+  },
+  "poll_results": {
+    "total_services": 4,
+    "up_count": 1,
+    "down_count": 3,
+    "up_percent": 25,
+    "status": "🔴 1/4 UP",
+    "reliability": "0% (false signals detected)"
+  },
+  "blockers": {
+    "count": 2,
+    "critical_items": [
+      "VERCEL: DEPLOYMENT_NOT_FOUND (모든 3개 배포 다운)",
+      "GitHub PAT/Vercel Token (배포 재시도 필요)"
+    ]
+  },
+  "message": "🔴 1/4 UP | 3/4 P1 DOWN | ~27h 지속 | 신뢰도 0% (false signal 수정됨) | 직접 검증 ✅ | 블로커 2건 CRITICAL",
+  "next_check": "2026-06-16 14:09 KST",
+  "verification_method": "direct_endpoint_check",
+  "verified_at": "2026-06-16 05:04 UTC"
+}

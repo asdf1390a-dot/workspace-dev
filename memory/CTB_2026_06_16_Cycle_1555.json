@@ -1,0 +1,49 @@
+{
+  "timestamp": "2026-06-16T15:55:00+09:00",
+  "cycle_id": "1555",
+  "verification_method": "direct_endpoint_check",
+  "endpoints": {
+    "main_portal": {
+      "url": "https://dsc-fms-portal.vercel.app",
+      "status": "UP",
+      "http_code": 200,
+      "timestamp": "2026-06-16T15:55:00+09:00"
+    },
+    "audit_p1": {
+      "url": "https://dsc-fms-audit.vercel.app",
+      "status": "DOWN",
+      "http_code": 404,
+      "timestamp": "2026-06-16T15:55:00+09:00"
+    },
+    "travel_p2_ui": {
+      "url": "https://dsc-fms-travel.vercel.app",
+      "status": "DOWN",
+      "http_code": 404,
+      "timestamp": "2026-06-16T15:55:00+09:00"
+    },
+    "bm_p1": {
+      "url": "https://dsc-fms-bm.vercel.app",
+      "status": "DOWN",
+      "http_code": 404,
+      "timestamp": "2026-06-16T15:55:00+09:00"
+    }
+  },
+  "summary": {
+    "total": 4,
+    "up": 1,
+    "down": 3,
+    "availability_percent": 25
+  },
+  "blockers": [
+    {
+      "type": "deployment_not_found",
+      "severity": "critical",
+      "endpoints": ["AUDIT", "TRAVEL", "BM"],
+      "duration_minutes": 1673,
+      "requires": "vercel_token_or_github_pat"
+    }
+  ],
+  "confidence": "100%",
+  "previous_cycle": "1341",
+  "state_change": "no_change"
+}

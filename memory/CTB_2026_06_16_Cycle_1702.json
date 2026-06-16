@@ -1,0 +1,41 @@
+{
+  "timestamp": "2026-06-16T17:02:00+09:00",
+  "cycle": "1702",
+  "verification_method": "direct_endpoint_check",
+  "elapsed_since_last_check": "3h 21m",
+  "p1_status": {
+    "main_portal": {
+      "name": "Main Portal (dsc-fms-portal)",
+      "status": "UP",
+      "http_code": 200,
+      "verified": true
+    },
+    "audit_p1": {
+      "name": "AUDIT-P1",
+      "status": "DOWN",
+      "http_code": 404,
+      "error": "DEPLOYMENT_NOT_FOUND"
+    },
+    "discord_bot_p1": {
+      "name": "DISCORD-BOT-P1",
+      "status": "DOWN",
+      "http_code": 404,
+      "error": "DEPLOYMENT_NOT_FOUND"
+    },
+    "travel_p2_ui": {
+      "name": "TRAVEL-P2-UI",
+      "status": "DOWN",
+      "http_code": 404,
+      "error": "DEPLOYMENT_NOT_FOUND"
+    }
+  },
+  "summary": {
+    "operational": "1/4 (25%)",
+    "down": "3/4 (75%)",
+    "reliability": "25%",
+    "downtime_since_start": "31h 56m (09:06 KST from 2026-06-15)",
+    "p0_threshold": "< 85% TRIGGERED ✅"
+  },
+  "status": "🔴 CRITICAL (지속)",
+  "recommendation": "GitHub PAT 재생성 + Vercel Redeploy 필수"
+}

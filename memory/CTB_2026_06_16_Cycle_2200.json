@@ -1,0 +1,70 @@
+{
+  "timestamp": "2026-06-16T22:00:00+09:00",
+  "cycle_id": "ctb_polling_20260616_2200",
+  "poll_time_kst": "22:00",
+  "endpoints_checked": 4,
+  "results": {
+    "AUDIT-P1": {
+      "url": "https://dsc-fms-audit.vercel.app",
+      "status_code": 404,
+      "status": "DOWN",
+      "project_id": "0cf3c1ba",
+      "http_status": "HTTP 404 Not Found"
+    },
+    "DISCORD-BOT-P1": {
+      "url": "https://dsc-fms-discord-bot.vercel.app",
+      "status_code": 404,
+      "status": "DOWN",
+      "project_id": "585db4d5",
+      "http_status": "HTTP 404 Not Found"
+    },
+    "TRAVEL-P2-UI": {
+      "url": "https://dsc-fms-travel.vercel.app",
+      "status_code": 404,
+      "status": "DOWN",
+      "project_id": "e9396c74",
+      "http_status": "HTTP 404 Not Found"
+    },
+    "MAIN-PORTAL-P1": {
+      "url": "https://dsc-fms-main.vercel.app",
+      "status_code": 404,
+      "status": "DOWN",
+      "project_id": "ecc13a9f",
+      "http_status": "HTTP 404 Not Found"
+    }
+  },
+  "summary": {
+    "operational": 0,
+    "down": 4,
+    "total": 4,
+    "operational_percentage": 0,
+    "incident_duration_hours": 27.32,
+    "incident_start": "2026-06-16T18:40:00+09:00",
+    "reliability_score": 0
+  },
+  "status_change": {
+    "from_previous_cycle": "1/4 UP → 0/4 UP (REGRESSION)",
+    "previous_cycle_time": "2026-06-16T13:41:00+09:00",
+    "hours_since_last_poll": 8.32,
+    "critical_alert": true
+  },
+  "blockers": [
+    {
+      "id": "BLOCKER_1",
+      "severity": "CRITICAL",
+      "type": "Vercel Deployment",
+      "description": "All 4 P1 deployments returning HTTP 404",
+      "impact": "100% service unavailable",
+      "requires_action": "GitHub PAT + Vercel token redeployment"
+    },
+    {
+      "id": "BLOCKER_2",
+      "severity": "CRITICAL",
+      "type": "Monitoring Script",
+      "description": "CTB polling script error correction applied at 01:50 KST, but deployments still unrecovered",
+      "impact": "Monitoring infrastructure working, but services remain DOWN",
+      "requires_action": "Vercel support escalation or manual redeployment"
+    }
+  ],
+  "recommended_action": "ESCALATION REQUIRED — All 4 P1 services DOWN for 27h+. Direct Vercel support case needed or full redeployment with working GitHub PAT/token."
+}

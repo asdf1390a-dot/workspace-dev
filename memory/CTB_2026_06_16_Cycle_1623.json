@@ -1,0 +1,46 @@
+{
+  "timestamp": "2026-06-16T16:23:00+09:00",
+  "cycle_number": 1623,
+  "verification_method": "manual_endpoint_check",
+  "endpoints": {
+    "audit_p1": {
+      "url": "https://dsc-fms-audit.vercel.app",
+      "status": "HTTP 404",
+      "state": "DOWN",
+      "verified_at": "2026-06-16T16:23:00+09:00"
+    },
+    "discord_bot_p1": {
+      "url": "https://dsc-fms-discord.vercel.app",
+      "status": "HTTP 404",
+      "state": "DOWN",
+      "verified_at": "2026-06-16T16:23:00+09:00"
+    },
+    "travel_p2_ui": {
+      "url": "https://dsc-fms-travel.vercel.app",
+      "status": "HTTP 404",
+      "state": "DOWN",
+      "verified_at": "2026-06-16T16:23:00+09:00"
+    },
+    "main_portal": {
+      "url": "https://dsc-fms.vercel.app",
+      "status": "Loading",
+      "state": "PARTIAL",
+      "verified_at": "2026-06-16T16:23:00+09:00"
+    }
+  },
+  "summary": {
+    "total_endpoints": 4,
+    "up_count": 1,
+    "down_count": 3,
+    "operational_percentage": 25,
+    "deployment_down_duration_minutes": 1800,
+    "deployment_down_since": "2026-06-15T10:23:00+09:00"
+  },
+  "reliability": 0,
+  "blockers": 2,
+  "blocker_details": [
+    "Vercel deployment failure (3/4 HTTP 404)",
+    "GitHub token required for deployment rollback/retry"
+  ],
+  "notes": "Manual endpoint verification confirms 13:41 CTB status. 3/4 P1 services remain HTTP 404. Main Portal shows loading state but unclear if fully operational. Deployment issue unresolved for 30h+. Auto-monitoring disabled due to false positive cycle detected at 05:15 KST."
+}

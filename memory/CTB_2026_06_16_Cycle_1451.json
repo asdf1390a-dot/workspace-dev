@@ -1,0 +1,52 @@
+{
+  "timestamp": "2026-06-16T14:51:00+09:00",
+  "cycle": "1451",
+  "endpoints": {
+    "AUDIT-P1": {
+      "url": "https://dsc-fms-audit.vercel.app/",
+      "status": 404,
+      "confidence": "direct",
+      "verified_at": "2026-06-16T14:51:00+09:00"
+    },
+    "DISCORD-BOT-P1": {
+      "url": "https://dsc-discord-bot.vercel.app/",
+      "status": 404,
+      "confidence": "direct",
+      "verified_at": "2026-06-16T14:51:00+09:00"
+    },
+    "TRAVEL-P2-UI": {
+      "url": "https://dsc-fms-travel.vercel.app/",
+      "status": 404,
+      "confidence": "direct",
+      "verified_at": "2026-06-16T14:51:00+09:00"
+    },
+    "BM-P1": {
+      "url": "https://dsc-fms-bm.vercel.app/",
+      "status": 404,
+      "confidence": "direct",
+      "verified_at": "2026-06-16T14:51:00+09:00"
+    }
+  },
+  "summary": {
+    "up": 0,
+    "down": 4,
+    "reliability": 0,
+    "incident_duration_minutes": 1651,
+    "false_signal_detected": true,
+    "previous_report": "13:41 KST 1/4 UP (FALSE)",
+    "actual_status": "4/4 DOWN"
+  },
+  "blockers": [
+    {
+      "id": "CRITICAL-DEPLOYMENT",
+      "description": "배포 미실행 (27h 35m)",
+      "action": "GitHub PAT + Vercel 토큰"
+    },
+    {
+      "id": "CRITICAL-AUTO-MONITORING",
+      "description": "자동화 거짓 신호 (0신뢰도)",
+      "action": "엔드포인트 직접 검증 필수"
+    }
+  ],
+  "alert": "🔴 CRITICAL: 4/4 P1 DOWN — 27h+ 미해결 | 자동화 신뢰도 0% | 직접 검증 활성화됨"
+}

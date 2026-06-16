@@ -1,0 +1,115 @@
+{
+  "timestamp": "2026-06-17T01:06:00+09:00",
+  "cycle": "0106",
+  "verification_method": "direct_endpoint_check",
+  "duration_since_prev_check_hours": 11.42,
+  "p1_status": {
+    "audit_p1": {
+      "name": "AUDIT-P1",
+      "status": "DOWN",
+      "http_code": 404,
+      "error": "DEPLOYMENT_NOT_FOUND",
+      "endpoint": "https://dsc-fms-portal-audit-hfvdkw.vercel.app",
+      "downtime_minutes": 2376,
+      "downtime_hours": 39.6,
+      "response_time_ms": 151.8,
+      "last_verified": "2026-06-17T01:06:00+09:00"
+    },
+    "discord_bot_p1": {
+      "name": "DISCORD-BOT-P1",
+      "status": "DOWN",
+      "http_code": 404,
+      "error": "DEPLOYMENT_NOT_FOUND",
+      "endpoint": "https://dsc-fms-portal-discord-bot.vercel.app",
+      "downtime_minutes": 2376,
+      "downtime_hours": 39.6,
+      "response_time_ms": 137.8,
+      "last_verified": "2026-06-17T01:06:00+09:00"
+    },
+    "travel_p2_ui": {
+      "name": "TRAVEL-P2-UI",
+      "status": "DOWN",
+      "http_code": 404,
+      "error": "DEPLOYMENT_NOT_FOUND",
+      "endpoint": "https://dsc-fms-portal-travel-planning.vercel.app",
+      "downtime_minutes": 2376,
+      "downtime_hours": 39.6,
+      "response_time_ms": 151.8,
+      "last_verified": "2026-06-17T01:06:00+09:00"
+    },
+    "main_portal": {
+      "name": "Main Portal (dsc-fms-portal)",
+      "status": "UP",
+      "http_code": 200,
+      "endpoint": "https://dsc-fms-portal.vercel.app",
+      "uptime": "39h+",
+      "response_time_ms": 207.8,
+      "verified": true,
+      "last_verified": "2026-06-17T01:06:00+09:00"
+    }
+  },
+  "summary": {
+    "operational": "1/4 (25%)",
+    "down": "3/4 (75%)",
+    "reliability": "25%",
+    "verification_date": "2026-06-17T01:06:00+09:00",
+    "status_stability": "🔴 CRITICAL (39h 36m DOWN)",
+    "status_change_from_prev": "NO CHANGE (상황 악화 지속)"
+  },
+  "incident_tracking": {
+    "incident_start": "2026-06-15T03:02:00+09:00",
+    "incident_duration_minutes": 2376,
+    "incident_duration_hours": 39.6,
+    "incident_duration_days": 1.65,
+    "severity": "CRITICAL",
+    "phase": "UNRESOLVED"
+  },
+  "blockers": [
+    {
+      "id": "B1",
+      "title": "P1 3/4 서비스 DOWN (39h+ 지속)",
+      "severity": "🔴 CRITICAL",
+      "description": "AUDIT, DISCORD-BOT, TRAVEL: DEPLOYMENT_NOT_FOUND",
+      "root_cause": "GitHub PAT 만료 또는 Vercel webhook 실패",
+      "solution": "1) GitHub PAT 재생성, 2) Vercel 대시보드 Redeploy",
+      "user_action_required": true,
+      "duration_minutes": 2376,
+      "escalation_level": "CEO Decision Required"
+    },
+    {
+      "id": "B2",
+      "title": "배포 자동화 완전 미작동 (39h)",
+      "severity": "🔴 CRITICAL",
+      "description": "Vercel webhook → GitHub Actions → 자동 배포 체인 깨짐",
+      "impact": "모든 P1 서비스 신규 배포 불가",
+      "fix": "GitHub PAT 재생성 → Vercel 재연결 → Manual Redeploy"
+    }
+  ],
+  "user_action_required": {
+    "status": "🔴 URGENT",
+    "items": [
+      {
+        "priority": "CRITICAL",
+        "action": "GitHub PAT 재생성 (personal access token expired)",
+        "location": "https://github.com/settings/tokens",
+        "expected_impact": "자동 배포 재개",
+        "estimated_completion_time_minutes": 5
+      },
+      {
+        "priority": "CRITICAL",
+        "action": "Vercel 대시보드에서 각 배포 프로젝트 Redeploy",
+        "projects": ["dsc-fms-portal-audit", "dsc-fms-portal-discord-bot", "dsc-fms-portal-travel-planning"],
+        "location": "https://vercel.com/dashboard",
+        "expected_impact": "3/4 서비스 복구",
+        "estimated_completion_time_minutes": 30
+      }
+    ]
+  },
+  "recommendations": [
+    "🔴 URGENT: GitHub PAT 재생성 후 Vercel Redeploy 필수 (39h 이상 지연)",
+    "Vercel 지원팀 에스컬레이션 검토 (webhook 연결 상태 확인)",
+    "배포 자동화 모니터링 시스템 강화 필요"
+  ],
+  "monitoring_status": "ACTIVE (2min polling)",
+  "next_check": "2026-06-17T01:08:00+09:00"
+}

@@ -1,0 +1,46 @@
+{
+  "timestamp": "2026-06-16T15:33:00+09:00",
+  "cycle": "1533",
+  "checks": {
+    "AUDIT-P1": {
+      "url": "https://dsc-fms-portal-0cf3c1ba.vercel.app/audit",
+      "status": "DOWN",
+      "http_code": 404,
+      "verified_at": "2026-06-16T15:33:00+09:00"
+    },
+    "DISCORD-BOT-P1": {
+      "url": "https://dsc-fms-discord-bot-585db4d5.vercel.app/health",
+      "status": "DOWN",
+      "http_code": 404,
+      "verified_at": "2026-06-16T15:33:00+09:00"
+    },
+    "TRAVEL-P2-UI": {
+      "url": "https://dsc-fms-travel-e9396c74.vercel.app",
+      "status": "DOWN",
+      "http_code": 404,
+      "verified_at": "2026-06-16T15:33:00+09:00"
+    },
+    "Main-Portal": {
+      "url": "https://dsc-fms-portal-main.vercel.app",
+      "status": "DOWN",
+      "http_code": 404,
+      "verified_at": "2026-06-16T15:33:00+09:00"
+    },
+    "BM-P1": {
+      "url": "https://dsc-fms-bm-ecc13a9f.vercel.app",
+      "status": "DOWN",
+      "http_code": 404,
+      "verified_at": "2026-06-16T15:33:00+09:00"
+    }
+  },
+  "summary": {
+    "p1_operational": 0,
+    "p1_total": 4,
+    "p1_percentage": 0,
+    "deployment_down_minutes": 1771,
+    "credibility": "0%",
+    "critical_blockers": 2,
+    "notes": "전체 배포 손실 지속 (29h 31m+). 13:41 KST 이후 47분 경과. 메모리 거짓신호 감지 → 기술 검증 완료. Vercel DEPLOYMENT_NOT_FOUND 또는 모든 엔드포인트 다운.",
+    "next_check": "2026-06-16T15:38:00+09:00"
+  }
+}

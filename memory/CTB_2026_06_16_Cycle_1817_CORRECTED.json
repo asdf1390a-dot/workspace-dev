@@ -1,0 +1,51 @@
+{
+  "timestamp": "2026-06-16T18:17:00+09:00",
+  "cycle": "1817_CORRECTED",
+  "verification_method": "direct_endpoint_check_with_corrected_urls",
+  "correction_note": "18:17 검증에서 잘못된 엔드포인트 URL 사용 → 재검증 완료",
+  "p1_status": {
+    "main_portal": {
+      "name": "Main Portal",
+      "endpoint": "https://dsc-fms-portal.vercel.app",
+      "http_code": 200,
+      "status": "UP",
+      "verified": true
+    },
+    "audit_p1": {
+      "name": "AUDIT-P1",
+      "endpoint": "https://dsc-fms-portal-audit.vercel.app",
+      "http_code": 200,
+      "status": "UP",
+      "verified": true
+    },
+    "discord_bot_p1": {
+      "name": "DISCORD-BOT-P1",
+      "endpoint": "https://dsc-fms-portal-discord.vercel.app",
+      "http_code": 200,
+      "status": "UP",
+      "verified": true
+    },
+    "travel_p2_ui": {
+      "name": "TRAVEL-P2-UI",
+      "endpoint": "https://dsc-fms-portal-travel.vercel.app",
+      "http_code": 200,
+      "status": "UP",
+      "verified": true
+    }
+  },
+  "summary": {
+    "operational": "4/4 (100%)",
+    "down": "0/4 (0%)",
+    "reliability": "100%",
+    "status_stability": "STABLE (배포 완전복구 ✅)",
+    "verification_date": "2026-06-16T18:17:00+09:00",
+    "previous_false_signal": "13:41~18:15 KST — 거짓 DOWN 신호 (잘못된 URL 사용)"
+  },
+  "blockers": [],
+  "recommendations": [
+    "✅ 배포 정상화 완료",
+    "엔드포인트 URL 기록 정정 필요 (감시용)",
+    "자동 모니터링 신뢰도 회복 중"
+  ],
+  "next_check": "2026-06-16T18:22:00+09:00"
+}

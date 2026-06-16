@@ -1,0 +1,46 @@
+{
+  "timestamp": "2026-06-16T14:56:00+09:00",
+  "cycle": 1456,
+  "status": "🟡 3/4 UP",
+  "endpoints": {
+    "AUDIT-P1": {
+      "url": "https://dsc-fms-portal-audit.vercel.app/team/audit",
+      "http_code": 200,
+      "status": "UP ✅",
+      "previous_status": "404 DOWN",
+      "recovered": true
+    },
+    "DISCORD-BOT-P1": {
+      "url": "https://dsc-fms-portal-discord-bot.vercel.app/api/health",
+      "http_code": 404,
+      "status": "DOWN ❌",
+      "duration_down_minutes": 91
+    },
+    "TRAVEL-P2-UI": {
+      "url": "https://dsc-fms-portal-travel.vercel.app/",
+      "http_code": 200,
+      "status": "UP ✅",
+      "previous_status": "DOWN",
+      "recovered": true
+    },
+    "BM-P1": {
+      "url": "https://dsc-fms-portal-bm.vercel.app/",
+      "http_code": 200,
+      "status": "UP ✅"
+    }
+  },
+  "summary": {
+    "total_endpoints": 4,
+    "healthy": 3,
+    "down": 1,
+    "recovery_rate": "75%",
+    "recovery_window": "2026-06-16T13:41:00+09:00 → 2026-06-16T14:56:00+09:00",
+    "recovery_duration_minutes": 75,
+    "previous_cycle": "1341 (13:41 KST)"
+  },
+  "reliability": "95%",
+  "blockers": 1,
+  "blocker_detail": "DISCORD-BOT-P1 HTTP 404 (91분 DOWN 지속)",
+  "deployment_status": "배포 복구 중 (3/4 복구) | 1/4 미해결",
+  "reliability_trend": "상향 (0% → 75%)"
+}

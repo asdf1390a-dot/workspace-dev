@@ -1,0 +1,75 @@
+{
+  "timestamp": "2026-06-16T14:09:00+09:00",
+  "cycle_number": 1409,
+  "polling_method": "direct_endpoint_verification",
+  "services": {
+    "MAIN_PORTAL": {
+      "name": "Main Portal (dsc-fms-portal.vercel.app)",
+      "status": "PARTIAL",
+      "http_code": "200+Loading",
+      "endpoint": "https://dsc-fms-portal.vercel.app",
+      "issue": "Content returns but 'Loading...' message indicates incomplete render",
+      "operational": false
+    },
+    "AUDIT_P1": {
+      "name": "AUDIT-P1",
+      "status": "DOWN",
+      "http_code": 404,
+      "endpoint": "https://dsc-fms-portal.vercel.app/audit",
+      "issue": "Route not found. Recent fix commit (8e3d0d4e) attempted to redirect to /team/audit but not yet deployed",
+      "operational": false
+    },
+    "BM_P1": {
+      "name": "BM-P1",
+      "status": "DOWN",
+      "http_code": 404,
+      "endpoint": "https://dsc-fms-portal.vercel.app/bm",
+      "issue": "Route not found",
+      "operational": false
+    },
+    "TRAVEL_P2_UI": {
+      "name": "TRAVEL-P2-UI",
+      "status": "DOWN",
+      "http_code": 404,
+      "endpoint": "https://dsc-fms-travel.vercel.app",
+      "issue": "Deployment or separate domain issue",
+      "operational": false
+    }
+  },
+  "summary": {
+    "operational_count": 0,
+    "total_count": 4,
+    "operational_percentage": 0,
+    "status_code": "🔴 0/4 OPERATIONAL"
+  },
+  "incident": {
+    "duration_from_start": "40h 7m",
+    "start_time": "2026-06-15T02:02:00+09:00",
+    "current_time": "2026-06-16T14:09:00+09:00"
+  },
+  "reliability_score": 0,
+  "blockers": [
+    {
+      "id": 1,
+      "severity": "CRITICAL",
+      "title": "Vercel Deployments Not Operational",
+      "description": "All P1/P2 services returning 404 or incomplete. Main portal shows Loading state.",
+      "requires_user_action": true,
+      "action_required": "Vercel deployment status check + token verification"
+    },
+    {
+      "id": 2,
+      "severity": "CRITICAL",
+      "title": "Route Redirect Not Deployed",
+      "description": "Commit 8e3d0d4e fixed /audit→/team/audit redirect in code but fix not yet live",
+      "requires_user_action": true,
+      "action_required": "Verify Vercel deployment completed and cache cleared"
+    }
+  ],
+  "notes": [
+    "Monitoring script false signals confirmed earlier (13:41 cycle)",
+    "Direct endpoint verification now shows actual status: 0/4 OPERATIONAL",
+    "Previous 1/4 UP report was optimistic; Main Portal only partially functional",
+    "URGENT: No recovery signals in 40+ hours. Escalation decision required."
+  ]
+}
