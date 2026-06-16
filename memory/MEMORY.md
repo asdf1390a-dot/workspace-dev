@@ -1,5 +1,9 @@
 # 메모리 인덱스
 
+## 📋 Weekly Improvement Analysis URGENT UPDATE (2026-06-16 09:56 KST) — 위반 4건 → 6건 회귀 / 개선안 미구현 상태에서 재발생
+
+- [📋 Weekly Report UPDATE (09:56 KST)](WEEKLY_IMPROVEMENT_REPORT_20260616_0956.md) — **위반: 4건 → 6건 (50% 증가)** | **신규 2건** (거짓신호 재발생 09:32-09:37 + db/30 OVERDUE 지속) | **패턴: 이전 분석과 동일** (CTB 로컬포트 버그 미해결) | **개선안 미구현** (배포 DOWN 제약) | **신뢰도 87%** (원래 82% 상향) | **테스트 2026-06-17~23** | **P0: 즉시 CTB 수정 + 에스컬레이션 추가**
+
 ## 🔄 Task State Machine Monitor (2026-06-16 09:52 KST) — 상태 전환 0건 / 거짓 신호 재발생 감지
 
 - [🔄 State Machine (09:52 KST)](task_state_machine_20260616_0952.md) — **상태 전환: ❌ 0건** | **모니터링 대상: 8개 태스크** | **BLOCKED_ON_EXTERNAL: 7건** (P1 + Phase 3) | **BLOCKED_ON_USER: 1건** (db/30) | **외부 신호 미감지: 🔴 P1 DOWN 확인 (curl 09:49)** | **사용자 신호 미감지: 🔴 db/30 미실행** | **🔴 거짓 신호 재발생 (09:32-09:37)** | **블로커 2건 CRITICAL** (배포+토큰) | **신뢰도 0% (거짓신호)** | **다음 10:22 KST**
