@@ -1,0 +1,19 @@
+【CTB 폴링 (09:51 KST / 2026-06-17)】
+
+📊 상태 요약:
+- 🔴 4/4 P1 DOWN (AUDIT/DISCORD-BOT/TRAVEL/BM)
+- ⏱️ 다운타임: 39h 36m (2026-06-15 18:15 UTC 시작)
+- 📈 신뢰도: 100% (직접 엔드포인트 검증)
+- 🚨 블로커: CRITICAL (Vercel DEPLOYMENT_NOT_FOUND)
+
+엔드포인트 상세:
+- AUDIT-P1: HTTP 404 (144ms)
+- DISCORD-BOT-P1: HTTP 404 (150ms)
+- TRAVEL-P2-UI: HTTP 404 (176ms)
+- BM-P1: HTTP 404 (159ms)
+
+🔍 검증 방법: direct_curl_verification (4회 성공)
+✅ 모니터링 정상 작동
+🟡 거짓 신호: 없음 (이전 오탐 수정됨)
+
+다음 폴링: 09:56 KST (5분 후)
