@@ -1,0 +1,55 @@
+{
+  "timestamp": "2026-06-17T10:19:00Z",
+  "cycle_number": 1239,
+  "environment": "production-monitoring",
+  "endpoints": {
+    "AUDIT-P1": {
+      "url": "https://dsc-fms-audit.vercel.app/",
+      "http_code": 404,
+      "status": "DOWN",
+      "deployment_status": "DEPLOYMENT_NOT_FOUND",
+      "response_time_ms": 142
+    },
+    "DISCORD-BOT-P1": {
+      "url": "https://dsc-fms-discord-bot.vercel.app/",
+      "http_code": 404,
+      "status": "DOWN",
+      "deployment_status": "DEPLOYMENT_NOT_FOUND",
+      "response_time_ms": 147
+    },
+    "TRAVEL-P2-UI": {
+      "url": "https://dsc-fms-travel.vercel.app/",
+      "http_code": 404,
+      "status": "DOWN",
+      "deployment_status": "DEPLOYMENT_NOT_FOUND",
+      "response_time_ms": 174
+    },
+    "BM-P1": {
+      "url": "https://dsc-fms-bm.vercel.app/",
+      "http_code": 404,
+      "status": "DOWN",
+      "deployment_status": "DEPLOYMENT_NOT_FOUND",
+      "response_time_ms": 156
+    }
+  },
+  "summary": {
+    "total_endpoints": 4,
+    "up": 0,
+    "down": 4,
+    "operational_percentage": 0,
+    "verification_method": "direct_curl_verification",
+    "false_signal_detected": false,
+    "status_note": "4/4 P1 배포 모두 DOWN - DEPLOYMENT_NOT_FOUND (지속: 34h 13m)"
+  },
+  "reliability": {
+    "endpoint_verification": "100%",
+    "status_accuracy": "HIGH",
+    "monitoring_status": "OPERATIONAL"
+  },
+  "downtime_tracking": {
+    "started_at": "2026-06-15T09:06:00Z",
+    "current_duration_hours": 34.22,
+    "last_known_up_state": "2026-06-15T09:00:00Z",
+    "duration_formatted": "34h 13m"
+  }
+}
