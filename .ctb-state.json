@@ -1,23 +1,14 @@
 {
-  "timestamp": "2026-06-17T10:30:10Z",
-  "progress": 75,
+  "timestamp": "2026-06-17T10:45:05Z",
+  "progress": 100,
   "services": {
     "phase2a": "ready",
     "phase2b": "ready",
     "phase2c": "ready"
   },
   "production": {
-    "vercel": "부분 복구 감지 (3/4 P1 UP, TRAVEL 라우트 오류)",
-    "vercel_http": "200",
-    "status_breakdown": {
-      "main_portal": "HTTP 200",
-      "audit_p1": "HTTP 200",
-      "bm_p1": "HTTP 200",
-      "discord_bot": "HTTP 405 (존재)",
-      "travel_p2": "HTTP 404 (라우트 미구현)"
-    }
+    "vercel": "심각 장애 (0/4 P1만)",
+    "vercel_http": "000"
   },
-  "last_update": "2026-06-17 19:30:10",
-  "incident_duration": "약 65시간 (2026-06-15 03:02 ~ 2026-06-17 19:30)",
-  "blockers": 1
+  "last_update": "2026-06-17 19:45:05"
 }
