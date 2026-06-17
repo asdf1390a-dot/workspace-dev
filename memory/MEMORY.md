@@ -1,15 +1,23 @@
-# 메모리 인덱스 (2026-06-17 18:56 KST — 1/4 UP, 32h 50m DOWN)
+# 메모리 인덱스 (2026-06-17 19:44 KST — 1/4 UP, 30h 5m DOWN)
 
-## 🔴 **현황 — 3/4 P1 배포 DOWN** 
+## 🔴 **현황 — 3/4 P1 배포 DOWN 지속** 
 
-- **배포**: 🔴 **1/4 UP** (Main Portal만 HTTP 200 | AUDIT/DISCORD-BOT/TRAVEL/BM HTTP 404)
-- **신뢰도**: **100%** (직접 curl 검증 완료, 18:56 KST)
-- **블로커**: 2건 CRITICAL (Vercel DEPLOYMENT_NOT_FOUND + GitHub PAT 비활성)
-- **다운타임**: **32h 50m** (2026-06-15 10:06 KST 시작)
+- **배포**: 🔴 **1/4 UP** (Main Portal만 HTTP 200 | AUDIT/DISCORD-BOT/TRAVEL HTTP 404)
+- **신뢰도**: **25%** (직접 WebFetch 검증 완료, 19:44 KST)
+- **블로커**: 1건 CRITICAL (Vercel DEPLOYMENT_NOT_FOUND)
+- **다운타임**: **30h 5m** (2026-06-16 13:39 KST 시작, 복구 없음)
 - **모니터링**: ✅ 정상 작동 (직접 HTTP 검증)
-- **필수 조치**: GitHub PAT 재생성 + Vercel 배포 재개
+- **필수 조치**: GitHub PAT 재생성 + Vercel 배포 재개 (긴급)
 
 ---
+
+## 📊 폴링 (2026-06-17 19:44 KST) — 상태 지속 (무변화, 30h 5m)
+
+- [🔴 CTB 폴링 (19:44 KST)](CTB_2026_06_17_Cycle_1944.json) — **🔴 1/4 UP (Main Portal만)** | **3/4 HTTP 404** | **다운타임 30h 5m** | **신뢰도 25%** (WebFetch 직접검증) | **블로커 1건 CRITICAL** | **상태 무변화** | **다음 확인 19:49 KST**
+
+## 📊 폴링 (2026-06-17 19:39 KST) — 상태 지속 (무변화, 30h+)
+
+- [🔴 CTB 폴링 (19:39 KST)](CTB_2026_06_17_Cycle_1939.json) — **🔴 1/4 UP (Main Portal만)** | **3/4 HTTP 404** | **다운타임 30h+** | **신뢰도 100%** (curl 직접검증) | **블로커 2건 CRITICAL** | **상태 무변화** | **다음 확인 19:44 KST**
 
 ## 📊 폴링 (2026-06-17 18:56 KST) — 상태 확정 (직접검증)
 
