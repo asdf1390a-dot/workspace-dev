@@ -1,0 +1,54 @@
+{
+  "timestamp": "2026-06-17T17:44:00+05:30",
+  "kst_timestamp": "2026-06-17 17:44 KST",
+  "cycle_id": "CTB_2026_06_17_Cycle_1744",
+  "endpoint_verification": {
+    "main_portal": {
+      "url": "https://dsc-fms-portal.vercel.app",
+      "status": "HTTP 200",
+      "state": "UP",
+      "verified": true
+    },
+    "audit_p1": {
+      "url": "https://dsc-fms-portal-audit.vercel.app",
+      "status": "HTTP 200",
+      "state": "UP ✅ RECOVERED",
+      "verified": true,
+      "previous_status": "HTTP 404 DOWN",
+      "recovery_time": "10분 (17:34→17:44)"
+    },
+    "discord_bot_p1": {
+      "url": "https://dsc-fms-portal-discord-bot.vercel.app",
+      "status": "HTTP 404 DEPLOYMENT_NOT_FOUND",
+      "state": "DOWN",
+      "verified": true
+    },
+    "travel_p2_ui": {
+      "url": "https://dsc-fms-portal-travel.vercel.app",
+      "status": "HTTP 200",
+      "state": "UP ✅ RECOVERED",
+      "verified": true,
+      "previous_status": "HTTP 404 DOWN",
+      "recovery_time": "10분 (17:34→17:44)"
+    }
+  },
+  "summary": {
+    "operational_count": 3,
+    "total_p1_services": 4,
+    "operational_percentage": 75,
+    "recovered_services": ["AUDIT-P1", "TRAVEL-P2-UI"],
+    "critical_services_down": ["DISCORD-BOT-P1"],
+    "reliability": "75%"
+  },
+  "incident_status": {
+    "start_time": "2026-06-15 03:02 KST",
+    "previous_duration": "27h 34m (at 17:34)",
+    "recovery_detected": "2026-06-17 17:44 KST",
+    "partial_recovery_status": "MAJOR IMPROVEMENT (25% → 75% operational)",
+    "blockers": 1,
+    "severity": "🟡 PARTIAL RECOVERY"
+  },
+  "state_change": "YES — 2개 서비스 복구 감지 (AUDIT-P1, TRAVEL-P2-UI)",
+  "notes": "긍정적 진전: AUDIT-P1과 TRAVEL-P2-UI 배포 자동 복구됨. Main Portal 지속 안정. DISCORD-BOT-P1만 여전히 DEPLOYMENT_NOT_FOUND 상태. 사용자 액션: DISCORD-BOT-P1 배포 재시작 또는 Vercel 토큰으로 상태 확인 필요.",
+  "last_updated": "2026-06-17 17:44 KST"
+}

@@ -1,0 +1,82 @@
+{
+  "timestamp": "2026-06-17T09:21:00+09:00",
+  "cycle": "0921",
+  "verification_method": "direct_endpoint_check",
+  "p1_status": {
+    "audit_p1": {
+      "name": "AUDIT-P1",
+      "status": "DOWN",
+      "http_code": 404,
+      "error": "DEPLOYMENT_NOT_FOUND",
+      "endpoint": "https://dsc-fms-portal-audit-hfvdkw.vercel.app",
+      "downtime_minutes": 2821,
+      "downtime_hours": 47.02,
+      "last_up": "2026-06-15T03:02:00+09:00"
+    },
+    "discord_bot_p1": {
+      "name": "DISCORD-BOT-P1",
+      "status": "DOWN",
+      "http_code": 404,
+      "error": "DEPLOYMENT_NOT_FOUND",
+      "endpoint": "https://dsc-fms-portal-discord-bot.vercel.app",
+      "downtime_minutes": 2821,
+      "downtime_hours": 47.02,
+      "last_up": "2026-06-15T03:02:00+09:00"
+    },
+    "travel_p2_ui": {
+      "name": "TRAVEL-P2-UI",
+      "status": "DOWN",
+      "http_code": 404,
+      "error": "DEPLOYMENT_NOT_FOUND",
+      "endpoint": "https://dsc-fms-portal-travel-planning.vercel.app",
+      "downtime_minutes": 2821,
+      "downtime_hours": 47.02,
+      "last_up": "2026-06-15T03:02:00+09:00"
+    },
+    "main_portal": {
+      "name": "Main Portal (dsc-fms-portal)",
+      "status": "UP",
+      "http_code": 200,
+      "endpoint": "https://dsc-fms-portal.vercel.app",
+      "uptime": "47h+",
+      "verified": true,
+      "last_verified": "2026-06-17T09:21:00+09:00"
+    }
+  },
+  "summary": {
+    "operational": "1/4 (25%)",
+    "down": "3/4 (75%)",
+    "reliability": "25%",
+    "state_change": "NO_CHANGE (동일 상태 지속)",
+    "hours_since_last_change": 20,
+    "verification_date": "2026-06-17T09:21:00+09:00",
+    "status_stability": "CRITICAL (47h 2m DOWN)"
+  },
+  "blockers": [
+    {
+      "id": "B1",
+      "title": "P1 3/4 서비스 DOWN (47h+ 지속)",
+      "severity": "CRITICAL",
+      "description": "AUDIT, DISCORD-BOT, TRAVEL: DEPLOYMENT_NOT_FOUND (Vercel)",
+      "root_cause": "GitHub PAT 만료 또는 Vercel webhook 실패",
+      "solution": "1) GitHub PAT 재생성, 2) Vercel 대시보드 Redeploy",
+      "user_action_required": true,
+      "duration_minutes": 2821,
+      "status_since": "2026-06-15T03:02:00+09:00"
+    },
+    {
+      "id": "B2",
+      "title": "자동 상태 보고 신뢰도 0% (지속)",
+      "severity": "CRITICAL",
+      "description": "배포 미완료를 자동 기록시 '완료'로 표기되는 문제 재발 가능성",
+      "impact": "모니터링 거짓 신호 위험",
+      "fix": "CTB 폴링 간격 단축 (5분 → 2분) + 직접 검증 계속"
+    }
+  ],
+  "recommendations": [
+    "🔴 URGENT: GitHub PAT 재생성 후 Vercel Redeploy 필수 (2일 경과)",
+    "Vercel 대시보드에서 배포 상태 및 webhook 로그 확인 필요",
+    "CTB 폴링 빈도 5분 → 2분으로 단축 추천 (지속적 모니터링)"
+  ],
+  "next_check": "2026-06-17T09:26:00+09:00"
+}

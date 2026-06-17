@@ -1,0 +1,86 @@
+{
+  "timestamp": "2026-06-17T16:49:00+09:00",
+  "cycle": "1649",
+  "verification_method": "direct_endpoint_check",
+  "p1_status": {
+    "main_portal": {
+      "name": "Main Portal (dsc-fms-portal)",
+      "status": "DOWN",
+      "http_code": 503,
+      "error": "SERVICE_UNAVAILABLE",
+      "endpoint": "https://dsc-fms-portal.vercel.app",
+      "downtime_minutes": 1843,
+      "downtime_hours": 30.72,
+      "change_from_last": "200 → 503 (악화됨)"
+    },
+    "audit_p1": {
+      "name": "AUDIT-P1",
+      "status": "DOWN",
+      "http_code": 404,
+      "error": "DEPLOYMENT_NOT_FOUND",
+      "endpoint": "https://dsc-fms-portal-audit-hfvdkw.vercel.app",
+      "downtime_minutes": 1843,
+      "downtime_hours": 30.72
+    },
+    "discord_bot_p1": {
+      "name": "DISCORD-BOT-P1",
+      "status": "DOWN",
+      "http_code": 404,
+      "error": "DEPLOYMENT_NOT_FOUND",
+      "endpoint": "https://dsc-fms-portal-discord-bot.vercel.app",
+      "downtime_minutes": 1843,
+      "downtime_hours": 30.72
+    },
+    "travel_p2_ui": {
+      "name": "TRAVEL-P2-UI",
+      "status": "DOWN",
+      "http_code": 404,
+      "error": "DEPLOYMENT_NOT_FOUND",
+      "endpoint": "https://dsc-fms-portal-travel-planning.vercel.app",
+      "downtime_minutes": 1843,
+      "downtime_hours": 30.72
+    }
+  },
+  "summary": {
+    "operational": "0/4 (0%)",
+    "down": "4/4 (100%)",
+    "reliability": "0%",
+    "verification_date": "2026-06-17T16:49:00+09:00",
+    "status_stability": "🔴 CRITICAL (30h 43m DOWN TOTAL)"
+  },
+  "critical_change": {
+    "status": "REGRESSION_DETECTED",
+    "issue": "Main Portal 악화: HTTP 200 → 503",
+    "previous_status": "1/4 UP",
+    "current_status": "0/4 DOWN",
+    "impact": "100% 서비스 손실"
+  },
+  "blockers": [
+    {
+      "id": "B1",
+      "title": "전체 P1 서비스 다운 (30h+ 지속)",
+      "severity": "CRITICAL",
+      "description": "4/4 배포 불가능 — Main Portal 악화됨 (503)",
+      "root_cause": "GitHub PAT 만료 또는 Vercel 계정 권한 문제",
+      "solution": "1) GitHub PAT 재생성, 2) Vercel 대시보드 재인증, 3) 전체 Redeploy",
+      "user_action_required": true,
+      "duration_minutes": 1843,
+      "duration_hours": 30.72
+    },
+    {
+      "id": "B2",
+      "title": "모니터링 신뢰도 붕괴 (0% → 거짓신호 다중화)",
+      "severity": "CRITICAL",
+      "description": "이전 보고: 1/4 UP → 실제: 0/4 DOWN (자동 시스템 오류)",
+      "impact": "메모리 기반 의사결정 불가능",
+      "fix": "수동 엔드포인트 검증만 신뢰 (자동화 비활성화 필요)"
+    }
+  ],
+  "recommendations": [
+    "🔴 긴급: GitHub PAT 즉시 재생성 필요",
+    "🔴 긴급: Vercel 대시보드 로그인 확인 필요",
+    "🔴 긴급: 수동 Redeploy 시도 (모든 4개 배포)",
+    "자동 모니터링 비활성화 권장 (오류 누적)"
+  ],
+  "next_check": "2026-06-17T16:54:00+09:00"
+}

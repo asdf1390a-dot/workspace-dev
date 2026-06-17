@@ -1,0 +1,50 @@
+{
+  "timestamp": "2026-06-17T11:32:01+09:00",
+  "cycle_id": "1131",
+  "date": "2026-06-17",
+  "time_kst": "11:32 KST",
+  "status_summary": "🔴 0/4 P1 UP (0% OPERATIONAL)",
+  "uptime": "ONGOING DOWN",
+  "duration_hours": "27+",
+  "services": {
+    "AUDIT-P1": {
+      "status": "🔴 DOWN",
+      "http_code": "000",
+      "details": "TIMEOUT/UNREACHABLE",
+      "deployment_id": "0cf3c1ba",
+      "last_check": "2026-06-17T11:32:01+09:00"
+    },
+    "DISCORD-BOT-P1": {
+      "status": "🔴 DOWN",
+      "http_code": "000",
+      "details": "TIMEOUT/UNREACHABLE",
+      "deployment_id": "585db4d5",
+      "last_check": "2026-06-17T11:32:01+09:00"
+    },
+    "TRAVEL-P2-UI": {
+      "status": "🔴 DOWN",
+      "http_code": "000",
+      "details": "TIMEOUT/UNREACHABLE",
+      "deployment_id": "e9396c74",
+      "last_check": "2026-06-17T11:32:01+09:00"
+    },
+    "BM-P1": {
+      "status": "🔴 DOWN",
+      "http_code": "000",
+      "details": "TIMEOUT/UNREACHABLE",
+      "deployment_id": "ecc13a9f",
+      "last_check": "2026-06-17T11:32:01+09:00"
+    }
+  },
+  "reliability_score": 0,
+  "blockers_count": 4,
+  "blocker_types": [
+    "Vercel deployment unresponsive",
+    "Network timeout across all endpoints",
+    "No recovery signals detected"
+  ],
+  "previous_status": "1/4 UP (Main Portal only)",
+  "change_detected": false,
+  "notes": "All 4 services confirmed DOWN via direct endpoint check. No HTTP 200/404 responses. Network timeouts persistent. Requires Vercel token/GitHub PAT for deployment recovery.",
+  "next_check": "2026-06-17T11:37:01+09:00"
+}

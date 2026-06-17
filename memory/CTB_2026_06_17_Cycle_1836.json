@@ -1,0 +1,116 @@
+{
+  "timestamp": "2026-06-17T18:36:00+09:00",
+  "timestamp_utc": "2026-06-17T09:36:00Z",
+  "cycle": "1836",
+  "date": "2026-06-17",
+  "time_kst": "18:36 (목요일 저녁)",
+  "verification_method": "direct_endpoint_http_check",
+  "p1_status": {
+    "main_portal": {
+      "name": "Main Portal (dsc-fms-portal)",
+      "status": "UP",
+      "http_code": 200,
+      "endpoint": "https://dsc-fms-portal.vercel.app",
+      "uptime": "continuously since 2026-06-13",
+      "verified": true,
+      "timestamp": "2026-06-17T09:36:00Z"
+    },
+    "bm_p1": {
+      "name": "BM-P1 (dsc-fms-portal-bm)",
+      "status": "UP",
+      "http_code": 200,
+      "endpoint": "https://dsc-fms-portal-bm.vercel.app",
+      "recovery_detected": "🟢 RECOVERED",
+      "recovery_time_kst": "2026-06-17 (between 13:41 and 18:36 KST)",
+      "previous_status": "DOWN (27h+ at 13:41 KST on 2026-06-16)",
+      "verified": true,
+      "timestamp": "2026-06-17T09:37:00Z"
+    },
+    "audit_p1": {
+      "name": "AUDIT-P1 (dsc-fms-portal-audit-hfvdkw)",
+      "status": "DOWN",
+      "http_code": 404,
+      "error": "DEPLOYMENT_NOT_FOUND",
+      "endpoint": "https://dsc-fms-portal-audit-hfvdkw.vercel.app",
+      "downtime_duration_hours": "40+",
+      "downtime_start": "2026-06-15T03:02:00+09:00",
+      "verified": true,
+      "timestamp": "2026-06-17T09:36:00Z"
+    },
+    "discord_bot_p1": {
+      "name": "DISCORD-BOT-P1 (dsc-fms-portal-discord-bot)",
+      "status": "DOWN",
+      "http_code": 404,
+      "error": "DEPLOYMENT_NOT_FOUND",
+      "endpoint": "https://dsc-fms-portal-discord-bot.vercel.app",
+      "downtime_duration_hours": "40+",
+      "downtime_start": "2026-06-15T03:02:00+09:00",
+      "verified": true,
+      "timestamp": "2026-06-17T09:36:00Z"
+    },
+    "travel_p2_ui": {
+      "name": "TRAVEL-P2-UI (dsc-fms-portal-travel-planning)",
+      "status": "DOWN",
+      "http_code": 404,
+      "error": "DEPLOYMENT_NOT_FOUND",
+      "endpoint": "https://dsc-fms-portal-travel-planning.vercel.app",
+      "downtime_duration_hours": "40+",
+      "downtime_start": "2026-06-15T03:02:00+09:00",
+      "verified": true,
+      "timestamp": "2026-06-17T09:36:00Z"
+    }
+  },
+  "summary": {
+    "operational": "2/4 (50%)",
+    "down": "2/4 (50%)",
+    "reliability": "50%",
+    "previous_status": "1/4 UP (at 2026-06-16 13:41 KST)",
+    "status_change": "🟢 IMPROVEMENT (+1 service recovered)",
+    "verification_date": "2026-06-17T18:36:00+09:00",
+    "status_stability": "PARTIAL RECOVERY (BM-P1 복구)"
+  },
+  "recovery_analysis": {
+    "recovered_service": "BM-P1",
+    "recovery_window": "2026-06-16 13:41 ~ 2026-06-17 18:36 KST (29h)",
+    "recovery_indicator": "🟢 Vercel deployment automatic recovery or manual redeploy",
+    "impact": "P1 operational status improved from 25% to 50%"
+  },
+  "remaining_blockers": [
+    {
+      "id": "B1",
+      "title": "AUDIT-P1 미배포 (40h+ DOWN)",
+      "severity": "CRITICAL",
+      "status": "DOWN",
+      "endpoint_status": "HTTP 404 DEPLOYMENT_NOT_FOUND",
+      "error_details": "GitHub PAT 만료 또는 Vercel webhook 실패 (지속)",
+      "duration_minutes": 2400,
+      "duration_hours": 40
+    },
+    {
+      "id": "B2",
+      "title": "DISCORD-BOT-P1 미배포 (40h+ DOWN)",
+      "severity": "CRITICAL",
+      "status": "DOWN",
+      "endpoint_status": "HTTP 404 DEPLOYMENT_NOT_FOUND",
+      "error_details": "GitHub PAT 만료 또는 Vercel webhook 실패 (지속)",
+      "duration_minutes": 2400,
+      "duration_hours": 40
+    },
+    {
+      "id": "B3",
+      "title": "TRAVEL-P2-UI 미배포 (40h+ DOWN)",
+      "severity": "CRITICAL",
+      "status": "DOWN",
+      "endpoint_status": "HTTP 404 DEPLOYMENT_NOT_FOUND",
+      "error_details": "GitHub PAT 만료 또는 Vercel webhook 실패 (지속)",
+      "duration_minutes": 2400,
+      "duration_hours": 40
+    }
+  ],
+  "recommendations": [
+    "🟢 BM-P1 복구 확인 — 자동 또는 수동 복구 분석 필요",
+    "🔴 URGENT: AUDIT-P1, DISCORD-BOT-P1, TRAVEL-P2-UI 여전히 DOWN — GitHub PAT 재생성 + Vercel Redeploy 필수",
+    "CTB 폴링 빈도 유지 (2분 주기) — 추가 복구 신호 감시"
+  ],
+  "next_check": "2026-06-17T18:38:00+09:00"
+}

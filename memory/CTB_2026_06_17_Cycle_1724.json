@@ -1,0 +1,47 @@
+{
+  "cycle_id": "CTB_2026_06_17_Cycle_1724",
+  "timestamp_kst": "2026-06-17T17:24:00+09:00",
+  "timestamp_utc": "2026-06-17T08:24:00Z",
+  "endpoints": {
+    "AUDIT-P1": {
+      "url": "https://dsc-fms-portal-audit.vercel.app",
+      "status": 200,
+      "state": "UP",
+      "fetched_at": "2026-06-17T08:24:45.805Z",
+      "response_time_ms": 244
+    },
+    "DISCORD-BOT-P1": {
+      "url": "https://dsc-fms-discord-bot.vercel.app",
+      "status": 404,
+      "state": "DOWN",
+      "error_code": "DEPLOYMENT_NOT_FOUND",
+      "fetched_at": "2026-06-17T08:24:45Z"
+    },
+    "TRAVEL-P2-UI": {
+      "url": "https://dsc-fms-travel.vercel.app",
+      "status": 404,
+      "state": "DOWN",
+      "error_code": "DEPLOYMENT_NOT_FOUND",
+      "fetched_at": "2026-06-17T08:24:46Z"
+    },
+    "BM-P1": {
+      "url": "https://dsc-fms-portal-bm.vercel.app",
+      "status": 200,
+      "state": "UP",
+      "fetched_at": "2026-06-17T08:24:46.610Z",
+      "response_time_ms": 208
+    }
+  },
+  "summary": {
+    "operational": 2,
+    "down": 2,
+    "total": 4,
+    "operational_percentage": 50,
+    "status_comparison": "PREVIOUS: 1/4 UP (13:41) → CURRENT: 2/4 UP (17:24) — PARTIAL RECOVERY DETECTED (AUDIT-P1 복구)"
+  },
+  "reliability": "50%",
+  "blockers": 2,
+  "action_required": true,
+  "next_poll_kst": "2026-06-17T17:29:00+09:00",
+  "notes": "AUDIT-P1 자동 복구 감지 (약 4시간만에 HTTP 404→200 전환). DISCORD-BOT-P1 + TRAVEL-P2-UI는 여전히 DEPLOYMENT_NOT_FOUND 상태 지속. GitHub PAT 토큰 필수."
+}

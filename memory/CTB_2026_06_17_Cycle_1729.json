@@ -1,0 +1,46 @@
+{
+  "timestamp": "2026-06-17T17:29:00+05:30",
+  "kst_timestamp": "2026-06-17 17:29 KST",
+  "cycle_id": "CTB_2026_06_17_Cycle_1729",
+  "endpoint_verification": {
+    "main_portal": {
+      "url": "https://dsc-fms-portal.vercel.app",
+      "status": "HTTP 200",
+      "state": "UP",
+      "content": "Navigation loaded, page initializing",
+      "verified": true
+    },
+    "audit_p1": {
+      "url": "https://dsc-fms-portal-audit.vercel.app",
+      "status": "HTTP 404",
+      "state": "DOWN",
+      "verified": true
+    },
+    "discord_bot_p1": {
+      "url": "https://dsc-fms-portal-discord-bot.vercel.app",
+      "status": "HTTP 404",
+      "state": "DOWN",
+      "verified": true
+    },
+    "travel_p2_ui": {
+      "url": "https://dsc-fms-portal-travel.vercel.app",
+      "status": "unclear (content served but status indeterminate)",
+      "state": "DEGRADED",
+      "verified": false
+    }
+  },
+  "summary": {
+    "operational_count": 1,
+    "total_p1_services": 4,
+    "operational_percentage": 25,
+    "critical_services_down": ["AUDIT-P1", "DISCORD-BOT-P1"],
+    "degraded_services": ["TRAVEL-P2-UI"],
+    "reliability": "25%"
+  },
+  "incident_status": {
+    "duration": "27h+ ongoing from 2026-06-16 13:41",
+    "blockers": 3,
+    "severity": "CRITICAL"
+  },
+  "notes": "Endpoint verification performed at 17:29 KST. Main Portal UP confirmed. AUDIT & DISCORD-BOT DOWN confirmed (HTTP 404). TRAVEL status requires direct HTTP header inspection. Monitoring continues."
+}

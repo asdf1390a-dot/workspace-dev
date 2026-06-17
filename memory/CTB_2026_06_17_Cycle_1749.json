@@ -1,0 +1,61 @@
+{
+  "timestamp": "2026-06-17T17:49:48+05:30",
+  "kst_timestamp": "2026-06-17 17:49 KST",
+  "cycle_id": "CTB_2026_06_17_Cycle_1749",
+  "cycle_number": 247,
+  "endpoint_verification": {
+    "main_portal": {
+      "url": "https://dsc-fms-portal.vercel.app",
+      "status": "HTTP 200",
+      "state": "UP",
+      "verified": true
+    },
+    "audit_p1": {
+      "url": "https://dsc-fms-portal-audit.vercel.app",
+      "status": "HTTP 200",
+      "state": "UP",
+      "verified": true
+    },
+    "discord_bot_p1": {
+      "url": "https://dsc-fms-portal-discord-bot.vercel.app",
+      "status": "HTTP 404",
+      "state": "DOWN",
+      "verified": true,
+      "note": "DEPLOYMENT_NOT_FOUND — 배포 상태 미확인"
+    },
+    "travel_p2_ui": {
+      "url": "https://dsc-fms-portal-travel.vercel.app",
+      "status": "HTTP 200",
+      "state": "UP",
+      "verified": true
+    },
+    "bm_p1": {
+      "url": "https://dsc-fms-portal-bm.vercel.app",
+      "status": "HTTP 200",
+      "state": "UP",
+      "verified": true
+    }
+  },
+  "summary": {
+    "total": 5,
+    "up_count": 4,
+    "down_count": 1,
+    "operational_percentage": 80,
+    "status": "🟡 PARTIAL (4/5 UP)"
+  },
+  "changes_from_previous": {
+    "previous_timestamp": "2026-06-17 17:44 KST",
+    "main_portal": "STABLE (UP)",
+    "audit_p1": "STABLE (UP)",
+    "discord_bot_p1": "STABLE (DOWN)",
+    "travel_p2_ui": "STABLE (UP)",
+    "bm_p1": "STABLE (UP)",
+    "overall_status": "무변화 — 4/5 UP 상태 지속 (5분)"
+  },
+  "reliability_score": 0.8,
+  "blockers": {
+    "critical": 1,
+    "description": "DISCORD-BOT-P1 배포 미해결 (HTTP 404)"
+  },
+  "next_check": "2026-06-17 17:54 KST (5분 후)"
+}

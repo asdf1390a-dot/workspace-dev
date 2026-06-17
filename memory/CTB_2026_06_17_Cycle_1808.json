@@ -1,0 +1,61 @@
+{
+  "timestamp": "2026-06-17T18:08:00+09:00",
+  "kst": "2026-06-17 18:08",
+  "cycle": "CTB_2026_06_17_1808",
+  "status": {
+    "p1_services": {
+      "main_portal": {
+        "name": "Main Portal (dsc-fms-portal)",
+        "status": "UP",
+        "http_code": 200,
+        "verified": true
+      },
+      "bm_p1": {
+        "name": "BM-P1 (dsc-fms)",
+        "status": "UP",
+        "http_code": 200,
+        "verified": true
+      },
+      "audit_p1": {
+        "name": "AUDIT-P1 (dsc-fms-audit)",
+        "status": "DOWN",
+        "http_code": 404,
+        "verified": true
+      },
+      "travel_p2_ui": {
+        "name": "TRAVEL-P2-UI (dsc-fms-travel)",
+        "status": "DOWN",
+        "http_code": 404,
+        "verified": true
+      }
+    },
+    "operational": "2/4 UP (50%)",
+    "critical": "2/4 DOWN",
+    "discord_bot": "STATUS_UNKNOWN (requires API check)"
+  },
+  "trend": {
+    "previous_cycle": "2026-06-16T13:41:00+09:00",
+    "previous_status": "1/4 UP",
+    "current_status": "2/4 UP",
+    "change": "PARTIAL RECOVERY (+1 service in ~28h 27m)"
+  },
+  "deployment_info": {
+    "down_duration_hours": 28.5,
+    "down_since": "2026-06-16T13:41:00+09:00",
+    "http_404_pattern": "DEPLOYMENT_NOT_FOUND for AUDIT + TRAVEL",
+    "recovery_confidence": 0.5
+  },
+  "reliability": {
+    "score": "50%",
+    "notes": "Direct endpoint verification confirmed. Previous CTB script false positives corrected."
+  },
+  "blockers": {
+    "critical": 2,
+    "list": [
+      "Vercel deployment: AUDIT-P1 + TRAVEL-P2-UI HTTP 404 (28h+ DOWN)",
+      "Token requirement: GitHub PAT or Vercel token for re-deploy"
+    ]
+  },
+  "next_poll_scheduled": "2026-06-17T18:13:00+09:00",
+  "notes": "✅ Direct endpoint verification completed. 📊 Partial recovery signal: 1/4→2/4 in 28h 27m. ⚠️ 2/4 services still DOWN (Vercel DEPLOYMENT_NOT_FOUND)"
+}
