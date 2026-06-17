@@ -50,6 +50,115 @@ type: project
 
 ---
 
+## 📊 DAILY STAND-UP REPORT (2026-06-17 10:00:00 KST)
+
+### 📌 현황 요약 (10:00 KST)
+
+🔴 **CRITICAL INCIDENT ONGOING — P1 배포 DOWN 38h 25m 지속**
+
+| 항목 | 상태 | 변화 | 심각도 |
+|------|------|------|-------|
+| 배포 상태 | 4/4 DOWN (HTTP 404) | ⬜ 무변화 (44분) | 🔴 치명 |
+| 팀 활용률 | 9% (1/11) | ⬜ 무변화 | 🔴 차단 |
+| 사용자 신호 | PAT/토큰/db/30 미수신 | ⬜ 무신호 | 🔴 차단 |
+| Phase 3-1 마감 | 2h 정도 남음 | ⬇️ -44m | 🔴 URGENT |
+
+---
+
+### 1️⃣ 태스크 상태 카운팅 (10:00 KST)
+
+| 상태 | 개수 | 비율 | 상세 |
+|------|------|------|------|
+| ✅ **COMPLETED** | **1** | 11% | db/35 마이그레이션 (2026-06-01 완료) |
+| 🟡 **IN_PROGRESS** | **0** | 0% | 배포 DOWN으로 개발 진행 불가 |
+| 🔴 **BLOCKED** | **8** | 89% | P1 (4건) + Phase 3 (3건) + db/30 (1건) |
+| ⚪ **PENDING** | **0** | 0% | — |
+| **TOTAL** | **9** | 100% | 개발 거의 정지 상태 |
+
+**상황:** 🔴 CRITICAL - 8/9 태스크(89%) BLOCKED 상태 지속 (44분 추가 무변화)
+
+---
+
+### 2️⃣ TODAY 우선순위 (< 12h 남음) — URGENT
+
+| 순서 | 우선순위 | 항목 | 상태 | 마감 | 남은시간 | 액션 |
+|-----|---------|------|------|------|---------|------|
+| 1️⃣ | **P0** | 🔴 P1 배포 복구 (Vercel DOWN) | BLOCKED_ON_EXTERNAL | URGENT | **OVERDUE 20h+** | GitHub PAT/Vercel 토큰 (사용자) |
+| 2️⃣ | **P1** | 🔴 db/30 마이그레이션 | BLOCKED_ON_USER | 2026-06-15 19:25 | **OVERDUE 36h+** | SQL 실행 (Supabase/CLI, 사용자) |
+| 3️⃣ | **P1** | 🔴 Phase 3-1 UI 개발 | BLOCKED_ON_EXTERNAL | **2026-06-17 12:00** | **~2h** | P1 복구 + db/30 완료 필수 |
+| 4️⃣ | **P1** | 🔴 Asset Master 3-2 | BLOCKED_ON_EXTERNAL | 2026-06-17 18:00 | ~8h | P1 복구 필수 |
+
+**평가:** 🔴 모든 TODAY 우선순위가 EXTERNAL/USER DEPENDENCY (해제 불가능)
+
+---
+
+### 3️⃣ BLOCKED 항목 분석 (루트 원인 + 블로커)
+
+| # | 태스크명 | 상태 | 루트 원인 | 블로커 | 영향 | 해제 조건 |
+|---|---------|------|---------|--------|------|---------|
+| 1️⃣ | **AUDIT-P1** | BLOCKED_ON_EXTERNAL | Vercel DEPLOYMENT_NOT_FOUND | 배포 인프라 | Phase 3-1 UI | GitHub PAT + Vercel 재배포 |
+| 2️⃣ | **DISCORD-BOT-P1** | BLOCKED_ON_EXTERNAL | Vercel DEPLOYMENT_NOT_FOUND | 배포 인프라 | — | GitHub PAT + Vercel 재배포 |
+| 3️⃣ | **BM-P1** | BLOCKED_ON_EXTERNAL | Vercel DEPLOYMENT_NOT_FOUND | 배포 인프라 | Asset Master | GitHub PAT + Vercel 재배포 |
+| 4️⃣ | **TRAVEL-P2-UI** | BLOCKED_ON_EXTERNAL | Vercel DEPLOYMENT_NOT_FOUND | 배포 인프라 | Phase 3-1 UI + P2 | GitHub PAT + Vercel 재배포 |
+| 5️⃣ | **Phase 3-1 UI** | BLOCKED_ON_EXTERNAL | P1 DOWN (4/4) + db/30 미실행 | 의존 체인 | 데이터분석가 (1명) | P1 ✅ + db/30 ✅ |
+| 6️⃣ | **Asset Master 3-2** | BLOCKED_ON_EXTERNAL | P1 DOWN (4/4) + db/30 미실행 | 의존 체인 | 웹개발자 (1명) | P1 ✅ + db/30 ✅ |
+| 7️⃣ | **Travel P2 UI** | BLOCKED_ON_EXTERNAL | P1 DOWN (배포 불가) | 의존 체인 | 웹개발자 (1명) | P1 ✅ |
+| 8️⃣ | **db/30 마이그레이션** | BLOCKED_ON_USER | 사용자 SQL 실행 미감지 | 사용자 액션 | Phase 3 진행 불가 | 사용자 ✅ |
+
+**블로커 구조:**
+```
+Vercel 배포 인프라 (DEPLOYMENT_NOT_FOUND)
+  ↓
+4/4 P1 DOWN (38h 25m 지속)
+  ↓
+Phase 3 (3건) + 팀 (3명) BLOCKED
+  +
+  db/30 미실행 (36h+ OVERDUE)
+  ↓
+Phase 3-1 UI 완전 차단 (2h 마감)
+```
+
+**심각도:** 🔴 CRITICAL (의존 체인 2단계 + 이중 마감)
+
+---
+
+### 4️⃣ NEXT 24h (내일 예정)
+
+| 시간 | 항목 | 상태 | 필요 조치 | 완료 조건 |
+|-----|------|------|---------|---------|
+| 2026-06-17 12:00 | **Phase 3-1 UI 마감** | 🔴 BLOCKED | **P1 복구 + db/30 완료** | **2건 모두 필수** |
+| 2026-06-17 18:00 | Asset Master 3-2 마감 | 🔴 BLOCKED | P1 복구 필요 | P1 ✅ 필수 |
+| 2026-06-17 23:59 | 마감 연장 최종일 (Option B) | 진행 중 | 모니터링 | CEO 승인 (완료) |
+| 2026-06-18 00:00 | 일일 개선 테스트 재개 | PENDING | 배포 복구 필수 | P1 ✅ 필수 |
+
+---
+
+### 5️⃣ 팀 상태
+
+| 역할 | 인원 | 상태 | 현재 작업 | 차단 원인 | 복구 예상 |
+|-----|------|------|---------|---------|---------|
+| **DevOps/자동화** | 1 | 🟢 ACTIVE | CTB 모니터링 + Cron | NONE | 지속 중 ✅ |
+| **데이터분석가** | 1 | 🟡 WAITING | Phase 3-1 UI | P1 DOWN + db/30 | P1✅ + db/30✅ → 2-3h |
+| **웹개발자** | 2 | 🟡 WAITING | Phase 3/Travel P2 | P1 DOWN + db/30 | P1✅ + db/30✅ → 12h |
+| **평가자 (QA)** | 1 | 🟡 WAITING | UI/배포 검증 | P1 DOWN | P1✅ → 즉시 |
+| **플래너** | 1 | 🟡 WAITING | Phase 3 설계 | P1 DOWN | P1✅ → 1h |
+| **신규 팀 (4명)** | 4 | 🟡 WAITING | 태스크 큐 대기 | P1 DOWN | P1✅ → 4h+ |
+
+**팀 활용률: 9%** (🟢 1/11 ACTIVE, 🟡 10/11 WAITING)
+
+---
+
+### 📋 체크리스트 (복구 체크)
+
+- [ ] GitHub PAT 제공 (사용자 필수)
+- [ ] Vercel 재배포 토큰 제공 (사용자 필수)
+- [ ] P1 배포 복구 (5-10분 예상)
+- [ ] db/30 SQL 실행 (2-5분 예상)
+- [ ] Phase 3-1 UI 개발 개시 (P1+db/30 후)
+- [ ] Asset Master 3-2 개발 (P1 후)
+
+---
+
 ## 📊 DAILY STAND-UP REPORT (2026-06-16 10:01:00 KST)
 
 ### 1️⃣ 태스크 상태 카운팅
