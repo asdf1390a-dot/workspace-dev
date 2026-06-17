@@ -1,0 +1,45 @@
+{
+  "timestamp": "2026-06-17T19:49:00+09:00",
+  "cycle_id": "1949",
+  "monitoring_result": {
+    "audit_p1": {
+      "endpoint": "https://audit.dsc-fms.com/health",
+      "status": "DOWN",
+      "http_code": 0,
+      "response_time_ms": null,
+      "error": "TIMEOUT"
+    },
+    "discord_bot_p1": {
+      "endpoint": "https://discord-bot.dsc-fms.com/health",
+      "status": "DOWN",
+      "http_code": 0,
+      "response_time_ms": null,
+      "error": "TIMEOUT"
+    },
+    "travel_p2_ui": {
+      "endpoint": "https://travel.dsc-fms.com/health",
+      "status": "DOWN",
+      "http_code": 0,
+      "response_time_ms": null,
+      "error": "TIMEOUT"
+    },
+    "bm_p1": {
+      "endpoint": "https://bm-events.dsc-fms.com/health",
+      "status": "DOWN",
+      "http_code": 0,
+      "response_time_ms": null,
+      "error": "TIMEOUT"
+    }
+  },
+  "summary": {
+    "total_endpoints": 4,
+    "operational": 0,
+    "operational_pct": 0,
+    "downtime_duration_hours": 30.33,
+    "downtime_started": "2026-06-16T13:34:00+09:00",
+    "trust_score": 0,
+    "status_change": false,
+    "critical_blockers": 2
+  },
+  "notes": "🔴 0/4 P1 DOWN (CRITICAL) | 배포 DOWN 30시간+ 지속 | 전체 서비스 미응답 (TIMEOUT) | Vercel 토큰 필수 | 거짓신호 가능성: 이전 13:41 기록과 대조 필요"
+}
