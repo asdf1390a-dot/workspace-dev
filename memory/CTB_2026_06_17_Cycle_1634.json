@@ -1,0 +1,65 @@
+{
+  "timestamp": "2026-06-17T16:34:15+09:00",
+  "cycle": "1634",
+  "polling_duration_seconds": 22,
+  "endpoints": {
+    "main_portal": {
+      "url": "https://dsc-fms-portal.vercel.app",
+      "http_status": 200,
+      "healthy": true,
+      "timestamp": "2026-06-17T16:34:05+09:00",
+      "note": "Loading state 감지 (HTTP 200 but content partial)"
+    },
+    "audit_p1": {
+      "url": "https://dsc-fms-audit.vercel.app",
+      "http_status": 404,
+      "healthy": false,
+      "error": "DEPLOYMENT_NOT_FOUND",
+      "timestamp": "2026-06-17T16:34:08+09:00"
+    },
+    "travel_p2_ui": {
+      "url": "https://dsc-fms-travel.vercel.app",
+      "http_status": 404,
+      "healthy": false,
+      "error": "DEPLOYMENT_NOT_FOUND",
+      "timestamp": "2026-06-17T16:34:10+09:00"
+    },
+    "bm_p1": {
+      "url": "https://dsc-fms-bm.vercel.app",
+      "http_status": 404,
+      "healthy": false,
+      "error": "DEPLOYMENT_NOT_FOUND",
+      "timestamp": "2026-06-17T16:34:12+09:00"
+    },
+    "discord_bot_p1": {
+      "url": "https://dsc-discord-bot.vercel.app",
+      "http_status": 404,
+      "healthy": false,
+      "error": "DEPLOYMENT_NOT_FOUND",
+      "timestamp": "2026-06-17T16:34:15+09:00"
+    }
+  },
+  "summary": {
+    "total_endpoints": 5,
+    "healthy": 1,
+    "unhealthy": 4,
+    "operational_percentage": 20,
+    "status_emoji": "🔴"
+  },
+  "deployment_status": {
+    "continuous_down_duration_minutes": 652,
+    "last_recovery": "N/A",
+    "incident_start": "2026-06-15T03:02:00+09:00",
+    "state_change": false
+  },
+  "reliability_score": 20,
+  "blockers": {
+    "count": 2,
+    "critical": true,
+    "items": [
+      "Vercel DEPLOYMENT_NOT_FOUND (AUDIT, TRAVEL, BM, DISCORD-BOT) — 652분 지속",
+      "GitHub PAT 재생성 필수 (db/30 푸시 차단 중)"
+    ]
+  },
+  "notes": "직접 엔드포인트 검증 완료 ✅ | Main Portal 200 (loading state) | 3/4 P1 배포미발견 | 상태변화 없음 (-25min 대비) | 신뢰도 20% | 블로커 2건 CRITICAL | 다음 폴링 16:39 KST"
+}
