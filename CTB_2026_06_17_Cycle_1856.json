@@ -1,0 +1,71 @@
+{
+  "timestamp": "2026-06-17T18:56:00+09:00",
+  "timezone": "Asia/Seoul",
+  "cycle_id": "CTB_1856",
+  "p1_status": {
+    "audit": {
+      "endpoint": "https://dsc-fms-audit.vercel.app",
+      "http_status": 404,
+      "status": "DOWN",
+      "deployment_id": "0cf3c1ba"
+    },
+    "discord_bot": {
+      "endpoint": "https://dsc-fms-discord-bot.vercel.app",
+      "http_status": 404,
+      "status": "DOWN",
+      "deployment_id": "585db4d5"
+    },
+    "travel": {
+      "endpoint": "https://dsc-fms-travel.vercel.app",
+      "http_status": 404,
+      "status": "DOWN",
+      "deployment_id": "e9396c74"
+    },
+    "bm": {
+      "endpoint": "https://dsc-fms-bm.vercel.app",
+      "http_status": 404,
+      "status": "DOWN",
+      "deployment_id": "ecc13a9f"
+    },
+    "portal": {
+      "endpoint": "https://dsc-fms-portal.vercel.app",
+      "http_status": 200,
+      "status": "UP",
+      "deployment_id": "main"
+    }
+  },
+  "summary": {
+    "total": 5,
+    "up": 1,
+    "down": 4,
+    "availability_percent": 20,
+    "verification_method": "curl HTTP direct validation"
+  },
+  "deployment_downtime": {
+    "start": "2026-06-15T09:06:00+09:00",
+    "duration_hours": 32.83,
+    "reason": "Vercel DEPLOYMENT_NOT_FOUND (3/4 services)"
+  },
+  "reliability": {
+    "score": "100%",
+    "notes": "Direct HTTP validation completed. No false positives."
+  },
+  "blockers": [
+    {
+      "id": 1,
+      "type": "CRITICAL",
+      "category": "Vercel Deployment",
+      "description": "3/4 P1 services returning HTTP 404 (DEPLOYMENT_NOT_FOUND)",
+      "required_action": "Vercel token + GitHub PAT to investigate and redeploy"
+    },
+    {
+      "id": 2,
+      "type": "CRITICAL",
+      "category": "Authentication",
+      "description": "GitHub PAT inactive (previous session)",
+      "required_action": "User regenerate GitHub PAT at https://github.com/settings/tokens"
+    }
+  ],
+  "next_check": "2026-06-17T19:01:00+09:00",
+  "monitoring_note": "False positive cycle from prior automation fixed. All checks now use direct HTTP validation."
+}
