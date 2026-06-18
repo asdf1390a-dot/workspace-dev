@@ -1,18 +1,18 @@
 {
-  "timestamp": "2026-06-18T11:57:30+09:00",
+  "timestamp": "2026-06-18T03:08:00Z",
   "progress": 0,
   "services": {
-    "audit_p1": "DOWN (TIMEOUT)",
-    "discord_bot_p1": "DOWN (TIMEOUT)",
-    "travel_p2_ui": "DOWN (TIMEOUT)"
+    "phase2a": "DOWN",
+    "phase2b": "DOWN",
+    "phase2c": "DOWN"
   },
   "production": {
-    "vercel": "심각 장애 — 전체 P1 TIMEOUT (0/4 UP)",
+    "vercel": "심각 장애 (0/4 P1 TIMEOUT)",
     "vercel_http": "000",
-    "status_change": "Main Portal 200 → TIMEOUT (악화)"
+    "status_trend": "악화 (404→000)"
   },
-  "last_update": "2026-06-18 11:57:30",
-  "blockers": 2,
-  "reliability": "0%",
-  "deadline_remaining_hours": 50.08
+  "last_update": "2026-06-18 12:08:00",
+  "blocker_count": 2,
+  "deadline_remaining": "약 17시간",
+  "user_action_status": "미접수 (GitHub PAT + Vercel 토큰 필수)"
 }
