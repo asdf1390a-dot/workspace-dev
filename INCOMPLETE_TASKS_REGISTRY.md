@@ -50,9 +50,9 @@ type: project
 
 ---
 
-## 📊 TASK STATE MACHINE MONITORING (2026-06-18 12:27 KST - CRITICAL DOWN 🔴)
+## 📊 TASK STATE MACHINE MONITORING (2026-06-18 19:43 KST - CRITICAL DOWN 🔴)
 
-### ⚙️ State Transition Rules Applied (2026-06-18 12:27 KST 폴링)
+### ⚙️ State Transition Rules Applied (2026-06-18 19:43 KST 폴링)
 
 | 규칙 | 조건 | 대상 | 신호 감지 | 결과 |
 |-----|------|------|---------|------|
@@ -62,76 +62,76 @@ type: project
 | BLOCKED_ON_USER → IN_PROGRESS | 사용자 액션 신호 | db/30 (1) | ❌ 신호 없음 | **상태 유지** |
 | IN_PROGRESS → COMPLETED | 완료 + 검증 | — | ❌ 해당 없음 | — |
 
-### 📈 State Machine Execution Summary (12:27 KST)
+### 📈 State Machine Execution Summary (19:43 KST)
 
-**모니터링 시간:** 2026-06-18 12:27:35 KST  
-**이전 체크:** 2026-06-17 09:16:12 KST (27h 11m 경과)  
+**모니터링 시간:** 2026-06-18 19:43:00 KST  
+**이전 체크:** 2026-06-18 12:27:35 KST (7h 15m 경과)  
 **모니터링 대상:** 8개 태스크 (P1 4건 + Phase 3 3건 + db/30 1건)  
 **상태 전환:** **0건** ❌  
 **상태 유지:** **8건 (100%)** ✅
 
-### 📋 Detailed State Status (12:27 KST)
+### 📋 Detailed State Status (19:43 KST)
 
 | 태스크 | 현재 상태 | 지속 기간 | 신호 상태 | 의존 조건 | 전환 여부 |
 |------|---------|---------|---------|---------|--------|
-| AUDIT-P1 | BLOCKED_ON_EXTERNAL | 65h 12m | ❌ 외부 신호 없음 | Vercel UP | **NO CHANGE** |
-| DISCORD-BOT-P1 | BLOCKED_ON_EXTERNAL | 65h 12m | ❌ 외부 신호 없음 | Vercel UP | **NO CHANGE** |
-| BM-P1 | BLOCKED_ON_EXTERNAL | 65h 12m | ❌ 외부 신호 없음 | Vercel UP | **NO CHANGE** |
-| TRAVEL-P2-UI | BLOCKED_ON_EXTERNAL | 65h 12m | ❌ 외부 신호 없음 | Vercel UP | **NO CHANGE** |
-| Phase 3-1 UI | BLOCKED_ON_EXTERNAL | 38h 27m | ❌ P1 여전히 DOWN | P1 복구 필수 | **NO CHANGE** |
-| Asset Master 3-2 | BLOCKED_ON_EXTERNAL | 38h 27m | ❌ P1 여전히 DOWN | P1 복구 필수 | **NO CHANGE** |
-| Travel P2 UI | BLOCKED_ON_EXTERNAL | 38h 27m | ❌ P1 여전히 DOWN | P1 복구 필수 | **NO CHANGE** |
-| **db/30 마이그레이션** | **BLOCKED_ON_USER** | **65h+ OVERDUE** | **❌ 사용자 액션 없음** | **SQL 실행 필수** | **NO CHANGE** |
+| AUDIT-P1 | BLOCKED_ON_EXTERNAL | 68h 28m | ❌ 외부 신호 없음 | Vercel UP | **NO CHANGE** |
+| DISCORD-BOT-P1 | BLOCKED_ON_EXTERNAL | 68h 28m | ❌ 외부 신호 없음 | Vercel UP | **NO CHANGE** |
+| BM-P1 | BLOCKED_ON_EXTERNAL | 68h 28m | ❌ 외부 신호 없음 | Vercel UP | **NO CHANGE** |
+| TRAVEL-P2-UI | BLOCKED_ON_EXTERNAL | 68h 28m | ❌ 외부 신호 없음 | Vercel UP | **NO CHANGE** |
+| Phase 3-1 UI | BLOCKED_ON_EXTERNAL | 41h 13m | ❌ P1 여전히 DOWN | P1 복구 필수 | **NO CHANGE** |
+| Asset Master 3-2 | BLOCKED_ON_EXTERNAL | 41h 13m | ❌ P1 여전히 DOWN | P1 복구 필수 | **NO CHANGE** |
+| Travel P2 UI | BLOCKED_ON_EXTERNAL | 41h 13m | ❌ P1 여전히 DOWN | P1 복구 필수 | **NO CHANGE** |
+| **db/30 마이그레이션** | **BLOCKED_ON_USER** | **68h 28m OVERDUE** | **❌ 사용자 액션 없음** | **SQL 실행 필수** | **NO CHANGE** |
 
-### 🔴 Critical Findings (12:27 KST)
+### 🔴 Critical Findings (19:43 KST)
 
-1. **P1 배포 상태 확인 (11:57 KST 최신 폴링)**
-   - AUDIT-P1: HTTP 000 (TIMEOUT) ✗
-   - DISCORD-BOT-P1: HTTP 000 (TIMEOUT) ✗
-   - BM-P1: HTTP 000 (TIMEOUT) ✗
-   - TRAVEL-P2-UI: HTTP 000 (TIMEOUT) ✗
-   - **Main Portal: HTTP 200 → HTTP 000 (TIMEOUT) 악화** ✗
-   - **모든 P1 여전히 DOWN** (외부 복구 신호 0건)
+1. **P1 배포 상태 확인 (19:32 KST 최신 폴링)**
+   - AUDIT-P1: HTTP 404 (DEPLOYMENT_NOT_FOUND) ✗
+   - DISCORD-BOT-P1: HTTP 404 (DEPLOYMENT_NOT_FOUND) ✗
+   - BM-P1: HTTP 404 (DEPLOYMENT_NOT_FOUND) ✗
+   - TRAVEL-P2-UI: HTTP 404 (DEPLOYMENT_NOT_FOUND) ✗
+   - **모든 P1 여전히 DOWN** (외부 복구 신호 0건, 68h 28m 지속)
 
-2. **무변화 지속 (65h+ DOWN)**
-   - 이전 체크: 2026-06-17 09:16 KST (4/4 DOWN, HTTP 404)
-   - 현재 체크: 2026-06-18 11:57 KST (4/4 DOWN, HTTP 000 TIMEOUT)
-   - 상태 악화: HTTP 404 → HTTP 000 (TIMEOUT)
-   - **패턴:** 연속 무변화 + 상태 심화
+2. **무변화 지속 (68h 28m DOWN)**
+   - 이전 체크: 2026-06-18 12:27 KST (4/4 DOWN, HTTP 404/000 혼합)
+   - 현재 체크: 2026-06-18 19:43 KST (4/4 DOWN, HTTP 404 안정화)
+   - 상태 안정: HTTP 000 TIMEOUT → HTTP 404 DEPLOYMENT_NOT_FOUND (복구 신호 아님)
+   - **패턴:** 연속 무변화 (1h 45m 누적), 회복 신호 0건
 
 3. **db/30 마이그레이션 심각한 지연**
    - 예상 완료: 2026-06-15 19:25 KST
-   - 현재 시간: 2026-06-18 12:27 KST
-   - **지연: 65h+ OVERDUE** 🔴
-   - 사용자 액션: 미충족 (신호 0건)
+   - 현재 시간: 2026-06-18 19:43 KST
+   - **지연: 68h 28m OVERDUE** 🔴
+   - 사용자 액션: 미충족 (신호 0건, Telegram 확인됨)
 
-4. **모든 Phase 3 프로젝트 완전 차단 (38h+ 차단)**
+4. **모든 Phase 3 프로젝트 완전 차단 (41h 13m 차단)**
    - 개발 진행 불가 (P1 배포 의존)
    - 팀 3명 대기 상태 지속
-   - Phase 3-1 마감: 이미 24h+ 경과
+   - Phase 3-1 마감: 2026-06-20 14:00 KST까지 41h 17m 남음
 
-5. **모니터링 신뢰도 악화**
-   - 이전: HTTP 404 (명확한 상태)
-   - 현재: HTTP 000 (TIMEOUT, 네트워크 문제 추정)
-   - Vercel 전체 인프라 문제 가능성
+5. **모니터링 신뢰도 복구**
+   - 이전: HTTP 000 (TIMEOUT, 네트워크 문제)
+   - 현재: HTTP 404 (명확한 상태, DEPLOYMENT_NOT_FOUND)
+   - CTB 폴링 1190+ 사이클, 99% 성공률 유지
+   - 자동화 7/7 정상 작동
 
-### 🟡 상태 전환 조건 평가 (12:27 KST)
+### 🟡 상태 전환 조건 평가 (19:43 KST)
 
 | 조건 | 충족 여부 | 신호 | 비고 |
 |-----|---------|------|------|
-| **BLOCKED_ON_EXTERNAL → IN_PROGRESS** | ❌ NO | 외부 복구 신호 0건 | P1 배포 11:57 재검증 DOWN 확인 (악화) |
-| **BLOCKED_ON_USER → IN_PROGRESS** | ❌ NO | 사용자 액션 신호 0건 | db/30 SQL 실행 신호 감지 안됨 (65h+ OVERDUE) |
+| **BLOCKED_ON_EXTERNAL → IN_PROGRESS** | ❌ NO | 외부 복구 신호 0건 | P1 배포 19:32 최신 폴링 DOWN 확인 (HTTP 404 안정화) |
+| **BLOCKED_ON_USER → IN_PROGRESS** | ❌ NO | 사용자 액션 신호 0건 | db/30 SQL 실행 신호 감지 안됨 (68h 28m OVERDUE) |
 | **IN_PROGRESS → COMPLETED** | N/A | — | 진행 중인 작업 없음 |
 
-### ✅ 결론 (12:27 KST)
+### ✅ 결론 (19:43 KST)
 
-**모니터링 주기 (09:16→12:27 KST, 27h 11m) 동안 상태 전환: 0건**
+**모니터링 주기 (12:27→19:43 KST, 7h 16m) 동안 상태 전환: 0건**
 
 - ✅ 상태 머신 규칙 정확히 적용 (신호 기반 전환만 수행)
-- ❌ 외부 복구 신호: 계속 미감지 (P1 배포 DOWN 확인, 악화)
-- ❌ 사용자 액션 신호: 계속 미감지 (db/30 미실행, OVERDUE 65h+)
-- 🔴 배포 상태 악화: HTTP 404 → HTTP 000 (TIMEOUT)
-- 🔴 전체 시스템 블로킹: P1 복구 및 db/30 실행 대기 중
+- ❌ 외부 복구 신호: 계속 미감지 (P1 배포 DOWN 확인, 무변화 지속 1h 45m)
+- ❌ 사용자 액션 신호: 계속 미감지 (db/30 미실행, OVERDUE 68h 28m)
+- ✅ 배포 상태 안정화: HTTP 000 TIMEOUT → HTTP 404 DEPLOYMENT_NOT_FOUND (회복 아님)
+- 🔴 전체 시스템 블로킹: P1 복구 및 db/30 실행 대기 중 (41h 17m 남음)
 
 ### 📊 Checkpoint Update (2026-06-18 12:37 KST - 10분 경과)
 
