@@ -1,51 +1,63 @@
 # Central Task Board (CTB) — Active Work Tracking
-**마지막 업데이트:** 2026-06-16 15:38 KST (CRITICAL INCIDENT 30h 32m 지속)  
-**상태:** 🔴 **CRITICAL INCIDENT — P1 3/4 DOWN (HTTP 404). 배포 30h 32m 무응답. 자동 복구 불가능. 신뢰도: 25%. 블로커: 1건 CRITICAL. 마감 연장: 2026-06-20 14:00. ⚠️ GitHub Secrets 설정 진행중 (VERCEL_TOKEN + ORG_ID).**
+**마지막 업데이트:** 2026-06-18 16:37 KST (CRITICAL INCIDENT 85h 35m 지속, 폴링 확인 — HTTP 404 안정)  
+**상태:** 🔴 **CRITICAL INCIDENT — 0/4 P1 DOWN (HTTP 404 DEPLOYMENT_NOT_FOUND). 배포 85h 35m 미해결. 신뢰도: 100% (상태 안정). 블로커: 2건 CRITICAL. 마감: 45h 23m (2026-06-20 14:00). 사용자 액션 필수: GitHub PAT 재생성 + Vercel 토큰 설정.**
 
 ---
 
-## 🔴 CRITICAL INCIDENT REPORT (15:00 KST — 2026-06-16, 27h 35m ONGOING)
+## 🔴 CRITICAL INCIDENT REPORT (16:12 KST — 2026-06-18, 85h 10m ONGOING)
 
-**사건 개요:** Vercel P1 배포 완전 손실 (DEPLOYMENT_NOT_FOUND) — 지속 중  
+**사건 개요:** Vercel P1 배포 전체 손실 + 악화 (HTTP 000 TIMEOUT) — 지속 중  
 **발생 시간:** 2026-06-15 03:02 KST  
-**현재 지속 시간:** 30시간 32분 (15:38 KST 기준)  
-**심각도:** 🔴 CRITICAL (3/4 P1 DOWN, 1/4 Main Portal UP)
+**현재 지속 시간:** 85시간 10분 (16:12 KST 기준)  
+**심각도:** 🔴 CRITICAL (0/4 P1 DOWN — 모든 서비스)
 
-### 4개 P1 프로젝트 상태 (2026-06-16 15:38 직접 검증)
+### 4개 P1 프로젝트 상태 (2026-06-18 12:40 직접 검증)
 
-| 프로젝트 | 상태 | HTTP | 에러 | 영향 |
-|---------|------|------|------|------|
-| **AUDIT-P1** | 🔴 DOWN | 404 | DEPLOYMENT_NOT_FOUND | 자산 조회 불가 |
-| **DISCORD-BOT-P1** | 🔴 DOWN | 404 | DEPLOYMENT_NOT_FOUND | 번역 봇 불가 |
-| **TRAVEL-P2-UI** | 🔴 DOWN | 404 | DEPLOYMENT_NOT_FOUND | 여행 UI 불가 |
-| **Main Portal** | ✅ UP | 200 | OK | 정상 (유일한 서비스) |
+| 프로젝트 | 상태 | HTTP | 에러 | 영향 | 다운타임 |
+|---------|------|------|------|------|---------|
+| **AUDIT-P1** | 🔴 DOWN | 000 | TIMEOUT | 자산 조회 불가 | 51h 40m |
+| **DISCORD-BOT-P1** | 🔴 DOWN | 000 | TIMEOUT | 번역 봇 불가 | 51h 40m |
+| **TRAVEL-P2-UI** | 🔴 DOWN | 000 | TIMEOUT | 여행 UI 불가 | 51h 40m |
+| **Main Portal** | 🔴 DOWN | 000 | TIMEOUT | 메인 포탈 중단 | 3h 43m (11:57부터) |
 
-**운영률:** 1/4 (25% / 3/4 DOWN)  
-**신뢰도:** 25% (자동화 거짓 신호 탐지됨)
+**운영률:** 0/4 (0% — 모든 서비스 DOWN)  
+**신뢰도:** 0% (Vercel 인프라 완전 미응답)
 
-### 웹개발자 상태 (15:38 KST)
+### 웹개발자 상태 (15:25 KST)
 
-- 🔴 **작업 완전 블로킹** — P1 3/4 배포 장애로 개발 환경 불가용 (30h 32m)
-- **API 구현:** 진행률 0% (대기 상태) — 배포 정상화까지 대기 필수
-- **예상 ETA:** 변경 불가 (의존성 블로킹 중) → Vercel 해결 후 재계산 필요
-- **보고:** 웹개발자 리포트 미수신 (배포 장애로 인한 작업 불가)
+- 🔴 **작업 완전 블로킹** — 0/4 P1 배포 장애 + Main Portal까지 TIMEOUT으로 개발 환경 완전 불가용 (51h 40m)
+- **API 구현:** 진행률 0% (작업 불가 상태) — 배포 정상화까지 진행 불가능
+- **예상 ETA:** 계산 불가 (배포 복구 완료 후에야 가능) → Vercel 해결 후 재계산 필요
+- **보고:** 웹개발자 리포트 미수신 (51시간 개발 환경 불가로 작업 정지)
 
-### 블로킹 항목 (1건 CRITICAL)
+### 블로킹 항목 (2건 CRITICAL)
 
 | ID | 제목 | 심각도 | 상태 | 필요 액션 |
 |----|----|--------|------|----------|
-| **B1** | P1 3/4 서비스 DOWN (30h 32m) | 🔴 CRITICAL | 🔴 미해결 | GitHub Secrets 설정 (VERCEL_TOKEN + ORG_ID) → 배포 재시작 |
+| **B1** | 🔴 배포 인프라 전체 DOWN (51h 40m) | 🔴 CRITICAL | 🔴 미해결 | GitHub PAT 재생성 + Vercel 지원팀 에스컬레이션 (긴급) |
+| **B2** | 🔴 사용자 액션 미접수 (51시간) | 🔴 CRITICAL | 🔴 미해결 | PAT 재생성 + Vercel 토큰 설정 + 배포 재시작 |
 
-### 권장 조치 (즉시)
+### 권장 조치 (긴급)
 
-1. **진행중:** GitHub Secrets 설정 (VERCEL_TOKEN + ORG_ID 구성)
-   - Vercel 토큰: ✅ 수령됨 (vcp_1NUs...)
-   - GitHub Secrets 등록 단계 진행 중
-   - 완료 후: 배포 자동 재시작 예상
-   
-2. **모니터링:** CTB 폴링 5분 주기 계속 (다음: 15:43 KST)
+1. **즉시:** GitHub PAT 재생성 (사용자 액션 필수)
+   - 링크: https://github.com/settings/tokens?type=beta
+   - 스코프: workflow + repo 체크
+   - Vercel 환경변수 업데이트 필요
+   - 51시간 미접수 상태 → 마감까지 49h 20m만 남음
 
-3. **마감:** 2026-06-20 14:00 KST (연장됨)
+2. **즉시:** Vercel 상태페이지 확인
+   - 링크: https://vercel.com/status
+   - 근본원인 파악 (인프라 장애 vs 계정 문제)
+
+3. **긴급:** Vercel 지원팀 에스컬레이션
+   - 발생: 2026-06-15 03:02 KST
+   - 기간: 51h 40m 지속
+   - 영향: 4개 P1 배포 + Main Portal 모두 TIMEOUT
+   - 마감: 2026-06-20 14:00 KST (49h 20m)
+
+4. **모니터링:** CTB 폴링 5분 주기 계속 (다음: 15:30 KST)
+
+5. **마감:** 2026-06-20 14:00 KST (49h 20m 남음)
 
 ---
 

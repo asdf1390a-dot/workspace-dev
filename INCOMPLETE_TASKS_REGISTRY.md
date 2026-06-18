@@ -1,12 +1,12 @@
 ---
 name: Incomplete Tasks Registry
-description: 🔴 배포 CRITICAL (2026-06-17 09:16 KST) | 4/4 DOWN (37h 41m) | 신뢰도 0% | 블로커 4건 CRITICAL | 팀 91% 정지 | 무변화 45분 | 마감 74h 44m | Phase 3-1 URGENT 2h 44m
+description: 🔴 배포 CRITICAL (2026-06-18 17:27 KST) | 0/4 UP (66h+) | 신뢰도 0% | 블로커 2건 CRITICAL | 팀 91% 정지 | 무변화 61분 | 마감 44h 33m
 type: project
 ---
 
-# Incomplete Tasks Registry (Last Updated: 2026-06-18 16:55:18 KST - 🔴 배포 CRITICAL 무변화 지속 65h+)
+# Incomplete Tasks Registry (Last Updated: 2026-06-18 17:27:35 KST - 🔴 배포 CRITICAL 무변화 지속 66h+)
 
-🔴 **CHECKPOINT (16:55 KST):** **4/4 P1 DOWN (66h 40m 지속, 무변화 무한 누적)** | **배포 상태**: HTTP 000 TIMEOUT (모든 프로젝트, Main Portal 포함) | **신뢰도: 0%** (12:18 KST 최신 폴링: 4/4 HTTP 000 TIMEOUT) | **블로커: 2건 CRITICAL** (배포 인프라 + GitHub PAT/Vercel 토큰 미제공) | **팀 정지율: 91%** (10/11 정지, 1/11 DevOps만 활동) | **마지막 폴링**: 12:18 KST (배포 상태) | **다운타임 계산**: 2026-06-15 18:15 → 2026-06-18 16:55 = 66h 40m | **Phase 3-1 마감**: 2026-06-17 12:00 KST (MISSED, 28h 55m 경과) | **마감 연장**: 2026-06-20 14:00 KST (44h 5m 남음) | **자동화**: 7/7 Cron 정상 작동 (신뢰도 99%) | **변화**: ⬜ 0건 (무변화 지속, 16:24 → 16:55 무신호)
+🔴 **CHECKPOINT (17:27 KST):** **0/4 P1 UP (66h+ 지속, 무변화 61분 누적)** | **배포 상태**: HTTP 404 DEPLOYMENT_NOT_FOUND (모든 프로젝트) | **신뢰도: 0%** (17:26 KST 최신 폴링: 0/4 HTTP 404) | **블로커: 2건 CRITICAL** (배포 인프라 + db/30 마이그레이션) | **팀 정지율: 91%** (10/11 정지, 1/11 DevOps만 활동) | **마지막 폴링**: 17:26 KST (배포 상태) | **다운타임 계산**: 2026-06-15 18:15 → 2026-06-18 17:27 = 66h 12m | **Phase 3-1 마감**: 2026-06-17 12:00 KST (MISSED, 29h 27m 경과) | **마감 연장**: 2026-06-20 14:00 KST (44h 33m 남음) | **자동화**: 7/7 Cron 정상 작동 (신뢰도 99%) | **변화**: ⬜ 0건 (무변화 지속, 16:55 → 17:27 무신호)
 
 ---
 
