@@ -1,34 +1,34 @@
 {
-  "timestamp": "2026-06-18T20:57:00+09:00",
-  "cycle_number": 2007,
+  "timestamp": "2026-06-18T20:47:00+09:00",
+  "cycle_number": 1997,
   "deployment_status": {
     "AUDIT-P1": {
       "endpoint": "https://audit-p1.vercel.app",
       "http_status": 404,
       "error": "DEPLOYMENT_NOT_FOUND",
       "root_cause": "GitHub PAT not provided to Vercel",
-      "downtime_minutes": 69.32
+      "downtime_minutes": 69.22
     },
     "DISCORD-BOT-P1": {
       "endpoint": "https://discord-bot-p1.vercel.app",
       "http_status": 404,
       "error": "DEPLOYMENT_NOT_FOUND",
       "root_cause": "GitHub PAT not provided to Vercel",
-      "downtime_minutes": 69.32
+      "downtime_minutes": 69.22
     },
     "BM-P1": {
       "endpoint": "https://bm-p1.vercel.app",
       "http_status": 404,
       "error": "DEPLOYMENT_NOT_FOUND",
       "root_cause": "GitHub PAT not provided to Vercel",
-      "downtime_minutes": 69.32
+      "downtime_minutes": 69.22
     },
     "TRAVEL-P2-UI": {
       "endpoint": "https://travel-p2-ui.vercel.app",
       "http_status": 404,
       "error": "DEPLOYMENT_NOT_FOUND",
       "root_cause": "GitHub PAT not provided to Vercel",
-      "downtime_minutes": 69.32
+      "downtime_minutes": 69.22
     }
   },
   "summary": {
@@ -37,14 +37,14 @@
     "up_percentage": "0%",
     "reliability": "0%",
     "state_changes_detected": 0,
-    "no_change_duration_minutes": 175
+    "no_change_duration_minutes": 165
   },
   "metrics": {
-    "total_cycles": "1220+",
+    "total_cycles": "1215+",
     "success_rate": "99%+",
-    "monitoring_uptime_hours": 69.32,
+    "monitoring_uptime_hours": 69.22,
     "blockers_critical": 2,
-    "deadline_remaining_hours": 40.32
+    "deadline_remaining_hours": 40.42
   },
   "automation_status": {
     "ctb_polling": "✅ HEALTHY",
@@ -56,5 +56,5 @@
     "git_auto_commit": "✅ HEALTHY",
     "total_healthy": "7/7"
   },
-  "next_update": "2026-06-18T21:02:00+09:00"
+  "next_update": "2026-06-18T20:52:00+09:00"
 }
