@@ -1,19 +1,23 @@
-# 메모리 인덱스 (2026-06-18 11:48 KST — 1/4 UP, 50h 48m CRITICAL)
+# 메모리 인덱스 (2026-06-18 11:57 KST — 0/4 DOWN, TIMEOUT 악화, CRITICAL)
 
-## 🔴 **현황 — P1 3/4 서비스 DOWN (DEPLOYMENT_NOT_FOUND) + 폴링 갭 감지**
+## 🔴 **현황 — 전체 P1 서비스 DOWN (TIMEOUT 악화) + Main Portal 상태 퇴행**
 
-- **배포**: 🔴 **1/4 UP / 3/4 DOWN** (Main Portal 200, 나머지 404)
-- **신뢰도**: **25%** (curl 직접검증, 11:48 KST)
-- **블로커**: 2건 CRITICAL (1. 배포 404 + 2. 폴링 갭 15h 48m)
-- **다운타임**: **50h 48m** (2026-06-16 10:06 KST ~ 2026-06-18 11:48 KST)
-- **모니터링**: ⚠️ 갭 감지 (2026-06-17 20:00 ~ 2026-06-18 11:48)
-- **필수 조치**: GitHub PAT 재생성 + Vercel Redeploy (🚨 긴급) + Cron 상태점검
+- **배포**: 🔴 **0/4 UP / 4/4 DOWN (TIMEOUT)** (모두 HTTP 000, Main Portal 200→TIMEOUT 악화)
+- **신뢰도**: **0%** (curl 직접검증, 11:57 KST)
+- **블로커**: 2건 CRITICAL (1. 전체 P1 TIMEOUT 악화 + 2. Main Portal 200→TIMEOUT 퇴행)
+- **다운타임**: **50h 57m** (2026-06-16 10:06 KST ~ 2026-06-18 11:57 KST)
+- **모니터링**: ✅ 정상 (갭 복구됨, 5분 주기 진행중)
+- **필수 조치**: 🚨 긴급 Vercel 에스컬레이션 + GitHub PAT 재생성
 
 ---
 
+## 📊 폴링 (2026-06-18 11:57 KST) — 상태 악화. 404→TIMEOUT + Main Portal 퇴행
+
+- [🔴 CTB 폴링 (11:57 KST)](CTB_2026_06_18_Cycle_1157.json) — **🔴 0/4 DOWN (TIMEOUT)** | **Main Portal 200→TIMEOUT 악화** | **다운타임 50h 57m** | **신뢰도 0%** | **블로커 2건 CRITICAL** | **마감 50h 8m 남음** | **Vercel 긴급 에스컬레이션 필수**
+
 ## 📊 폴링 (2026-06-18 11:48 KST) — 갭 이후 재개, 상태 무변화
 
-- [🔴 CTB 폴링 (11:48 KST)](CTB_2026_06_18_Cycle_1148.json) — **🔴 1/4 UP (Main Portal 200)** | **3/4 DOWN (404 DEPLOYMENT_NOT_FOUND)** | **다운타임 50h 48m** | **신뢰도 25%** (curl 직접검증) | **블로커 2건 CRITICAL** | **⚠️ 폴링 갭 15h 48m 감지** | **마감 50h 2m 남음**
+- [🔴 CTB 폴링 (11:48 KST)](CTB_2026_06_18_Cycle_1148.json) — **🔴 1/4 UP (Main Portal 200)** | **3/4 DOWN (404 DEPLOYMENT_NOT_FOUND)** | **다운타임 50h 48m** | **신뢰도 25%** | **블로커 2건 CRITICAL** | **폴링 갭 15h 48m 감지** | **마감 50h 2m 남음**
 
 ## 📊 폴링 (2026-06-17 19:59 KST) — 상태 무변화 (1/4 UP 지속)
 
