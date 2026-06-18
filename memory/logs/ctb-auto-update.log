@@ -6147,3 +6147,7 @@ Vercel: OK (no-cache 헤더 적용)
 [2026-06-18 18:00:04] 🚨 심각: Vercel 배포 심각하게 저하됨 — 0/4 P1만 운영 (AUDIT=404, DISCORD=404, BM=404, TRAVEL=404)
 [2026-06-18 18:00:04] ✅ CTB updated: 0% | Local: Phase2A=DOWN | Phase2B=DOWN | Phase2C=DOWN | Production: Vercel=심각 장애 (0/4 P1만)
 [2026-06-18 18:00:04] ⚠️  Warning: CTB progress incomplete (0%)
+[2026-06-18 18:05:02] 🔄 CTB Auto-Update 폴링 시작...
+[2026-06-18 18:05:06] 🚨 심각: Vercel 배포 심각하게 저하됨 — 0/4 P1만 운영 (AUDIT=404, DISCORD=404, BM=404, TRAVEL=404)
+[2026-06-18 18:05:06] ✅ CTB updated: 0% | Local: Phase2A=DOWN | Phase2B=DOWN | Phase2C=DOWN | Production: Vercel=심각 장애 (0/4 P1만)
+[2026-06-18 18:05:06] ⚠️  Warning: CTB progress incomplete (0%)
