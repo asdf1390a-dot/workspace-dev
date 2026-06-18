@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-18T03:08:00Z",
+  "timestamp": "2026-06-18T03:31:04Z",
   "progress": 0,
   "services": {
     "phase2a": "DOWN",
@@ -7,12 +7,8 @@
     "phase2c": "DOWN"
   },
   "production": {
-    "vercel": "심각 장애 (0/4 P1 TIMEOUT)",
-    "vercel_http": "000",
-    "status_trend": "악화 (404→000)"
+    "vercel": "심각 장애 (0/4 P1만)",
+    "vercel_http": "000"
   },
-  "last_update": "2026-06-18 12:08:00",
-  "blocker_count": 2,
-  "deadline_remaining": "약 17시간",
-  "user_action_status": "미접수 (GitHub PAT + Vercel 토큰 필수)"
+  "last_update": "2026-06-18 12:31:04"
 }
