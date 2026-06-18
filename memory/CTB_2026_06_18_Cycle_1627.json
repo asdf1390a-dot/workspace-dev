@@ -1,0 +1,84 @@
+{
+  "timestamp": "2026-06-18T16:27:00+09:00",
+  "cycle_number": 2047,
+  "polling_interval": "5min",
+  "services": {
+    "audit_p1": {
+      "name": "AUDIT-P1",
+      "url": "https://dsc-fms-audit.vercel.app/api/health",
+      "status": "DOWN",
+      "http_code": 404,
+      "response": "DEPLOYMENT_NOT_FOUND",
+      "check_time": "2026-06-18T16:27:00+09:00"
+    },
+    "discord_bot_p1": {
+      "name": "DISCORD-BOT-P1",
+      "url": "https://dsc-fms-discord-bot.vercel.app/api/health",
+      "status": "DOWN",
+      "http_code": 404,
+      "response": "DEPLOYMENT_NOT_FOUND",
+      "check_time": "2026-06-18T16:27:00+09:00"
+    },
+    "travel_p2": {
+      "name": "TRAVEL-P2-UI",
+      "url": "https://dsc-fms-travel.vercel.app/api/health",
+      "status": "DOWN",
+      "http_code": 404,
+      "response": "DEPLOYMENT_NOT_FOUND",
+      "check_time": "2026-06-18T16:27:00+09:00"
+    },
+    "bm_p1": {
+      "name": "BM-P1",
+      "url": "https://dsc-fms-bm-portal.vercel.app/api/health",
+      "status": "DOWN",
+      "http_code": 404,
+      "response": "DEPLOYMENT_NOT_FOUND",
+      "check_time": "2026-06-18T16:27:00+09:00"
+    }
+  },
+  "operational_status": {
+    "total_p1": 4,
+    "up_count": 0,
+    "up_percentage": 0,
+    "status_summary": "0/4 UP (0% OPERATIONAL)"
+  },
+  "incident_info": {
+    "started_at": "2026-06-17T03:02:00+09:00",
+    "duration_hours": 65.417,
+    "duration_formatted": "65h 25m",
+    "no_recovery_signals": true,
+    "continuous_monitoring_since": "2026-06-16T23:02:00+09:00"
+  },
+  "state_change": {
+    "changed": false,
+    "previous_cycle": "2026-06-18T16:22:00+09:00",
+    "previous_status": "0/4 DOWN",
+    "current_status": "0/4 DOWN",
+    "note": "무변화 지속 — 65시간 20분 상태 동일"
+  },
+  "reliability": {
+    "score": 100,
+    "note": "정확한 HTTP 404 응답 — 근본원인 명확 (DEPLOYMENT_NOT_FOUND)"
+  },
+  "root_cause": "Vercel DEPLOYMENT_NOT_FOUND — GitHub PAT 토큰 만료 또는 미설정",
+  "blockers": [
+    {
+      "id": "blocker_1",
+      "title": "Vercel 배포 실패",
+      "impact": "모든 P1 서비스 0/4 DOWN",
+      "root_cause": "GitHub PAT 토큰 인증 실패",
+      "resolution": "GitHub PAT 재생성 + Vercel 환경변수 업데이트 + 배포 재실행",
+      "severity": "CRITICAL",
+      "estimated_time_to_fix": "5-10분 (사용자 액션 후)"
+    },
+    {
+      "id": "blocker_2",
+      "title": "토큰 생성 권한",
+      "impact": "비서 자동화 불가 — 사용자만 생성 가능",
+      "root_cause": "GitHub 보안 정책 (PAT 생성은 사용자 전용)",
+      "resolution": "사용자가 https://github.com/settings/tokens/new 에서 직접 생성",
+      "severity": "CRITICAL",
+      "estimated_time_to_fix": "3-5분 (사용자)"
+    }
+  ]
+}

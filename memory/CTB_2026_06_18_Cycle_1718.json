@@ -1,0 +1,50 @@
+{
+  "cycle_id": "2026_06_18_1718",
+  "timestamp_utc": "2026-06-18T08:18:07Z",
+  "timestamp_kst": "2026-06-18 17:18:07 KST",
+  "cycle_number": 1718,
+  "status_summary": "🔴 0/4 P1 DOWN (무변화 지속)",
+  "deployment_status": {
+    "AUDIT-P1": {
+      "url": "https://dsc-fms-audit-portal.vercel.app",
+      "http_code": 404,
+      "status": "DOWN",
+      "commit": "0cf3c1ba"
+    },
+    "DISCORD-BOT-P1": {
+      "url": "https://dsc-fms-discord-bot.vercel.app",
+      "http_code": 404,
+      "status": "DOWN",
+      "commit": "585db4d5"
+    },
+    "TRAVEL-P2-UI": {
+      "url": "https://dsc-fms-travel-portal.vercel.app",
+      "http_code": 404,
+      "status": "DOWN",
+      "commit": "e9396c74"
+    },
+    "BM-P1": {
+      "url": "https://dsc-fms-bm-portal.vercel.app",
+      "http_code": 404,
+      "status": "DOWN",
+      "commit": "ecc13a9f"
+    }
+  },
+  "metrics": {
+    "p1_up": 0,
+    "p1_total": 4,
+    "uptime_percentage": 0,
+    "incident_duration_hours": 65.08,
+    "last_change_duration_hours": 2.0,
+    "reliability": "0%"
+  },
+  "blockers": [
+    "배포 DOWN (Vercel DEPLOYMENT_NOT_FOUND)",
+    "GitHub PAT / Vercel 토큰 필수"
+  ],
+  "team_utilization": "9%",
+  "deadline_remaining_hours": 46.67,
+  "notes": "무변화 지속 (15:20 이후 변화 없음 · 2h 지속)",
+  "auto_updated": true,
+  "update_reason": "scheduled_cron_polling"
+}
