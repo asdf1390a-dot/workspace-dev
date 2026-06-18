@@ -1,0 +1,19 @@
+{
+  "timestamp": "2026-06-18T20:07:00+09:00",
+  "cycle": 1957,
+  "summary": "🔴 4/4 P1 DOWN (68h 52m CRITICAL) | 무변화 지속",
+  "deployment_status": {
+    "AUDIT-P1": {"endpoint": "https://audit.dsc-fms.com", "http_status": 404, "error": "NOT_FOUND", "root_cause": "DEPLOYMENT_NOT_FOUND", "status": "DOWN", "downtime_minutes": 4132},
+    "DISCORD-BOT-P1": {"endpoint": "https://discord-bot.dsc-fms.com", "http_status": 404, "error": "NOT_FOUND", "root_cause": "DEPLOYMENT_NOT_FOUND", "status": "DOWN", "downtime_minutes": 4132},
+    "BM-P1": {"endpoint": "https://bm.dsc-fms.com", "http_status": 404, "error": "NOT_FOUND", "root_cause": "DEPLOYMENT_NOT_FOUND", "status": "DOWN", "downtime_minutes": 4132},
+    "TRAVEL-P2-UI": {"endpoint": "https://travel.dsc-fms.com", "http_status": 404, "error": "NOT_FOUND", "root_cause": "DEPLOYMENT_NOT_FOUND", "status": "DOWN", "downtime_minutes": 4132}
+  },
+  "metrics": {"up_count": 0, "down_count": 4, "reliability_percent": 0, "change_detected": false, "team_utilization_percent": 9, "blockers": 2},
+  "blockers": [
+    {"id": 1, "severity": "CRITICAL", "title": "Vercel 배포 인프라", "status": "UNRESOLVED", "duration_minutes": 4132, "required_action": "GitHub PAT + Vercel Token 제공", "recovery_time_minutes": 5},
+    {"id": 2, "severity": "CRITICAL", "title": "db/30 마이그레이션 SQL 미실행", "status": "UNRESOLVED", "duration_minutes": 4082, "required_action": "Supabase SQL 실행", "recovery_time_minutes": 2}
+  ],
+  "automation_status": {"cron_jobs": 7, "cron_healthy": 7, "cron_reliability_percent": 99},
+  "next_update": "2026-06-18T20:12:00+09:00",
+  "notes": "배포 68시간 52분 DOWN 지속. 무변화 2h 10m. 마달까지 40h 53m."
+}
