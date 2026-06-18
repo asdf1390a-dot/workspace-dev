@@ -1,14 +1,18 @@
 {
-  "timestamp": "2026-06-17T11:00:05Z",
-  "progress": 100,
+  "timestamp": "2026-06-18T11:57:30+09:00",
+  "progress": 0,
   "services": {
-    "phase2a": "ready",
-    "phase2b": "ready",
-    "phase2c": "ready"
+    "audit_p1": "DOWN (TIMEOUT)",
+    "discord_bot_p1": "DOWN (TIMEOUT)",
+    "travel_p2_ui": "DOWN (TIMEOUT)"
   },
   "production": {
-    "vercel": "심각 장애 (0/4 P1만)",
-    "vercel_http": "000"
+    "vercel": "심각 장애 — 전체 P1 TIMEOUT (0/4 UP)",
+    "vercel_http": "000",
+    "status_change": "Main Portal 200 → TIMEOUT (악화)"
   },
-  "last_update": "2026-06-17 20:00:05"
+  "last_update": "2026-06-18 11:57:30",
+  "blockers": 2,
+  "reliability": "0%",
+  "deadline_remaining_hours": 50.08
 }
