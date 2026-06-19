@@ -1,0 +1,79 @@
+{
+  "timestamp": "2026-06-19T08:59:00Z",
+  "timestamp_kst": "2026-06-19 17:59 KST",
+  "cycle": "2026-06-19_1759",
+  "status": "🔴 CRITICAL (무변화 2h 36m, 블로커 2건)",
+  "endpoints": [
+    {
+      "name": "Main Portal",
+      "path": "/",
+      "url": "https://dsc-fms-portal.vercel.app/",
+      "status": 200,
+      "http_status": "✅ HTTP 200",
+      "status_emoji": "🟢",
+      "response_time_ms": "~350"
+    },
+    {
+      "name": "AUDIT-P1",
+      "path": "/audit",
+      "url": "https://dsc-fms-portal.vercel.app/audit",
+      "status": 404,
+      "http_status": "❌ HTTP 404",
+      "status_emoji": "🔴",
+      "error": "Page not found"
+    },
+    {
+      "name": "DISCORD-BOT-P1",
+      "path": "/api/discord",
+      "url": "https://dsc-fms-portal.vercel.app/api/discord",
+      "status": 404,
+      "http_status": "❌ HTTP 404",
+      "status_emoji": "🔴",
+      "error": "Page not found"
+    },
+    {
+      "name": "TRAVEL-P2-UI",
+      "path": "/travel",
+      "url": "https://dsc-fms-portal.vercel.app/travel",
+      "status": 404,
+      "http_status": "❌ HTTP 404",
+      "status_emoji": "🔴",
+      "error": "Page not found"
+    },
+    {
+      "name": "BM-P1",
+      "path": "/bm",
+      "url": "https://dsc-fms-portal.vercel.app/bm",
+      "status": 404,
+      "http_status": "❌ HTTP 404",
+      "status_emoji": "🔴",
+      "error": "Page not found"
+    }
+  ],
+  "summary": {
+    "total": 5,
+    "up": 1,
+    "down": 4,
+    "up_percentage": 20,
+    "operational": false
+  },
+  "previous_state": {
+    "timestamp": "2026-06-19 15:23 KST",
+    "status": "1/4 UP (Main Portal), 3P1 DOWN",
+    "duration_unchanged": "2h 36m (15:23→17:59)"
+  },
+  "trend": "🔴 완전 정체 (15:23부터 무변화 2h 36m 지속)",
+  "reliability": 20,
+  "critical_blockers": [
+    "BLOCKER 1: 배포 회귀 (1/4 UP, AUDIT/DISCORD/TRAVEL/BM HTTP 404)",
+    "BLOCKER 2: db/30 OVERDUE 109h+ (사용자 SQL 실행 필수)",
+    "Phase 3-1 마감 20h 1m (2026-06-20 14:00 KST)"
+  ],
+  "escalation_status": "🟡 ALERT PENDING (Option A 30분 초과, 응답 미수신)",
+  "required_actions": [
+    "🔴 URGENT: Supabase SQL 실행 (db/30 migration) — 5분 소요",
+    "🔴 URGENT: Vercel 배포 로그 접근 (11:30~11:55 근본원인 파악)"
+  ],
+  "next_check": "2026-06-19 18:04 KST (+5min)",
+  "updated_by": "CTB Auto-Update Cron (5min polling)"
+}

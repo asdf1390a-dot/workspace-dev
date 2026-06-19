@@ -1,0 +1,74 @@
+{
+  "timestamp": "2026-06-19T07:56:00Z",
+  "timestamp_kst": "2026-06-19 16:56 KST",
+  "cycle": "2026-06-19_1656",
+  "status": "🟡 PARTIAL (무변화 1h 33m 지속)",
+  "endpoints": [
+    {
+      "name": "Main Portal",
+      "path": "/",
+      "url": "https://dsc-fms-portal.vercel.app/",
+      "status": 200,
+      "http_status": "✅ HTTP 200",
+      "status_emoji": "🟢",
+      "response_time_ms": 355
+    },
+    {
+      "name": "AUDIT-P1",
+      "path": "/audit",
+      "url": "https://dsc-fms-portal.vercel.app/audit",
+      "status": 404,
+      "http_status": "❌ HTTP 404",
+      "status_emoji": "🔴",
+      "error": "This page could not be found"
+    },
+    {
+      "name": "DISCORD-BOT-P1",
+      "path": "/api/discord",
+      "url": "https://dsc-fms-portal.vercel.app/api/discord",
+      "status": 404,
+      "http_status": "❌ HTTP 404",
+      "status_emoji": "🔴",
+      "error": "This page could not be found"
+    },
+    {
+      "name": "TRAVEL-P2-UI",
+      "path": "/travel",
+      "url": "https://dsc-fms-portal.vercel.app/travel",
+      "status": 404,
+      "http_status": "❌ HTTP 404",
+      "status_emoji": "🔴",
+      "error": "This page could not be found"
+    },
+    {
+      "name": "BM-P1",
+      "path": "/bm, /api/bm-events",
+      "url": "https://dsc-fms-portal.vercel.app/bm",
+      "status": 404,
+      "http_status": "❌ HTTP 404",
+      "status_emoji": "🔴",
+      "error": "This page could not be found"
+    }
+  ],
+  "summary": {
+    "total": 5,
+    "up": 1,
+    "down": 4,
+    "up_percentage": 20,
+    "operational": false
+  },
+  "previous_state": {
+    "timestamp": "2026-06-19 15:23 KST",
+    "status": "1/4 UP (Main Portal), 3P1 DOWN",
+    "duration_since_change": "1h 33m (15:23→16:56)"
+  },
+  "trend": "무변화 지속 (15:23 부분복구 이후)",
+  "reliability": 20,
+  "critical_blockers": [
+    "db/30 OVERDUE 109h+ (사용자 SQL 실행 대기)",
+    "3P1 배포 실패 (AUDIT/DISCORD/TRAVEL 404 미해결)",
+    "Phase 3-1 마감 22h 6m (2026-06-20 14:00)"
+  ],
+  "next_check": "2026-06-19 17:01 KST (+5min)",
+  "notes": "이전 16:42 기록 '4/4 UP'는 거짓 신호. 실제는 1/4 UP 무변화 지속."
+}

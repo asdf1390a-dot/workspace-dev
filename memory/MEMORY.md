@@ -1,5 +1,9 @@
 # 메모리 인덱스
 
+## 🚨 P0 자동복구 검사 (2026-06-19 18:11 KST - CRITICAL) — Option A Timeout | db/30 응답 미수신 (41분 경과) | 배포 1/4 UP 확인 | Option B/C 검토 | 마감 21h 54m
+
+- [🚨 P0 자동복구 검사 (18:11 KST)](P0_AUTO_RECOVERY_REPORT_20260619_1811.md) — **배포**: 1/4 UP (Portal HTTP 200 ✅) | **신뢰도**: 20% 지속 | **Option A**: 41분 타임아웃 (응답 미수신) | **db/30**: OVERDUE 109h+ → 응답 미수신 | **다음**: Option B/C 선택 필요 | **마감**: 21h 54m (2026-06-20 14:00)
+
 ## 🔴 배포 회귀 (2026-06-19 17:01:46 KST - CRITICAL) — 1/4 UP 실제 검증 | 16:42 거짓신호 적발 | 신뢰도 20% | 이중 블로커 (배포+db/30) | 마감 22h 2m
 
 - [🔴 CRITICAL REGRESSION (17:01 KST)](INCOMPLETE_TASKS_REGISTRY.md) — **1/4 UP 확정** (Main Portal HTTP 200 soft 404만, AUDIT/DISCORD/TRAVEL/BM 모두 HTTP 404) | **회귀 감지**: 16:42 거짓신호 "4/4 UP" ← 실제는 1/4 | **신뢰도**: 96% → 20% 추락 | **블로커**: 2건 (배포 DOWN + db/30 OVERDUE 109h+) | **거짓신호**: 8건 누적, 미식별 자동화 여전히 작동 | **긴급**: 배포 진단 + 미식별 자동화 추적 | **마감**: Phase 3-1 22h 2m
