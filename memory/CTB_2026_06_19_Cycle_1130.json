@@ -1,0 +1,42 @@
+{
+  "timestamp": "2026-06-19T02:30:48Z",
+  "cycle": 1130,
+  "progress": 75,
+  "recovery_event": true,
+  "services": {
+    "audit": "DOWN",
+    "discord_bot": "UP",
+    "bm": "UP",
+    "travel": "UP"
+  },
+  "status": {
+    "up_count": 3,
+    "down_count": 1,
+    "http_status": "3/4 UP (200 OK), 1/4 DOWN (404 DEPLOYMENT_NOT_FOUND)"
+  },
+  "production": {
+    "vercel": "부분 복구 (3/4 UP) - 첫 회복 신호 104h+ 경과 후",
+    "vercel_http": "200, 200, 200, 404"
+  },
+  "deadlines": {
+    "db_30_migration": {
+      "deadline": "2026-06-15T14:00:00+09:00",
+      "status": "OVERDUE",
+      "overdue_by_hours": 104.5
+    },
+    "phase_3_1_ui": {
+      "deadline": "2026-06-20T14:00:00+09:00",
+      "status": "URGENT",
+      "hours_remaining": 26.5
+    },
+    "asset_master_3_2": {
+      "deadline": "2026-06-17T18:00:00+09:00",
+      "status": "OVERDUE",
+      "overdue_by_hours": 41.5
+    }
+  },
+  "reliability": 75,
+  "blockers": 2,
+  "team_utilization": "상승 중 (3/4 P1 복구)",
+  "last_update": "2026-06-19 11:30:48"
+}
