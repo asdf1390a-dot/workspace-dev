@@ -10,6 +10,86 @@ type: project
 
 ---
 
+## 📊 TASK STATE MACHINE MONITORING (2026-06-19 11:33 KST - PARTIAL RECOVERY 3/4 UP 🟢)
+
+### ⚙️ State Transition Rules Applied (2026-06-19 11:33 KST)
+
+**Monitoring Context:**
+- 이전 체크: 2026-06-18 19:43 KST (모든 P1 DOWN, 무변화)
+- 현재 체크: 2026-06-19 11:33 KST (3/4 P1 UP, 부분 복구)
+- 경과 시간: 15h 50m (상태 전환 기회 증가)
+
+| 규칙 | 조건 | 대상 | 신호 감지 | 결과 |
+|-----|------|------|---------|------|
+| BLOCKED_ON_EXTERNAL → IN_PROGRESS | 외부 의존성 해결 | DISCORD-BOT/BM/TRAVEL (3건) | ✅ HTTP 200 UP | **상태 전환** |
+| BLOCKED_ON_EXTERNAL → IN_PROGRESS | 외부 의존성 해결 | AUDIT-P1 (1건) | ❌ HTTP 404 DOWN | 상태 유지 |
+| BLOCKED_ON_EXTERNAL → IN_PROGRESS | 외부 의존성 해결 | Phase 3/Asset Master (3건) | ⚠️ 부분 복구 (3/4) | 상태 유지 (4/4 필요) |
+| BLOCKED_ON_USER → IN_PROGRESS | 사용자 액션 신호 | db/30 (1건) | ❌ 미감지 | 상태 유지 |
+| IN_PROGRESS → BLOCKED_ON_* | 새 의존성 감지 | — | ❌ 없음 | — |
+| IN_PROGRESS → COMPLETED | 완료 + 검증 | — | ❌ 없음 | — |
+
+### 📈 State Machine Execution Summary (11:33 KST)
+
+**모니터링 시간:** 2026-06-19 11:33:00 KST  
+**이전 체크:** 2026-06-18 19:43:00 KST (15h 50m 경과)  
+**모니터링 대상:** 8개 태스크 (P1 4건 + Phase 3 3건 + db/30 1건)  
+**상태 전환:** **3건 ✅** (DISCORD-BOT/BM/TRAVEL: BLOCKED_ON_EXTERNAL → IN_PROGRESS)  
+**상태 유지:** **5건 ✅** (AUDIT-P1, Phase 3-1, Asset Master, db/30, db/35)
+
+### 📋 Detailed State Transitions (11:33 KST)
+
+| 태스크 | 이전 상태 (19:43) | 신호 | 새 상태 (11:33) | 지속 기간 | 변화 |
+|------|---------|------|----------|---------|------|
+| **DISCORD-BOT-P1** | BLOCKED_ON_EXTERNAL | HTTP 200 UP ✅ | **IN_PROGRESS** | 0m | **✅ TRANSITION** |
+| **BM-P1** | BLOCKED_ON_EXTERNAL | HTTP 200 UP ✅ | **IN_PROGRESS** | 0m | **✅ TRANSITION** |
+| **TRAVEL-P2-UI** | BLOCKED_ON_EXTERNAL | HTTP 200 UP ✅ | **IN_PROGRESS** | 0m | **✅ TRANSITION** |
+| **AUDIT-P1** | BLOCKED_ON_EXTERNAL | HTTP 404 DOWN ❌ | BLOCKED_ON_EXTERNAL | 104h 13m | ⬜ NO CHANGE |
+| **Phase 3-1 UI** | BLOCKED_ON_EXTERNAL | 3/4 P1 UP (부분) | BLOCKED_ON_EXTERNAL | 41h+ | ⬜ NO CHANGE (4/4 필요) |
+| **Asset Master 3-2** | BLOCKED_ON_EXTERNAL | 3/4 P1 UP (부분) | BLOCKED_ON_EXTERNAL | 41h+ | ⬜ NO CHANGE (4/4 필요) |
+| **Travel P2 UI** | BLOCKED_ON_EXTERNAL | 3/4 P1 UP (부분) | BLOCKED_ON_EXTERNAL | 41h+ | ⬜ NO CHANGE (4/4 필요) |
+| **db/30 마이그레이션** | BLOCKED_ON_USER | ❌ 미감지 | BLOCKED_ON_USER | 104h 30m OVERDUE | ⬜ NO CHANGE |
+
+### 🟢 Positive Signals (11:33 KST)
+
+1. **3개 P1 서비스 복구 (첫 양성 신호)**
+   - DISCORD-BOT: 104h+ 차단 해제 ✅
+   - BM: 104h+ 차단 해제 ✅
+   - TRAVEL: 104h+ 차단 해제 ✅
+
+2. **작업 진행 가능한 상태 증가**
+   - 팀 활용률: 9% → 25%+ 예상 (3건 IN_PROGRESS 전환)
+   - Phase 3 개발 준비: 부분 가능 (AUDIT 복구 대기)
+
+3. **Critical Path 부분 해제**
+   - TRAVEL-P2-UI 개발 시작 가능 ✅
+   - DISCORD-BOT 개발 시작 가능 ✅
+   - BM 개발 시작 가능 ✅
+
+### 🔴 Remaining Blockers (11:33 KST)
+
+1. **AUDIT-P1 여전히 DOWN (104h 13m)**
+   - 필요: GitHub PAT / Vercel 토큰
+   - 영향: Asset Master 3-2 계속 차단, Phase 3-1 부분 차단
+
+2. **db/30 마이그레이션 OVERDUE (104h 30m)**
+   - 필요: SQL 실행 (Supabase CLI or dashboard)
+   - 영향: Phase 3-1/3-2 완전 차단, 팀 2명 추가 차단
+
+3. **Phase 3-1 마감 URGENT (26h 30m)**
+   - 필요: db/30 완료 후 즉시 개발 시작
+   - 의존: db/30 + AUDIT 복구 (이상적)
+
+### ✅ 결론 (11:33 KST)
+
+**상태 전환 3건 감지 및 적용 완료** ✅
+- DISCORD-BOT-P1: BLOCKED_ON_EXTERNAL → IN_PROGRESS
+- BM-P1: BLOCKED_ON_EXTERNAL → IN_PROGRESS
+- TRAVEL-P2-UI: BLOCKED_ON_EXTERNAL → IN_PROGRESS
+
+**남은 차단 조건:** 2건 (AUDIT DOWN + db/30 미실행)
+
+---
+
 ## 📊 TASK STATE MACHINE MONITORING (2026-06-17 08:16 KST - CRITICAL DOWN 🔴)
 
 ### ⚙️ 현재 상태 & 신호 감지 (08:16 KST 직접 엔드포인트 검증 기반)
