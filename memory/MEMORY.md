@@ -1,8 +1,11 @@
 # 메모리 인덱스
 
-## 🔴 **LEVEL 3 에스컬레이션 (2026-06-20 14:31 KST - 진행중)** — **자동 발동 13h 57m 경과** | **CEO/PM 13h 47m 미응답** | **Main Portal HTTP 200 회복 진행 중** | 3건 CRITICAL 블로커 | **의사결정 기한 초과 (2026-06-21 00:34 KST, -51m)**
+## 🔴 **LEVEL 3 에스컬레이션 (2026-06-20 07:45 KST 폴링)** — **자동 발동 7h 47m 경과** | **무변화 지속** | **Main Portal HTTP 200 UP** | **4/5 DOWN** 지속 | **db/30 ~114h 15m OVERDUE** | **의사결정 기한 16h 49m 남음**
 
-- [🟢 조직도 & 업무현황 (14:31 KST)](org_status_20260620_1431.md) — **상태변화 0건** ✅ | **신뢰도 20%** (1/5 Main Portal) | **배포 1/5 UP 안정** (HTTP 200 Loading) | **4/5 DOWN 지속** (404) | **db/30 123h 13m OVERDUE** | **의사결정 기한 초과** (-51m) | 팀 0% 활용 모두 차단
+- [🟢 Session Checkpoint (07:45 KST)](checkpoint_20260620_0745.md) — **상태변화 0건** ✅ | **Main Portal HTTP 200 유지** ✅ | **신뢰도 20%** (1/5 UP) | **4/5 DOWN** (AUDIT/DISCORD/TRAVEL/BM 404) | **db/30 ~114h 15m OVERDUE** | **의사결정 기한 16h 49m** | **Level 3 활성 7h 47m**
+- [🔴 CTB 폴링 (07:31 KST)](checkpoint_20260620_0731.md) — **🔴 거짓신호 확인** | **AUDIT-P1 503→404 재퇴행** | **Main Portal HTTP 200 유지** ✅ | **신뢰도 20%** (1/5 UP) | **4/5 DOWN** (AUDIT/DISCORD/TRAVEL/BM 404) | **db/30 123h+ OVERDUE** | **Phase 3-1 마감 6h 29m** (-65h 31m) | **Level 3 활성 7h**
+- [🟡 Session Checkpoint (07:21 KST)](checkpoint_20260620_0721.md) — **🟢 부분 회복 신호 (거짓)** | **AUDIT-P1 HTTP 503 (배포 재시작 진행)** | **Main Portal HTTP 200** ✅ | **신뢰도 25%** (1/5 UP + 1/5 DEGRADED) | **4/5 DOWN** (DISCORD/TRAVEL/BM 404) | **db/30 120h 36m OVERDUE** | **Phase 3-1 마감 6h 39m** | **Level 3 활성 6h 47m**
+- [🟡 Session Checkpoint (07:16 KST)](checkpoint_20260620_0716.md) — **🟢 부분 회복 신호** | **Main Portal HTTP 200 복구** ✅ | **신뢰도 20%** (1/5 UP) | **4/5 DOWN 지속** (AUDIT/DISCORD/TRAVEL/BM 404) | **db/30 119h 16m OVERDUE** | **Phase 3-1 마감 6h 44m** | **Level 3 활성 6h 42m**
 - [🟢 Session Checkpoint (14:17 KST)](checkpoint_20260620_1417.md) — **상태변화 0건** ✅ | **신뢰도 20%** (1/5 Main Portal) | **배포 1/5 UP 안정** (HTTP 200 Loading) | **4/5 DOWN 지속** (404) | **db/30 122h 59m OVERDUE** | **의사결정 기한 초과** (-37m) | Task State Machine 전환 조건 미충족
 - [🟢 조직도 & 업무현황 (14:01 KST)](org_status_20260620_1401.md) — **상태변화 0건** ✅ | **신뢰도 20%** (1/5 Main Portal) | **배포 1/5 UP 안정** (HTTP 200 Loading) | **4/5 DOWN 지속** (404) | **db/30 122h 43m OVERDUE** | **의사결정 기한 초과** (-7m) | 팀 0% 활용 모두 차단
 - [🟢 Session Checkpoint (13:47 KST)](checkpoint_20260620_1347.md) — **상태변화 0건** ✅ | **신뢰도 20%** (1/5 Main Portal) | **배포 1/5 UP 안정** (HTTP 200 Loading) | **4/5 DOWN 지속** (404) | **db/30 122h 29m OVERDUE** | **의사결정 기한 23m** | Task State Machine 전환 조건 미충족
