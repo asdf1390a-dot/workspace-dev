@@ -1,10 +1,10 @@
 ---
 name: Incomplete Tasks Registry
-description: 🔴 LEVEL 3 ESCALATION ACTIVE (36분 경과) | CEO/PM 1h 36m 미응답 | 배포 0/5 DOWN (모두 404, 13h 13m) | db/30 OVERDUE 111h 56m | Phase 3-1 -58h 48m 불가능 | 팀 0% 활용 | Board/Stakeholder 의사결정 대기 중
+description: 🔴 LEVEL 3 ESCALATION ACTIVE (144분 경과) | CEO/PM 3h 24m 미응답 | 배포 1/5 UP (Main Portal 회복 진행) | db/30 OVERDUE 113h 44m | Phase 3-1 -61h 2m 불가능 | 팀 0% 활용 | Board/Stakeholder 의사결정 대기 중
 type: project
 ---
 
-# Incomplete Tasks Registry (Last Updated: 2026-06-20 02:42:00 KST - 🔴 LEVEL 3 ACTIVE (128분 경과) | CEO/PM 3h 8m 미응답 | 배포 1/5 UP (Main Portal 회복 신호) | db/30 OVERDUE 113h 28m | 마감 11h 18m (-60h 16m 부족) | 팀 0% 활용)
+# Incomplete Tasks Registry (Last Updated: 2026-06-20 02:58:41 KST - 🔴 LEVEL 3 ACTIVE (144분 경과) | CEO/PM 3h 24m 미응답 | 배포 1/5 UP (Main Portal 회복 진행 중) | db/30 OVERDUE 113h 44m | 마감 11h 2m (-61h 2m 부족) | 팀 0% 활용)
 
 ## 🔴 LEVEL 3 에스컬레이션 상태 (2026-06-20 02:42 KST - 128분 경과)
 

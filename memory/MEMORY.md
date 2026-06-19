@@ -1,7 +1,8 @@
 # 메모리 인덱스
 
-## 🔴 **LEVEL 3 에스컬레이션 (2026-06-20 02:42 KST - 진행중)** — **자동 발동 2h 8m 경과** | **CEO/PM 3h 8m 미응답** | **Main Portal HTTP 200 회복 신호 유지** | 3건 CRITICAL 블로커 | Board/Stakeholder 의사결정 기한 2026-06-21 00:34 KST (21h 52m)
+## 🔴 **LEVEL 3 에스컬레이션 (2026-06-20 02:58 KST - 진행중)** — **자동 발동 2h 24m 경과** | **CEO/PM 3h 24m 미응답** | **Main Portal HTTP 200 회복 진행 중** | 3건 CRITICAL 블로커 | Board/Stakeholder 의사결정 기한 2026-06-21 00:34 KST (21h 36m)
 
+- [🟡 Session Checkpoint (02:58 KST)](checkpoint_20260620_0258.md) — **신뢰도 20%** (1/5 Main Portal ✅) | **배포 1/5 UP 지속** (Main Portal HTTP 200 Loading 진행) | **4/5 DOWN 지속** (AUDIT/DISCORD/TRAVEL/BM 404) | **자동 복구 제약** (Vercel 토큰) | **db/30 113h 44m OVERDUE** | **Phase 3-1 -61h 2m 불가능**
 - [🟡 Session Checkpoint (02:42 KST)](checkpoint_20260620_0242.md) — **신뢰도 20%** (1/5 Main Portal ✅) | **배포 1/5 UP 지속** (Main Portal HTTP 200 Loading) | **4/5 DOWN 지속** (AUDIT/DISCORD/TRAVEL/BM 404) | **자동 복구 제약** (Vercel 토큰) | **db/30 113h 28m OVERDUE** | **Phase 3-1 -60h 16m 불가능**
 - [🔴 P0 Cron Checkpoint (02:02 KST)](checkpoint_20260620_0202.md) — **신뢰도 20%** (1/5) | **Main Portal HTTP 200 회복** (Loading 렌더링) | **AUDIT/DISCORD/TRAVEL/BM 404 DOWN 지속** | **자동 복구 제약** (Vercel 토큰) | **Cron 요구사항 확인** (신뢰도 < 85% 감지)
 - [📊 CTB 폴링 (01:58 KST)](CTB_2026_06_20_Cycle_0158.md) — **🔴 LEVEL 3 ACTIVE** | **Main Portal 부분 회복** (503→Loading) | **AUDIT/DISCORD/TRAVEL/BM 0/4 DOWN** | **신뢰도 20%** | **CEO/PM 85분 미응답** | **배포 1/5 회복 신호 감지**
