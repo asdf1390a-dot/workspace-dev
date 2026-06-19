@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-19T02:30:48Z",
+  "timestamp": "2026-06-19T02:33:00Z",
   "progress": 75,
   "services": {
     "audit": "DOWN",
@@ -8,8 +8,8 @@
     "travel": "UP"
   },
   "production": {
-    "vercel": "부분 복구 (3/4 UP) - 첫 회복 신호",
+    "vercel": "부분 복구 (3/4 UP)",
     "vercel_http": "404, 200, 200, 200"
   },
-  "last_update": "2026-06-19 11:30:48"
+  "last_update": "2026-06-19 11:33:00"
 }
