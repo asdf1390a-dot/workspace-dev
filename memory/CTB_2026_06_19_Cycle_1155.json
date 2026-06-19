@@ -1,0 +1,62 @@
+{
+  "timestamp": "2026-06-19T02:55:00Z",
+  "cycle": 1155,
+  "cron_task": "08:00 KST Daily P0 Check + CTB Sync (delayed 3h 55m)",
+  "progress": 0,
+  "recovery_event": false,
+  "regression_status": "CRITICAL REGRESSION ONGOING",
+  "regression_start": "2026-06-19T02:40:29Z",
+  "regression_duration_minutes": 15,
+  "services": {
+    "audit": "DOWN",
+    "discord_bot": "DOWN",
+    "bm": "DOWN",
+    "travel": "DOWN"
+  },
+  "status": {
+    "up_count": 0,
+    "down_count": 4,
+    "http_status": "0/4 DOWN (all DEPLOYMENT_NOT_FOUND)",
+    "verification_method": "curl endpoint check 2026-06-19 11:55 KST"
+  },
+  "production": {
+    "vercel": "완전 손실 (0/4 DOWN)",
+    "vercel_http": "DEPLOYMENT_NOT_FOUND × 4",
+    "error_code": "DEPLOYMENT_NOT_FOUND (배포 찾을 수 없음)"
+  },
+  "deadlines": {
+    "db_30_migration": {
+      "deadline": "2026-06-15T14:00:00+09:00",
+      "status": "OVERDUE",
+      "overdue_by_hours": 104.917,
+      "overdue_by_formatted": "104h 55m"
+    },
+    "phase_3_1_ui": {
+      "deadline": "2026-06-20T14:00:00+09:00",
+      "status": "URGENT",
+      "hours_remaining": 26.083,
+      "hours_remaining_formatted": "26h 5m"
+    },
+    "asset_master_3_2": {
+      "deadline": "2026-06-17T18:00:00+09:00",
+      "status": "OVERDUE",
+      "overdue_by_hours": 41.917
+    }
+  },
+  "reliability": 0,
+  "blockers": 3,
+  "blocker_details": [
+    "AUDIT 배포 실패 (104h+ DOWN)",
+    "3/4 P1 재손실 (10m 지속 후 회귀)",
+    "db/30 마이그레이션 OVERDUE (104h 55m)"
+  ],
+  "team_utilization": "9% (1/11명 활동 중) — 3명 재차단",
+  "immediate_actions_required": [
+    "1. 배포 진단 (Vercel 대시보드 + GitHub Actions 로그)",
+    "2. db/30 SQL 즉시 실행 (OVERDUE 104h 55m)",
+    "3. 팀 재알림 (IN_PROGRESS → BLOCKED 롤백 3명)",
+    "4. Phase 3-1 마감 26h 5m 재공유 (긴급)"
+  ],
+  "last_update": "2026-06-19 11:55 KST",
+  "notes": "부분복구(11:30~11:40) 직후 완전 재손실. Vercel 자동롤백 또는 토큰 만료 추정. 사용자 액션 필수."
+}

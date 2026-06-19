@@ -6295,3 +6295,99 @@ Vercel: OK (no-cache 헤더 적용)
 [2026-06-18 19:43 KST] Key metrics: 68h 28m downtime, 0% reliability, 91% team idle, 2 CRITICAL blockers
 [2026-06-18 19:43 KST] Automation: 7/7 cron jobs healthy (99% reliability)
 
+[2026-06-18 19:45:01] 🔄 CTB Auto-Update 폴링 시작...
+[2026-06-18 19:45:05] 🚨 심각: Vercel 배포 심각하게 저하됨 — 0/4 P1만 운영 (AUDIT=404, DISCORD=404, BM=404, TRAVEL=404)
+[2026-06-18 19:45:05] ✅ CTB updated: 0% | Local: Phase2A=DOWN | Phase2B=DOWN | Phase2C=DOWN | Production: Vercel=심각 장애 (0/4 P1만)
+[2026-06-18 19:45:05] ⚠️  Warning: CTB progress incomplete (0%)
+[2026-06-18 19:50:01] 🔄 CTB Auto-Update 폴링 시작...
+[2026-06-18 19:50:05] 🚨 심각: Vercel 배포 심각하게 저하됨 — 0/4 P1만 운영 (AUDIT=404, DISCORD=404, BM=404, TRAVEL=404)
+[2026-06-18 19:50:05] ✅ CTB updated: 0% | Local: Phase2A=DOWN | Phase2B=DOWN | Phase2C=DOWN | Production: Vercel=심각 장애 (0/4 P1만)
+[2026-06-18 19:50:05] ⚠️  Warning: CTB progress incomplete (0%)
+[2026-06-18 19:55:01] 🔄 CTB Auto-Update 폴링 시작...
+[2026-06-18 19:55:05] 🚨 심각: Vercel 배포 심각하게 저하됨 — 0/4 P1만 운영 (AUDIT=404, DISCORD=404, BM=404, TRAVEL=404)
+[2026-06-18 19:55:05] ✅ CTB updated: 0% | Local: Phase2A=DOWN | Phase2B=DOWN | Phase2C=DOWN | Production: Vercel=심각 장애 (0/4 P1만)
+[2026-06-18 19:55:05] ⚠️  Warning: CTB progress incomplete (0%)
+[2026-06-19 11:30:01] 🔄 CTB Auto-Update 폴링 시작...
+[2026-06-19 11:30:05] 🚨 심각: Vercel 배포 심각하게 저하됨 — 0/4 P1만 운영 (AUDIT=404, DISCORD=404, BM=404, TRAVEL=404)
+[2026-06-19 11:30:05] ✅ CTB updated: 0% | Local: Phase2A=DOWN | Phase2B=DOWN | Phase2C=DOWN | Production: Vercel=심각 장애 (0/4 P1만)
+[2026-06-19 11:30:05] ⚠️  Warning: CTB progress incomplete (0%)
+[2026-06-19 11:35:01] 🔄 CTB Auto-Update 폴링 시작...
+[2026-06-19 11:35:05] 🚨 심각: Vercel 배포 심각하게 저하됨 — 0/4 P1만 운영 (AUDIT=404, DISCORD=404, BM=404, TRAVEL=404)
+[2026-06-19 11:35:05] ✅ CTB updated: 0% | Local: Phase2A=DOWN | Phase2B=DOWN | Phase2C=DOWN | Production: Vercel=심각 장애 (0/4 P1만)
+[2026-06-19 11:35:05] ⚠️  Warning: CTB progress incomplete (0%)
+[2026-06-19 11:40:01] 🔄 CTB Auto-Update 폴링 시작...
+[2026-06-19 11:40:06] 🚨 심각: Vercel 배포 심각하게 저하됨 — 0/4 P1만 운영 (AUDIT=404, DISCORD=404, BM=404, TRAVEL=404)
+[2026-06-19 11:40:06] ✅ CTB updated: 0% | Local: Phase2A=DOWN | Phase2B=DOWN | Phase2C=DOWN | Production: Vercel=심각 장애 (0/4 P1만)
+[2026-06-19 11:40:06] ⚠️  Warning: CTB progress incomplete (0%)
+[2026-06-19 11:45:01] 🔄 CTB Auto-Update 폴링 시작...
+[2026-06-19 11:45:05] 🚨 심각: Vercel 배포 심각하게 저하됨 — 0/4 P1만 운영 (AUDIT=404, DISCORD=404, BM=404, TRAVEL=404)
+[2026-06-19 11:45:05] ✅ CTB updated: 0% | Local: Phase2A=DOWN | Phase2B=DOWN | Phase2C=DOWN | Production: Vercel=심각 장애 (0/4 P1만)
+[2026-06-19 11:45:05] ⚠️  Warning: CTB progress incomplete (0%)
+[2026-06-19 11:50:01] 🔄 CTB Auto-Update 폴링 시작...
+[2026-06-19 11:50:46] 🚨 심각: Vercel 배포 심각하게 저하됨 — 0/4 P1만 운영 (AUDIT=000, DISCORD=000, BM=000, TRAVEL=404)
+[2026-06-19 11:50:46] ✅ CTB updated: 0% | Local: Phase2A=DOWN | Phase2B=DOWN | Phase2C=DOWN | Production: Vercel=심각 장애 (0/4 P1만)
+[2026-06-19 11:50:46] ⚠️  Warning: CTB progress incomplete (0%)
+[2026-06-19 11:55:01] 🔄 CTB Auto-Update 폴링 시작...
+[2026-06-19 11:55:05] 🚨 심각: Vercel 배포 심각하게 저하됨 — 0/4 P1만 운영 (AUDIT=404, DISCORD=404, BM=404, TRAVEL=404)
+[2026-06-19 11:55:05] ✅ CTB updated: 0% | Local: Phase2A=DOWN | Phase2B=DOWN | Phase2C=DOWN | Production: Vercel=심각 장애 (0/4 P1만)
+[2026-06-19 11:55:05] ⚠️  Warning: CTB progress incomplete (0%)
+[2026-06-19 12:00:01] 🔄 CTB Auto-Update 폴링 시작...
+[2026-06-19 12:00:06] 🚨 심각: Vercel 배포 심각하게 저하됨 — 0/4 P1만 운영 (AUDIT=404, DISCORD=404, BM=404, TRAVEL=404)
+[2026-06-19 12:00:06] ✅ CTB updated: 0% | Local: Phase2A=DOWN | Phase2B=DOWN | Phase2C=DOWN | Production: Vercel=심각 장애 (0/4 P1만)
+[2026-06-19 12:00:06] ⚠️  Warning: CTB progress incomplete (0%)
+[2026-06-19 12:14:23] 🔄 CTB Auto-Update 폴링 시작...
+[2026-06-19 12:14:27] 🚨 심각: Vercel 배포 심각하게 저하됨 — 0/4 P1만 운영 (AUDIT=404, DISCORD=404, BM=404, TRAVEL=404)
+[2026-06-19 12:14:27] ✅ CTB updated: 0% | Local: Phase2A=DOWN | Phase2B=DOWN | Phase2C=DOWN | Production: Vercel=심각 장애 (0/4 P1만)
+[2026-06-19 12:14:27] ⚠️  Warning: CTB progress incomplete (0%)
+[2026-06-19 12:15:01] 🔄 CTB Auto-Update 폴링 시작...
+[2026-06-19 12:15:04] 🚨 심각: Vercel 배포 심각하게 저하됨 — 0/4 P1만 운영 (AUDIT=404, DISCORD=404, BM=404, TRAVEL=404)
+[2026-06-19 12:15:04] ✅ CTB updated: 0% | Local: Phase2A=DOWN | Phase2B=DOWN | Phase2C=DOWN | Production: Vercel=심각 장애 (0/4 P1만)
+[2026-06-19 12:15:04] ⚠️  Warning: CTB progress incomplete (0%)
+[2026-06-19 12:20:01] 🔄 CTB Auto-Update 폴링 시작...
+[2026-06-19 12:20:39] 🚨 심각: Vercel 배포 심각하게 저하됨 — 0/4 P1만 운영 (AUDIT=404, DISCORD=404, BM=404, TRAVEL=404)
+[2026-06-19 12:20:39] ✅ CTB updated: 0% | Local: Phase2A=DOWN | Phase2B=DOWN | Phase2C=DOWN | Production: Vercel=심각 장애 (0/4 P1만)
+[2026-06-19 12:20:39] ⚠️  Warning: CTB progress incomplete (0%)
+[2026-06-19 12:25:01] 🔄 CTB Auto-Update 폴링 시작...
+[2026-06-19 12:26:04] 🚨 심각: Vercel 배포 심각하게 저하됨 — 0/4 P1만 운영 (AUDIT=000, DISCORD=000, BM=000, TRAVEL=000)
+[2026-06-19 12:26:04] ✅ CTB updated: 0% | Local: Phase2A=DOWN | Phase2B=DOWN | Phase2C=DOWN | Production: Vercel=심각 장애 (0/4 P1만)
+[2026-06-19 12:26:04] ⚠️  Warning: CTB progress incomplete (0%)
+[2026-06-19 12:30:01] 🔄 CTB Auto-Update 폴링 시작...
+[2026-06-19 12:30:05] 🚨 심각: Vercel 배포 심각하게 저하됨 — 0/4 P1만 운영 (AUDIT=404, DISCORD=404, BM=404, TRAVEL=404)
+[2026-06-19 12:30:05] ✅ CTB updated: 0% | Local: Phase2A=DOWN | Phase2B=DOWN | Phase2C=DOWN | Production: Vercel=심각 장애 (0/4 P1만)
+[2026-06-19 12:30:05] ⚠️  Warning: CTB progress incomplete (0%)
+[2026-06-19 12:35:01] 🔄 CTB Auto-Update 폴링 시작...
+[2026-06-19 12:35:04] 🚨 심각: Vercel 배포 심각하게 저하됨 — 0/4 P1만 운영 (AUDIT=404, DISCORD=404, BM=404, TRAVEL=404)
+[2026-06-19 12:35:05] ✅ CTB updated: 0% | Local: Phase2A=DOWN | Phase2B=DOWN | Phase2C=DOWN | Production: Vercel=심각 장애 (0/4 P1만)
+[2026-06-19 12:35:05] ⚠️  Warning: CTB progress incomplete (0%)
+[2026-06-19 12:40:01] 🔄 CTB Auto-Update 폴링 시작...
+[2026-06-19 12:40:04] 🚨 심각: Vercel 배포 심각하게 저하됨 — 0/4 P1만 운영 (AUDIT=404, DISCORD=404, BM=404, TRAVEL=404)
+[2026-06-19 12:40:04] ✅ CTB updated: 0% | Local: Phase2A=DOWN | Phase2B=DOWN | Phase2C=DOWN | Production: Vercel=심각 장애 (0/4 P1만)
+[2026-06-19 12:40:04] ⚠️  Warning: CTB progress incomplete (0%)
+[2026-06-19 12:45:01] 🔄 CTB Auto-Update 폴링 시작...
+[2026-06-19 12:45:05] 🚨 심각: Vercel 배포 심각하게 저하됨 — 0/4 P1만 운영 (AUDIT=404, DISCORD=404, BM=404, TRAVEL=404)
+[2026-06-19 12:45:05] ✅ CTB updated: 0% | Local: Phase2A=DOWN | Phase2B=DOWN | Phase2C=DOWN | Production: Vercel=심각 장애 (0/4 P1만)
+[2026-06-19 12:45:05] ⚠️  Warning: CTB progress incomplete (0%)
+[2026-06-19 12:50:01] 🔄 CTB Auto-Update 폴링 시작...
+[2026-06-19 12:50:05] 🚨 심각: Vercel 배포 심각하게 저하됨 — 0/4 P1만 운영 (AUDIT=404, DISCORD=404, BM=404, TRAVEL=404)
+[2026-06-19 12:50:05] ✅ CTB updated: 0% | Local: Phase2A=DOWN | Phase2B=DOWN | Phase2C=DOWN | Production: Vercel=심각 장애 (0/4 P1만)
+[2026-06-19 12:50:05] ⚠️  Warning: CTB progress incomplete (0%)
+[2026-06-19 12:55:01] 🔄 CTB Auto-Update 폴링 시작...
+[2026-06-19 12:55:06] 🚨 심각: Vercel 배포 심각하게 저하됨 — 0/4 P1만 운영 (AUDIT=404, DISCORD=404, BM=404, TRAVEL=404)
+[2026-06-19 12:55:06] ✅ CTB updated: 0% | Local: Phase2A=DOWN | Phase2B=DOWN | Phase2C=DOWN | Production: Vercel=심각 장애 (0/4 P1만)
+[2026-06-19 12:55:06] ⚠️  Warning: CTB progress incomplete (0%)
+[2026-06-19 13:00:01] 🔄 CTB Auto-Update 폴링 시작...
+[2026-06-19 13:00:04] 🚨 심각: Vercel 배포 심각하게 저하됨 — 0/4 P1만 운영 (AUDIT=404, DISCORD=404, BM=404, TRAVEL=404)
+[2026-06-19 13:00:05] ✅ CTB updated: 0% | Local: Phase2A=DOWN | Phase2B=DOWN | Phase2C=DOWN | Production: Vercel=심각 장애 (0/4 P1만)
+[2026-06-19 13:00:05] ⚠️  Warning: CTB progress incomplete (0%)
+[2026-06-19 13:05:01] 🔄 CTB Auto-Update 폴링 시작...
+[2026-06-19 13:05:05] 🚨 심각: Vercel 배포 심각하게 저하됨 — 0/4 P1만 운영 (AUDIT=404, DISCORD=404, BM=404, TRAVEL=404)
+[2026-06-19 13:05:05] ✅ CTB updated: 0% | Local: Phase2A=DOWN | Phase2B=DOWN | Phase2C=DOWN | Production: Vercel=심각 장애 (0/4 P1만)
+[2026-06-19 13:05:05] ⚠️  Warning: CTB progress incomplete (0%)
+[2026-06-19 13:10:01] 🔄 CTB Auto-Update 폴링 시작...
+[2026-06-19 13:10:05] 🚨 심각: Vercel 배포 심각하게 저하됨 — 0/4 P1만 운영 (AUDIT=404, DISCORD=404, BM=404, TRAVEL=404)
+[2026-06-19 13:10:05] ✅ CTB updated: 0% | Local: Phase2A=DOWN | Phase2B=DOWN | Phase2C=DOWN | Production: Vercel=심각 장애 (0/4 P1만)
+[2026-06-19 13:10:05] ⚠️  Warning: CTB progress incomplete (0%)
+[2026-06-19 13:15:01] 🔄 CTB Auto-Update 폴링 시작...
+[2026-06-19 13:15:06] 🚨 심각: Vercel 배포 심각하게 저하됨 — 0/4 P1만 운영 (AUDIT=404, DISCORD=404, BM=404, TRAVEL=404)
+[2026-06-19 13:15:06] ✅ CTB updated: 0% | Local: Phase2A=DOWN | Phase2B=DOWN | Phase2C=DOWN | Production: Vercel=심각 장애 (0/4 P1만)
+[2026-06-19 13:15:06] ⚠️  Warning: CTB progress incomplete (0%)

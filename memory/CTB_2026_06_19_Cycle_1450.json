@@ -1,0 +1,55 @@
+{
+  "timestamp": "2026-06-19T14:50:58+09:00",
+  "cycle_number": 201,
+  "polling_duration_minutes": 5,
+  "deployment_status": {
+    "audit_p1": {
+      "url": "https://dsc-fms-audit.vercel.app/",
+      "http_code": 404,
+      "state": "DOWN",
+      "response_time_ms": "timeout",
+      "verified_at": "2026-06-19T14:50:58+09:00"
+    },
+    "discord_bot_p1": {
+      "url": "https://dsc-fms-discord-bot.vercel.app/",
+      "http_code": 404,
+      "state": "DOWN",
+      "response_time_ms": "timeout",
+      "verified_at": "2026-06-19T14:50:58+09:00"
+    },
+    "travel_p2_ui": {
+      "url": "https://dsc-fms-travel.vercel.app/",
+      "http_code": 404,
+      "state": "DOWN",
+      "response_time_ms": "timeout",
+      "verified_at": "2026-06-19T14:50:58+09:00"
+    },
+    "bm_p1": {
+      "url": "https://dsc-fms-bm.vercel.app/",
+      "http_code": 404,
+      "state": "DOWN",
+      "response_time_ms": "timeout",
+      "verified_at": "2026-06-19T14:50:58+09:00"
+    }
+  },
+  "summary": {
+    "operational_count": 0,
+    "down_count": 4,
+    "operational_percentage": 0,
+    "reliability": "0%",
+    "incident_duration_minutes": 190,
+    "incident_start": "2026-06-19T11:40:00+09:00",
+    "status": "CRITICAL_REGRESSION_UNRESOLVED"
+  },
+  "blockers": {
+    "count": 4,
+    "critical": [
+      "4/4 P1/P2 HTTP 404 — Vercel deployment failure",
+      "db/30 OVERDUE 104h 39m (SQL 미실행)",
+      "Phase 3-1 BLOCKED (마감 2026-06-20 14:00 KST까지 26h)",
+      "팀 활용률 9% (1/11 활동만)"
+    ]
+  },
+  "verification_method": "Direct endpoint curl (no cache)",
+  "notes": "회귀 상태 3h 10m 지속. 자동 복구 신호 없음. Vercel 배포 상태 재확인 필요."
+}

@@ -1,0 +1,60 @@
+{
+  "timestamp": "2026-06-19T03:40:00Z",
+  "cycle": 1240,
+  "cron_task": "12:40 KST CTB Polling (Regression Monitoring)",
+  "progress": 0,
+  "recovery_event": false,
+  "regression_status": "REGRESSION UNRESOLVED (25% Down to 0%)",
+  "regression_start": "2026-06-19T02:40:29Z",
+  "regression_duration_minutes": 60,
+  "services": {
+    "audit": "DOWN",
+    "discord_bot": "DOWN",
+    "bm": "DOWN",
+    "travel": "DOWN",
+    "portal": "UP"
+  },
+  "status": {
+    "up_count": 1,
+    "down_count": 4,
+    "http_status": "1/4 UP (Portal 200 only)",
+    "verification_method": "curl endpoint check 2026-06-19 12:40 KST × 3 attempts",
+    "note": "Portal recovered at 12:14, but 3/4 P1 still 404 — partial recovery unstable"
+  },
+  "production": {
+    "vercel": "심각 손실 (1/4 UP, 3/4 DOWN)",
+    "vercel_http": "AUDIT=404, DISCORD=404, BM=404, TRAVEL=404, PORTAL=200",
+    "error_code": "DEPLOYMENT_NOT_FOUND (3/4 배포)"
+  },
+  "deadlines": {
+    "db_30_migration": {
+      "deadline": "2026-06-15T14:00:00+09:00",
+      "status": "OVERDUE",
+      "overdue_by_hours": 105.667,
+      "overdue_by_formatted": "105h 40m"
+    },
+    "phase_3_1_ui": {
+      "deadline": "2026-06-20T14:00:00+09:00",
+      "status": "URGENT",
+      "hours_remaining": 25.333,
+      "hours_remaining_formatted": "25h 20m"
+    }
+  },
+  "reliability": 25,
+  "blockers": 4,
+  "blocker_details": [
+    "3/4 P1 지속 DOWN (DEPLOYMENT_NOT_FOUND × 60min)",
+    "db/30 마이그레이션 OVERDUE (105h 40m)",
+    "GitHub PAT 토큰 필수",
+    "Vercel 배포 상태 불안정 (부분복구 불완전)"
+  ],
+  "team_utilization": "9% (1/11명) — 재차단 상태",
+  "immediate_actions_required": [
+    "1. Vercel 대시보드 진단 (3/4 배포 실패 원인)",
+    "2. GitHub Actions 로그 확인 (배포 상태)",
+    "3. db/30 SQL 즉시 실행 (OVERDUE 105h 40m)",
+    "4. 모니터링 간격 5분 단축 (전개 중)"
+  ],
+  "last_update": "2026-06-19 12:40 KST",
+  "notes": "Portal 회복은 부분적 신호, 3/4 P1 여전히 404 — 배포 상태 불안정. Vercel 자동롤백 또는 인프라 장애 의심. 사용자 토큰 + 배포 진단 필수."
+}

@@ -1,0 +1,52 @@
+{
+  "timestamp": "2026-06-19 12:51 KST",
+  "cycle": "CTB_AUTO_POLLING",
+  "endpoints": {
+    "AUDIT-P1": {
+      "url": "dsc-fms-audit.vercel.app",
+      "status": 404,
+      "code": "DEPLOYMENT_NOT_FOUND",
+      "healthy": false
+    },
+    "DISCORD-BOT-P1": {
+      "url": "dsc-fms-discord-bot.vercel.app",
+      "status": 404,
+      "code": "DEPLOYMENT_NOT_FOUND",
+      "healthy": false
+    },
+    "TRAVEL-P2-UI": {
+      "url": "dsc-fms-travel.vercel.app",
+      "status": 404,
+      "code": "DEPLOYMENT_NOT_FOUND",
+      "healthy": false
+    },
+    "BM-P1": {
+      "url": "dsc-fms-bm.vercel.app",
+      "status": 404,
+      "code": "DEPLOYMENT_NOT_FOUND",
+      "healthy": false
+    }
+  },
+  "summary": {
+    "total_endpoints": 4,
+    "healthy": 0,
+    "down": 4,
+    "uptime_percentage": 0,
+    "operational": false
+  },
+  "state_changes": [],
+  "no_change": true,
+  "duration_since_regression": "57 minutes (11:54 → 12:51 KST)",
+  "reliability": 0,
+  "blockers": [
+    "배포 0/4 DOWN (DEPLOYMENT_NOT_FOUND)",
+    "Cron 자동화 중단 (2026-06-17 01:33 이후)",
+    "메모리 미갱신"
+  ],
+  "critical_items": {
+    "db_30_overdue_hours": 104.65,
+    "phase_3_1_deadline_hours": 26.33,
+    "team_utilization_percent": 9
+  },
+  "next_polling_interval": "2 minutes (as per SOUL.md CRITICAL protocol)"
+}

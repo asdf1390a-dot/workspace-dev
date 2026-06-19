@@ -1,63 +1,69 @@
 # Central Task Board (CTB) — Active Work Tracking
-**마지막 업데이트:** 2026-06-18 16:37 KST (CRITICAL INCIDENT 85h 35m 지속, 폴링 확인 — HTTP 404 안정)  
-**상태:** 🔴 **CRITICAL INCIDENT — 0/4 P1 DOWN (HTTP 404 DEPLOYMENT_NOT_FOUND). 배포 85h 35m 미해결. 신뢰도: 100% (상태 안정). 블로커: 2건 CRITICAL. 마감: 45h 23m (2026-06-20 14:00). 사용자 액션 필수: GitHub PAT 재생성 + Vercel 토큰 설정.**
+**마지막 업데이트:** 2026-06-19 15:00 KST (CRITICAL INCIDENT 108h+ 지속, 폴링 재확인 — 0/4 DOWN 지속 + Supabase 동시 장애)  
+**상태:** 🔴 **CRITICAL INCIDENT — 0/4 P1 DOWN (HTTP 404 + Main Portal Supabase failed). 배포 108h+ 미해결. 신뢰도: 100% (상태 안정). 블로커: 3건 CRITICAL (배포 + Supabase + 사용자 액션). 마감: 26h (2026-06-20 14:00). 사용자 액션 필수: GitHub PAT 재생성 + Vercel/Supabase 토큰 설정 + 배포 재시작.**
 
 ---
 
-## 🔴 CRITICAL INCIDENT REPORT (16:12 KST — 2026-06-18, 85h 10m ONGOING)
+## 🔴 CRITICAL INCIDENT REPORT (15:00 KST — 2026-06-19, 108h+ ONGOING)
 
-**사건 개요:** Vercel P1 배포 전체 손실 + 악화 (HTTP 000 TIMEOUT) — 지속 중  
+**사건 개요:** Vercel P1 배포 전체 손실 (HTTP 404 DEPLOYMENT_NOT_FOUND) + Main Portal Supabase 연결 장애 — 지속 중  
 **발생 시간:** 2026-06-15 03:02 KST  
-**현재 지속 시간:** 85시간 10분 (16:12 KST 기준)  
-**심각도:** 🔴 CRITICAL (0/4 P1 DOWN — 모든 서비스)
+**현재 지속 시간:** 108시간+ (15:00 KST 기준)  
+**심각도:** 🔴 CRITICAL (0/4 P1 DOWN — 모든 서비스 + Supabase 동시 장애)
 
-### 4개 P1 프로젝트 상태 (2026-06-18 12:40 직접 검증)
+### 4개 P1 프로젝트 상태 (2026-06-19 15:00 직접 검증)
 
 | 프로젝트 | 상태 | HTTP | 에러 | 영향 | 다운타임 |
 |---------|------|------|------|------|---------|
-| **AUDIT-P1** | 🔴 DOWN | 000 | TIMEOUT | 자산 조회 불가 | 51h 40m |
-| **DISCORD-BOT-P1** | 🔴 DOWN | 000 | TIMEOUT | 번역 봇 불가 | 51h 40m |
-| **TRAVEL-P2-UI** | 🔴 DOWN | 000 | TIMEOUT | 여행 UI 불가 | 51h 40m |
-| **Main Portal** | 🔴 DOWN | 000 | TIMEOUT | 메인 포탈 중단 | 3h 43m (11:57부터) |
+| **AUDIT-P1** | 🔴 DOWN | 404 | DEPLOYMENT_NOT_FOUND | 자산 조회 불가 | 108h+ |
+| **DISCORD-BOT-P1** | 🔴 DOWN | 404 | NOT_FOUND | 번역 봇 불가 | 108h+ |
+| **TRAVEL-P2-UI** | 🔴 DOWN | 404 | DEPLOYMENT_NOT_FOUND | 여행 UI 불가 | 108h+ |
+| **Main Portal** | 🟡 DEGRADED | 200 | Supabase failed | 기능 제한 (DB 연결 불가) | 108h+ |
 
 **운영률:** 0/4 (0% — 모든 서비스 DOWN)  
-**신뢰도:** 0% (Vercel 인프라 완전 미응답)
+**신뢰도:** 100% (상태 안정 — 회복 신호 0건)
 
-### 웹개발자 상태 (15:25 KST)
+### 웹개발자 상태 (15:00 KST)
 
-- 🔴 **작업 완전 블로킹** — 0/4 P1 배포 장애 + Main Portal까지 TIMEOUT으로 개발 환경 완전 불가용 (51h 40m)
-- **API 구현:** 진행률 0% (작업 불가 상태) — 배포 정상화까지 진행 불가능
-- **예상 ETA:** 계산 불가 (배포 복구 완료 후에야 가능) → Vercel 해결 후 재계산 필요
-- **보고:** 웹개발자 리포트 미수신 (51시간 개발 환경 불가로 작업 정지)
+- 🔴 **작업 완전 블로킹** — 0/4 P1 배포 장애 + Main Portal Supabase 연결 실패로 개발 환경 완전 불가용 (108h+)
+- **API 구현:** 진행률 0% (작업 불가 상태) — 배포 + Supabase 정상화까지 진행 불가능
+- **예상 ETA:** 계산 불가 (배포 + Supabase 복구 완료 후에야 가능) → Vercel + Supabase 해결 후 재계산 필수
+- **보고:** 웹개발자 리포트 미수신 (108시간 개발 환경 불가로 작업 정지)
 
-### 블로킹 항목 (2건 CRITICAL)
+### 블로킹 항목 (3건 CRITICAL)
 
 | ID | 제목 | 심각도 | 상태 | 필요 액션 |
 |----|----|--------|------|----------|
-| **B1** | 🔴 배포 인프라 전체 DOWN (51h 40m) | 🔴 CRITICAL | 🔴 미해결 | GitHub PAT 재생성 + Vercel 지원팀 에스컬레이션 (긴급) |
-| **B2** | 🔴 사용자 액션 미접수 (51시간) | 🔴 CRITICAL | 🔴 미해결 | PAT 재생성 + Vercel 토큰 설정 + 배포 재시작 |
+| **B1** | 🔴 배포 인프라 전체 DOWN (108h+) | 🔴 CRITICAL | 🔴 미해결 | GitHub PAT 재생성 + Vercel 지원팀 재에스컬레이션 (긴급) |
+| **B2** | 🔴 Supabase DB 연결 장애 (Main Portal degraded) | 🔴 CRITICAL | 🔴 미해결 | Supabase 상태 확인 + 재시작 (동시 장애) |
+| **B3** | 🔴 사용자 액션 미접수 (108시간) | 🔴 CRITICAL | 🔴 미해결 | PAT 재생성 + 토큰 설정 + 배포 재시작 + Supabase 복구 |
 
-### 권장 조치 (긴급)
+### 권장 조치 (긴급 — 26h 남음)
 
 1. **즉시:** GitHub PAT 재생성 (사용자 액션 필수)
    - 링크: https://github.com/settings/tokens?type=beta
    - 스코프: workflow + repo 체크
-   - Vercel 환경변수 업데이트 필요
-   - 51시간 미접수 상태 → 마감까지 49h 20m만 남음
+   - Vercel 환경변수 업데이트 필수
+   - 108시간 미접수 상태 → **마감까지 26h만 남음**
 
-2. **즉시:** Vercel 상태페이지 확인
+2. **즉시:** Supabase 상태 확인
+   - 링크: https://supabase.com/dashboard
+   - Vercel Main Portal 동시 장애 (Supabase 연결 실패)
+   - 네트워크 연결 재설정 필요
+
+3. **즉시:** Vercel 상태페이지 확인
    - 링크: https://vercel.com/status
-   - 근본원인 파악 (인프라 장애 vs 계정 문제)
+   - 근본원인 파악 (P1 선택적 배포 실패 vs 계정 문제)
 
-3. **긴급:** Vercel 지원팀 에스컬레이션
+4. **긴급:** Vercel 지원팀 재에스컬레이션
    - 발생: 2026-06-15 03:02 KST
-   - 기간: 51h 40m 지속
-   - 영향: 4개 P1 배포 + Main Portal 모두 TIMEOUT
-   - 마감: 2026-06-20 14:00 KST (49h 20m)
+   - 기간: **108h+ 지속 (이전 51h 40m 계속)**
+   - 영향: 4개 P1 배포 모두 DEPLOYMENT_NOT_FOUND + Main Portal Supabase 연결 실패
+   - 마감: 2026-06-20 14:00 KST (**26h 남음** ⚠️)
 
-4. **모니터링:** CTB 폴링 5분 주기 계속 (다음: 15:30 KST)
+5. **모니터링:** CTB 폴링 5분 주기 계속 (다음: 15:05 KST)
 
-5. **마감:** 2026-06-20 14:00 KST (49h 20m 남음)
+6. **마감:** 2026-06-20 14:00 KST (**26h 남음**)
 
 ---
 

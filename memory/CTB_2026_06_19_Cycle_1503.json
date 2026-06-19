@@ -1,0 +1,55 @@
+{
+  "timestamp": "2026-06-19T15:03:00+09:00",
+  "cycle": 1503,
+  "status": "🔴 P0 CRITICAL — 신뢰도 25% (1/4 UP)",
+  "deployment": {
+    "status": "1/4 UP",
+    "reliability": "25%",
+    "endpoints": {
+      "portal": {
+        "url": "https://dsc-fms-portal.vercel.app/",
+        "http_code": 200,
+        "status": "✅ UP"
+      },
+      "audit": {
+        "url": "https://dsc-fms-audit.vercel.app/",
+        "http_code": 404,
+        "status": "🔴 DOWN"
+      },
+      "travel": {
+        "url": "https://dsc-fms-travel.vercel.app/",
+        "http_code": 404,
+        "status": "🔴 DOWN"
+      },
+      "discord-bot": {
+        "url": "https://dsc-fms-discord-bot.vercel.app/",
+        "http_code": 404,
+        "status": "🔴 DOWN"
+      },
+      "bm": {
+        "url": "https://dsc-fms-bm.vercel.app/",
+        "http_code": 404,
+        "status": "🔴 DOWN"
+      }
+    }
+  },
+  "duration": {
+    "incident_start": "2026-06-19T11:40:00+09:00",
+    "incident_duration_minutes": 203,
+    "last_confirmed": "2026-06-19T15:03:00+09:00"
+  },
+  "critical_issues": [
+    "배포 3/4 DOWN (AUDIT, TRAVEL, DISCORD-BOT)",
+    "Vercel DEPLOYMENT_NOT_FOUND (모든 DOWN 배포)",
+    "신뢰도 25% < 85% P0 임계값",
+    "db/30 OVERDUE 104h+ (긴급)",
+    "자동화 스크립트 Portal 검사 미실행 (정확도 문제)"
+  ],
+  "blocker_count": 3,
+  "team_utilization": "9% (1/11)",
+  "deadline": {
+    "phase3_1": "2026-06-20 14:00 KST",
+    "hours_remaining": 23,
+    "status": "🔴 CRITICAL"
+  }
+}
