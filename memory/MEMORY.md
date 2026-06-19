@@ -1,7 +1,9 @@
 # 메모리 인덱스
 
-## 🔴 **LEVEL 3 에스컬레이션 (2026-06-20 11:17 KST - 진행중)** — **자동 발동 10h 43m 경과** | **CEO/PM 10h 33m 미응답** | **Main Portal HTTP 200 회복 진행 중** | 3건 CRITICAL 블로커 | Board/Stakeholder 의사결정 기한 2026-06-21 00:34 KST (2h 53m)
+## 🔴 **LEVEL 3 에스컬레이션 (2026-06-20 11:47 KST - 진행중)** — **자동 발동 11h 13m 경과** | **CEO/PM 11h 3m 미응답** | **Main Portal HTTP 200 회복 진행 중** | 3건 CRITICAL 블로커 | Board/Stakeholder 의사결정 기한 2026-06-21 00:34 KST (2h 23m)
 
+- [🟢 Session Checkpoint (11:47 KST)](checkpoint_20260620_1147.md) — **상태변화 0건** ✅ | **신뢰도 20%** (1/5 Main Portal) | **배포 1/5 UP 안정** (HTTP 200 Loading) | **4/5 DOWN 지속** (404) | **db/30 120h 29m OVERDUE** | **의사결정 기한 2h 23m** | Task State Machine 전환 조건 미충족
+- [🟢 조직도 & 업무현황 (11:31 KST)](org_status_20260620_1131.md) — **상태변화 0건** ✅ | **신뢰도 20%** (1/5 Main Portal) | **배포 1/5 UP 안정** (HTTP 200 Loading) | **4/5 DOWN 지속** (404) | **db/30 120h 13m OVERDUE** | **의사결정 기한 2h 39m** | 팀 0% 활용 모두 차단
 - [🟢 Session Checkpoint (11:17 KST)](checkpoint_20260620_1117.md) — **상태변화 0건** ✅ | **신뢰도 20%** (1/5 Main Portal) | **배포 1/5 UP 안정** (HTTP 200 Loading) | **4/5 DOWN 지속** (404) | **db/30 119h 59m OVERDUE** | **의사결정 기한 2h 53m** | Task State Machine 전환 조건 미충족
 - [🟢 조직도 & 업무현황 (11:01 KST)](org_status_20260620_1101.md) — **상태변화 0건** ✅ | **신뢰도 20%** (1/5 Main Portal) | **배포 1/5 UP 안정** (HTTP 200 Loading) | **4/5 DOWN 지속** (404) | **db/30 119h 43m OVERDUE** | **의사결정 기한 3h 9m** | 팀 0% 활용 모두 차단
 - [🟢 Session Checkpoint (10:47 KST)](checkpoint_20260620_1047.md) — **상태변화 0건** ✅ | **신뢰도 20%** (1/5 Main Portal) | **배포 1/5 UP 안정** (HTTP 200 Loading) | **4/5 DOWN 지속** (404) | **db/30 119h 29m OVERDUE** | **의사결정 기한 3h 23m** | Task State Machine 전환 조건 미충족
