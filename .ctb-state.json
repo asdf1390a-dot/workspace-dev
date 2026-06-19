@@ -1,18 +1,34 @@
 {
-  "timestamp": "2026-06-19T04:31:00Z",
-  "progress": 100,
+  "timestamp": "2026-06-19T08:01:46Z",
+  "progress": 20,
   "services": {
-    "phase2a": "unknown",
-    "phase2b": "unknown",
-    "phase2c": "unknown"
+    "main_portal": "🟢 HTTP 200 (soft 404)",
+    "audit_p1": "🔴 HTTP 404",
+    "discord_bot_p1": "🔴 HTTP 404",
+    "travel_p2_ui": "🔴 HTTP 404",
+    "bm_p1": "🔴 HTTP 404"
   },
   "production": {
-    "vercel": "🟢 4/4 P1 UP (HTTP 200) — 실제 검증",
-    "vercel_http": "200"
+    "vercel": "🔴 1/4 UP (회귀 감지)",
+    "vercel_http": "1/4"
   },
-  "last_polling_cycle": "MANUAL_WEBFETCH (직접 검증)",
-  "last_update": "2026-06-19 (현재 시각)",
-  "regression_duration": "🔴 거짓신호 (실제 배포는 정상 지속)",
-  "status_change": "모니터링 오류로 인한 거짓 DOWN 기록 → 실제 4/4 UP 확인",
-  "note": "🟢 배포 정상 (4/4 UP, 2,183 자산 데이터). 거짓신호는 ctb-auto-update.sh 오류. db/30 SQL OVERDUE 105h+ 🔴 = 실제 블로커. Phase 3-1 마감 24h 20m."
+  "last_polling_cycle": "WEBFETCH (17:01:46 KST 직접 검증)",
+  "last_update": "2026-06-19T08:01:46Z",
+  "regression_detected": "🔴 CRITICAL (16:42 거짓신호: 4/4 UP 기록 ≠ 17:01 실제: 1/4 UP)",
+  "false_signals_count": 8,
+  "false_signal_timeline": [
+    "11:40 (0/4 DOWN ≠ 4/4 UP)",
+    "12:35 (0/4 DOWN ≠ 4/4 UP)",
+    "12:40 (0/4 DOWN ≠ 4/4 UP)",
+    "12:42 (0/4 DOWN ≠ 4/4 UP)",
+    "13:10 (0/4 DOWN ≠ 4/4 UP)",
+    "15:03 (1/4 UP ≠ 4/4 UP)",
+    "15:52 (0/4 DOWN ≠ 4/4 UP)",
+    "16:42 (4/4 UP ≠ 1/4 UP) — EIGHTH FALSE SIGNAL"
+  ],
+  "blocker_1": "배포 회귀 (1/4 UP)",
+  "blocker_2": "db/30 SQL OVERDUE 109h+",
+  "deadline": "Phase 3-1 22h 2m (2026-06-20 14:00 KST)",
+  "unknown_automation": "미식별 자동화: ctb-auto-update.sh 비활성화 후에도 계속 상태파일 업데이트 중. 원인 조사중.",
+  "note": "🔴 CRITICAL REGRESSION @ 2026-06-19 17:01:46. 1/4 UP 확정 (Main Portal만 정상, 3P1 모두 404). 거짓신호 8건 누적, 미식별 자동화 프로세스 추적 필수. 긴급조치: 배포 진단 + 자동화 프로세스 감사."
 }
