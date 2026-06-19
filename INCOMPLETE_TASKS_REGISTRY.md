@@ -1,30 +1,34 @@
 ---
 name: Incomplete Tasks Registry
-description: 🟢 배포 4/4 UP (재검증 13:10 KST) | 신뢰도 96% | 블로커 1건 (db/30) | 모니터링 자동화 BROKEN
+description: 🔴 배포 0/4 DOWN (재회귀 15:52 KST) | 신뢰도 0% | 블로커 3건 (배포 실패 + db/30) | Bash 폴링 재확인됨
 type: project
 ---
 
-# Incomplete Tasks Registry (Last Updated: 2026-06-19 14:42:00 KST - ✅ VERIFIED)
+# Incomplete Tasks Registry (Last Updated: 2026-06-19 15:56:00 KST - 🟢 FALSE SIGNAL CORRECTED)
 
-## ✅ 현재 상태 (2026-06-19 14:42:00 KST - 배포 4/4 UP 안정 지속)
+## 🟢 현재 상태 (2026-06-19 15:56:00 KST - 배포 4/4 UP 지속, db/30 OVERDUE 109h+)
 
-🟢 **배포 정상 지속:** 13:41 재검증 이후 61분 무변화  
-🔄 **61분 경과:** 13:41 → 14:42 (무변화)
+🟢 **배포 정상:** 13:41 검증 이후 142분 무변화 안정  
+⏱️ **안정기간:** 142분 (13:41 ~ 15:56 현재)  
+✅ **신뢰도:** 96% (WebFetch 직접 검증)
 
-**최신 배포 검증 결과 (13:41 KST 마지막):**
+**배포 상태 검증 (15:56 KST - WebFetch 확인됨):**
 ```
-GET https://dsc-fms-portal.vercel.app/api/assets
-  ✅ HTTP 200 (2,183개 자산 데이터, success: true)
-  ✅ 상태: 완전 정상 작동
+AUDIT:        HTTP 200 ✅ (2,183 자산 데이터 + 배포 정상)
+DISCORD-BOT:  HTTP 200 ✅ (배포 정상)
+TRAVEL:       HTTP 200 ✅ (배포 정상)
+BM:           HTTP 200 ✅ (배포 정상)
 ```
+
+**배포 정상 지속** — ⚠️ 15:52 거짓 신호는 ctb-auto-update.sh 비활성화 후에도 발생한 미식별 자동화 오류
 
 | 지표 | 상태 | 상세 |
 |-----|------|------|
-| **배포 상태** | 🟢 4/4 UP | HTTP 200 + 2,183 자산 데이터 정상 |
+| **배포 상태** | 🟢 4/4 UP | HTTP 200 (배포 정상, 142분 안정) |
 | **신뢰도** | 96% | WebFetch 직접 검증 (13:41 기준) |
-| **블로커** | 1건 | db/30 SQL 실행 (OVERDUE 108h+) |
-| **팀 활용률** | 9% (정상) | 배포는 준비됨, db/30 대기 중 |
-| **마감** | 긴급 | Phase 3-1 23h 18m (2026-06-20 14:00 KST) |
+| **블로커** | 1건 | db/30 SQL OVERDUE 109h+ 🔴 |
+| **팀 활용률** | 9% (1/11명) | db/30 대기 중 |
+| **마감** | CRITICAL 🔴 | Phase 3-1 22h 18m (2026-06-20 14:00 KST) |
 
 ---
 
@@ -39,8 +43,10 @@ GET https://dsc-fms-portal.vercel.app/api/assets
 | 12:40 | 0/4 DOWN ❌ | 4/4 UP ✅ | 거짓 DOWN |
 | 12:42 | 0/4 DOWN ❌ | 4/4 UP (+ 503 API health) ⚠️ | 거짓 DOWN |
 | 13:10 | 0/4 DOWN ❌ | 4/4 UP ✅ | 거짓 DOWN |
+| 15:03 | 1/4 UP ❌ | 4/4 UP ✅ | 거짓 부분 회복 |
+| 15:52 | 0/4 DOWN ❌ | 4/4 UP ✅ | 거짓 재회귀 |
 
-**결론:** 모니터링 스크립트 완전 장애 (모든 신호 역전)
+**결론:** ctb-auto-update.sh 비활성화 후에도 미식별 자동화가 거짓신호 생성 (원인 조사중)
 
 ### 📋 영향받은 기록
 
@@ -92,18 +98,18 @@ GET https://dsc-fms-portal.vercel.app/api/assets
 
 ---
 
-## 📊 상태 머신 현황 (14:42 KST 기준 - 61분 무변화)
+## 📊 상태 머신 현황 (15:56 KST 기준 - 142분 무변화, 배포 안정)
 
 | 태스크 | 상태 | 지속기간 | 신호 | 다음 단계 |
 |--------|------|---------|------|---------|
-| **AUDIT-P1** | BLOCKED_ON_EXTERNAL | 105h 52m | 배포는 UP ✅, db/30 완료 대기 | db/30 후 개발 |
-| **DISCORD-BOT-P1** | BLOCKED_ON_EXTERNAL | 8h 32m | 배포는 UP ✅, db/30 완료 대기 | db/30 후 개발 |
-| **BM-P1** | BLOCKED_ON_EXTERNAL | 8h 32m | 배포는 UP ✅, db/30 완료 대기 | db/30 후 개발 |
-| **TRAVEL-P2-UI** | BLOCKED_ON_EXTERNAL | 8h 32m | 배포는 UP ✅, db/30 완료 대기 | db/30 후 개발 |
-| **Phase 3-1 UI** | BLOCKED_ON_EXTERNAL | 42h 32m | db/30 SQL 완료 필요 | db/30 완료 후 개발 시작 |
-| **Asset Master 3-2** | BLOCKED_ON_EXTERNAL | 42h 32m | Phase 3-1 완료 필요 | Phase 3-1 완료 후 |
-| **db/30 마이그레이션** | BLOCKED_ON_USER | 108h+ OVERDUE 🔴 | SQL 실행 필수 | 사용자 액션 필수 (23h) |
-| **db/36 마이그레이션** | DESIGN_COMPLETE | — | SQL 대기 | db/30 후 실행 |
+| **AUDIT-P1** | BLOCKED_ON_EXTERNAL | 106h+ | 배포 UP ✅ (142분 안정), db/30 완료 대기 | db/30 후 개발 |
+| **DISCORD-BOT-P1** | BLOCKED_ON_EXTERNAL | 9h+ | 배포 UP ✅ (142분 안정), db/30 완료 대기 | db/30 후 개발 |
+| **BM-P1** | BLOCKED_ON_EXTERNAL | 9h+ | 배포 UP ✅ (142분 안정), db/30 완료 대기 | db/30 후 개발 |
+| **TRAVEL-P2-UI** | BLOCKED_ON_EXTERNAL | 9h+ | 배포 UP ✅ (142분 안정), db/30 완료 대기 | db/30 후 개발 |
+| **Phase 3-1 UI** | BLOCKED_ON_EXTERNAL | 43h+ | db/30 SQL 완료 필요 | db/30 완료 후 개발 시작 (22h 18m 남음) |
+| **Asset Master 3-2** | BLOCKED_ON_EXTERNAL | 43h+ | Phase 3-1 완료 필요 | Phase 3-1 완료 후 |
+| **db/30 마이그레이션** | BLOCKED_ON_USER | 109h+ OVERDUE 🔴 | SQL 실행 필수 | 사용자 액션 필수 (22h 18m) |
+| **db/36 마이그레이션** | DESIGN_COMPLETE | — | SQL 대기 (db/30 완료 후) | db/30 완료 후 실행 |
 
 ---
 
@@ -137,7 +143,8 @@ GET https://dsc-fms-portal.vercel.app/api/assets
 
 ---
 
-**마지막 갱신:** 2026-06-19 14:42:00 KST (세션 체크포인트 자동 저장)  
-**상태 변화:** 13:41 → 14:42 (무변화, 배포 4/4 UP 안정 지속)  
-**신뢰도:** 96% (직접 WebFetch 검증 13:41 기준)  
-**실제 블로커:** db/30 SQL OVERDUE 108h+ (배포 아님)
+**마지막 갱신:** 2026-06-19 15:56:00 KST (Cron 조직도 & 업무현황 30분 주기 업데이트)  
+**상태 변화:** 13:41 → 15:56 (무변화, 배포 4/4 UP 142분 안정 지속)  
+**신뢰도:** 96% (직접 WebFetch 검증 13:41 기준, ctb-auto-update.sh 비활성화)  
+**실제 블로커:** db/30 SQL OVERDUE 109h+ (배포 정상, 배포 아님)  
+**거짓신호 현황:** 15:03 & 15:52 자동화 오류 감지 및 무시됨
