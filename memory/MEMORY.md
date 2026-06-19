@@ -1,7 +1,8 @@
 # 메모리 인덱스
 
-## 🔴 **LEVEL 3 에스컬레이션 (2026-06-20 03:43 KST - 진행중)** — **자동 발동 3h 9m 경과** | **CEO/PM 4h 9m 미응답** | **Main Portal HTTP 200 회복 진행 중** | 3건 CRITICAL 블로커 | Board/Stakeholder 의사결정 기한 2026-06-21 00:34 KST (20h 51m)
+## 🔴 **LEVEL 3 에스컬레이션 (2026-06-20 05:47 KST - 진행중)** — **자동 발동 5h 13m 경과** | **CEO/PM 5h 13m 미응답** | **Main Portal HTTP 200 회복 진행 중** | 3건 CRITICAL 블로커 | Board/Stakeholder 의사결정 기한 2026-06-21 00:34 KST (18h 47m)
 
+- [🟢 Session Checkpoint (05:47 KST)](checkpoint_20260620_0547.md) — **상태변화 0건** ✅ | **신뢰도 20%** (1/5 Main Portal) | **배포 1/5 UP 안정** (HTTP 200 Loading) | **4/5 DOWN 지속** (404) | **db/30 114h 45m OVERDUE** | **의사결정 기한 8h 13m** | Task State Machine 전환 조건 미충족
 - [🟢 Session Checkpoint (03:43 KST)](checkpoint_20260620_0343.md) — **상태변화 0건** ✅ | **신뢰도 20%** (1/5 Main Portal) | **배포 1/5 UP 안정** (HTTP 200 Loading) | **4/5 DOWN 지속** (404) | **db/30 114h 29m OVERDUE** | **Phase 3-1 -62h 3m** | 모든 시스템 정상
 - [🟢 Session Checkpoint (03:12 KST)](checkpoint_20260620_0312.md) — **상태변화 0건** ✅ | **신뢰도 20%** (1/5 Main Portal) | **배포 1/5 UP 안정** (HTTP 200 Loading) | **4/5 DOWN 지속** (404) | **db/30 113h 58m OVERDUE** | **Phase 3-1 -61h 32m** | 모든 시스템 정상
 - [🟡 Session Checkpoint (02:58 KST)](checkpoint_20260620_0258.md) — **신뢰도 20%** (1/5 Main Portal ✅) | **배포 1/5 UP 지속** (Main Portal HTTP 200 Loading 진행) | **4/5 DOWN 지속** (AUDIT/DISCORD/TRAVEL/BM 404) | **자동 복구 제약** (Vercel 토큰) | **db/30 113h 44m OVERDUE** | **Phase 3-1 -61h 2m 불가능**

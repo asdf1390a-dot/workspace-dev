@@ -4,7 +4,7 @@ description: 🔴 LEVEL 3 ESCALATION ACTIVE (189분 경과) | CEO/PM 4h 9m 미�
 type: project
 ---
 
-# Incomplete Tasks Registry (Last Updated: 2026-06-20 03:43:21 KST - 🔴 LEVEL 3 ACTIVE (189분 경과) | CEO/PM 4h 9m 미응답 | 배포 1/5 UP (Main Portal 회복 진행) | db/30 OVERDUE 114h 29m | 마감 10h 17m (-62h 3m 부족) | 팀 0% 활용 | 상태변화 0건)
+# Incomplete Tasks Registry (Last Updated: 2026-06-20 05:47:10 KST - 🔴 LEVEL 3 ACTIVE (325분 경과) | CEO/PM 5h 13m 미응답 | 배포 1/5 UP (Main Portal Loading 진행) | db/30 OVERDUE 114h 45m | 마감 8h 13m (-62h 부족) | 팀 0% 활용 | 상태변화 0건)
 
 ## 🔴 LEVEL 3 에스컬레이션 상태 (2026-06-20 02:42 KST - 128분 경과)
 
