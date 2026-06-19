@@ -157,24 +157,25 @@ BM:           HTTP 404 ❌ (배포 실패)
 
 ---
 
-## 📊 상태 머신 현황 (02:44 KST 기준 - Level 3 ACTIVE, 배포 1/5 UP 회복 신호)
+## 📊 상태 머신 현황 (08:47 KST 기준 - Level 3 ACTIVE 8h 13m, 배포 1/5 UP 지속)
 
 | 태스크 | 상태 | 지속기간 | 신호 | 상태 변화 |
 |--------|------|---------|------|---------|
-| **AUDIT-P1** | BLOCKED_ON_EXTERNAL | 111h+ | 배포 DOWN ❌ (HTTP 404), db/30 대기 + Vercel rebuild 필수 | ▶︎ 지속 (Level 3 중) |
-| **DISCORD-BOT-P1** | BLOCKED_ON_EXTERNAL | 14h+ | 배포 DOWN ❌ (HTTP 404), db/30 대기 + Vercel rebuild 필수 | ▶︎ 지속 (Level 3 중) |
-| **BM-P1** | BLOCKED_ON_EXTERNAL | 14h+ | 배포 DOWN ❌ (HTTP 404), db/30 대기 + Vercel rebuild 필수 | ▶︎ 지속 (Level 3 중) |
-| **TRAVEL-P2-UI** | BLOCKED_ON_EXTERNAL | 14h+ | 배포 DOWN ❌ (HTTP 404), db/30 대기 + Vercel rebuild 필수 | ▶︎ 지속 (Level 3 중) |
-| **Phase 3-1 UI** | BLOCKED_ON_EXTERNAL | 48h+ | 삼중 블로킹 (db/30 OVERDUE 113h 28m + 배포 4/5 DOWN + Main Portal 회복 진행 중) | ▶︎ 지속 (회복 신호 있으나 db/30 먼저) |
-| **Asset Master 3-2** | BLOCKED_ON_EXTERNAL | 48h+ | 복합 블로킹 (db/30 미완료, 배포 4/5 DOWN, Phase 3-1 의존) | ▶︎ 지속 (Level 3 중) |
-| **db/30 마이그레이션** | BLOCKED_ON_USER | 113h 28m OVERDUE 🔴 | CEO/PM SQL 실행 필수 (미응답 3h 8m, Level 3 의사결정 대기) | ▶︎ 지속 (심화) |
-| **db/36 마이그레이션** | BLOCKED_ON_EXTERNAL | — | db/30 + 배포 완료 후 (설계 완료, 업스트림 의존) | ▶︎ 지속 (Level 3 중) |
+| **AUDIT-P1** | BLOCKED_ON_EXTERNAL | 21h 57m | 배포 DOWN ❌ (HTTP 404), db/30 OVERDUE -114h 26m + Vercel rebuild 필수 | ▶︎ 지속 (차단) |
+| **DISCORD-BOT-P1** | BLOCKED_ON_EXTERNAL | 21h 57m | 배포 DOWN ❌ (HTTP 404), db/30 OVERDUE -114h 26m + Vercel rebuild 필수 | ▶︎ 지속 (차단) |
+| **BM-P1** | BLOCKED_ON_EXTERNAL | 21h 57m | 배포 DOWN ❌ (HTTP 404), db/30 OVERDUE -114h 26m + Vercel rebuild 필수 | ▶︎ 지속 (차단) |
+| **TRAVEL-P2-UI** | BLOCKED_ON_EXTERNAL | 21h 57m | 배포 DOWN ❌ (HTTP 404), db/30 OVERDUE -114h 26m + Vercel rebuild 필수 | ▶︎ 지속 (차단) |
+| **Phase 3-1 UI** | BLOCKED_ON_EXTERNAL | 56h+ | 삼중 블로킹 (db/30 OVERDUE -114h 26m + 배포 4/5 DOWN + Phase 3-1 5h 42m 마감) | ▶︎ 지속 (불가능) |
+| **Asset Master 3-2** | BLOCKED_ON_EXTERNAL | 56h+ | 복합 블로킹 (db/30 미완료, 배포 4/5 DOWN, Phase 3-1 의존) | ▶︎ 지속 (차단) |
+| **db/30 마이그레이션** | BLOCKED_ON_USER | -114h 26m OVERDUE 🔴 | CEO/PM SQL 실행 필수 (미응답 17h 0m, Level 3 의사결정 기한 16h 16m) | ▶︎ 지속 (심화) |
+| **db/36 마이그레이션** | BLOCKED_ON_EXTERNAL | — | db/30 + 배포 완료 후 (설계 완료, SQL 준비됨, 업스트림 의존) | ▶︎ 지속 (차단) |
 
-**상태 변화 분석 (02:44 KST - Level 3 ACTIVE 128분):**
-- **전환 수:** 0건 (모든 작업 지속 차단)
-- **긍정 신호:** Main Portal 회복 (HTTP 200, 배포 0/5 → 1/5 ⬆️ 20%)
-- **주요 블로커:** db/30 BLOCKED_ON_USER (CEO/PM 미응답 3h 8m), 배포 4/5 BLOCKED_ON_EXTERNAL (Vercel 토큰)
-- **전환 조건:** 모두 미충족 (CEO/PM 의사결정 대기, Telegram 신호 없음, 작업 미시작)
+**상태 변화 분석 (08:47 KST - Level 3 ACTIVE 464분):**
+- **전환 수:** 0건 (모든 작업 지속 차단, 이전 6시간 동안 무변화)
+- **Telegram 신호:** 감지됨 0건
+- **팀 활동 신호:** 0/11 (0% 활용률, 모두 차단)
+- **주요 블로커:** db/30 BLOCKED_ON_USER (CEO/PM 17h 0m 미응답), 배포 BLOCKED_ON_EXTERNAL (4/5 DOWN 21h 57m)
+- **전환 조건 충족:** 0건 (CEO/PM 미응답, 팀 작업 없음, Telegram 신호 없음)
 
 ---
 
