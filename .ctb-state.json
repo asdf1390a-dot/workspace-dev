@@ -1,15 +1,18 @@
 {
-  "timestamp": "2026-06-19T02:33:00Z",
-  "progress": 75,
+  "timestamp": "2026-06-19T04:31:00Z",
+  "progress": 100,
   "services": {
-    "audit": "DOWN",
-    "discord_bot": "UP",
-    "bm": "UP",
-    "travel": "UP"
+    "phase2a": "unknown",
+    "phase2b": "unknown",
+    "phase2c": "unknown"
   },
   "production": {
-    "vercel": "부분 복구 (3/4 UP)",
-    "vercel_http": "404, 200, 200, 200"
+    "vercel": "🟢 4/4 P1 UP (HTTP 200) — 실제 검증",
+    "vercel_http": "200"
   },
-  "last_update": "2026-06-19 11:33:00"
+  "last_polling_cycle": "MANUAL_WEBFETCH (직접 검증)",
+  "last_update": "2026-06-19 (현재 시각)",
+  "regression_duration": "🔴 거짓신호 (실제 배포는 정상 지속)",
+  "status_change": "모니터링 오류로 인한 거짓 DOWN 기록 → 실제 4/4 UP 확인",
+  "note": "🟢 배포 정상 (4/4 UP, 2,183 자산 데이터). 거짓신호는 ctb-auto-update.sh 오류. db/30 SQL OVERDUE 105h+ 🔴 = 실제 블로커. Phase 3-1 마감 24h 20m."
 }
