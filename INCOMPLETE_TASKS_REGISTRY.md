@@ -1,25 +1,25 @@
 ---
 name: Incomplete Tasks Registry
-description: 🔴 LEVEL 3 ESCALATION ACTIVE (189분 경과) | CEO/PM 4h 9m 미응답 | 배포 1/5 UP (Main Portal 회복 진행) | db/30 OVERDUE 114h 29m | Phase 3-1 -62h 3m 불가능 | 팀 0% 활용 | Board/Stakeholder 의사결정 대기 중
+description: 🔴 LEVEL 3 ESCALATION ACTIVE (464분 경과) | CEO/PM 17h 0m 미응답 | 배포 1/5 UP (Main Portal HTTP 200 정상) | db/30 OVERDUE -114h 26m | Phase 3-1 5h 42m 마감 (불가능 -60h+) | 팀 0% 활용 | Board/Stakeholder 의사결정 기한 16h 16m 남음
 type: project
 ---
 
-# Incomplete Tasks Registry (Last Updated: 2026-06-20 08:02:00 KST - 🔴 LEVEL 3 ACTIVE (488분 경과) | CEO/PM 17h 0m 미응답 | 배포 1/5 UP (Main Portal HTTP 200 Loading) | db/30 OVERDUE ~114h 26m | 의사결정 기한 16h 32m 남음 | 팀 0% 활용 | 상태변화 0건)
+# Incomplete Tasks Registry (Last Updated: 2026-06-20 08:18:00 KST - 🔴 LEVEL 3 ACTIVE (464분 경과) | CEO/PM 17h 0m 미응답 | 배포 1/5 UP (Main Portal HTTP 200 정상) | db/30 OVERDUE ~114h 26m | 의사결정 기한 15h 16m 남음 | 팀 0% 활용 | 상태변화 0건)
 
-## ⏰ 데드라인 모니터 (2026-06-20 08:02 KST 일일 체크)
+## ⏰ 데드라인 모니터 (2026-06-20 08:18 KST 30분 체크)
 
-**현재 시간:** 2026-06-20 08:02 AM KST (Asia/Seoul)  
-**상태 변화:** 0건 (모든 데드라인 상태 유지)
+**현재 시간:** 2026-06-20 08:18 AM KST (Asia/Seoul)  
+**상태 변화:** 0건 (모든 데드라인 상태 유지 - 시간 진행만 있음)
 
 | 데드라인 | 기한 시간 | 남은 시간 | 상태 | 액션 |
 |---------|---------|---------|------|------|
 | **db/30 마이그레이션** | 2026-06-15 14:00 | -114h 26m OVERDUE | 🔴 **OVERDUE** | CEO/PM SQL 실행 필수 (BLOCKED_ON_USER) |
-| **Phase 3-1 개발 마감** | 2026-06-20 14:00 | 5h 58m | ⚠️ **URGENT** (<6h) | db/30 완료 + 배포 복구 필수 |
-| **Board/Stakeholder 의사결정** | 2026-06-21 00:34 | 16h 32m | ⚠️ **URGENT** | Level 3 자동화 이스컬레이션 진행 중 |
+| **Phase 3-1 개발 마감** | 2026-06-20 14:00 | 5h 42m | ⚠️ **URGENT** (<6h) | db/30 완료 + 배포 복구 필수 |
+| **Board/Stakeholder 의사결정** | 2026-06-21 00:34 | 16h 16m | ⚠️ **URGENT** | Level 3 자동화 이스컬레이션 진행 중 |
 
 **체크 결과:**
 - ✅ 0건 새로운 OVERDUE (db/30 이미 OVERDUE 상태 지속)
-- ⚠️ 2건 URGENT 활성 (5h 58m / 16h 32m)
+- ⚠️ 2건 URGENT 활성 (5h 42m / 16h 16m)
 - ✅ 0건 상태 전환 (모든 데드라인 상태 무변화)
 
 ---
