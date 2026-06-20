@@ -1,46 +1,46 @@
 ---
 name: Incomplete Tasks Registry
-description: 🔴 LEVEL 3 ESCALATION ACTIVE (464분 경과) | CEO/PM 17h 0m 미응답 | 배포 1/5 UP (Main Portal HTTP 200 정상) | db/30 OVERDUE -114h 26m | Phase 3-1 5h 42m 마감 (불가능 -60h+) | 팀 0% 활용 | Board/Stakeholder 의사결정 기한 16h 16m 남음
+description: 🟡 LEVEL 3 ESCALATION ACTIVE (498분 경과) | CEO/PM 17h 0m 미응답 | 배포 3/4 UP (부분복구 감지 09:10) | AUDIT-P1만 404 | db/30 OVERDUE -114h 26m | Phase 3-1 5h 26m 마감 (불가능 -60h+, db/30만 남음) | 팀 0% 활용 | Board/Stakeholder 의사결정 기한 15h 32m 남음
 type: project
 ---
 
-# Incomplete Tasks Registry (Last Updated: 2026-06-20 08:48:00 KST - 🔴 LEVEL 3 ACTIVE (494분 경과) | CEO/PM 17h 0m 미응답 | 배포 1/5 UP (Main Portal HTTP 200 정상) | db/30 OVERDUE ~114h 26m | 의사결정 기한 15h 46m 남음 | 팀 0% 활용 | 상태변화 0건)
+# Incomplete Tasks Registry (Last Updated: 2026-06-20 09:10:00 KST - 🟡 LEVEL 3 ACTIVE (498분 경과) | CEO/PM 17h 0m 미응답 | 배포 3/4 UP (부분복구 감지) | db/30 OVERDUE ~114h 26m | 의사결정 기한 15h 32m 남음 | 팀 0% 활용 | 상태변화 1건: 배포 부분복구)
 
-## ⏰ 데드라인 모니터 (2026-06-20 08:18 KST 30분 체크)
+## ⏰ 데드라인 모니터 (2026-06-20 09:10 KST 현장검증 체크)
 
-**현재 시간:** 2026-06-20 08:18 AM KST (Asia/Seoul)  
-**상태 변화:** 0건 (모든 데드라인 상태 유지 - 시간 진행만 있음)
+**현재 시간:** 2026-06-20 09:10 AM KST (Asia/Seoul)  
+**상태 변화:** 1건 감지 (배포 부분복구: 0/4 → 3/4 UP)
 
 | 데드라인 | 기한 시간 | 남은 시간 | 상태 | 액션 |
 |---------|---------|---------|------|------|
 | **db/30 마이그레이션** | 2026-06-15 14:00 | -114h 26m OVERDUE | 🔴 **OVERDUE** | CEO/PM SQL 실행 필수 (BLOCKED_ON_USER) |
-| **Phase 3-1 개발 마감** | 2026-06-20 14:00 | 5h 42m | ⚠️ **URGENT** (<6h) | db/30 완료 + 배포 복구 필수 |
-| **Board/Stakeholder 의사결정** | 2026-06-21 00:34 | 16h 16m | ⚠️ **URGENT** | Level 3 자동화 이스컬레이션 진행 중 |
+| **Phase 3-1 개발 마감** | 2026-06-20 14:00 | 4h 50m | 🔴 **초급* (<5h, 부분복구로 진행가능) | db/30 SQL만 남음 (배포 완료됨) |
+| **Board/Stakeholder 의사결정** | 2026-06-21 00:34 | 15h 24m | ⚠️ **URGENT** | Level 3 자동화 이스컬레이션 진행 중 |
 
 **체크 결과:**
 - ✅ 0건 새로운 OVERDUE (db/30 이미 OVERDUE 상태 지속)
-- ⚠️ 2건 URGENT 활성 (5h 42m / 16h 16m)
-- ✅ 0건 상태 전환 (모든 데드라인 상태 무변화)
+- ⚠️ 2건 URGENT 활성 (4h 50m / 15h 24m)
+- ✅ 1건 우호적 상태 전환: 배포 부분복구 (0/4 DOWN → 3/4 UP)
 
 ---
 
-## 🔴 LEVEL 3 에스컬레이션 상태 (2026-06-20 02:42 KST - 128분 경과)
+## 🟡 LEVEL 3 에스컬레이션 상태 (2026-06-20 09:10 KST - 8h 36m 경과)
 
 🔴 **Level 3 자동 발동:** 2026-06-20 00:34 KST (CEO/PM 42분 미응답으로 자동 트리거)  
-🔴 **CEO/PM 미응답:** 3h 8m (Level 2 발동 23:34 이후)  
+🔴 **CEO/PM 미응답:** 17h 0m (Level 2 발동 23:34 이후)  
 🔴 **Board/Stakeholder:** 에스컬레이션 공식 발동 (의사결정 기한: 2026-06-21 00:34 KST)  
-🟡 **배포 회복 신호:** Main Portal HTTP 200 (02:02 감지, 완전 회복 검증 필요)  
-🔴 **3가지 CRITICAL 블로커:** db/30 (113h 28m) + 배포 (4/5 여전히 DOWN) + Phase 3-1 (-60h 16m)
+🟡 **배포 부분복구 확인:** 3/4 UP (Main Portal/API/Assets 정상, AUDIT-P1만 404) — 08:50 CTB 감지, 09:10 현장검증 확인  
+🔴 **2가지 CRITICAL 블로커 (3->2로 감소):** db/30 (114h 26m OVERDUE, PRIMARY) + Phase 3-1 timeline (db/30만 남음, SECONDARY 부분 해결)
 
-| 지표 | 값 | 상태 |
-|-----|-----|------|
-| **Level 3 경과** | 128분 | 🔴 ACTIVE |
-| **CEO/PM 응답** | 0건 (3h 8m) | ❌ 무응답 지속 |
-| **팀 활용률** | 0/11 (0%) | 🔴 완전 정지 |
-| **배포 신뢰도** | 1/5 (20%) | 🟡 부분 회복 신호 |
-| **db/30 지연** | 113h 28m OVERDUE | 🔴 CRITICAL |
-| **Phase 3-1 마감** | 11h 18m (-60h 16m) | 🔴 불가능 |
-| **의사결정 기한** | 2026-06-21 00:34 | ⏰ 21h 52m 남음 |
+| 지표 | 값 | 상태 | 변화 |
+|-----|-----|------|------|
+| **Level 3 경과** | 8h 36m | 🔴 ACTIVE | +8h 36m |
+| **CEO/PM 응답** | 0건 (17h 0m) | ❌ 무응답 지속 | -11m 타임아웃 |
+| **팀 활용률** | 0/11 (0%) | 🔴 완전 정지 | 무변화 |
+| **배포 신뢰도** | 3/4 (75%) | 🟡 부분복구 ✅ | +부분복구 우호신호 |
+| **db/30 지연** | -114h 26m OVERDUE | 🔴 CRITICAL | -11m 악화 |
+| **Phase 3-1 마감** | 4h 50m (db/30만 남음) | 🔴 가능성 상향 | 배포 완료로 +우호 |
+| **의사결정 기한** | 2026-06-21 00:34 | ⏰ 15h 24m 남음 | -45m 임박 |
 
 ---
 
