@@ -1,7 +1,18 @@
 # 메모리 인덱스
 
-## 🔴 **LEVEL 3 에스컬레이션 (2026-06-20 07:45 KST 폴링)** — **자동 발동 7h 47m 경과** | **무변화 지속** | **Main Portal HTTP 200 UP** | **4/5 DOWN** 지속 | **db/30 ~114h 15m OVERDUE** | **의사결정 기한 16h 49m 남음**
+## 🤖 **크론 작업 실행 (09:12 KST)** — **Telegram 설정 미완료 → 상태 기록만** | **30분 정기 보고 준비 완료** | **Level 3 ACTIVE 8h 38m** | **배포 3/4 UP (부분복구)** | **db/30 PRIMARY BLOCKER**
 
+- [🤖 크론 정기 보고 (09:12 KST)](cron_status_report_20260620_0912.md) — **Telegram botToken 미설정** | **발송 불가 → 상태 기록** | **보고서 준비 완료** (배포 3/4 UP, 팀 0%, 마감 5h) | **필요 설정: TELEGRAM_BOT_TOKEN + TELEGRAM_SECRETARY_CHAT_ID**
+
+## 🟡 **P0 자동복구 검사 완료 (09:06 KST)** — **배포 3/4 UP (부분복구)** | **신뢰도 75% < 85% 경고** | **db/30 PRIMARY BLOCKER (-114h 26m)** | **기한 4h 54m** | **Level 3 진행 8h 32m** | **의사결정 기한 15h 28m**
+
+- [🟡 P0 자동복구 체크 (09:06 KST)](p0_autorecover_checkpoint_20260620_0906.md) — **🟡 배포 3/4 UP 부분복구** | **신뢰도 75%** (< 85% 경고) | **db/30 PRIMARY BLOCKER -114h 26m** | **기한 4h 54m** | **CEO/PM 17h 미응답** | **의사결정 기한 15h 28m**
+- [🟡 부분 복구 발견 (09:10 KST)](discovery_20260620_0910.md) — **배포 3/4 UP (Main/API/Assets HTTP 200)** | **AUDIT-P1만 404** | **Phase 3-1 가능성 증가**
+- [🟡 조직도 & 업무현황 (09:02 KST)](org_status_20260620_0902.md) — **배포 3/4 UP (75%)** | **Level 3 8h 28m** | **db/30 -114h 26m** | **기한 5h** | **팀 0%**
+
+## 🔴 **LEVEL 3 에스컬레이션 (2026-06-20 07:48 KST 폴링)** — **자동 발동 7h 14m 경과** | **무변화 지속** | **Main Portal HTTP 200 UP 안정** | **4/5 DOWN 지속** (404) | **db/30 ~114h 15m OVERDUE** | **의사결정 기한 16h 46m 남음**
+
+- [🟢 CTB 폴링 (07:48 KST)](CTB_2026_06_20_Cycle_0748.json) — **배포상태 실시간 재검증** ✅ | **Main Portal HTTP 200 UP** ✅ | **신뢰도 20%** (1/5 UP) | **4/5 DOWN** (AUDIT/DISCORD/TRAVEL/BM 404) | **배포 21h 56m 지속** | **무변화 추세** | **db/30 ~114h 15m OVERDUE** | **의사결정 기한 16h 46m** | **Level 3 활성 7h 14m**
 - [🟢 Session Checkpoint (07:45 KST)](checkpoint_20260620_0745.md) — **상태변화 0건** ✅ | **Main Portal HTTP 200 유지** ✅ | **신뢰도 20%** (1/5 UP) | **4/5 DOWN** (AUDIT/DISCORD/TRAVEL/BM 404) | **db/30 ~114h 15m OVERDUE** | **의사결정 기한 16h 49m** | **Level 3 활성 7h 47m**
 - [🔴 CTB 폴링 (07:31 KST)](checkpoint_20260620_0731.md) — **🔴 거짓신호 확인** | **AUDIT-P1 503→404 재퇴행** | **Main Portal HTTP 200 유지** ✅ | **신뢰도 20%** (1/5 UP) | **4/5 DOWN** (AUDIT/DISCORD/TRAVEL/BM 404) | **db/30 123h+ OVERDUE** | **Phase 3-1 마감 6h 29m** (-65h 31m) | **Level 3 활성 7h**
 - [🟡 Session Checkpoint (07:21 KST)](checkpoint_20260620_0721.md) — **🟢 부분 회복 신호 (거짓)** | **AUDIT-P1 HTTP 503 (배포 재시작 진행)** | **Main Portal HTTP 200** ✅ | **신뢰도 25%** (1/5 UP + 1/5 DEGRADED) | **4/5 DOWN** (DISCORD/TRAVEL/BM 404) | **db/30 120h 36m OVERDUE** | **Phase 3-1 마감 6h 39m** | **Level 3 활성 6h 47m**
