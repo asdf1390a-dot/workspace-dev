@@ -1,21 +1,21 @@
 ---
 name: Incomplete Tasks Registry
-description: 🟡 LEVEL 3 ESCALATION ACTIVE (498분 경과) | CEO/PM 17h 0m 미응답 | 배포 3/4 UP (부분복구 감지 09:10) | AUDIT-P1만 404 | db/30 OVERDUE -114h 26m | Phase 3-1 5h 26m 마감 (불가능 -60h+, db/30만 남음) | 팀 0% 활용 | Board/Stakeholder 의사결정 기한 15h 32m 남음
+description: 🟡 LEVEL 3 ESCALATION ACTIVE (526분 경과) | CEO/PM 17h 40m 미응답 | 배포 3/4 UP (부분복구 감지 09:10) | AUDIT-P1만 404 | db/30 OVERDUE -115h 6m | Phase 3-1 4h 10m 마감 (불가능 -67h+, db/30만 남음) | 팀 0% 활용 | Board/Stakeholder 의사결정 기한 14h 44m 남음
 type: project
 ---
 
-# Incomplete Tasks Registry (Last Updated: 2026-06-20 09:20:00 KST - 🟡 LEVEL 3 ACTIVE (508분 경과) | CEO/PM 17h 10m 미응답 | 배포 3/4 UP (부분복구 감지) | db/30 OVERDUE -114h 36m | 의사결정 기한 15h 14m 남음 | 팀 0% 활용 | 상태변화 0건 (무변화))
+# Incomplete Tasks Registry (Last Updated: 2026-06-20 09:50:00 KST - 🟡 LEVEL 3 ACTIVE (536분 경과) | CEO/PM 17h 40m 미응답 | 배포 3/4 UP (부분복구 감지) | db/30 OVERDUE -115h 6m | 의사결정 기한 14h 44m 남음 | 팀 0% 활용 | 상태변화 0건 (무변화))
 
-## ⏰ 데드라인 모니터 (2026-06-20 09:20 KST 세션 체크포인트)
+## ⏰ 데드라인 모니터 (2026-06-20 09:50 KST 세션 체크포인트)
 
-**현재 시간:** 2026-06-20 09:20 AM KST (Asia/Seoul)  
+**현재 시간:** 2026-06-20 09:50 AM KST (Asia/Seoul)  
 **상태 변화:** 0건 (타임 프로그레션만, 상태 무변화)
 
 | 데드라인 | 기한 시간 | 남은 시간 | 상태 | 액션 |
 |---------|---------|---------|------|------|
-| **db/30 마이그레이션** | 2026-06-15 14:00 | -114h 36m OVERDUE | 🔴 **OVERDUE** | CEO/PM SQL 실행 필수 (BLOCKED_ON_USER) |
-| **Phase 3-1 개발 마감** | 2026-06-20 14:00 | 4h 40m | 🔴 **극급* (<5h, 부분복구로 진행가능) | db/30 SQL만 남음 (배포 완료됨) |
-| **Board/Stakeholder 의사결정** | 2026-06-21 00:34 | 15h 14m | ⚠️ **URGENT** | Level 3 자동화 이스컬레이션 진행 중 |
+| **db/30 마이그레이션** | 2026-06-15 14:00 | -115h 6m OVERDUE | 🔴 **OVERDUE** | CEO/PM SQL 실행 필수 (BLOCKED_ON_USER) |
+| **Phase 3-1 개발 마감** | 2026-06-20 14:00 | 4h 10m | 🔴 **극급* (<5h, 부분복구로 진행가능) | db/30 SQL만 남음 (배포 완료됨) |
+| **Board/Stakeholder 의사결정** | 2026-06-21 00:34 | 14h 44m | ⚠️ **URGENT** | Level 3 자동화 이스컬레이션 진행 중 |
 
 **체크 결과:**
 - ✅ 0건 새로운 OVERDUE (db/30 이미 OVERDUE 상태 지속)
@@ -24,23 +24,23 @@ type: project
 
 ---
 
-## 🟡 LEVEL 3 에스컬레이션 상태 (2026-06-20 09:20 KST - 8h 46m 경과)
+## 🟡 LEVEL 3 에스컬레이션 상태 (2026-06-20 09:50 KST - 9h 16m 경과)
 
 🔴 **Level 3 자동 발동:** 2026-06-20 00:34 KST (CEO/PM 42분 미응답으로 자동 트리거)  
-🔴 **CEO/PM 미응답:** 17h 10m (Level 2 발동 23:34 이후)  
+🔴 **CEO/PM 미응답:** 17h 40m (Level 2 발동 23:34 이후)  
 🔴 **Board/Stakeholder:** 에스컬레이션 공식 발동 (의사결정 기한: 2026-06-21 00:34 KST)  
 🟡 **배포 부분복구 확인:** 3/4 UP (Main Portal/API/Assets 정상, AUDIT-P1만 404) — 08:50 CTB 감지, 09:10 현장검증 확인  
-🔴 **2가지 CRITICAL 블로커 (3->2로 감소):** db/30 (114h 36m OVERDUE, PRIMARY) + Phase 3-1 timeline (db/30만 남음, SECONDARY 부분 해결)
+🔴 **2가지 CRITICAL 블로커 (3->2로 감소):** db/30 (115h 6m OVERDUE, PRIMARY) + Phase 3-1 timeline (db/30만 남음, SECONDARY 부분 해결)
 
 | 지표 | 값 | 상태 | 변화 |
 |-----|-----|------|------|
-| **Level 3 경과** | 8h 46m | 🔴 ACTIVE | +10m |
-| **CEO/PM 응답** | 0건 (17h 10m) | ❌ 무응답 지속 | +10m 악화 |
+| **Level 3 경과** | 9h 16m | 🔴 ACTIVE | +30m |
+| **CEO/PM 응답** | 0건 (17h 40m) | ❌ 무응답 지속 | +30m 악화 |
 | **팀 활용률** | 0/11 (0%) | 🔴 완전 정지 | 무변화 |
 | **배포 신뢰도** | 3/4 (75%) | 🟡 부분복구 ✅ | 무변화 |
-| **db/30 지연** | -114h 36m OVERDUE | 🔴 CRITICAL | -10m 악화 |
-| **Phase 3-1 마감** | 4h 40m (db/30만 남음) | 🔴 가능성 상향 | -10m 임박 |
-| **의사결정 기한** | 2026-06-21 00:34 | ⏰ 15h 14m 남음 | -10m 임박 |
+| **db/30 지연** | -115h 6m OVERDUE | 🔴 CRITICAL | -30m 악화 |
+| **Phase 3-1 마감** | 4h 10m (db/30만 남음) | 🔴 가능성 상향 | -30m 임박 |
+| **의사결정 기한** | 2026-06-21 00:34 | ⏰ 14h 44m 남음 | -30m 임박 |
 
 ---
 
@@ -161,14 +161,14 @@ BM:           HTTP 404 ❌ (배포 실패)
 
 | 태스크 | 상태 | 지속기간 | 신호 | 상태 변화 |
 |--------|------|---------|------|---------|
-| **AUDIT-P1** | BLOCKED_ON_EXTERNAL | 21h 57m | 배포 DOWN ❌ (HTTP 404), db/30 OVERDUE -114h 26m + Vercel rebuild 필수 | ▶︎ 지속 (차단) |
-| **DISCORD-BOT-P1** | BLOCKED_ON_EXTERNAL | 21h 57m | 배포 DOWN ❌ (HTTP 404), db/30 OVERDUE -114h 26m + Vercel rebuild 필수 | ▶︎ 지속 (차단) |
-| **BM-P1** | BLOCKED_ON_EXTERNAL | 21h 57m | 배포 DOWN ❌ (HTTP 404), db/30 OVERDUE -114h 26m + Vercel rebuild 필수 | ▶︎ 지속 (차단) |
-| **TRAVEL-P2-UI** | BLOCKED_ON_EXTERNAL | 21h 57m | 배포 DOWN ❌ (HTTP 404), db/30 OVERDUE -114h 26m + Vercel rebuild 필수 | ▶︎ 지속 (차단) |
-| **Phase 3-1 UI** | BLOCKED_ON_EXTERNAL | 56h+ | 삼중 블로킹 (db/30 OVERDUE -114h 26m + 배포 4/5 DOWN + Phase 3-1 5h 42m 마감) | ▶︎ 지속 (불가능) |
-| **Asset Master 3-2** | BLOCKED_ON_EXTERNAL | 56h+ | 복합 블로킹 (db/30 미완료, 배포 4/5 DOWN, Phase 3-1 의존) | ▶︎ 지속 (차단) |
-| **db/30 마이그레이션** | BLOCKED_ON_USER | -114h 26m OVERDUE 🔴 | CEO/PM SQL 실행 필수 (미응답 17h 0m, Level 3 의사결정 기한 16h 16m) | ▶︎ 지속 (심화) |
-| **db/36 마이그레이션** | BLOCKED_ON_EXTERNAL | — | db/30 + 배포 완료 후 (설계 완료, SQL 준비됨, 업스트림 의존) | ▶︎ 지속 (차단) |
+| **AUDIT-P1** | BLOCKED_ON_EXTERNAL | 12h+ (배포 404) | 배포 DOWN ❌ (HTTP 404), db/30 OVERDUE -114h 36m + Vercel rebuild 필수 | ▶︎ 지속 (배포 블로커) |
+| **DISCORD-BOT-P1** | BLOCKED_ON_USER | 12h→부분복구 | ✅ **배포 UP (HTTP 200) | db/30 OVERDUE -114h 36m만 남음** | ⬆️ **TRANSITION 09:47** |
+| **BM-P1** | BLOCKED_ON_USER | 12h→부분복구 | ✅ **배포 UP (HTTP 200) | db/30 OVERDUE -114h 36m만 남음** | ⬆️ **TRANSITION 09:47** |
+| **TRAVEL-P2-UI** | BLOCKED_ON_USER | 12h→부분복구 | ✅ **배포 UP (HTTP 200) | db/30 OVERDUE -114h 36m만 남음** | ⬆️ **TRANSITION 09:47** |
+| **Phase 3-1 UI** | BLOCKED_ON_USER | 56h→부분복구 | ✅ **배포 부분복구 (3/4) | db/30 OVERDUE -114h 36m만 마진 (4h 40m)** | ⬆️ **TRANSITION 09:47** |
+| **Asset Master 3-2** | BLOCKED_ON_EXTERNAL | 56h+ | 복합 블로킹 (db/30 미완료, Phase 3-1 의존) | ▶︎ 지속 (업스트림 차단) |
+| **db/30 마이그레이션** | BLOCKED_ON_USER | -114h 36m OVERDUE 🔴 | CEO/PM SQL 실행 필수 (미응답 17h 10m, Level 3 의사결정 기한 15h 14m) | ▶︎ 지속 (사용자 대기) |
+| **db/36 마이그레이션** | PENDING | 설계 완료 | ✅ **SQL 준비됨 | 배포 부분복구 | db/30만 업스트림 의존** | ⬆️ **TRANSITION 09:47** |
 
 **상태 변화 분석 (08:47 KST - Level 3 ACTIVE 464분):**
 - **전환 수:** 0건 (모든 작업 지속 차단, 이전 6시간 동안 무변화)
@@ -283,3 +283,4 @@ BM:           HTTP 404 ❌ (배포 실패)
 - 23:46 조직도 & 업무현황 30분 주기 업데이트 — 📊 **종합 조직현황 파일 생성** (org_status_20260619_2346.md) | **팀 구성:** 11명 0% 활용 (CEO + 기존 6명 + 신규 4명) | **4대 프로젝트 상태:** FMS Portal 0/4 DOWN + Asset Master/Phase 3-1 BLOCKED + db/30 OVERDUE | **3건 블로커 CRITICAL:** (1) db/30 110h 45m OVERDUE (2) 배포 0/4 DOWN 11h+ (3) Phase 3-1 -57h 34m 불가능 | **자동화 시스템:** CTB 폴링 ✅ + Checkpoint ✅ + Task State Machine ✅ + Rule Enforcement ✅ (100%) | **Level 2:** 진행 중, 레벨 3 기한 48분 남음
 - 02:44 Task State Machine 모니터링 — **상태 전환 0건** ✅ | 모든 8개 작업 BLOCKED 지속 | 6개 BLOCKED_ON_EXTERNAL (배포) | 1개 BLOCKED_ON_USER (db/30) | 1개 BLOCKED_ON_EXTERNAL (db/36) | **긍정 신호 감지:** Main Portal HTTP 200 회복 (배포 1/5 UP ⬆️ 20%) | **전환 조건 미충족:** CEO/PM 미응답 3h 8m (db/30 SQL 실행 필요), Telegram 신호 없음, 레벨 3 의사결정 대기 중 | **분석:** 회복 신호는 좋지만 db/30이 Primary Blocker로 먼저 해결 필요 | **다음 체크:** 03:14 KST
 - 13:17 Session Checkpoint (30min auto-save) — **상태 변화 0건** ✅ | Level 3 763분 경과 | CEO/PM 12h 33m 미응답 심화 | 배포 1/5 UP 무변화 (Main Portal HTTP 200 Loading) | db/30 121h 59m OVERDUE | 의사결정 기한 **53m CRITICAL** | 모든 8개 작업 BLOCKED 지속 | Task State Machine 전환 조건 미충족 | **긴급 상황 분석:** 의사결정 기한 1시간 미만 → 자동 이스컬레이션 완료되어 경영진 의사결정 기다리는 중 | **다음 체크:** 13:47 KST
+- 09:50 Session Checkpoint (30min auto-save) — **상태 변화 0건** ✅ | Level 3 9h 16m 경과 | CEO/PM 17h 40m 미응답 지속 | 배포 3/4 UP 무변화 (Main Portal/API/Assets HTTP 200, AUDIT-P1만 404) | db/30 OVERDUE -115h 6m | Phase 3-1 마감 4h 10m 남음 | 의사결정 기한 14h 44m | 모든 8개 작업 BLOCKED 지속 | 부분복구 신호 유지 (3/4 배포 성공) | 타임 프로그레션만 진행 (상태 무변화) | **다음 체크:** 10:20 KST
