@@ -4,22 +4,22 @@ description: 🟡 LEVEL 3 ESCALATION ACTIVE (526분 경과) | CEO/PM 17h 40m 미
 type: project
 ---
 
-# Incomplete Tasks Registry (Last Updated: 2026-06-20 09:50:00 KST - 🟡 LEVEL 3 ACTIVE (536분 경과) | CEO/PM 17h 40m 미응답 | 배포 3/4 UP (부분복구 감지) | db/30 OVERDUE -115h 6m | 의사결정 기한 14h 44m 남음 | 팀 0% 활용 | 상태변화 0건 (무변화))
+# Incomplete Tasks Registry (Last Updated: 2026-06-20 10:23:00 KST - 🟡 LEVEL 3 ACTIVE (9h 49m 경과) | CEO/PM 18h 13m 미응답 | 배포 3/4 UP (부분복구 지속) | db/30 OVERDUE -115h 39m | 의사결정 기한 14h 11m 남음 | 팀 0% 활용 | 상태변화 0건 (무변화))
 
-## ⏰ 데드라인 모니터 (2026-06-20 09:50 KST 세션 체크포인트)
+## ⏰ 데드라인 모니터 (2026-06-20 10:23 KST 상태 갱신)
 
-**현재 시간:** 2026-06-20 09:50 AM KST (Asia/Seoul)  
+**현재 시간:** 2026-06-20 10:23 AM KST (Asia/Seoul)  
 **상태 변화:** 0건 (타임 프로그레션만, 상태 무변화)
 
 | 데드라인 | 기한 시간 | 남은 시간 | 상태 | 액션 |
 |---------|---------|---------|------|------|
-| **db/30 마이그레이션** | 2026-06-15 14:00 | -115h 6m OVERDUE | 🔴 **OVERDUE** | CEO/PM SQL 실행 필수 (BLOCKED_ON_USER) |
-| **Phase 3-1 개발 마감** | 2026-06-20 14:00 | 4h 10m | 🔴 **극급* (<5h, 부분복구로 진행가능) | db/30 SQL만 남음 (배포 완료됨) |
-| **Board/Stakeholder 의사결정** | 2026-06-21 00:34 | 14h 44m | ⚠️ **URGENT** | Level 3 자동화 이스컬레이션 진행 중 |
+| **db/30 마이그레이션** | 2026-06-15 14:00 | -115h 39m OVERDUE | 🔴 **OVERDUE** | CEO/PM SQL 실행 필수 (BLOCKED_ON_USER) |
+| **Phase 3-1 개발 마감** | 2026-06-20 14:00 | 3h 37m | 🔴 **극급* (<4h, 부분복구로 진행가능) | db/30 SQL만 남음 (배포 완료됨) |
+| **Board/Stakeholder 의사결정** | 2026-06-21 00:34 | 14h 11m | ⚠️ **URGENT** | Level 3 자동화 이스컬레이션 진행 중 |
 
 **체크 결과:**
 - ✅ 0건 새로운 OVERDUE (db/30 이미 OVERDUE 상태 지속)
-- ⚠️ 2건 URGENT 활성 (4h 50m / 15h 24m)
+- ⚠️ 2건 URGENT 활성 (3h 37m / 14h 11m)
 - ✅ 1건 우호적 상태 전환: 배포 부분복구 (0/4 DOWN → 3/4 UP)
 
 ---
@@ -42,8 +42,8 @@ tion) |
 
 | 우선순위 | 작업 | 상태 | 마감 | 남은 시간 | 조치 |
 |---------|------|------|------|---------|------|
-| 🔴 **P1 CRITICAL** | **db/30 마이그레이션** | BLOCKED_ON_USER | 2026-06-20 14:00 | **-115h 6m OVERDUE** | CEO/PM SQL 실행 (5분) |
-| 🔴 **P1 CRITICAL** | **Phase 3-1 UI 개발** | BLOCKED_ON_USER | 2026-06-20 14:00 | **4h 10m** (72h 필요, -68h) | db/30 완료 후 개발 (불가능) |
+| 🔴 **P1 CRITICAL** | **db/30 마이그레이션** | BLOCKED_ON_USER | 2026-06-20 14:00 | **-115h 39m OVERDUE** | CEO/PM SQL 실행 (5분) |
+| 🔴 **P1 CRITICAL** | **Phase 3-1 UI 개발** | BLOCKED_ON_USER | 2026-06-20 14:00 | **3h 37m** (72h 필요, -68h 23m) | db/30 완료 후 개발 (불가능) |
 
 ### BLOCKED 항목 분석
 
